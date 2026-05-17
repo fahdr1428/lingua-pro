@@ -1,0 +1,1810 @@
+{
+  "schemaVersion": 6,
+  "code": "ko",
+  "categories": [
+    "Greetings",
+    "People",
+    "Family",
+    "Numbers",
+    "Food",
+    "Verbs",
+    "Places",
+    "Time",
+    "Connectors",
+    "Travel"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Say hello, goodbye, please and thank you"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and basic introductions"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, brother, sister, friend"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers 1-10",
+      "emoji": "🔢",
+      "description": "Count and use basic numbers"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Order water, bread, tea, coffee"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, eat, drink, see, speak"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "🏠",
+      "description": "House, school, market, city"
+    },
+    {
+      "id": "u8",
+      "title": "Time",
+      "emoji": "⏰",
+      "description": "Today, tomorrow, now, day, night"
+    },
+    {
+      "id": "u9",
+      "title": "Connecting Ideas",
+      "emoji": "🔗",
+      "description": "And, but, because, if, or"
+    },
+    {
+      "id": "u10",
+      "title": "Useful Phrases",
+      "emoji": "✨",
+      "description": "Big, small, hot, cold, good, more"
+    },
+    {
+      "id": "u11",
+      "title": "Body & Feelings",
+      "emoji": "💪",
+      "description": "Head, hand, hungry, tired, happy, sad"
+    },
+    {
+      "id": "u12",
+      "title": "Weather & Nature",
+      "emoji": "🌦️",
+      "description": "Sun, rain, cold, hot, sky, water"
+    },
+    {
+      "id": "u13",
+      "title": "Getting Around",
+      "emoji": "🚗",
+      "description": "Car, bus, train, left, right, here, there"
+    }
+  ],
+  "alphabet": [
+    {
+      "char": "ㅏ",
+      "name": "a",
+      "sound": "ah (as in 'father')",
+      "group": "vowels"
+    },
+    {
+      "char": "ㅓ",
+      "name": "eo",
+      "sound": "uh (as in 'sun')",
+      "group": "vowels"
+    },
+    {
+      "char": "ㅗ",
+      "name": "o",
+      "sound": "oh",
+      "group": "vowels"
+    },
+    {
+      "char": "ㅜ",
+      "name": "u",
+      "sound": "oo (as in 'food')",
+      "group": "vowels"
+    },
+    {
+      "char": "ㅡ",
+      "name": "eu",
+      "sound": "uh (lips wide)",
+      "group": "vowels"
+    },
+    {
+      "char": "ㅣ",
+      "name": "i",
+      "sound": "ee",
+      "group": "vowels"
+    },
+    {
+      "char": "ㅑ",
+      "name": "ya",
+      "sound": "yah",
+      "group": "y_vowels"
+    },
+    {
+      "char": "ㅕ",
+      "name": "yeo",
+      "sound": "yuh",
+      "group": "y_vowels"
+    },
+    {
+      "char": "ㅛ",
+      "name": "yo",
+      "sound": "yoh",
+      "group": "y_vowels"
+    },
+    {
+      "char": "ㅠ",
+      "name": "yu",
+      "sound": "yoo",
+      "group": "y_vowels"
+    },
+    {
+      "char": "ㄱ",
+      "name": "g/k",
+      "sound": "g (or k at start)",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ㄴ",
+      "name": "n",
+      "sound": "n",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ㄷ",
+      "name": "d/t",
+      "sound": "d (or t at start)",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ㄹ",
+      "name": "r/l",
+      "sound": "r or l",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ㅁ",
+      "name": "m",
+      "sound": "m",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ㅂ",
+      "name": "b/p",
+      "sound": "b (or p at start)",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ㅅ",
+      "name": "s",
+      "sound": "s",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ㅇ",
+      "name": "ng/silent",
+      "sound": "silent at start, ng at end",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ㅈ",
+      "name": "j",
+      "sound": "j",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ㅎ",
+      "name": "h",
+      "sound": "h",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ㅊ",
+      "name": "ch",
+      "sound": "ch (aspirated)",
+      "group": "consonants_3"
+    },
+    {
+      "char": "ㅋ",
+      "name": "k",
+      "sound": "k (aspirated)",
+      "group": "consonants_3"
+    },
+    {
+      "char": "ㅌ",
+      "name": "t",
+      "sound": "t (aspirated)",
+      "group": "consonants_3"
+    },
+    {
+      "char": "ㅍ",
+      "name": "p",
+      "sound": "p (aspirated)",
+      "group": "consonants_3"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "particles",
+      "title": "Particles do the heavy lifting",
+      "body": "은/는 mark topic, 이/가 mark subject, 을/를 mark object. Word order is flexible because particles tell you who's doing what."
+    },
+    {
+      "id": "sov",
+      "title": "Word order: SOV",
+      "body": "Korean ends sentences with the verb. '나는 밥을 먹어요' = 'I rice eat'."
+    },
+    {
+      "id": "honorifics",
+      "title": "Politeness levels",
+      "body": "안녕 (casual), 안녕하세요 (polite), 안녕하십니까 (formal). Match the right level to who you're talking to or sound rude/weird."
+    }
+  ],
+  "vocab": [
+    {
+      "id": "ko_0001",
+      "unit": "u1",
+      "lemma": "안녕하세요",
+      "translit": "annyeonghaseyo",
+      "translation": "hello (formal)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "안녕하세요 친구",
+          "translation": "Hello friend"
+        }
+      ],
+      "pronunciation": "an-NYUNG-hah-SAY-yoh"
+    },
+    {
+      "id": "ko_0002",
+      "unit": "u1",
+      "lemma": "안녕",
+      "translit": "annyeong",
+      "translation": "hi (casual)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "안녕 친구",
+          "translation": "Hi friend"
+        }
+      ],
+      "pronunciation": "an-NYUNG"
+    },
+    {
+      "id": "ko_0003",
+      "unit": "u1",
+      "lemma": "감사합니다",
+      "translit": "gamsahamnida",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "정말 감사합니다",
+          "translation": "Thank you very much"
+        }
+      ],
+      "pronunciation": "gahm-sah-HAHM-nee-dah"
+    },
+    {
+      "id": "ko_0004",
+      "unit": "u1",
+      "lemma": "네",
+      "translit": "ne",
+      "translation": "yes",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "네 맞아요",
+          "translation": "Yes that's right"
+        }
+      ],
+      "pronunciation": "NEH"
+    },
+    {
+      "id": "ko_0005",
+      "unit": "u1",
+      "lemma": "아니요",
+      "translit": "aniyo",
+      "translation": "no",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "아니요 괜찮아요",
+          "translation": "No it's fine"
+        }
+      ],
+      "pronunciation": "ah-NEE-yoh"
+    },
+    {
+      "id": "ko_0006",
+      "unit": "u1",
+      "lemma": "안녕히 가세요",
+      "translit": "annyeonghi gaseyo",
+      "translation": "goodbye (to person leaving)",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "안녕히 가세요",
+          "translation": "Goodbye"
+        }
+      ],
+      "pronunciation": "an-NYUNG-hee gah-SAY-yoh"
+    },
+    {
+      "id": "ko_0007",
+      "unit": "u1",
+      "lemma": "죄송합니다",
+      "translit": "joesonghamnida",
+      "translation": "I'm sorry",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "정말 죄송합니다",
+          "translation": "I'm really sorry"
+        }
+      ],
+      "pronunciation": "JWAY-song-HAHM-nee-dah"
+    },
+    {
+      "id": "ko_0008",
+      "unit": "u1",
+      "lemma": "실례합니다",
+      "translit": "sillyehamnida",
+      "translation": "excuse me",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "실례합니다 어디예요",
+          "translation": "Excuse me where is it"
+        }
+      ],
+      "pronunciation": "shil-LYAY-hahm-nee-dah"
+    },
+    {
+      "id": "ko_0009",
+      "unit": "u2",
+      "lemma": "저",
+      "translit": "jeo",
+      "translation": "I (formal)",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "저는 학생이에요",
+          "translation": "I am a student"
+        }
+      ],
+      "pronunciation": "JUH"
+    },
+    {
+      "id": "ko_0010",
+      "unit": "u2",
+      "lemma": "나",
+      "translit": "na",
+      "translation": "I (casual)",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "나도",
+          "translation": "Me too"
+        }
+      ],
+      "pronunciation": "NAH"
+    },
+    {
+      "id": "ko_0011",
+      "unit": "u2",
+      "lemma": "당신",
+      "translit": "dangsin",
+      "translation": "you (formal)",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "당신은 누구예요",
+          "translation": "Who are you"
+        }
+      ],
+      "pronunciation": "DANG-shin"
+    },
+    {
+      "id": "ko_0012",
+      "unit": "u2",
+      "lemma": "우리",
+      "translit": "uri",
+      "translation": "we, us, our",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "우리 친구",
+          "translation": "Our friend"
+        }
+      ],
+      "pronunciation": "OO-ree"
+    },
+    {
+      "id": "ko_0013",
+      "unit": "u2",
+      "lemma": "이것",
+      "translit": "igeot",
+      "translation": "this",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "이것은 책이에요",
+          "translation": "This is a book"
+        }
+      ],
+      "pronunciation": "EE-got"
+    },
+    {
+      "id": "ko_0014",
+      "unit": "u2",
+      "lemma": "무엇",
+      "translit": "mueot",
+      "translation": "what",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "이것은 무엇이에요",
+          "translation": "What is this"
+        }
+      ],
+      "pronunciation": "MWOH"
+    },
+    {
+      "id": "ko_0015",
+      "unit": "u2",
+      "lemma": "누구",
+      "translit": "nugu",
+      "translation": "who",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "저 사람은 누구예요",
+          "translation": "Who is that person"
+        }
+      ],
+      "pronunciation": "NOO-goo"
+    },
+    {
+      "id": "ko_0016",
+      "unit": "u3",
+      "lemma": "어머니",
+      "translit": "eomeoni",
+      "translation": "mother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "우리 어머니",
+          "translation": "My mother"
+        }
+      ],
+      "pronunciation": "uh-MUH-nee"
+    },
+    {
+      "id": "ko_0017",
+      "unit": "u3",
+      "lemma": "아버지",
+      "translit": "abeoji",
+      "translation": "father",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "우리 아버지",
+          "translation": "My father"
+        }
+      ],
+      "pronunciation": "ah-BUH-jee"
+    },
+    {
+      "id": "ko_0018",
+      "unit": "u3",
+      "lemma": "형",
+      "translit": "hyeong",
+      "translation": "older brother (male speaker)",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "우리 형",
+          "translation": "My older brother"
+        }
+      ],
+      "pronunciation": "HYUNG"
+    },
+    {
+      "id": "ko_0019",
+      "unit": "u3",
+      "lemma": "누나",
+      "translit": "nuna",
+      "translation": "older sister (male speaker)",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "우리 누나",
+          "translation": "My older sister"
+        }
+      ],
+      "pronunciation": "NOO-nah"
+    },
+    {
+      "id": "ko_0020",
+      "unit": "u3",
+      "lemma": "친구",
+      "translit": "chingu",
+      "translation": "friend",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "제 친구",
+          "translation": "My friend"
+        }
+      ],
+      "pronunciation": "CHIN-goo"
+    },
+    {
+      "id": "ko_0021",
+      "unit": "u3",
+      "lemma": "아이",
+      "translit": "ai",
+      "translation": "child",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "작은 아이",
+          "translation": "Small child"
+        }
+      ],
+      "pronunciation": "AH-ee"
+    },
+    {
+      "id": "ko_0022",
+      "unit": "u4",
+      "lemma": "하나",
+      "translit": "hana",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "하나 둘 셋",
+          "translation": "One two three"
+        }
+      ],
+      "pronunciation": "HAH-nah"
+    },
+    {
+      "id": "ko_0023",
+      "unit": "u4",
+      "lemma": "둘",
+      "translit": "dul",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "두 사람",
+          "translation": "Two people"
+        }
+      ],
+      "pronunciation": "DOOL"
+    },
+    {
+      "id": "ko_0024",
+      "unit": "u4",
+      "lemma": "셋",
+      "translit": "set",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "셋 중에",
+          "translation": "Among three"
+        }
+      ],
+      "pronunciation": "SET"
+    },
+    {
+      "id": "ko_0025",
+      "unit": "u4",
+      "lemma": "넷",
+      "translit": "net",
+      "translation": "four",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "네 시간",
+          "translation": "Four hours"
+        }
+      ],
+      "pronunciation": "NET"
+    },
+    {
+      "id": "ko_0026",
+      "unit": "u4",
+      "lemma": "다섯",
+      "translit": "daseot",
+      "translation": "five",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "다섯 명",
+          "translation": "Five people"
+        }
+      ],
+      "pronunciation": "DAH-sot"
+    },
+    {
+      "id": "ko_0027",
+      "unit": "u4",
+      "lemma": "열",
+      "translit": "yeol",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "열 시",
+          "translation": "Ten o'clock"
+        }
+      ],
+      "pronunciation": "YUL"
+    },
+    {
+      "id": "ko_0028",
+      "unit": "u4",
+      "lemma": "백",
+      "translit": "baek",
+      "translation": "hundred",
+      "category": "Numbers",
+      "difficulty": 2,
+      "frequencyRank": 85,
+      "examples": [
+        {
+          "native": "백 명",
+          "translation": "A hundred people"
+        }
+      ],
+      "pronunciation": "BAEK"
+    },
+    {
+      "id": "ko_0029",
+      "unit": "u5",
+      "lemma": "물",
+      "translit": "mul",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "examples": [
+        {
+          "native": "물 한 잔",
+          "translation": "A glass of water"
+        }
+      ],
+      "pronunciation": "MOOL"
+    },
+    {
+      "id": "ko_0030",
+      "unit": "u5",
+      "lemma": "밥",
+      "translit": "bap",
+      "translation": "rice, meal",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "밥 먹어요",
+          "translation": "I eat a meal"
+        }
+      ],
+      "pronunciation": "BAHP"
+    },
+    {
+      "id": "ko_0031",
+      "unit": "u5",
+      "lemma": "빵",
+      "translit": "ppang",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "신선한 빵",
+          "translation": "Fresh bread"
+        }
+      ],
+      "pronunciation": "PPANG"
+    },
+    {
+      "id": "ko_0032",
+      "unit": "u5",
+      "lemma": "커피",
+      "translit": "keopi",
+      "translation": "coffee",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "커피 한 잔",
+          "translation": "A cup of coffee"
+        }
+      ],
+      "pronunciation": "KO-pee"
+    },
+    {
+      "id": "ko_0033",
+      "unit": "u5",
+      "lemma": "우유",
+      "translit": "uyu",
+      "translation": "milk",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "따뜻한 우유",
+          "translation": "Warm milk"
+        }
+      ],
+      "pronunciation": "OO-yoo"
+    },
+    {
+      "id": "ko_0034",
+      "unit": "u5",
+      "lemma": "고기",
+      "translit": "gogi",
+      "translation": "meat",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "신선한 고기",
+          "translation": "Fresh meat"
+        }
+      ],
+      "pronunciation": "GOH-gee"
+    },
+    {
+      "id": "ko_0035",
+      "unit": "u5",
+      "lemma": "김치",
+      "translit": "kimchi",
+      "translation": "kimchi",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "맛있는 김치",
+          "translation": "Delicious kimchi"
+        }
+      ],
+      "pronunciation": "KIM-chee"
+    },
+    {
+      "id": "ko_0036",
+      "unit": "u5",
+      "lemma": "차",
+      "translit": "cha",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "녹차",
+          "translation": "Green tea"
+        }
+      ],
+      "pronunciation": "CHAH"
+    },
+    {
+      "id": "ko_0037",
+      "unit": "u6",
+      "lemma": "가다",
+      "translit": "gada",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "학교에 가다",
+          "translation": "To go to school"
+        }
+      ],
+      "pronunciation": "GAH-dah"
+    },
+    {
+      "id": "ko_0038",
+      "unit": "u6",
+      "lemma": "오다",
+      "translit": "oda",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "내일 오다",
+          "translation": "To come tomorrow"
+        }
+      ],
+      "pronunciation": "OH-dah"
+    },
+    {
+      "id": "ko_0039",
+      "unit": "u6",
+      "lemma": "먹다",
+      "translit": "meokda",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "밥을 먹다",
+          "translation": "To eat rice"
+        }
+      ],
+      "pronunciation": "MOK-dah"
+    },
+    {
+      "id": "ko_0040",
+      "unit": "u6",
+      "lemma": "마시다",
+      "translit": "masida",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "물을 마시다",
+          "translation": "To drink water"
+        }
+      ],
+      "pronunciation": "MAH-shee-dah"
+    },
+    {
+      "id": "ko_0041",
+      "unit": "u6",
+      "lemma": "보다",
+      "translit": "boda",
+      "translation": "to see, watch",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "영화를 보다",
+          "translation": "To watch a movie"
+        }
+      ],
+      "pronunciation": "BOH-dah"
+    },
+    {
+      "id": "ko_0042",
+      "unit": "u6",
+      "lemma": "말하다",
+      "translit": "malhada",
+      "translation": "to speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "한국어를 말하다",
+          "translation": "To speak Korean"
+        }
+      ],
+      "pronunciation": "MAL-hah-dah"
+    },
+    {
+      "id": "ko_0043",
+      "unit": "u6",
+      "lemma": "하다",
+      "translit": "hada",
+      "translation": "to do",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "공부를 하다",
+          "translation": "To study"
+        }
+      ],
+      "pronunciation": "HAH-dah"
+    },
+    {
+      "id": "ko_0044",
+      "unit": "u6",
+      "lemma": "읽다",
+      "translit": "ikda",
+      "translation": "to read",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "책을 읽다",
+          "translation": "To read a book"
+        }
+      ],
+      "pronunciation": "IK-dah"
+    },
+    {
+      "id": "ko_0045",
+      "unit": "u7",
+      "lemma": "집",
+      "translit": "jip",
+      "translation": "house, home",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "우리 집",
+          "translation": "Our home"
+        }
+      ],
+      "pronunciation": "JIP"
+    },
+    {
+      "id": "ko_0046",
+      "unit": "u7",
+      "lemma": "학교",
+      "translit": "hakgyo",
+      "translation": "school",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "학교에 가요",
+          "translation": "I go to school"
+        }
+      ],
+      "pronunciation": "HAHK-gyoh"
+    },
+    {
+      "id": "ko_0047",
+      "unit": "u7",
+      "lemma": "도시",
+      "translit": "dosi",
+      "translation": "city",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "큰 도시",
+          "translation": "Big city"
+        }
+      ],
+      "pronunciation": "DOH-shee"
+    },
+    {
+      "id": "ko_0048",
+      "unit": "u7",
+      "lemma": "가게",
+      "translit": "gage",
+      "translation": "shop",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "작은 가게",
+          "translation": "Small shop"
+        }
+      ],
+      "pronunciation": "GAH-geh"
+    },
+    {
+      "id": "ko_0049",
+      "unit": "u7",
+      "lemma": "식당",
+      "translit": "sikdang",
+      "translation": "restaurant",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "좋은 식당",
+          "translation": "Good restaurant"
+        }
+      ],
+      "pronunciation": "SHIK-dahng"
+    },
+    {
+      "id": "ko_0050",
+      "unit": "u8",
+      "lemma": "오늘",
+      "translit": "oneul",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "오늘은 월요일",
+          "translation": "Today is Monday"
+        }
+      ],
+      "pronunciation": "OH-nool"
+    },
+    {
+      "id": "ko_0051",
+      "unit": "u8",
+      "lemma": "내일",
+      "translit": "naeil",
+      "translation": "tomorrow",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "내일 봐요",
+          "translation": "See you tomorrow"
+        }
+      ],
+      "pronunciation": "NAH-eel"
+    },
+    {
+      "id": "ko_0052",
+      "unit": "u8",
+      "lemma": "지금",
+      "translit": "jigeum",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "지금 가요",
+          "translation": "I'm going now"
+        }
+      ],
+      "pronunciation": "JEE-goom"
+    },
+    {
+      "id": "ko_0053",
+      "unit": "u8",
+      "lemma": "하루",
+      "translit": "haru",
+      "translation": "day",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "하루 종일",
+          "translation": "All day"
+        }
+      ],
+      "pronunciation": "HAH-roo"
+    },
+    {
+      "id": "ko_0054",
+      "unit": "u8",
+      "lemma": "밤",
+      "translit": "bam",
+      "translation": "night",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 58,
+      "examples": [
+        {
+          "native": "늦은 밤",
+          "translation": "Late night"
+        }
+      ],
+      "pronunciation": "BAHM"
+    },
+    {
+      "id": "ko_0055",
+      "unit": "u8",
+      "lemma": "아침",
+      "translit": "achim",
+      "translation": "morning",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 63,
+      "examples": [
+        {
+          "native": "좋은 아침",
+          "translation": "Good morning"
+        }
+      ],
+      "pronunciation": "AH-chim"
+    },
+    {
+      "id": "ko_0056",
+      "unit": "u9",
+      "lemma": "그리고",
+      "translit": "geurigo",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "너 그리고 나",
+          "translation": "You and me"
+        }
+      ]
+    },
+    {
+      "id": "ko_0057",
+      "unit": "u9",
+      "lemma": "하지만",
+      "translit": "hajiman",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "하지만 어려워요",
+          "translation": "But it's hard"
+        }
+      ]
+    },
+    {
+      "id": "ko_0058",
+      "unit": "u9",
+      "lemma": "왜냐하면",
+      "translit": "waenyahamyeon",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 3,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "왜냐하면 바빠요",
+          "translation": "Because I'm busy"
+        }
+      ]
+    },
+    {
+      "id": "ko_0059",
+      "unit": "u9",
+      "lemma": "또는",
+      "translit": "ttoneun",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "커피 또는 차",
+          "translation": "Coffee or tea"
+        }
+      ]
+    },
+    {
+      "id": "ko_0060",
+      "unit": "u9",
+      "lemma": "또",
+      "translit": "tto",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "나도 또",
+          "translation": "Me too"
+        }
+      ]
+    },
+    {
+      "id": "ko_0061",
+      "unit": "u10",
+      "lemma": "어디",
+      "translit": "eodi",
+      "translation": "where",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "어디예요",
+          "translation": "Where is it"
+        }
+      ]
+    },
+    {
+      "id": "ko_0062",
+      "unit": "u10",
+      "lemma": "얼마",
+      "translit": "eolma",
+      "translation": "how much",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "얼마예요",
+          "translation": "How much is it"
+        }
+      ]
+    },
+    {
+      "id": "ko_0063",
+      "unit": "u10",
+      "lemma": "도와주세요",
+      "translit": "dowajuseyo",
+      "translation": "please help",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 84,
+      "examples": [
+        {
+          "native": "도와주세요",
+          "translation": "Please help me"
+        }
+      ]
+    },
+    {
+      "id": "ko_0064",
+      "unit": "u10",
+      "lemma": "호텔",
+      "translit": "hotel",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "좋은 호텔",
+          "translation": "Good hotel"
+        }
+      ]
+    },
+    {
+      "id": "ko_0065",
+      "unit": "u10",
+      "lemma": "좋아요",
+      "translit": "joayo",
+      "translation": "good, I like",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "정말 좋아요",
+          "translation": "I really like it"
+        }
+      ]
+    },
+    {
+      "id": "ko_0066",
+      "unit": "u10",
+      "lemma": "많이",
+      "translit": "mani",
+      "translation": "a lot, many",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 19,
+      "examples": [
+        {
+          "native": "많이 감사해요",
+          "translation": "Thank you very much"
+        }
+      ]
+    },
+    {
+      "id": "ko_0067",
+      "unit": "u10",
+      "lemma": "크다",
+      "translit": "keuda",
+      "translation": "big",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "큰 집",
+          "translation": "Big house"
+        }
+      ]
+    },
+    {
+      "id": "ko_0068",
+      "unit": "u10",
+      "lemma": "작다",
+      "translit": "jakda",
+      "translation": "small",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 53,
+      "examples": [
+        {
+          "native": "작은 강아지",
+          "translation": "Small puppy"
+        }
+      ]
+    },
+    {
+      "id": "ko_0069",
+      "unit": "u11",
+      "lemma": "머리",
+      "translit": "meori",
+      "pronunciation": "MUH-ree",
+      "translation": "head",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "내 머리",
+          "translation": "My head"
+        }
+      ]
+    },
+    {
+      "id": "ko_0070",
+      "unit": "u11",
+      "lemma": "손",
+      "translit": "son",
+      "pronunciation": "SOHN",
+      "translation": "hand",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "오른손",
+          "translation": "Right hand"
+        }
+      ]
+    },
+    {
+      "id": "ko_0071",
+      "unit": "u11",
+      "lemma": "눈",
+      "translit": "nun",
+      "pronunciation": "NOON",
+      "translation": "eye",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "큰 눈",
+          "translation": "Big eyes"
+        }
+      ]
+    },
+    {
+      "id": "ko_0072",
+      "unit": "u11",
+      "lemma": "배고프다",
+      "translit": "baegopeuda",
+      "pronunciation": "bay-GOH-puh-dah",
+      "translation": "to be hungry",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "배고파요",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "ko_0073",
+      "unit": "u11",
+      "lemma": "피곤하다",
+      "translit": "pigonhada",
+      "pronunciation": "pee-GON-hah-dah",
+      "translation": "to be tired",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 92,
+      "examples": [
+        {
+          "native": "피곤해요",
+          "translation": "I am tired"
+        }
+      ]
+    },
+    {
+      "id": "ko_0074",
+      "unit": "u11",
+      "lemma": "행복하다",
+      "translit": "haengbokhada",
+      "pronunciation": "HENG-bok-hah-dah",
+      "translation": "to be happy",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "매우 행복해요",
+          "translation": "Very happy"
+        }
+      ]
+    },
+    {
+      "id": "ko_0075",
+      "unit": "u12",
+      "lemma": "해",
+      "translit": "hae",
+      "pronunciation": "HEH",
+      "translation": "sun",
+      "category": "Weather",
+      "difficulty": 1,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "밝은 해",
+          "translation": "Bright sun"
+        }
+      ]
+    },
+    {
+      "id": "ko_0076",
+      "unit": "u12",
+      "lemma": "비",
+      "translit": "bi",
+      "pronunciation": "BEE",
+      "translation": "rain",
+      "category": "Weather",
+      "difficulty": 1,
+      "frequencyRank": 81,
+      "examples": [
+        {
+          "native": "비가 와요",
+          "translation": "It's raining"
+        }
+      ]
+    },
+    {
+      "id": "ko_0077",
+      "unit": "u12",
+      "lemma": "구름",
+      "translit": "gureum",
+      "pronunciation": "goo-ROOM",
+      "translation": "cloud",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 96,
+      "examples": [
+        {
+          "native": "검은 구름",
+          "translation": "Black clouds"
+        }
+      ]
+    },
+    {
+      "id": "ko_0078",
+      "unit": "u12",
+      "lemma": "바람",
+      "translit": "baram",
+      "pronunciation": "bah-RAHM",
+      "translation": "wind",
+      "category": "Weather",
+      "difficulty": 1,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "시원한 바람",
+          "translation": "Cool wind"
+        }
+      ]
+    },
+    {
+      "id": "ko_0079",
+      "unit": "u12",
+      "lemma": "하늘",
+      "translit": "haneul",
+      "pronunciation": "hah-NOOL",
+      "translation": "sky",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 86,
+      "examples": [
+        {
+          "native": "파란 하늘",
+          "translation": "Blue sky"
+        }
+      ]
+    },
+    {
+      "id": "ko_0080",
+      "unit": "u13",
+      "lemma": "버스",
+      "translit": "beoseu",
+      "pronunciation": "BUH-suh",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 111,
+      "examples": [
+        {
+          "native": "버스가 와요",
+          "translation": "The bus is coming"
+        }
+      ]
+    },
+    {
+      "id": "ko_0081",
+      "unit": "u13",
+      "lemma": "기차",
+      "translit": "gicha",
+      "pronunciation": "GEE-cha",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "빠른 기차",
+          "translation": "Fast train"
+        }
+      ]
+    },
+    {
+      "id": "ko_0082",
+      "unit": "u13",
+      "lemma": "오른쪽",
+      "translit": "oreunjjok",
+      "pronunciation": "oh-ROON-jjok",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "오른쪽으로",
+          "translation": "To the right"
+        }
+      ]
+    },
+    {
+      "id": "ko_0083",
+      "unit": "u13",
+      "lemma": "왼쪽",
+      "translit": "oenjjok",
+      "pronunciation": "WEN-jjok",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 101,
+      "examples": [
+        {
+          "native": "왼쪽으로",
+          "translation": "To the left"
+        }
+      ]
+    },
+    {
+      "id": "ko_0084",
+      "unit": "u13",
+      "lemma": "여기",
+      "translit": "yeogi",
+      "pronunciation": "YUH-gee",
+      "translation": "here",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "여기로 와요",
+          "translation": "Come here"
+        }
+      ]
+    },
+    {
+      "id": "ko_0085",
+      "unit": "u13",
+      "lemma": "거기",
+      "translit": "geogi",
+      "pronunciation": "GUH-gee",
+      "translation": "there",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "거기로 가요",
+          "translation": "Go there"
+        }
+      ]
+    },
+    {
+      "id": "ko_0086",
+      "unit": "u6",
+      "lemma": "사다",
+      "translit": "sada",
+      "pronunciation": "SAH-dah",
+      "translation": "to buy",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "옷을 사다",
+          "translation": "To buy clothes"
+        }
+      ]
+    },
+    {
+      "id": "ko_0087",
+      "unit": "u6",
+      "lemma": "팔다",
+      "translit": "palda",
+      "pronunciation": "PAHL-dah",
+      "translation": "to sell",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 103,
+      "examples": [
+        {
+          "native": "집을 팔다",
+          "translation": "To sell a house"
+        }
+      ]
+    },
+    {
+      "id": "ko_0088",
+      "unit": "u5",
+      "lemma": "소금",
+      "translit": "sogeum",
+      "pronunciation": "SOH-goom",
+      "translation": "salt",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "소금 조금",
+          "translation": "A little salt"
+        }
+      ]
+    },
+    {
+      "id": "ko_0089",
+      "unit": "u5",
+      "lemma": "설탕",
+      "translit": "seoltang",
+      "pronunciation": "SOL-tahng",
+      "translation": "sugar",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 117,
+      "examples": [
+        {
+          "native": "설탕 커피",
+          "translation": "Sugar coffee"
+        }
+      ]
+    },
+    {
+      "id": "ko_0090",
+      "unit": "u10",
+      "lemma": "빨리",
+      "translit": "ppalli",
+      "pronunciation": "PPAH-lee",
+      "translation": "quickly, fast",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 77,
+      "examples": [
+        {
+          "native": "빨리 와요",
+          "translation": "Come quickly"
+        }
+      ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "vowels",
+      "title": "Basic vowels",
+      "emoji": "🅰️",
+      "description": "The 6 simple vowels"
+    },
+    {
+      "id": "y_vowels",
+      "title": "Y-vowels",
+      "emoji": "🅱️",
+      "description": "Vowels with a 'y' sound"
+    },
+    {
+      "id": "consonants_1",
+      "title": "Consonants part 1",
+      "emoji": "🔤",
+      "description": "g, n, d, r, m"
+    },
+    {
+      "id": "consonants_2",
+      "title": "Consonants part 2",
+      "emoji": "🔡",
+      "description": "b, s, j, h, ng"
+    },
+    {
+      "id": "consonants_3",
+      "title": "Aspirated consonants",
+      "emoji": "💨",
+      "description": "ch, k, t, p"
+    }
+  ]
+}

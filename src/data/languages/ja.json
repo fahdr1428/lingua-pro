@@ -1,0 +1,1301 @@
+{
+  "schemaVersion": 7,
+  "code": "ja",
+  "categories": [
+    "Greetings",
+    "People",
+    "Food",
+    "Numbers",
+    "Verbs",
+    "Places",
+    "Time"
+  ],
+  "alphabet": [
+    {
+      "char": "あ",
+      "name": "A",
+      "sound": "ah",
+      "group": "vowels"
+    },
+    {
+      "char": "い",
+      "name": "I",
+      "sound": "ee",
+      "group": "vowels"
+    },
+    {
+      "char": "う",
+      "name": "U",
+      "sound": "oo",
+      "group": "vowels"
+    },
+    {
+      "char": "え",
+      "name": "E",
+      "sound": "eh",
+      "group": "vowels"
+    },
+    {
+      "char": "お",
+      "name": "O",
+      "sound": "oh",
+      "group": "vowels"
+    },
+    {
+      "char": "か",
+      "name": "Ka",
+      "sound": "kah",
+      "group": "k_s_t"
+    },
+    {
+      "char": "き",
+      "name": "Ki",
+      "sound": "kee",
+      "group": "k_s_t"
+    },
+    {
+      "char": "く",
+      "name": "Ku",
+      "sound": "koo",
+      "group": "k_s_t"
+    },
+    {
+      "char": "さ",
+      "name": "Sa",
+      "sound": "sah",
+      "group": "k_s_t"
+    },
+    {
+      "char": "し",
+      "name": "Shi",
+      "sound": "shee",
+      "group": "k_s_t"
+    },
+    {
+      "char": "た",
+      "name": "Ta",
+      "sound": "tah",
+      "group": "k_s_t"
+    },
+    {
+      "char": "な",
+      "name": "Na",
+      "sound": "nah",
+      "group": "remaining"
+    },
+    {
+      "char": "は",
+      "name": "Ha",
+      "sound": "hah",
+      "group": "remaining"
+    },
+    {
+      "char": "ま",
+      "name": "Ma",
+      "sound": "mah",
+      "group": "remaining"
+    },
+    {
+      "char": "や",
+      "name": "Ya",
+      "sound": "yah",
+      "group": "remaining"
+    },
+    {
+      "char": "ら",
+      "name": "Ra",
+      "sound": "rah",
+      "group": "remaining"
+    },
+    {
+      "char": "わ",
+      "name": "Wa",
+      "sound": "wah",
+      "group": "remaining"
+    },
+    {
+      "char": "ん",
+      "name": "N",
+      "sound": "n",
+      "group": "remaining"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "sov",
+      "title": "Word order: SOV",
+      "body": "Japanese ends sentences with the verb. 'I sushi eat' (私は寿司を食べる). The particle は marks topic, を marks object."
+    },
+    {
+      "id": "particles",
+      "title": "Particles do the heavy lifting",
+      "body": "Tiny words like は, を, に, で tell you what role each word plays. Word order is flexible — particles aren't."
+    },
+    {
+      "id": "scripts",
+      "title": "Three writing systems",
+      "body": "Hiragana (native), Katakana (foreign), Kanji (Chinese characters). Learn hiragana first — you can survive on it alone."
+    },
+    {
+      "id": "polite",
+      "title": "Politeness levels",
+      "body": "Casual (食べる), polite (食べます), honorific (召し上がる). Use the wrong one and you'll seem rude or weirdly formal."
+    }
+  ],
+  "vocab": [
+    {
+      "id": "ja_0001",
+      "lemma": "こんにちは",
+      "translit": "konnichiwa",
+      "translation": "hello",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "tags": [
+        "greeting"
+      ],
+      "examples": [
+        {
+          "native": "こんにちは 田中さん",
+          "translation": "Hello Mr Tanaka"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "kon-NEE-chee-wah"
+    },
+    {
+      "id": "ja_0002",
+      "lemma": "ありがとう",
+      "translit": "arigatou",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "tags": [
+        "greeting"
+      ],
+      "examples": [
+        {
+          "native": "ありがとう ございます",
+          "translation": "Thank you very much"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "ah-ree-GAH-toh"
+    },
+    {
+      "id": "ja_0003",
+      "lemma": "はい",
+      "translit": "hai",
+      "translation": "yes",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "tags": [
+        "basic"
+      ],
+      "examples": [
+        {
+          "native": "はい そうです",
+          "translation": "Yes that's right"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "HI (rhymes with 'eye')"
+    },
+    {
+      "id": "ja_0004",
+      "lemma": "いいえ",
+      "translit": "iie",
+      "translation": "no",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "tags": [
+        "basic"
+      ],
+      "examples": [
+        {
+          "native": "いいえ 違います",
+          "translation": "No that's wrong"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "EE-eh"
+    },
+    {
+      "id": "ja_0005",
+      "lemma": "さようなら",
+      "translit": "sayounara",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "tags": [
+        "greeting"
+      ],
+      "examples": [
+        {
+          "native": "さようなら また明日",
+          "translation": "Goodbye see you tomorrow"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "sah-YOH-nah-rah"
+    },
+    {
+      "id": "ja_0006",
+      "lemma": "おはよう",
+      "translit": "ohayou",
+      "translation": "good morning",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "tags": [
+        "greeting"
+      ],
+      "examples": [
+        {
+          "native": "おはよう ございます",
+          "translation": "Good morning (formal)"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "oh-HAH-yoh"
+    },
+    {
+      "id": "ja_0007",
+      "lemma": "すみません",
+      "translit": "sumimasen",
+      "translation": "excuse me, sorry",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "tags": [
+        "polite"
+      ],
+      "examples": [
+        {
+          "native": "すみません 駅は どこですか",
+          "translation": "Excuse me where is the station"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "soo-mee-MAH-sen"
+    },
+    {
+      "id": "ja_0008",
+      "lemma": "私",
+      "translit": "watashi",
+      "translation": "I, me",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "tags": [
+        "pronoun"
+      ],
+      "examples": [
+        {
+          "native": "私は 学生です",
+          "translation": "I am a student"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "wah-TAH-shee"
+    },
+    {
+      "id": "ja_0009",
+      "lemma": "あなた",
+      "translit": "anata",
+      "translation": "you",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "tags": [
+        "pronoun"
+      ],
+      "examples": [
+        {
+          "native": "あなたは",
+          "translation": "And you"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "ah-NAH-tah"
+    },
+    {
+      "id": "ja_0010",
+      "lemma": "母",
+      "translit": "haha",
+      "translation": "mother",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "tags": [
+        "family"
+      ],
+      "examples": [
+        {
+          "native": "私の 母",
+          "translation": "My mother"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "HAH-hah"
+    },
+    {
+      "id": "ja_0011",
+      "lemma": "父",
+      "translit": "chichi",
+      "translation": "father",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "tags": [
+        "family"
+      ],
+      "examples": [
+        {
+          "native": "私の 父",
+          "translation": "My father"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "CHEE-chee"
+    },
+    {
+      "id": "ja_0012",
+      "lemma": "兄",
+      "translit": "ani",
+      "translation": "older brother",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "tags": [
+        "family"
+      ],
+      "examples": [
+        {
+          "native": "私の 兄",
+          "translation": "My older brother"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "AH-nee"
+    },
+    {
+      "id": "ja_0013",
+      "lemma": "姉",
+      "translit": "ane",
+      "translation": "older sister",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "tags": [
+        "family"
+      ],
+      "examples": [
+        {
+          "native": "私の 姉",
+          "translation": "My older sister"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "AH-neh"
+    },
+    {
+      "id": "ja_0014",
+      "lemma": "友達",
+      "translit": "tomodachi",
+      "translation": "friend",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 38,
+      "tags": [
+        "social"
+      ],
+      "examples": [
+        {
+          "native": "私の 友達",
+          "translation": "My friend"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "toh-moh-DAH-chee"
+    },
+    {
+      "id": "ja_0015",
+      "lemma": "水",
+      "translit": "mizu",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "tags": [
+        "essential"
+      ],
+      "examples": [
+        {
+          "native": "水を ください",
+          "translation": "Water please"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "MEE-zoo"
+    },
+    {
+      "id": "ja_0016",
+      "lemma": "ご飯",
+      "translit": "gohan",
+      "translation": "rice, meal",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 28,
+      "tags": [
+        "essential"
+      ],
+      "examples": [
+        {
+          "native": "ご飯を 食べる",
+          "translation": "To eat a meal"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "GOH-han"
+    },
+    {
+      "id": "ja_0017",
+      "lemma": "お茶",
+      "translit": "ocha",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "tags": [
+        "drink"
+      ],
+      "examples": [
+        {
+          "native": "お茶を どうぞ",
+          "translation": "Have some tea"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "OH-cha"
+    },
+    {
+      "id": "ja_0018",
+      "lemma": "魚",
+      "translit": "sakana",
+      "translation": "fish",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "tags": [
+        "food"
+      ],
+      "examples": [
+        {
+          "native": "新鮮な 魚",
+          "translation": "Fresh fish"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "sah-KAH-nah"
+    },
+    {
+      "id": "ja_0019",
+      "lemma": "肉",
+      "translit": "niku",
+      "translation": "meat",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 75,
+      "tags": [
+        "food"
+      ],
+      "examples": [
+        {
+          "native": "肉が 好き",
+          "translation": "I like meat"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "NEE-koo"
+    },
+    {
+      "id": "ja_0020",
+      "lemma": "パン",
+      "translit": "pan",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 55,
+      "tags": [
+        "food"
+      ],
+      "examples": [
+        {
+          "native": "パンを 食べる",
+          "translation": "To eat bread"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "PAHN"
+    },
+    {
+      "id": "ja_0021",
+      "lemma": "一",
+      "translit": "ichi",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "一つ",
+          "translation": "One thing"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "EE-chee"
+    },
+    {
+      "id": "ja_0022",
+      "lemma": "二",
+      "translit": "ni",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "二人",
+          "translation": "Two people"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "NEE"
+    },
+    {
+      "id": "ja_0023",
+      "lemma": "三",
+      "translit": "san",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "三日",
+          "translation": "Three days"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "SAHN"
+    },
+    {
+      "id": "ja_0024",
+      "lemma": "十",
+      "translit": "juu",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "十円",
+          "translation": "Ten yen"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "JOO"
+    },
+    {
+      "id": "ja_0025",
+      "lemma": "百",
+      "translit": "hyaku",
+      "translation": "hundred",
+      "category": "Numbers",
+      "difficulty": 2,
+      "frequencyRank": 85,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "百円",
+          "translation": "Hundred yen"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "HYAH-koo"
+    },
+    {
+      "id": "ja_0026",
+      "lemma": "行く",
+      "translit": "iku",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 12,
+      "tags": [
+        "verb",
+        "essential"
+      ],
+      "examples": [
+        {
+          "native": "学校に 行く",
+          "translation": "To go to school"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "EE-koo"
+    },
+    {
+      "id": "ja_0027",
+      "lemma": "来る",
+      "translit": "kuru",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 18,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "明日 来る",
+          "translation": "To come tomorrow"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "KOO-roo"
+    },
+    {
+      "id": "ja_0028",
+      "lemma": "食べる",
+      "translit": "taberu",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 24,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "ご飯を 食べる",
+          "translation": "To eat rice"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "TAH-beh-roo"
+    },
+    {
+      "id": "ja_0029",
+      "lemma": "飲む",
+      "translit": "nomu",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "水を 飲む",
+          "translation": "To drink water"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "NOH-moo"
+    },
+    {
+      "id": "ja_0030",
+      "lemma": "話す",
+      "translit": "hanasu",
+      "translation": "to speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 31,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "日本語を 話す",
+          "translation": "To speak Japanese"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "hah-NAH-soo"
+    },
+    {
+      "id": "ja_0031",
+      "lemma": "見る",
+      "translit": "miru",
+      "translation": "to see, watch",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 21,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "映画を 見る",
+          "translation": "To watch a film"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "MEE-roo"
+    },
+    {
+      "id": "ja_0032",
+      "lemma": "する",
+      "translit": "suru",
+      "translation": "to do",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 9,
+      "tags": [
+        "verb",
+        "essential"
+      ],
+      "examples": [
+        {
+          "native": "勉強を する",
+          "translation": "To study"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "SOO-roo"
+    },
+    {
+      "id": "ja_0033",
+      "lemma": "家",
+      "translit": "ie",
+      "translation": "house",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "tags": [
+        "place"
+      ],
+      "examples": [
+        {
+          "native": "私の 家",
+          "translation": "My house"
+        }
+      ],
+      "unit": "u7",
+      "pronunciation": "EE-eh"
+    },
+    {
+      "id": "ja_0034",
+      "lemma": "学校",
+      "translit": "gakkou",
+      "translation": "school",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 46,
+      "tags": [
+        "place"
+      ],
+      "examples": [
+        {
+          "native": "学校へ 行く",
+          "translation": "To go to school"
+        }
+      ],
+      "unit": "u7",
+      "pronunciation": "GAHK-koh"
+    },
+    {
+      "id": "ja_0035",
+      "lemma": "駅",
+      "translit": "eki",
+      "translation": "station",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 60,
+      "tags": [
+        "place"
+      ],
+      "examples": [
+        {
+          "native": "駅で 待つ",
+          "translation": "To wait at the station"
+        }
+      ],
+      "unit": "u7",
+      "pronunciation": "EH-kee"
+    },
+    {
+      "id": "ja_0036",
+      "lemma": "今日",
+      "translit": "kyou",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 26,
+      "tags": [
+        "time"
+      ],
+      "examples": [
+        {
+          "native": "今日は 月曜日",
+          "translation": "Today is Monday"
+        }
+      ],
+      "unit": "u8",
+      "pronunciation": "KYOH"
+    },
+    {
+      "id": "ja_0037",
+      "lemma": "明日",
+      "translit": "ashita",
+      "translation": "tomorrow",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 36,
+      "tags": [
+        "time"
+      ],
+      "examples": [
+        {
+          "native": "また 明日",
+          "translation": "See you tomorrow"
+        }
+      ],
+      "unit": "u8",
+      "pronunciation": "ah-SHEE-tah"
+    },
+    {
+      "id": "ja_0038",
+      "lemma": "今",
+      "translit": "ima",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "tags": [
+        "time"
+      ],
+      "examples": [
+        {
+          "native": "今 すぐ",
+          "translation": "Right now"
+        }
+      ],
+      "unit": "u8",
+      "pronunciation": "EE-mah"
+    },
+    {
+      "id": "ja_0039",
+      "unit": "u3",
+      "lemma": "はは",
+      "translit": "haha",
+      "pronunciation": "HAH-hah",
+      "translation": "mother (own)",
+      "category": "Family",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "私の母",
+          "translation": "My mother"
+        }
+      ]
+    },
+    {
+      "id": "ja_0040",
+      "unit": "u3",
+      "lemma": "ちち",
+      "translit": "chichi",
+      "pronunciation": "CHEE-chee",
+      "translation": "father (own)",
+      "category": "Family",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "私の父",
+          "translation": "My father"
+        }
+      ]
+    },
+    {
+      "id": "ja_0041",
+      "unit": "u3",
+      "lemma": "あね",
+      "translit": "ane",
+      "pronunciation": "AH-neh",
+      "translation": "older sister",
+      "category": "Family",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "私の姉",
+          "translation": "My older sister"
+        }
+      ]
+    },
+    {
+      "id": "ja_0042",
+      "unit": "u3",
+      "lemma": "あに",
+      "translit": "ani",
+      "pronunciation": "AH-nee",
+      "translation": "older brother",
+      "category": "Family",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "私の兄",
+          "translation": "My older brother"
+        }
+      ]
+    },
+    {
+      "id": "ja_0043",
+      "unit": "u9",
+      "lemma": "うれしい",
+      "translit": "ureshii",
+      "pronunciation": "oo-REH-shee",
+      "translation": "happy",
+      "category": "Feelings",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "とても嬉しい",
+          "translation": "Very happy"
+        }
+      ]
+    },
+    {
+      "id": "ja_0044",
+      "unit": "u9",
+      "lemma": "つかれた",
+      "translit": "tsukareta",
+      "pronunciation": "tsoo-kah-REH-tah",
+      "translation": "tired",
+      "category": "Feelings",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "疲れた",
+          "translation": "I'm tired"
+        }
+      ]
+    },
+    {
+      "id": "ja_0045",
+      "unit": "u9",
+      "lemma": "いい",
+      "translit": "ii",
+      "pronunciation": "EE",
+      "translation": "good",
+      "category": "Feelings",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "とてもいい",
+          "translation": "Very good"
+        }
+      ]
+    },
+    {
+      "id": "ja_0046",
+      "unit": "u10",
+      "lemma": "ください",
+      "translit": "kudasai",
+      "pronunciation": "koo-dah-SAI",
+      "translation": "please",
+      "category": "Useful",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "水をください",
+          "translation": "Water please"
+        }
+      ]
+    },
+    {
+      "id": "ja_0047",
+      "unit": "u10",
+      "lemma": "ごめんなさい",
+      "translit": "gomennasai",
+      "pronunciation": "goh-men-nah-SAI",
+      "translation": "sorry",
+      "category": "Useful",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "ごめんなさい",
+          "translation": "I'm sorry"
+        }
+      ]
+    },
+    {
+      "id": "ja_0048",
+      "unit": "u10",
+      "lemma": "おおきい",
+      "translit": "ookii",
+      "pronunciation": "OH-kee",
+      "translation": "big",
+      "category": "Useful",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "大きい家",
+          "translation": "Big house"
+        }
+      ]
+    },
+    {
+      "id": "ja_0049",
+      "unit": "u10",
+      "lemma": "ちいさい",
+      "translit": "chiisai",
+      "pronunciation": "CHEE-sai",
+      "translation": "small",
+      "category": "Useful",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "小さい猫",
+          "translation": "Small cat"
+        }
+      ]
+    },
+    {
+      "id": "ja_0050",
+      "unit": "u11",
+      "lemma": "ここ",
+      "translit": "koko",
+      "pronunciation": "KOH-koh",
+      "translation": "here",
+      "category": "Places",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ここに来て",
+          "translation": "Come here"
+        }
+      ]
+    },
+    {
+      "id": "ja_0051",
+      "unit": "u11",
+      "lemma": "そこ",
+      "translit": "soko",
+      "pronunciation": "SOH-koh",
+      "translation": "there",
+      "category": "Places",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "そこに行く",
+          "translation": "Go there"
+        }
+      ]
+    },
+    {
+      "id": "ja_0052",
+      "unit": "u11",
+      "lemma": "みず",
+      "translit": "mizu",
+      "pronunciation": "MEE-zoo",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "冷たい水",
+          "translation": "Cold water"
+        }
+      ]
+    },
+    {
+      "id": "ja_0053",
+      "unit": "u5",
+      "lemma": "おちゃ",
+      "translit": "ocha",
+      "pronunciation": "OH-chah",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "緑茶",
+          "translation": "Green tea"
+        }
+      ]
+    },
+    {
+      "id": "ja_0054",
+      "unit": "u5",
+      "lemma": "ぎゅうにゅう",
+      "translit": "gyuunyuu",
+      "pronunciation": "gyoo-NYOO",
+      "translation": "milk",
+      "category": "Food",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "牛乳をください",
+          "translation": "Milk please"
+        }
+      ]
+    },
+    {
+      "id": "ja_0055",
+      "unit": "u6",
+      "lemma": "いく",
+      "translit": "iku",
+      "pronunciation": "EE-koo",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "家に行く",
+          "translation": "To go home"
+        }
+      ]
+    },
+    {
+      "id": "ja_0056",
+      "unit": "u6",
+      "lemma": "くる",
+      "translit": "kuru",
+      "pronunciation": "KOO-roo",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ここに来る",
+          "translation": "To come here"
+        }
+      ]
+    },
+    {
+      "id": "ja_0057",
+      "unit": "u8",
+      "lemma": "きょう",
+      "translit": "kyou",
+      "pronunciation": "KYOH",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "今日は月曜日",
+          "translation": "Today is Monday"
+        }
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Say hello, goodbye, please and thank you"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and basic introductions"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, sister, brother"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers 1-10",
+      "emoji": "🔢",
+      "description": "Count and use basic numbers"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Order water, bread, tea, coffee"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, eat, drink, see, speak"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "🏠",
+      "description": "House, school, market, city"
+    },
+    {
+      "id": "u8",
+      "title": "Time",
+      "emoji": "⏰",
+      "description": "Today, tomorrow, now, day, night"
+    },
+    {
+      "id": "u9",
+      "title": "Feelings",
+      "emoji": "💛",
+      "description": "Happy, tired, hungry, good"
+    },
+    {
+      "id": "u10",
+      "title": "Useful Words",
+      "emoji": "✨",
+      "description": "Yes, no, please, sorry, big, small"
+    },
+    {
+      "id": "u11",
+      "title": "Getting Around",
+      "emoji": "🚗",
+      "description": "Here, there, left, right, water"
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "vowels",
+      "title": "Vowels",
+      "emoji": "🅰️",
+      "description": "あ, い, う, え, お — only 5, learn them first"
+    },
+    {
+      "id": "k_s_t",
+      "title": "K, S, T sounds",
+      "emoji": "🔤",
+      "description": "か, き, く, さ, し, た — common consonant kana"
+    },
+    {
+      "id": "remaining",
+      "title": "N, H, M, Y, R, W, ん",
+      "emoji": "🔠",
+      "description": "Finishing the essentials"
+    }
+  ]
+}

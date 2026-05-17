@@ -1,0 +1,2300 @@
+{
+  "schemaVersion": 5,
+  "code": "es",
+  "categories": [
+    "Greetings",
+    "People",
+    "Family",
+    "Numbers",
+    "Food",
+    "Verbs",
+    "Places",
+    "Time",
+    "Connectors",
+    "Travel"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Say hello, goodbye, please and thank you"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and basic introductions"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, brother, sister, friend"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers 1-10",
+      "emoji": "🔢",
+      "description": "Count and use basic numbers"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Order water, bread, tea, coffee"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, eat, drink, see, speak"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "🏠",
+      "description": "House, school, market, city"
+    },
+    {
+      "id": "u8",
+      "title": "Time",
+      "emoji": "⏰",
+      "description": "Today, tomorrow, now, day, night"
+    },
+    {
+      "id": "u9",
+      "title": "Connecting Ideas",
+      "emoji": "🔗",
+      "description": "And, but, because, if, or"
+    },
+    {
+      "id": "u10",
+      "title": "Travel Phrases",
+      "emoji": "✈️",
+      "description": "Where, how much, I want, help"
+    },
+    {
+      "id": "u11",
+      "title": "Body & Feelings",
+      "emoji": "💪",
+      "description": "Head, hand, hungry, tired, happy, sad"
+    },
+    {
+      "id": "u12",
+      "title": "Weather & Nature",
+      "emoji": "🌦️",
+      "description": "Sun, rain, cold, hot, sky, water"
+    },
+    {
+      "id": "u13",
+      "title": "Getting Around",
+      "emoji": "🚗",
+      "description": "Car, bus, train, left, right, here, there"
+    }
+  ],
+  "alphabet": [
+    {
+      "char": "A",
+      "name": "A",
+      "sound": "ah (always)"
+    },
+    {
+      "char": "E",
+      "name": "E",
+      "sound": "eh"
+    },
+    {
+      "char": "I",
+      "name": "I",
+      "sound": "ee"
+    },
+    {
+      "char": "O",
+      "name": "O",
+      "sound": "oh"
+    },
+    {
+      "char": "U",
+      "name": "U",
+      "sound": "oo"
+    },
+    {
+      "char": "Ñ",
+      "name": "Eñe",
+      "sound": "ny (canyon)"
+    },
+    {
+      "char": "LL",
+      "name": "Doble L",
+      "sound": "y"
+    },
+    {
+      "char": "RR",
+      "name": "Doble R",
+      "sound": "rolled r"
+    },
+    {
+      "char": "J",
+      "name": "Jota",
+      "sound": "h (guttural)"
+    },
+    {
+      "char": "H",
+      "name": "Hache",
+      "sound": "silent"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "ser-estar",
+      "title": "Ser vs Estar",
+      "body": "Both mean 'to be'. Ser = permanent (I am tall). Estar = temporary (I am tired)."
+    },
+    {
+      "id": "gender",
+      "title": "Gendered nouns",
+      "body": "Every noun is masculine (el) or feminine (la). Adjectives must agree."
+    },
+    {
+      "id": "drop-subj",
+      "title": "Endings carry the subject",
+      "body": "'Hablo' already means 'I speak' — Spanish often drops 'yo'."
+    },
+    {
+      "id": "two-pasts",
+      "title": "Two past tenses",
+      "body": "Preterite (specific event) vs Imperfect (ongoing). English collapses these."
+    }
+  ],
+  "vocab": [
+    {
+      "id": "es_0001",
+      "unit": "u1",
+      "lemma": "Hola",
+      "translit": "hola",
+      "translation": "hello",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "Hola amigo",
+          "translation": "Hello friend"
+        }
+      ]
+    },
+    {
+      "id": "es_0002",
+      "unit": "u1",
+      "lemma": "Gracias",
+      "translit": "gracias",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "Muchas gracias",
+          "translation": "Thank you very much"
+        }
+      ]
+    },
+    {
+      "id": "es_0003",
+      "unit": "u1",
+      "lemma": "Por favor",
+      "translit": "por favor",
+      "translation": "please",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "Agua por favor",
+          "translation": "Water please"
+        }
+      ]
+    },
+    {
+      "id": "es_0004",
+      "unit": "u1",
+      "lemma": "Sí",
+      "translit": "si",
+      "translation": "yes",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "Sí claro",
+          "translation": "Yes of course"
+        }
+      ]
+    },
+    {
+      "id": "es_0005",
+      "unit": "u1",
+      "lemma": "No",
+      "translit": "no",
+      "translation": "no",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "No gracias",
+          "translation": "No thank you"
+        }
+      ]
+    },
+    {
+      "id": "es_0006",
+      "unit": "u1",
+      "lemma": "Adiós",
+      "translit": "adios",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Adiós hasta luego",
+          "translation": "Goodbye see you later"
+        }
+      ]
+    },
+    {
+      "id": "es_0007",
+      "unit": "u1",
+      "lemma": "Buenos días",
+      "translit": "buenos dias",
+      "translation": "good morning",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "Buenos días señor",
+          "translation": "Good morning sir"
+        }
+      ]
+    },
+    {
+      "id": "es_0008",
+      "unit": "u1",
+      "lemma": "De nada",
+      "translit": "de nada",
+      "translation": "you're welcome",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "De nada amigo",
+          "translation": "You're welcome friend"
+        }
+      ]
+    },
+    {
+      "id": "es_0009",
+      "unit": "u2",
+      "lemma": "Yo",
+      "translit": "yo",
+      "translation": "I",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "Yo soy estudiante",
+          "translation": "I am a student"
+        }
+      ]
+    },
+    {
+      "id": "es_0010",
+      "unit": "u2",
+      "lemma": "Tú",
+      "translit": "tu",
+      "translation": "you",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "Y tú",
+          "translation": "And you"
+        }
+      ]
+    },
+    {
+      "id": "es_0011",
+      "unit": "u2",
+      "lemma": "Él",
+      "translit": "el",
+      "translation": "he",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "Él es alto",
+          "translation": "He is tall"
+        }
+      ]
+    },
+    {
+      "id": "es_0012",
+      "unit": "u2",
+      "lemma": "Ella",
+      "translit": "ella",
+      "translation": "she",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "Ella es médica",
+          "translation": "She is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "es_0013",
+      "unit": "u2",
+      "lemma": "Nosotros",
+      "translit": "nosotros",
+      "translation": "we",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "Nosotros somos amigos",
+          "translation": "We are friends"
+        }
+      ]
+    },
+    {
+      "id": "es_0014",
+      "unit": "u2",
+      "lemma": "Soy",
+      "translit": "soy",
+      "translation": "I am",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 10,
+      "examples": [
+        {
+          "native": "Soy de España",
+          "translation": "I am from Spain"
+        }
+      ]
+    },
+    {
+      "id": "es_0015",
+      "unit": "u2",
+      "lemma": "Qué",
+      "translit": "que",
+      "translation": "what",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "Qué es esto",
+          "translation": "What is this"
+        }
+      ]
+    },
+    {
+      "id": "es_0016",
+      "unit": "u2",
+      "lemma": "Quién",
+      "translit": "quien",
+      "translation": "who",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "Quién es",
+          "translation": "Who is it"
+        }
+      ]
+    },
+    {
+      "id": "es_0017",
+      "unit": "u3",
+      "lemma": "Madre",
+      "translit": "madre",
+      "translation": "mother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "Mi madre",
+          "translation": "My mother"
+        }
+      ]
+    },
+    {
+      "id": "es_0018",
+      "unit": "u3",
+      "lemma": "Padre",
+      "translit": "padre",
+      "translation": "father",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "Mi padre",
+          "translation": "My father"
+        }
+      ]
+    },
+    {
+      "id": "es_0019",
+      "unit": "u3",
+      "lemma": "Hermano",
+      "translit": "hermano",
+      "translation": "brother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "Mi hermano mayor",
+          "translation": "My older brother"
+        }
+      ]
+    },
+    {
+      "id": "es_0020",
+      "unit": "u3",
+      "lemma": "Hermana",
+      "translit": "hermana",
+      "translation": "sister",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Mi hermana",
+          "translation": "My sister"
+        }
+      ]
+    },
+    {
+      "id": "es_0021",
+      "unit": "u3",
+      "lemma": "Amigo",
+      "translit": "amigo",
+      "translation": "friend",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "Mi mejor amigo",
+          "translation": "My best friend"
+        }
+      ]
+    },
+    {
+      "id": "es_0022",
+      "unit": "u3",
+      "lemma": "Hijo",
+      "translit": "hijo",
+      "translation": "son",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "Mi hijo",
+          "translation": "My son"
+        }
+      ]
+    },
+    {
+      "id": "es_0023",
+      "unit": "u3",
+      "lemma": "Hija",
+      "translit": "hija",
+      "translation": "daughter",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 57,
+      "examples": [
+        {
+          "native": "Mi hija",
+          "translation": "My daughter"
+        }
+      ]
+    },
+    {
+      "id": "es_0024",
+      "unit": "u4",
+      "lemma": "Uno",
+      "translit": "uno",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "Uno dos tres",
+          "translation": "One two three"
+        }
+      ]
+    },
+    {
+      "id": "es_0025",
+      "unit": "u4",
+      "lemma": "Dos",
+      "translit": "dos",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "Dos hermanos",
+          "translation": "Two brothers"
+        }
+      ]
+    },
+    {
+      "id": "es_0026",
+      "unit": "u4",
+      "lemma": "Tres",
+      "translit": "tres",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "Tres días",
+          "translation": "Three days"
+        }
+      ]
+    },
+    {
+      "id": "es_0027",
+      "unit": "u4",
+      "lemma": "Cuatro",
+      "translit": "cuatro",
+      "translation": "four",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "Cuatro horas",
+          "translation": "Four hours"
+        }
+      ]
+    },
+    {
+      "id": "es_0028",
+      "unit": "u4",
+      "lemma": "Cinco",
+      "translit": "cinco",
+      "translation": "five",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Cinco minutos",
+          "translation": "Five minutes"
+        }
+      ]
+    },
+    {
+      "id": "es_0029",
+      "unit": "u4",
+      "lemma": "Diez",
+      "translit": "diez",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "Diez euros",
+          "translation": "Ten euros"
+        }
+      ]
+    },
+    {
+      "id": "es_0030",
+      "unit": "u4",
+      "lemma": "Cien",
+      "translit": "cien",
+      "translation": "hundred",
+      "category": "Numbers",
+      "difficulty": 2,
+      "frequencyRank": 85,
+      "examples": [
+        {
+          "native": "Cien personas",
+          "translation": "A hundred people"
+        }
+      ]
+    },
+    {
+      "id": "es_0031",
+      "unit": "u5",
+      "lemma": "Agua",
+      "translit": "agua",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "examples": [
+        {
+          "native": "Un vaso de agua",
+          "translation": "A glass of water"
+        }
+      ]
+    },
+    {
+      "id": "es_0032",
+      "unit": "u5",
+      "lemma": "Pan",
+      "translit": "pan",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "Pan fresco",
+          "translation": "Fresh bread"
+        }
+      ]
+    },
+    {
+      "id": "es_0033",
+      "unit": "u5",
+      "lemma": "Café",
+      "translit": "cafe",
+      "translation": "coffee",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "Un café por favor",
+          "translation": "A coffee please"
+        }
+      ]
+    },
+    {
+      "id": "es_0034",
+      "unit": "u5",
+      "lemma": "Leche",
+      "translit": "leche",
+      "translation": "milk",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "Leche caliente",
+          "translation": "Hot milk"
+        }
+      ]
+    },
+    {
+      "id": "es_0035",
+      "unit": "u5",
+      "lemma": "Comida",
+      "translit": "comida",
+      "translation": "food",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "La comida está rica",
+          "translation": "The food is delicious"
+        }
+      ]
+    },
+    {
+      "id": "es_0036",
+      "unit": "u5",
+      "lemma": "Carne",
+      "translit": "carne",
+      "translation": "meat",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "Carne asada",
+          "translation": "Grilled meat"
+        }
+      ]
+    },
+    {
+      "id": "es_0037",
+      "unit": "u5",
+      "lemma": "Vino",
+      "translit": "vino",
+      "translation": "wine",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "Vino tinto",
+          "translation": "Red wine"
+        }
+      ]
+    },
+    {
+      "id": "es_0038",
+      "unit": "u5",
+      "lemma": "Cerveza",
+      "translit": "cerveza",
+      "translation": "beer",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "Una cerveza fría",
+          "translation": "A cold beer"
+        }
+      ]
+    },
+    {
+      "id": "es_0039",
+      "unit": "u5",
+      "lemma": "Manzana",
+      "translit": "manzana",
+      "translation": "apple",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 110,
+      "examples": [
+        {
+          "native": "Una manzana roja",
+          "translation": "A red apple"
+        }
+      ]
+    },
+    {
+      "id": "es_0040",
+      "unit": "u5",
+      "lemma": "Queso",
+      "translit": "queso",
+      "translation": "cheese",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 95,
+      "examples": [
+        {
+          "native": "Queso fresco",
+          "translation": "Fresh cheese"
+        }
+      ]
+    },
+    {
+      "id": "es_0041",
+      "unit": "u6",
+      "lemma": "Ir",
+      "translit": "ir",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "Voy a casa",
+          "translation": "I go home"
+        }
+      ]
+    },
+    {
+      "id": "es_0042",
+      "unit": "u6",
+      "lemma": "Comer",
+      "translit": "comer",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "Quiero comer",
+          "translation": "I want to eat"
+        }
+      ]
+    },
+    {
+      "id": "es_0043",
+      "unit": "u6",
+      "lemma": "Beber",
+      "translit": "beber",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "Beber agua",
+          "translation": "To drink water"
+        }
+      ]
+    },
+    {
+      "id": "es_0044",
+      "unit": "u6",
+      "lemma": "Hablar",
+      "translit": "hablar",
+      "translation": "to speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "Hablar español",
+          "translation": "To speak Spanish"
+        }
+      ]
+    },
+    {
+      "id": "es_0045",
+      "unit": "u6",
+      "lemma": "Tener",
+      "translit": "tener",
+      "translation": "to have",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "Tengo hambre",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "es_0046",
+      "unit": "u6",
+      "lemma": "Ser",
+      "translit": "ser",
+      "translation": "to be (permanent)",
+      "category": "Verbs",
+      "difficulty": 3,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "Soy de España",
+          "translation": "I am from Spain"
+        }
+      ]
+    },
+    {
+      "id": "es_0047",
+      "unit": "u6",
+      "lemma": "Estar",
+      "translit": "estar",
+      "translation": "to be (state)",
+      "category": "Verbs",
+      "difficulty": 3,
+      "frequencyRank": 10,
+      "examples": [
+        {
+          "native": "Estoy bien",
+          "translation": "I am well"
+        }
+      ]
+    },
+    {
+      "id": "es_0048",
+      "unit": "u6",
+      "lemma": "Hacer",
+      "translit": "hacer",
+      "translation": "to do, make",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "Hacer la cena",
+          "translation": "To make dinner"
+        }
+      ]
+    },
+    {
+      "id": "es_0049",
+      "unit": "u6",
+      "lemma": "Querer",
+      "translit": "querer",
+      "translation": "to want, love",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Te quiero",
+          "translation": "I love you"
+        }
+      ]
+    },
+    {
+      "id": "es_0050",
+      "unit": "u6",
+      "lemma": "Ver",
+      "translit": "ver",
+      "translation": "to see",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "Ver una película",
+          "translation": "To see a film"
+        }
+      ]
+    },
+    {
+      "id": "es_0051",
+      "unit": "u7",
+      "lemma": "Casa",
+      "translit": "casa",
+      "translation": "house",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "Mi casa",
+          "translation": "My house"
+        }
+      ]
+    },
+    {
+      "id": "es_0052",
+      "unit": "u7",
+      "lemma": "Escuela",
+      "translit": "escuela",
+      "translation": "school",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "Voy a la escuela",
+          "translation": "I go to school"
+        }
+      ]
+    },
+    {
+      "id": "es_0053",
+      "unit": "u7",
+      "lemma": "Ciudad",
+      "translit": "ciudad",
+      "translation": "city",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "Una ciudad grande",
+          "translation": "A big city"
+        }
+      ]
+    },
+    {
+      "id": "es_0054",
+      "unit": "u7",
+      "lemma": "Trabajo",
+      "translit": "trabajo",
+      "translation": "work, job",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 27,
+      "examples": [
+        {
+          "native": "Mucho trabajo",
+          "translation": "A lot of work"
+        }
+      ]
+    },
+    {
+      "id": "es_0055",
+      "unit": "u7",
+      "lemma": "Tienda",
+      "translit": "tienda",
+      "translation": "shop",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "La tienda está cerrada",
+          "translation": "The shop is closed"
+        }
+      ]
+    },
+    {
+      "id": "es_0056",
+      "unit": "u7",
+      "lemma": "Calle",
+      "translit": "calle",
+      "translation": "street",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "En la calle",
+          "translation": "On the street"
+        }
+      ]
+    },
+    {
+      "id": "es_0057",
+      "unit": "u7",
+      "lemma": "Restaurante",
+      "translit": "restaurante",
+      "translation": "restaurant",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "Un buen restaurante",
+          "translation": "A good restaurant"
+        }
+      ]
+    },
+    {
+      "id": "es_0058",
+      "unit": "u8",
+      "lemma": "Hoy",
+      "translit": "hoy",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "Hoy es lunes",
+          "translation": "Today is Monday"
+        }
+      ]
+    },
+    {
+      "id": "es_0059",
+      "unit": "u8",
+      "lemma": "Mañana",
+      "translit": "manana",
+      "translation": "tomorrow",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "Hasta mañana",
+          "translation": "See you tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "es_0060",
+      "unit": "u8",
+      "lemma": "Ahora",
+      "translit": "ahora",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Ahora mismo",
+          "translation": "Right now"
+        }
+      ]
+    },
+    {
+      "id": "es_0061",
+      "unit": "u8",
+      "lemma": "Día",
+      "translit": "dia",
+      "translation": "day",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "Buen día",
+          "translation": "Good day"
+        }
+      ]
+    },
+    {
+      "id": "es_0062",
+      "unit": "u8",
+      "lemma": "Noche",
+      "translit": "noche",
+      "translation": "night",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 58,
+      "examples": [
+        {
+          "native": "Buenas noches",
+          "translation": "Good night"
+        }
+      ]
+    },
+    {
+      "id": "es_0063",
+      "unit": "u8",
+      "lemma": "Tarde",
+      "translit": "tarde",
+      "translation": "afternoon, late",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "Buenas tardes",
+          "translation": "Good afternoon"
+        }
+      ]
+    },
+    {
+      "id": "es_0064",
+      "unit": "u8",
+      "lemma": "Semana",
+      "translit": "semana",
+      "translation": "week",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "Esta semana",
+          "translation": "This week"
+        }
+      ]
+    },
+    {
+      "id": "es_0065",
+      "unit": "u8",
+      "lemma": "Año",
+      "translit": "ano",
+      "translation": "year",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "Este año",
+          "translation": "This year"
+        }
+      ]
+    },
+    {
+      "id": "es_0066",
+      "unit": "u9",
+      "lemma": "Y",
+      "translit": "y",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "Tú y yo",
+          "translation": "You and I"
+        }
+      ]
+    },
+    {
+      "id": "es_0067",
+      "unit": "u9",
+      "lemma": "Pero",
+      "translit": "pero",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "Quiero pero no puedo",
+          "translation": "I want to but I can't"
+        }
+      ]
+    },
+    {
+      "id": "es_0068",
+      "unit": "u9",
+      "lemma": "Porque",
+      "translit": "porque",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 3,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Porque tengo trabajo",
+          "translation": "Because I have work"
+        }
+      ]
+    },
+    {
+      "id": "es_0069",
+      "unit": "u9",
+      "lemma": "Si",
+      "translit": "si",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 3,
+      "frequencyRank": 72,
+      "examples": [
+        {
+          "native": "Si quieres",
+          "translation": "If you want"
+        }
+      ]
+    },
+    {
+      "id": "es_0070",
+      "unit": "u9",
+      "lemma": "O",
+      "translit": "o",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "Té o café",
+          "translation": "Tea or coffee"
+        }
+      ]
+    },
+    {
+      "id": "es_0071",
+      "unit": "u9",
+      "lemma": "También",
+      "translit": "tambien",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 70,
+      "examples": [
+        {
+          "native": "Yo también",
+          "translation": "Me too"
+        }
+      ]
+    },
+    {
+      "id": "es_0072",
+      "unit": "u10",
+      "lemma": "Dónde",
+      "translit": "donde",
+      "translation": "where",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "Dónde está el baño",
+          "translation": "Where is the bathroom"
+        }
+      ]
+    },
+    {
+      "id": "es_0073",
+      "unit": "u10",
+      "lemma": "Cuánto",
+      "translit": "cuanto",
+      "translation": "how much",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "Cuánto cuesta",
+          "translation": "How much does it cost"
+        }
+      ]
+    },
+    {
+      "id": "es_0074",
+      "unit": "u10",
+      "lemma": "Ayuda",
+      "translit": "ayuda",
+      "translation": "help",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 84,
+      "examples": [
+        {
+          "native": "Necesito ayuda",
+          "translation": "I need help"
+        }
+      ]
+    },
+    {
+      "id": "es_0075",
+      "unit": "u10",
+      "lemma": "Hotel",
+      "translit": "hotel",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Un buen hotel",
+          "translation": "A good hotel"
+        }
+      ]
+    },
+    {
+      "id": "es_0076",
+      "unit": "u10",
+      "lemma": "Bien",
+      "translit": "bien",
+      "translation": "well, good",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "Estoy bien",
+          "translation": "I am well"
+        }
+      ]
+    },
+    {
+      "id": "es_0077",
+      "unit": "u10",
+      "lemma": "Mucho",
+      "translit": "mucho",
+      "translation": "a lot, much",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 19,
+      "examples": [
+        {
+          "native": "Muchas gracias",
+          "translation": "Thank you very much"
+        }
+      ]
+    },
+    {
+      "id": "es_0078",
+      "unit": "u10",
+      "lemma": "Grande",
+      "translit": "grande",
+      "translation": "big",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "Una casa grande",
+          "translation": "A big house"
+        }
+      ]
+    },
+    {
+      "id": "es_0079",
+      "unit": "u10",
+      "lemma": "Pequeño",
+      "translit": "pequeno",
+      "translation": "small",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 53,
+      "examples": [
+        {
+          "native": "Un perro pequeño",
+          "translation": "A small dog"
+        }
+      ]
+    },
+    {
+      "id": "es_0080",
+      "unit": "u4",
+      "lemma": "Seis",
+      "translit": "seis",
+      "translation": "six",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "Seis años",
+          "translation": "Six years"
+        }
+      ]
+    },
+    {
+      "id": "es_0081",
+      "unit": "u4",
+      "lemma": "Siete",
+      "translit": "siete",
+      "translation": "seven",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "Siete días",
+          "translation": "Seven days"
+        }
+      ]
+    },
+    {
+      "id": "es_0082",
+      "unit": "u4",
+      "lemma": "Ocho",
+      "translit": "ocho",
+      "translation": "eight",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 37,
+      "examples": [
+        {
+          "native": "Ocho horas",
+          "translation": "Eight hours"
+        }
+      ]
+    },
+    {
+      "id": "es_0083",
+      "unit": "u4",
+      "lemma": "Nueve",
+      "translit": "nueve",
+      "translation": "nine",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "Nueve personas",
+          "translation": "Nine people"
+        }
+      ]
+    },
+    {
+      "id": "es_0084",
+      "unit": "u5",
+      "lemma": "Huevo",
+      "translit": "huevo",
+      "translation": "egg",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 108,
+      "examples": [
+        {
+          "native": "Un huevo frito",
+          "translation": "A fried egg"
+        }
+      ]
+    },
+    {
+      "id": "es_0085",
+      "unit": "u5",
+      "lemma": "Pescado",
+      "translit": "pescado",
+      "translation": "fish",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 105,
+      "examples": [
+        {
+          "native": "Pescado fresco",
+          "translation": "Fresh fish"
+        }
+      ]
+    },
+    {
+      "id": "es_0086",
+      "unit": "u5",
+      "lemma": "Pollo",
+      "translit": "pollo",
+      "translation": "chicken",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 90,
+      "examples": [
+        {
+          "native": "Pollo asado",
+          "translation": "Roasted chicken"
+        }
+      ]
+    },
+    {
+      "id": "es_0087",
+      "unit": "u5",
+      "lemma": "Arroz",
+      "translit": "arroz",
+      "translation": "rice",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 100,
+      "examples": [
+        {
+          "native": "Arroz blanco",
+          "translation": "White rice"
+        }
+      ]
+    },
+    {
+      "id": "es_0088",
+      "unit": "u5",
+      "lemma": "Sopa",
+      "translit": "sopa",
+      "translation": "soup",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "Sopa caliente",
+          "translation": "Hot soup"
+        }
+      ]
+    },
+    {
+      "id": "es_0089",
+      "unit": "u5",
+      "lemma": "Naranja",
+      "translit": "naranja",
+      "translation": "orange",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Una naranja dulce",
+          "translation": "A sweet orange"
+        }
+      ]
+    },
+    {
+      "id": "es_0090",
+      "unit": "u6",
+      "lemma": "Caminar",
+      "translit": "caminar",
+      "translation": "to walk",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Caminar al parque",
+          "translation": "To walk to the park"
+        }
+      ]
+    },
+    {
+      "id": "es_0091",
+      "unit": "u6",
+      "lemma": "Correr",
+      "translit": "correr",
+      "translation": "to run",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Correr rápido",
+          "translation": "To run fast"
+        }
+      ]
+    },
+    {
+      "id": "es_0092",
+      "unit": "u6",
+      "lemma": "Dormir",
+      "translit": "dormir",
+      "translation": "to sleep",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 74,
+      "examples": [
+        {
+          "native": "Dormir bien",
+          "translation": "To sleep well"
+        }
+      ]
+    },
+    {
+      "id": "es_0093",
+      "unit": "u6",
+      "lemma": "Vivir",
+      "translit": "vivir",
+      "translation": "to live",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "Vivir en Madrid",
+          "translation": "To live in Madrid"
+        }
+      ]
+    },
+    {
+      "id": "es_0094",
+      "unit": "u6",
+      "lemma": "Trabajar",
+      "translit": "trabajar",
+      "translation": "to work",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "Trabajar mucho",
+          "translation": "To work a lot"
+        }
+      ]
+    },
+    {
+      "id": "es_0095",
+      "unit": "u6",
+      "lemma": "Estudiar",
+      "translit": "estudiar",
+      "translation": "to study",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "Estudiar español",
+          "translation": "To study Spanish"
+        }
+      ]
+    },
+    {
+      "id": "es_0096",
+      "unit": "u6",
+      "lemma": "Escribir",
+      "translit": "escribir",
+      "translation": "to write",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 49,
+      "examples": [
+        {
+          "native": "Escribir un libro",
+          "translation": "To write a book"
+        }
+      ]
+    },
+    {
+      "id": "es_0097",
+      "unit": "u6",
+      "lemma": "Leer",
+      "translit": "leer",
+      "translation": "to read",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "Leer un libro",
+          "translation": "To read a book"
+        }
+      ]
+    },
+    {
+      "id": "es_0098",
+      "unit": "u7",
+      "lemma": "Mercado",
+      "translit": "mercado",
+      "translation": "market",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "Ir al mercado",
+          "translation": "To go to the market"
+        }
+      ]
+    },
+    {
+      "id": "es_0099",
+      "unit": "u7",
+      "lemma": "Hospital",
+      "translit": "hospital",
+      "translation": "hospital",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 95,
+      "examples": [
+        {
+          "native": "En el hospital",
+          "translation": "In the hospital"
+        }
+      ]
+    },
+    {
+      "id": "es_0100",
+      "unit": "u7",
+      "lemma": "Aeropuerto",
+      "translit": "aeropuerto",
+      "translation": "airport",
+      "category": "Places",
+      "difficulty": 3,
+      "frequencyRank": 125,
+      "examples": [
+        {
+          "native": "En el aeropuerto",
+          "translation": "At the airport"
+        }
+      ]
+    },
+    {
+      "id": "es_0101",
+      "unit": "u8",
+      "lemma": "Hora",
+      "translit": "hora",
+      "translation": "hour",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "Una hora",
+          "translation": "One hour"
+        }
+      ]
+    },
+    {
+      "id": "es_0102",
+      "unit": "u8",
+      "lemma": "Minuto",
+      "translit": "minuto",
+      "translation": "minute",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "Cinco minutos",
+          "translation": "Five minutes"
+        }
+      ]
+    },
+    {
+      "id": "es_0103",
+      "unit": "u8",
+      "lemma": "Mes",
+      "translit": "mes",
+      "translation": "month",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "Este mes",
+          "translation": "This month"
+        }
+      ]
+    },
+    {
+      "id": "es_0104",
+      "unit": "u10",
+      "lemma": "Rojo",
+      "translit": "rojo",
+      "translation": "red",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "Vino rojo",
+          "translation": "Red wine"
+        }
+      ]
+    },
+    {
+      "id": "es_0105",
+      "unit": "u10",
+      "lemma": "Azul",
+      "translit": "azul",
+      "translation": "blue",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "Cielo azul",
+          "translation": "Blue sky"
+        }
+      ]
+    },
+    {
+      "id": "es_0106",
+      "unit": "u10",
+      "lemma": "Verde",
+      "translit": "verde",
+      "translation": "green",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 68,
+      "examples": [
+        {
+          "native": "Té verde",
+          "translation": "Green tea"
+        }
+      ]
+    },
+    {
+      "id": "es_0107",
+      "unit": "u10",
+      "lemma": "Caliente",
+      "translit": "caliente",
+      "translation": "hot",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "Café caliente",
+          "translation": "Hot coffee"
+        }
+      ]
+    },
+    {
+      "id": "es_0108",
+      "unit": "u10",
+      "lemma": "Frío",
+      "translit": "frio",
+      "translation": "cold",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "Agua fría",
+          "translation": "Cold water"
+        }
+      ]
+    },
+    {
+      "id": "es_0109",
+      "unit": "u10",
+      "lemma": "Nuevo",
+      "translit": "nuevo",
+      "translation": "new",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 51,
+      "examples": [
+        {
+          "native": "Un coche nuevo",
+          "translation": "A new car"
+        }
+      ]
+    },
+    {
+      "id": "es_0110",
+      "unit": "u11",
+      "lemma": "Cabeza",
+      "translit": "cabeza",
+      "translation": "head",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "Mi cabeza",
+          "translation": "My head"
+        }
+      ]
+    },
+    {
+      "id": "es_0111",
+      "unit": "u11",
+      "lemma": "Mano",
+      "translit": "mano",
+      "translation": "hand",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "Mano derecha",
+          "translation": "Right hand"
+        }
+      ]
+    },
+    {
+      "id": "es_0112",
+      "unit": "u11",
+      "lemma": "Ojo",
+      "translit": "ojo",
+      "translation": "eye",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Ojos grandes",
+          "translation": "Big eyes"
+        }
+      ]
+    },
+    {
+      "id": "es_0113",
+      "unit": "u11",
+      "lemma": "Hambre",
+      "translit": "hambre",
+      "translation": "hunger",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "Tengo hambre",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "es_0114",
+      "unit": "u11",
+      "lemma": "Cansado",
+      "translit": "cansado",
+      "translation": "tired",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 92,
+      "examples": [
+        {
+          "native": "Estoy cansado",
+          "translation": "I am tired"
+        }
+      ]
+    },
+    {
+      "id": "es_0115",
+      "unit": "u11",
+      "lemma": "Feliz",
+      "translit": "feliz",
+      "translation": "happy",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "Muy feliz",
+          "translation": "Very happy"
+        }
+      ]
+    },
+    {
+      "id": "es_0116",
+      "unit": "u11",
+      "lemma": "Triste",
+      "translit": "triste",
+      "translation": "sad",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 104,
+      "examples": [
+        {
+          "native": "No estés triste",
+          "translation": "Don't be sad"
+        }
+      ]
+    },
+    {
+      "id": "es_0117",
+      "unit": "u12",
+      "lemma": "Sol",
+      "translit": "sol",
+      "translation": "sun",
+      "category": "Weather",
+      "difficulty": 1,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "Mucho sol",
+          "translation": "A lot of sun"
+        }
+      ]
+    },
+    {
+      "id": "es_0118",
+      "unit": "u12",
+      "lemma": "Lluvia",
+      "translit": "lluvia",
+      "translation": "rain",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 81,
+      "examples": [
+        {
+          "native": "Mucha lluvia",
+          "translation": "Heavy rain"
+        }
+      ]
+    },
+    {
+      "id": "es_0119",
+      "unit": "u12",
+      "lemma": "Nube",
+      "translit": "nube",
+      "translation": "cloud",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 96,
+      "examples": [
+        {
+          "native": "Nubes negras",
+          "translation": "Black clouds"
+        }
+      ]
+    },
+    {
+      "id": "es_0120",
+      "unit": "u12",
+      "lemma": "Viento",
+      "translit": "viento",
+      "translation": "wind",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "Viento fresco",
+          "translation": "Cool wind"
+        }
+      ]
+    },
+    {
+      "id": "es_0121",
+      "unit": "u12",
+      "lemma": "Cielo",
+      "translit": "cielo",
+      "translation": "sky",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 86,
+      "examples": [
+        {
+          "native": "Cielo azul",
+          "translation": "Blue sky"
+        }
+      ]
+    },
+    {
+      "id": "es_0122",
+      "unit": "u13",
+      "lemma": "Coche",
+      "translit": "coche",
+      "translation": "car",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "Coche rápido",
+          "translation": "Fast car"
+        }
+      ]
+    },
+    {
+      "id": "es_0123",
+      "unit": "u13",
+      "lemma": "Autobús",
+      "translit": "autobus",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 111,
+      "examples": [
+        {
+          "native": "El autobús llegó",
+          "translation": "The bus arrived"
+        }
+      ]
+    },
+    {
+      "id": "es_0124",
+      "unit": "u13",
+      "lemma": "Tren",
+      "translit": "tren",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Tren rápido",
+          "translation": "Fast train"
+        }
+      ]
+    },
+    {
+      "id": "es_0125",
+      "unit": "u13",
+      "lemma": "Derecha",
+      "translit": "derecha",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "A la derecha",
+          "translation": "To the right"
+        }
+      ]
+    },
+    {
+      "id": "es_0126",
+      "unit": "u13",
+      "lemma": "Izquierda",
+      "translit": "izquierda",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 101,
+      "examples": [
+        {
+          "native": "A la izquierda",
+          "translation": "To the left"
+        }
+      ]
+    },
+    {
+      "id": "es_0127",
+      "unit": "u13",
+      "lemma": "Aquí",
+      "translit": "aqui",
+      "translation": "here",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "Ven aquí",
+          "translation": "Come here"
+        }
+      ]
+    },
+    {
+      "id": "es_0128",
+      "unit": "u13",
+      "lemma": "Allí",
+      "translit": "alli",
+      "translation": "there",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "Va allí",
+          "translation": "Go there"
+        }
+      ]
+    },
+    {
+      "id": "es_0129",
+      "unit": "u6",
+      "lemma": "Comprar",
+      "translit": "comprar",
+      "translation": "to buy",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "Comprar ropa",
+          "translation": "To buy clothes"
+        }
+      ]
+    },
+    {
+      "id": "es_0130",
+      "unit": "u6",
+      "lemma": "Vender",
+      "translit": "vender",
+      "translation": "to sell",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 103,
+      "examples": [
+        {
+          "native": "Vender una casa",
+          "translation": "To sell a house"
+        }
+      ]
+    },
+    {
+      "id": "es_0131",
+      "unit": "u5",
+      "lemma": "Sal",
+      "translit": "sal",
+      "translation": "salt",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "Un poco de sal",
+          "translation": "A little salt"
+        }
+      ]
+    },
+    {
+      "id": "es_0132",
+      "unit": "u5",
+      "lemma": "Azúcar",
+      "translit": "azucar",
+      "translation": "sugar",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 117,
+      "examples": [
+        {
+          "native": "Café con azúcar",
+          "translation": "Coffee with sugar"
+        }
+      ]
+    },
+    {
+      "id": "es_0133",
+      "unit": "u10",
+      "lemma": "Rápido",
+      "translit": "rapido",
+      "translation": "fast, quick",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 77,
+      "examples": [
+        {
+          "native": "Ven rápido",
+          "translation": "Come quickly"
+        }
+      ]
+    }
+  ]
+}

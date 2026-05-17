@@ -1,0 +1,1458 @@
+{
+  "schemaVersion": 6,
+  "code": "bn",
+  "categories": [
+    "Greetings",
+    "People",
+    "Family",
+    "Numbers",
+    "Food",
+    "Verbs",
+    "Places",
+    "Time",
+    "Connectors",
+    "Travel"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Say hello, goodbye, please and thank you"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and basic introductions"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, brother, sister, friend"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers 1-10",
+      "emoji": "🔢",
+      "description": "Count and use basic numbers"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Order water, bread, tea, coffee"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, eat, drink, see, speak"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "🏠",
+      "description": "House, school, market, city"
+    },
+    {
+      "id": "u8",
+      "title": "Time",
+      "emoji": "⏰",
+      "description": "Today, tomorrow, now, day, night"
+    },
+    {
+      "id": "u9",
+      "title": "Connecting Ideas",
+      "emoji": "🔗",
+      "description": "And, but, because, if, or"
+    },
+    {
+      "id": "u10",
+      "title": "Useful Phrases",
+      "emoji": "✨",
+      "description": "Big, small, hot, cold, good, more"
+    }
+  ],
+  "alphabet": [
+    {
+      "char": "অ",
+      "name": "ô",
+      "sound": "aw (as in 'awe')",
+      "group": "vowels"
+    },
+    {
+      "char": "আ",
+      "name": "a",
+      "sound": "ah (long)",
+      "group": "vowels"
+    },
+    {
+      "char": "ই",
+      "name": "i",
+      "sound": "ee (short)",
+      "group": "vowels"
+    },
+    {
+      "char": "উ",
+      "name": "u",
+      "sound": "oo (short)",
+      "group": "vowels"
+    },
+    {
+      "char": "এ",
+      "name": "e",
+      "sound": "eh",
+      "group": "vowels"
+    },
+    {
+      "char": "ও",
+      "name": "o",
+      "sound": "oh",
+      "group": "vowels"
+    },
+    {
+      "char": "ক",
+      "name": "ka",
+      "sound": "k as in 'kite'",
+      "group": "consonants_1"
+    },
+    {
+      "char": "খ",
+      "name": "kha",
+      "sound": "kh (aspirated k)",
+      "group": "consonants_1"
+    },
+    {
+      "char": "গ",
+      "name": "ga",
+      "sound": "g as in 'go'",
+      "group": "consonants_1"
+    },
+    {
+      "char": "চ",
+      "name": "cha",
+      "sound": "ch as in 'chair'",
+      "group": "consonants_1"
+    },
+    {
+      "char": "জ",
+      "name": "ja",
+      "sound": "j as in 'jump'",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ত",
+      "name": "ta",
+      "sound": "t (soft, like 'th' in 'thin')",
+      "group": "consonants_2"
+    },
+    {
+      "char": "দ",
+      "name": "da",
+      "sound": "d (soft)",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ন",
+      "name": "na",
+      "sound": "n as in 'no'",
+      "group": "consonants_2"
+    },
+    {
+      "char": "প",
+      "name": "pa",
+      "sound": "p as in 'pen'",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ব",
+      "name": "ba",
+      "sound": "b as in 'boy'",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ম",
+      "name": "ma",
+      "sound": "m as in 'mom'",
+      "group": "consonants_2"
+    },
+    {
+      "char": "র",
+      "name": "ra",
+      "sound": "r (rolled lightly)",
+      "group": "consonants_3"
+    },
+    {
+      "char": "ল",
+      "name": "la",
+      "sound": "l as in 'love'",
+      "group": "consonants_3"
+    },
+    {
+      "char": "শ",
+      "name": "sha",
+      "sound": "sh as in 'shoe'",
+      "group": "consonants_3"
+    },
+    {
+      "char": "স",
+      "name": "sa",
+      "sound": "s as in 'see'",
+      "group": "consonants_3"
+    },
+    {
+      "char": "হ",
+      "name": "ha",
+      "sound": "h as in 'hello'",
+      "group": "consonants_3"
+    },
+    {
+      "char": "য়",
+      "name": "yô",
+      "sound": "y as in 'yes'",
+      "group": "consonants_3"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "sov",
+      "title": "Word order: SOV",
+      "body": "Bengali puts the verb at the END. 'I rice eat' instead of 'I eat rice'. The same pattern as Hindi and Urdu — once you master one, the others click faster."
+    },
+    {
+      "id": "honorifics",
+      "title": "Three levels of 'you'",
+      "body": "তুই (intimate/close), তুমি (familiar), আপনি (formal). Use তুই only with very close friends or younger family — using it with a stranger is rude."
+    },
+    {
+      "id": "no-gender",
+      "title": "No grammatical gender",
+      "body": "Unlike Urdu and Hindi, Bengali nouns don't have gender. সে means both 'he' and 'she'. Major simplification compared to its sister languages."
+    },
+    {
+      "id": "phonetic",
+      "title": "Bangla script is phonetic",
+      "body": "Each letter represents one sound. Once you learn the script (about 50 characters), you can pronounce ANY Bengali word — no spelling chaos like English."
+    }
+  ],
+  "vocab": [
+    {
+      "id": "bn_0001",
+      "unit": "u1",
+      "lemma": "নমস্কার",
+      "translit": "nomoshkar",
+      "pronunciation": "nom-OSH-kar",
+      "translation": "hello (formal)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "নমস্কার বন্ধু",
+          "translation": "Hello friend"
+        }
+      ]
+    },
+    {
+      "id": "bn_0002",
+      "unit": "u1",
+      "lemma": "আসসালামু আলাইকুম",
+      "translit": "assalamu alaikum",
+      "pronunciation": "as-sah-LAH-moo ah-LAI-koom",
+      "translation": "peace be upon you",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "আসসালামু আলাইকুম ভাই",
+          "translation": "Peace be upon you brother"
+        }
+      ]
+    },
+    {
+      "id": "bn_0003",
+      "unit": "u1",
+      "lemma": "ধন্যবাদ",
+      "translit": "dhonnobad",
+      "pronunciation": "DOHN-noh-bad",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "অনেক ধন্যবাদ",
+          "translation": "Thank you very much"
+        }
+      ]
+    },
+    {
+      "id": "bn_0004",
+      "unit": "u1",
+      "lemma": "হ্যাঁ",
+      "translit": "hyan",
+      "pronunciation": "HEN (nasal)",
+      "translation": "yes",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "হ্যাঁ অবশ্যই",
+          "translation": "Yes of course"
+        }
+      ]
+    },
+    {
+      "id": "bn_0005",
+      "unit": "u1",
+      "lemma": "না",
+      "translit": "na",
+      "pronunciation": "NAH",
+      "translation": "no",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "না ধন্যবাদ",
+          "translation": "No thank you"
+        }
+      ]
+    },
+    {
+      "id": "bn_0006",
+      "unit": "u1",
+      "lemma": "বিদায়",
+      "translit": "biday",
+      "pronunciation": "bih-DAI",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "বিদায় বন্ধু",
+          "translation": "Goodbye friend"
+        }
+      ]
+    },
+    {
+      "id": "bn_0007",
+      "unit": "u1",
+      "lemma": "দুঃখিত",
+      "translit": "dukkhito",
+      "pronunciation": "DOOK-kee-toh",
+      "translation": "sorry",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "আমি দুঃখিত",
+          "translation": "I am sorry"
+        }
+      ]
+    },
+    {
+      "id": "bn_0008",
+      "unit": "u1",
+      "lemma": "দয়া করে",
+      "translit": "doya kore",
+      "pronunciation": "DOH-yah KOH-reh",
+      "translation": "please",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "দয়া করে বসুন",
+          "translation": "Please sit"
+        }
+      ]
+    },
+    {
+      "id": "bn_0009",
+      "unit": "u2",
+      "lemma": "আমি",
+      "translit": "ami",
+      "pronunciation": "AH-mee",
+      "translation": "I, me",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "আমি ছাত্র",
+          "translation": "I am a student"
+        }
+      ]
+    },
+    {
+      "id": "bn_0010",
+      "unit": "u2",
+      "lemma": "তুমি",
+      "translit": "tumi",
+      "pronunciation": "TOO-mee",
+      "translation": "you (familiar)",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "তুমি কেমন আছ",
+          "translation": "How are you"
+        }
+      ]
+    },
+    {
+      "id": "bn_0011",
+      "unit": "u2",
+      "lemma": "আপনি",
+      "translit": "apni",
+      "pronunciation": "AHP-nee",
+      "translation": "you (formal)",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "আপনি কোথায় থাকেন",
+          "translation": "Where do you live"
+        }
+      ]
+    },
+    {
+      "id": "bn_0012",
+      "unit": "u2",
+      "lemma": "সে",
+      "translit": "she",
+      "pronunciation": "SHEH",
+      "translation": "he, she",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "সে ডাক্তার",
+          "translation": "He is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "bn_0013",
+      "unit": "u2",
+      "lemma": "আমরা",
+      "translit": "amra",
+      "pronunciation": "AHM-rah",
+      "translation": "we, us",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "আমরা বন্ধু",
+          "translation": "We are friends"
+        }
+      ]
+    },
+    {
+      "id": "bn_0014",
+      "unit": "u2",
+      "lemma": "কী",
+      "translit": "ki",
+      "pronunciation": "KEE",
+      "translation": "what",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "এটা কী",
+          "translation": "What is this"
+        }
+      ]
+    },
+    {
+      "id": "bn_0015",
+      "unit": "u2",
+      "lemma": "কে",
+      "translit": "ke",
+      "pronunciation": "KEH",
+      "translation": "who",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "সে কে",
+          "translation": "Who is he"
+        }
+      ]
+    },
+    {
+      "id": "bn_0016",
+      "unit": "u3",
+      "lemma": "মা",
+      "translit": "ma",
+      "pronunciation": "MAH",
+      "translation": "mother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "আমার মা",
+          "translation": "My mother"
+        }
+      ]
+    },
+    {
+      "id": "bn_0017",
+      "unit": "u3",
+      "lemma": "বাবা",
+      "translit": "baba",
+      "pronunciation": "BAH-bah",
+      "translation": "father",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "আমার বাবা",
+          "translation": "My father"
+        }
+      ]
+    },
+    {
+      "id": "bn_0018",
+      "unit": "u3",
+      "lemma": "ভাই",
+      "translit": "bhai",
+      "pronunciation": "buh-HAI",
+      "translation": "brother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "আমার ভাই",
+          "translation": "My brother"
+        }
+      ]
+    },
+    {
+      "id": "bn_0019",
+      "unit": "u3",
+      "lemma": "বোন",
+      "translit": "bon",
+      "pronunciation": "BOAN",
+      "translation": "sister",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "আমার বোন",
+          "translation": "My sister"
+        }
+      ]
+    },
+    {
+      "id": "bn_0020",
+      "unit": "u3",
+      "lemma": "বন্ধু",
+      "translit": "bondhu",
+      "pronunciation": "BOAN-doo",
+      "translation": "friend",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "ভালো বন্ধু",
+          "translation": "Good friend"
+        }
+      ]
+    },
+    {
+      "id": "bn_0021",
+      "unit": "u3",
+      "lemma": "ছেলে",
+      "translit": "chele",
+      "pronunciation": "CHEH-leh",
+      "translation": "boy, son",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "ছোট ছেলে",
+          "translation": "Small boy"
+        }
+      ]
+    },
+    {
+      "id": "bn_0022",
+      "unit": "u3",
+      "lemma": "মেয়ে",
+      "translit": "meye",
+      "pronunciation": "MAY-eh",
+      "translation": "girl, daughter",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 57,
+      "examples": [
+        {
+          "native": "আমার মেয়ে",
+          "translation": "My daughter"
+        }
+      ]
+    },
+    {
+      "id": "bn_0023",
+      "unit": "u4",
+      "lemma": "এক",
+      "translit": "ek",
+      "pronunciation": "AYK",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "এক বই",
+          "translation": "One book"
+        }
+      ]
+    },
+    {
+      "id": "bn_0024",
+      "unit": "u4",
+      "lemma": "দুই",
+      "translit": "dui",
+      "pronunciation": "DOO-ee",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "দুই ভাই",
+          "translation": "Two brothers"
+        }
+      ]
+    },
+    {
+      "id": "bn_0025",
+      "unit": "u4",
+      "lemma": "তিন",
+      "translit": "tin",
+      "pronunciation": "TEEN",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "তিন দিন",
+          "translation": "Three days"
+        }
+      ]
+    },
+    {
+      "id": "bn_0026",
+      "unit": "u4",
+      "lemma": "চার",
+      "translit": "char",
+      "pronunciation": "CHAR",
+      "translation": "four",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "চার ঘণ্টা",
+          "translation": "Four hours"
+        }
+      ]
+    },
+    {
+      "id": "bn_0027",
+      "unit": "u4",
+      "lemma": "পাঁচ",
+      "translit": "panch",
+      "pronunciation": "PAANCH (nasal)",
+      "translation": "five",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "পাঁচ মিনিট",
+          "translation": "Five minutes"
+        }
+      ]
+    },
+    {
+      "id": "bn_0028",
+      "unit": "u4",
+      "lemma": "দশ",
+      "translit": "dosh",
+      "pronunciation": "DOASH",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "দশ টাকা",
+          "translation": "Ten taka"
+        }
+      ]
+    },
+    {
+      "id": "bn_0029",
+      "unit": "u4",
+      "lemma": "একশ",
+      "translit": "eksho",
+      "pronunciation": "AYK-shoh",
+      "translation": "hundred",
+      "category": "Numbers",
+      "difficulty": 2,
+      "frequencyRank": 85,
+      "examples": [
+        {
+          "native": "একশ টাকা",
+          "translation": "One hundred taka"
+        }
+      ]
+    },
+    {
+      "id": "bn_0030",
+      "unit": "u5",
+      "lemma": "পানি",
+      "translit": "pani",
+      "pronunciation": "PAH-nee",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "examples": [
+        {
+          "native": "এক গ্লাস পানি",
+          "translation": "A glass of water"
+        }
+      ]
+    },
+    {
+      "id": "bn_0031",
+      "unit": "u5",
+      "lemma": "ভাত",
+      "translit": "bhat",
+      "pronunciation": "BHAAT",
+      "translation": "rice (cooked)",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "গরম ভাত",
+          "translation": "Hot rice"
+        }
+      ]
+    },
+    {
+      "id": "bn_0032",
+      "unit": "u5",
+      "lemma": "রুটি",
+      "translit": "ruti",
+      "pronunciation": "ROO-tee",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "রুটি খাও",
+          "translation": "Eat bread"
+        }
+      ]
+    },
+    {
+      "id": "bn_0033",
+      "unit": "u5",
+      "lemma": "চা",
+      "translit": "cha",
+      "pronunciation": "CHAH",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "এক কাপ চা",
+          "translation": "A cup of tea"
+        }
+      ]
+    },
+    {
+      "id": "bn_0034",
+      "unit": "u5",
+      "lemma": "দুধ",
+      "translit": "dudh",
+      "pronunciation": "DOODH",
+      "translation": "milk",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "গরম দুধ",
+          "translation": "Hot milk"
+        }
+      ]
+    },
+    {
+      "id": "bn_0035",
+      "unit": "u5",
+      "lemma": "মাছ",
+      "translit": "mach",
+      "pronunciation": "MAACH",
+      "translation": "fish",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "তাজা মাছ",
+          "translation": "Fresh fish"
+        }
+      ]
+    },
+    {
+      "id": "bn_0036",
+      "unit": "u5",
+      "lemma": "মাংস",
+      "translit": "mangsho",
+      "pronunciation": "MAANG-shoh",
+      "translation": "meat",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "মুরগির মাংস",
+          "translation": "Chicken meat"
+        }
+      ]
+    },
+    {
+      "id": "bn_0037",
+      "unit": "u5",
+      "lemma": "খাবার",
+      "translit": "khabar",
+      "pronunciation": "KHAH-bar",
+      "translation": "food",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "মজার খাবার",
+          "translation": "Tasty food"
+        }
+      ]
+    },
+    {
+      "id": "bn_0038",
+      "unit": "u6",
+      "lemma": "যাওয়া",
+      "translit": "jaowa",
+      "pronunciation": "JAH-oh-ah",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "বাড়ি যাওয়া",
+          "translation": "To go home"
+        }
+      ]
+    },
+    {
+      "id": "bn_0039",
+      "unit": "u6",
+      "lemma": "আসা",
+      "translit": "asha",
+      "pronunciation": "AH-shah",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "কাল আসা",
+          "translation": "To come tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "bn_0040",
+      "unit": "u6",
+      "lemma": "খাওয়া",
+      "translit": "khaowa",
+      "pronunciation": "KHAH-oh-ah",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "ভাত খাওয়া",
+          "translation": "To eat rice"
+        }
+      ]
+    },
+    {
+      "id": "bn_0041",
+      "unit": "u6",
+      "lemma": "পান করা",
+      "translit": "pan kora",
+      "pronunciation": "PAHN KOH-rah",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "পানি পান করা",
+          "translation": "To drink water"
+        }
+      ]
+    },
+    {
+      "id": "bn_0042",
+      "unit": "u6",
+      "lemma": "দেখা",
+      "translit": "dekha",
+      "pronunciation": "DEH-khah",
+      "translation": "to see",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "সিনেমা দেখা",
+          "translation": "To watch a movie"
+        }
+      ]
+    },
+    {
+      "id": "bn_0043",
+      "unit": "u6",
+      "lemma": "বলা",
+      "translit": "bola",
+      "pronunciation": "BOH-lah",
+      "translation": "to say, speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "বাংলা বলা",
+          "translation": "To speak Bengali"
+        }
+      ]
+    },
+    {
+      "id": "bn_0044",
+      "unit": "u6",
+      "lemma": "পড়া",
+      "translit": "pora",
+      "pronunciation": "POH-rah",
+      "translation": "to read, study",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "বই পড়া",
+          "translation": "To read a book"
+        }
+      ]
+    },
+    {
+      "id": "bn_0045",
+      "unit": "u6",
+      "lemma": "করা",
+      "translit": "kora",
+      "pronunciation": "KOH-rah",
+      "translation": "to do",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "কাজ করা",
+          "translation": "To do work"
+        }
+      ]
+    },
+    {
+      "id": "bn_0046",
+      "unit": "u7",
+      "lemma": "বাড়ি",
+      "translit": "bari",
+      "pronunciation": "BAH-ree",
+      "translation": "house, home",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "আমার বাড়ি",
+          "translation": "My house"
+        }
+      ]
+    },
+    {
+      "id": "bn_0047",
+      "unit": "u7",
+      "lemma": "স্কুল",
+      "translit": "school",
+      "pronunciation": "SKOOL",
+      "translation": "school",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "স্কুলে যাওয়া",
+          "translation": "To go to school"
+        }
+      ]
+    },
+    {
+      "id": "bn_0048",
+      "unit": "u7",
+      "lemma": "বাজার",
+      "translit": "bajar",
+      "pronunciation": "buh-ZAR",
+      "translation": "market",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 70,
+      "examples": [
+        {
+          "native": "বাজার যাওয়া",
+          "translation": "To go to the market"
+        }
+      ]
+    },
+    {
+      "id": "bn_0049",
+      "unit": "u7",
+      "lemma": "শহর",
+      "translit": "shohor",
+      "pronunciation": "SHOH-hor",
+      "translation": "city",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "বড় শহর",
+          "translation": "Big city"
+        }
+      ]
+    },
+    {
+      "id": "bn_0050",
+      "unit": "u7",
+      "lemma": "হাসপাতাল",
+      "translit": "haspatal",
+      "pronunciation": "HAS-pah-tal",
+      "translation": "hospital",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 95,
+      "examples": [
+        {
+          "native": "হাসপাতালে",
+          "translation": "At the hospital"
+        }
+      ]
+    },
+    {
+      "id": "bn_0051",
+      "unit": "u7",
+      "lemma": "দোকান",
+      "translit": "dokan",
+      "pronunciation": "DOH-kahn",
+      "translation": "shop, store",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "ছোট দোকান",
+          "translation": "Small shop"
+        }
+      ]
+    },
+    {
+      "id": "bn_0052",
+      "unit": "u8",
+      "lemma": "আজ",
+      "translit": "aaj",
+      "pronunciation": "AHJ",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "আজকের দিন",
+          "translation": "Today"
+        }
+      ]
+    },
+    {
+      "id": "bn_0053",
+      "unit": "u8",
+      "lemma": "কাল",
+      "translit": "kal",
+      "pronunciation": "KAHL",
+      "translation": "yesterday, tomorrow",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "কাল দেখা হবে",
+          "translation": "See you tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "bn_0054",
+      "unit": "u8",
+      "lemma": "এখন",
+      "translit": "ekhon",
+      "pronunciation": "EH-khon",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "এখন আসো",
+          "translation": "Come now"
+        }
+      ]
+    },
+    {
+      "id": "bn_0055",
+      "unit": "u8",
+      "lemma": "দিন",
+      "translit": "din",
+      "pronunciation": "DEEN",
+      "translation": "day",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "ভালো দিন",
+          "translation": "Good day"
+        }
+      ]
+    },
+    {
+      "id": "bn_0056",
+      "unit": "u8",
+      "lemma": "রাত",
+      "translit": "raat",
+      "pronunciation": "RAAT",
+      "translation": "night",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 58,
+      "examples": [
+        {
+          "native": "শুভ রাত্রি",
+          "translation": "Good night"
+        }
+      ]
+    },
+    {
+      "id": "bn_0057",
+      "unit": "u8",
+      "lemma": "সকাল",
+      "translit": "shokal",
+      "pronunciation": "SHOH-kal",
+      "translation": "morning",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 63,
+      "examples": [
+        {
+          "native": "শুভ সকাল",
+          "translation": "Good morning"
+        }
+      ]
+    },
+    {
+      "id": "bn_0058",
+      "unit": "u8",
+      "lemma": "সন্ধ্যা",
+      "translit": "shondhya",
+      "pronunciation": "SHON-dhah",
+      "translation": "evening",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 67,
+      "examples": [
+        {
+          "native": "শুভ সন্ধ্যা",
+          "translation": "Good evening"
+        }
+      ]
+    },
+    {
+      "id": "bn_0059",
+      "unit": "u9",
+      "lemma": "এবং",
+      "translit": "ebong",
+      "pronunciation": "EH-bong",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "তুমি এবং আমি",
+          "translation": "You and me"
+        }
+      ]
+    },
+    {
+      "id": "bn_0060",
+      "unit": "u9",
+      "lemma": "কিন্তু",
+      "translit": "kintu",
+      "pronunciation": "KIN-too",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "যাব কিন্তু দেরিতে",
+          "translation": "I'll go but late"
+        }
+      ]
+    },
+    {
+      "id": "bn_0061",
+      "unit": "u9",
+      "lemma": "কারণ",
+      "translit": "karon",
+      "pronunciation": "KAH-ron",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 3,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "কারণ আমি ব্যস্ত",
+          "translation": "Because I am busy"
+        }
+      ]
+    },
+    {
+      "id": "bn_0062",
+      "unit": "u9",
+      "lemma": "যদি",
+      "translit": "jodi",
+      "pronunciation": "JOH-dee",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 3,
+      "frequencyRank": 72,
+      "examples": [
+        {
+          "native": "যদি তুমি আস",
+          "translation": "If you come"
+        }
+      ]
+    },
+    {
+      "id": "bn_0063",
+      "unit": "u9",
+      "lemma": "অথবা",
+      "translit": "othoba",
+      "pronunciation": "OH-tho-bah",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "চা অথবা কফি",
+          "translation": "Tea or coffee"
+        }
+      ]
+    },
+    {
+      "id": "bn_0064",
+      "unit": "u10",
+      "lemma": "কোথায়",
+      "translit": "kothay",
+      "pronunciation": "KOH-thai",
+      "translation": "where",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "তুমি কোথায়",
+          "translation": "Where are you"
+        }
+      ]
+    },
+    {
+      "id": "bn_0065",
+      "unit": "u10",
+      "lemma": "কত",
+      "translit": "koto",
+      "pronunciation": "KOH-toh",
+      "translation": "how much, how many",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "কত টাকা",
+          "translation": "How much money"
+        }
+      ]
+    },
+    {
+      "id": "bn_0066",
+      "unit": "u10",
+      "lemma": "সাহায্য",
+      "translit": "shahajjo",
+      "pronunciation": "shah-HAHJ-joh",
+      "translation": "help",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 84,
+      "examples": [
+        {
+          "native": "সাহায্য চাই",
+          "translation": "I need help"
+        }
+      ]
+    },
+    {
+      "id": "bn_0067",
+      "unit": "u10",
+      "lemma": "ভালো",
+      "translit": "bhalo",
+      "pronunciation": "BHAH-loh",
+      "translation": "good",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "খুব ভালো",
+          "translation": "Very good"
+        }
+      ]
+    },
+    {
+      "id": "bn_0068",
+      "unit": "u10",
+      "lemma": "বড়",
+      "translit": "boro",
+      "pronunciation": "BOH-roh",
+      "translation": "big",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "বড় বাড়ি",
+          "translation": "Big house"
+        }
+      ]
+    },
+    {
+      "id": "bn_0069",
+      "unit": "u10",
+      "lemma": "ছোট",
+      "translit": "choto",
+      "pronunciation": "CHOH-toh",
+      "translation": "small",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 53,
+      "examples": [
+        {
+          "native": "ছোট কুকুর",
+          "translation": "Small dog"
+        }
+      ]
+    },
+    {
+      "id": "bn_0070",
+      "unit": "u10",
+      "lemma": "নতুন",
+      "translit": "notun",
+      "pronunciation": "NOH-toon",
+      "translation": "new",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 51,
+      "examples": [
+        {
+          "native": "নতুন বই",
+          "translation": "New book"
+        }
+      ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "vowels",
+      "title": "Vowels",
+      "emoji": "🅰️",
+      "description": "The 6 main vowel sounds"
+    },
+    {
+      "id": "consonants_1",
+      "title": "Consonants part 1",
+      "emoji": "🔤",
+      "description": "k, kh, g, ch, j"
+    },
+    {
+      "id": "consonants_2",
+      "title": "Consonants part 2",
+      "emoji": "🔡",
+      "description": "t, d, n, p, b, m"
+    },
+    {
+      "id": "consonants_3",
+      "title": "Consonants part 3",
+      "emoji": "🔠",
+      "description": "r, l, sh, s, h, y"
+    }
+  ]
+}

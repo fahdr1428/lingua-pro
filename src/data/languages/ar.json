@@ -1,0 +1,1004 @@
+{
+  "schemaVersion": 7,
+  "code": "ar",
+  "categories": [
+    "Greetings",
+    "People",
+    "Food",
+    "Numbers",
+    "Verbs",
+    "Places",
+    "Time"
+  ],
+  "alphabet": [
+    {
+      "char": "ا",
+      "name": "Alif",
+      "sound": "ah",
+      "group": "basics"
+    },
+    {
+      "char": "ب",
+      "name": "Ba",
+      "sound": "b",
+      "group": "basics"
+    },
+    {
+      "char": "ت",
+      "name": "Ta",
+      "sound": "t",
+      "group": "basics"
+    },
+    {
+      "char": "ث",
+      "name": "Tha",
+      "sound": "th",
+      "group": "basics"
+    },
+    {
+      "char": "ج",
+      "name": "Jeem",
+      "sound": "j",
+      "group": "common"
+    },
+    {
+      "char": "ح",
+      "name": "Ha",
+      "sound": "h (deep)",
+      "group": "tricky"
+    },
+    {
+      "char": "د",
+      "name": "Dal",
+      "sound": "d",
+      "group": "common"
+    },
+    {
+      "char": "ر",
+      "name": "Ra",
+      "sound": "r",
+      "group": "common"
+    },
+    {
+      "char": "س",
+      "name": "Seen",
+      "sound": "s",
+      "group": "common"
+    },
+    {
+      "char": "ش",
+      "name": "Sheen",
+      "sound": "sh",
+      "group": "common"
+    },
+    {
+      "char": "ع",
+      "name": "Ayn",
+      "sound": "deep 'ah'",
+      "group": "tricky"
+    },
+    {
+      "char": "ق",
+      "name": "Qaf",
+      "sound": "deep k",
+      "group": "tricky"
+    },
+    {
+      "char": "ك",
+      "name": "Kaf",
+      "sound": "k",
+      "group": "tricky"
+    },
+    {
+      "char": "ل",
+      "name": "Lam",
+      "sound": "l",
+      "group": "common"
+    },
+    {
+      "char": "م",
+      "name": "Meem",
+      "sound": "m",
+      "group": "common"
+    },
+    {
+      "char": "ن",
+      "name": "Noon",
+      "sound": "n",
+      "group": "common"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "roots",
+      "title": "Root system: 3 letters carry meaning",
+      "body": "Most words come from 3-letter roots. K-T-B → kitab (book), katib (writer), maktab (office), maktaba (library). Learn roots and vocabulary explodes."
+    },
+    {
+      "id": "rtl",
+      "title": "Reads right to left",
+      "body": "Letters change shape based on position (start/middle/end of word). Same letter, four forms. Practice writing — it cements recognition."
+    },
+    {
+      "id": "no-be",
+      "title": "No 'is' in present tense",
+      "body": "'The house big' = the house IS big. The verb 'to be' simply isn't used in the present. Cleaner than English."
+    },
+    {
+      "id": "diglossia",
+      "title": "Diglossia: written ≠ spoken",
+      "body": "Modern Standard Arabic (MSA) is for news and books. Each region has its own dialect for daily life. Start with MSA."
+    }
+  ],
+  "vocab": [
+    {
+      "id": "ar_0001",
+      "lemma": "مرحبا",
+      "translit": "marhaba",
+      "translation": "hello",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "tags": [
+        "greeting"
+      ],
+      "examples": [
+        {
+          "native": "مرحبا صديقي",
+          "translation": "Hello my friend"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "MAR-hah-bah"
+    },
+    {
+      "id": "ar_0002",
+      "lemma": "شكرا",
+      "translit": "shukran",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "tags": [
+        "greeting"
+      ],
+      "examples": [
+        {
+          "native": "شكرا جزيلا",
+          "translation": "Thank you very much"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "SHOOK-ran"
+    },
+    {
+      "id": "ar_0003",
+      "lemma": "نعم",
+      "translit": "naam",
+      "translation": "yes",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "tags": [
+        "basic"
+      ],
+      "examples": [
+        {
+          "native": "نعم بالتأكيد",
+          "translation": "Yes certainly"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "nah-AHM"
+    },
+    {
+      "id": "ar_0004",
+      "lemma": "لا",
+      "translit": "la",
+      "translation": "no",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "tags": [
+        "basic"
+      ],
+      "examples": [
+        {
+          "native": "لا شكرا",
+          "translation": "No thank you"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "LAH"
+    },
+    {
+      "id": "ar_0005",
+      "lemma": "مع السلامة",
+      "translit": "maa salama",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 25,
+      "tags": [
+        "greeting"
+      ],
+      "examples": [
+        {
+          "native": "مع السلامة",
+          "translation": "Goodbye"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "mah sah-LAH-mah"
+    },
+    {
+      "id": "ar_0006",
+      "lemma": "السلام عليكم",
+      "translit": "as-salamu alaykum",
+      "translation": "peace be upon you",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 15,
+      "tags": [
+        "greeting",
+        "formal"
+      ],
+      "examples": [
+        {
+          "native": "السلام عليكم ورحمة الله",
+          "translation": "Peace and mercy upon you"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "ah-sah-LAH-moo ah-LAY-koom"
+    },
+    {
+      "id": "ar_0007",
+      "lemma": "أنا",
+      "translit": "ana",
+      "translation": "I",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "tags": [
+        "pronoun"
+      ],
+      "examples": [
+        {
+          "native": "أنا طالب",
+          "translation": "I am a student"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "AH-nah"
+    },
+    {
+      "id": "ar_0008",
+      "lemma": "أنت",
+      "translit": "anta",
+      "translation": "you",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "tags": [
+        "pronoun"
+      ],
+      "examples": [
+        {
+          "native": "كيف حالك",
+          "translation": "How are you"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "AN-tah"
+    },
+    {
+      "id": "ar_0009",
+      "lemma": "أم",
+      "translit": "umm",
+      "translation": "mother",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "tags": [
+        "family"
+      ],
+      "examples": [
+        {
+          "native": "أمي",
+          "translation": "My mother"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "OOM"
+    },
+    {
+      "id": "ar_0010",
+      "lemma": "أب",
+      "translit": "ab",
+      "translation": "father",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "tags": [
+        "family"
+      ],
+      "examples": [
+        {
+          "native": "أبي",
+          "translation": "My father"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "AHB"
+    },
+    {
+      "id": "ar_0011",
+      "lemma": "صديق",
+      "translit": "sadeeq",
+      "translation": "friend",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "tags": [
+        "social"
+      ],
+      "examples": [
+        {
+          "native": "صديقي العزيز",
+          "translation": "My dear friend"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "sah-DEEK"
+    },
+    {
+      "id": "ar_0012",
+      "lemma": "ماء",
+      "translit": "maa",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "tags": [
+        "essential"
+      ],
+      "examples": [
+        {
+          "native": "كأس من الماء",
+          "translation": "A glass of water"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "MAH"
+    },
+    {
+      "id": "ar_0013",
+      "lemma": "خبز",
+      "translit": "khubz",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "tags": [
+        "essential"
+      ],
+      "examples": [
+        {
+          "native": "خبز طازج",
+          "translation": "Fresh bread"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "KHOOBZ"
+    },
+    {
+      "id": "ar_0014",
+      "lemma": "قهوة",
+      "translit": "qahwa",
+      "translation": "coffee",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "tags": [
+        "drink"
+      ],
+      "examples": [
+        {
+          "native": "قهوة عربية",
+          "translation": "Arabic coffee"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "KAH-wah"
+    },
+    {
+      "id": "ar_0015",
+      "lemma": "شاي",
+      "translit": "shay",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 35,
+      "tags": [
+        "drink"
+      ],
+      "examples": [
+        {
+          "native": "شاي بالنعناع",
+          "translation": "Mint tea"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "SHAI"
+    },
+    {
+      "id": "ar_0016",
+      "lemma": "واحد",
+      "translit": "wahid",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "واحد اثنان",
+          "translation": "One two"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "WAH-hid"
+    },
+    {
+      "id": "ar_0017",
+      "lemma": "اثنان",
+      "translit": "ithnan",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "اثنان من الكتب",
+          "translation": "Two books"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "ith-NAHN"
+    },
+    {
+      "id": "ar_0018",
+      "lemma": "ثلاثة",
+      "translit": "thalatha",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "ثلاثة أيام",
+          "translation": "Three days"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "thah-LAH-thah"
+    },
+    {
+      "id": "ar_0019",
+      "lemma": "عشرة",
+      "translit": "ashara",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "عشرة دنانير",
+          "translation": "Ten dinars"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "ah-SHA-rah"
+    },
+    {
+      "id": "ar_0020",
+      "lemma": "يذهب",
+      "translit": "yadhhab",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 12,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "أذهب إلى البيت",
+          "translation": "I go home"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "YAHD-hab"
+    },
+    {
+      "id": "ar_0021",
+      "lemma": "يأكل",
+      "translit": "yakul",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 24,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "آكل الخبز",
+          "translation": "I eat bread"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "YAH-kool"
+    },
+    {
+      "id": "ar_0022",
+      "lemma": "يشرب",
+      "translit": "yashrab",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "أشرب الماء",
+          "translation": "I drink water"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "YASH-rab"
+    },
+    {
+      "id": "ar_0023",
+      "lemma": "يتكلم",
+      "translit": "yatakallam",
+      "translation": "to speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 31,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "أتكلم العربية",
+          "translation": "I speak Arabic"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "yah-tah-KAH-lam"
+    },
+    {
+      "id": "ar_0024",
+      "lemma": "بيت",
+      "translit": "bayt",
+      "translation": "house",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "tags": [
+        "place"
+      ],
+      "examples": [
+        {
+          "native": "بيتي",
+          "translation": "My house"
+        }
+      ],
+      "unit": "u7",
+      "pronunciation": "BAYT"
+    },
+    {
+      "id": "ar_0025",
+      "lemma": "مدرسة",
+      "translit": "madrasa",
+      "translation": "school",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 46,
+      "tags": [
+        "place"
+      ],
+      "examples": [
+        {
+          "native": "أذهب إلى المدرسة",
+          "translation": "I go to school"
+        }
+      ],
+      "unit": "u7",
+      "pronunciation": "MAD-rah-sah"
+    },
+    {
+      "id": "ar_0026",
+      "lemma": "اليوم",
+      "translit": "al-yawm",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 26,
+      "tags": [
+        "time"
+      ],
+      "examples": [
+        {
+          "native": "اليوم جميل",
+          "translation": "Today is beautiful"
+        }
+      ],
+      "unit": "u8",
+      "pronunciation": "ahl-YAWM"
+    },
+    {
+      "id": "ar_0027",
+      "lemma": "غدا",
+      "translit": "ghadan",
+      "translation": "tomorrow",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 36,
+      "tags": [
+        "time"
+      ],
+      "examples": [
+        {
+          "native": "إلى الغد",
+          "translation": "See you tomorrow"
+        }
+      ],
+      "unit": "u8",
+      "pronunciation": "GHAH-dahn"
+    },
+    {
+      "id": "ar_0028",
+      "unit": "u3",
+      "lemma": "أخت",
+      "translit": "ukht",
+      "pronunciation": "OOKHT",
+      "translation": "sister",
+      "category": "Family",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "أختي",
+          "translation": "My sister"
+        }
+      ]
+    },
+    {
+      "id": "ar_0029",
+      "unit": "u3",
+      "lemma": "أخ",
+      "translit": "akh",
+      "pronunciation": "AKH",
+      "translation": "brother",
+      "category": "Family",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "أخي",
+          "translation": "My brother"
+        }
+      ]
+    },
+    {
+      "id": "ar_0030",
+      "unit": "u9",
+      "lemma": "سعيد",
+      "translit": "saeed",
+      "pronunciation": "sah-EED",
+      "translation": "happy",
+      "category": "Feelings",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "أنا سعيد",
+          "translation": "I am happy"
+        }
+      ]
+    },
+    {
+      "id": "ar_0031",
+      "unit": "u9",
+      "lemma": "تعبان",
+      "translit": "taban",
+      "pronunciation": "tah-BAAN",
+      "translation": "tired",
+      "category": "Feelings",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "أنا تعبان",
+          "translation": "I am tired"
+        }
+      ]
+    },
+    {
+      "id": "ar_0032",
+      "unit": "u9",
+      "lemma": "جوعان",
+      "translit": "jouan",
+      "pronunciation": "joo-AAN",
+      "translation": "hungry",
+      "category": "Feelings",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "أنا جوعان",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "ar_0033",
+      "unit": "u9",
+      "lemma": "جيد",
+      "translit": "jayyid",
+      "pronunciation": "JAH-yid",
+      "translation": "good",
+      "category": "Feelings",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "جيد جداً",
+          "translation": "Very good"
+        }
+      ]
+    },
+    {
+      "id": "ar_0034",
+      "unit": "u10",
+      "lemma": "من فضلك",
+      "translit": "min fadlik",
+      "pronunciation": "min FAD-lik",
+      "translation": "please",
+      "category": "Useful",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "ماء من فضلك",
+          "translation": "Water please"
+        }
+      ]
+    },
+    {
+      "id": "ar_0035",
+      "unit": "u10",
+      "lemma": "آسف",
+      "translit": "aasif",
+      "pronunciation": "AH-sif",
+      "translation": "sorry",
+      "category": "Useful",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "أنا آسف",
+          "translation": "I am sorry"
+        }
+      ]
+    },
+    {
+      "id": "ar_0036",
+      "unit": "u10",
+      "lemma": "كبير",
+      "translit": "kabeer",
+      "pronunciation": "kah-BEER",
+      "translation": "big",
+      "category": "Useful",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "بيت كبير",
+          "translation": "Big house"
+        }
+      ]
+    },
+    {
+      "id": "ar_0037",
+      "unit": "u10",
+      "lemma": "صغير",
+      "translit": "sagheer",
+      "pronunciation": "sah-GHEER",
+      "translation": "small",
+      "category": "Useful",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "كتاب صغير",
+          "translation": "Small book"
+        }
+      ]
+    },
+    {
+      "id": "ar_0038",
+      "unit": "u11",
+      "lemma": "هنا",
+      "translit": "huna",
+      "pronunciation": "HOO-nah",
+      "translation": "here",
+      "category": "Places",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "تعال هنا",
+          "translation": "Come here"
+        }
+      ]
+    },
+    {
+      "id": "ar_0039",
+      "unit": "u11",
+      "lemma": "هناك",
+      "translit": "hunak",
+      "pronunciation": "hoo-NAAK",
+      "translation": "there",
+      "category": "Places",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "اذهب هناك",
+          "translation": "Go there"
+        }
+      ]
+    },
+    {
+      "id": "ar_0040",
+      "unit": "u5",
+      "lemma": "حليب",
+      "translit": "haleeb",
+      "pronunciation": "hah-LEEB",
+      "translation": "milk",
+      "category": "Food",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "حليب بارد",
+          "translation": "Cold milk"
+        }
+      ]
+    },
+    {
+      "id": "ar_0041",
+      "unit": "u2",
+      "lemma": "اسم",
+      "translit": "ism",
+      "pronunciation": "ISM",
+      "translation": "name",
+      "category": "About You",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ما اسمك؟",
+          "translation": "What is your name?"
+        }
+      ]
+    },
+    {
+      "id": "ar_0042",
+      "unit": "u8",
+      "lemma": "غداً",
+      "translit": "ghadan",
+      "pronunciation": "GHAH-dan",
+      "translation": "tomorrow",
+      "category": "Time",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "أراك غداً",
+          "translation": "See you tomorrow"
+        }
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Say hello, goodbye, please and thank you"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and basic introductions"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, sister, brother"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers 1-10",
+      "emoji": "🔢",
+      "description": "Count and use basic numbers"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Order water, bread, tea, coffee"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, eat, drink, see, speak"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "🏠",
+      "description": "House, school, market, city"
+    },
+    {
+      "id": "u8",
+      "title": "Time",
+      "emoji": "⏰",
+      "description": "Today, tomorrow, now, day, night"
+    },
+    {
+      "id": "u9",
+      "title": "Feelings",
+      "emoji": "💛",
+      "description": "Happy, tired, hungry, good"
+    },
+    {
+      "id": "u10",
+      "title": "Useful Words",
+      "emoji": "✨",
+      "description": "Yes, no, please, sorry, big, small"
+    },
+    {
+      "id": "u11",
+      "title": "Getting Around",
+      "emoji": "🚗",
+      "description": "Here, there, left, right, water"
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "basics",
+      "title": "Starter letters",
+      "emoji": "🅰️",
+      "description": "Alif, Ba, Ta, Tha — your first letters"
+    },
+    {
+      "id": "common",
+      "title": "Common consonants",
+      "emoji": "🔤",
+      "description": "Jeem, Dal, Ra, Seen, Sheen, Lam, Meem, Noon"
+    },
+    {
+      "id": "tricky",
+      "title": "Distinctive sounds",
+      "emoji": "👄",
+      "description": "Ha, Ayn, Qaf, Kaf — uniquely Arabic"
+    }
+  ]
+}

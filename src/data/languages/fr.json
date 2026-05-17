@@ -1,0 +1,2236 @@
+{
+  "schemaVersion": 5,
+  "code": "fr",
+  "categories": [
+    "Greetings",
+    "People",
+    "Family",
+    "Numbers",
+    "Food",
+    "Verbs",
+    "Places",
+    "Time",
+    "Connectors",
+    "Travel"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Say hello, goodbye, please and thank you"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and basic introductions"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, brother, sister, friend"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers 1-10",
+      "emoji": "🔢",
+      "description": "Count and use basic numbers"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Order water, bread, tea, coffee"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, eat, drink, see, speak"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "🏠",
+      "description": "House, school, market, city"
+    },
+    {
+      "id": "u8",
+      "title": "Time",
+      "emoji": "⏰",
+      "description": "Today, tomorrow, now, day, night"
+    },
+    {
+      "id": "u9",
+      "title": "Connecting Ideas",
+      "emoji": "🔗",
+      "description": "And, but, because, if, or"
+    },
+    {
+      "id": "u10",
+      "title": "Travel Phrases",
+      "emoji": "✈️",
+      "description": "Where, how much, I want, help"
+    },
+    {
+      "id": "u11",
+      "title": "Body & Feelings",
+      "emoji": "💪",
+      "description": "Head, hand, hungry, tired, happy, sad"
+    },
+    {
+      "id": "u12",
+      "title": "Weather & Nature",
+      "emoji": "🌦️",
+      "description": "Sun, rain, cold, hot, sky, water"
+    },
+    {
+      "id": "u13",
+      "title": "Getting Around",
+      "emoji": "🚗",
+      "description": "Car, bus, train, left, right, here, there"
+    }
+  ],
+  "alphabet": [
+    {
+      "char": "A",
+      "name": "A",
+      "sound": "ah"
+    },
+    {
+      "char": "É",
+      "name": "E aigu",
+      "sound": "ay"
+    },
+    {
+      "char": "È",
+      "name": "E grave",
+      "sound": "eh"
+    },
+    {
+      "char": "Ç",
+      "name": "C cédille",
+      "sound": "s"
+    },
+    {
+      "char": "OU",
+      "name": "OU",
+      "sound": "oo"
+    },
+    {
+      "char": "EU",
+      "name": "EU",
+      "sound": "uh (rounded)"
+    },
+    {
+      "char": "AN",
+      "name": "AN",
+      "sound": "ahn (nasal)"
+    },
+    {
+      "char": "ON",
+      "name": "ON",
+      "sound": "ohn (nasal)"
+    },
+    {
+      "char": "IN",
+      "name": "IN",
+      "sound": "ahn (nasal)"
+    },
+    {
+      "char": "R",
+      "name": "R",
+      "sound": "guttural"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "gender",
+      "title": "Two genders, two articles",
+      "body": "Le (m) and la (f). Memorise gender WITH each new noun."
+    },
+    {
+      "id": "liaison",
+      "title": "Liaison",
+      "body": "Final consonants are silent UNLESS the next word starts with a vowel."
+    },
+    {
+      "id": "nasal",
+      "title": "Nasal vowels",
+      "body": "An, on, in, un — air through the nose, no final 'n' sound."
+    },
+    {
+      "id": "tu-vous",
+      "title": "Tu vs Vous",
+      "body": "Tu = friends. Vous = strangers, elders, professionals. When unsure, use vous."
+    }
+  ],
+  "vocab": [
+    {
+      "id": "fr_0001",
+      "unit": "u1",
+      "lemma": "Bonjour",
+      "translit": "bonjour",
+      "translation": "hello, good day",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "Bonjour madame",
+          "translation": "Hello ma'am"
+        }
+      ]
+    },
+    {
+      "id": "fr_0002",
+      "unit": "u1",
+      "lemma": "Merci",
+      "translit": "merci",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "Merci beaucoup",
+          "translation": "Thank you very much"
+        }
+      ]
+    },
+    {
+      "id": "fr_0003",
+      "unit": "u1",
+      "lemma": "S'il vous plaît",
+      "translit": "sil vous plait",
+      "translation": "please",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "Un café s'il vous plaît",
+          "translation": "A coffee please"
+        }
+      ]
+    },
+    {
+      "id": "fr_0004",
+      "unit": "u1",
+      "lemma": "Oui",
+      "translit": "oui",
+      "translation": "yes",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "Oui bien sûr",
+          "translation": "Yes of course"
+        }
+      ]
+    },
+    {
+      "id": "fr_0005",
+      "unit": "u1",
+      "lemma": "Non",
+      "translit": "non",
+      "translation": "no",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "Non merci",
+          "translation": "No thank you"
+        }
+      ]
+    },
+    {
+      "id": "fr_0006",
+      "unit": "u1",
+      "lemma": "Au revoir",
+      "translit": "au revoir",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Au revoir à bientôt",
+          "translation": "Goodbye see you soon"
+        }
+      ]
+    },
+    {
+      "id": "fr_0007",
+      "unit": "u1",
+      "lemma": "Bonsoir",
+      "translit": "bonsoir",
+      "translation": "good evening",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "Bonsoir monsieur",
+          "translation": "Good evening sir"
+        }
+      ]
+    },
+    {
+      "id": "fr_0008",
+      "unit": "u1",
+      "lemma": "Salut",
+      "translit": "salut",
+      "translation": "hi, bye (casual)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "Salut mon ami",
+          "translation": "Hi my friend"
+        }
+      ]
+    },
+    {
+      "id": "fr_0009",
+      "unit": "u2",
+      "lemma": "Je",
+      "translit": "je",
+      "translation": "I",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "Je suis étudiant",
+          "translation": "I am a student"
+        }
+      ]
+    },
+    {
+      "id": "fr_0010",
+      "unit": "u2",
+      "lemma": "Tu",
+      "translit": "tu",
+      "translation": "you (informal)",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "Et toi",
+          "translation": "And you"
+        }
+      ]
+    },
+    {
+      "id": "fr_0011",
+      "unit": "u2",
+      "lemma": "Vous",
+      "translit": "vous",
+      "translation": "you (formal)",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "Vous êtes ici",
+          "translation": "You are here"
+        }
+      ]
+    },
+    {
+      "id": "fr_0012",
+      "unit": "u2",
+      "lemma": "Il",
+      "translit": "il",
+      "translation": "he",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "Il est grand",
+          "translation": "He is tall"
+        }
+      ]
+    },
+    {
+      "id": "fr_0013",
+      "unit": "u2",
+      "lemma": "Elle",
+      "translit": "elle",
+      "translation": "she",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "Elle est médecin",
+          "translation": "She is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "fr_0014",
+      "unit": "u2",
+      "lemma": "Nous",
+      "translit": "nous",
+      "translation": "we",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "Nous sommes amis",
+          "translation": "We are friends"
+        }
+      ]
+    },
+    {
+      "id": "fr_0015",
+      "unit": "u2",
+      "lemma": "Quoi",
+      "translit": "quoi",
+      "translation": "what",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "Quoi de neuf",
+          "translation": "What's new"
+        }
+      ]
+    },
+    {
+      "id": "fr_0016",
+      "unit": "u2",
+      "lemma": "Qui",
+      "translit": "qui",
+      "translation": "who",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "Qui es-tu",
+          "translation": "Who are you"
+        }
+      ]
+    },
+    {
+      "id": "fr_0017",
+      "unit": "u3",
+      "lemma": "Mère",
+      "translit": "mere",
+      "translation": "mother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "Ma mère",
+          "translation": "My mother"
+        }
+      ]
+    },
+    {
+      "id": "fr_0018",
+      "unit": "u3",
+      "lemma": "Père",
+      "translit": "pere",
+      "translation": "father",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "Mon père",
+          "translation": "My father"
+        }
+      ]
+    },
+    {
+      "id": "fr_0019",
+      "unit": "u3",
+      "lemma": "Frère",
+      "translit": "frere",
+      "translation": "brother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "Mon grand frère",
+          "translation": "My older brother"
+        }
+      ]
+    },
+    {
+      "id": "fr_0020",
+      "unit": "u3",
+      "lemma": "Sœur",
+      "translit": "soeur",
+      "translation": "sister",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Ma sœur",
+          "translation": "My sister"
+        }
+      ]
+    },
+    {
+      "id": "fr_0021",
+      "unit": "u3",
+      "lemma": "Ami",
+      "translit": "ami",
+      "translation": "friend",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "Mon meilleur ami",
+          "translation": "My best friend"
+        }
+      ]
+    },
+    {
+      "id": "fr_0022",
+      "unit": "u3",
+      "lemma": "Fils",
+      "translit": "fis",
+      "translation": "son",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "Mon fils",
+          "translation": "My son"
+        }
+      ]
+    },
+    {
+      "id": "fr_0023",
+      "unit": "u3",
+      "lemma": "Fille",
+      "translit": "fij",
+      "translation": "daughter, girl",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "Ma fille",
+          "translation": "My daughter"
+        }
+      ]
+    },
+    {
+      "id": "fr_0024",
+      "unit": "u4",
+      "lemma": "Un",
+      "translit": "un",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "Un café",
+          "translation": "One coffee"
+        }
+      ]
+    },
+    {
+      "id": "fr_0025",
+      "unit": "u4",
+      "lemma": "Deux",
+      "translit": "deu",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "Deux frères",
+          "translation": "Two brothers"
+        }
+      ]
+    },
+    {
+      "id": "fr_0026",
+      "unit": "u4",
+      "lemma": "Trois",
+      "translit": "trwa",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "Trois jours",
+          "translation": "Three days"
+        }
+      ]
+    },
+    {
+      "id": "fr_0027",
+      "unit": "u4",
+      "lemma": "Quatre",
+      "translit": "katr",
+      "translation": "four",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "Quatre heures",
+          "translation": "Four hours"
+        }
+      ]
+    },
+    {
+      "id": "fr_0028",
+      "unit": "u4",
+      "lemma": "Cinq",
+      "translit": "sank",
+      "translation": "five",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Cinq minutes",
+          "translation": "Five minutes"
+        }
+      ]
+    },
+    {
+      "id": "fr_0029",
+      "unit": "u4",
+      "lemma": "Dix",
+      "translit": "dis",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "Dix euros",
+          "translation": "Ten euros"
+        }
+      ]
+    },
+    {
+      "id": "fr_0030",
+      "unit": "u4",
+      "lemma": "Cent",
+      "translit": "san",
+      "translation": "hundred",
+      "category": "Numbers",
+      "difficulty": 2,
+      "frequencyRank": 85,
+      "examples": [
+        {
+          "native": "Cent personnes",
+          "translation": "A hundred people"
+        }
+      ]
+    },
+    {
+      "id": "fr_0031",
+      "unit": "u5",
+      "lemma": "Eau",
+      "translit": "o",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 20,
+      "examples": [
+        {
+          "native": "Un verre d'eau",
+          "translation": "A glass of water"
+        }
+      ]
+    },
+    {
+      "id": "fr_0032",
+      "unit": "u5",
+      "lemma": "Pain",
+      "translit": "pan",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "Pain frais",
+          "translation": "Fresh bread"
+        }
+      ]
+    },
+    {
+      "id": "fr_0033",
+      "unit": "u5",
+      "lemma": "Café",
+      "translit": "cafe",
+      "translation": "coffee",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "Un café noir",
+          "translation": "A black coffee"
+        }
+      ]
+    },
+    {
+      "id": "fr_0034",
+      "unit": "u5",
+      "lemma": "Vin",
+      "translit": "van",
+      "translation": "wine",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "Du vin rouge",
+          "translation": "Red wine"
+        }
+      ]
+    },
+    {
+      "id": "fr_0035",
+      "unit": "u5",
+      "lemma": "Fromage",
+      "translit": "fromage",
+      "translation": "cheese",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "Du bon fromage",
+          "translation": "Good cheese"
+        }
+      ]
+    },
+    {
+      "id": "fr_0036",
+      "unit": "u5",
+      "lemma": "Lait",
+      "translit": "le",
+      "translation": "milk",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "Lait chaud",
+          "translation": "Hot milk"
+        }
+      ]
+    },
+    {
+      "id": "fr_0037",
+      "unit": "u5",
+      "lemma": "Bière",
+      "translit": "bier",
+      "translation": "beer",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 90,
+      "examples": [
+        {
+          "native": "Une bière fraîche",
+          "translation": "A cold beer"
+        }
+      ]
+    },
+    {
+      "id": "fr_0038",
+      "unit": "u5",
+      "lemma": "Pomme",
+      "translit": "pom",
+      "translation": "apple",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Une pomme rouge",
+          "translation": "A red apple"
+        }
+      ]
+    },
+    {
+      "id": "fr_0039",
+      "unit": "u6",
+      "lemma": "Aller",
+      "translit": "ale",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "Je vais à la maison",
+          "translation": "I go home"
+        }
+      ]
+    },
+    {
+      "id": "fr_0040",
+      "unit": "u6",
+      "lemma": "Manger",
+      "translit": "manje",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "Je veux manger",
+          "translation": "I want to eat"
+        }
+      ]
+    },
+    {
+      "id": "fr_0041",
+      "unit": "u6",
+      "lemma": "Boire",
+      "translit": "bwar",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "Boire de l'eau",
+          "translation": "To drink water"
+        }
+      ]
+    },
+    {
+      "id": "fr_0042",
+      "unit": "u6",
+      "lemma": "Parler",
+      "translit": "parle",
+      "translation": "to speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "Parler français",
+          "translation": "To speak French"
+        }
+      ]
+    },
+    {
+      "id": "fr_0043",
+      "unit": "u6",
+      "lemma": "Avoir",
+      "translit": "avwar",
+      "translation": "to have",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "J'ai faim",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "fr_0044",
+      "unit": "u6",
+      "lemma": "Être",
+      "translit": "etr",
+      "translation": "to be",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "Je suis ici",
+          "translation": "I am here"
+        }
+      ]
+    },
+    {
+      "id": "fr_0045",
+      "unit": "u6",
+      "lemma": "Faire",
+      "translit": "fer",
+      "translation": "to do, make",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "Faire du sport",
+          "translation": "To do sports"
+        }
+      ]
+    },
+    {
+      "id": "fr_0046",
+      "unit": "u6",
+      "lemma": "Voir",
+      "translit": "vwar",
+      "translation": "to see",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "Voir un film",
+          "translation": "To see a film"
+        }
+      ]
+    },
+    {
+      "id": "fr_0047",
+      "unit": "u7",
+      "lemma": "Maison",
+      "translit": "mezon",
+      "translation": "house",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "Ma maison",
+          "translation": "My house"
+        }
+      ]
+    },
+    {
+      "id": "fr_0048",
+      "unit": "u7",
+      "lemma": "École",
+      "translit": "ekol",
+      "translation": "school",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "Aller à l'école",
+          "translation": "To go to school"
+        }
+      ]
+    },
+    {
+      "id": "fr_0049",
+      "unit": "u7",
+      "lemma": "Ville",
+      "translit": "vil",
+      "translation": "city",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "Une grande ville",
+          "translation": "A big city"
+        }
+      ]
+    },
+    {
+      "id": "fr_0050",
+      "unit": "u7",
+      "lemma": "Travail",
+      "translit": "travay",
+      "translation": "work",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 27,
+      "examples": [
+        {
+          "native": "Beaucoup de travail",
+          "translation": "A lot of work"
+        }
+      ]
+    },
+    {
+      "id": "fr_0051",
+      "unit": "u7",
+      "lemma": "Magasin",
+      "translit": "magazan",
+      "translation": "shop",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "Un grand magasin",
+          "translation": "A big shop"
+        }
+      ]
+    },
+    {
+      "id": "fr_0052",
+      "unit": "u7",
+      "lemma": "Rue",
+      "translit": "ru",
+      "translation": "street",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "Dans la rue",
+          "translation": "In the street"
+        }
+      ]
+    },
+    {
+      "id": "fr_0053",
+      "unit": "u7",
+      "lemma": "Restaurant",
+      "translit": "restoran",
+      "translation": "restaurant",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "Un bon restaurant",
+          "translation": "A good restaurant"
+        }
+      ]
+    },
+    {
+      "id": "fr_0054",
+      "unit": "u8",
+      "lemma": "Aujourd'hui",
+      "translit": "ojourdwi",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "Aujourd'hui c'est lundi",
+          "translation": "Today is Monday"
+        }
+      ]
+    },
+    {
+      "id": "fr_0055",
+      "unit": "u8",
+      "lemma": "Demain",
+      "translit": "deman",
+      "translation": "tomorrow",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "À demain",
+          "translation": "See you tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "fr_0056",
+      "unit": "u8",
+      "lemma": "Maintenant",
+      "translit": "mantenan",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Pas maintenant",
+          "translation": "Not now"
+        }
+      ]
+    },
+    {
+      "id": "fr_0057",
+      "unit": "u8",
+      "lemma": "Jour",
+      "translit": "jour",
+      "translation": "day",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "Bon jour",
+          "translation": "Good day"
+        }
+      ]
+    },
+    {
+      "id": "fr_0058",
+      "unit": "u8",
+      "lemma": "Nuit",
+      "translit": "nwi",
+      "translation": "night",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 58,
+      "examples": [
+        {
+          "native": "Bonne nuit",
+          "translation": "Good night"
+        }
+      ]
+    },
+    {
+      "id": "fr_0059",
+      "unit": "u8",
+      "lemma": "Matin",
+      "translit": "matan",
+      "translation": "morning",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 67,
+      "examples": [
+        {
+          "native": "Bon matin",
+          "translation": "Good morning"
+        }
+      ]
+    },
+    {
+      "id": "fr_0060",
+      "unit": "u8",
+      "lemma": "Soir",
+      "translit": "swar",
+      "translation": "evening",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "Ce soir",
+          "translation": "This evening"
+        }
+      ]
+    },
+    {
+      "id": "fr_0061",
+      "unit": "u8",
+      "lemma": "Semaine",
+      "translit": "semen",
+      "translation": "week",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "Cette semaine",
+          "translation": "This week"
+        }
+      ]
+    },
+    {
+      "id": "fr_0062",
+      "unit": "u9",
+      "lemma": "Et",
+      "translit": "e",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "Toi et moi",
+          "translation": "You and I"
+        }
+      ]
+    },
+    {
+      "id": "fr_0063",
+      "unit": "u9",
+      "lemma": "Mais",
+      "translit": "me",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "Je veux mais je ne peux pas",
+          "translation": "I want to but I can't"
+        }
+      ]
+    },
+    {
+      "id": "fr_0064",
+      "unit": "u9",
+      "lemma": "Parce que",
+      "translit": "pars ke",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 3,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Parce que je travaille",
+          "translation": "Because I work"
+        }
+      ]
+    },
+    {
+      "id": "fr_0065",
+      "unit": "u9",
+      "lemma": "Si",
+      "translit": "si",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 3,
+      "frequencyRank": 72,
+      "examples": [
+        {
+          "native": "Si tu veux",
+          "translation": "If you want"
+        }
+      ]
+    },
+    {
+      "id": "fr_0066",
+      "unit": "u9",
+      "lemma": "Ou",
+      "translit": "ou",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "Thé ou café",
+          "translation": "Tea or coffee"
+        }
+      ]
+    },
+    {
+      "id": "fr_0067",
+      "unit": "u9",
+      "lemma": "Aussi",
+      "translit": "osi",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 70,
+      "examples": [
+        {
+          "native": "Moi aussi",
+          "translation": "Me too"
+        }
+      ]
+    },
+    {
+      "id": "fr_0068",
+      "unit": "u10",
+      "lemma": "Où",
+      "translit": "u",
+      "translation": "where",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "Où est la gare",
+          "translation": "Where is the station"
+        }
+      ]
+    },
+    {
+      "id": "fr_0069",
+      "unit": "u10",
+      "lemma": "Combien",
+      "translit": "konbjan",
+      "translation": "how much",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "Combien ça coûte",
+          "translation": "How much does it cost"
+        }
+      ]
+    },
+    {
+      "id": "fr_0070",
+      "unit": "u10",
+      "lemma": "Aide",
+      "translit": "ed",
+      "translation": "help",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 84,
+      "examples": [
+        {
+          "native": "J'ai besoin d'aide",
+          "translation": "I need help"
+        }
+      ]
+    },
+    {
+      "id": "fr_0071",
+      "unit": "u10",
+      "lemma": "Hôtel",
+      "translit": "otel",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Un bon hôtel",
+          "translation": "A good hotel"
+        }
+      ]
+    },
+    {
+      "id": "fr_0072",
+      "unit": "u10",
+      "lemma": "Bien",
+      "translit": "bjan",
+      "translation": "well, good",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "Très bien",
+          "translation": "Very good"
+        }
+      ]
+    },
+    {
+      "id": "fr_0073",
+      "unit": "u10",
+      "lemma": "Beaucoup",
+      "translit": "boku",
+      "translation": "a lot, much",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 19,
+      "examples": [
+        {
+          "native": "Merci beaucoup",
+          "translation": "Thank you very much"
+        }
+      ]
+    },
+    {
+      "id": "fr_0074",
+      "unit": "u10",
+      "lemma": "Grand",
+      "translit": "gran",
+      "translation": "big",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "Une grande maison",
+          "translation": "A big house"
+        }
+      ]
+    },
+    {
+      "id": "fr_0075",
+      "unit": "u10",
+      "lemma": "Petit",
+      "translit": "pti",
+      "translation": "small",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 53,
+      "examples": [
+        {
+          "native": "Un petit chien",
+          "translation": "A small dog"
+        }
+      ]
+    },
+    {
+      "id": "fr_0076",
+      "unit": "u4",
+      "lemma": "Six",
+      "translit": "sis",
+      "translation": "six",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "Six ans",
+          "translation": "Six years"
+        }
+      ]
+    },
+    {
+      "id": "fr_0077",
+      "unit": "u4",
+      "lemma": "Sept",
+      "translit": "set",
+      "translation": "seven",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "Sept jours",
+          "translation": "Seven days"
+        }
+      ]
+    },
+    {
+      "id": "fr_0078",
+      "unit": "u4",
+      "lemma": "Huit",
+      "translit": "wit",
+      "translation": "eight",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 37,
+      "examples": [
+        {
+          "native": "Huit heures",
+          "translation": "Eight hours"
+        }
+      ]
+    },
+    {
+      "id": "fr_0079",
+      "unit": "u4",
+      "lemma": "Neuf",
+      "translit": "nuf",
+      "translation": "nine",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "Neuf personnes",
+          "translation": "Nine people"
+        }
+      ]
+    },
+    {
+      "id": "fr_0080",
+      "unit": "u5",
+      "lemma": "Œuf",
+      "translit": "uf",
+      "translation": "egg",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 108,
+      "examples": [
+        {
+          "native": "Un œuf frais",
+          "translation": "A fresh egg"
+        }
+      ]
+    },
+    {
+      "id": "fr_0081",
+      "unit": "u5",
+      "lemma": "Poisson",
+      "translit": "pwason",
+      "translation": "fish",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 105,
+      "examples": [
+        {
+          "native": "Poisson grillé",
+          "translation": "Grilled fish"
+        }
+      ]
+    },
+    {
+      "id": "fr_0082",
+      "unit": "u5",
+      "lemma": "Poulet",
+      "translit": "pule",
+      "translation": "chicken",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 90,
+      "examples": [
+        {
+          "native": "Poulet rôti",
+          "translation": "Roasted chicken"
+        }
+      ]
+    },
+    {
+      "id": "fr_0083",
+      "unit": "u5",
+      "lemma": "Riz",
+      "translit": "ri",
+      "translation": "rice",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 100,
+      "examples": [
+        {
+          "native": "Riz blanc",
+          "translation": "White rice"
+        }
+      ]
+    },
+    {
+      "id": "fr_0084",
+      "unit": "u5",
+      "lemma": "Soupe",
+      "translit": "sup",
+      "translation": "soup",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "Soupe chaude",
+          "translation": "Hot soup"
+        }
+      ]
+    },
+    {
+      "id": "fr_0085",
+      "unit": "u5",
+      "lemma": "Orange",
+      "translit": "oranj",
+      "translation": "orange",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Une orange",
+          "translation": "An orange"
+        }
+      ]
+    },
+    {
+      "id": "fr_0086",
+      "unit": "u6",
+      "lemma": "Marcher",
+      "translit": "marshe",
+      "translation": "to walk",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Marcher au parc",
+          "translation": "To walk to the park"
+        }
+      ]
+    },
+    {
+      "id": "fr_0087",
+      "unit": "u6",
+      "lemma": "Courir",
+      "translit": "kurir",
+      "translation": "to run",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Courir vite",
+          "translation": "To run fast"
+        }
+      ]
+    },
+    {
+      "id": "fr_0088",
+      "unit": "u6",
+      "lemma": "Dormir",
+      "translit": "dormir",
+      "translation": "to sleep",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 74,
+      "examples": [
+        {
+          "native": "Dormir bien",
+          "translation": "To sleep well"
+        }
+      ]
+    },
+    {
+      "id": "fr_0089",
+      "unit": "u6",
+      "lemma": "Vivre",
+      "translit": "vivr",
+      "translation": "to live",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "Vivre à Paris",
+          "translation": "To live in Paris"
+        }
+      ]
+    },
+    {
+      "id": "fr_0090",
+      "unit": "u6",
+      "lemma": "Travailler",
+      "translit": "travaye",
+      "translation": "to work",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "Travailler dur",
+          "translation": "To work hard"
+        }
+      ]
+    },
+    {
+      "id": "fr_0091",
+      "unit": "u6",
+      "lemma": "Étudier",
+      "translit": "etudie",
+      "translation": "to study",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "Étudier le français",
+          "translation": "To study French"
+        }
+      ]
+    },
+    {
+      "id": "fr_0092",
+      "unit": "u6",
+      "lemma": "Écrire",
+      "translit": "ekrir",
+      "translation": "to write",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 49,
+      "examples": [
+        {
+          "native": "Écrire un livre",
+          "translation": "To write a book"
+        }
+      ]
+    },
+    {
+      "id": "fr_0093",
+      "unit": "u6",
+      "lemma": "Lire",
+      "translit": "lir",
+      "translation": "to read",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "Lire un livre",
+          "translation": "To read a book"
+        }
+      ]
+    },
+    {
+      "id": "fr_0094",
+      "unit": "u7",
+      "lemma": "Marché",
+      "translit": "marshe",
+      "translation": "market",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "Aller au marché",
+          "translation": "To go to the market"
+        }
+      ]
+    },
+    {
+      "id": "fr_0095",
+      "unit": "u7",
+      "lemma": "Hôpital",
+      "translit": "opital",
+      "translation": "hospital",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 95,
+      "examples": [
+        {
+          "native": "À l'hôpital",
+          "translation": "At the hospital"
+        }
+      ]
+    },
+    {
+      "id": "fr_0096",
+      "unit": "u7",
+      "lemma": "Aéroport",
+      "translit": "aeropor",
+      "translation": "airport",
+      "category": "Places",
+      "difficulty": 3,
+      "frequencyRank": 125,
+      "examples": [
+        {
+          "native": "À l'aéroport",
+          "translation": "At the airport"
+        }
+      ]
+    },
+    {
+      "id": "fr_0097",
+      "unit": "u8",
+      "lemma": "Heure",
+      "translit": "er",
+      "translation": "hour",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "Une heure",
+          "translation": "One hour"
+        }
+      ]
+    },
+    {
+      "id": "fr_0098",
+      "unit": "u8",
+      "lemma": "Minute",
+      "translit": "minut",
+      "translation": "minute",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "Cinq minutes",
+          "translation": "Five minutes"
+        }
+      ]
+    },
+    {
+      "id": "fr_0099",
+      "unit": "u8",
+      "lemma": "Mois",
+      "translit": "mwa",
+      "translation": "month",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "Ce mois",
+          "translation": "This month"
+        }
+      ]
+    },
+    {
+      "id": "fr_0100",
+      "unit": "u8",
+      "lemma": "Année",
+      "translit": "ane",
+      "translation": "year",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "Cette année",
+          "translation": "This year"
+        }
+      ]
+    },
+    {
+      "id": "fr_0101",
+      "unit": "u10",
+      "lemma": "Rouge",
+      "translit": "ruj",
+      "translation": "red",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "Vin rouge",
+          "translation": "Red wine"
+        }
+      ]
+    },
+    {
+      "id": "fr_0102",
+      "unit": "u10",
+      "lemma": "Bleu",
+      "translit": "blo",
+      "translation": "blue",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "Ciel bleu",
+          "translation": "Blue sky"
+        }
+      ]
+    },
+    {
+      "id": "fr_0103",
+      "unit": "u10",
+      "lemma": "Vert",
+      "translit": "ver",
+      "translation": "green",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 68,
+      "examples": [
+        {
+          "native": "Thé vert",
+          "translation": "Green tea"
+        }
+      ]
+    },
+    {
+      "id": "fr_0104",
+      "unit": "u10",
+      "lemma": "Chaud",
+      "translit": "sho",
+      "translation": "hot",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "Café chaud",
+          "translation": "Hot coffee"
+        }
+      ]
+    },
+    {
+      "id": "fr_0105",
+      "unit": "u10",
+      "lemma": "Froid",
+      "translit": "frwa",
+      "translation": "cold",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "Eau froide",
+          "translation": "Cold water"
+        }
+      ]
+    },
+    {
+      "id": "fr_0106",
+      "unit": "u11",
+      "lemma": "Tête",
+      "translit": "tet",
+      "translation": "head",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "Ma tête",
+          "translation": "My head"
+        }
+      ]
+    },
+    {
+      "id": "fr_0107",
+      "unit": "u11",
+      "lemma": "Main",
+      "translit": "man",
+      "translation": "hand",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "Main droite",
+          "translation": "Right hand"
+        }
+      ]
+    },
+    {
+      "id": "fr_0108",
+      "unit": "u11",
+      "lemma": "Œil",
+      "translit": "oy",
+      "translation": "eye",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Grands yeux",
+          "translation": "Big eyes"
+        }
+      ]
+    },
+    {
+      "id": "fr_0109",
+      "unit": "u11",
+      "lemma": "Faim",
+      "translit": "fan",
+      "translation": "hunger",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "J'ai faim",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "fr_0110",
+      "unit": "u11",
+      "lemma": "Fatigué",
+      "translit": "fatige",
+      "translation": "tired",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 92,
+      "examples": [
+        {
+          "native": "Je suis fatigué",
+          "translation": "I am tired"
+        }
+      ]
+    },
+    {
+      "id": "fr_0111",
+      "unit": "u11",
+      "lemma": "Heureux",
+      "translit": "uhruh",
+      "translation": "happy",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "Très heureux",
+          "translation": "Very happy"
+        }
+      ]
+    },
+    {
+      "id": "fr_0112",
+      "unit": "u11",
+      "lemma": "Triste",
+      "translit": "trist",
+      "translation": "sad",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 104,
+      "examples": [
+        {
+          "native": "Ne sois pas triste",
+          "translation": "Don't be sad"
+        }
+      ]
+    },
+    {
+      "id": "fr_0113",
+      "unit": "u12",
+      "lemma": "Soleil",
+      "translit": "solay",
+      "translation": "sun",
+      "category": "Weather",
+      "difficulty": 1,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "Beaucoup de soleil",
+          "translation": "A lot of sun"
+        }
+      ]
+    },
+    {
+      "id": "fr_0114",
+      "unit": "u12",
+      "lemma": "Pluie",
+      "translit": "plwee",
+      "translation": "rain",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 81,
+      "examples": [
+        {
+          "native": "Beaucoup de pluie",
+          "translation": "A lot of rain"
+        }
+      ]
+    },
+    {
+      "id": "fr_0115",
+      "unit": "u12",
+      "lemma": "Nuage",
+      "translit": "nwaj",
+      "translation": "cloud",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 96,
+      "examples": [
+        {
+          "native": "Nuages noirs",
+          "translation": "Black clouds"
+        }
+      ]
+    },
+    {
+      "id": "fr_0116",
+      "unit": "u12",
+      "lemma": "Vent",
+      "translit": "van",
+      "translation": "wind",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "Vent frais",
+          "translation": "Cool wind"
+        }
+      ]
+    },
+    {
+      "id": "fr_0117",
+      "unit": "u12",
+      "lemma": "Ciel",
+      "translit": "syel",
+      "translation": "sky",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 86,
+      "examples": [
+        {
+          "native": "Ciel bleu",
+          "translation": "Blue sky"
+        }
+      ]
+    },
+    {
+      "id": "fr_0118",
+      "unit": "u13",
+      "lemma": "Voiture",
+      "translit": "vwatur",
+      "translation": "car",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "Voiture rapide",
+          "translation": "Fast car"
+        }
+      ]
+    },
+    {
+      "id": "fr_0119",
+      "unit": "u13",
+      "lemma": "Bus",
+      "translit": "bus",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 111,
+      "examples": [
+        {
+          "native": "Le bus est arrivé",
+          "translation": "The bus arrived"
+        }
+      ]
+    },
+    {
+      "id": "fr_0120",
+      "unit": "u13",
+      "lemma": "Train",
+      "translit": "tran",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Train rapide",
+          "translation": "Fast train"
+        }
+      ]
+    },
+    {
+      "id": "fr_0121",
+      "unit": "u13",
+      "lemma": "Droite",
+      "translit": "drwat",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "À droite",
+          "translation": "To the right"
+        }
+      ]
+    },
+    {
+      "id": "fr_0122",
+      "unit": "u13",
+      "lemma": "Gauche",
+      "translit": "goash",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 101,
+      "examples": [
+        {
+          "native": "À gauche",
+          "translation": "To the left"
+        }
+      ]
+    },
+    {
+      "id": "fr_0123",
+      "unit": "u13",
+      "lemma": "Ici",
+      "translit": "isi",
+      "translation": "here",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "Viens ici",
+          "translation": "Come here"
+        }
+      ]
+    },
+    {
+      "id": "fr_0124",
+      "unit": "u13",
+      "lemma": "Là",
+      "translit": "la",
+      "translation": "there",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "Va là",
+          "translation": "Go there"
+        }
+      ]
+    },
+    {
+      "id": "fr_0125",
+      "unit": "u6",
+      "lemma": "Acheter",
+      "translit": "ashte",
+      "translation": "to buy",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "Acheter des vêtements",
+          "translation": "To buy clothes"
+        }
+      ]
+    },
+    {
+      "id": "fr_0126",
+      "unit": "u6",
+      "lemma": "Vendre",
+      "translit": "vandr",
+      "translation": "to sell",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 103,
+      "examples": [
+        {
+          "native": "Vendre une maison",
+          "translation": "To sell a house"
+        }
+      ]
+    },
+    {
+      "id": "fr_0127",
+      "unit": "u5",
+      "lemma": "Sel",
+      "translit": "sel",
+      "translation": "salt",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "Un peu de sel",
+          "translation": "A little salt"
+        }
+      ]
+    },
+    {
+      "id": "fr_0128",
+      "unit": "u5",
+      "lemma": "Sucre",
+      "translit": "sukr",
+      "translation": "sugar",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 117,
+      "examples": [
+        {
+          "native": "Café avec sucre",
+          "translation": "Coffee with sugar"
+        }
+      ]
+    },
+    {
+      "id": "fr_0129",
+      "unit": "u10",
+      "lemma": "Vite",
+      "translit": "vit",
+      "translation": "fast, quick",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 77,
+      "examples": [
+        {
+          "native": "Viens vite",
+          "translation": "Come quickly"
+        }
+      ]
+    }
+  ]
+}

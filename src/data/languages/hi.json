@@ -1,0 +1,1019 @@
+{
+  "schemaVersion": 7,
+  "code": "hi",
+  "categories": [
+    "Greetings",
+    "People",
+    "Food",
+    "Numbers",
+    "Verbs",
+    "Places",
+    "Time"
+  ],
+  "alphabet": [
+    {
+      "char": "अ",
+      "name": "A",
+      "sound": "uh",
+      "group": "vowels"
+    },
+    {
+      "char": "आ",
+      "name": "Aa",
+      "sound": "ah (long)",
+      "group": "vowels"
+    },
+    {
+      "char": "इ",
+      "name": "I",
+      "sound": "ih",
+      "group": "vowels"
+    },
+    {
+      "char": "ई",
+      "name": "Ee",
+      "sound": "ee",
+      "group": "vowels"
+    },
+    {
+      "char": "उ",
+      "name": "U",
+      "sound": "oo (short)",
+      "group": "vowels"
+    },
+    {
+      "char": "ए",
+      "name": "E",
+      "sound": "ay",
+      "group": "vowels"
+    },
+    {
+      "char": "क",
+      "name": "Ka",
+      "sound": "kah",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ख",
+      "name": "Kha",
+      "sound": "k+breath",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ग",
+      "name": "Ga",
+      "sound": "gah",
+      "group": "consonants_1"
+    },
+    {
+      "char": "च",
+      "name": "Cha",
+      "sound": "chah",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ज",
+      "name": "Ja",
+      "sound": "jah",
+      "group": "consonants_1"
+    },
+    {
+      "char": "त",
+      "name": "Ta",
+      "sound": "soft t",
+      "group": "consonants_1"
+    },
+    {
+      "char": "द",
+      "name": "Da",
+      "sound": "soft d",
+      "group": "consonants_1"
+    },
+    {
+      "char": "न",
+      "name": "Na",
+      "sound": "nah",
+      "group": "consonants_2"
+    },
+    {
+      "char": "प",
+      "name": "Pa",
+      "sound": "pah",
+      "group": "consonants_2"
+    },
+    {
+      "char": "म",
+      "name": "Ma",
+      "sound": "mah",
+      "group": "consonants_2"
+    },
+    {
+      "char": "र",
+      "name": "Ra",
+      "sound": "rolled r",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ल",
+      "name": "La",
+      "sound": "lah",
+      "group": "consonants_2"
+    },
+    {
+      "char": "स",
+      "name": "Sa",
+      "sound": "sah",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ह",
+      "name": "Ha",
+      "sound": "hah",
+      "group": "consonants_2"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "sov",
+      "title": "Word order: SOV",
+      "body": "Hindi puts the verb last, like Urdu. 'I water drink' (मैं पानी पीता हूँ). The grammar is nearly identical to Urdu."
+    },
+    {
+      "id": "gender",
+      "title": "Gender + verb agreement",
+      "body": "Verbs change based on the gender of the subject. लड़का खाता है (boy eats) vs लड़की खाती है (girl eats)."
+    },
+    {
+      "id": "phonetic",
+      "title": "Devanagari is phonetic",
+      "body": "Each letter = one sound. No silent letters, no spelling chaos. Once you know the script, you can pronounce ANY Hindi word."
+    }
+  ],
+  "vocab": [
+    {
+      "id": "hi_0001",
+      "lemma": "नमस्ते",
+      "translit": "namaste",
+      "translation": "hello",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "tags": [
+        "greeting"
+      ],
+      "examples": [
+        {
+          "native": "नमस्ते दोस्त",
+          "translation": "Hello friend"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "nah-MUS-teh"
+    },
+    {
+      "id": "hi_0002",
+      "lemma": "धन्यवाद",
+      "translit": "dhanyavaad",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "tags": [
+        "greeting"
+      ],
+      "examples": [
+        {
+          "native": "बहुत धन्यवाद",
+          "translation": "Thank you very much"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "DHUN-yah-vahd"
+    },
+    {
+      "id": "hi_0003",
+      "lemma": "हाँ",
+      "translit": "haan",
+      "translation": "yes",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "tags": [
+        "basic"
+      ],
+      "examples": [
+        {
+          "native": "हाँ ज़रूर",
+          "translation": "Yes of course"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "HAHN"
+    },
+    {
+      "id": "hi_0004",
+      "lemma": "नहीं",
+      "translit": "nahin",
+      "translation": "no",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "tags": [
+        "basic"
+      ],
+      "examples": [
+        {
+          "native": "नहीं धन्यवाद",
+          "translation": "No thank you"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "nuh-HEEN"
+    },
+    {
+      "id": "hi_0005",
+      "lemma": "अलविदा",
+      "translit": "alvida",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "tags": [
+        "greeting"
+      ],
+      "examples": [
+        {
+          "native": "अलविदा फिर मिलेंगे",
+          "translation": "Goodbye see you"
+        }
+      ],
+      "unit": "u1",
+      "pronunciation": "ul-vih-DAH"
+    },
+    {
+      "id": "hi_0006",
+      "lemma": "मैं",
+      "translit": "main",
+      "translation": "I",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "tags": [
+        "pronoun"
+      ],
+      "examples": [
+        {
+          "native": "मैं छात्र हूँ",
+          "translation": "I am a student"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "mein"
+    },
+    {
+      "id": "hi_0007",
+      "lemma": "आप",
+      "translit": "aap",
+      "translation": "you (formal)",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "tags": [
+        "pronoun",
+        "formal"
+      ],
+      "examples": [
+        {
+          "native": "आप कैसे हैं",
+          "translation": "How are you"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "AAP"
+    },
+    {
+      "id": "hi_0008",
+      "lemma": "माँ",
+      "translit": "maa",
+      "translation": "mother",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "tags": [
+        "family"
+      ],
+      "examples": [
+        {
+          "native": "मेरी माँ",
+          "translation": "My mother"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "MAA"
+    },
+    {
+      "id": "hi_0009",
+      "lemma": "पिता",
+      "translit": "pita",
+      "translation": "father",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "tags": [
+        "family"
+      ],
+      "examples": [
+        {
+          "native": "मेरे पिता",
+          "translation": "My father"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "pih-TAH"
+    },
+    {
+      "id": "hi_0010",
+      "lemma": "दोस्त",
+      "translit": "dost",
+      "translation": "friend",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "tags": [
+        "social"
+      ],
+      "examples": [
+        {
+          "native": "अच्छा दोस्त",
+          "translation": "Good friend"
+        }
+      ],
+      "unit": "u2",
+      "pronunciation": "DOAST"
+    },
+    {
+      "id": "hi_0011",
+      "lemma": "पानी",
+      "translit": "paani",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "tags": [
+        "essential"
+      ],
+      "examples": [
+        {
+          "native": "एक गिलास पानी",
+          "translation": "A glass of water"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "PAH-nee"
+    },
+    {
+      "id": "hi_0012",
+      "lemma": "चाय",
+      "translit": "chai",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "tags": [
+        "drink"
+      ],
+      "examples": [
+        {
+          "native": "मसाला चाय",
+          "translation": "Spiced tea"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "CHAI (rhymes with 'eye')"
+    },
+    {
+      "id": "hi_0013",
+      "lemma": "खाना",
+      "translit": "khana",
+      "translation": "food",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "tags": [
+        "essential"
+      ],
+      "examples": [
+        {
+          "native": "स्वादिष्ट खाना",
+          "translation": "Delicious food"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "KHAH-nah"
+    },
+    {
+      "id": "hi_0014",
+      "lemma": "रोटी",
+      "translit": "roti",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "tags": [
+        "essential"
+      ],
+      "examples": [
+        {
+          "native": "गरम रोटी",
+          "translation": "Hot bread"
+        }
+      ],
+      "unit": "u5",
+      "pronunciation": "ROH-tee"
+    },
+    {
+      "id": "hi_0015",
+      "lemma": "एक",
+      "translit": "ek",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "एक किताब",
+          "translation": "One book"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "AYK"
+    },
+    {
+      "id": "hi_0016",
+      "lemma": "दो",
+      "translit": "do",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "दो भाई",
+          "translation": "Two brothers"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "DOH"
+    },
+    {
+      "id": "hi_0017",
+      "lemma": "तीन",
+      "translit": "teen",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "तीन दिन",
+          "translation": "Three days"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "TEEN"
+    },
+    {
+      "id": "hi_0018",
+      "lemma": "दस",
+      "translit": "das",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "tags": [
+        "number"
+      ],
+      "examples": [
+        {
+          "native": "दस रुपये",
+          "translation": "Ten rupees"
+        }
+      ],
+      "unit": "u4",
+      "pronunciation": "DUSS"
+    },
+    {
+      "id": "hi_0019",
+      "lemma": "जाना",
+      "translit": "jana",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 12,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "घर जाना",
+          "translation": "To go home"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "JAH-nah"
+    },
+    {
+      "id": "hi_0020",
+      "lemma": "खाना",
+      "translit": "khana",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 24,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "खाना खाना",
+          "translation": "To eat food"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "KHAH-nah"
+    },
+    {
+      "id": "hi_0021",
+      "lemma": "पीना",
+      "translit": "peena",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "पानी पीना",
+          "translation": "To drink water"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "PEE-nah"
+    },
+    {
+      "id": "hi_0022",
+      "lemma": "बोलना",
+      "translit": "bolna",
+      "translation": "to speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 31,
+      "tags": [
+        "verb"
+      ],
+      "examples": [
+        {
+          "native": "हिंदी बोलना",
+          "translation": "To speak Hindi"
+        }
+      ],
+      "unit": "u6",
+      "pronunciation": "BOAL-nah"
+    },
+    {
+      "id": "hi_0023",
+      "lemma": "घर",
+      "translit": "ghar",
+      "translation": "house",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "tags": [
+        "place"
+      ],
+      "examples": [
+        {
+          "native": "मेरा घर",
+          "translation": "My house"
+        }
+      ],
+      "unit": "u7",
+      "pronunciation": "GUR (like 'gurr')"
+    },
+    {
+      "id": "hi_0024",
+      "lemma": "स्कूल",
+      "translit": "school",
+      "translation": "school",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "tags": [
+        "place"
+      ],
+      "examples": [
+        {
+          "native": "स्कूल जाना",
+          "translation": "To go to school"
+        }
+      ],
+      "unit": "u7",
+      "pronunciation": "SKOOL"
+    },
+    {
+      "id": "hi_0025",
+      "lemma": "आज",
+      "translit": "aaj",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "tags": [
+        "time"
+      ],
+      "examples": [
+        {
+          "native": "आज सोमवार",
+          "translation": "Today is Monday"
+        }
+      ],
+      "unit": "u8",
+      "pronunciation": "AAJ"
+    },
+    {
+      "id": "hi_0026",
+      "lemma": "कल",
+      "translit": "kal",
+      "translation": "yesterday/tomorrow",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 36,
+      "tags": [
+        "time"
+      ],
+      "examples": [
+        {
+          "native": "कल मिलेंगे",
+          "translation": "See you tomorrow"
+        }
+      ],
+      "unit": "u8",
+      "pronunciation": "KUL"
+    },
+    {
+      "id": "hi_0027",
+      "unit": "u3",
+      "lemma": "बहन",
+      "translit": "behen",
+      "pronunciation": "BEH-hen",
+      "translation": "sister",
+      "category": "Family",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "मेरी बहन",
+          "translation": "My sister"
+        }
+      ]
+    },
+    {
+      "id": "hi_0028",
+      "unit": "u3",
+      "lemma": "भाई",
+      "translit": "bhai",
+      "pronunciation": "BHAH-ee",
+      "translation": "brother",
+      "category": "Family",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "मेरा भाई",
+          "translation": "My brother"
+        }
+      ]
+    },
+    {
+      "id": "hi_0029",
+      "unit": "u3",
+      "lemma": "बच्चा",
+      "translit": "baccha",
+      "pronunciation": "BUTCH-ah",
+      "translation": "child",
+      "category": "Family",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "छोटा बच्चा",
+          "translation": "Small child"
+        }
+      ]
+    },
+    {
+      "id": "hi_0030",
+      "unit": "u9",
+      "lemma": "खुश",
+      "translit": "khush",
+      "pronunciation": "KHOOSH",
+      "translation": "happy",
+      "category": "Feelings",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "मैं खुश हूँ",
+          "translation": "I am happy"
+        }
+      ]
+    },
+    {
+      "id": "hi_0031",
+      "unit": "u9",
+      "lemma": "थका",
+      "translit": "thaka",
+      "pronunciation": "THUH-kah",
+      "translation": "tired",
+      "category": "Feelings",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "मैं थका हूँ",
+          "translation": "I am tired"
+        }
+      ]
+    },
+    {
+      "id": "hi_0032",
+      "unit": "u9",
+      "lemma": "भूखा",
+      "translit": "bhookha",
+      "pronunciation": "BHOO-khah",
+      "translation": "hungry",
+      "category": "Feelings",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "मैं भूखा हूँ",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "hi_0033",
+      "unit": "u9",
+      "lemma": "अच्छा",
+      "translit": "accha",
+      "pronunciation": "UTCH-ah",
+      "translation": "good",
+      "category": "Feelings",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "बहुत अच्छा",
+          "translation": "Very good"
+        }
+      ]
+    },
+    {
+      "id": "hi_0034",
+      "unit": "u10",
+      "lemma": "कृपया",
+      "translit": "kripya",
+      "pronunciation": "KRIP-yah",
+      "translation": "please",
+      "category": "Useful",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "कृपया बैठिए",
+          "translation": "Please sit"
+        }
+      ]
+    },
+    {
+      "id": "hi_0035",
+      "unit": "u10",
+      "lemma": "माफ़ करना",
+      "translit": "maaf karna",
+      "pronunciation": "MAAF KAR-nah",
+      "translation": "sorry",
+      "category": "Useful",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "माफ़ करना",
+          "translation": "Sorry / Excuse me"
+        }
+      ]
+    },
+    {
+      "id": "hi_0036",
+      "unit": "u10",
+      "lemma": "बड़ा",
+      "translit": "bara",
+      "pronunciation": "BAH-rah",
+      "translation": "big",
+      "category": "Useful",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "बड़ा घर",
+          "translation": "Big house"
+        }
+      ]
+    },
+    {
+      "id": "hi_0037",
+      "unit": "u10",
+      "lemma": "छोटा",
+      "translit": "chota",
+      "pronunciation": "CHOH-tah",
+      "translation": "small",
+      "category": "Useful",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "छोटा कमरा",
+          "translation": "Small room"
+        }
+      ]
+    },
+    {
+      "id": "hi_0038",
+      "unit": "u11",
+      "lemma": "यहाँ",
+      "translit": "yahan",
+      "pronunciation": "yah-HAAN",
+      "translation": "here",
+      "category": "Places",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "यहाँ आओ",
+          "translation": "Come here"
+        }
+      ]
+    },
+    {
+      "id": "hi_0039",
+      "unit": "u11",
+      "lemma": "वहाँ",
+      "translit": "wahan",
+      "pronunciation": "wah-HAAN",
+      "translation": "there",
+      "category": "Places",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "वहाँ जाओ",
+          "translation": "Go there"
+        }
+      ]
+    },
+    {
+      "id": "hi_0040",
+      "unit": "u5",
+      "lemma": "दूध",
+      "translit": "doodh",
+      "pronunciation": "DOODH",
+      "translation": "milk",
+      "category": "Food",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "गरम दूध",
+          "translation": "Hot milk"
+        }
+      ]
+    },
+    {
+      "id": "hi_0041",
+      "unit": "u6",
+      "lemma": "आना",
+      "translit": "aana",
+      "pronunciation": "AH-nah",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "यहाँ आना",
+          "translation": "To come here"
+        }
+      ]
+    },
+    {
+      "id": "hi_0042",
+      "unit": "u2",
+      "lemma": "नाम",
+      "translit": "naam",
+      "pronunciation": "NAAM",
+      "translation": "name",
+      "category": "About You",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "आपका नाम?",
+          "translation": "Your name?"
+        }
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Say hello, goodbye, please and thank you"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and basic introductions"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, sister, brother"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers 1-10",
+      "emoji": "🔢",
+      "description": "Count and use basic numbers"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Order water, bread, tea, coffee"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, eat, drink, see, speak"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "🏠",
+      "description": "House, school, market, city"
+    },
+    {
+      "id": "u8",
+      "title": "Time",
+      "emoji": "⏰",
+      "description": "Today, tomorrow, now, day, night"
+    },
+    {
+      "id": "u9",
+      "title": "Feelings",
+      "emoji": "💛",
+      "description": "Happy, tired, hungry, good"
+    },
+    {
+      "id": "u10",
+      "title": "Useful Words",
+      "emoji": "✨",
+      "description": "Yes, no, please, sorry, big, small"
+    },
+    {
+      "id": "u11",
+      "title": "Getting Around",
+      "emoji": "🚗",
+      "description": "Here, there, left, right, water"
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "vowels",
+      "title": "Vowels",
+      "emoji": "🅰️",
+      "description": "अ, आ, इ, ई, उ, ए — the vowel sounds"
+    },
+    {
+      "id": "consonants_1",
+      "title": "Common consonants",
+      "emoji": "🔤",
+      "description": "क, ख, ग, च, ज, त, द — basic sounds"
+    },
+    {
+      "id": "consonants_2",
+      "title": "More consonants",
+      "emoji": "🔠",
+      "description": "न, प, म, र, ल, स, ह — finishing the basics"
+    }
+  ]
+}

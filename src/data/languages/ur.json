@@ -1,0 +1,2569 @@
+{
+  "schemaVersion": 7,
+  "code": "ur",
+  "categories": [
+    "Greetings",
+    "People",
+    "Family",
+    "Numbers",
+    "Food",
+    "Verbs",
+    "Places",
+    "Time",
+    "Connectors",
+    "Travel"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Say hello, goodbye, please and thank you"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and basic introductions"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, brother, sister, friend"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers 1-10",
+      "emoji": "🔢",
+      "description": "Count and use basic numbers"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Order water, bread, tea, coffee"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, eat, drink, see, speak"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "🏠",
+      "description": "House, school, market, city"
+    },
+    {
+      "id": "u8",
+      "title": "Time",
+      "emoji": "⏰",
+      "description": "Today, tomorrow, now, day, night"
+    },
+    {
+      "id": "u9",
+      "title": "Connecting Ideas",
+      "emoji": "🔗",
+      "description": "And, but, because, if, or"
+    },
+    {
+      "id": "u10",
+      "title": "Travel Phrases",
+      "emoji": "✈️",
+      "description": "Where, how much, I want, help"
+    },
+    {
+      "id": "u11",
+      "title": "Body & Feelings",
+      "emoji": "💪",
+      "description": "Head, hand, hungry, tired, happy, sad"
+    },
+    {
+      "id": "u12",
+      "title": "Weather & Nature",
+      "emoji": "🌦️",
+      "description": "Sun, rain, cold, hot, sky, water"
+    },
+    {
+      "id": "u13",
+      "title": "Getting Around",
+      "emoji": "🚗",
+      "description": "Car, bus, train, left, right, here, there"
+    }
+  ],
+  "alphabet": [
+    {
+      "char": "ا",
+      "name": "Alif",
+      "sound": "a (as in 'apple')",
+      "group": "basics"
+    },
+    {
+      "char": "ب",
+      "name": "Bay",
+      "sound": "b",
+      "group": "basics"
+    },
+    {
+      "char": "پ",
+      "name": "Pay",
+      "sound": "p",
+      "group": "basics"
+    },
+    {
+      "char": "ت",
+      "name": "Tay",
+      "sound": "t (soft)",
+      "group": "basics"
+    },
+    {
+      "char": "ٹ",
+      "name": "Ttay",
+      "sound": "t (retroflex)",
+      "group": "basics"
+    },
+    {
+      "char": "ث",
+      "name": "Say",
+      "sound": "s",
+      "group": "basics"
+    },
+    {
+      "char": "ج",
+      "name": "Jeem",
+      "sound": "j",
+      "group": "common"
+    },
+    {
+      "char": "چ",
+      "name": "Chay",
+      "sound": "ch",
+      "group": "common"
+    },
+    {
+      "char": "ح",
+      "name": "Hay",
+      "sound": "h (soft)",
+      "group": "tricky"
+    },
+    {
+      "char": "خ",
+      "name": "Khay",
+      "sound": "kh (guttural)",
+      "group": "tricky"
+    },
+    {
+      "char": "د",
+      "name": "Daal",
+      "sound": "d (soft)",
+      "group": "common"
+    },
+    {
+      "char": "ر",
+      "name": "Ray",
+      "sound": "r (rolled)",
+      "group": "common"
+    },
+    {
+      "char": "س",
+      "name": "Seen",
+      "sound": "s",
+      "group": "common"
+    },
+    {
+      "char": "ش",
+      "name": "Sheen",
+      "sound": "sh",
+      "group": "common"
+    },
+    {
+      "char": "ع",
+      "name": "Ayn",
+      "sound": "deep 'ah'",
+      "group": "tricky"
+    },
+    {
+      "char": "ف",
+      "name": "Fay",
+      "sound": "f",
+      "group": "remaining"
+    },
+    {
+      "char": "ق",
+      "name": "Qaaf",
+      "sound": "q (deep k)",
+      "group": "tricky"
+    },
+    {
+      "char": "ک",
+      "name": "Kaaf",
+      "sound": "k",
+      "group": "remaining"
+    },
+    {
+      "char": "گ",
+      "name": "Gaaf",
+      "sound": "g (hard)",
+      "group": "remaining"
+    },
+    {
+      "char": "ل",
+      "name": "Laam",
+      "sound": "l",
+      "group": "remaining"
+    },
+    {
+      "char": "م",
+      "name": "Meem",
+      "sound": "m",
+      "group": "remaining"
+    },
+    {
+      "char": "ن",
+      "name": "Noon",
+      "sound": "n",
+      "group": "remaining"
+    },
+    {
+      "char": "و",
+      "name": "Wao",
+      "sound": "w / oo",
+      "group": "remaining"
+    },
+    {
+      "char": "ہ",
+      "name": "Hay",
+      "sound": "h",
+      "group": "tricky"
+    },
+    {
+      "char": "ی",
+      "name": "Yay",
+      "sound": "y / ee",
+      "group": "remaining"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "sov",
+      "title": "Word order: SOV",
+      "body": "Urdu places the verb at the END. 'I water drink' instead of 'I drink water'."
+    },
+    {
+      "id": "post",
+      "title": "Postpositions",
+      "body": "Where English says 'to the house', Urdu says 'house to' (گھر کو)."
+    },
+    {
+      "id": "gender",
+      "title": "Gender matters",
+      "body": "Every noun is masculine or feminine, and verbs change to match."
+    },
+    {
+      "id": "honour",
+      "title": "Honour shapes pronouns",
+      "body": "آپ formal, تم familiar, تو intimate. Use تو with a stranger and you offend."
+    }
+  ],
+  "vocab": [
+    {
+      "id": "ur_0001",
+      "unit": "u1",
+      "lemma": "سلام",
+      "translit": "salaam",
+      "translation": "hello, peace",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "السلام علیکم",
+          "translation": "Peace be upon you"
+        }
+      ],
+      "pronunciation": "sah-LAAM"
+    },
+    {
+      "id": "ur_0002",
+      "unit": "u1",
+      "lemma": "شکریہ",
+      "translit": "shukriya",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "بہت شکریہ",
+          "translation": "Thank you very much"
+        }
+      ],
+      "pronunciation": "shook-REE-yah"
+    },
+    {
+      "id": "ur_0003",
+      "unit": "u1",
+      "lemma": "ہاں",
+      "translit": "haan",
+      "translation": "yes",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "ہاں بالکل",
+          "translation": "Yes, of course"
+        }
+      ],
+      "pronunciation": "HAHN"
+    },
+    {
+      "id": "ur_0004",
+      "unit": "u1",
+      "lemma": "نہیں",
+      "translit": "nahin",
+      "translation": "no",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "نہیں شکریہ",
+          "translation": "No, thank you"
+        }
+      ],
+      "pronunciation": "nah-HEEN"
+    },
+    {
+      "id": "ur_0005",
+      "unit": "u1",
+      "lemma": "خدا حافظ",
+      "translit": "khuda hafiz",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "اچھا خدا حافظ",
+          "translation": "Okay, goodbye"
+        }
+      ],
+      "pronunciation": "khoo-DAH HAH-fiz"
+    },
+    {
+      "id": "ur_0006",
+      "unit": "u1",
+      "lemma": "معاف کریں",
+      "translit": "maaf karein",
+      "translation": "excuse me, sorry",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "معاف کریں جناب",
+          "translation": "Excuse me sir"
+        }
+      ],
+      "pronunciation": "MAAF kah-rain"
+    },
+    {
+      "id": "ur_0007",
+      "unit": "u1",
+      "lemma": "براہ کرم",
+      "translit": "barah karam",
+      "translation": "please",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "براہ کرم بیٹھیں",
+          "translation": "Please sit"
+        }
+      ],
+      "pronunciation": "bah-RAH kah-RAM"
+    },
+    {
+      "id": "ur_0008",
+      "unit": "u1",
+      "lemma": "خوش آمدید",
+      "translit": "khush amdeed",
+      "translation": "welcome",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "گھر میں خوش آمدید",
+          "translation": "Welcome home"
+        }
+      ],
+      "pronunciation": "khoosh-aam-DEED"
+    },
+    {
+      "id": "ur_0009",
+      "unit": "u2",
+      "lemma": "میں",
+      "translit": "main",
+      "translation": "I, me",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "میں طالب علم ہوں",
+          "translation": "I am a student"
+        }
+      ],
+      "pronunciation": "mein (rhymes with 'main')"
+    },
+    {
+      "id": "ur_0010",
+      "unit": "u2",
+      "lemma": "آپ",
+      "translit": "aap",
+      "translation": "you (formal)",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "آپ کہاں سے ہیں",
+          "translation": "Where are you from"
+        }
+      ],
+      "pronunciation": "AAP"
+    },
+    {
+      "id": "ur_0011",
+      "unit": "u2",
+      "lemma": "تم",
+      "translit": "tum",
+      "translation": "you (familiar)",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "تم کیا کرتے ہو",
+          "translation": "What do you do"
+        }
+      ],
+      "pronunciation": "TUM"
+    },
+    {
+      "id": "ur_0012",
+      "unit": "u2",
+      "lemma": "ہم",
+      "translit": "hum",
+      "translation": "we, us",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "ہم دوست ہیں",
+          "translation": "We are friends"
+        }
+      ],
+      "pronunciation": "HUM"
+    },
+    {
+      "id": "ur_0013",
+      "unit": "u2",
+      "lemma": "وہ",
+      "translit": "woh",
+      "translation": "he, she, they",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "وہ ڈاکٹر ہے",
+          "translation": "He is a doctor"
+        }
+      ],
+      "pronunciation": "WOH"
+    },
+    {
+      "id": "ur_0014",
+      "unit": "u2",
+      "lemma": "یہ",
+      "translit": "yeh",
+      "translation": "this",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "یہ کتاب ہے",
+          "translation": "This is a book"
+        }
+      ],
+      "pronunciation": "YEH"
+    },
+    {
+      "id": "ur_0015",
+      "unit": "u2",
+      "lemma": "کیا",
+      "translit": "kya",
+      "translation": "what",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "یہ کیا ہے",
+          "translation": "What is this"
+        }
+      ],
+      "pronunciation": "kee-YAH"
+    },
+    {
+      "id": "ur_0016",
+      "unit": "u2",
+      "lemma": "کون",
+      "translit": "kaun",
+      "translation": "who",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "وہ کون ہے",
+          "translation": "Who is that"
+        }
+      ],
+      "pronunciation": "COWN"
+    },
+    {
+      "id": "ur_0017",
+      "unit": "u3",
+      "lemma": "ماں",
+      "translit": "maa",
+      "translation": "mother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "میری ماں",
+          "translation": "My mother"
+        }
+      ],
+      "pronunciation": "MAA"
+    },
+    {
+      "id": "ur_0018",
+      "unit": "u3",
+      "lemma": "باپ",
+      "translit": "baap",
+      "translation": "father",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "میرا باپ",
+          "translation": "My father"
+        }
+      ],
+      "pronunciation": "BAAP"
+    },
+    {
+      "id": "ur_0019",
+      "unit": "u3",
+      "lemma": "بھائی",
+      "translit": "bhai",
+      "translation": "brother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "میرا بڑا بھائی",
+          "translation": "My older brother"
+        }
+      ],
+      "pronunciation": "buh-HAI"
+    },
+    {
+      "id": "ur_0020",
+      "unit": "u3",
+      "lemma": "بہن",
+      "translit": "behen",
+      "translation": "sister",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "میری بہن",
+          "translation": "My sister"
+        }
+      ],
+      "pronunciation": "BEH-hen"
+    },
+    {
+      "id": "ur_0021",
+      "unit": "u3",
+      "lemma": "دوست",
+      "translit": "dost",
+      "translation": "friend",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "میرا اچھا دوست",
+          "translation": "My good friend"
+        }
+      ],
+      "pronunciation": "DOAST"
+    },
+    {
+      "id": "ur_0022",
+      "unit": "u3",
+      "lemma": "بچہ",
+      "translit": "bachcha",
+      "translation": "child",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "چھوٹا بچہ",
+          "translation": "Small child"
+        }
+      ],
+      "pronunciation": "BUCH-cha"
+    },
+    {
+      "id": "ur_0023",
+      "unit": "u3",
+      "lemma": "بیٹا",
+      "translit": "beta",
+      "translation": "son",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "میرا بیٹا",
+          "translation": "My son"
+        }
+      ],
+      "pronunciation": "BEH-tah"
+    },
+    {
+      "id": "ur_0024",
+      "unit": "u4",
+      "lemma": "ایک",
+      "translit": "ek",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "ایک کتاب",
+          "translation": "One book"
+        }
+      ],
+      "pronunciation": "AYK"
+    },
+    {
+      "id": "ur_0025",
+      "unit": "u4",
+      "lemma": "دو",
+      "translit": "do",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "دو بھائی",
+          "translation": "Two brothers"
+        }
+      ],
+      "pronunciation": "DOH"
+    },
+    {
+      "id": "ur_0026",
+      "unit": "u4",
+      "lemma": "تین",
+      "translit": "teen",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "تین دن",
+          "translation": "Three days"
+        }
+      ],
+      "pronunciation": "TEEN"
+    },
+    {
+      "id": "ur_0027",
+      "unit": "u4",
+      "lemma": "چار",
+      "translit": "chaar",
+      "translation": "four",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 19,
+      "examples": [
+        {
+          "native": "چار گھنٹے",
+          "translation": "Four hours"
+        }
+      ],
+      "pronunciation": "CHAAR"
+    },
+    {
+      "id": "ur_0028",
+      "unit": "u4",
+      "lemma": "پانچ",
+      "translit": "paanch",
+      "translation": "five",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 23,
+      "examples": [
+        {
+          "native": "پانچ بجے",
+          "translation": "Five o'clock"
+        }
+      ],
+      "pronunciation": "PAANCH"
+    },
+    {
+      "id": "ur_0029",
+      "unit": "u4",
+      "lemma": "دس",
+      "translit": "das",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "دس روپے",
+          "translation": "Ten rupees"
+        }
+      ],
+      "pronunciation": "DUSS"
+    },
+    {
+      "id": "ur_0030",
+      "unit": "u4",
+      "lemma": "سو",
+      "translit": "sau",
+      "translation": "hundred",
+      "category": "Numbers",
+      "difficulty": 2,
+      "frequencyRank": 90,
+      "examples": [
+        {
+          "native": "ایک سو",
+          "translation": "One hundred"
+        }
+      ],
+      "pronunciation": "SOW (like 'sow' rhymes with 'now')"
+    },
+    {
+      "id": "ur_0031",
+      "unit": "u5",
+      "lemma": "پانی",
+      "translit": "pani",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "examples": [
+        {
+          "native": "ایک گلاس پانی",
+          "translation": "A glass of water"
+        }
+      ],
+      "pronunciation": "PAH-nee"
+    },
+    {
+      "id": "ur_0032",
+      "unit": "u5",
+      "lemma": "روٹی",
+      "translit": "roti",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "گرم روٹی",
+          "translation": "Hot bread"
+        }
+      ],
+      "pronunciation": "ROH-tee"
+    },
+    {
+      "id": "ur_0033",
+      "unit": "u5",
+      "lemma": "چاول",
+      "translit": "chawal",
+      "translation": "rice",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "چاول اور دال",
+          "translation": "Rice and lentils"
+        }
+      ],
+      "pronunciation": "CHAH-wal"
+    },
+    {
+      "id": "ur_0034",
+      "unit": "u5",
+      "lemma": "چائے",
+      "translit": "chai",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "ایک کپ چائے",
+          "translation": "A cup of tea"
+        }
+      ],
+      "pronunciation": "CHAI (rhymes with 'eye')"
+    },
+    {
+      "id": "ur_0035",
+      "unit": "u5",
+      "lemma": "دودھ",
+      "translit": "doodh",
+      "translation": "milk",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "گرم دودھ",
+          "translation": "Hot milk"
+        }
+      ],
+      "pronunciation": "DOODH"
+    },
+    {
+      "id": "ur_0036",
+      "unit": "u5",
+      "lemma": "گوشت",
+      "translit": "gosht",
+      "translation": "meat",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "مرغی کا گوشت",
+          "translation": "Chicken meat"
+        }
+      ],
+      "pronunciation": "GOASHT"
+    },
+    {
+      "id": "ur_0037",
+      "unit": "u5",
+      "lemma": "سبزی",
+      "translit": "sabzi",
+      "translation": "vegetable",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "تازی سبزی",
+          "translation": "Fresh vegetable"
+        }
+      ],
+      "pronunciation": "SUB-zee"
+    },
+    {
+      "id": "ur_0038",
+      "unit": "u5",
+      "lemma": "پھل",
+      "translit": "phal",
+      "translation": "fruit",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 85,
+      "examples": [
+        {
+          "native": "میٹھا پھل",
+          "translation": "Sweet fruit"
+        }
+      ],
+      "pronunciation": "FUHL"
+    },
+    {
+      "id": "ur_0039",
+      "unit": "u5",
+      "lemma": "کھانا",
+      "translit": "khana",
+      "translation": "food, meal",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "کھانا تیار ہے",
+          "translation": "Food is ready"
+        }
+      ],
+      "pronunciation": "KHAH-nah"
+    },
+    {
+      "id": "ur_0040",
+      "unit": "u5",
+      "lemma": "چینی",
+      "translit": "cheeni",
+      "translation": "sugar",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 95,
+      "examples": [
+        {
+          "native": "چائے میں چینی",
+          "translation": "Sugar in tea"
+        }
+      ],
+      "pronunciation": "CHEE-nee"
+    },
+    {
+      "id": "ur_0041",
+      "unit": "u6",
+      "lemma": "جانا",
+      "translit": "jana",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "میں گھر جا رہا ہوں",
+          "translation": "I am going home"
+        }
+      ],
+      "pronunciation": "JAH-nah"
+    },
+    {
+      "id": "ur_0042",
+      "unit": "u6",
+      "lemma": "آنا",
+      "translit": "aana",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 16,
+      "examples": [
+        {
+          "native": "وہ کل آئے گا",
+          "translation": "He will come tomorrow"
+        }
+      ],
+      "pronunciation": "AH-nah"
+    },
+    {
+      "id": "ur_0043",
+      "unit": "u6",
+      "lemma": "کھانا",
+      "translit": "khana",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "میں کھانا کھاتا ہوں",
+          "translation": "I eat food"
+        }
+      ],
+      "pronunciation": "KHAH-nah"
+    },
+    {
+      "id": "ur_0044",
+      "unit": "u6",
+      "lemma": "پینا",
+      "translit": "peena",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "پانی پینا",
+          "translation": "To drink water"
+        }
+      ],
+      "pronunciation": "PEE-nah"
+    },
+    {
+      "id": "ur_0045",
+      "unit": "u6",
+      "lemma": "دیکھنا",
+      "translit": "dekhna",
+      "translation": "to see, watch",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "فلم دیکھنا",
+          "translation": "To watch a film"
+        }
+      ],
+      "pronunciation": "DAYKH-nah"
+    },
+    {
+      "id": "ur_0046",
+      "unit": "u6",
+      "lemma": "سننا",
+      "translit": "sunna",
+      "translation": "to listen",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "موسیقی سننا",
+          "translation": "To listen to music"
+        }
+      ],
+      "pronunciation": "SOON-nah"
+    },
+    {
+      "id": "ur_0047",
+      "unit": "u6",
+      "lemma": "بولنا",
+      "translit": "bolna",
+      "translation": "to speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "اردو بولنا",
+          "translation": "To speak Urdu"
+        }
+      ],
+      "pronunciation": "BOAL-nah"
+    },
+    {
+      "id": "ur_0048",
+      "unit": "u6",
+      "lemma": "پڑھنا",
+      "translit": "parhna",
+      "translation": "to read",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "کتاب پڑھنا",
+          "translation": "To read a book"
+        }
+      ],
+      "pronunciation": "PURH-nah"
+    },
+    {
+      "id": "ur_0049",
+      "unit": "u6",
+      "lemma": "لکھنا",
+      "translit": "likhna",
+      "translation": "to write",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "خط لکھنا",
+          "translation": "To write a letter"
+        }
+      ],
+      "pronunciation": "LIKH-nah"
+    },
+    {
+      "id": "ur_0050",
+      "unit": "u6",
+      "lemma": "کرنا",
+      "translit": "karna",
+      "translation": "to do",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "کام کرنا",
+          "translation": "To do work"
+        }
+      ],
+      "pronunciation": "KAR-nah"
+    },
+    {
+      "id": "ur_0051",
+      "unit": "u7",
+      "lemma": "گھر",
+      "translit": "ghar",
+      "translation": "house, home",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "میرا گھر",
+          "translation": "My house"
+        }
+      ],
+      "pronunciation": "GUR (like 'gurr')"
+    },
+    {
+      "id": "ur_0052",
+      "unit": "u7",
+      "lemma": "اسکول",
+      "translit": "school",
+      "translation": "school",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "بچے اسکول جاتے ہیں",
+          "translation": "Children go to school"
+        }
+      ]
+    },
+    {
+      "id": "ur_0053",
+      "unit": "u7",
+      "lemma": "بازار",
+      "translit": "bazaar",
+      "translation": "market",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 70,
+      "examples": [
+        {
+          "native": "بازار جانا",
+          "translation": "To go to the market"
+        }
+      ],
+      "pronunciation": "buh-ZAAR"
+    },
+    {
+      "id": "ur_0054",
+      "unit": "u7",
+      "lemma": "ہسپتال",
+      "translit": "hospital",
+      "translation": "hospital",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 95,
+      "examples": [
+        {
+          "native": "ہسپتال میں",
+          "translation": "In the hospital"
+        }
+      ]
+    },
+    {
+      "id": "ur_0055",
+      "unit": "u7",
+      "lemma": "شہر",
+      "translit": "sheher",
+      "translation": "city",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "بڑا شہر",
+          "translation": "Big city"
+        }
+      ],
+      "pronunciation": "SHEH-her"
+    },
+    {
+      "id": "ur_0056",
+      "unit": "u7",
+      "lemma": "کمرہ",
+      "translit": "kamra",
+      "translation": "room",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "میرا کمرہ",
+          "translation": "My room"
+        }
+      ],
+      "pronunciation": "KUM-rah"
+    },
+    {
+      "id": "ur_0057",
+      "unit": "u7",
+      "lemma": "سڑک",
+      "translit": "sarak",
+      "translation": "road, street",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "بڑی سڑک",
+          "translation": "Big road"
+        }
+      ],
+      "pronunciation": "suh-RUCK"
+    },
+    {
+      "id": "ur_0058",
+      "unit": "u7",
+      "lemma": "دفتر",
+      "translit": "daftar",
+      "translation": "office",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 105,
+      "examples": [
+        {
+          "native": "میرا دفتر",
+          "translation": "My office"
+        }
+      ],
+      "pronunciation": "DUF-tar"
+    },
+    {
+      "id": "ur_0059",
+      "unit": "u8",
+      "lemma": "آج",
+      "translit": "aaj",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "آج کا دن",
+          "translation": "Today"
+        }
+      ],
+      "pronunciation": "AAJ"
+    },
+    {
+      "id": "ur_0060",
+      "unit": "u8",
+      "lemma": "کل",
+      "translit": "kal",
+      "translation": "yesterday, tomorrow",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "کل ملیں گے",
+          "translation": "See you tomorrow"
+        }
+      ],
+      "pronunciation": "KUL"
+    },
+    {
+      "id": "ur_0061",
+      "unit": "u8",
+      "lemma": "ابھی",
+      "translit": "abhi",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "ابھی آؤ",
+          "translation": "Come now"
+        }
+      ],
+      "pronunciation": "uh-BHEE"
+    },
+    {
+      "id": "ur_0062",
+      "unit": "u8",
+      "lemma": "وقت",
+      "translit": "waqt",
+      "translation": "time",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 52,
+      "examples": [
+        {
+          "native": "کیا وقت ہے",
+          "translation": "What time is it"
+        }
+      ],
+      "pronunciation": "WUKT"
+    },
+    {
+      "id": "ur_0063",
+      "unit": "u8",
+      "lemma": "دن",
+      "translit": "din",
+      "translation": "day",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "اچھا دن",
+          "translation": "Good day"
+        }
+      ],
+      "pronunciation": "DIN"
+    },
+    {
+      "id": "ur_0064",
+      "unit": "u8",
+      "lemma": "رات",
+      "translit": "raat",
+      "translation": "night",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 58,
+      "examples": [
+        {
+          "native": "اچھی رات",
+          "translation": "Good night"
+        }
+      ],
+      "pronunciation": "RAAT"
+    },
+    {
+      "id": "ur_0065",
+      "unit": "u8",
+      "lemma": "صبح",
+      "translit": "subah",
+      "translation": "morning",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 63,
+      "examples": [
+        {
+          "native": "اچھی صبح",
+          "translation": "Good morning"
+        }
+      ],
+      "pronunciation": "SOO-bah"
+    },
+    {
+      "id": "ur_0066",
+      "unit": "u8",
+      "lemma": "شام",
+      "translit": "shaam",
+      "translation": "evening",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 67,
+      "examples": [
+        {
+          "native": "اچھی شام",
+          "translation": "Good evening"
+        }
+      ],
+      "pronunciation": "SHAAM"
+    },
+    {
+      "id": "ur_0067",
+      "unit": "u9",
+      "lemma": "اور",
+      "translit": "aur",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "میں اور تم",
+          "translation": "Me and you"
+        }
+      ],
+      "pronunciation": "OWR"
+    },
+    {
+      "id": "ur_0068",
+      "unit": "u9",
+      "lemma": "لیکن",
+      "translit": "lekin",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "میں جاؤں گا لیکن دیر سے",
+          "translation": "I will go but late"
+        }
+      ],
+      "pronunciation": "LAY-kin"
+    },
+    {
+      "id": "ur_0069",
+      "unit": "u9",
+      "lemma": "کیونکہ",
+      "translit": "kyunke",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 3,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "کیونکہ میں مصروف ہوں",
+          "translation": "Because I am busy"
+        }
+      ],
+      "pronunciation": "kyOON-keh"
+    },
+    {
+      "id": "ur_0070",
+      "unit": "u9",
+      "lemma": "اگر",
+      "translit": "agar",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 3,
+      "frequencyRank": 72,
+      "examples": [
+        {
+          "native": "اگر آپ آئیں",
+          "translation": "If you come"
+        }
+      ],
+      "pronunciation": "uh-GAR"
+    },
+    {
+      "id": "ur_0071",
+      "unit": "u9",
+      "lemma": "یا",
+      "translit": "ya",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "چائے یا کافی",
+          "translation": "Tea or coffee"
+        }
+      ],
+      "pronunciation": "YAH"
+    },
+    {
+      "id": "ur_0072",
+      "unit": "u9",
+      "lemma": "بھی",
+      "translit": "bhi",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "میں بھی",
+          "translation": "Me too"
+        }
+      ],
+      "pronunciation": "BHEE"
+    },
+    {
+      "id": "ur_0073",
+      "unit": "u10",
+      "lemma": "کہاں",
+      "translit": "kahan",
+      "translation": "where",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "آپ کہاں جا رہے ہیں",
+          "translation": "Where are you going"
+        }
+      ],
+      "pronunciation": "kuh-HAAN"
+    },
+    {
+      "id": "ur_0074",
+      "unit": "u10",
+      "lemma": "کتنا",
+      "translit": "kitna",
+      "translation": "how much",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 68,
+      "examples": [
+        {
+          "native": "کتنا ہے",
+          "translation": "How much is it"
+        }
+      ],
+      "pronunciation": "KIT-nah"
+    },
+    {
+      "id": "ur_0075",
+      "unit": "u10",
+      "lemma": "مدد",
+      "translit": "madad",
+      "translation": "help",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 84,
+      "examples": [
+        {
+          "native": "مدد چاہیے",
+          "translation": "I need help"
+        }
+      ],
+      "pronunciation": "muh-DUD"
+    },
+    {
+      "id": "ur_0076",
+      "unit": "u10",
+      "lemma": "ٹیکسی",
+      "translit": "taxi",
+      "translation": "taxi",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "ایک ٹیکسی",
+          "translation": "A taxi"
+        }
+      ]
+    },
+    {
+      "id": "ur_0077",
+      "unit": "u10",
+      "lemma": "ہوٹل",
+      "translit": "hotel",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "اچھا ہوٹل",
+          "translation": "Good hotel"
+        }
+      ]
+    },
+    {
+      "id": "ur_0078",
+      "unit": "u10",
+      "lemma": "چاہنا",
+      "translit": "chahna",
+      "translation": "to want",
+      "category": "Travel",
+      "difficulty": 3,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "چائے چاہیے",
+          "translation": "I want tea"
+        }
+      ],
+      "pronunciation": "CHAH-nah"
+    },
+    {
+      "id": "ur_0079",
+      "unit": "u10",
+      "lemma": "ٹھیک",
+      "translit": "theek",
+      "translation": "okay, fine",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "میں ٹھیک ہوں",
+          "translation": "I am fine"
+        }
+      ],
+      "pronunciation": "THEEK"
+    },
+    {
+      "id": "ur_0080",
+      "unit": "u10",
+      "lemma": "اچھا",
+      "translit": "achcha",
+      "translation": "good",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 29,
+      "examples": [
+        {
+          "native": "بہت اچھا",
+          "translation": "Very good"
+        }
+      ],
+      "pronunciation": "UCH-cha"
+    },
+    {
+      "id": "ur_0081",
+      "unit": "u3",
+      "lemma": "بیٹی",
+      "translit": "beti",
+      "translation": "daughter",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 66,
+      "examples": [
+        {
+          "native": "میری بیٹی",
+          "translation": "My daughter"
+        }
+      ],
+      "pronunciation": "BEH-tee"
+    },
+    {
+      "id": "ur_0082",
+      "unit": "u3",
+      "lemma": "شوہر",
+      "translit": "shauhar",
+      "translation": "husband",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "میرا شوہر",
+          "translation": "My husband"
+        }
+      ],
+      "pronunciation": "SHOW-har"
+    },
+    {
+      "id": "ur_0083",
+      "unit": "u3",
+      "lemma": "بیوی",
+      "translit": "biwi",
+      "translation": "wife",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 89,
+      "examples": [
+        {
+          "native": "میری بیوی",
+          "translation": "My wife"
+        }
+      ],
+      "pronunciation": "BEE-wee"
+    },
+    {
+      "id": "ur_0084",
+      "unit": "u4",
+      "lemma": "چھ",
+      "translit": "chhe",
+      "translation": "six",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "چھ بجے",
+          "translation": "Six o'clock"
+        }
+      ],
+      "pronunciation": "CHHEH"
+    },
+    {
+      "id": "ur_0085",
+      "unit": "u4",
+      "lemma": "سات",
+      "translit": "saat",
+      "translation": "seven",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "سات دن",
+          "translation": "Seven days"
+        }
+      ],
+      "pronunciation": "SAAT"
+    },
+    {
+      "id": "ur_0086",
+      "unit": "u4",
+      "lemma": "آٹھ",
+      "translit": "aath",
+      "translation": "eight",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 37,
+      "examples": [
+        {
+          "native": "آٹھ گھنٹے",
+          "translation": "Eight hours"
+        }
+      ],
+      "pronunciation": "AAT-h"
+    },
+    {
+      "id": "ur_0087",
+      "unit": "u4",
+      "lemma": "نو",
+      "translit": "nau",
+      "translation": "nine",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "نو بجے",
+          "translation": "Nine o'clock"
+        }
+      ],
+      "pronunciation": "NOW (rhymes with 'now')"
+    },
+    {
+      "id": "ur_0088",
+      "unit": "u5",
+      "lemma": "انڈا",
+      "translit": "anda",
+      "translation": "egg",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 108,
+      "examples": [
+        {
+          "native": "ابلا ہوا انڈا",
+          "translation": "Boiled egg"
+        }
+      ],
+      "pronunciation": "UN-dah"
+    },
+    {
+      "id": "ur_0089",
+      "unit": "u5",
+      "lemma": "مچھلی",
+      "translit": "machhli",
+      "translation": "fish",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 110,
+      "examples": [
+        {
+          "native": "تازی مچھلی",
+          "translation": "Fresh fish"
+        }
+      ],
+      "pronunciation": "much-LEE"
+    },
+    {
+      "id": "ur_0090",
+      "unit": "u5",
+      "lemma": "چاکلیٹ",
+      "translit": "chocolate",
+      "translation": "chocolate",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "کالی چاکلیٹ",
+          "translation": "Dark chocolate"
+        }
+      ]
+    },
+    {
+      "id": "ur_0091",
+      "unit": "u5",
+      "lemma": "کیک",
+      "translit": "cake",
+      "translation": "cake",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 135,
+      "examples": [
+        {
+          "native": "میٹھا کیک",
+          "translation": "Sweet cake"
+        }
+      ]
+    },
+    {
+      "id": "ur_0092",
+      "unit": "u6",
+      "lemma": "چلنا",
+      "translit": "chalna",
+      "translation": "to walk",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "تیز چلنا",
+          "translation": "To walk fast"
+        }
+      ],
+      "pronunciation": "CHUL-nah"
+    },
+    {
+      "id": "ur_0093",
+      "unit": "u6",
+      "lemma": "دوڑنا",
+      "translit": "daurna",
+      "translation": "to run",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "تیز دوڑنا",
+          "translation": "To run fast"
+        }
+      ],
+      "pronunciation": "DOWR-nah"
+    },
+    {
+      "id": "ur_0094",
+      "unit": "u6",
+      "lemma": "بیٹھنا",
+      "translit": "baithna",
+      "translation": "to sit",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "یہاں بیٹھنا",
+          "translation": "To sit here"
+        }
+      ],
+      "pronunciation": "BAITH-nah"
+    },
+    {
+      "id": "ur_0095",
+      "unit": "u6",
+      "lemma": "کھڑا ہونا",
+      "translit": "kharra hona",
+      "translation": "to stand",
+      "category": "Verbs",
+      "difficulty": 3,
+      "frequencyRank": 92,
+      "examples": [
+        {
+          "native": "کھڑے ہو جاؤ",
+          "translation": "Stand up"
+        }
+      ],
+      "pronunciation": "KUH-rah HOH-nah"
+    },
+    {
+      "id": "ur_0096",
+      "unit": "u6",
+      "lemma": "سونا",
+      "translit": "sona",
+      "translation": "to sleep",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 74,
+      "examples": [
+        {
+          "native": "جلدی سونا",
+          "translation": "To sleep early"
+        }
+      ],
+      "pronunciation": "SOH-nah"
+    },
+    {
+      "id": "ur_0097",
+      "unit": "u7",
+      "lemma": "مسجد",
+      "translit": "masjid",
+      "translation": "mosque",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 100,
+      "examples": [
+        {
+          "native": "بڑی مسجد",
+          "translation": "Big mosque"
+        }
+      ],
+      "pronunciation": "MUS-jid"
+    },
+    {
+      "id": "ur_0098",
+      "unit": "u7",
+      "lemma": "ریستوران",
+      "translit": "restaurant",
+      "translation": "restaurant",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 108,
+      "examples": [
+        {
+          "native": "اچھا ریستوران",
+          "translation": "Good restaurant"
+        }
+      ]
+    },
+    {
+      "id": "ur_0099",
+      "unit": "u7",
+      "lemma": "ہوائی اڈہ",
+      "translit": "hawai adda",
+      "translation": "airport",
+      "category": "Places",
+      "difficulty": 3,
+      "frequencyRank": 125,
+      "examples": [
+        {
+          "native": "ہوائی اڈے پر",
+          "translation": "At the airport"
+        }
+      ],
+      "pronunciation": "huh-WAI ud-DAH"
+    },
+    {
+      "id": "ur_0100",
+      "unit": "u8",
+      "lemma": "دوپہر",
+      "translit": "dopahar",
+      "translation": "afternoon",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 79,
+      "examples": [
+        {
+          "native": "دوپہر کا کھانا",
+          "translation": "Lunch"
+        }
+      ],
+      "pronunciation": "doh-PAH-har"
+    },
+    {
+      "id": "ur_0101",
+      "unit": "u8",
+      "lemma": "ہفتہ",
+      "translit": "hafta",
+      "translation": "week",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "اس ہفتے",
+          "translation": "This week"
+        }
+      ],
+      "pronunciation": "HUF-tah"
+    },
+    {
+      "id": "ur_0102",
+      "unit": "u8",
+      "lemma": "مہینہ",
+      "translit": "mahina",
+      "translation": "month",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 91,
+      "examples": [
+        {
+          "native": "اگلے مہینے",
+          "translation": "Next month"
+        }
+      ],
+      "pronunciation": "muh-HEE-nah"
+    },
+    {
+      "id": "ur_0103",
+      "unit": "u8",
+      "lemma": "سال",
+      "translit": "saal",
+      "translation": "year",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "اس سال",
+          "translation": "This year"
+        }
+      ],
+      "pronunciation": "SAAL"
+    },
+    {
+      "id": "ur_0104",
+      "unit": "u10",
+      "lemma": "بڑا",
+      "translit": "bara",
+      "translation": "big",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "بڑا گھر",
+          "translation": "Big house"
+        }
+      ],
+      "pronunciation": "buh-RAH"
+    },
+    {
+      "id": "ur_0105",
+      "unit": "u10",
+      "lemma": "چھوٹا",
+      "translit": "chhota",
+      "translation": "small",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "چھوٹا بچہ",
+          "translation": "Small child"
+        }
+      ],
+      "pronunciation": "CHHOH-tah"
+    },
+    {
+      "id": "ur_0106",
+      "unit": "u10",
+      "lemma": "خوبصورت",
+      "translit": "khoobsurat",
+      "translation": "beautiful",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 85,
+      "examples": [
+        {
+          "native": "خوبصورت دن",
+          "translation": "Beautiful day"
+        }
+      ],
+      "pronunciation": "khoob-SOO-rat"
+    },
+    {
+      "id": "ur_0107",
+      "unit": "u10",
+      "lemma": "گرم",
+      "translit": "garam",
+      "translation": "hot, warm",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "گرم چائے",
+          "translation": "Hot tea"
+        }
+      ],
+      "pronunciation": "guh-RUM"
+    },
+    {
+      "id": "ur_0108",
+      "unit": "u10",
+      "lemma": "ٹھنڈا",
+      "translit": "thanda",
+      "translation": "cold",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "ٹھنڈا پانی",
+          "translation": "Cold water"
+        }
+      ],
+      "pronunciation": "THUN-dah"
+    },
+    {
+      "id": "ur_0109",
+      "unit": "u10",
+      "lemma": "نیا",
+      "translit": "naya",
+      "translation": "new",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 51,
+      "examples": [
+        {
+          "native": "نیا گھر",
+          "translation": "New house"
+        }
+      ],
+      "pronunciation": "nuh-YAH"
+    },
+    {
+      "id": "ur_0110",
+      "unit": "u10",
+      "lemma": "پرانا",
+      "translit": "purana",
+      "translation": "old",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 67,
+      "examples": [
+        {
+          "native": "پرانی کتاب",
+          "translation": "Old book"
+        }
+      ],
+      "pronunciation": "poo-RAH-nah"
+    },
+    {
+      "id": "ur_0111",
+      "unit": "u11",
+      "lemma": "سر",
+      "translit": "sar",
+      "pronunciation": "SAR",
+      "translation": "head",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "میرا سر",
+          "translation": "My head"
+        }
+      ]
+    },
+    {
+      "id": "ur_0112",
+      "unit": "u11",
+      "lemma": "ہاتھ",
+      "translit": "haath",
+      "pronunciation": "HAATH",
+      "translation": "hand",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "دایاں ہاتھ",
+          "translation": "Right hand"
+        }
+      ]
+    },
+    {
+      "id": "ur_0113",
+      "unit": "u11",
+      "lemma": "آنکھ",
+      "translit": "aankh",
+      "pronunciation": "AANKH",
+      "translation": "eye",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "بڑی آنکھیں",
+          "translation": "Big eyes"
+        }
+      ]
+    },
+    {
+      "id": "ur_0114",
+      "unit": "u11",
+      "lemma": "بھوک",
+      "translit": "bhook",
+      "pronunciation": "BHOOK",
+      "translation": "hunger",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "مجھے بھوک ہے",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "ur_0115",
+      "unit": "u11",
+      "lemma": "تھکا",
+      "translit": "thaka",
+      "pronunciation": "THUH-kah",
+      "translation": "tired",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 92,
+      "examples": [
+        {
+          "native": "میں تھکا ہوں",
+          "translation": "I am tired"
+        }
+      ]
+    },
+    {
+      "id": "ur_0116",
+      "unit": "u11",
+      "lemma": "خوش",
+      "translit": "khush",
+      "pronunciation": "KHOOSH",
+      "translation": "happy",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "بہت خوش",
+          "translation": "Very happy"
+        }
+      ]
+    },
+    {
+      "id": "ur_0117",
+      "unit": "u11",
+      "lemma": "اداس",
+      "translit": "udaas",
+      "pronunciation": "oo-DAAS",
+      "translation": "sad",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 104,
+      "examples": [
+        {
+          "native": "اداس مت ہو",
+          "translation": "Don't be sad"
+        }
+      ]
+    },
+    {
+      "id": "ur_0118",
+      "unit": "u12",
+      "lemma": "سورج",
+      "translit": "sooraj",
+      "pronunciation": "SOO-raj",
+      "translation": "sun",
+      "category": "Weather",
+      "difficulty": 1,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "تیز سورج",
+          "translation": "Bright sun"
+        }
+      ]
+    },
+    {
+      "id": "ur_0119",
+      "unit": "u12",
+      "lemma": "بارش",
+      "translit": "baarish",
+      "pronunciation": "BAA-rish",
+      "translation": "rain",
+      "category": "Weather",
+      "difficulty": 1,
+      "frequencyRank": 81,
+      "examples": [
+        {
+          "native": "تیز بارش",
+          "translation": "Heavy rain"
+        }
+      ]
+    },
+    {
+      "id": "ur_0120",
+      "unit": "u12",
+      "lemma": "بادل",
+      "translit": "badal",
+      "pronunciation": "BAH-dal",
+      "translation": "cloud",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 96,
+      "examples": [
+        {
+          "native": "کالے بادل",
+          "translation": "Black clouds"
+        }
+      ]
+    },
+    {
+      "id": "ur_0121",
+      "unit": "u12",
+      "lemma": "ہوا",
+      "translit": "hawa",
+      "pronunciation": "hah-WAH",
+      "translation": "wind, air",
+      "category": "Weather",
+      "difficulty": 1,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "ٹھنڈی ہوا",
+          "translation": "Cool wind"
+        }
+      ]
+    },
+    {
+      "id": "ur_0122",
+      "unit": "u12",
+      "lemma": "آسمان",
+      "translit": "asmaan",
+      "pronunciation": "AHS-maan",
+      "translation": "sky",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 86,
+      "examples": [
+        {
+          "native": "نیلا آسمان",
+          "translation": "Blue sky"
+        }
+      ]
+    },
+    {
+      "id": "ur_0123",
+      "unit": "u13",
+      "lemma": "گاڑی",
+      "translit": "gaadi",
+      "pronunciation": "GAH-ree",
+      "translation": "car, vehicle",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "تیز گاڑی",
+          "translation": "Fast car"
+        }
+      ]
+    },
+    {
+      "id": "ur_0124",
+      "unit": "u13",
+      "lemma": "بس",
+      "translit": "bus",
+      "pronunciation": "BUSS",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 111,
+      "examples": [
+        {
+          "native": "بس آ گئی",
+          "translation": "The bus has come"
+        }
+      ]
+    },
+    {
+      "id": "ur_0125",
+      "unit": "u13",
+      "lemma": "ٹرین",
+      "translit": "train",
+      "pronunciation": "TRAIN",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "تیز ٹرین",
+          "translation": "Fast train"
+        }
+      ]
+    },
+    {
+      "id": "ur_0126",
+      "unit": "u13",
+      "lemma": "دایاں",
+      "translit": "dayan",
+      "pronunciation": "DAH-yaan",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "دائیں مڑو",
+          "translation": "Turn right"
+        }
+      ]
+    },
+    {
+      "id": "ur_0127",
+      "unit": "u13",
+      "lemma": "بایاں",
+      "translit": "bayan",
+      "pronunciation": "BAH-yaan",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 101,
+      "examples": [
+        {
+          "native": "بائیں طرف",
+          "translation": "To the left"
+        }
+      ]
+    },
+    {
+      "id": "ur_0128",
+      "unit": "u13",
+      "lemma": "یہاں",
+      "translit": "yahan",
+      "pronunciation": "yah-HAAN",
+      "translation": "here",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "یہاں آؤ",
+          "translation": "Come here"
+        }
+      ]
+    },
+    {
+      "id": "ur_0129",
+      "unit": "u13",
+      "lemma": "وہاں",
+      "translit": "wahan",
+      "pronunciation": "wah-HAAN",
+      "translation": "there",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "وہاں جاؤ",
+          "translation": "Go there"
+        }
+      ]
+    },
+    {
+      "id": "ur_0130",
+      "unit": "u6",
+      "lemma": "خریدنا",
+      "translit": "khareedna",
+      "pronunciation": "khah-REED-nah",
+      "translation": "to buy",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "کپڑے خریدنا",
+          "translation": "To buy clothes"
+        }
+      ]
+    },
+    {
+      "id": "ur_0131",
+      "unit": "u6",
+      "lemma": "بیچنا",
+      "translit": "bechna",
+      "pronunciation": "BAYCH-nah",
+      "translation": "to sell",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 103,
+      "examples": [
+        {
+          "native": "گھر بیچنا",
+          "translation": "To sell a house"
+        }
+      ]
+    },
+    {
+      "id": "ur_0132",
+      "unit": "u5",
+      "lemma": "نمک",
+      "translit": "namak",
+      "pronunciation": "NAH-mak",
+      "translation": "salt",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "تھوڑا نمک",
+          "translation": "A little salt"
+        }
+      ]
+    },
+    {
+      "id": "ur_0133",
+      "unit": "u5",
+      "lemma": "کھانا تیار",
+      "translit": "khana tayyar",
+      "pronunciation": "KHAH-nah tah-YAR",
+      "translation": "food is ready",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "کھانا تیار ہے",
+          "translation": "Food is ready"
+        }
+      ]
+    },
+    {
+      "id": "ur_0134",
+      "unit": "u10",
+      "lemma": "جلدی",
+      "translit": "jaldi",
+      "pronunciation": "JUL-dee",
+      "translation": "quickly, hurry",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 77,
+      "examples": [
+        {
+          "native": "جلدی آؤ",
+          "translation": "Come quickly"
+        }
+      ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "basics",
+      "title": "Starter letters",
+      "emoji": "🅰️",
+      "description": "Alif, Bay, Pay, Tay — the most common starting sounds"
+    },
+    {
+      "id": "common",
+      "title": "Common consonants",
+      "emoji": "🔤",
+      "description": "Jeem, Chay, Daal, Ray, Seen, Sheen"
+    },
+    {
+      "id": "tricky",
+      "title": "Tricky throat sounds",
+      "emoji": "👄",
+      "description": "Hay, Khay, Ayn, Qaaf — sounds English doesn't have"
+    },
+    {
+      "id": "remaining",
+      "title": "The rest",
+      "emoji": "🔠",
+      "description": "Fay, Kaaf, Gaaf, Laam, Meem, Noon, Wao, Hay, Yay"
+    }
+  ]
+}

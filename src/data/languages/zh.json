@@ -1,0 +1,1915 @@
+{
+  "schemaVersion": 6,
+  "code": "zh",
+  "categories": [
+    "Greetings",
+    "People",
+    "Family",
+    "Numbers",
+    "Food",
+    "Verbs",
+    "Places",
+    "Time",
+    "Connectors",
+    "Travel"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Say hello, goodbye, please and thank you"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and basic introductions"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, brother, sister, friend"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers 1-10",
+      "emoji": "🔢",
+      "description": "Count and use basic numbers"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Order water, bread, tea, coffee"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, eat, drink, see, speak"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "🏠",
+      "description": "House, school, market, city"
+    },
+    {
+      "id": "u8",
+      "title": "Time",
+      "emoji": "⏰",
+      "description": "Today, tomorrow, now, day, night"
+    },
+    {
+      "id": "u9",
+      "title": "Connecting Ideas",
+      "emoji": "🔗",
+      "description": "And, but, because, if, or"
+    },
+    {
+      "id": "u10",
+      "title": "Useful Phrases",
+      "emoji": "✨",
+      "description": "Big, small, hot, cold, good, more"
+    },
+    {
+      "id": "u11",
+      "title": "Body & Feelings",
+      "emoji": "💪",
+      "description": "Head, hand, hungry, tired, happy, sad"
+    },
+    {
+      "id": "u12",
+      "title": "Weather & Nature",
+      "emoji": "🌦️",
+      "description": "Sun, rain, cold, hot, sky, water"
+    },
+    {
+      "id": "u13",
+      "title": "Getting Around",
+      "emoji": "🚗",
+      "description": "Car, bus, train, left, right, here, there"
+    }
+  ],
+  "alphabet": [
+    {
+      "char": "b",
+      "name": "b",
+      "sound": "b as in 'boy'",
+      "group": "initials_1"
+    },
+    {
+      "char": "p",
+      "name": "p",
+      "sound": "p as in 'pen' (aspirated)",
+      "group": "initials_1"
+    },
+    {
+      "char": "m",
+      "name": "m",
+      "sound": "m as in 'mom'",
+      "group": "initials_1"
+    },
+    {
+      "char": "f",
+      "name": "f",
+      "sound": "f as in 'fun'",
+      "group": "initials_1"
+    },
+    {
+      "char": "d",
+      "name": "d",
+      "sound": "d as in 'dog'",
+      "group": "initials_1"
+    },
+    {
+      "char": "t",
+      "name": "t",
+      "sound": "t as in 'top' (aspirated)",
+      "group": "initials_1"
+    },
+    {
+      "char": "n",
+      "name": "n",
+      "sound": "n as in 'no'",
+      "group": "initials_1"
+    },
+    {
+      "char": "l",
+      "name": "l",
+      "sound": "l as in 'love'",
+      "group": "initials_1"
+    },
+    {
+      "char": "g",
+      "name": "g",
+      "sound": "g as in 'go'",
+      "group": "initials_2"
+    },
+    {
+      "char": "k",
+      "name": "k",
+      "sound": "k as in 'kite' (aspirated)",
+      "group": "initials_2"
+    },
+    {
+      "char": "h",
+      "name": "h",
+      "sound": "h as in 'hello'",
+      "group": "initials_2"
+    },
+    {
+      "char": "j",
+      "name": "j",
+      "sound": "j (tongue at front teeth)",
+      "group": "initials_2"
+    },
+    {
+      "char": "q",
+      "name": "q",
+      "sound": "ch (light, aspirated)",
+      "group": "initials_2"
+    },
+    {
+      "char": "x",
+      "name": "x",
+      "sound": "sh (very soft)",
+      "group": "initials_2"
+    },
+    {
+      "char": "zh",
+      "name": "zh",
+      "sound": "j (tongue back)",
+      "group": "initials_3"
+    },
+    {
+      "char": "ch",
+      "name": "ch",
+      "sound": "ch (tongue back, aspirated)",
+      "group": "initials_3"
+    },
+    {
+      "char": "sh",
+      "name": "sh",
+      "sound": "sh (tongue back)",
+      "group": "initials_3"
+    },
+    {
+      "char": "r",
+      "name": "r",
+      "sound": "r (between r and zh)",
+      "group": "initials_3"
+    },
+    {
+      "char": "a",
+      "name": "a",
+      "sound": "ah",
+      "group": "finals"
+    },
+    {
+      "char": "o",
+      "name": "o",
+      "sound": "oh (close to 'aw')",
+      "group": "finals"
+    },
+    {
+      "char": "e",
+      "name": "e",
+      "sound": "uh",
+      "group": "finals"
+    },
+    {
+      "char": "i",
+      "name": "i",
+      "sound": "ee",
+      "group": "finals"
+    },
+    {
+      "char": "u",
+      "name": "u",
+      "sound": "oo",
+      "group": "finals"
+    },
+    {
+      "char": "ü",
+      "name": "ü",
+      "sound": "ee with rounded lips",
+      "group": "finals"
+    },
+    {
+      "char": "ā",
+      "name": "1st tone",
+      "sound": "high & flat (a steady tone)",
+      "group": "tones"
+    },
+    {
+      "char": "á",
+      "name": "2nd tone",
+      "sound": "rising (like a question)",
+      "group": "tones"
+    },
+    {
+      "char": "ǎ",
+      "name": "3rd tone",
+      "sound": "dipping then rising",
+      "group": "tones"
+    },
+    {
+      "char": "à",
+      "name": "4th tone",
+      "sound": "sharp falling (like an order)",
+      "group": "tones"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "tones",
+      "title": "Tones change meaning",
+      "body": "Mā (mother), má (hemp), mǎ (horse), mà (scold). Same syllable, four meanings. Tones aren't optional — they're the word."
+    },
+    {
+      "id": "no-conj",
+      "title": "No verb conjugation",
+      "body": "Verbs don't change for tense or person. Time is shown with words like 昨天 (yesterday) or 了 (past marker)."
+    },
+    {
+      "id": "measure",
+      "title": "Measure words",
+      "body": "You can't say 'three book' — you need a measure word: 三本书 (three [volume] books)."
+    }
+  ],
+  "vocab": [
+    {
+      "id": "zh_0001",
+      "unit": "u1",
+      "lemma": "你好",
+      "translit": "nǐ hǎo",
+      "translation": "hello",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "你好朋友",
+          "translation": "Hello friend"
+        }
+      ],
+      "pronunciation": "nee how"
+    },
+    {
+      "id": "zh_0002",
+      "unit": "u1",
+      "lemma": "谢谢",
+      "translit": "xièxie",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "非常谢谢",
+          "translation": "Thank you very much"
+        }
+      ],
+      "pronunciation": "shyeh-shyeh"
+    },
+    {
+      "id": "zh_0003",
+      "unit": "u1",
+      "lemma": "是",
+      "translit": "shì",
+      "translation": "yes, to be",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "是的",
+          "translation": "Yes"
+        }
+      ],
+      "pronunciation": "sher (4th tone, falling)"
+    },
+    {
+      "id": "zh_0004",
+      "unit": "u1",
+      "lemma": "不",
+      "translit": "bù",
+      "translation": "no, not",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "不是",
+          "translation": "No, it's not"
+        }
+      ],
+      "pronunciation": "boo (4th tone)"
+    },
+    {
+      "id": "zh_0005",
+      "unit": "u1",
+      "lemma": "再见",
+      "translit": "zàijiàn",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "明天再见",
+          "translation": "See you tomorrow"
+        }
+      ],
+      "pronunciation": "dzai-jyen"
+    },
+    {
+      "id": "zh_0006",
+      "unit": "u1",
+      "lemma": "对不起",
+      "translit": "duìbùqǐ",
+      "translation": "sorry",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "对不起，我迟到了",
+          "translation": "Sorry, I'm late"
+        }
+      ],
+      "pronunciation": "dway-boo-chee"
+    },
+    {
+      "id": "zh_0007",
+      "unit": "u1",
+      "lemma": "请",
+      "translit": "qǐng",
+      "translation": "please",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "请坐",
+          "translation": "Please sit"
+        }
+      ],
+      "pronunciation": "ching (3rd tone, dipping)"
+    },
+    {
+      "id": "zh_0008",
+      "unit": "u1",
+      "lemma": "早安",
+      "translit": "zǎo'ān",
+      "translation": "good morning",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "早安朋友",
+          "translation": "Good morning friend"
+        }
+      ],
+      "pronunciation": "dzow-an"
+    },
+    {
+      "id": "zh_0009",
+      "unit": "u2",
+      "lemma": "我",
+      "translit": "wǒ",
+      "translation": "I, me",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "我是学生",
+          "translation": "I am a student"
+        }
+      ],
+      "pronunciation": "wor (3rd tone)"
+    },
+    {
+      "id": "zh_0010",
+      "unit": "u2",
+      "lemma": "你",
+      "translit": "nǐ",
+      "translation": "you",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "你好吗",
+          "translation": "How are you"
+        }
+      ],
+      "pronunciation": "nee (3rd tone)"
+    },
+    {
+      "id": "zh_0011",
+      "unit": "u2",
+      "lemma": "他",
+      "translit": "tā",
+      "translation": "he",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "他是医生",
+          "translation": "He is a doctor"
+        }
+      ],
+      "pronunciation": "tah (1st tone, flat)"
+    },
+    {
+      "id": "zh_0012",
+      "unit": "u2",
+      "lemma": "她",
+      "translit": "tā",
+      "translation": "she",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "她是老师",
+          "translation": "She is a teacher"
+        }
+      ],
+      "pronunciation": "tah (1st tone, flat)"
+    },
+    {
+      "id": "zh_0013",
+      "unit": "u2",
+      "lemma": "我们",
+      "translit": "wǒmen",
+      "translation": "we",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "我们是朋友",
+          "translation": "We are friends"
+        }
+      ],
+      "pronunciation": "wor-men"
+    },
+    {
+      "id": "zh_0014",
+      "unit": "u2",
+      "lemma": "什么",
+      "translit": "shénme",
+      "translation": "what",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "这是什么",
+          "translation": "What is this"
+        }
+      ],
+      "pronunciation": "shen-muh"
+    },
+    {
+      "id": "zh_0015",
+      "unit": "u2",
+      "lemma": "谁",
+      "translit": "shéi",
+      "translation": "who",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "他是谁",
+          "translation": "Who is he"
+        }
+      ],
+      "pronunciation": "shay"
+    },
+    {
+      "id": "zh_0016",
+      "unit": "u3",
+      "lemma": "妈妈",
+      "translit": "māma",
+      "translation": "mother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "我的妈妈",
+          "translation": "My mother"
+        }
+      ],
+      "pronunciation": "mah-mah"
+    },
+    {
+      "id": "zh_0017",
+      "unit": "u3",
+      "lemma": "爸爸",
+      "translit": "bàba",
+      "translation": "father",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "我的爸爸",
+          "translation": "My father"
+        }
+      ],
+      "pronunciation": "bah-bah"
+    },
+    {
+      "id": "zh_0018",
+      "unit": "u3",
+      "lemma": "哥哥",
+      "translit": "gēge",
+      "translation": "older brother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "我的哥哥",
+          "translation": "My older brother"
+        }
+      ],
+      "pronunciation": "guh-guh"
+    },
+    {
+      "id": "zh_0019",
+      "unit": "u3",
+      "lemma": "姐姐",
+      "translit": "jiějie",
+      "translation": "older sister",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "我的姐姐",
+          "translation": "My older sister"
+        }
+      ],
+      "pronunciation": "jyeh-jyeh"
+    },
+    {
+      "id": "zh_0020",
+      "unit": "u3",
+      "lemma": "朋友",
+      "translit": "péngyǒu",
+      "translation": "friend",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "好朋友",
+          "translation": "Good friend"
+        }
+      ],
+      "pronunciation": "pung-yoh"
+    },
+    {
+      "id": "zh_0021",
+      "unit": "u3",
+      "lemma": "孩子",
+      "translit": "háizi",
+      "translation": "child",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "小孩子",
+          "translation": "Small child"
+        }
+      ],
+      "pronunciation": "hai-dzuh"
+    },
+    {
+      "id": "zh_0022",
+      "unit": "u4",
+      "lemma": "一",
+      "translit": "yī",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "一个人",
+          "translation": "One person"
+        }
+      ],
+      "pronunciation": "ee (1st tone, flat)"
+    },
+    {
+      "id": "zh_0023",
+      "unit": "u4",
+      "lemma": "二",
+      "translit": "èr",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "二月",
+          "translation": "February"
+        }
+      ],
+      "pronunciation": "ar (4th tone)"
+    },
+    {
+      "id": "zh_0024",
+      "unit": "u4",
+      "lemma": "三",
+      "translit": "sān",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "三天",
+          "translation": "Three days"
+        }
+      ],
+      "pronunciation": "san (1st tone)"
+    },
+    {
+      "id": "zh_0025",
+      "unit": "u4",
+      "lemma": "四",
+      "translit": "sì",
+      "translation": "four",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "四小时",
+          "translation": "Four hours"
+        }
+      ],
+      "pronunciation": "suh (4th tone)"
+    },
+    {
+      "id": "zh_0026",
+      "unit": "u4",
+      "lemma": "五",
+      "translit": "wǔ",
+      "translation": "five",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "五分钟",
+          "translation": "Five minutes"
+        }
+      ],
+      "pronunciation": "woo (3rd tone)"
+    },
+    {
+      "id": "zh_0027",
+      "unit": "u4",
+      "lemma": "十",
+      "translit": "shí",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "十块钱",
+          "translation": "Ten yuan"
+        }
+      ],
+      "pronunciation": "shir (2nd tone, rising)"
+    },
+    {
+      "id": "zh_0028",
+      "unit": "u4",
+      "lemma": "百",
+      "translit": "bǎi",
+      "translation": "hundred",
+      "category": "Numbers",
+      "difficulty": 2,
+      "frequencyRank": 85,
+      "examples": [
+        {
+          "native": "一百",
+          "translation": "One hundred"
+        }
+      ],
+      "pronunciation": "bai (3rd tone)"
+    },
+    {
+      "id": "zh_0029",
+      "unit": "u5",
+      "lemma": "水",
+      "translit": "shuǐ",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "examples": [
+        {
+          "native": "一杯水",
+          "translation": "A glass of water"
+        }
+      ],
+      "pronunciation": "shway (3rd tone)"
+    },
+    {
+      "id": "zh_0030",
+      "unit": "u5",
+      "lemma": "茶",
+      "translit": "chá",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "中国茶",
+          "translation": "Chinese tea"
+        }
+      ],
+      "pronunciation": "chah (2nd tone)"
+    },
+    {
+      "id": "zh_0031",
+      "unit": "u5",
+      "lemma": "米饭",
+      "translit": "mǐfàn",
+      "translation": "rice",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "吃米饭",
+          "translation": "To eat rice"
+        }
+      ],
+      "pronunciation": "mee-fan"
+    },
+    {
+      "id": "zh_0032",
+      "unit": "u5",
+      "lemma": "面条",
+      "translit": "miàntiáo",
+      "translation": "noodles",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "牛肉面条",
+          "translation": "Beef noodles"
+        }
+      ],
+      "pronunciation": "myen-tyow"
+    },
+    {
+      "id": "zh_0033",
+      "unit": "u5",
+      "lemma": "牛奶",
+      "translit": "niúnǎi",
+      "translation": "milk",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "热牛奶",
+          "translation": "Hot milk"
+        }
+      ],
+      "pronunciation": "nyoh-nai"
+    },
+    {
+      "id": "zh_0034",
+      "unit": "u5",
+      "lemma": "咖啡",
+      "translit": "kāfēi",
+      "translation": "coffee",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "一杯咖啡",
+          "translation": "A cup of coffee"
+        }
+      ],
+      "pronunciation": "kah-fay"
+    },
+    {
+      "id": "zh_0035",
+      "unit": "u5",
+      "lemma": "鸡蛋",
+      "translit": "jīdàn",
+      "translation": "egg",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 108,
+      "examples": [
+        {
+          "native": "煮鸡蛋",
+          "translation": "Boiled egg"
+        }
+      ],
+      "pronunciation": "jee-dan"
+    },
+    {
+      "id": "zh_0036",
+      "unit": "u5",
+      "lemma": "肉",
+      "translit": "ròu",
+      "translation": "meat",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "鸡肉",
+          "translation": "Chicken meat"
+        }
+      ],
+      "pronunciation": "roh (4th tone)"
+    },
+    {
+      "id": "zh_0037",
+      "unit": "u6",
+      "lemma": "去",
+      "translit": "qù",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "我去家",
+          "translation": "I go home"
+        }
+      ],
+      "pronunciation": "chew (4th tone)"
+    },
+    {
+      "id": "zh_0038",
+      "unit": "u6",
+      "lemma": "来",
+      "translit": "lái",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "明天来",
+          "translation": "Come tomorrow"
+        }
+      ],
+      "pronunciation": "lai (2nd tone)"
+    },
+    {
+      "id": "zh_0039",
+      "unit": "u6",
+      "lemma": "吃",
+      "translit": "chī",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "吃饭",
+          "translation": "To eat a meal"
+        }
+      ],
+      "pronunciation": "chir (1st tone)"
+    },
+    {
+      "id": "zh_0040",
+      "unit": "u6",
+      "lemma": "喝",
+      "translit": "hē",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "喝水",
+          "translation": "To drink water"
+        }
+      ],
+      "pronunciation": "huh (1st tone)"
+    },
+    {
+      "id": "zh_0041",
+      "unit": "u6",
+      "lemma": "说",
+      "translit": "shuō",
+      "translation": "to speak, say",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "说中文",
+          "translation": "To speak Chinese"
+        }
+      ],
+      "pronunciation": "shwor (1st tone)"
+    },
+    {
+      "id": "zh_0042",
+      "unit": "u6",
+      "lemma": "看",
+      "translit": "kàn",
+      "translation": "to see, watch, read",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "看电影",
+          "translation": "To watch a movie"
+        }
+      ],
+      "pronunciation": "kahn (4th tone)"
+    },
+    {
+      "id": "zh_0043",
+      "unit": "u6",
+      "lemma": "做",
+      "translit": "zuò",
+      "translation": "to do, make",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "做饭",
+          "translation": "To cook"
+        }
+      ],
+      "pronunciation": "dzwor (4th tone)"
+    },
+    {
+      "id": "zh_0044",
+      "unit": "u6",
+      "lemma": "有",
+      "translit": "yǒu",
+      "translation": "to have",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "我有一本书",
+          "translation": "I have a book"
+        }
+      ],
+      "pronunciation": "yoh (3rd tone)"
+    },
+    {
+      "id": "zh_0045",
+      "unit": "u6",
+      "lemma": "在",
+      "translit": "zài",
+      "translation": "to be at, in",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 10,
+      "examples": [
+        {
+          "native": "我在家",
+          "translation": "I am at home"
+        }
+      ],
+      "pronunciation": "dzai (4th tone)"
+    },
+    {
+      "id": "zh_0046",
+      "unit": "u7",
+      "lemma": "家",
+      "translit": "jiā",
+      "translation": "home",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "我的家",
+          "translation": "My home"
+        }
+      ],
+      "pronunciation": "jya (1st tone)"
+    },
+    {
+      "id": "zh_0047",
+      "unit": "u7",
+      "lemma": "学校",
+      "translit": "xuéxiào",
+      "translation": "school",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "去学校",
+          "translation": "To go to school"
+        }
+      ],
+      "pronunciation": "shweh-shyow"
+    },
+    {
+      "id": "zh_0048",
+      "unit": "u7",
+      "lemma": "城市",
+      "translit": "chéngshì",
+      "translation": "city",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "大城市",
+          "translation": "Big city"
+        }
+      ],
+      "pronunciation": "chung-shir"
+    },
+    {
+      "id": "zh_0049",
+      "unit": "u7",
+      "lemma": "商店",
+      "translit": "shāngdiàn",
+      "translation": "shop",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "小商店",
+          "translation": "Small shop"
+        }
+      ],
+      "pronunciation": "shahng-dyen"
+    },
+    {
+      "id": "zh_0050",
+      "unit": "u7",
+      "lemma": "饭店",
+      "translit": "fàndiàn",
+      "translation": "restaurant, hotel",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "中国饭店",
+          "translation": "Chinese restaurant"
+        }
+      ],
+      "pronunciation": "fan-dyen"
+    },
+    {
+      "id": "zh_0051",
+      "unit": "u8",
+      "lemma": "今天",
+      "translit": "jīntiān",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "今天星期一",
+          "translation": "Today is Monday"
+        }
+      ],
+      "pronunciation": "jin-tyen"
+    },
+    {
+      "id": "zh_0052",
+      "unit": "u8",
+      "lemma": "明天",
+      "translit": "míngtiān",
+      "translation": "tomorrow",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "明天见",
+          "translation": "See you tomorrow"
+        }
+      ],
+      "pronunciation": "ming-tyen"
+    },
+    {
+      "id": "zh_0053",
+      "unit": "u8",
+      "lemma": "现在",
+      "translit": "xiànzài",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "现在几点",
+          "translation": "What time now"
+        }
+      ],
+      "pronunciation": "shyen-dzai"
+    },
+    {
+      "id": "zh_0054",
+      "unit": "u8",
+      "lemma": "早上",
+      "translit": "zǎoshàng",
+      "translation": "morning",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 63,
+      "examples": [
+        {
+          "native": "早上好",
+          "translation": "Good morning"
+        }
+      ],
+      "pronunciation": "dzow-shahng"
+    },
+    {
+      "id": "zh_0055",
+      "unit": "u8",
+      "lemma": "晚上",
+      "translit": "wǎnshàng",
+      "translation": "evening, night",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 58,
+      "examples": [
+        {
+          "native": "晚上好",
+          "translation": "Good evening"
+        }
+      ],
+      "pronunciation": "wahn-shahng"
+    },
+    {
+      "id": "zh_0056",
+      "unit": "u8",
+      "lemma": "年",
+      "translit": "nián",
+      "translation": "year",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "今年",
+          "translation": "This year"
+        }
+      ],
+      "pronunciation": "nyen (2nd tone)"
+    },
+    {
+      "id": "zh_0057",
+      "unit": "u8",
+      "lemma": "月",
+      "translit": "yuè",
+      "translation": "month, moon",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "这个月",
+          "translation": "This month"
+        }
+      ],
+      "pronunciation": "yweh (4th tone)"
+    },
+    {
+      "id": "zh_0058",
+      "unit": "u9",
+      "lemma": "和",
+      "translit": "hé",
+      "translation": "and, with",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "你和我",
+          "translation": "You and me"
+        }
+      ],
+      "pronunciation": "huh (2nd tone)"
+    },
+    {
+      "id": "zh_0059",
+      "unit": "u9",
+      "lemma": "但是",
+      "translit": "dànshì",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "但是很难",
+          "translation": "But it's hard"
+        }
+      ],
+      "pronunciation": "dan-shir"
+    },
+    {
+      "id": "zh_0060",
+      "unit": "u9",
+      "lemma": "因为",
+      "translit": "yīnwèi",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 3,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "因为我累了",
+          "translation": "Because I'm tired"
+        }
+      ],
+      "pronunciation": "yin-way"
+    },
+    {
+      "id": "zh_0061",
+      "unit": "u9",
+      "lemma": "或者",
+      "translit": "huòzhě",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "茶或者咖啡",
+          "translation": "Tea or coffee"
+        }
+      ],
+      "pronunciation": "hwor-juh"
+    },
+    {
+      "id": "zh_0062",
+      "unit": "u9",
+      "lemma": "也",
+      "translit": "yě",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "我也是",
+          "translation": "Me too"
+        }
+      ],
+      "pronunciation": "yeh (3rd tone)"
+    },
+    {
+      "id": "zh_0063",
+      "unit": "u10",
+      "lemma": "哪里",
+      "translit": "nǎlǐ",
+      "translation": "where",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "你在哪里",
+          "translation": "Where are you"
+        }
+      ],
+      "pronunciation": "nah-lee"
+    },
+    {
+      "id": "zh_0064",
+      "unit": "u10",
+      "lemma": "多少",
+      "translit": "duōshǎo",
+      "translation": "how much, how many",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "多少钱",
+          "translation": "How much money"
+        }
+      ],
+      "pronunciation": "dwor-show"
+    },
+    {
+      "id": "zh_0065",
+      "unit": "u10",
+      "lemma": "帮助",
+      "translit": "bāngzhù",
+      "translation": "help",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 84,
+      "examples": [
+        {
+          "native": "我需要帮助",
+          "translation": "I need help"
+        }
+      ],
+      "pronunciation": "bahng-joo"
+    },
+    {
+      "id": "zh_0066",
+      "unit": "u10",
+      "lemma": "酒店",
+      "translit": "jiǔdiàn",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "好酒店",
+          "translation": "Good hotel"
+        }
+      ],
+      "pronunciation": "jyoh-dyen"
+    },
+    {
+      "id": "zh_0067",
+      "unit": "u10",
+      "lemma": "好",
+      "translit": "hǎo",
+      "translation": "good, well",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "很好",
+          "translation": "Very good"
+        }
+      ],
+      "pronunciation": "how (3rd tone)"
+    },
+    {
+      "id": "zh_0068",
+      "unit": "u10",
+      "lemma": "多",
+      "translit": "duō",
+      "translation": "many, much",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 19,
+      "examples": [
+        {
+          "native": "很多",
+          "translation": "A lot"
+        }
+      ],
+      "pronunciation": "dwor (1st tone)"
+    },
+    {
+      "id": "zh_0069",
+      "unit": "u10",
+      "lemma": "大",
+      "translit": "dà",
+      "translation": "big",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "大房子",
+          "translation": "Big house"
+        }
+      ],
+      "pronunciation": "dah (4th tone)"
+    },
+    {
+      "id": "zh_0070",
+      "unit": "u10",
+      "lemma": "小",
+      "translit": "xiǎo",
+      "translation": "small",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 53,
+      "examples": [
+        {
+          "native": "小狗",
+          "translation": "Small dog"
+        }
+      ],
+      "pronunciation": "shyow (3rd tone)"
+    },
+    {
+      "id": "zh_0071",
+      "unit": "u11",
+      "lemma": "头",
+      "translit": "tóu",
+      "pronunciation": "toh (2nd tone)",
+      "translation": "head",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "我的头",
+          "translation": "My head"
+        }
+      ]
+    },
+    {
+      "id": "zh_0072",
+      "unit": "u11",
+      "lemma": "手",
+      "translit": "shǒu",
+      "pronunciation": "shoh (3rd tone)",
+      "translation": "hand",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "右手",
+          "translation": "Right hand"
+        }
+      ]
+    },
+    {
+      "id": "zh_0073",
+      "unit": "u11",
+      "lemma": "眼睛",
+      "translit": "yǎnjīng",
+      "pronunciation": "yen-jing",
+      "translation": "eye",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "大眼睛",
+          "translation": "Big eyes"
+        }
+      ]
+    },
+    {
+      "id": "zh_0074",
+      "unit": "u11",
+      "lemma": "饿",
+      "translit": "è",
+      "pronunciation": "uh (4th tone)",
+      "translation": "hungry",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "我饿了",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "zh_0075",
+      "unit": "u11",
+      "lemma": "累",
+      "translit": "lèi",
+      "pronunciation": "lay (4th tone)",
+      "translation": "tired",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 92,
+      "examples": [
+        {
+          "native": "我很累",
+          "translation": "I am very tired"
+        }
+      ]
+    },
+    {
+      "id": "zh_0076",
+      "unit": "u11",
+      "lemma": "高兴",
+      "translit": "gāoxìng",
+      "pronunciation": "gow-shing",
+      "translation": "happy",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "很高兴",
+          "translation": "Very happy"
+        }
+      ]
+    },
+    {
+      "id": "zh_0077",
+      "unit": "u11",
+      "lemma": "难过",
+      "translit": "nánguò",
+      "pronunciation": "nan-gwor",
+      "translation": "sad",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 104,
+      "examples": [
+        {
+          "native": "别难过",
+          "translation": "Don't be sad"
+        }
+      ]
+    },
+    {
+      "id": "zh_0078",
+      "unit": "u12",
+      "lemma": "太阳",
+      "translit": "tàiyáng",
+      "pronunciation": "tai-yang",
+      "translation": "sun",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "大太阳",
+          "translation": "Bright sun"
+        }
+      ]
+    },
+    {
+      "id": "zh_0079",
+      "unit": "u12",
+      "lemma": "雨",
+      "translit": "yǔ",
+      "pronunciation": "yoo (3rd tone)",
+      "translation": "rain",
+      "category": "Weather",
+      "difficulty": 1,
+      "frequencyRank": 81,
+      "examples": [
+        {
+          "native": "下雨了",
+          "translation": "It's raining"
+        }
+      ]
+    },
+    {
+      "id": "zh_0080",
+      "unit": "u12",
+      "lemma": "云",
+      "translit": "yún",
+      "pronunciation": "yoon (2nd tone)",
+      "translation": "cloud",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 96,
+      "examples": [
+        {
+          "native": "黑云",
+          "translation": "Black clouds"
+        }
+      ]
+    },
+    {
+      "id": "zh_0081",
+      "unit": "u12",
+      "lemma": "风",
+      "translit": "fēng",
+      "pronunciation": "fung (1st tone)",
+      "translation": "wind",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "凉风",
+          "translation": "Cool wind"
+        }
+      ]
+    },
+    {
+      "id": "zh_0082",
+      "unit": "u12",
+      "lemma": "天空",
+      "translit": "tiānkōng",
+      "pronunciation": "tyen-kong",
+      "translation": "sky",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 86,
+      "examples": [
+        {
+          "native": "蓝天空",
+          "translation": "Blue sky"
+        }
+      ]
+    },
+    {
+      "id": "zh_0083",
+      "unit": "u13",
+      "lemma": "车",
+      "translit": "chē",
+      "pronunciation": "chuh (1st tone)",
+      "translation": "car, vehicle",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "快车",
+          "translation": "Fast car"
+        }
+      ]
+    },
+    {
+      "id": "zh_0084",
+      "unit": "u13",
+      "lemma": "公共汽车",
+      "translit": "gōnggòng qìchē",
+      "pronunciation": "gong-gong chee-chuh",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 111,
+      "examples": [
+        {
+          "native": "公共汽车来了",
+          "translation": "The bus is coming"
+        }
+      ]
+    },
+    {
+      "id": "zh_0085",
+      "unit": "u13",
+      "lemma": "火车",
+      "translit": "huǒchē",
+      "pronunciation": "hwor-chuh",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 2,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "快火车",
+          "translation": "Fast train"
+        }
+      ]
+    },
+    {
+      "id": "zh_0086",
+      "unit": "u13",
+      "lemma": "右",
+      "translit": "yòu",
+      "pronunciation": "yoh (4th tone)",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "向右",
+          "translation": "To the right"
+        }
+      ]
+    },
+    {
+      "id": "zh_0087",
+      "unit": "u13",
+      "lemma": "左",
+      "translit": "zuǒ",
+      "pronunciation": "dzwor (3rd tone)",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 101,
+      "examples": [
+        {
+          "native": "向左",
+          "translation": "To the left"
+        }
+      ]
+    },
+    {
+      "id": "zh_0088",
+      "unit": "u13",
+      "lemma": "这里",
+      "translit": "zhèlǐ",
+      "pronunciation": "juh-lee",
+      "translation": "here",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "来这里",
+          "translation": "Come here"
+        }
+      ]
+    },
+    {
+      "id": "zh_0089",
+      "unit": "u13",
+      "lemma": "那里",
+      "translit": "nàlǐ",
+      "pronunciation": "nah-lee",
+      "translation": "there",
+      "category": "Transport",
+      "difficulty": 1,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "去那里",
+          "translation": "Go there"
+        }
+      ]
+    },
+    {
+      "id": "zh_0090",
+      "unit": "u6",
+      "lemma": "买",
+      "translit": "mǎi",
+      "pronunciation": "mai (3rd tone)",
+      "translation": "to buy",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "买衣服",
+          "translation": "To buy clothes"
+        }
+      ]
+    },
+    {
+      "id": "zh_0091",
+      "unit": "u6",
+      "lemma": "卖",
+      "translit": "mài",
+      "pronunciation": "mai (4th tone)",
+      "translation": "to sell",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 103,
+      "examples": [
+        {
+          "native": "卖房子",
+          "translation": "To sell a house"
+        }
+      ]
+    },
+    {
+      "id": "zh_0092",
+      "unit": "u5",
+      "lemma": "盐",
+      "translit": "yán",
+      "pronunciation": "yen (2nd tone)",
+      "translation": "salt",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "少盐",
+          "translation": "A little salt"
+        }
+      ]
+    },
+    {
+      "id": "zh_0093",
+      "unit": "u5",
+      "lemma": "糖",
+      "translit": "táng",
+      "pronunciation": "tang (2nd tone)",
+      "translation": "sugar",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 117,
+      "examples": [
+        {
+          "native": "加糖",
+          "translation": "Add sugar"
+        }
+      ]
+    },
+    {
+      "id": "zh_0094",
+      "unit": "u10",
+      "lemma": "快",
+      "translit": "kuài",
+      "pronunciation": "kwai (4th tone)",
+      "translation": "fast, quick",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 77,
+      "examples": [
+        {
+          "native": "快来",
+          "translation": "Come quickly"
+        }
+      ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "initials_1",
+      "title": "Initials part 1",
+      "emoji": "🔤",
+      "description": "b, p, m, f, d, t, n, l"
+    },
+    {
+      "id": "initials_2",
+      "title": "Initials part 2",
+      "emoji": "🔡",
+      "description": "g, k, h, j, q, x"
+    },
+    {
+      "id": "initials_3",
+      "title": "Tongue-back initials",
+      "emoji": "👄",
+      "description": "zh, ch, sh, r"
+    },
+    {
+      "id": "finals",
+      "title": "Finals (vowels)",
+      "emoji": "🅰️",
+      "description": "a, o, e, i, u, ü"
+    },
+    {
+      "id": "tones",
+      "title": "The 4 tones",
+      "emoji": "🎵",
+      "description": "Tones change the meaning of a word"
+    }
+  ]
+}
