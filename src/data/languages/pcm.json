@@ -1,0 +1,1156 @@
+{
+  "schemaVersion": 5,
+  "code": "pcm",
+  "categories": [
+    "Body",
+    "Colors",
+    "Common",
+    "Family",
+    "Food",
+    "Greetings",
+    "Numbers",
+    "People",
+    "Time",
+    "Verbs",
+    "Weather"
+  ],
+  "alphabet": [
+    {
+      "char": "A",
+      "name": "A",
+      "sound": "ah"
+    },
+    {
+      "char": "E",
+      "name": "E",
+      "sound": "eh"
+    },
+    {
+      "char": "I",
+      "name": "I",
+      "sound": "ee"
+    },
+    {
+      "char": "O",
+      "name": "O",
+      "sound": "oh"
+    },
+    {
+      "char": "U",
+      "name": "U",
+      "sound": "oo"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "dey-verb",
+      "title": "'Dey' is the all-purpose 'is/are/am'",
+      "body": "'Dey' covers 'is/are/am' AND ongoing action. 'I dey fine' = I'm fine. 'I dey go' = I'm going. One word, huge use."
+    },
+    {
+      "id": "no-conjugation",
+      "title": "Verbs barely change",
+      "body": "Most Pidgin verbs stay the same regardless of who's doing the action. 'I go', 'You go', 'Dem go' — same 'go'."
+    },
+    {
+      "id": "english-base",
+      "title": "English-based but its own language",
+      "body": "Nigerian Pidgin (Naijá) is an English-based creole — not 'broken English'. It has its own grammar, words, and is spoken by 100+ million people."
+    },
+    {
+      "id": "o-emphasis",
+      "title": "'O' at the end adds feeling",
+      "body": "Adding 'o' at the end of a phrase intensifies it. 'Thank you o!' = a warm, emphatic thanks."
+    }
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Hello, thank you, basics"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and feelings"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Family and friends"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers",
+      "emoji": "🔢",
+      "description": "Pidgin uses English numbers mostly"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Life",
+      "emoji": "🍽️",
+      "description": "Eating, drinking, daily life"
+    }
+  ],
+  "vocab": [
+    {
+      "id": "pcm_0001",
+      "unit": "u1",
+      "lemma": "How far",
+      "translit": "how FAR",
+      "translation": "hello, how are you (casual)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "How far na?",
+          "translation": "How's it going?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0002",
+      "unit": "u1",
+      "lemma": "How body",
+      "translit": "how BOH-dee",
+      "translation": "how are you (lit. how is body)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "How body, my friend?",
+          "translation": "How are you, my friend?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0003",
+      "unit": "u1",
+      "lemma": "How you dey",
+      "translit": "how you DAY",
+      "translation": "how are you (most common)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "How you dey today?",
+          "translation": "How are you today?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0004",
+      "unit": "u1",
+      "lemma": "I dey fine",
+      "translit": "I day FINE",
+      "translation": "I'm fine",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "I dey fine, tank yu",
+          "translation": "I'm fine, thank you"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0005",
+      "unit": "u1",
+      "lemma": "Thank you",
+      "translit": "tank yu",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "Thank you o!",
+          "translation": "Thank you (with emphasis)"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0006",
+      "unit": "u1",
+      "lemma": "Abeg",
+      "translit": "ah-BEG",
+      "translation": "please (lit. I beg)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "Abeg help me",
+          "translation": "Please help me"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0007",
+      "unit": "u1",
+      "lemma": "No wahala",
+      "translit": "no wah-HA-la",
+      "translation": "no problem, no worries",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "No wahala, my guy",
+          "translation": "No problem, my friend"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0008",
+      "unit": "u1",
+      "lemma": "Sorry",
+      "translit": "SOR-ry",
+      "translation": "sorry",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "Sorry o, I no see you",
+          "translation": "Sorry, I didn't see you"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0009",
+      "unit": "u1",
+      "lemma": "Bye-bye",
+      "translit": "bye-bye",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "Bye-bye, see you tomorrow",
+          "translation": "Goodbye, see you tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0010",
+      "unit": "u1",
+      "lemma": "Welcome",
+      "translit": "WEL-kom",
+      "translation": "welcome",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 10,
+      "examples": [
+        {
+          "native": "Welcome to my house",
+          "translation": "Welcome to my house"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0011",
+      "unit": "u2",
+      "lemma": "I",
+      "translit": "I",
+      "translation": "I, me",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "I dey here",
+          "translation": "I am here"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0012",
+      "unit": "u2",
+      "lemma": "You",
+      "translit": "yu",
+      "translation": "you",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "You dey go?",
+          "translation": "Are you going?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0013",
+      "unit": "u2",
+      "lemma": "Im",
+      "translit": "im",
+      "translation": "he, she, it",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "Im dey come",
+          "translation": "He/she is coming"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0014",
+      "unit": "u2",
+      "lemma": "We",
+      "translit": "wi",
+      "translation": "we",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "We dey go now",
+          "translation": "We're going now"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0015",
+      "unit": "u2",
+      "lemma": "Dem",
+      "translit": "dem",
+      "translation": "they, them",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "Dem dey come",
+          "translation": "They are coming"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0016",
+      "unit": "u2",
+      "lemma": "Dey",
+      "translit": "day",
+      "translation": "is/am/are; -ing",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 16,
+      "examples": [
+        {
+          "native": "I dey fine",
+          "translation": "I am fine"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0017",
+      "unit": "u2",
+      "lemma": "Wetin",
+      "translit": "WEH-tin",
+      "translation": "what",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "Wetin be dis?",
+          "translation": "What is this?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0018",
+      "unit": "u2",
+      "lemma": "Where",
+      "translit": "WHEH-r",
+      "translation": "where",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "Where you dey?",
+          "translation": "Where are you?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0019",
+      "unit": "u2",
+      "lemma": "Wahala",
+      "translit": "wah-HA-la",
+      "translation": "problem, trouble",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 19,
+      "examples": [
+        {
+          "native": "Wetin be di wahala?",
+          "translation": "What's the problem?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0020",
+      "unit": "u2",
+      "lemma": "Fine",
+      "translit": "fine",
+      "translation": "fine, well",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "examples": [
+        {
+          "native": "I dey fine well well",
+          "translation": "I am very fine"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0021",
+      "unit": "u3",
+      "lemma": "Mama",
+      "translit": "MAH-ma",
+      "translation": "mother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "My mama",
+          "translation": "My mother"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0022",
+      "unit": "u3",
+      "lemma": "Papa",
+      "translit": "PAH-pa",
+      "translation": "father",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "My papa",
+          "translation": "My father"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0023",
+      "unit": "u3",
+      "lemma": "Brother",
+      "translit": "BROH-da",
+      "translation": "brother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 23,
+      "examples": [
+        {
+          "native": "My brother dey come",
+          "translation": "My brother is coming"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0024",
+      "unit": "u3",
+      "lemma": "Sister",
+      "translit": "SIS-ta",
+      "translation": "sister",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "My sister dey school",
+          "translation": "My sister is at school"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0025",
+      "unit": "u3",
+      "lemma": "Pikin",
+      "translit": "PEE-kin",
+      "translation": "child (lit. pickaninny)",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Di pikin dey play",
+          "translation": "The child is playing"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0026",
+      "unit": "u3",
+      "lemma": "Guy",
+      "translit": "guy",
+      "translation": "guy, friend (male)",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "My guy, how far?",
+          "translation": "My friend, how's it going?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0027",
+      "unit": "u4",
+      "lemma": "One",
+      "translit": "wan",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 27,
+      "examples": [
+        {
+          "native": "One cup of tea",
+          "translation": "One cup of tea"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0028",
+      "unit": "u4",
+      "lemma": "Two",
+      "translit": "two",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "Two pikin",
+          "translation": "Two children"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0029",
+      "unit": "u4",
+      "lemma": "Three",
+      "translit": "tri",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 29,
+      "examples": [
+        {
+          "native": "Three days",
+          "translation": "Three days"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0030",
+      "unit": "u4",
+      "lemma": "Plenty",
+      "translit": "PLEN-tee",
+      "translation": "many, a lot",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "Plenty people dey here",
+          "translation": "Many people are here"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0031",
+      "unit": "u5",
+      "lemma": "Chop",
+      "translit": "chop",
+      "translation": "to eat, food",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "I wan chop",
+          "translation": "I want to eat"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0032",
+      "unit": "u5",
+      "lemma": "Water",
+      "translit": "WAH-ta",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "Cold water",
+          "translation": "Cold water"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0033",
+      "unit": "u5",
+      "lemma": "Bread",
+      "translit": "bred",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "Hot bread",
+          "translation": "Hot bread"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0034",
+      "unit": "u5",
+      "lemma": "Tea",
+      "translit": "tee",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "One cup tea",
+          "translation": "One cup of tea"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0035",
+      "unit": "u5",
+      "lemma": "Go",
+      "translit": "go",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "I dey go house",
+          "translation": "I'm going home"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0036",
+      "unit": "u5",
+      "lemma": "Come",
+      "translit": "kom",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "Im dey come",
+          "translation": "He/she is coming"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0037",
+      "unit": "u5",
+      "lemma": "Wan",
+      "translit": "wan",
+      "translation": "want",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 37,
+      "examples": [
+        {
+          "native": "I wan go",
+          "translation": "I want to go"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0038",
+      "unit": "u5",
+      "lemma": "Sabi",
+      "translit": "SAH-bee",
+      "translation": "to know, understand",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "I no sabi",
+          "translation": "I don't understand"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0039",
+      "unit": "u5",
+      "lemma": "House",
+      "translit": "hauz",
+      "translation": "house, home",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "I dey for house",
+          "translation": "I'm at home"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0040",
+      "unit": "u2",
+      "lemma": "Good",
+      "translit": "good",
+      "translation": "good",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "Good morning",
+          "translation": "Good morning"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0041",
+      "unit": "u2",
+      "lemma": "Bad",
+      "translit": "bad",
+      "translation": "bad",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "Bad day",
+          "translation": "Bad day"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0042",
+      "unit": "u2",
+      "lemma": "Today",
+      "translit": "too-DAY",
+      "translation": "today",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "Today na Monday",
+          "translation": "Today is Monday"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0043",
+      "unit": "u2",
+      "lemma": "Tomorrow",
+      "translit": "too-MOH-ro",
+      "translation": "tomorrow",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "See you tomorrow",
+          "translation": "See you tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0044",
+      "unit": "u2",
+      "lemma": "Na",
+      "translit": "nah",
+      "translation": "is, it is (emphatic)",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "Na me",
+          "translation": "It's me"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0045",
+      "unit": "u2",
+      "lemma": "Tink",
+      "translit": "tink",
+      "translation": "to think",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "I tink so",
+          "translation": "I think so"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0046",
+      "unit": "u2",
+      "lemma": "Talk",
+      "translit": "tok",
+      "translation": "to say, speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "Im talk say...",
+          "translation": "He said that..."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0047",
+      "unit": "u2",
+      "lemma": "Give",
+      "translit": "giv",
+      "translation": "to give",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "Give me",
+          "translation": "Give me"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0048",
+      "unit": "u2",
+      "lemma": "Take",
+      "translit": "tek",
+      "translation": "to take",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "Take am",
+          "translation": "Take it"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0049",
+      "unit": "u2",
+      "lemma": "See",
+      "translit": "see",
+      "translation": "to see",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "I see am",
+          "translation": "I see it"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0050",
+      "unit": "u2",
+      "lemma": "Hear",
+      "translit": "ya",
+      "translation": "to hear, listen",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "I hear you",
+          "translation": "I hear you"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0051",
+      "unit": "u2",
+      "lemma": "Like",
+      "translit": "like",
+      "translation": "to like",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "I like am",
+          "translation": "I like it"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0052",
+      "unit": "u2",
+      "lemma": "Head",
+      "translit": "hed",
+      "translation": "head",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "My head",
+          "translation": "My head"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0053",
+      "unit": "u2",
+      "lemma": "Hand",
+      "translit": "han",
+      "translation": "hand",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "My hand",
+          "translation": "My hand"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0054",
+      "unit": "u2",
+      "lemma": "Belle",
+      "translit": "beh-LEH",
+      "translation": "belly, stomach",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "My belle dey hurt",
+          "translation": "My stomach hurts"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0055",
+      "unit": "u2",
+      "lemma": "Black",
+      "translit": "blak",
+      "translation": "black",
+      "category": "Colors",
+      "difficulty": 2,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "Black coffee",
+          "translation": "Black coffee"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0056",
+      "unit": "u2",
+      "lemma": "White",
+      "translit": "wait",
+      "translation": "white",
+      "category": "Colors",
+      "difficulty": 2,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "White bread",
+          "translation": "White bread"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0057",
+      "unit": "u2",
+      "lemma": "Sun",
+      "translit": "son",
+      "translation": "sun",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "Hot sun",
+          "translation": "Hot sun"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0058",
+      "unit": "u2",
+      "lemma": "Rain",
+      "translit": "rein",
+      "translation": "rain",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "Rain dey fall",
+          "translation": "It's raining"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0059",
+      "unit": "u2",
+      "lemma": "Year",
+      "translit": "yeer",
+      "translation": "year",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "Dis year",
+          "translation": "This year"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0060",
+      "unit": "u2",
+      "lemma": "Week",
+      "translit": "weik",
+      "translation": "week",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "Dis week",
+          "translation": "This week"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0061",
+      "unit": "u2",
+      "lemma": "When",
+      "translit": "wen",
+      "translation": "when",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "When you go come?",
+          "translation": "When will you come?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0062",
+      "unit": "u2",
+      "lemma": "Why",
+      "translit": "wai",
+      "translation": "why",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "Why now?",
+          "translation": "Why?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0063",
+      "unit": "u2",
+      "lemma": "Who",
+      "translit": "hu",
+      "translation": "who",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "Who be dat?",
+          "translation": "Who is that?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0064",
+      "unit": "u2",
+      "lemma": "Sleep",
+      "translit": "sleep",
+      "translation": "to sleep",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "I wan sleep",
+          "translation": "I want to sleep"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0065",
+      "unit": "u2",
+      "lemma": "Wake",
+      "translit": "wek",
+      "translation": "to wake up",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "I just wake",
+          "translation": "I just woke up"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0066",
+      "unit": "u2",
+      "lemma": "Buy",
+      "translit": "bai",
+      "translation": "to buy",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "I wan buy am",
+          "translation": "I want to buy it"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+*.log
+
+# NEVER COMMIT THESE — they grant access to your Google Cloud account
+google-tts-key.json
+*-key.json
+.env
+.env.local

@@ -1,0 +1,848 @@
+// =============================================================================
+// LESSON GENERATOR — builds exercises on the fly from any vocab list.
+// =============================================================================
+// No static lessons. Every "lesson" is generated at runtime from the queue
+// the selector hands us. The generator's job:
+//
+//   1. Pick an EXERCISE TYPE per word, based on the word's mastery level.
+//      - New cards (reps=0): always recognition (low cognitive load).
+//      - Mature cards (reps≥3): production exercises (recall, not recognise).
+//      - Mid cards: a mix.
+//   2. Build distractors that are semantically plausible (same category if
+//      possible) — not just random.
+//   3. Mix exercise types within a session to prevent fatigue.
+//   4. Inject the occasional "listening" exercise (TTS-only prompt).
+// =============================================================================
+
+export const EXERCISE = {
+  INTRODUCE_BATCH: "introduce_batch", // show all new words as flashcards FIRST
+  INTRODUCE: "introduce",           // (legacy, kept for backwards compat)
+  PICK_MEANING: "pick_meaning",     // see word → pick translation
+  PICK_WORD: "pick_word",           // see translation → pick word
+  LISTEN_PICK: "listen_pick",       // hear word → pick translation
+  TYPE_TRANSLATION: "type_translation", // see word → type translation
+  TAP_WORDS: "tap_words",           // arrange words to form sentence
+  COMPLETE_SENTENCE: "complete_sentence", // fill the gap
+  BUILD_SENTENCE: "build_sentence", // tap words to build sentence (productive)
+  CONJUGATE: "conjugate",           // v29: "How do you say 'I go'?" - person-form pick
+  CONJUGATE_TENSE: "conjugate_tense", // v34b: "How do you say 'I WENT' / 'I WILL GO'?"
+  MATCH_PAIRS: "match_pairs",       // v35: tap word ↔ meaning to match 4 pairs
+  ODD_ONE_OUT: "odd_one_out",       // v35: pick the word that doesn't belong to the category
+};
+
+const NUM_DISTRACTORS = 3;
+
+/**
+ * v29 lesson flow — addresses "lessons are too basic" feedback:
+ *   1. Intro batch (flashcards) for any new words.
+ *   2. PRIMARY recall test for every queue item (one per word, varied types).
+ *   3. CONJUGATION exercises for any verbs in the queue (one per testable verb).
+ *   4. REINFORCEMENT round — extra mixed exercises on words from the queue +
+ *      previously-learned vocab pulled from the pool, ensuring old words get
+ *      revisited rather than forgotten. Targets minimum 10 testable exercises.
+ *   5. Whole thing shuffled (except intro stays first) so it doesn't feel like
+ *      a list of identical questions.
+ *
+ * @param {Array} queue   ordered vocab items the selector handed us
+ * @param {Array} pool    full vocab pool (for distractors + reinforcement)
+ * @param {Object} progress cardState by id
+ * @param {string} langCode  required for conjugation lookup (optional; if absent, conjugation skipped)
+ * @param {Object} conjugations  the language's CONJUGATIONS entry (optional)
+ */
+export function generateLesson(queue, pool, progress = {}, langCode = null, conjugations = null, tenses = null, examMode = false) {
+  const exercises = [];
+
+  // v38/v39 EXAM MODE — pure testing: one solid question per word, no flashcard
+  // intros, no graduated multi-level sets. It's a test, not a teaching session.
+  // v39: each word is tested with a DIFFERENT method (rotated), so the exam
+  // exercises varied recall skills — recognition, recall, listening, and
+  // fill-in-the-blank — rather than the same question shape every time.
+  if (examMode) {
+    // Question types to rotate through. COMPLETE_SENTENCE only works when the
+    // word has a usable example sentence, so we check per-word and fall back.
+    const examTypes = [
+      EXERCISE.PICK_WORD,        // recall: meaning → word (hardest, most weight)
+      EXERCISE.PICK_MEANING,     // recognition: word → meaning
+      EXERCISE.LISTEN_PICK,      // listening: hear → meaning
+      EXERCISE.COMPLETE_SENTENCE,// production: fill the gap
+    ];
+    queue.forEach((item, i) => {
+      const card = progress[item.id];
+      // Rotate the type by position so methods are evenly spread.
+      let type = examTypes[i % examTypes.length];
+      // COMPLETE_SENTENCE needs a sentence; if absent, fall back to PICK_WORD.
+      if (type === EXERCISE.COMPLETE_SENTENCE) {
+        const hasSentence = (item.examples || []).some((ex) => {
+          const w = (ex?.native || "").split(/\s+/).filter(Boolean).length;
+          return w >= 2;
+        });
+        if (!hasSentence) type = EXERCISE.PICK_WORD;
+      }
+      let ex = buildExerciseOfType(item, type, pool, card, 0, progress);
+      // buildExerciseOfType can fall back internally; guarantee we always get
+      // something testable by defaulting to PICK_WORD if it returned null.
+      if (!ex) ex = buildExerciseOfType(item, EXERCISE.PICK_WORD, pool, card, 0, progress);
+      if (ex) exercises.push(ex);
+    });
+    // Shuffle so it's not in queue order.
+    return exercises.sort(() => Math.random() - 0.5);
+  }
+
+  const newWords = queue.filter((item) => {
+    const card = progress[item.id];
+    return !card || (card.reps || 0) === 0;
+  });
+
+  // Phase 1: intro flashcards
+  if (newWords.length > 0) {
+    exercises.push({
+      type: EXERCISE.INTRODUCE_BATCH,
+      items: newWords,
+      prompt: `Learn ${newWords.length} new word${newWords.length === 1 ? "" : "s"}`,
+    });
+  }
+
+  // Phase 2: graduated retrieval — each queue word gets multiple exercises at
+  // progressively harder levels (recognise → recall → produce). Same word,
+  // different difficulties, all in one lesson. Will be interleaved with other
+  // words below so we never see the same word back-to-back.
+  const perWordSets = queue.map((item) => ({
+    item,
+    exercises: buildGraduatedSet(item, pool, progress[item.id], progress),
+  }));
+
+  // Phase 3: conjugation injection — for any verbs in the queue that have
+  // conjugation data, add one CONJUGATE exercise. New verbs ARE eligible
+  // because they're introduced in this lesson's flashcard batch first, so
+  // the learner has seen the dictionary form before the conjugation question.
+  const conjugationExercises = [];
+  if (conjugations && langCode) {
+    for (const item of queue) {
+      const cex = buildConjugationExercise(item, langCode, conjugations);
+      if (cex) conjugationExercises.push(cex);
+    }
+  }
+
+  // Phase 3b (v34b): TENSE injection — for verbs in queue that have past/future
+  // tense data AND the learner has seen the verb at least once (reps >= 1),
+  // occasionally inject a tense exercise. Gated on reps to avoid throwing past
+  // tense at a verb the learner has literally just met. Maximum one tense
+  // exercise per queue verb per lesson to keep things digestible.
+  const tenseExercises = [];
+  if (tenses && langCode && tenses[langCode]) {
+    for (const item of queue) {
+      const reps = progress[item.id]?.reps || 0;
+      if (reps < 1) continue; // skip brand-new
+      // Choose past or future randomly if both available, else whichever exists
+      const hasPast = !!tenses[langCode].past?.[item.lemma];
+      const hasFuture = !!tenses[langCode].future?.[item.lemma];
+      if (!hasPast && !hasFuture) continue;
+      let tense;
+      if (hasPast && hasFuture) tense = Math.random() < 0.5 ? "past" : "future";
+      else tense = hasPast ? "past" : "future";
+      const tex = buildTenseExercise(item, langCode, tense, tenses, { [langCode]: conjugations });
+      if (tex) tenseExercises.push(tex);
+    }
+  }
+
+  // Phase 4: reinforcement — bring back previously-learned words so they don't
+  // fade. With graduated retrieval producing 2-3 exercises per queue word, the
+  // lesson is already content-rich; we only top up if total is still under 10.
+  const TARGET_TESTABLE = 10;
+  const perWordTotal = perWordSets.reduce((n, s) => n + s.exercises.length, 0);
+  const reinforcement = [];
+  const need = Math.max(0, TARGET_TESTABLE - perWordTotal - conjugationExercises.length - tenseExercises.length);
+
+  if (need > 0) {
+    const queueIds = new Set(queue.map((q) => q.id));
+    const learnedPool = pool.filter((w) =>
+      !queueIds.has(w.id) && progress[w.id]?.reps > 0
+    );
+    learnedPool.sort((a, b) => {
+      const pa = progress[a.id], pb = progress[b.id];
+      const lapsesDiff = (pb?.lapses || 0) - (pa?.lapses || 0);
+      if (lapsesDiff !== 0) return lapsesDiff;
+      return (pa?.lastReview || 0) - (pb?.lastReview || 0);
+    });
+    const reinforcementPicks = learnedPool.slice(0, need);
+    for (const item of reinforcementPicks) {
+      const card = progress[item.id];
+      reinforcement.push(buildExercise(item, pool, card, 0, progress));
+    }
+  }
+
+  // Phase 4b (v35): VARIETY exercise — once per lesson, add a match-pairs or
+  // odd-one-out using learned words. Breaks the single-answer rhythm. Only when
+  // there's enough learned vocabulary to build one cleanly. Placed in its own
+  // bucket so the interleaver treats it like any other extra.
+  const varietyExercises = [];
+  {
+    const queueIds = new Set(queue.map((q) => q.id));
+    const learnedWords = pool.filter((w) =>
+      (progress[w.id]?.reps > 0 || queueIds.has(w.id)) && w.lemma && w.translation
+    );
+    if (learnedWords.length >= 5) {
+      // Alternate between the two formats based on a coin flip
+      if (Math.random() < 0.5) {
+        const mp = buildMatchPairs(shuffle(learnedWords).slice(0, 4));
+        if (mp) varietyExercises.push(mp);
+      } else {
+        // odd-one-out needs a seed item with a category that has >=3 members
+        const seed = shuffle(learnedWords).find((w) => {
+          const sameCat = learnedWords.filter((x) => x.category === w.category);
+          const otherCat = learnedWords.filter((x) => x.category && x.category !== w.category);
+          return sameCat.length >= 3 && otherCat.length >= 1;
+        });
+        if (seed) {
+          const oo = buildOddOneOut(seed, learnedWords);
+          if (oo) varietyExercises.push(oo);
+        }
+      }
+    }
+  }
+
+  // Phase 5: interleave. CRITICAL — keep the per-word ORDER preserved (L1
+  // before L2 before L3) but ensure no word appears back-to-back. We do this
+  // with a round-robin: take the first exercise from each word's list, then
+  // the second from each, etc. That naturally interleaves while preserving
+  // intra-word progression.
+  const interleaved = [];
+  let i = 0;
+  while (perWordSets.some((s) => s.exercises[i])) {
+    for (const s of perWordSets) {
+      if (s.exercises[i]) interleaved.push(s.exercises[i]);
+    }
+    i++;
+  }
+
+  // Sprinkle conjugation + reinforcement throughout — insert at random valid
+  // positions, but avoid placing an exercise next to another for the same word.
+  const finalMix = [...interleaved];
+  const extras = [...conjugationExercises, ...tenseExercises, ...reinforcement, ...varietyExercises].sort(() => Math.random() - 0.5);
+  for (const ex of extras) {
+    const myId = ex.item?.id;
+    // Find positions where inserting won't create a same-word back-to-back
+    const validPositions = [];
+    for (let pos = 0; pos <= finalMix.length; pos++) {
+      const beforeId = pos > 0 ? finalMix[pos - 1].item?.id : null;
+      const afterId  = pos < finalMix.length ? finalMix[pos].item?.id : null;
+      if (myId && (beforeId === myId || afterId === myId)) continue;
+      validPositions.push(pos);
+    }
+    const insertAt = validPositions.length
+      ? validPositions[Math.floor(Math.random() * validPositions.length)]
+      : finalMix.length; // last resort: append (shouldn't happen in practice)
+    finalMix.splice(insertAt, 0, ex);
+  }
+
+  exercises.push(...finalMix);
+
+  return exercises;
+}
+
+function buildIntroduce(item) {
+  return {
+    type: EXERCISE.INTRODUCE,
+    item,
+    prompt: "New word",
+    showWord: true,
+    playAudio: true,
+    answer: null, // no answer needed — just tap continue
+  };
+}
+
+function buildExercise(item, pool, card, _depth = 0, progress = {}) {
+  const reps = card?.reps || 0;
+  const type = chooseExerciseType(reps, item);
+  return buildExerciseOfType(item, type, pool, card, _depth, progress);
+}
+
+// v32: explicit-type variant — same renderer, takes the type as a parameter
+// instead of choosing it. Used by buildGraduatedSet to generate multiple
+// exercises of EXPLICIT difficulty levels for one word in a single lesson.
+function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) {
+  const distractors = pickDistractors(item, pool, NUM_DISTRACTORS);
+
+  // Safe fallback: if recursion gets too deep, always return a simple pick_meaning
+  const safeFallback = () => ({
+    type: EXERCISE.PICK_MEANING,
+    item,
+    prompt: "What does this word mean?",
+    showWord: true,
+    playAudio: false,
+    options: shuffle([item.translation, ...distractors.map((d) => d.translation)]).filter(Boolean),
+    answer: item.translation,
+  });
+
+  if (_depth > 2) return safeFallback();
+
+  // -------------------------------------------------------------------------
+  // SENTENCE REUSE — pick the example sentence that best reinforces words
+  // the user has already learned. We score each candidate sentence by how
+  // many of its words are also in the learned vocab pool. Higher = better.
+  // -------------------------------------------------------------------------
+  const pickBestExample = () => {
+    const examples = item.examples || [];
+    if (examples.length <= 1) return examples[0] || null;
+
+    // Build a set of learned-word lemmas (any word with reps > 0)
+    const learnedLemmas = new Set();
+    for (const w of pool) {
+      if (progress[w.id]?.reps > 0) learnedLemmas.add(w.lemma);
+    }
+
+    // Score each example: count how many words in it are learned
+    let best = examples[0];
+    let bestScore = -1;
+    for (const ex of examples) {
+      if (!ex?.native) continue;
+      const words = ex.native.split(/\s+/);
+      let score = 0;
+      for (const w of words) {
+        if (learnedLemmas.has(w)) score++;
+      }
+      if (score > bestScore) {
+        bestScore = score;
+        best = ex;
+      }
+    }
+    return best;
+  };
+
+  // Filter out undefined from options
+  const safeOptions = (arr) => arr.filter((x) => x != null && x !== undefined);
+
+  switch (type) {
+    case EXERCISE.PICK_MEANING:
+      return {
+        type,
+        item,
+        prompt: "What does this word mean?",
+        showWord: true,
+        playAudio: false,
+        options: safeOptions(shuffle([item.translation, ...distractors.map((d) => d.translation)])),
+        answer: item.translation,
+      };
+
+    case EXERCISE.PICK_WORD:
+      return {
+        type,
+        item,
+        prompt: `Pick the word for "${item.translation}"`,
+        showWord: false,
+        playAudio: false,
+        options: safeOptions(shuffle([item.lemma, ...distractors.map((d) => d.lemma)])),
+        answer: item.lemma,
+      };
+
+    case EXERCISE.LISTEN_PICK:
+      return {
+        type,
+        item,
+        prompt: "Tap the word you hear",
+        showWord: false,
+        playAudio: true,
+        options: safeOptions(shuffle([item.translation, ...distractors.map((d) => d.translation)])),
+        answer: item.translation,
+      };
+
+    case EXERCISE.TYPE_TRANSLATION:
+      return {
+        type,
+        item,
+        prompt: "Type the meaning in English",
+        showWord: true,
+        playAudio: false,
+        answer: item.translation,
+      };
+
+    case EXERCISE.TAP_WORDS: {
+      const ex = pickBestExample();
+      if (!ex || !ex.native || ex.native.split(" ").length < 2) {
+        return buildExercise(item, pool, { ...card, reps: 1 }, _depth + 1, progress);
+      }
+      const words = ex.native.split(" ").filter(Boolean);
+      const distractorWords = distractors
+        .flatMap((d) => (d.examples?.[0]?.native || d.lemma).split(" "))
+        .filter((w) => w && !words.includes(w))
+        .slice(0, 2);
+      return {
+        type,
+        item,
+        prompt: "Tap the words in order",
+        translation: ex.translation || item.translation,
+        showWord: false,
+        playAudio: false,
+        bank: shuffle([...words, ...distractorWords]),
+        answer: words.join(" "),
+      };
+    }
+
+    case EXERCISE.COMPLETE_SENTENCE: {
+      const ex = pickBestExample();
+      if (!ex || !ex.native || !ex.native.includes(item.lemma)) {
+        return buildExercise(item, pool, { ...card, reps: 0 }, _depth + 1, progress);
+      }
+      const sentenceWithBlank = ex.native.replace(item.lemma, "____");
+      // v34b: stricter distractor picking for fill-in-the-gap — same category
+      // AND comparable word length (so distractors LOOK like they could fit).
+      // This makes the choice about MEANING, not visual elimination.
+      const fillDistractors = pickGrammaticalDistractors(item, pool, NUM_DISTRACTORS);
+      return {
+        type,
+        item,
+        prompt: "Complete the sentence",
+        sentence: sentenceWithBlank,
+        translation: ex.translation || item.translation,
+        showWord: false,
+        playAudio: false,
+        options: safeOptions(shuffle([item.lemma, ...fillDistractors.map((d) => d.lemma)])),
+        answer: item.lemma,
+      };
+    }
+
+    case EXERCISE.BUILD_SENTENCE: {
+      // Productive: show English, user taps native words in correct order.
+      // Uses pickBestExample to prefer sentences with words user has learned.
+      const ex = pickBestExample();
+      if (!ex || !ex.native || ex.native.split(" ").length < 2) {
+        return buildExercise(item, pool, { ...card, reps: 2 }, _depth + 1, progress);
+      }
+      const words = ex.native.split(" ").filter(Boolean);
+      // Add 2-3 distractor words that don't appear in the answer
+      const distractorWords = distractors
+        .flatMap((d) => (d.examples?.[0]?.native || d.lemma).split(" "))
+        .filter((w) => w && !words.includes(w))
+        .slice(0, 3);
+      return {
+        type,
+        item,
+        prompt: "Build this sentence",
+        translation: ex.translation || item.translation,
+        showWord: false,
+        playAudio: false,
+        bank: shuffle([...words, ...distractorWords]),
+        answer: words.join(" "),
+      };
+    }
+
+    default:
+      return safeFallback();
+  }
+}
+
+// =============================================================================
+// v29 — CONJUGATION EXERCISE
+// Asks the learner to pick the right conjugated form for a given person.
+// Prompt: "How do you say: I + <verb meaning>?"  e.g. "I + to go"
+// Options: the correct form for that person + 3 other-person forms as
+// distractors (so the learner must distinguish forms by person).
+//
+// langCode + vocab item + conjugation table are passed in by the caller.
+// Returns null if the verb has no conjugation data — caller falls back.
+// =============================================================================
+function buildConjugationExercise(item, langCode, conjugations) {
+  // v34c FIX: guard against noun-verb homographs (e.g. Urdu کھانا is BOTH
+  // "food, meal" (noun) AND "to eat" (verb) with identical spelling). Without
+  // this check, the noun entry gets matched to verb conjugation data, producing
+  // nonsense prompts like "How do you say: 'You food, meal'?"
+  // The check: a real verb's English translation starts with "to ".
+  const isVerb = /^to\s+/i.test(item.translation || "");
+  if (!isVerb) return null;
+
+  const verbTable = conjugations?.verbs?.[item.lemma];
+  if (!verbTable) return null;
+
+  const PERSONS = ["I", "you", "he", "she", "we", "they"];
+  // Pick a random person to test
+  const person = PERSONS[Math.floor(Math.random() * PERSONS.length)];
+  const correct = verbTable[person];
+  if (!correct?.form) return null;
+
+  // Build distractors from OTHER persons. Dedupe by form (languages where
+  // all persons share one form — zh, ja, ko — will fall back gracefully).
+  const otherForms = PERSONS
+    .filter((p) => p !== person)
+    .map((p) => verbTable[p])
+    .filter((f) => f?.form && f.form !== correct.form);
+
+  const distractorForms = [];
+  const seen = new Set([correct.form]);
+  for (const f of otherForms) {
+    if (!seen.has(f.form)) {
+      seen.add(f.form);
+      distractorForms.push(f);
+    }
+  }
+
+  // Need at least 1 distractor for a meaningful question. If the language
+  // has zero variation (like Mandarin), let caller handle — return null.
+  if (distractorForms.length < 1) return null;
+
+  // Shuffle distractors and take up to 3
+  const picks = distractorForms.sort(() => Math.random() - 0.5).slice(0, 3);
+  const allOptions = shuffle([correct, ...picks]);
+
+  // Prompt: "I + to go" — clearer than trying to render "I go" in English
+  // for verbs that aren't standalone (helps Spanish "Voy"="(I) go" cases too).
+  const pronounEn = { I: "I", you: "you", he: "he", she: "she", we: "we", they: "they" }[person];
+  const verbMeaningRaw = item.translation || "";
+  // If translation starts with "to ", strip it — "to go" + person → "I + go"
+  const verbMeaning = verbMeaningRaw.replace(/^to\s+/i, "");
+
+  return {
+    type: EXERCISE.CONJUGATE,
+    item,
+    person,
+    prompt: `How do you say: "${pronounEn} ${verbMeaning}"?`,
+    options: allOptions.map((o) => ({ form: o.form, translit: o.translit })),
+    answer: correct.form,
+    answerTranslit: correct.translit,
+    note: conjugations?.note || null, // surface the language-specific teaching note
+  };
+}
+
+// =============================================================================
+// v34b — TENSE EXERCISE (past / future)
+// Asks the learner to pick the right tense form for a given person + tense.
+// Distractors: include the PRESENT-tense form so the learner must distinguish
+//   "I go" from "I went" / "I will go" — that's the lesson itself.
+// =============================================================================
+function buildTenseExercise(item, langCode, tense, tenses, conjugations) {
+  // v34c FIX: same noun-verb-homograph guard as buildConjugationExercise.
+  // Without this, کھانا the noun would be asked in past/future tense, which
+  // is incoherent.
+  const isVerb = /^to\s+/i.test(item.translation || "");
+  if (!isVerb) return null;
+
+  const tenseTable = tenses?.[langCode]?.[tense]?.[item.lemma];
+  if (!tenseTable) return null;
+
+  const PERSONS = ["I", "you", "he", "she", "we", "they"];
+  // Pick a random person
+  const person = PERSONS[Math.floor(Math.random() * PERSONS.length)];
+  const correct = tenseTable[person];
+  if (!correct?.form) return null;
+
+  // Distractor pool: present-tense form of the same verb (the lesson — "this is
+  // PAST, not present"), and other-person forms in the same tense.
+  const distractorPool = [];
+  const seen = new Set([correct.form]);
+
+  // 1. Present tense form for the same person — strong distractor (teaches tense)
+  const presentForm = conjugations?.[langCode]?.verbs?.[item.lemma]?.[person];
+  if (presentForm?.form && !seen.has(presentForm.form)) {
+    distractorPool.push(presentForm);
+    seen.add(presentForm.form);
+  }
+
+  // 2. Other-person forms in the same tense
+  for (const p of PERSONS) {
+    if (p === person) continue;
+    const f = tenseTable[p];
+    if (f?.form && !seen.has(f.form)) {
+      distractorPool.push(f);
+      seen.add(f.form);
+    }
+  }
+
+  if (distractorPool.length < 1) return null;
+
+  // Shuffle distractors and take up to 3
+  const picks = distractorPool.sort(() => Math.random() - 0.5).slice(0, 3);
+  const allOptions = shuffle([correct, ...picks]);
+
+  const pronounEn = { I: "I", you: "you", he: "he", she: "she", we: "we", they: "they" }[person];
+  const verbMeaningRaw = item.translation || "";
+  const verbMeaning = verbMeaningRaw.replace(/^to\s+/i, "");
+
+  // Build the English prompt based on tense
+  let englishPhrase;
+  if (tense === "past") {
+    // Use a generic past phrasing — "yesterday X verbed"
+    englishPhrase = `${pronounEn} ${pastForm(verbMeaning)}`;
+  } else { // future
+    englishPhrase = `${pronounEn} will ${verbMeaning}`;
+  }
+
+  return {
+    type: EXERCISE.CONJUGATE_TENSE,
+    item,
+    person,
+    tense,
+    prompt: `How do you say: "${englishPhrase}"?`,
+    options: allOptions.map((o) => ({ form: o.form, translit: o.translit })),
+    answer: correct.form,
+    answerTranslit: correct.translit,
+    note: tenses?.[langCode]?.[`${tense}Note`] || null,
+    tenseName: tenses?.[langCode]?.[`${tense}Name`] || (tense === "past" ? "Past" : "Future"),
+  };
+}
+
+// Very simple English past-tense renderer for the prompt only. Doesn't need
+// linguistic precision — just enough to convey "I + past action".
+function pastForm(verb) {
+  const v = (verb || "").trim();
+  // A small irregular list covering the common verbs in our content
+  const irregulars = {
+    "go": "went", "eat": "ate", "drink": "drank", "speak": "spoke",
+    "have": "had", "be": "was", "do": "did", "see": "saw", "want": "wanted",
+    "know": "knew", "think": "thought", "say": "said", "give": "gave",
+    "take": "took", "hear": "heard", "come": "came", "sleep": "slept",
+    "buy": "bought", "make": "made",
+  };
+  if (irregulars[v]) return irregulars[v];
+  // Generic rule: ends in 'e' → +d; else +ed; ends in consonant+y → ied
+  if (v.endsWith("e")) return v + "d";
+  if (/[^aeiou]y$/.test(v)) return v.slice(0, -1) + "ied";
+  return v + "ed";
+}
+
+// =============================================================================
+// v32 — GRADUATED RETRIEVAL
+// For a single vocab word, return an ORDERED list of exercises at
+// progressively harder levels:
+//   L1 RECOGNISE  PICK_MEANING — easiest: see word, pick meaning
+//   L2 RECALL     PICK_WORD    — recall: see meaning, pick word
+//   L3 PRODUCE    COMPLETE_SENTENCE — hardest: use the word in a sentence
+//
+// The graduation depends on what the learner has seen before:
+//   reps 0 (new):       all 3 levels (recognise → recall → produce)
+//   reps 1-2 (known):   skip L1, do L2 + L3
+//   reps 3+ (mature):   just L3 (produce only)
+// Production (L3) only happens if a sentence is available; otherwise drop it.
+//
+// Result: the SAME word is tested at multiple difficulties in ONE lesson,
+// building from "do you recognise this?" to "can you use it in a sentence?"
+// — which is the pedagogical model the user asked for.
+// =============================================================================
+// =============================================================================
+// v35 — MATCH_PAIRS: show 4 words + 4 meanings, learner taps to pair them.
+// A review-style exercise using words the learner has already met. Great for
+// breaking the rhythm of single-answer questions.
+// Returns null if there aren't enough distinct words to make 4 pairs.
+// =============================================================================
+function buildMatchPairs(items) {
+  // items: array of vocab entries to pair (need at least 3, ideally 4)
+  const usable = items.filter((it) => it && it.lemma && it.translation);
+  if (usable.length < 3) return null;
+  const chosen = shuffle(usable).slice(0, 4);
+
+  // Each pair: { id, lemma, translit, meaning }
+  const pairs = chosen.map((it) => ({
+    id: it.id,
+    lemma: it.lemma,
+    translit: it.translit || "",
+    meaning: it.translation,
+  }));
+
+  return {
+    type: EXERCISE.MATCH_PAIRS,
+    prompt: "Match each word to its meaning",
+    pairs,
+    // The "answer" is the full correct mapping id->meaning; grading checks all matched.
+    answer: pairs.map((p) => `${p.id}:${p.meaning}`).sort().join("|"),
+  };
+}
+
+// =============================================================================
+// v35 — ODD_ONE_OUT: show 4 words, 3 from one category + 1 from another.
+// Learner picks the one that doesn't belong. Teaches category/semantic grouping.
+// Returns null if we can't find 3 same-category + 1 different.
+// =============================================================================
+function buildOddOneOut(item, pool) {
+  // Find 3 words (including item) sharing item's category
+  const sameCat = shuffle(pool.filter((p) => p.category === item.category && p.lemma));
+  if (sameCat.length < 3) return null;
+  const group = sameCat.slice(0, 3);
+
+  // Find 1 word from a DIFFERENT category — this is the odd one
+  const otherCat = shuffle(pool.filter((p) => p.category && p.category !== item.category && p.lemma));
+  if (otherCat.length < 1) return null;
+  const odd = otherCat[0];
+
+  const options = shuffle([...group, odd]).map((w) => ({
+    id: w.id,
+    lemma: w.lemma,
+    translit: w.translit || "",
+    meaning: w.translation,
+    isOdd: w.id === odd.id,
+  }));
+
+  return {
+    type: EXERCISE.ODD_ONE_OUT,
+    prompt: `Which word doesn't belong? (3 are "${item.category}")`,
+    options,
+    answer: odd.lemma,
+    oddCategory: odd.category,
+    groupCategory: item.category,
+  };
+}
+
+function buildGraduatedSet(item, pool, card, progress = {}) {
+  const reps = card?.reps || 0;
+  const examples = item.examples || [];
+  const hasShortSentence = examples.some((ex) => {
+    const w = (ex?.native || "").split(/\s+/).filter(Boolean).length;
+    return w >= 2;
+  });
+
+  // Decide which levels to include based on familiarity
+  const levels = [];
+  if (reps === 0) {
+    levels.push(EXERCISE.PICK_MEANING); // recognise
+    levels.push(EXERCISE.PICK_WORD);     // recall
+    if (hasShortSentence) levels.push(EXERCISE.COMPLETE_SENTENCE); // produce
+  } else if (reps < 3) {
+    levels.push(EXERCISE.PICK_WORD);     // recall
+    if (hasShortSentence) levels.push(EXERCISE.COMPLETE_SENTENCE);
+  } else {
+    // Mature: production only (or recall if no sentence available)
+    if (hasShortSentence) levels.push(EXERCISE.COMPLETE_SENTENCE);
+    else levels.push(EXERCISE.PICK_WORD);
+  }
+
+  // Build the exercises
+  return levels.map((type) => buildExerciseOfType(item, type, pool, card, 0, progress));
+}
+
+function chooseExerciseType(reps, item) {
+  const ex0 = item.examples?.[0]?.native || "";
+  const exWords = ex0.split(" ").filter(Boolean).length;
+  const hasShortSentence = exWords >= 2;        // enough for TAP_WORDS / COMPLETE
+  const hasRealSentence = exWords >= 3;         // enough for a meaningful BUILD
+
+  // Brand new (reps 0): gentle — but if there's a sentence, occasionally show
+  // it via COMPLETE_SENTENCE so learners see words IN CONTEXT from the start,
+  // not just isolated. Words alone don't teach language; context does.
+  if (reps === 0) {
+    const r = Math.random();
+    if (r < 0.55) return EXERCISE.PICK_MEANING;
+    if (r < 0.75) return EXERCISE.LISTEN_PICK;
+    if (hasShortSentence) return EXERCISE.COMPLETE_SENTENCE; // ~25%: see it in a sentence
+    return EXERCISE.PICK_MEANING;
+  }
+
+  // Building familiarity (reps 1-2): real mix of recognition AND production.
+  // Sentence work now appears ~45% of the time, not just for mature words.
+  if (reps < 3) {
+    const r = Math.random();
+    if (r < 0.25) return EXERCISE.PICK_MEANING;
+    if (r < 0.4) return EXERCISE.PICK_WORD;
+    if (r < 0.5) return EXERCISE.LISTEN_PICK;
+    if (r < 0.72 && hasShortSentence) return EXERCISE.COMPLETE_SENTENCE;
+    if (r < 0.9 && hasRealSentence) return EXERCISE.TAP_WORDS;
+    return EXERCISE.PICK_WORD;
+  }
+
+  // Mature (reps 3+): production-heavy. Building full sentences is the
+  // priority — that's the actual skill, not word recognition.
+  const r = Math.random();
+  if (r < 0.4 && hasRealSentence) return EXERCISE.BUILD_SENTENCE;   // up from 0.3
+  if (r < 0.62 && hasShortSentence) return EXERCISE.TAP_WORDS;
+  if (r < 0.78) return EXERCISE.TYPE_TRANSLATION;
+  if (r < 0.92 && hasShortSentence) return EXERCISE.COMPLETE_SENTENCE;
+  return EXERCISE.PICK_WORD;
+}
+
+/** Prefer distractors from the same category — feels less random. */
+function pickDistractors(item, pool, n) {
+  const all = pool.filter((p) => p.id !== item.id);
+  if (all.length === 0) return [];
+  const sameCat = shuffle(all.filter((p) => p.category === item.category));
+  const others = shuffle(all.filter((p) => p.category !== item.category));
+  const chosen = [];
+  // Prefer same category first, then fill from others
+  for (const src of [sameCat, others]) {
+    for (const d of src) {
+      if (chosen.length >= n) break;
+      if (!chosen.find((c) => c.id === d.id)) chosen.push(d);
+    }
+  }
+  // If still not enough, fill with any remaining
+  if (chosen.length < n) {
+    for (const d of shuffle(all)) {
+      if (chosen.length >= n) break;
+      if (!chosen.find((c) => c.id === d.id)) chosen.push(d);
+    }
+  }
+  return chosen;
+}
+
+// v34b: STRICTER distractor picking for COMPLETE_SENTENCE fill-in-the-gap.
+// The "right" distractor here is a word that COULD GRAMMATICALLY FIT in the
+// blank — same category (so it's the same kind of word), comparable length
+// (so it's not visually obvious which is the answer), and not a near-synonym
+// (since two correct-ish answers confuses the learner).
+//
+// Strategy:
+//   1. First pool: same category AND same is-it-a-verb pattern.
+//   2. Backfill: same category only.
+//   3. Last resort: any pool item (matches old behaviour).
+function pickGrammaticalDistractors(item, pool, n) {
+  const all = pool.filter((p) => p.id !== item.id);
+  if (all.length === 0) return [];
+
+  // Detect if the target is a verb (translation starts with "to ")
+  const isVerb = /^to\s/i.test(item.translation || "");
+  const targetLen = (item.lemma || "").length;
+
+  // Tier 1: same category, same verb-ness, length within ±50%
+  const tier1 = shuffle(all.filter((p) => {
+    if (p.category !== item.category) return false;
+    const pIsVerb = /^to\s/i.test(p.translation || "");
+    if (pIsVerb !== isVerb) return false;
+    const pLen = (p.lemma || "").length;
+    const ratio = targetLen > 0 ? pLen / targetLen : 1;
+    return ratio >= 0.5 && ratio <= 2.0;
+  }));
+
+  // Tier 2: same category, regardless of length
+  const tier2 = shuffle(all.filter((p) => p.category === item.category));
+
+  // Tier 3: anything else
+  const tier3 = shuffle(all);
+
+  const chosen = [];
+  for (const src of [tier1, tier2, tier3]) {
+    for (const d of src) {
+      if (chosen.length >= n) break;
+      if (!chosen.find((c) => c.id === d.id)) chosen.push(d);
+    }
+    if (chosen.length >= n) break;
+  }
+  return chosen;
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/** Score the user's answer to an exercise. Returns { correct, expected, given } */
+export function gradeAnswer(exercise, given) {
+  // INTRODUCE / INTRODUCE_BATCH are informational — no answer to grade
+  if (exercise.type === EXERCISE.INTRODUCE || exercise.type === EXERCISE.INTRODUCE_BATCH) {
+    return { correct: true, expected: null, given: null, intro: true };
+  }
+  const norm = (s) => String(s || "").trim().toLowerCase().replace(/[.,!?،؟。]/g, "");
+  let correct;
+  if (exercise.type === EXERCISE.MATCH_PAIRS) {
+    // given is expected to be the same id:meaning|... string format, sorted.
+    // The UI builds this once all pairs are matched. Compare to answer.
+    correct = String(given || "").split("|").sort().join("|") === exercise.answer;
+  } else if (exercise.type === EXERCISE.TAP_WORDS || exercise.type === EXERCISE.BUILD_SENTENCE) {
+    correct = norm(Array.isArray(given) ? given.join(" ") : given) === norm(exercise.answer);
+  } else if (exercise.type === EXERCISE.TYPE_TRANSLATION) {
+    // Forgiving: accept any of the translations if the answer has comma-separated alts
+    const accepted = exercise.answer.split(/[,/]/).map(norm);
+    correct = accepted.includes(norm(given));
+  } else {
+    correct = norm(given) === norm(exercise.answer);
+  }
+  return { correct, expected: exercise.answer, given };
+}
