@@ -11,6 +11,7 @@ import { masteryLevel, retrievability } from "../engine/srs.js";
 import { THEMES } from "../ui/themes.js";
 import { getCharacter, getGreeting } from "../data/characters.js";
 import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilestones } from "../engine/gamification.js";
+import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 
 // =============================================================================
 // ONBOARDING — language picker + daily goal
@@ -463,6 +464,73 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           <div style={{ fontSize: 36 }}>📖</div>
         </button>
 
+        {/* v41 GOAL PICKER — after the fixed core (2+ lessons done), let the
+            learner choose their focus. The chosen goal prioritises which word
+            categories their lessons pull from. Shown as a compact card that
+            opens a chooser; once chosen, shows the current goal with a "change"
+            affordance. */}
+        {(() => {
+          const lessonsDone = appState?.lessonsCompleted?.[pack.code] || 0;
+          const CORE_LESSONS = 2; // fixed core everyone does first
+          if (lessonsDone < CORE_LESSONS) {
+            // Still in the core — show a gentle hint, no picker yet.
+            return (
+              <div style={{
+                background: "var(--surface)", border: "1px dashed var(--border)",
+                borderRadius: "var(--radius-lg)", padding: 16, marginBottom: 20,
+                fontSize: 13, color: "var(--text-dim)", lineHeight: 1.5,
+              }}>
+                🔓 Finish your first couple of lessons and you'll be able to
+                <strong style={{ color: "var(--text)" }}> choose your own path</strong> — travel, conversation, family, and more.
+              </div>
+            );
+          }
+          const currentGoalId = appState?.learningGoal?.[pack.code];
+          const currentGoal = getGoal(currentGoalId);
+          return (
+            <div style={{ marginBottom: 20 }}>
+              {!currentGoal ? (
+                <PathChooser
+                  onPick={(goalId) =>
+                    setAppState((s) => ({ ...s, learningGoal: { ...(s.learningGoal || {}), [pack.code]: goalId } }))
+                  }
+                />
+              ) : (
+                <div style={{
+                  background: "linear-gradient(135deg, var(--primary-dark), var(--surface))",
+                  borderRadius: "var(--radius-lg)", padding: 16,
+                  border: "2px solid var(--primary)",
+                  display: "flex", alignItems: "center", gap: 12,
+                }}>
+                  <div style={{ fontSize: 30 }}>{currentGoal.emoji}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 11, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1, color: "var(--text)", opacity: 0.7 }}>
+                      Your focus
+                    </div>
+                    <div style={{ fontSize: 16, fontWeight: 900, color: "#fff" }}>{currentGoal.title}</div>
+                  </div>
+                  <button
+                    onClick={() =>
+                      setAppState((s) => {
+                        const lg = { ...(s.learningGoal || {}) };
+                        delete lg[pack.code];
+                        return { ...s, learningGoal: lg };
+                      })
+                    }
+                    style={{
+                      background: "rgba(255,255,255,0.15)", border: "none",
+                      borderRadius: 8, padding: "6px 12px", color: "#fff",
+                      fontSize: 13, fontWeight: 700, cursor: "pointer",
+                    }}
+                  >
+                    Change
+                  </button>
+                </div>
+              )}
+            </div>
+          );
+        })()}
+
         {/* The unit path — the visual learning journey */}
         <h3 style={{ fontSize: 12, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 16 }}>
           Learning path
@@ -472,16 +540,47 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           <div style={{ textAlign: "center", padding: 40, color: "var(--text-dim)" }}>Loading…</div>
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            {unitProgress.map((unit, i) => (
-              <UnitNode
-                key={unit.id}
-                unit={unit}
-                index={i}
-                isCurrent={currentUnit?.id === unit.id}
-                onTap={() => unit.unlocked && onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
-                onTestOut={() => onNavigate("testout", { fromUnit: unit.id })}
-              />
-            ))}
+            {unitProgress.map((unit, i) => {
+              const rows = [
+                <UnitNode
+                  key={unit.id}
+                  unit={unit}
+                  index={i}
+                  isCurrent={currentUnit?.id === unit.id}
+                  onTap={() => unit.unlocked && onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
+                  onTestOut={() => onNavigate("testout", { fromUnit: unit.id })}
+                />,
+              ];
+              // v44: after every 3rd unit (end of a chapter), show the gated
+              // chapter exam card — but only if a full chapter exists here AND
+              // there's a NEXT chapter to gate (no exam after the final partial).
+              const isChapterEnd = (i + 1) % UNITS_PER_CHAPTER === 0;
+              const chapterNum = chapterOfUnitIndex(i);
+              const hasNextChapter = unitProgress.length > (i + 1);
+              if (isChapterEnd && hasNextChapter) {
+                const available = isChapterExamAvailable(unitProgress, chapterNum);
+                const passed = hasPassedChapter(appState, pack.code, chapterNum);
+                const vocabIds = chapterVocabIds(pack.vocab, chapterNum);
+                const examSize = Math.min(10, Math.max(6, vocabIds.length));
+                rows.push(
+                  <ChapterExamCard
+                    key={`exam-${chapterNum}`}
+                    chapterNum={chapterNum}
+                    available={available}
+                    passed={passed}
+                    onStart={() =>
+                      onNavigate("lesson", {
+                        mode: "chapter_exam",
+                        chapter: chapterNum,
+                        filter: { vocabIds },
+                        sessionSize: examSize,
+                      })
+                    }
+                  />
+                );
+              }
+              return rows;
+            })}
           </div>
         )}
 
@@ -664,6 +763,92 @@ function UnitNode({ unit, index, isCurrent, onTap, onTestOut }) {
     </div>
   );
 }
+
+// v44 — the gated chapter exam card shown at the end of each chapter on the path.
+function ChapterExamCard({ chapterNum, available, passed, onStart }) {
+  // Three visual states: passed (green ✓), available (gold, tappable), locked (grey).
+  const bg = passed
+    ? "linear-gradient(135deg, var(--primary-dark), var(--surface))"
+    : available
+    ? "linear-gradient(135deg, var(--purple), var(--surface))"
+    : "var(--surface)";
+  const border = passed ? "var(--primary)" : available ? "var(--purple)" : "var(--border)";
+  return (
+    <div
+      onClick={() => available && !passed && onStart()}
+      style={{
+        background: bg,
+        border: `2px solid ${border}`,
+        borderRadius: "var(--radius-lg)",
+        padding: 18,
+        cursor: available && !passed ? "pointer" : "default",
+        opacity: !available && !passed ? 0.7 : 1,
+        position: "relative",
+        marginTop: 4, marginBottom: 4,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+        <div style={{ fontSize: 32 }}>{passed ? "🏆" : available ? "📝" : "🔒"}</div>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: 11, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1, color: passed ? "#fff" : "var(--text-dim)", opacity: 0.8 }}>
+            Chapter {chapterNum} Exam
+          </div>
+          <div style={{ fontSize: 17, fontWeight: 900, color: passed || available ? "#fff" : "var(--text)" }}>
+            {passed ? "Passed ✓" : available ? "Ready — test to unlock next chapter" : "Finish this chapter to unlock"}
+          </div>
+          <div style={{ fontSize: 12, color: passed ? "rgba(255,255,255,0.8)" : "var(--text-dim)", marginTop: 2 }}>
+            {passed
+              ? "You can retake it any time to refresh"
+              : available
+              ? "3 rounds · need 70% to pass · unlimited retries"
+              : "Complete the 3 units above first"}
+          </div>
+        </div>
+        {available && !passed && <div style={{ fontSize: 22, color: "#fff" }}>→</div>}
+      </div>
+    </div>
+  );
+}
+
+// v41 — the "choose your path" goal chooser shown on Home after the core.
+function PathChooser({ onPick }) {
+  return (
+    <div style={{
+      background: "var(--surface)", borderRadius: "var(--radius-lg)",
+      padding: 18, border: "2px solid var(--primary)",
+    }}>
+      <div style={{ fontSize: 18, fontWeight: 900, marginBottom: 4 }}>
+        🎯 Choose your path
+      </div>
+      <div style={{ fontSize: 13, color: "var(--text-dim)", marginBottom: 16, lineHeight: 1.5 }}>
+        You've got the basics down. What do you want to focus on? Your lessons
+        will prioritise the words that matter for your goal. You can change this
+        any time.
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        {LEARNING_GOALS.map((g) => (
+          <button
+            key={g.id}
+            onClick={() => onPick(g.id)}
+            style={{
+              display: "flex", alignItems: "center", gap: 14,
+              background: "var(--bg)", border: "2px solid var(--border)",
+              borderRadius: 12, padding: 14, cursor: "pointer", textAlign: "left",
+            }}
+          >
+            <div style={{ fontSize: 30, flexShrink: 0 }}>{g.emoji}</div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontWeight: 800, fontSize: 16, color: "var(--text)" }}>{g.title}</div>
+              <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 2, lineHeight: 1.4 }}>{g.blurb}</div>
+            </div>
+            <div style={{ fontSize: 20, color: "var(--text-dim)" }}>→</div>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 
 // =============================================================================
 // LETTERS

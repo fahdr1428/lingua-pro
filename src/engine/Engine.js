@@ -112,7 +112,7 @@ export class Engine {
   // ---------------------------------------------------------------------------
   // Lesson generation — bulletproof: ALWAYS returns at least sessionSize exercises
   // ---------------------------------------------------------------------------
-  async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4 } = {}) {
+  async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null } = {}) {
     const progress = await this.getProgress();
     let pool = this.pack.vocab;
     if (filter) pool = filterVocab(pool, filter);
@@ -156,6 +156,23 @@ export class Engine {
         queue = buildQueue(pool, progress, { sessionSize, newPerSession: 0 });
         if (queue.length === 0) queue = pool.slice(0, sessionSize);
       }
+    } else if (mode === "chapter_exam") {
+      // v44 CHAPTER EXAM — a gated exam over the words of a SPECIFIC chapter.
+      // The caller passes filter.vocabIds (the chapter's word IDs). We test all
+      // of them (capped for sanity), regardless of mastery, since this is the
+      // gate that decides whether the learner advances.
+      const ids = new Set(filter?.vocabIds || []);
+      let chapterWords = pool.filter((v) => ids.has(v.id));
+      // Cap to keep the exam a reasonable length; if a chapter is huge, sample.
+      const MAX = sessionSize || 12;
+      if (chapterWords.length > MAX) {
+        chapterWords = [...chapterWords].sort(() => Math.random() - 0.5).slice(0, MAX);
+      }
+      queue = chapterWords;
+      if (queue.length === 0) {
+        // Safety: if no chapter words resolved, fall back to learned words.
+        queue = pool.filter((v) => progress[v.id]?.reps > 0).slice(0, MAX);
+      }
     } else if (mode === "exam") {
       // v38 BIG EXAM — a comprehensive test over EVERYTHING the learner has
       // studied. Pulls a large sample (caller sets sessionSize, e.g. 25),
@@ -198,7 +215,7 @@ export class Engine {
       queue = [...unseen, ...learned.sort(() => Math.random() - 0.5)].slice(0, sessionSize);
     } else {
       // 'smart' — selector decides the mix
-      queue = buildQueue(pool, progress, { sessionSize, newPerSession });
+      queue = buildQueue(pool, progress, { sessionSize, newPerSession, goalCategories });
       // If selector returns nothing, give a random sample
       if (queue.length === 0) {
         queue = [...pool].sort(() => Math.random() - 0.5).slice(0, sessionSize);
@@ -220,6 +237,7 @@ export class Engine {
         CONJUGATIONS[this.languageCode] || null,
         TENSES, // v34b: pass the full TENSES map; generator picks the right one
         mode === "exam", // v38: exam mode = one test question per word, no intros
+        mode === "chapter_exam", // v44: 3-round gated chapter exam
       ),
     };
   }

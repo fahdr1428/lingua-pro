@@ -14,6 +14,7 @@
     "Places",
     "Time",
     "Travel",
+    "Useful",
     "Verbs"
   ],
   "units": [
@@ -2135,6 +2136,214 @@
         {
           "native": "我要睡觉",
           "translation": "I want to sleep"
+        }
+      ]
+    },
+    {
+      "id": "zh_0111",
+      "unit": "u1",
+      "lemma": "请问",
+      "translit": "qǐngwèn",
+      "translation": "excuse me (may I ask)",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "请问，洗手间在哪里？",
+          "translation": "Excuse me, where is the bathroom?"
+        }
+      ]
+    },
+    {
+      "id": "zh_0112",
+      "unit": "u9",
+      "lemma": "多少钱",
+      "translit": "duōshao qián",
+      "translation": "how much is it?",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "这个多少钱？",
+          "translation": "How much is this?"
+        }
+      ]
+    },
+    {
+      "id": "zh_0113",
+      "unit": "u9",
+      "lemma": "在哪里",
+      "translit": "zài nǎlǐ",
+      "translation": "where is...?",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "车站在哪里？",
+          "translation": "Where is the station?"
+        }
+      ]
+    },
+    {
+      "id": "zh_0114",
+      "unit": "u9",
+      "lemma": "洗手间",
+      "translit": "xǐshǒujiān",
+      "translation": "bathroom, restroom",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "洗手间在哪里？",
+          "translation": "Where is the bathroom?"
+        }
+      ]
+    },
+    {
+      "id": "zh_0115",
+      "unit": "u1",
+      "lemma": "听不懂",
+      "translit": "tīng bù dǒng",
+      "translation": "I don't understand (hearing)",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "对不起，我听不懂",
+          "translation": "Sorry, I don't understand"
+        }
+      ]
+    },
+    {
+      "id": "zh_0116",
+      "unit": "u1",
+      "lemma": "没关系",
+      "translit": "méi guānxi",
+      "translation": "it's okay / no problem",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "没关系",
+          "translation": "It's okay"
+        }
+      ]
+    },
+    {
+      "id": "zh_0117",
+      "unit": "u1",
+      "lemma": "再说一遍",
+      "translit": "zài shuō yí biàn",
+      "translation": "say it again",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "请再说一遍",
+          "translation": "Please say it again"
+        }
+      ]
+    },
+    {
+      "id": "zh_0118",
+      "unit": "u1",
+      "lemma": "请慢点儿说",
+      "translit": "qǐng màn diǎnr shuō",
+      "translation": "please speak slowly",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "请慢点儿说",
+          "translation": "Please speak a bit more slowly"
+        }
+      ]
+    },
+    {
+      "id": "zh_0119",
+      "unit": "u9",
+      "lemma": "便宜一点",
+      "translit": "piányi yìdiǎn",
+      "translation": "cheaper, please",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "可以便宜一点吗？",
+          "translation": "Can you make it cheaper?"
+        }
+      ]
+    },
+    {
+      "id": "zh_0120",
+      "unit": "u9",
+      "lemma": "我要这个",
+      "translit": "wǒ yào zhège",
+      "translation": "I want this one",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "我要这个，谢谢",
+          "translation": "I'll take this one, thanks"
+        }
+      ]
+    },
+    {
+      "id": "zh_0121",
+      "unit": "u9",
+      "lemma": "你会说英文吗",
+      "translit": "nǐ huì shuō yīngwén ma",
+      "translation": "do you speak English?",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "你会说英文吗？",
+          "translation": "Do you speak English?"
+        }
+      ]
+    },
+    {
+      "id": "zh_0122",
+      "unit": "u1",
+      "lemma": "请帮我",
+      "translit": "qǐng bāng wǒ",
+      "translation": "please help me",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "请帮我一下",
+          "translation": "Please help me a moment"
+        }
+      ]
+    },
+    {
+      "id": "zh_0123",
+      "unit": "u1",
+      "lemma": "这是什么",
+      "translit": "zhè shì shénme",
+      "translation": "what is this?",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "这是什么？",
+          "translation": "What is this?"
         }
       ]
     }

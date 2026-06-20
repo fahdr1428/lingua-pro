@@ -438,6 +438,150 @@ export const CONVERSATIONS = {
       { native: "好的，请稍等", translit: "hǎo de, qǐng shāo děng", translation: "Okay, please wait a moment." },
     ]},
   ],
+
+  // ===========================================================================
+  // INDONESIAN — web-verified (Babbel, Mondly, Culture Trip, travel guides)
+  // ===========================================================================
+  id: [
+    { id: "id_c1", situation: "Greeting someone", emoji: "👋", lines: [
+      { native: "Selamat pagi!", translit: "se-LA-mat PA-gi", translation: "Good morning!" },
+      { native: "Apa kabar?", translit: "A-pa KA-bar", translation: "How are you?" },
+      { native: "Baik-baik saja.", translit: "BAIK BAIK SA-ja", translation: "I'm fine.", note: "The standard reply, like 'I'm good' in English." },
+    ]},
+    { id: "id_c2", situation: "Introducing yourself", emoji: "🤝", lines: [
+      { native: "Nama saya Budi.", translit: "NA-ma SA-ya BU-di", translation: "My name is Budi." },
+      { native: "Salam kenal.", translit: "SA-lam ke-NAL", translation: "Nice to meet you." },
+    ]},
+    { id: "id_c3", situation: "Saying thank you", emoji: "🙏", lines: [
+      { native: "Terima kasih.", translit: "te-REE-ma KA-see", translation: "Thank you." },
+      { native: "Sama-sama.", translit: "SA-ma SA-ma", translation: "You're welcome." },
+    ]},
+    { id: "id_c4", situation: "Asking the price", emoji: "💰", lines: [
+      { native: "Berapa harganya?", translit: "be-RA-pa HAR-ga-nya", translation: "How much is it?" },
+      { native: "Lima puluh ribu.", translit: "LI-ma PU-luh RI-bu", translation: "Fifty thousand (rupiah)." },
+      { native: "Terlalu mahal!", translit: "ter-LA-lu MA-hal", translation: "Too expensive!", note: "Fine to say when haggling at a market." },
+    ]},
+    { id: "id_c5", situation: "Asking for directions", emoji: "🗺️", lines: [
+      { native: "Di mana toilet?", translit: "di MA-na TOI-let", translation: "Where is the toilet?" },
+      { native: "Belok kanan.", translit: "BE-lok KA-nan", translation: "Turn right." },
+    ]},
+    { id: "id_c6", situation: "Saying you don't understand", emoji: "🤔", lines: [
+      { native: "Saya tidak mengerti.", translit: "SA-ya TI-dak me-NGER-ti", translation: "I don't understand." },
+      { native: "Tolong ulangi.", translit: "TO-long u-LA-ngi", translation: "Please repeat." },
+    ]},
+    { id: "id_c7", situation: "Apologizing", emoji: "🙇", lines: [
+      { native: "Maaf.", translit: "ma-AF", translation: "Sorry." },
+      { native: "Tidak apa-apa.", translit: "TI-dak A-pa A-pa", translation: "It's okay." },
+    ]},
+    { id: "id_c8", situation: "At a restaurant", emoji: "🍽️", lines: [
+      { native: "Saya mau makan ini.", translit: "SA-ya mau MA-kan I-ni", translation: "I want to eat this." },
+      { native: "Tidak pedas, ya.", translit: "TI-dak pe-DAS ya", translation: "Not spicy, please.", note: "Indonesian food is often spicy — handy to know." },
+      { native: "Enak!", translit: "e-NAK", translation: "Delicious!" },
+    ]},
+    { id: "id_c9", situation: "Asking for the bill", emoji: "💶", lines: [
+      { native: "Minta bon, ya.", translit: "MIN-ta bon ya", translation: "The bill, please." },
+      { native: "Baik, sebentar.", translit: "BAIK se-ben-TAR", translation: "Okay, one moment." },
+    ]},
+    { id: "id_c10", situation: "Saying goodbye", emoji: "👋", lines: [
+      { native: "Saya harus pergi.", translit: "SA-ya HA-rus per-GI", translation: "I have to go." },
+      { native: "Sampai jumpa!", translit: "SAM-pai JOOM-pa", translation: "See you later!" },
+    ]},
+  ],
+
+  // ===========================================================================
+  // PUNJABI (SHAHMUKHI) — parallels verified Urdu; forms web-checked.
+  // Note: Shahmukhi spelling not fully standardised — native review advised.
+  // ===========================================================================
+  pa: [
+    { id: "pa_c1", situation: "Greeting someone", emoji: "👋", lines: [
+      { native: "ست سری اکال", translit: "sat sri akal", translation: "Hello (traditional greeting)." },
+      { native: "کی حال اے؟", translit: "ki haal ae", translation: "How are you?" },
+      { native: "ٹھیک آں۔", translit: "theek aan", translation: "I'm fine." },
+    ]},
+    { id: "pa_c2", situation: "Introducing yourself", emoji: "🤝", lines: [
+      { native: "میرا ناں بلجیت اے۔", translit: "mera naan Baljit ae", translation: "My name is Baljit." },
+      { native: "خوشی ہوئی۔", translit: "khushi hoi", translation: "Nice to meet you." },
+    ]},
+    { id: "pa_c3", situation: "Saying thank you", emoji: "🙏", lines: [
+      { native: "شکریہ", translit: "shukriya", translation: "Thank you." },
+      { native: "کوئی گل نہیں۔", translit: "koi gal nahin", translation: "You're welcome / no problem." },
+    ]},
+    { id: "pa_c4", situation: "Asking the price", emoji: "💰", lines: [
+      { native: "ایہہ کنے دا اے؟", translit: "eh kinne da ae", translation: "How much is this?" },
+      { native: "سو روپے۔", translit: "sau rupay", translation: "One hundred rupees." },
+    ]},
+    { id: "pa_c5", situation: "Asking for directions", emoji: "🗺️", lines: [
+      { native: "غسل خانہ کتھے اے؟", translit: "ghusal-khana kithe ae", translation: "Where is the bathroom?" },
+      { native: "اودھر، سجے پاسے۔", translit: "odhar, saje paase", translation: "There, on the right." },
+    ]},
+    { id: "pa_c6", situation: "Saying you don't understand", emoji: "🤔", lines: [
+      { native: "مینوں سمجھ نہیں آئی۔", translit: "mainu samajh nahin aayi", translation: "I don't understand." },
+      { native: "دوبارہ دسو۔", translit: "dubara daso", translation: "Please say it again." },
+    ]},
+    { id: "pa_c7", situation: "Apologizing", emoji: "🙇", lines: [
+      { native: "معاف کرنا۔", translit: "maaf karna", translation: "Sorry / excuse me." },
+      { native: "کوئی گل نہیں۔", translit: "koi gal nahin", translation: "It's no problem." },
+    ]},
+    { id: "pa_c8", situation: "Asking for help", emoji: "🆘", lines: [
+      { native: "مینوں مدد چاہیدی اے۔", translit: "mainu madad chahidi ae", translation: "I need help." },
+      { native: "ہاں جی، دسو۔", translit: "haan ji, daso", translation: "Yes, tell me." },
+    ]},
+    { id: "pa_c9", situation: "At a meal", emoji: "🍽️", lines: [
+      { native: "مینوں پانی چاہیدا اے۔", translit: "mainu paani chahida ae", translation: "I want water." },
+      { native: "بہت سوادی اے۔", translit: "bahut swaadi ae", translation: "It's very tasty." },
+    ]},
+    { id: "pa_c10", situation: "Saying goodbye", emoji: "👋", lines: [
+      { native: "مینوں جانا اے۔", translit: "mainu jaana ae", translation: "I have to go." },
+      { native: "فیر ملاں گے۔", translit: "fir milange", translation: "See you again!" },
+    ]},
+  ],
+
+  // ===========================================================================
+  // NIGERIAN PIDGIN — web-verified (Culture Trip, BuzzNigeria, MonoEd)
+  // ===========================================================================
+  pcm: [
+    { id: "pcm_c1", situation: "Greeting someone", emoji: "👋", lines: [
+      { native: "How far?", translit: "how far", translation: "Hi / how's it going?", note: "Casual greeting — NOT about distance." },
+      { native: "I dey fine.", translit: "I day fine", translation: "I'm fine." },
+    ]},
+    { id: "pcm_c2", situation: "Asking how someone is", emoji: "💬", lines: [
+      { native: "How you dey?", translit: "how you day", translation: "How are you?" },
+      { native: "I dey kampe.", translit: "I day kam-pe", translation: "I'm doing great / solid." },
+    ]},
+    { id: "pcm_c3", situation: "Saying thank you", emoji: "🙏", lines: [
+      { native: "Thank you well well.", translit: "thank you well well", translation: "Thank you very much." },
+      { native: "No wahala.", translit: "no wa-HA-la", translation: "No problem." },
+    ]},
+    { id: "pcm_c4", situation: "Asking for help", emoji: "🆘", lines: [
+      { native: "Abeg help me small.", translit: "a-BEG help me small", translation: "Please help me a bit." },
+      { native: "No wahala, I dey come.", translit: "no wa-HA-la, I day come", translation: "No problem, I'm coming." },
+    ]},
+    { id: "pcm_c5", situation: "At the market", emoji: "🛒", lines: [
+      { native: "Wetin be the price?", translit: "WE-tin be the price", translation: "What's the price?" },
+      { native: "Na five hundred naira.", translit: "na five hundred naira", translation: "It's five hundred naira." },
+      { native: "E too cost! Reduce am small.", translit: "e too cost, reduce am small", translation: "Too expensive! Lower it a bit." },
+    ]},
+    { id: "pcm_c6", situation: "Saying you're hungry", emoji: "🍽️", lines: [
+      { native: "I wan chop.", translit: "I wan chop", translation: "I want to eat." },
+      { native: "Wetin you wan chop?", translit: "WE-tin you wan chop", translation: "What do you want to eat?" },
+    ]},
+    { id: "pcm_c7", situation: "Not understanding", emoji: "🤔", lines: [
+      { native: "I no sabi wetin you talk.", translit: "I no SA-bi WE-tin you talk", translation: "I don't understand what you said." },
+      { native: "Make I talk am again.", translit: "make I talk am again", translation: "Let me say it again." },
+    ]},
+    { id: "pcm_c8", situation: "Agreeing with someone", emoji: "👍", lines: [
+      { native: "You dey come, abi?", translit: "you day come, a-BI", translation: "You're coming, right?" },
+      { native: "Yes now, sharp sharp.", translit: "yes now, sharp sharp", translation: "Yes, quickly / right away." },
+    ]},
+    { id: "pcm_c9", situation: "Asking for water", emoji: "💧", lines: [
+      { native: "Abeg, I want water.", translit: "a-BEG, I want water", translation: "Please, I want water." },
+      { native: "Oya, take.", translit: "O-ya, take", translation: "Here, take it." },
+    ]},
+    { id: "pcm_c10", situation: "Saying goodbye", emoji: "👋", lines: [
+      { native: "I dey go now.", translit: "I day go now", translation: "I'm going now." },
+      { native: "Okay, safe journey.", translit: "okay, safe journey", translation: "Okay, safe travels." },
+    ]},
+  ],
 };
 
 /** All conversations for a language, or [] if none. */

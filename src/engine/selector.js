@@ -45,10 +45,23 @@ export function buildQueue(vocab, progress, opts = {}) {
   if (due.length >= 16) effectiveNewPerSession = 0;
   else if (due.length >= 6) effectiveNewPerSession = Math.max(1, Math.floor(cfg.newPerSession / 2));
 
-  // Bucket 2: unseen cards, sorted by frequency rank (most useful first)
+  // Bucket 2: unseen cards, sorted by frequency rank (most useful first).
+  // v41: if a goal-category order is provided, words whose category is in the
+  // goal sort FIRST (in goal-priority order), then by frequency within that.
+  // Words outside the goal still come after, so the learner never gets stuck.
+  const goalCats = cfg.goalCategories || null; // array of category names, or null
+  const goalRank = (v) => {
+    if (!goalCats) return 0;
+    const idx = goalCats.indexOf(v.category);
+    return idx === -1 ? goalCats.length : idx; // in-goal: its position; else last
+  };
   const unseen = vocab
     .filter((v) => !progress[v.id])
     .sort((a, b) => {
+      if (goalCats) {
+        const ga = goalRank(a), gb = goalRank(b);
+        if (ga !== gb) return ga - gb; // goal-priority category first
+      }
       if (cfg.newCardSource === "frequency") return (a.frequencyRank || 9999) - (b.frequencyRank || 9999);
       if (cfg.newCardSource === "difficulty") return (a.difficulty || 5) - (b.difficulty || 5);
       return Math.random() - 0.5;

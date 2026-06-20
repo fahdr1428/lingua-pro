@@ -10,7 +10,7 @@ import { LANGUAGES } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getConversations } from "../data/conversations.js";
 
-const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn"]);
+const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 export function Conversations({ pack, appState, onNavigate }) {
   const lang = LANGUAGES[pack.code];

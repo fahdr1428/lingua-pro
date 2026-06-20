@@ -6,6 +6,7 @@
     "Colors",
     "Common",
     "Family",
+    "Feelings",
     "Food",
     "Greetings",
     "Numbers",
@@ -1212,6 +1213,198 @@
         {
           "native": "Saya tidur",
           "translation": "I sleep"
+        }
+      ]
+    },
+    {
+      "id": "id_0070",
+      "unit": "u1",
+      "lemma": "Permisi",
+      "translit": "per-MEE-see",
+      "translation": "excuse me",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "Permisi, saya mau lewat",
+          "translation": "Excuse me, I want to pass"
+        }
+      ]
+    },
+    {
+      "id": "id_0071",
+      "unit": "u4",
+      "lemma": "Berapa",
+      "translit": "buh-RA-pa",
+      "translation": "how much / how many",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 121,
+      "examples": [
+        {
+          "native": "Berapa harganya?",
+          "translation": "How much does it cost?"
+        }
+      ]
+    },
+    {
+      "id": "id_0072",
+      "unit": "u1",
+      "lemma": "Di mana",
+      "translit": "dee MA-na",
+      "translation": "where",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 122,
+      "examples": [
+        {
+          "native": "Di mana toilet?",
+          "translation": "Where is the toilet?"
+        }
+      ]
+    },
+    {
+      "id": "id_0073",
+      "unit": "u5",
+      "lemma": "Mengerti",
+      "translit": "muh-NGER-tee",
+      "translation": "to understand",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 123,
+      "examples": [
+        {
+          "native": "Saya tidak mengerti",
+          "translation": "I don't understand"
+        }
+      ]
+    },
+    {
+      "id": "id_0074",
+      "unit": "u5",
+      "lemma": "Ulangi",
+      "translit": "oo-LA-ngee",
+      "translation": "to repeat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 124,
+      "examples": [
+        {
+          "native": "Tolong ulangi",
+          "translation": "Please repeat"
+        }
+      ]
+    },
+    {
+      "id": "id_0075",
+      "unit": "u2",
+      "lemma": "Lapar",
+      "translit": "LA-par",
+      "translation": "hungry",
+      "category": "Feelings",
+      "difficulty": 2,
+      "frequencyRank": 125,
+      "examples": [
+        {
+          "native": "Saya lapar",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "id_0076",
+      "unit": "u2",
+      "lemma": "Haus",
+      "translit": "HOWS",
+      "translation": "thirsty",
+      "category": "Feelings",
+      "difficulty": 2,
+      "frequencyRank": 126,
+      "examples": [
+        {
+          "native": "Saya haus",
+          "translation": "I am thirsty"
+        }
+      ]
+    },
+    {
+      "id": "id_0077",
+      "unit": "u1",
+      "lemma": "Sampai jumpa",
+      "translit": "SAM-pai JOOM-pa",
+      "translation": "goodbye, see you",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 127,
+      "examples": [
+        {
+          "native": "Sampai jumpa lagi",
+          "translation": "See you again"
+        }
+      ]
+    },
+    {
+      "id": "id_0078",
+      "unit": "u1",
+      "lemma": "Tidak apa-apa",
+      "translit": "TEE-dak A-pa A-pa",
+      "translation": "it's okay, no problem",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 128,
+      "examples": [
+        {
+          "native": "Tidak apa-apa",
+          "translation": "It's okay"
+        }
+      ]
+    },
+    {
+      "id": "id_0079",
+      "unit": "u3",
+      "lemma": "Sekarang",
+      "translit": "suh-KA-rang",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 129,
+      "examples": [
+        {
+          "native": "Sekarang juga",
+          "translation": "Right now"
+        }
+      ]
+    },
+    {
+      "id": "id_0080",
+      "unit": "u1",
+      "lemma": "Lagi",
+      "translit": "LA-gee",
+      "translation": "again, more",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "Sekali lagi",
+          "translation": "One more time"
+        }
+      ]
+    },
+    {
+      "id": "id_0081",
+      "unit": "u4",
+      "lemma": "Sedikit",
+      "translit": "suh-DEE-kit",
+      "translation": "a little",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 131,
+      "examples": [
+        {
+          "native": "Sedikit air",
+          "translation": "A little water"
         }
       ]
     }

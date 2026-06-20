@@ -10,7 +10,7 @@ import { LANGUAGES } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getGrammar } from "../data/grammar.js";
 
-const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "fa", "bn"]);
+const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 export function Grammar({ pack, appState, onNavigate }) {
   const lang = LANGUAGES[pack.code];

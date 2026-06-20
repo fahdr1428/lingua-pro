@@ -11,7 +11,7 @@ import { LANGUAGES } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getPassage, PASSAGES } from "../data/passages.js";
 
-const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn"]);
+const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 export function Reading({ pack, appState, setAppState, onNavigate }) {
   const lang = LANGUAGES[pack.code];

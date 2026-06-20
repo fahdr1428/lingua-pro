@@ -14,6 +14,7 @@
     "Places",
     "Time",
     "Travel",
+    "Useful",
     "Verbs"
   ],
   "units": [
@@ -2014,6 +2015,214 @@
         {
           "native": "저는 자요",
           "translation": "I sleep"
+        }
+      ]
+    },
+    {
+      "id": "ko_0106",
+      "unit": "u1",
+      "lemma": "주세요",
+      "translit": "juseyo",
+      "translation": "please (give me)",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "물 주세요",
+          "translation": "Water, please"
+        }
+      ]
+    },
+    {
+      "id": "ko_0107",
+      "unit": "u1",
+      "lemma": "미안해요",
+      "translit": "mianhaeyo",
+      "translation": "I'm sorry",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "늦어서 미안해요",
+          "translation": "Sorry I'm late"
+        }
+      ]
+    },
+    {
+      "id": "ko_0108",
+      "unit": "u1",
+      "lemma": "몰라요",
+      "translit": "mollayo",
+      "translation": "I don't know",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "저는 몰라요",
+          "translation": "I don't know"
+        }
+      ]
+    },
+    {
+      "id": "ko_0109",
+      "unit": "u1",
+      "lemma": "알아요",
+      "translit": "arayo",
+      "translation": "I know",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "네, 알아요",
+          "translation": "Yes, I know"
+        }
+      ]
+    },
+    {
+      "id": "ko_0110",
+      "unit": "u9",
+      "lemma": "얼마예요",
+      "translit": "eolmayeyo",
+      "translation": "how much is it?",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "이거 얼마예요?",
+          "translation": "How much is this?"
+        }
+      ]
+    },
+    {
+      "id": "ko_0111",
+      "unit": "u9",
+      "lemma": "어디예요",
+      "translit": "eodiyeyo",
+      "translation": "where is it?",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "화장실 어디예요?",
+          "translation": "Where is the bathroom?"
+        }
+      ]
+    },
+    {
+      "id": "ko_0112",
+      "unit": "u1",
+      "lemma": "저기요",
+      "translit": "jeogiyo",
+      "translation": "excuse me (attention)",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "저기요, 메뉴 주세요",
+          "translation": "Excuse me, menu please"
+        }
+      ]
+    },
+    {
+      "id": "ko_0113",
+      "unit": "u1",
+      "lemma": "괜찮아요",
+      "translit": "gwaenchanayo",
+      "translation": "it's okay / I'm fine",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "괜찮아요, 감사합니다",
+          "translation": "I'm fine, thank you"
+        }
+      ]
+    },
+    {
+      "id": "ko_0114",
+      "unit": "u9",
+      "lemma": "이거 주세요",
+      "translit": "igeo juseyo",
+      "translation": "this one, please",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "이거 주세요",
+          "translation": "I'll take this one, please"
+        }
+      ]
+    },
+    {
+      "id": "ko_0115",
+      "unit": "u1",
+      "lemma": "천만에요",
+      "translit": "cheonmaneyo",
+      "translation": "you're welcome",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "— 감사합니다. — 천만에요",
+          "translation": "— Thank you. — You're welcome"
+        }
+      ]
+    },
+    {
+      "id": "ko_0116",
+      "unit": "u1",
+      "lemma": "뭐예요",
+      "translit": "mwoyeyo",
+      "translation": "what is it?",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "이게 뭐예요?",
+          "translation": "What is this?"
+        }
+      ]
+    },
+    {
+      "id": "ko_0117",
+      "unit": "u9",
+      "lemma": "영어 할 수 있어요",
+      "translit": "yeongeo hal su isseoyo",
+      "translation": "can you speak English?",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "영어 할 수 있어요?",
+          "translation": "Can you speak English?"
+        }
+      ]
+    },
+    {
+      "id": "ko_0118",
+      "unit": "u1",
+      "lemma": "잠깐만요",
+      "translit": "jamkkanmanyo",
+      "translation": "just a moment",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "잠깐만요",
+          "translation": "One moment, please"
         }
       ]
     }

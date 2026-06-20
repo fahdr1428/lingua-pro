@@ -89,6 +89,7 @@ const DEFAULT_APP_STATE = {
   tutorialSeen: false,
   grammarSeen: {}, // { langCode: [grammarLessonId, ...] } — for in-lesson rotation
   lessonsCompleted: {}, // { langCode: count } — drives review checkpoint cadence
+  learningGoal: {}, // v41: { langCode: goalId } — user-chosen focus after the core
   lastCheckpointAt: {}, // { langCode: lessonCount when last checkpoint cleared }
   testedOut: {}, // { langCode: [wordId,...] } — words skipped via placement test
   sessions: [],

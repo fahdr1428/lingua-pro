@@ -13,11 +13,12 @@ import { explainAnswer } from "../engine/explain.js";
 import { getCharacter } from "../data/characters.js";
 import { getGrammar } from "../data/grammar.js";
 import { pickFunFact } from "../data/funFacts.js";
+import { goalCategoryOrder } from "../data/goals.js";
 import { WORD_PRONUNCIATION } from "../data/wordPronunciation.js";
 
 // Languages that don't use the Latin alphabet — for these, romanization is the
 // hero (so beginners can read it) and the native script is a smaller reference.
-const NON_LATIN_LANGUAGES = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn"]);
+const NON_LATIN_LANGUAGES = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 export function Lesson({ engine, pack, appState, setAppState, params, onNavigate, refreshStats }) {
   const lang = LANGUAGES[pack.code];
@@ -79,6 +80,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         filter: params?.filter || null,
         sessionSize: params?.sessionSize || appState?.sessionSize || 6,
         newPerSession: Math.max(2, Math.round((appState?.sessionSize || 6) / 2)),
+        goalCategories: goalCategoryOrder(appState?.learningGoal?.[pack.code]),
       })
       .then((s) => {
         if (cancelled) return;
@@ -185,6 +187,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         missedItems={missedItems}
         onReviewMistakes={reviewMistakes}
         isExam={params?.mode === "exam"}
+        isChapterExam={params?.mode === "chapter_exam"}
+        chapterNum={params?.chapter}
+        passThreshold={70}
       />
     );
   }
@@ -316,6 +321,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         const isCheckpoint = params?.mode === "checkpoint";
         const isExam = params?.mode === "exam";
         const isMilestoneExam = isExam && params?.milestone != null;
+        const isChapterExam = params?.mode === "chapter_exam";
+        // v44: chapter exam pass/fail. accuracy is 0-1; PASS at >= 0.7.
+        const chapterExamPassed = isChapterExam && accuracy >= 0.7;
         setAppState((s) => {
           const next = {
             ...s,
@@ -335,20 +343,25 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             next.grammarSeen = gs;
           }
           // v39: only NORMAL lessons increment the lesson counter that drives
-          // the every-3-lessons milestone. Exams and checkpoints don't count
-          // (so finishing one doesn't immediately re-trigger the milestone).
-          if (!isCheckpoint && !isExam) {
+          // the every-3-lessons milestone. Exams and checkpoints don't count.
+          if (!isCheckpoint && !isExam && !isChapterExam) {
             const lc = { ...(s.lessonsCompleted || {}) };
             lc[pack.code] = (lc[pack.code] || 0) + 1;
             next.lessonsCompleted = lc;
           } else if (isCheckpoint || isMilestoneExam) {
-            // Clearing a checkpoint OR a milestone exam resets the milestone
-            // nudge so it doesn't keep reappearing for the same milestone.
             const cp = { ...(s.lastCheckpointAt || {}) };
             cp[pack.code] = (s.lessonsCompleted?.[pack.code]) || 0;
             next.lastCheckpointAt = cp;
           }
-          // (The standalone Big Exam — isExam but not milestone — touches neither.)
+          // v44: record a passed chapter exam → unlocks the next chapter.
+          if (chapterExamPassed && params?.chapter != null) {
+            const cp = { ...(s.chaptersPassed || {}) };
+            const arr = cp[pack.code] || [];
+            if (!arr.includes(params.chapter)) {
+              cp[pack.code] = [...arr, params.chapter];
+            }
+            next.chaptersPassed = cp;
+          }
           return next;
         });
       } catch (e) {
@@ -363,7 +376,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
 
       // These two ALWAYS run no matter what failed above — the user sees
       // their result and is never stuck.
-      setResultData({ correct: correctCount, total, xp: xpEarned, accuracy: Math.round(accuracy * 100) });
+      setResultData({ correct: correctCount, total, xp: xpEarned, accuracy: Math.round(accuracy * 100), examVocabIds: params?.filter?.vocabIds || [], examSize: params?.sessionSize || 8 });
       setDone(true);
       // v30: celebratory chime on lesson completion (if sound effects on)
       if (appState.soundEffects !== false) {
@@ -1369,9 +1382,12 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
 // RESULT — designed to feel rewarding + screenshot-worthy for sharing
 // =============================================================================
 
-function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [], onReviewMistakes, isExam = false }) {
+function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [], onReviewMistakes, isExam = false, isChapterExam = false, chapterNum = null, passThreshold = 70 }) {
   const lang = LANGUAGES[pack.code];
   const framework = pack.frameworks?.[Math.floor(Math.random() * (pack.frameworks?.length || 1))];
+
+  // v44: chapter exam pass/fail state
+  const chapterPassed = isChapterExam && data.accuracy >= passThreshold;
 
   // v27: pick a culturally true fun fact, stable across re-renders.
   // Avoids facts shown in recent lessons so it feels fresh.
@@ -1443,6 +1459,45 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
           {celeb.title}
         </h1>
         <p style={{ color: "var(--text-dim)", marginBottom: 24, fontSize: 16 }}>{celeb.subtitle}</p>
+
+        {/* v44: CHAPTER EXAM gate result — clear pass/fail with the threshold. */}
+        {isChapterExam && (
+          <div style={{
+            background: chapterPassed ? "var(--primary-dark)" : "var(--surface)",
+            border: `2px solid ${chapterPassed ? "var(--primary)" : "var(--danger)"}`,
+            borderRadius: 16, padding: 20, marginBottom: 24,
+          }}>
+            <div style={{ fontSize: 40, marginBottom: 6 }}>{chapterPassed ? "🔓" : "🔒"}</div>
+            <div style={{ fontSize: 22, fontWeight: 900, color: chapterPassed ? "#fff" : "var(--text)" }}>
+              {chapterPassed ? `Chapter ${chapterNum} passed!` : "Not quite — give it another go"}
+            </div>
+            <div style={{ fontSize: 15, color: chapterPassed ? "rgba(255,255,255,0.85)" : "var(--text-dim)", marginTop: 6, lineHeight: 1.5 }}>
+              {chapterPassed
+                ? `You scored ${data.accuracy}%. The next chapter is now unlocked — keep going!`
+                : `You scored ${data.accuracy}%. You need ${passThreshold}% to unlock the next chapter. Review the words you missed and retake the exam — unlimited tries.`}
+            </div>
+            {!chapterPassed && (
+              <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 16 }}>
+                {missedItems.length > 0 && (
+                  <Button onClick={() => onReviewMistakes && onReviewMistakes()}>
+                    Review the {missedItems.length} I missed
+                  </Button>
+                )}
+                <Button
+                  variant={missedItems.length > 0 ? "secondary" : "primary"}
+                  onClick={() => onNavigate("lesson", { mode: "chapter_exam", chapter: chapterNum, filter: { vocabIds: data.examVocabIds || [] }, sessionSize: data.examSize || 8 })}
+                >
+                  Retake Chapter {chapterNum} exam
+                </Button>
+              </div>
+            )}
+            {chapterPassed && (
+              <Button style={{ marginTop: 16 }} onClick={() => onNavigate("home")}>
+                Continue to next chapter →
+              </Button>
+            )}
+          </div>
+        )}
 
         {/* The cultural guide reacts — culturally-specific warmth, not generic */}
         {(() => {

@@ -1151,6 +1151,166 @@
           "translation": "I want to buy it"
         }
       ]
+    },
+    {
+      "id": "pcm_0067",
+      "unit": "u5",
+      "lemma": "Comot",
+      "translit": "co-MOT",
+      "translation": "to leave, get out",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 117,
+      "examples": [
+        {
+          "native": "Comot for road",
+          "translation": "Get out of the way"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0068",
+      "unit": "u2",
+      "lemma": "Una",
+      "translit": "OO-na",
+      "translation": "you (plural)",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 118,
+      "examples": [
+        {
+          "native": "Una good?",
+          "translation": "Are you all well?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0069",
+      "unit": "u1",
+      "lemma": "Abi",
+      "translit": "a-BI",
+      "translation": "right? isn't it?",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 119,
+      "examples": [
+        {
+          "native": "You dey come, abi?",
+          "translation": "You're coming, right?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0070",
+      "unit": "u1",
+      "lemma": "Oya",
+      "translit": "OH-ya",
+      "translation": "come on, let's go",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "Oya, make we go",
+          "translation": "Come on, let's go"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0071",
+      "unit": "u1",
+      "lemma": "Sharp sharp",
+      "translit": "sharp sharp",
+      "translation": "quickly, fast",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 121,
+      "examples": [
+        {
+          "native": "Do am sharp sharp",
+          "translation": "Do it quickly"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0072",
+      "unit": "u4",
+      "lemma": "Money",
+      "translit": "MO-ney",
+      "translation": "money",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 122,
+      "examples": [
+        {
+          "native": "I no get money",
+          "translation": "I don't have money"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0073",
+      "unit": "u1",
+      "lemma": "Now now",
+      "translit": "now now",
+      "translation": "right now, immediately",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 123,
+      "examples": [
+        {
+          "native": "Come now now",
+          "translation": "Come right now"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0074",
+      "unit": "u1",
+      "lemma": "Small small",
+      "translit": "small small",
+      "translation": "slowly, little by little",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 124,
+      "examples": [
+        {
+          "native": "Do am small small",
+          "translation": "Do it bit by bit"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0075",
+      "unit": "u1",
+      "lemma": "Well well",
+      "translit": "well well",
+      "translation": "very much, properly",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 125,
+      "examples": [
+        {
+          "native": "I like am well well",
+          "translation": "I like it a lot"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0076",
+      "unit": "u1",
+      "lemma": "Make",
+      "translit": "mek",
+      "translation": "let (let's)",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 126,
+      "examples": [
+        {
+          "native": "Make we go",
+          "translation": "Let's go"
+        }
+      ]
     }
   ]
 }

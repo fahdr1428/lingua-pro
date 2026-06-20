@@ -11,6 +11,8 @@
     "People",
     "Places",
     "Time",
+    "Travel",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -1578,6 +1580,230 @@
         {
           "native": "本を買います",
           "translation": "I buy a book"
+        }
+      ]
+    },
+    {
+      "id": "ja_0081",
+      "unit": "u1",
+      "lemma": "お願いします",
+      "translit": "onegaishimasu",
+      "translation": "please (request)",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 131,
+      "examples": [
+        {
+          "native": "水をお願いします",
+          "translation": "Water, please"
+        }
+      ]
+    },
+    {
+      "id": "ja_0082",
+      "unit": "u1",
+      "lemma": "わかりません",
+      "translit": "wakarimasen",
+      "translation": "I don't understand",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 132,
+      "examples": [
+        {
+          "native": "すみません、わかりません",
+          "translation": "Sorry, I don't understand"
+        }
+      ]
+    },
+    {
+      "id": "ja_0083",
+      "unit": "u1",
+      "lemma": "わかりました",
+      "translit": "wakarimashita",
+      "translation": "I understand / got it",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 133,
+      "examples": [
+        {
+          "native": "はい、わかりました",
+          "translation": "Yes, understood"
+        }
+      ]
+    },
+    {
+      "id": "ja_0084",
+      "unit": "u1",
+      "lemma": "もう一度お願いします",
+      "translit": "mou ichido onegaishimasu",
+      "translation": "one more time, please",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 134,
+      "examples": [
+        {
+          "native": "もう一度お願いします",
+          "translation": "Please say it one more time"
+        }
+      ]
+    },
+    {
+      "id": "ja_0085",
+      "unit": "u9",
+      "lemma": "いくらですか",
+      "translit": "ikura desu ka",
+      "translation": "how much is it?",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 135,
+      "examples": [
+        {
+          "native": "これはいくらですか",
+          "translation": "How much is this?"
+        }
+      ]
+    },
+    {
+      "id": "ja_0086",
+      "unit": "u9",
+      "lemma": "トイレはどこですか",
+      "translit": "toire wa doko desu ka",
+      "translation": "where is the bathroom?",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 136,
+      "examples": [
+        {
+          "native": "すみません、トイレはどこですか",
+          "translation": "Excuse me, where is the bathroom?"
+        }
+      ]
+    },
+    {
+      "id": "ja_0087",
+      "unit": "u1",
+      "lemma": "これは何ですか",
+      "translit": "kore wa nan desu ka",
+      "translation": "what is this?",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 137,
+      "examples": [
+        {
+          "native": "これは何ですか",
+          "translation": "What is this?"
+        }
+      ]
+    },
+    {
+      "id": "ja_0088",
+      "unit": "u9",
+      "lemma": "これをください",
+      "translit": "kore o kudasai",
+      "translation": "this one, please",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "これをください",
+          "translation": "I'll take this one, please"
+        }
+      ]
+    },
+    {
+      "id": "ja_0089",
+      "unit": "u1",
+      "lemma": "ちょっと待ってください",
+      "translit": "chotto matte kudasai",
+      "translation": "please wait a moment",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "ちょっと待ってください",
+          "translation": "One moment, please"
+        }
+      ]
+    },
+    {
+      "id": "ja_0090",
+      "unit": "u1",
+      "lemma": "大丈夫です",
+      "translit": "daijoubu desu",
+      "translation": "it's okay / I'm fine",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "大丈夫です、ありがとう",
+          "translation": "I'm fine, thanks"
+        }
+      ]
+    },
+    {
+      "id": "ja_0091",
+      "unit": "u9",
+      "lemma": "英語を話せますか",
+      "translit": "eigo o hanasemasu ka",
+      "translation": "do you speak English?",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "英語を話せますか",
+          "translation": "Can you speak English?"
+        }
+      ]
+    },
+    {
+      "id": "ja_0092",
+      "unit": "u1",
+      "lemma": "ゆっくり話してください",
+      "translit": "yukkuri hanashite kudasai",
+      "translation": "please speak slowly",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "ゆっくり話してください",
+          "translation": "Please speak slowly"
+        }
+      ]
+    },
+    {
+      "id": "ja_0093",
+      "unit": "u1",
+      "lemma": "助けてください",
+      "translit": "tasukete kudasai",
+      "translation": "please help",
+      "category": "Useful",
+      "difficulty": 2,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "助けてください",
+          "translation": "Please help me"
+        }
+      ]
+    },
+    {
+      "id": "ja_0094",
+      "unit": "u1",
+      "lemma": "元気ですか",
+      "translit": "genki desu ka",
+      "translation": "how are you?",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "元気ですか — 元気です",
+          "translation": "How are you? — I'm fine"
         }
       ]
     }

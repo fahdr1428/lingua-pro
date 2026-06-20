@@ -9,7 +9,7 @@ import React, { useState, useMemo } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
 import { LANGUAGES } from "../data/registry.js";
 
-const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn"]);
+const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 const PASS_THRESHOLD = 0.8; // 80%+ to test out
 const QUIZ_SIZE = 12;
 

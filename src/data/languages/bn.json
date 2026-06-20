@@ -7,6 +7,7 @@
     "Common",
     "Connectors",
     "Family",
+    "Feelings",
     "Food",
     "Greetings",
     "Numbers",
@@ -1717,6 +1718,150 @@
         {
           "native": "আমি ঘুমাই",
           "translation": "I sleep"
+        }
+      ]
+    },
+    {
+      "id": "bn_0089",
+      "unit": "u1",
+      "lemma": "মাফ করবেন",
+      "translit": "maaf korben",
+      "translation": "sorry / excuse me",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "মাফ করবেন",
+          "translation": "Excuse me"
+        }
+      ]
+    },
+    {
+      "id": "bn_0090",
+      "unit": "u1",
+      "lemma": "কি",
+      "translit": "ki",
+      "translation": "what",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "এটা কি?",
+          "translation": "What is this?"
+        }
+      ]
+    },
+    {
+      "id": "bn_0091",
+      "unit": "u1",
+      "lemma": "বুঝি না",
+      "translit": "bujhi na",
+      "translation": "I don't understand",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "আমি বুঝি না",
+          "translation": "I don't understand"
+        }
+      ]
+    },
+    {
+      "id": "bn_0092",
+      "unit": "u7",
+      "lemma": "চাই",
+      "translit": "chai",
+      "translation": "to want",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "আমি চা চাই",
+          "translation": "I want tea"
+        }
+      ]
+    },
+    {
+      "id": "bn_0093",
+      "unit": "u1",
+      "lemma": "আবার",
+      "translit": "abar",
+      "translation": "again",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "আবার বলুন",
+          "translation": "Please say it again"
+        }
+      ]
+    },
+    {
+      "id": "bn_0094",
+      "unit": "u4",
+      "lemma": "একটু",
+      "translit": "ektu",
+      "translation": "a little",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "একটু পানি",
+          "translation": "A little water"
+        }
+      ]
+    },
+    {
+      "id": "bn_0095",
+      "unit": "u2",
+      "lemma": "ক্ষুধার্ত",
+      "translit": "khudharto",
+      "translation": "hungry",
+      "category": "Feelings",
+      "difficulty": 2,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "আমি ক্ষুধার্ত",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "bn_0096",
+      "unit": "u4",
+      "lemma": "বেশি",
+      "translit": "beshi",
+      "translation": "more, a lot",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "একটু বেশি",
+          "translation": "A little more"
+        }
+      ]
+    },
+    {
+      "id": "bn_0097",
+      "unit": "u4",
+      "lemma": "কম",
+      "translit": "kom",
+      "translation": "less",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "একটু কম",
+          "translation": "A little less"
         }
       ]
     }

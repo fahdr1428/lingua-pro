@@ -49,8 +49,48 @@ const NUM_DISTRACTORS = 3;
  * @param {string} langCode  required for conjugation lookup (optional; if absent, conjugation skipped)
  * @param {Object} conjugations  the language's CONJUGATIONS entry (optional)
  */
-export function generateLesson(queue, pool, progress = {}, langCode = null, conjugations = null, tenses = null, examMode = false) {
+export function generateLesson(queue, pool, progress = {}, langCode = null, conjugations = null, tenses = null, examMode = false, chapterExam = false) {
   const exercises = [];
+
+  // v44 CHAPTER EXAM — a gated, 3-round exam (easy → medium → hard). Each word
+  // appears across the rounds so it's tested multiple ways, building difficulty.
+  // Round 1 (easy):   PICK_MEANING  — recognition (see word → choose meaning)
+  // Round 2 (medium): PICK_WORD     — recall (see meaning → choose word)
+  // Round 3 (hard):   LISTEN_PICK / COMPLETE_SENTENCE — listening & production
+  // Exercises carry a `round` (1-3) and `roundLabel` so the UI can show progress.
+  if (chapterExam) {
+    const rounds = [
+      { n: 1, label: "Round 1 · Recognise", type: EXERCISE.PICK_MEANING },
+      { n: 2, label: "Round 2 · Recall", type: EXERCISE.PICK_WORD },
+      { n: 3, label: "Round 3 · Listen & Produce", type: "MIXED_HARD" },
+    ];
+    for (const round of rounds) {
+      // Shuffle the words within each round so order varies.
+      const roundItems = [...queue].sort(() => Math.random() - 0.5);
+      roundItems.forEach((item, i) => {
+        const card = progress[item.id];
+        let type = round.type;
+        if (type === "MIXED_HARD") {
+          // Alternate listening and fill-the-blank; fall back if no sentence.
+          const hasSentence = (item.examples || []).some((ex) => {
+            const w = (ex?.native || "").split(/\s+/).filter(Boolean).length;
+            return w >= 2;
+          });
+          if (i % 2 === 0 && hasSentence) type = EXERCISE.COMPLETE_SENTENCE;
+          else type = EXERCISE.LISTEN_PICK;
+        }
+        let ex = buildExerciseOfType(item, type, pool, card, 0, progress);
+        if (!ex) ex = buildExerciseOfType(item, EXERCISE.PICK_WORD, pool, card, 0, progress);
+        if (ex) {
+          ex.round = round.n;
+          ex.roundLabel = round.label;
+          exercises.push(ex);
+        }
+      });
+    }
+    // Do NOT shuffle across rounds — rounds must stay in difficulty order.
+    return exercises;
+  }
 
   // v38/v39 EXAM MODE — pure testing: one solid question per word, no flashcard
   // intros, no graduated multi-level sets. It's a test, not a teaching session.

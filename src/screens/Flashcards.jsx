@@ -8,7 +8,7 @@ import { Button, Card, Container } from "../ui/primitives.jsx";
 import { LANGUAGES } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 
-const NON_LATIN_LANGUAGES = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn"]);
+const NON_LATIN_LANGUAGES = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 export function Flashcards({ pack, appState, onNavigate, params }) {
   const lang = LANGUAGES[pack.code];
