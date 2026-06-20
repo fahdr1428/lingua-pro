@@ -26,8 +26,11 @@ export function Onboarding({ onComplete }) {
   if (step === 0) {
     return (
       <Container style={{ paddingTop: 60, textAlign: "center" }}>
-        <div style={{ fontSize: 80, marginBottom: 16 }}>🌍</div>
-        <h1 style={{ fontSize: 42, fontWeight: 900, margin: "0 0 12px", letterSpacing: -1 }}>Zaban</h1>
+        <img
+          src="/zaban-logo.png"
+          alt="Zaban"
+          style={{ width: "min(280px, 70vw)", height: "auto", margin: "0 auto 8px", display: "block" }}
+        />
         <p style={{ fontSize: 18, color: "var(--text-dim)", maxWidth: 380, margin: "0 auto 40px", lineHeight: 1.5 }}>
           Learn the languages the world ignores. Real grammar frameworks. Adaptive spaced repetition. No fluff.
         </p>
