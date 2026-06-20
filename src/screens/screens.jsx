@@ -12,6 +12,7 @@ import { THEMES } from "../ui/themes.js";
 import { getCharacter, getGreeting } from "../data/characters.js";
 import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilestones } from "../engine/gamification.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
+import { UNITS_PER_CHAPTER, computeUnlocks, isChapterExamAvailable, hasPassedChapter, chapterOfUnitIndex, chapterVocabIds } from "../data/chapters.js";
 
 // =============================================================================
 // ONBOARDING — language picker + daily goal
@@ -167,16 +168,16 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
     let cancelled = false;
     engine.getUnitProgress().then((up) => {
       if (cancelled) return;
-      // Mark which units are unlocked: first one always, others if previous >= 30%
-      const enriched = up.map((u, i) => {
-        if (i === 0) return { ...u, unlocked: true };
-        const prev = up[i - 1];
-        return { ...u, unlocked: prev.pct >= 0.3 };
-      });
+      // v44: chapter-gated unlocks. Chapter 1 units unlock linearly; chapters
+      // 2+ require passing the previous chapter's exam. computeUnlocks holds the
+      // full rule (and falls back to linear within an unlocked chapter).
+      const unlocks = computeUnlocks(up, appState, pack.code);
+      const enriched = up.map((u, i) => ({ ...u, unlocked: unlocks[i] }));
       setUnitProgress(enriched);
       setLoadingUnits(false);
     });
-  }, [engine, stats]);
+    return () => { cancelled = true; };
+  }, [engine, stats, appState, pack.code]);
 
   const framework = pack.frameworks?.[0];
 
