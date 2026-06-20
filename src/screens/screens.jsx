@@ -1555,7 +1555,10 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate }) {
           Reset all progress
         </Button>
         <Card style={{ marginTop: 16, fontSize: 12, color: "var(--text-mute)", textAlign: "center" }}>
-          Zaban — Built with love for the languages the world forgets.
+          <img src="/zaban-mark-transparent.png" alt="Zaban" style={{ width: 48, height: 48, objectFit: "contain", margin: "0 auto 8px", display: "block", opacity: 0.85 }} />
+          <div style={{ fontWeight: 800, fontSize: 15, color: "var(--text-dim)", marginBottom: 2 }}>Zaban</div>
+          Built with love for the languages the world forgets.
+          <div style={{ marginTop: 4, fontStyle: "italic" }}>Language connects us.</div>
         </Card>
       </Container>
     </div>

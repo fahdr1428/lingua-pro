@@ -113,7 +113,11 @@ export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, on
         <Stat icon="💎" value={gems} color="var(--accent)" />
         <Stat icon="❤️" value={premium ? "∞" : hearts} color="var(--danger)" />
       </div>
-      <div style={{ fontSize: 14, color: "var(--text-dim)", fontWeight: 700 }}>⚡ {totalXp} XP</div>
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ fontSize: 14, color: "var(--text-dim)", fontWeight: 700 }}>⚡ {totalXp}</div>
+        {/* Zaban brand mark — present on every screen */}
+        <img src="/zaban-mark-transparent.png" alt="Zaban" style={{ height: 28, width: 28, objectFit: "contain", opacity: 0.95 }} />
+      </div>
 
       {pickerOpen && (
         <LanguagePickerModal

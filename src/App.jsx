@@ -204,6 +204,7 @@ export default function App() {
 function CenterMsg({ children }) {
   return (
     <div style={{ textAlign: "center", paddingTop: 100, color: "var(--text-dim)" }}>
+      <img src="/zaban-mark-transparent.png" alt="Zaban" style={{ width: 72, height: 72, objectFit: "contain", margin: "0 auto 20px", display: "block", opacity: 0.9 }} />
       {children}
     </div>
   );
