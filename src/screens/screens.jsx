@@ -27,7 +27,7 @@ export function Onboarding({ onComplete }) {
     return (
       <Container style={{ paddingTop: 60, textAlign: "center" }}>
         <div style={{ fontSize: 80, marginBottom: 16 }}>🌍</div>
-        <h1 style={{ fontSize: 42, fontWeight: 900, margin: "0 0 12px", letterSpacing: -1 }}>Lingua</h1>
+        <h1 style={{ fontSize: 42, fontWeight: 900, margin: "0 0 12px", letterSpacing: -1 }}>Zaban</h1>
         <p style={{ fontSize: 18, color: "var(--text-dim)", maxWidth: 380, margin: "0 auto 40px", lineHeight: 1.5 }}>
           Learn the languages the world ignores. Real grammar frameworks. Adaptive spaced repetition. No fluff.
         </p>
@@ -1357,7 +1357,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
               color: "#000",
             }}
           >
-            <div style={{ fontSize: 18, fontWeight: 900 }}>✨ Lingua Plus</div>
+            <div style={{ fontSize: 18, fontWeight: 900 }}>✨ Zaban Plus</div>
             <div style={{ fontSize: 14, marginTop: 4, marginBottom: 12 }}>
               Unlimited hearts • Offline mode • No ads
             </div>
@@ -1552,7 +1552,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate }) {
           Reset all progress
         </Button>
         <Card style={{ marginTop: 16, fontSize: 12, color: "var(--text-mute)", textAlign: "center" }}>
-          Lingua Pro v0.7 — Built with love for languages the world ignores.
+          Zaban — Built with love for the languages the world forgets.
         </Card>
       </Container>
     </div>
@@ -1583,7 +1583,7 @@ export function Upgrade({ appState, setAppState, onNavigate }) {
         <Button variant="ghost" onClick={() => onNavigate("profile")}>← Back</Button>
         <div style={{ textAlign: "center", marginTop: 20 }}>
           <div style={{ fontSize: 60 }}>✨</div>
-          <h1 style={{ fontSize: 32, fontWeight: 900, margin: "8px 0" }}>Lingua Plus</h1>
+          <h1 style={{ fontSize: 32, fontWeight: 900, margin: "8px 0" }}>Zaban Plus</h1>
           <p style={{ color: "var(--text-dim)" }}>Unlock everything. Support development.</p>
         </div>
         <Card style={{ background: "linear-gradient(135deg, var(--purple), var(--surface))", marginTop: 24 }}>

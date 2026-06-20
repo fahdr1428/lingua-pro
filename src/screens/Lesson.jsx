@@ -1436,10 +1436,10 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
   const celeb = celebrations[tier];
 
   async function shareResult() {
-    const text = `Just learned ${data.correct} ${lang.name} words on Lingua! 🌍\n${data.accuracy}% accuracy · ${appState.streak}-day streak 🔥\nLearn languages the world ignores.`;
+    const text = `Just learned ${data.correct} ${lang.name} words on Zaban! 🌍\n${data.accuracy}% accuracy · ${appState.streak}-day streak 🔥\nLearn languages the world ignores.`;
     if (navigator.share) {
       try {
-        await navigator.share({ title: "My Lingua progress", text });
+        await navigator.share({ title: "My Zaban progress", text });
       } catch {}
     } else {
       try {
