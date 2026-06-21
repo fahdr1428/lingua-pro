@@ -13,6 +13,7 @@ import { getCharacter, getGreeting } from "../data/characters.js";
 import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilestones } from "../engine/gamification.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 import { UNITS_PER_CHAPTER, computeUnlocks, isChapterExamAvailable, hasPassedChapter, chapterOfUnitIndex, chapterVocabIds } from "../data/chapters.js";
+import { hasSentencePatterns, getPatternForDrop, ladderHeight } from "../data/sentencePatterns.js";
 
 // =============================================================================
 // ONBOARDING — language picker + daily goal
@@ -468,10 +469,47 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           <div style={{ fontSize: 36 }}>📖</div>
         </button>
 
-        {/* v41 GOAL PICKER — after the fixed core (2+ lessons done), let the
-            learner choose their focus. The chosen goal prioritises which word
-            categories their lessons pull from. Shown as a compact card that
-            opens a chooser; once chosen, shows the current goal with a "change"
+        {/* v47 SENTENCE LAB — every 2 lessons, a short progressive sentence-
+            building drop. Only for languages that have verified patterns.
+            Climbs a difficulty ladder: each drop builds on the last. The card
+            appears when the learner is "due" (completed lessons since last drop)
+            and there's a next rung available. */}
+        {(() => {
+          if (!hasSentencePatterns(pack.code)) return null;
+          const lessonsDone = appState?.lessonsCompleted?.[pack.code] || 0;
+          const dropsDone = appState?.sentenceDropsDone?.[pack.code] || 0;
+          // Drop cadence: a new drop becomes available every 2 lessons.
+          const dropsEarned = Math.floor(lessonsDone / 2);
+          const nextDrop = dropsDone + 1;
+          const due = dropsEarned >= nextDrop;
+          if (!due) return null;
+          const pattern = getPatternForDrop(pack.code, nextDrop);
+          if (!pattern) return null;
+          return (
+            <button
+              onClick={() => onNavigate("sentencelab", { pattern, dropNumber: nextDrop })}
+              style={{
+                width: "100%", textAlign: "left", border: "none", cursor: "pointer",
+                background: "linear-gradient(135deg, #f59e0b, #b45309)",
+                borderRadius: "var(--radius-lg)", padding: 18, marginBottom: 16,
+                display: "flex", alignItems: "center", justifyContent: "space-between",
+                color: "#fff",
+              }}
+            >
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1, opacity: 0.85 }}>
+                  🧱 Sentence Lab · Drop {nextDrop}
+                </div>
+                <div style={{ fontSize: 18, fontWeight: 900, marginTop: 2 }}>Build a sentence: {pattern.skill}</div>
+                <div style={{ fontSize: 13, opacity: 0.9, marginTop: 2 }}>
+                  Step-by-step, builds on the last — a little harder each time
+                </div>
+              </div>
+              <div style={{ fontSize: 30 }}>→</div>
+            </button>
+          );
+        })()}
+
             affordance. */}
         {(() => {
           const lessonsDone = appState?.lessonsCompleted?.[pack.code] || 0;

@@ -22,6 +22,7 @@ import { Flashcards } from "./screens/Flashcards.jsx";
 import { AlphabetLessons } from "./screens/AlphabetLessons.jsx";
 import { Reading } from "./screens/Reading.jsx";
 import { Conversations } from "./screens/Conversations.jsx";
+import { SentenceLab } from "./screens/SentenceLab.jsx";
 import { Grammar } from "./screens/Grammar.jsx";
 import { Practice } from "./screens/Practice.jsx";
 import { TestOut } from "./screens/TestOut.jsx";
@@ -90,6 +91,8 @@ const DEFAULT_APP_STATE = {
   grammarSeen: {}, // { langCode: [grammarLessonId, ...] } — for in-lesson rotation
   lessonsCompleted: {}, // { langCode: count } — drives review checkpoint cadence
   learningGoal: {}, // v41: { langCode: goalId } — user-chosen focus after the core
+  chaptersPassed: {}, // v44: { langCode: [chapterNum,...] } — gated chapter exams passed
+  sentenceDropsDone: {}, // v47: { langCode: highestDropNumber } — Sentence Lab progress
   lastCheckpointAt: {}, // { langCode: lessonCount when last checkpoint cleared }
   testedOut: {}, // { langCode: [wordId,...] } — words skipped via placement test
   sessions: [],
@@ -191,6 +194,7 @@ export default function App() {
       {screen === "testout" && <TestOut {...screenProps} />}
       {screen === "reading" && <Reading {...screenProps} />}
       {screen === "conversations" && <Conversations {...screenProps} />}
+      {screen === "sentencelab" && <SentenceLab {...screenProps} />}
       {screen === "grammar" && <Grammar {...screenProps} />}
       {screen === "vocab" && <Vocab {...screenProps} />}
       {screen === "profile" && <Profile {...screenProps} onSwitchLanguage={switchLanguage} />}
