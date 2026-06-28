@@ -510,7 +510,9 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           );
         })()}
 
-            affordance. */}
+        {/* v41 GOAL PICKER — after the fixed core (2 lessons), let the learner
+            choose a focus that prioritises which word categories appear. Until
+            then, show a gentle locked hint instead of the picker. */}
         {(() => {
           const lessonsDone = appState?.lessonsCompleted?.[pack.code] || 0;
           const CORE_LESSONS = 2; // fixed core everyone does first
