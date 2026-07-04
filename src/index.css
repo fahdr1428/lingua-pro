@@ -217,3 +217,29 @@ button:active { transform: translateY(1px) scale(0.98); }
 }
 .journey-row::-webkit-scrollbar { display: none; }
 .journey-row > * { flex: 0 0 min(300px, 82vw); scroll-snap-align: start; }
+
+/* ===== v56 rotating heritage backdrop + glass + bento ===== */
+.hero-backdrop { position: absolute; inset: 0; height: 420px; overflow: hidden; z-index: 0; pointer-events: none; }
+.hero-scene { position: absolute; inset: 0; opacity: 0; animation: sceneFade 30s infinite; }
+.hero-scene svg { width: 100%; height: 100%; }
+.hero-scene-1 { animation-delay: 0s; }
+.hero-scene-2 { animation-delay: 10s; }
+.hero-scene-3 { animation-delay: 20s; }
+@keyframes sceneFade {
+  0% { opacity: 0; } 6% { opacity: 0.5; } 33% { opacity: 0.5; } 40% { opacity: 0; } 100% { opacity: 0; }
+}
+.hero-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(251,247,240,0.55) 0%, rgba(251,247,240,0.75) 55%, var(--bg) 100%); }
+@media (prefers-reduced-motion: reduce) {
+  .hero-scene { animation: none; }
+  .hero-scene-1 { opacity: 0.5; }
+}
+
+/* frosted-glass tiles so scenes read through */
+.glass { background: rgba(255,255,255,0.78) !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+/* asymmetric bento on wide screens; single column on mobile */
+@media (min-width: 720px) {
+  .bento { display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; align-items: stretch; }
+  .bento > * { margin-bottom: 0 !important; height: 100%; }
+  .bento > *:nth-child(3), .bento > *:nth-child(4) { grid-column: 1 / -1; }
+}

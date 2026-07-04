@@ -8,6 +8,7 @@ import { Button, Card, ProgressBar, TopBar, Container } from "../ui/primitives.j
 import { listLanguages, LANGUAGES } from "../data/registry.js";
 import { speak } from "../audio/tts.js";
 import { pickFunFact } from "../data/funFacts.js";
+import { HeroBackdrop } from "../ui/HeroBackdrop.jsx";
 import { masteryLevel, retrievability } from "../engine/srs.js";
 import { THEMES } from "../ui/themes.js";
 import { getCharacter, getGreeting } from "../data/characters.js";
@@ -190,7 +191,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
   const currentUnit = unitProgress.find((u) => u.unlocked && u.pct < 1) || unitProgress[0];
 
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <TopBar
         streak={appState.streak}
         gems={appState.gems}
@@ -200,7 +201,8 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         currentLang={pack.code}
         onPickLanguage={onPickLanguage}
       />
-      <Container>
+      <HeroBackdrop />
+      <Container style={{ position: "relative", zIndex: 1 }}>
         {/* v53 HERO — warm greeting + serif headline, reference-inspired */}
         {(() => {
           const hr = new Date().getHours();
@@ -223,6 +225,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           );
         })()}
 
+        <div className="bento">
         {/* v53 LEVEL CARD — deep green, circular progress ring */}
         {(() => {
           const lv = getLevel(appState.totalXp || 0);
@@ -363,6 +366,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             retrieve it yourself, then tap to reveal. Retrieval practice, not
             passive reading. */}
         <MomentCard pack={pack} lang={lang} />
+        </div>
 
         {/* v54: stats grid, review button, and big-exam button removed —
             review now merges into the primary "Continue your journey" card,

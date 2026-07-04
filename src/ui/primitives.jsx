@@ -59,7 +59,7 @@ export function ProgressBar({ value, max, color = "var(--primary)", height = 12 
 export function Card({ children, style, className = "", ...rest }) {
   return (
     <div
-      className={`card-lift ${className}`.trim()}
+      className={`card-lift glass ${className}`.trim()}
       style={{
         background: "var(--surface)",
         border: "1px solid var(--border)",
