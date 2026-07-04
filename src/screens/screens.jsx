@@ -7,6 +7,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Button, Card, ProgressBar, TopBar, Container } from "../ui/primitives.jsx";
 import { listLanguages, LANGUAGES } from "../data/registry.js";
 import { speak } from "../audio/tts.js";
+import { pickFunFact } from "../data/funFacts.js";
 import { masteryLevel, retrievability } from "../engine/srs.js";
 import { THEMES } from "../ui/themes.js";
 import { getCharacter, getGreeting } from "../data/characters.js";
@@ -212,6 +213,12 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
               <h1 style={{ fontSize: 30, fontWeight: 700, margin: "4px 0 0", lineHeight: 1.15 }}>
                 Every language opens a new world.
               </h1>
+              <div style={{ fontSize: 14, color: "var(--text-dim)", marginTop: 8, lineHeight: 1.5 }}>
+                You're not just learning words. You're understanding people.
+              </div>
+              <div style={{ fontSize: 13, color: "var(--text-mute)", marginTop: 10, fontWeight: 700 }}>
+                🔥 {appState.streak || 0}-day streak · {todayXp} / {appState.dailyGoalXp} XP today
+              </div>
             </div>
           );
         })()}
@@ -290,25 +297,20 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           );
         })()}
 
-        {/* Daily goal hero */}
-        <Card style={{ background: `linear-gradient(135deg, ${lang.color}, var(--surface))` }}>
-          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
-            <div>
-              <div style={{ fontSize: 14, opacity: 0.9 }}>Daily Goal</div>
-              <div style={{ fontSize: 28, fontWeight: 900 }}>{todayXp} / {appState.dailyGoalXp} XP</div>
-            </div>
-            <div style={{ fontSize: 50 }}>{lang.flag}</div>
-          </div>
-          <ProgressBar value={todayXp} max={appState.dailyGoalXp} color="var(--accent)" />
-          <div style={{ marginTop: 8, fontSize: 13, opacity: 0.9 }}>
-            {todayXp >= appState.dailyGoalXp ? "🎉 Goal smashed for today!" : `${appState.dailyGoalXp - todayXp} XP to go`}
-          </div>
-        </Card>
+        {/* Daily goal folded into hero microline (v54) — card removed for breathing space */}
 
         {/* The HERO button — most important on screen. Always works. */}
-        {currentUnit && (
+        {/* v54 CONTINUE YOUR JOURNEY — the ONE primary action. Merges review
+            and lessons into a single flow: when enough words are due, the
+            journey step IS the review; otherwise it's the current unit. */}
+        {currentUnit && (() => {
+          const isReviewStep = (stats.due || 0) >= 4;
+          const dest = isReviewStep
+            ? ["lesson", { mode: "due" }]
+            : ["lesson", { mode: "unit", filter: { unit: currentUnit.id } }];
+          return (
           <button
-            onClick={() => onNavigate("lesson", { mode: "unit", filter: { unit: currentUnit.id } })}
+            onClick={() => onNavigate(dest[0], dest[1])}
             className="card-lift"
             style={{
               width: "100%",
@@ -326,70 +328,75 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 11, fontWeight: 800, color: "var(--text-dim)", letterSpacing: 1, textTransform: "uppercase" }}>
-                  {currentUnit.pct === 0 ? "Start here" : "Today's focus"}
+                  Continue your journey
                 </div>
                 <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: 22, fontWeight: 700, marginTop: 4, color: "var(--ink)" }}>
-                  {currentUnit.title}
+                  {isReviewStep ? "Revisit what you've learned" : currentUnit.title}
                 </div>
                 <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 4 }}>
-                  {currentUnit.description}
+                  {isReviewStep
+                    ? `${stats.due} words are ready to come back to you — keep them alive.`
+                    : currentUnit.description}
                 </div>
               </div>
-              <div style={{ fontSize: 38, background: "var(--surface-hi)", borderRadius: 14, padding: "8px 12px" }}>{currentUnit.emoji}</div>
+              <div style={{ fontSize: 38, background: "var(--surface-hi)", borderRadius: 14, padding: "8px 12px" }}>
+                {isReviewStep ? "🌿" : currentUnit.emoji}
+              </div>
             </div>
             <div style={{ marginTop: 14, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 14 }}>
               <div style={{ flex: 1 }}>
-                <ProgressBar value={currentUnit.learnedCount || 0} max={currentUnit.wordCount || 1} height={8} />
+                {!isReviewStep && <ProgressBar value={currentUnit.learnedCount || 0} max={currentUnit.wordCount || 1} height={8} />}
               </div>
               <div style={{
                 background: "var(--primary)", color: "#fff", fontWeight: 800, fontSize: 14,
                 borderRadius: 999, padding: "10px 18px", boxShadow: "0 3px 0 var(--primary-dark)",
                 whiteSpace: "nowrap",
               }}>
-                Continue →
+                {isReviewStep ? "Revisit →" : "Continue →"}
               </div>
             </div>
           </button>
-        )}
+          );
+        })()}
 
-        {/* Quick stats */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 24 }}>
-          <Card style={{ marginBottom: 0, textAlign: "center", padding: 14 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: "var(--primary)" }}>{stats.learned}</div>
-            <div style={{ fontSize: 11, color: "var(--text-dim)" }}>Learned</div>
-          </Card>
-          <Card style={{ marginBottom: 0, textAlign: "center", padding: 14 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: "var(--accent)" }}>{stats.due}</div>
-            <div style={{ fontSize: 11, color: "var(--text-dim)" }}>Due now</div>
-          </Card>
-          <Card style={{ marginBottom: 0, textAlign: "center", padding: 14 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: "var(--purple)" }}>{stats.mastered}</div>
-            <div style={{ fontSize: 11, color: "var(--text-dim)" }}>Mastered</div>
-          </Card>
-        </div>
+        {/* v54 MOMENT — one small daily reflection: a word of the day and a
+            cultural spark. Human, not robotic. */}
+        {(() => {
+          const vocab = pack.vocab || [];
+          if (!vocab.length) return null;
+          const dayIdx = Math.floor(Date.now() / 86400000);
+          const word = vocab[dayIdx % vocab.length];
+          const fact = (() => { try { const f = pickFunFact(pack.code, []); return typeof f?.fact === "string" ? f.fact : null; } catch { return null; } })();
+          return (
+            <div style={{
+              background: "var(--surface-hi)", borderRadius: "var(--radius-lg)",
+              padding: "18px 20px", marginBottom: 24, border: "1px solid var(--border)",
+            }}>
+              <div style={{ fontSize: 11, fontWeight: 800, color: "var(--root)", letterSpacing: 1, textTransform: "uppercase" }}>
+                Today's moment
+              </div>
+              <div style={{ fontSize: 16, marginTop: 6, lineHeight: 1.5, color: "var(--text)" }}>
+                How would you say <strong>"{word.meaning}"</strong> in {lang.name}?
+                <span
+                  onClick={(e) => { e.stopPropagation(); speak(word.lemma, lang.ttsCode, { audioId: word.id }); }}
+                  style={{ cursor: "pointer", marginLeft: 8, fontWeight: 800, color: "var(--primary)" }}
+                >
+                  {word.lemma} 🔊
+                </span>
+              </div>
+              {fact && (
+                <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 8, lineHeight: 1.5 }}>
+                  {fact}
+                </div>
+              )}
+            </div>
+          );
+        })()}
 
-        {/* Quick actions */}
-        {stats.due > 0 && (
-          <Button
-            style={{ background: "var(--blue)", boxShadow: "0 4px 0 #1e40af", marginBottom: 24 }}
-            onClick={() => onNavigate("lesson", { mode: "due" })}
-          >
-            🔄 Review {stats.due} word{stats.due === 1 ? "" : "s"}
-          </Button>
-        )}
-
-        {/* v38 BIG EXAM — a comprehensive test over everything learned so far.
-            Only shown once the learner has enough vocabulary for it to be
-            meaningful (15+ words). Sized to ~25 questions (capped at what's
-            actually learned). Scored at the end like a real exam. */}
-        {(stats.learned || 0) >= 15 && (
-          <Button
-            style={{ background: "var(--purple)", boxShadow: "0 4px 0 #5b21b6", marginBottom: 24 }}
-            onClick={() => onNavigate("lesson", { mode: "exam", sessionSize: Math.min(25, stats.learned) })}
-          >
-            📝 Big exam — test all {Math.min(25, stats.learned)} of your strongest words
-          </Button>
-        )}
+        {/* v54: stats grid, review button, and big-exam button removed —
+            review now merges into the primary "Continue your journey" card,
+            and the big exam lives in the Explore chips below. Fewer blocks,
+            one clear focus. */}
 
         {/* v39 MILESTONE EXAM — every 3 lessons, a real exam on what you've
             learned, testing words in varied ways (recall, recognition,
@@ -435,61 +442,25 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           );
         })()}
 
-        {/* Alphabet course (proper curriculum, not just a reference) */}
-        {pack.alphabet?.length > 0 && (
-          <button
-            onClick={() => onNavigate("alphabet")}
-            style={{
-              width: "100%",
-              background: "linear-gradient(135deg, var(--purple), var(--surface))",
-              border: "none",
-              borderRadius: "var(--radius-lg)",
-              padding: 20,
-              color: "var(--text)",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              cursor: "pointer",
-              marginBottom: 12,
-              textAlign: "left",
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 18, fontWeight: 800 }}>Letters & Sounds</div>
-              <div style={{ fontSize: 13, opacity: 0.9 }}>
-                {(pack.alphabetGroups || []).length > 1
-                  ? `${pack.alphabetGroups.length} lessons · learn the script step by step`
-                  : "Master the alphabet first"}
-              </div>
-            </div>
-            <div style={{ fontSize: 36 }}>🔤</div>
+        {/* v54 EXPLORE CHIPS — one slim row instead of stacked feature cards */}
+        <div style={{ display: "flex", gap: 8, overflowX: "auto", marginBottom: 20, paddingBottom: 4 }}>
+          {pack.alphabet?.length > 0 && (
+            <button onClick={() => onNavigate("alphabet")} style={{ flex: "0 0 auto", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 999, padding: "10px 16px", fontSize: 13, fontWeight: 800, color: "var(--text)", cursor: "pointer" }}>
+              🔤 Letters & sounds
+            </button>
+          )}
+          <button onClick={() => onNavigate("flashcards")} style={{ flex: "0 0 auto", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 999, padding: "10px 16px", fontSize: 13, fontWeight: 800, color: "var(--text)", cursor: "pointer" }}>
+            📇 Flashcards
           </button>
-        )}
-
-        {/* Flashcards entry */}
-        <button
-          onClick={() => onNavigate("flashcards")}
-          style={{
-            width: "100%",
-            background: "linear-gradient(135deg, var(--blue), var(--surface))",
-            border: "none",
-            borderRadius: "var(--radius-lg)",
-            padding: 20,
-            color: "var(--text)",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            cursor: "pointer",
-            marginBottom: 12,
-            textAlign: "left",
-          }}
-        >
-          <div>
-            <div style={{ fontSize: 18, fontWeight: 800 }}>Flashcards</div>
-            <div style={{ fontSize: 13, opacity: 0.9 }}>Browse words at your own pace</div>
-          </div>
-          <div style={{ fontSize: 36 }}>📇</div>
-        </button>
+          {(stats.learned || 0) >= 15 && (
+            <button onClick={() => onNavigate("lesson", { mode: "exam", sessionSize: Math.min(25, stats.learned) })} style={{ flex: "0 0 auto", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 999, padding: "10px 16px", fontSize: 13, fontWeight: 800, color: "var(--text)", cursor: "pointer" }}>
+              📝 Big exam
+            </button>
+          )}
+          <button onClick={() => onNavigate("grammar")} style={{ flex: "0 0 auto", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 999, padding: "10px 16px", fontSize: 13, fontWeight: 800, color: "var(--text)", cursor: "pointer" }}>
+            🧭 Grammar
+          </button>
+        </div>
 
         {/* Read & Speak — merged passages + conversations (one door, toggle inside) */}
         <button
@@ -510,8 +481,8 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           }}
         >
           <div>
-            <div style={{ fontSize: 18, fontWeight: 800 }}>Read &amp; Speak</div>
-            <div style={{ fontSize: 13, opacity: 0.9 }}>Short passages &amp; real conversations — browse freely</div>
+            <div style={{ fontSize: 18, fontWeight: 800 }}>Talk about life</div>
+            <div style={{ fontSize: 13, opacity: 0.9 }}>Real conversations about family, food, feelings — the way people actually speak</div>
           </div>
           <div style={{ fontSize: 36 }}>📖</div>
         </button>
@@ -626,13 +597,13 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
 
         {/* The unit path — the visual learning journey */}
         <h3 style={{ fontSize: 12, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 16 }}>
-          Learning path
+          Your journey
         </h3>
 
         {loadingUnits ? (
           <div style={{ textAlign: "center", padding: 40, color: "var(--text-dim)" }}>Loading…</div>
         ) : (
-          <div className="stagger" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <div className="journey-row stagger">
             {unitProgress.map((unit, i) => {
               const rows = [
                 <UnitNode

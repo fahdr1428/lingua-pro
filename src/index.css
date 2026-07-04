@@ -204,3 +204,16 @@ button:active { transform: translateY(1px) scale(0.98); }
   .screen-enter, .stagger > *, .glow-cta { animation: none !important; }
   button, .card-lift, .progress-fill { transition: none !important; }
 }
+
+/* ===== v54 horizontal journey path ===== */
+.journey-row {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 4px 2px 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.journey-row::-webkit-scrollbar { display: none; }
+.journey-row > * { flex: 0 0 min(300px, 82vw); scroll-snap-align: start; }
