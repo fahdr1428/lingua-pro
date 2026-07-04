@@ -1,13 +1,15 @@
 :root {
-  /* Cream/warm minimalist palette */
+  /* Warm heritage palette — matched to the Zaban logo (deep ink + root-brown) */
   --bg: #fbf7f0;
   --bg-alt: #f5efe2;
   --surface: #ffffff;
   --surface-hi: #f7f1e3;
   --border: #e8dfca;
-  --text: #1d1a14;
+  --text: #211d16;
   --text-dim: #6b6356;
   --text-mute: #a89e89;
+  --ink: #232b3d;          /* the logo's deep navy-ink */
+  --root: #8d6e56;         /* the logo's root-brown */
   --primary: #2f7d4f;
   --primary-dark: #1d5635;
   --primary-soft: #eaf3ec;
@@ -21,12 +23,21 @@
   --radius: 16px;
   --radius-lg: 22px;
   --shadow-btn: 0 4px 0 var(--primary-dark);
-  --shadow-card: 0 2px 8px rgba(80, 60, 30, 0.06);
+  --shadow-card: 0 1px 2px rgba(46, 36, 20, 0.05), 0 4px 16px rgba(46, 36, 20, 0.05);
 
   font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   color-scheme: light;
 }
+
+/* Serif display headings — ties the app to the Zaban wordmark's character.
+   Fraunces has the same warm, literary, "heritage" feel as the logo. */
+h1, h2 {
+  font-family: "Fraunces", Georgia, serif;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+}
+.brand-serif { font-family: "Fraunces", Georgia, serif; }
 
 * { box-sizing: border-box; }
 
@@ -110,3 +121,19 @@ input, select, textarea {
   background: var(--accent);
   color: #fff;
 }
+
+/* ===== v51 mobile-first polish ===== */
+/* Kill the grey tap flash on iOS/Android — feels much more native */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Comfortable touch targets on phones */
+button { min-height: 44px; touch-action: manipulation; }
+
+/* Respect phone notches / home bars */
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+/* Gentle press feedback everywhere — replaces the "nothing happened?" feel */
+button:active { transform: translateY(1px); }
+
+/* Softer image rendering for the logo marks */
+img { -webkit-user-drag: none; user-select: none; }

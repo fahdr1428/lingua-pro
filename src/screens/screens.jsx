@@ -490,10 +490,12 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
               onClick={() => onNavigate("sentencelab", { pattern, dropNumber: nextDrop })}
               style={{
                 width: "100%", textAlign: "left", border: "none", cursor: "pointer",
-                background: "linear-gradient(135deg, #f59e0b, #b45309)",
+                background: "var(--ink)",
+                borderLeft: "6px solid var(--root)",
                 borderRadius: "var(--radius-lg)", padding: 18, marginBottom: 16,
                 display: "flex", alignItems: "center", justifyContent: "space-between",
                 color: "#fff",
+                boxShadow: "var(--shadow-card)",
               }}
             >
               <div>
