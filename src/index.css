@@ -137,3 +137,70 @@ button:active { transform: translateY(1px); }
 
 /* Softer image rendering for the logo marks */
 img { -webkit-user-drag: none; user-select: none; }
+
+/* ============================================================
+   v52 MOTION SYSTEM — the "alive" UI
+   Principles: 200-400ms, spring easing, continuity, depth.
+   ============================================================ */
+:root {
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);   /* playful overshoot */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);      /* fast start, soft landing */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Screen transitions: every screen change flows in, no hard cut --- */
+@keyframes screenIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.screen-enter {
+  animation: screenIn 320ms var(--ease-out-expo) both;
+  will-change: opacity, transform;
+}
+
+/* --- Staggered entrances: children cascade in, one after another --- */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.stagger > * { animation: riseIn 360ms var(--ease-out-expo) both; }
+.stagger > *:nth-child(1)  { animation-delay: 30ms; }
+.stagger > *:nth-child(2)  { animation-delay: 70ms; }
+.stagger > *:nth-child(3)  { animation-delay: 110ms; }
+.stagger > *:nth-child(4)  { animation-delay: 150ms; }
+.stagger > *:nth-child(5)  { animation-delay: 190ms; }
+.stagger > *:nth-child(6)  { animation-delay: 230ms; }
+.stagger > *:nth-child(7)  { animation-delay: 270ms; }
+.stagger > *:nth-child(8)  { animation-delay: 310ms; }
+.stagger > *:nth-child(n+9){ animation-delay: 350ms; }
+
+/* --- Tactile micro-interactions: everything responds to touch --- */
+button {
+  transition: transform 150ms var(--ease-smooth), box-shadow 200ms var(--ease-smooth), filter 200ms var(--ease-smooth);
+}
+button:active { transform: translateY(1px) scale(0.98); }
+@media (hover: hover) {
+  button:hover { filter: brightness(1.03); }
+}
+
+/* --- Cards lift gently on hover (desktop) for depth --- */
+@media (hover: hover) {
+  .card-lift { transition: transform 220ms var(--ease-smooth), box-shadow 220ms var(--ease-smooth); }
+  .card-lift:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(46,36,20,.06), 0 12px 28px rgba(46,36,20,.09); }
+}
+
+/* --- Progress bars glide, never jump --- */
+.progress-fill { transition: width 450ms var(--ease-out-expo); }
+
+/* --- Soft glow pulse for primary calls-to-action --- */
+@keyframes softGlow {
+  0%, 100% { box-shadow: var(--shadow-btn), 0 0 0 rgba(47,125,79,0); }
+  50%      { box-shadow: var(--shadow-btn), 0 0 18px rgba(47,125,79,0.25); }
+}
+.glow-cta { animation: softGlow 2.6s ease-in-out infinite; }
+
+/* --- Respect users who prefer less motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .screen-enter, .stagger > *, .glow-cta { animation: none !important; }
+  button, .card-lift, .progress-fill { transition: none !important; }
+}

@@ -185,21 +185,25 @@ export default function App() {
 
   return (
     <ErrorBoundary onRecover={() => navigate("home")}>
-      {screen === "home" && <Home {...screenProps} />}
-      {screen === "letters" && <Letters {...screenProps} />}
-      {screen === "lesson" && <Lesson {...screenProps} params={params} />}
-      {screen === "flashcards" && <Flashcards {...screenProps} params={params} />}
-      {screen === "alphabet" && <AlphabetLessons {...screenProps} />}
-      {screen === "practice" && <Practice {...screenProps} />}
-      {screen === "testout" && <TestOut {...screenProps} />}
-      {screen === "reading" && <Reading {...screenProps} />}
-      {screen === "conversations" && <Conversations {...screenProps} />}
-      {screen === "sentencelab" && <SentenceLab {...screenProps} />}
-      {screen === "grammar" && <Grammar {...screenProps} />}
-      {screen === "vocab" && <Vocab {...screenProps} />}
-      {screen === "profile" && <Profile {...screenProps} onSwitchLanguage={switchLanguage} />}
-      {screen === "settings" && <Settings appState={appState} setAppState={setAppState} onResetAll={resetAll} onNavigate={navigate} />}
-      {screen === "upgrade" && <Upgrade appState={appState} setAppState={setAppState} onNavigate={navigate} />}
+      {/* v52: keyed wrapper — remounts on every screen change so the
+          screenIn animation plays. No hard cuts between screens. */}
+      <div key={screen} className="screen-enter">
+        {screen === "home" && <Home {...screenProps} />}
+        {screen === "letters" && <Letters {...screenProps} />}
+        {screen === "lesson" && <Lesson {...screenProps} params={params} />}
+        {screen === "flashcards" && <Flashcards {...screenProps} params={params} />}
+        {screen === "alphabet" && <AlphabetLessons {...screenProps} />}
+        {screen === "practice" && <Practice {...screenProps} />}
+        {screen === "testout" && <TestOut {...screenProps} />}
+        {screen === "reading" && <Reading {...screenProps} />}
+        {screen === "conversations" && <Conversations {...screenProps} />}
+        {screen === "sentencelab" && <SentenceLab {...screenProps} />}
+        {screen === "grammar" && <Grammar {...screenProps} />}
+        {screen === "vocab" && <Vocab {...screenProps} />}
+        {screen === "profile" && <Profile {...screenProps} onSwitchLanguage={switchLanguage} />}
+        {screen === "settings" && <Settings appState={appState} setAppState={setAppState} onResetAll={resetAll} onNavigate={navigate} />}
+        {screen === "upgrade" && <Upgrade appState={appState} setAppState={setAppState} onNavigate={navigate} />}
+      </div>
       {screen !== "lesson" && <BottomNav screen={screen} onNavigate={navigate} />}
     </ErrorBoundary>
   );

@@ -585,7 +585,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         {loadingUnits ? (
           <div style={{ textAlign: "center", padding: 40, color: "var(--text-dim)" }}>Loading…</div>
         ) : (
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <div className="stagger" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             {unitProgress.map((unit, i) => {
               const rows = [
                 <UnitNode

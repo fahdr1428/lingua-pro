@@ -51,14 +51,15 @@ export function ProgressBar({ value, max, color = "var(--primary)", height = 12 
   const pct = Math.min(100, max > 0 ? (value / max) * 100 : 0);
   return (
     <div style={{ width: "100%", height, background: "var(--surface-hi)", borderRadius: 999, overflow: "hidden" }}>
-      <div style={{ height: "100%", width: `${pct}%`, background: color, borderRadius: 999, transition: "width 0.4s ease" }} />
+      <div style={{ height: "100%", width: `${pct}%`, background: color, borderRadius: 999, transition: "width 450ms cubic-bezier(0.16, 1, 0.3, 1)" }} />
     </div>
   );
 }
 
-export function Card({ children, style, ...rest }) {
+export function Card({ children, style, className = "", ...rest }) {
   return (
     <div
+      className={`card-lift ${className}`.trim()}
       style={{
         background: "var(--surface)",
         border: "1px solid var(--border)",
