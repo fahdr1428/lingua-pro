@@ -359,39 +359,10 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           );
         })()}
 
-        {/* v54 MOMENT — one small daily reflection: a word of the day and a
-            cultural spark. Human, not robotic. */}
-        {(() => {
-          const vocab = pack.vocab || [];
-          if (!vocab.length) return null;
-          const dayIdx = Math.floor(Date.now() / 86400000);
-          const word = vocab[dayIdx % vocab.length];
-          const fact = (() => { try { const f = pickFunFact(pack.code, []); return typeof f?.fact === "string" ? f.fact : null; } catch { return null; } })();
-          return (
-            <div style={{
-              background: "var(--surface-hi)", borderRadius: "var(--radius-lg)",
-              padding: "18px 20px", marginBottom: 24, border: "1px solid var(--border)",
-            }}>
-              <div style={{ fontSize: 11, fontWeight: 800, color: "var(--root)", letterSpacing: 1, textTransform: "uppercase" }}>
-                Today's moment
-              </div>
-              <div style={{ fontSize: 16, marginTop: 6, lineHeight: 1.5, color: "var(--text)" }}>
-                How would you say <strong>"{word.meaning}"</strong> in {lang.name}?
-                <span
-                  onClick={(e) => { e.stopPropagation(); speak(word.lemma, lang.ttsCode, { audioId: word.id }); }}
-                  style={{ cursor: "pointer", marginLeft: 8, fontWeight: 800, color: "var(--primary)" }}
-                >
-                  {word.lemma} 🔊
-                </span>
-              </div>
-              {fact && (
-                <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 8, lineHeight: 1.5 }}>
-                  {fact}
-                </div>
-              )}
-            </div>
-          );
-        })()}
+        {/* v55 MOMENT — active recall: the answer is hidden until you try to
+            retrieve it yourself, then tap to reveal. Retrieval practice, not
+            passive reading. */}
+        <MomentCard pack={pack} lang={lang} />
 
         {/* v54: stats grid, review button, and big-exam button removed —
             review now merges into the primary "Continue your journey" card,
@@ -822,6 +793,53 @@ function UnitNode({ unit, index, isCurrent, onTap, onTestOut }) {
           >
             🎯 Test out
           </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// v55 — daily Moment with ACTIVE RECALL: try to retrieve the word yourself,
+// then tap to reveal + hear it. Research-backed retrieval practice.
+function MomentCard({ pack, lang }) {
+  const [revealed, setRevealed] = useState(false);
+  const vocab = pack.vocab || [];
+  if (!vocab.length) return null;
+  const dayIdx = Math.floor(Date.now() / 86400000);
+  const word = vocab[dayIdx % vocab.length];
+  const fact = (() => { try { const f = pickFunFact(pack.code, []); return typeof f?.fact === "string" ? f.fact : null; } catch { return null; } })();
+  return (
+    <div style={{
+      background: "var(--surface-hi)", borderRadius: "var(--radius-lg)",
+      padding: "18px 20px", marginBottom: 24, border: "1px solid var(--border)",
+    }}>
+      <div style={{ fontSize: 11, fontWeight: 800, color: "var(--root)", letterSpacing: 1, textTransform: "uppercase" }}>
+        Today's moment
+      </div>
+      <div style={{ fontSize: 16, marginTop: 6, lineHeight: 1.5, color: "var(--text)" }}>
+        How would you say <strong>"{word.meaning}"</strong> in {lang.name}?
+      </div>
+      {!revealed ? (
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 10 }}>
+          <span style={{ fontSize: 13, color: "var(--text-dim)" }}>Say it out loud first, then…</span>
+          <button
+            onClick={() => { setRevealed(true); speak(word.lemma, lang.ttsCode, { audioId: word.id }); }}
+            style={{ background: "var(--primary)", color: "#fff", border: "none", borderRadius: 999, padding: "8px 16px", fontSize: 13, fontWeight: 800, cursor: "pointer" }}
+          >
+            Reveal
+          </button>
+        </div>
+      ) : (
+        <div
+          onClick={() => speak(word.lemma, lang.ttsCode, { audioId: word.id })}
+          style={{ marginTop: 10, fontWeight: 800, fontSize: 20, color: "var(--primary)", cursor: "pointer" }}
+        >
+          {word.lemma} 🔊 {word.translit ? <span style={{ fontSize: 14, color: "var(--text-dim)", fontWeight: 600 }}>({word.translit})</span> : null}
+        </div>
+      )}
+      {revealed && fact && (
+        <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 10, lineHeight: 1.5 }}>
+          {fact}
         </div>
       )}
     </div>
