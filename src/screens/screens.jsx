@@ -200,6 +200,56 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         onPickLanguage={onPickLanguage}
       />
       <Container>
+        {/* v53 HERO — warm greeting + serif headline, reference-inspired */}
+        {(() => {
+          const hr = new Date().getHours();
+          const daypart = hr < 12 ? "Good morning" : hr < 18 ? "Good afternoon" : "Good evening";
+          return (
+            <div style={{ margin: "6px 0 18px" }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text-dim)" }}>
+                {daypart} ☀️
+              </div>
+              <h1 style={{ fontSize: 30, fontWeight: 700, margin: "4px 0 0", lineHeight: 1.15 }}>
+                Every language opens a new world.
+              </h1>
+            </div>
+          );
+        })()}
+
+        {/* v53 LEVEL CARD — deep green, circular progress ring */}
+        {(() => {
+          const lv = getLevel(appState.totalXp || 0);
+          const pct = Math.round((lv.progressPct || 0) * 100);
+          const R = 26, C = 2 * Math.PI * R;
+          return (
+            <div style={{
+              background: "linear-gradient(135deg, var(--primary-dark), #123f26)",
+              borderRadius: "var(--radius-lg)", padding: "18px 20px", marginBottom: 16,
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              color: "#fff", boxShadow: "var(--shadow-card)",
+            }}>
+              <div>
+                <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: 22, fontWeight: 700 }}>
+                  Level {lv.level}
+                </div>
+                <div style={{ fontSize: 13, opacity: 0.85, marginTop: 2 }}>{lv.name}</div>
+                <div style={{ fontSize: 12, opacity: 0.7, marginTop: 8 }}>
+                  {appState.totalXp || 0}{lv.next ? ` / ${lv.next.minXp}` : ""} XP
+                </div>
+              </div>
+              <svg width="68" height="68" viewBox="0 0 68 68">
+                <circle cx="34" cy="34" r={R} fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="6" />
+                <circle cx="34" cy="34" r={R} fill="none" stroke="#fff" strokeWidth="6"
+                  strokeLinecap="round" strokeDasharray={C}
+                  strokeDashoffset={C * (1 - (lv.progressPct || 0))}
+                  transform="rotate(-90 34 34)"
+                  style={{ transition: "stroke-dashoffset 600ms cubic-bezier(0.16, 1, 0.3, 1)" }} />
+                <text x="34" y="39" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="800">{pct}%</text>
+              </svg>
+            </div>
+          );
+        })()}
+
         {/* Cultural guide — gives the app a rooted, human feel */}
         {(() => {
           const character = getCharacter(pack.code);
@@ -259,47 +309,44 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         {currentUnit && (
           <button
             onClick={() => onNavigate("lesson", { mode: "unit", filter: { unit: currentUnit.id } })}
+            className="card-lift"
             style={{
               width: "100%",
-              background: "linear-gradient(135deg, var(--primary), var(--primary-dark))",
-              border: "none",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
               borderRadius: "var(--radius-lg)",
-              padding: "24px 20px",
-              color: "#fff",
+              padding: "20px",
+              color: "var(--text)",
               cursor: "pointer",
               marginBottom: 24,
-              boxShadow: "0 6px 0 var(--primary-dark)",
-              transition: "transform 0.1s",
+              boxShadow: "var(--shadow-card)",
               textAlign: "left",
             }}
-            onMouseDown={(e) => (e.currentTarget.style.transform = "translateY(2px)")}
-            onMouseUp={(e) => (e.currentTarget.style.transform = "translateY(0)")}
-            onTouchStart={(e) => (e.currentTarget.style.transform = "translateY(2px)")}
-            onTouchEnd={(e) => (e.currentTarget.style.transform = "translateY(0)")}
           >
-            <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.9, letterSpacing: 1, textTransform: "uppercase" }}>
-              {currentUnit.pct === 0 ? "Start here" : "Continue learning"}
-            </div>
-            <div style={{ fontSize: 22, fontWeight: 900, marginTop: 4 }}>
-              {currentUnit.emoji} {currentUnit.title}
-            </div>
-            <div style={{ fontSize: 13, opacity: 0.9, marginTop: 4 }}>
-              {currentUnit.description}
-            </div>
-            <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ fontSize: 12, opacity: 0.95 }}>
-                {currentUnit.learned} / {currentUnit.total} words
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 11, fontWeight: 800, color: "var(--text-dim)", letterSpacing: 1, textTransform: "uppercase" }}>
+                  {currentUnit.pct === 0 ? "Start here" : "Today's focus"}
+                </div>
+                <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: 22, fontWeight: 700, marginTop: 4, color: "var(--ink)" }}>
+                  {currentUnit.title}
+                </div>
+                <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 4 }}>
+                  {currentUnit.description}
+                </div>
               </div>
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.25)",
-                  padding: "8px 16px",
-                  borderRadius: 999,
-                  fontSize: 13,
-                  fontWeight: 800,
-                }}
-              >
-                START →
+              <div style={{ fontSize: 38, background: "var(--surface-hi)", borderRadius: 14, padding: "8px 12px" }}>{currentUnit.emoji}</div>
+            </div>
+            <div style={{ marginTop: 14, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 14 }}>
+              <div style={{ flex: 1 }}>
+                <ProgressBar value={currentUnit.learnedCount || 0} max={currentUnit.wordCount || 1} height={8} />
+              </div>
+              <div style={{
+                background: "var(--primary)", color: "#fff", fontWeight: 800, fontSize: 14,
+                borderRadius: 999, padding: "10px 18px", boxShadow: "0 3px 0 var(--primary-dark)",
+                whiteSpace: "nowrap",
+              }}>
+                Continue →
               </div>
             </div>
           </button>
