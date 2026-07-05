@@ -197,11 +197,13 @@ function Stat({ icon, value, color = "var(--text)" }) {
 }
 
 export function BottomNav({ screen, onNavigate }) {
+  // v57: mobile-first nav — Learn | Practice | Speak | Profile.
+  // Words moved inside the Practice hub; Settings moved inside Profile.
   const items = [
-    { id: "home", icon: "🏠", label: "Learn" },
-    { id: "vocab", icon: "📚", label: "Words" },
+    { id: "home", icon: "🌱", label: "Learn" },
+    { id: "hub", icon: "🧩", label: "Practice" },
+    { id: "practice", icon: "🗣️", label: "Speak" },
     { id: "profile", icon: "👤", label: "Profile" },
-    { id: "settings", icon: "⚙️", label: "Settings" },
   ];
   return (
     <div

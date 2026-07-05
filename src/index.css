@@ -243,3 +243,124 @@ button:active { transform: translateY(1px) scale(0.98); }
   .bento > * { margin-bottom: 0 !important; height: 100%; }
   .bento > *:nth-child(3), .bento > *:nth-child(4) { grid-column: 1 / -1; }
 }
+
+/* ============================================================
+   v57 COACH FLOW — root rail, typewriter, sticky CTA
+   The plan's stem echoes the Z-with-roots logo: a dashed
+   root-brown line growing down the page, connecting the steps.
+   ============================================================ */
+
+/* --- The rail --- */
+.plan-rail { position: relative; padding-left: 8px; }
+.plan-stem {
+  position: absolute; left: 29px; top: 20px; bottom: 26px; width: 0;
+  border-left: 2px dashed var(--root);
+  opacity: 0.5;
+  transform-origin: top;
+  animation: stemGrow 900ms var(--ease-out-expo) both;
+}
+@keyframes stemGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+.plan-step { position: relative; display: flex; gap: 14px; margin-bottom: 14px; }
+.plan-step:last-child { margin-bottom: 0; }
+
+/* --- Nodes on the stem --- */
+.plan-node {
+  position: relative; z-index: 1; flex-shrink: 0;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-top: 6px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  transition: all 250ms var(--ease-smooth);
+}
+.plan-node-active {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 5px rgba(217, 119, 6, 0.14);
+  animation: nodeBloom 2.4s ease-in-out infinite;
+}
+@keyframes nodeBloom {
+  0%, 100% { box-shadow: 0 0 0 5px rgba(217,119,6,0.14); }
+  50%      { box-shadow: 0 0 0 9px rgba(217,119,6,0.07); }
+}
+.plan-node-done {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-weight: 900; font-size: 18px;
+}
+
+/* --- Step cards: ONE dominant, the rest recede --- */
+.plan-card {
+  flex: 1; min-width: 0; text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  font-family: inherit; color: var(--text);
+  transition: opacity 250ms var(--ease-smooth), transform 220ms var(--ease-smooth), box-shadow 220ms var(--ease-smooth);
+}
+.plan-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.plan-card-active {
+  border: 2px solid var(--accent);
+  padding: 17px 18px;
+  box-shadow: var(--shadow-card), 0 6px 22px rgba(217,119,6,0.10);
+  background: #fff;
+}
+.plan-step-done .plan-card { opacity: 0.55; }
+.plan-step-next .plan-card { opacity: 0.55; }
+.plan-step-done .plan-card:hover, .plan-step-next .plan-card:hover { opacity: 0.85; }
+
+/* --- Secondary content fades to give the plan dominance --- */
+.fade-secondary { opacity: 0.72; transition: opacity 250ms var(--ease-smooth); }
+.fade-secondary:hover { opacity: 1; }
+
+/* --- Typewriter caret --- */
+.type-caret {
+  display: inline-block; margin-left: 1px; color: var(--primary);
+  animation: caretBlink 0.85s steps(1) infinite;
+}
+@keyframes caretBlink { 50% { opacity: 0; } }
+
+/* --- Evolving flame breathes when the streak is alive --- */
+@keyframes flameFlicker {
+  0%, 100% { transform: scale(1) rotate(-1deg); }
+  40% { transform: scale(1.12) rotate(1.5deg); }
+  70% { transform: scale(1.05) rotate(-0.5deg); }
+}
+.flame-alive { display: inline-block; animation: flameFlicker 1.8s ease-in-out infinite; transform-origin: bottom center; }
+
+/* --- 2-min fix chip --- */
+.fix-chip {
+  display: inline-flex; align-items: center; margin-top: 12px;
+  background: #fff; color: var(--ink);
+  border: 2px solid var(--accent);
+  border-radius: 999px; padding: 9px 16px;
+  font-size: 13px; font-weight: 800; cursor: pointer;
+  box-shadow: 0 3px 0 rgba(217,119,6,0.35);
+}
+
+/* --- Sticky CTA: the next step, one thumb away (mobile only) --- */
+.sticky-cta-wrap {
+  position: fixed; left: 0; right: 0;
+  bottom: calc(64px + env(safe-area-inset-bottom));
+  display: flex; justify-content: center;
+  padding: 0 16px; z-index: 49; pointer-events: none;
+}
+.sticky-cta {
+  pointer-events: auto;
+  width: 100%; max-width: 480px;
+  background: var(--primary); color: #fff;
+  border: none; border-radius: 999px;
+  padding: 15px 22px; font-size: 15px; font-weight: 800;
+  box-shadow: 0 4px 0 var(--primary-dark), 0 10px 30px rgba(29,86,53,0.35);
+  animation: ctaRise 420ms var(--ease-out-expo) both;
+}
+.sticky-cta-done { background: var(--ink); box-shadow: 0 4px 0 #161d2c, 0 10px 30px rgba(35,43,61,0.35); }
+@keyframes ctaRise { from { transform: translateY(80px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@media (min-width: 720px) { .sticky-cta-wrap { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .plan-stem, .sticky-cta, .plan-node-active, .flame-alive, .type-caret { animation: none !important; }
+}

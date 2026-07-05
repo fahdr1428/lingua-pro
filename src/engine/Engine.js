@@ -273,7 +273,7 @@ export class Engine {
   // ---------------------------------------------------------------------------
   // Sessions log — for streaks, charts, achievements
   // ---------------------------------------------------------------------------
-  async logSession({ correct, total, xp, durationMs }) {
+  async logSession({ correct, total, xp, durationMs, mode }) {
     const log = (await this.storage.get("sessions")) || [];
     log.push({
       ts: Date.now(),
@@ -282,6 +282,10 @@ export class Engine {
       total,
       xp,
       durationMs,
+      // v57: which kind of session this was ("unit", "due", "weak", "exam",
+      // "chapter_exam", "checkpoint"). Lets the daily plan mark its steps as
+      // genuinely done rather than guessing.
+      mode: mode || "unit",
     });
     // Keep last 90 days only
     const cutoff = Date.now() - 90 * 86400000;

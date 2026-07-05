@@ -11,6 +11,7 @@ import { applyTheme } from "./ui/themes.js";
 import {
   Onboarding,
   Home,
+  PracticeHub,
   Letters,
   Vocab,
   Profile,
@@ -95,6 +96,9 @@ const DEFAULT_APP_STATE = {
   sentenceDropsDone: {}, // v47: { langCode: highestDropNumber } — Sentence Lab progress
   lastCheckpointAt: {}, // { langCode: lessonCount when last checkpoint cleared }
   testedOut: {}, // { langCode: [wordId,...] } — words skipped via placement test
+  userName: "", // v57: what the coach calls you
+  momentDone: {}, // v57: { langCode: dateString } — daily Moment recall done
+  planVisited: {}, // v57: { langCode: { date, speak, life } } — plan step visits
   sessions: [],
 };
 
@@ -189,6 +193,7 @@ export default function App() {
           screenIn animation plays. No hard cuts between screens. */}
       <div key={screen} className="screen-enter">
         {screen === "home" && <Home {...screenProps} />}
+        {screen === "hub" && <PracticeHub {...screenProps} />}
         {screen === "letters" && <Letters {...screenProps} />}
         {screen === "lesson" && <Lesson {...screenProps} params={params} />}
         {screen === "flashcards" && <Flashcards {...screenProps} params={params} />}

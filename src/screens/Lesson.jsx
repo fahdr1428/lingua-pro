@@ -308,7 +308,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       // screen so the user is never trapped on the final question.
       let sessions = appState.sessions || [];
       try {
-        await engine.logSession({ correct: correctCount, total, xp: xpEarned, durationMs: Date.now() - startedAt.current });
+        await engine.logSession({ correct: correctCount, total, xp: xpEarned, durationMs: Date.now() - startedAt.current, mode: params?.mode || "unit" });
         sessions = await engine.getSessions();
       } catch (e) {
         // Soft-fail: keep going with existing sessions. Better a slightly
