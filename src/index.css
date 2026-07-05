@@ -364,3 +364,110 @@ button:active { transform: translateY(1px) scale(0.98); }
 @media (prefers-reduced-motion: reduce) {
   .plan-stem, .sticky-cta, .plan-node-active, .flame-alive, .type-caret { animation: none !important; }
 }
+
+/* ============================================================
+   v58 PREMIUM PASS — "luxury is restraint".
+   Whitespace up, noise down. Hairline borders, one serif
+   headline, deep soft shadows, calm ink/root/cream palette.
+   ============================================================ */
+:root {
+  --radius-lg: 24px;
+  --border: #eadfc9;
+  --shadow-card: 0 1px 2px rgba(46,36,20,0.04), 0 6px 24px rgba(46,36,20,0.06);
+  --shadow-deep: 0 2px 4px rgba(35,43,61,0.06), 0 14px 44px rgba(35,43,61,0.12);
+}
+
+/* Soft light wash instead of the busy painted backdrop */
+.home-wash {
+  position: relative;
+  background:
+    radial-gradient(900px 420px at 85% -60px, rgba(141,110,86,0.10), transparent 65%),
+    radial-gradient(700px 380px at -10% 12%, rgba(47,125,79,0.07), transparent 60%);
+  min-height: 100vh;
+}
+
+/* Small-caps eyebrow — the quiet label style used everywhere */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+
+/* --- The one hero card --- */
+.hero-premium {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px 22px;
+  box-shadow: var(--shadow-deep);
+  margin-bottom: 18px;
+}
+
+.btn-premium {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 17px 20px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  box-shadow: 0 2px 0 #161d2c, 0 10px 26px rgba(35,43,61,0.28);
+  transition: transform 150ms var(--ease-smooth), box-shadow 200ms var(--ease-smooth), filter 200ms var(--ease-smooth);
+}
+.btn-premium:active { transform: translateY(1px) scale(0.99); }
+@media (hover: hover) { .btn-premium:hover { filter: brightness(1.12); } }
+
+/* --- Hairline progress — fine, not chunky --- */
+.hairline-bar {
+  height: 4px; border-radius: 999px;
+  background: var(--surface-hi);
+  overflow: hidden;
+}
+.hairline-fill {
+  height: 100%; border-radius: 999px;
+  background: var(--root);
+  transition: width 600ms var(--ease-out-expo);
+}
+
+/* --- Stat strip: three quiet cells, hairline dividers --- */
+.stat-strip {
+  display: flex;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 0;
+}
+.stat-cell {
+  flex: 1; text-align: center; padding: 2px 16px;
+  border-right: 1px solid var(--border);
+}
+.stat-cell:last-child { border-right: none; }
+.stat-value {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 19px; font-weight: 600; color: var(--ink);
+}
+.stat-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.6px;
+  text-transform: uppercase; color: var(--text-mute); margin-top: 5px;
+}
+
+/* --- Quiet secondary action --- */
+.quiet-link {
+  display: block;
+  margin: 12px auto 0;
+  background: transparent; border: none;
+  color: var(--text-dim); font-size: 13px; font-weight: 700;
+  text-decoration: underline; text-decoration-color: var(--border);
+  text-underline-offset: 3px; cursor: pointer;
+}
+.quiet-link:hover { color: var(--ink); }
+
+/* v58: journey cards slimmer, calmer */
+.journey-row > * { flex: 0 0 min(260px, 76vw); }

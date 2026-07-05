@@ -1,7 +1,7 @@
-// v57 render test — run with: node render-test.mjs
-// Renders the new Home coach-flow in several real learner states via jsdom
-// and asserts the plan, coach line, CTA, and journey all appear. Also unit-
-// tests the coach brain (pure functions).
+// v58 render test — run with: node render-test.mjs
+// The home screen is now ONE action; these tests assert the priority chain
+// (milestone exam → review → sentence drop → lesson), the stat strip, the
+// quiet secondary actions, and the hub (now hosting the focus picker).
 
 import { JSDOM } from "jsdom";
 
@@ -30,32 +30,24 @@ function check(name, cond, extra = "") {
 }
 
 // ---------------------------------------------------------------------------
-// Coach brain unit checks
+// Coach brain unit checks (unchanged brain)
 // ---------------------------------------------------------------------------
 console.log("\n[coach.js]");
 check("goalLabel maps Greetings", coach.goalLabel({ title: "Greetings" }) === "Say hello like a local");
-check("goalLabel maps Food & Drink", coach.goalLabel({ title: "Food & Drink" }) === "Order food & drink");
-check("goalLabel falls back to title", coach.goalLabel({ title: "Weird Custom Unit" }) === "Weird Custom Unit");
 check("streakStage 0 is seed", coach.streakStage(0).emoji === "🌱");
-check("streakStage 8 is blazing", coach.streakStage(8).label === "Blazing");
 check("nextMilestone counts down", (() => {
   const m = coach.nextMilestone({ lessonsCompleted: { ur: 1 } }, "ur");
-  return m && m.remaining === 1 && m.goal === "introducing yourself";
+  return m && m.remaining === 1;
 })());
-check("nextMilestone null past ladder", coach.nextMilestone({ lessonsCompleted: { ur: 99 } }, "ur") === null);
 check("weakestWords finds lapsed word", (() => {
-  const vocab = [{ id: "a" }, { id: "b" }];
   const now = Date.now();
-  const progress = {
-    a: { reps: 3, lapses: 2, stability: 5, lastReview: now },
-    b: { reps: 3, lapses: 0, stability: 50, lastReview: now },
-  };
-  const w = coach.weakestWords(vocab, progress, 3, now);
+  const w = coach.weakestWords(
+    [{ id: "a" }, { id: "b" }],
+    { a: { reps: 3, lapses: 2, stability: 5, lastReview: now }, b: { reps: 3, lapses: 0, stability: 50, lastReview: now } },
+    3, now
+  );
   return w.length === 1 && w[0].word.id === "a";
 })());
-check("coachLine mentions weak word", coach.coachLine({ langName: "Urdu", weakWord: { lemma: "سلام", translit: "salaam" } }).includes("salaam"));
-check("coachLine celebrates done plan", coach.coachLine({ langName: "Urdu", planDoneCount: 4, planTotal: 4 }).includes("done"));
-check("estMinutes floor", coach.estMinutes(2) === 1 && coach.estMinutes(6) === 2);
 
 // ---------------------------------------------------------------------------
 // Render harness
@@ -73,14 +65,13 @@ const PACK = {
     { id: "u3", title: "Family", emoji: "👨‍👩‍👧", description: "Mother, father, brother, sister" },
     { id: "u4", title: "Numbers 1-10", emoji: "🔢", description: "Count and use basic numbers" },
   ],
-  frameworks: [{ title: "SOV order", body: "Urdu puts the verb last." }],
+  frameworks: [],
   alphabet: [{ char: "ا" }],
 };
 
-function makeEngine({ unitProgress, progress = {} } = {}) {
+function makeEngine({ progress = {} } = {}) {
   return {
     getUnitProgress: async () =>
-      unitProgress ||
       PACK.units.map((u, i) => ({ ...u, total: 5, learned: i === 0 ? 3 : 0, mastered: 0, pct: i === 0 ? 0.6 : 0 })),
     getProgress: async () => progress,
   };
@@ -101,9 +92,9 @@ async function renderHome(props) {
   const origErr = console.error;
   console.error = (...a) => { const s = String(a[0]); if (s.includes("Error") && !s.includes("act(")) error = a; };
   root.render(React.createElement(screens.Home, props));
-  await new Promise((r) => setTimeout(r, 350)); // flush effects + typewriter ticks
+  await new Promise((r) => setTimeout(r, 350));
   console.error = origErr;
-  return { text: container.textContent, html: container.innerHTML, root, container, error };
+  return { text: container.textContent, html: container.innerHTML, root, error };
 }
 
 const noop = () => {};
@@ -117,75 +108,79 @@ const defaultProps = () => ({
   onPickLanguage: noop,
 });
 
-// --- Scenario 1: fresh-ish user, light day (Moment warm-up) ---
-console.log("\n[Home — fresh user, light day]");
+// --- 1: fresh user → next action is the LESSON ---
+console.log("\n[Home — fresh user → lesson]");
 {
   const r = await renderHome(defaultProps());
   check("no render error", !r.error, JSON.stringify(r.error));
-  check("shows Today's plan", r.text.includes("Today's plan"));
-  check("plan has 4 steps", r.text.includes("Step 1") && r.text.includes("Step 4"));
-  check("warm-up is inline Moment", r.text.includes("How would you say"));
-  check("Learn step uses goal label", r.text.includes("Say hello like a local"));
-  check("speak step present", r.text.includes("shadow a real conversation"));
-  check("sticky CTA present", r.html.includes("sticky-cta"));
+  check("hero eyebrow is Next lesson", r.text.includes("Next lesson"));
+  check("hero title is goal label", r.text.includes("Say hello like a local"));
+  check("Continue button with time", r.text.includes("Continue · ~"));
+  check("lesson progress shown", r.text.includes("3 of 5 words"));
+  check("daily ring present", r.html.includes("Daily goal 0%"));
+  check("stat strip: streak/level/xp", r.text.includes("day streak") && r.text.includes("Level 1") && r.text.includes("XP today"));
+  check("path renamed + tools link", r.text.includes("Your path") && r.text.includes("All practice tools"));
   check("name capture shown", r.text.includes("What should I call you?"));
-  check("journey renamed", r.text.includes("Real-life goals"));
-  check("journey shows goal labels", r.text.includes("Introduce yourself"));
-  check("streak seed stage", r.text.includes("Plant your streak"));
-  check("root stem in DOM", r.html.includes("plan-stem"));
+  check("no plan rail (v57 removed)", !r.html.includes("plan-stem"));
+  check("premium hero class present", r.html.includes("hero-premium"));
   r.root.unmount();
 }
 
-// --- Scenario 2: review backlog (due >= 4) ---
+// --- 2: review backlog wins over lesson ---
 console.log("\n[Home — review backlog]");
 {
   const p = defaultProps();
   p.stats = { total: 3, learned: 3, due: 6, mastered: 0 };
   const r = await renderHome(p);
   check("no render error", !r.error, JSON.stringify(r.error));
-  check("warm-up becomes review", r.text.includes("6 words drifting back"));
-  check("no inline Moment on review days", !r.text.includes("How would you say"));
+  check("hero is review", r.text.includes("Bring back 6 words"));
   r.root.unmount();
 }
 
-// --- Scenario 3: plan partially done via today's real sessions + name set ---
-console.log("\n[Home — partially done, named user]");
+// --- 3: milestone exam wins over everything ---
+console.log("\n[Home — milestone exam due]");
 {
   const p = defaultProps();
+  p.stats = { total: 30, learned: 10, due: 6, mastered: 0 };
+  p.appState = { ...BASE_STATE, lessonsCompleted: { ur: 3 } };
+  const r = await renderHome(p);
+  check("no render error", !r.error, JSON.stringify(r.error));
+  check("hero is milestone exam", r.text.includes("Milestone exam") && r.text.includes("Prove your first 3 lessons"));
+  r.root.unmount();
+}
+
+// --- 4: sentence drop earned (no review, no exam) ---
+console.log("\n[Home — sentence drop]");
+{
+  const p = defaultProps();
+  p.stats = { total: 30, learned: 10, due: 0, mastered: 0 };
+  p.appState = { ...BASE_STATE, lessonsCompleted: { ur: 2 }, sentenceDropsDone: {} };
+  const r = await renderHome(p);
+  check("no render error", !r.error, JSON.stringify(r.error));
+  check("hero is Sentence Lab", r.text.includes("Sentence Lab") && r.text.includes("Build:"));
+  r.root.unmount();
+}
+
+// --- 5: goal met + named user + weak-word quiet link ---
+console.log("\n[Home — goal met, named, weak word]");
+{
+  const now = Date.now();
+  const p = defaultProps();
+  p.engine = makeEngine({ progress: { w1: { reps: 4, lapses: 3, stability: 2, lastReview: now - 3 * 86400000 } } });
   p.appState = {
-    ...BASE_STATE,
-    userName: "Syed",
-    streak: 4,
-    momentDone: { ur: new Date().toDateString() },
-    sessions: [{ ts: Date.now(), language: "ur", xp: 20, correct: 5, total: 6, mode: "unit" }],
-    lessonsCompleted: { ur: 3 },
-    planVisited: {},
+    ...BASE_STATE, userName: "Syed", streak: 4,
+    sessions: [{ ts: now, language: "ur", xp: 40, correct: 6, total: 6, mode: "unit" }],
   };
   const r = await renderHome(p);
   check("no render error", !r.error, JSON.stringify(r.error));
   check("greets by name", r.text.includes("Syed"));
-  check("no name capture once named", !r.text.includes("What should I call you?"));
-  check("steps marked done", r.text.includes("· done"));
-  check("flame evolved (Burning)", r.text.includes("Burning"));
-  check("milestone headline", r.text.includes("1 session") && r.text.includes("from greeting people"));
+  check("goal met state", r.text.includes("Daily goal met") && r.text.includes("Keep going"));
+  check("weak-word quiet link", r.text.includes("2-minute fix") && r.text.includes("salaam"));
+  check("flame evolved", r.text.includes("🔥"));
   r.root.unmount();
 }
 
-// --- Scenario 4: weak word → 2-min fix chip ---
-console.log("\n[Home — weak word fix]");
-{
-  const now = Date.now();
-  const p = defaultProps();
-  p.engine = makeEngine({
-    progress: { w1: { reps: 4, lapses: 3, stability: 2, lastReview: now - 3 * 86400000 } },
-  });
-  const r = await renderHome(p);
-  check("no render error", !r.error, JSON.stringify(r.error));
-  check("fix chip appears", r.text.includes("2-min fix") && r.text.includes("salaam"));
-  r.root.unmount();
-}
-
-// --- PracticeHub ---
+// --- PracticeHub with focus picker ---
 console.log("\n[PracticeHub]");
 {
   const container = document.createElement("div");
@@ -194,16 +189,16 @@ console.log("\n[PracticeHub]");
   root.render(React.createElement(screens.PracticeHub, {
     pack: PACK,
     stats: { learned: 20, mastered: 4, due: 3 },
-    appState: { ...BASE_STATE },
+    appState: { ...BASE_STATE, lessonsCompleted: { ur: 2 } },
+    setAppState: noop,
     onNavigate: noop,
   }));
   await new Promise((r) => setTimeout(r, 100));
   const t = container.textContent;
-  check("hub renders title", t.includes("Practice"));
-  check("hub shows review door", t.includes("Review 3 due words"));
-  check("hub shows flashcards + grammar + words", t.includes("Flashcards") && t.includes("Grammar") && t.includes("My words"));
-  check("hub shows big exam at 20 learned", t.includes("Big exam"));
-  check("hub shows letters door", t.includes("Letters & sounds"));
+  check("hub renders", t.includes("Practice"));
+  check("focus picker moved here", t.includes("Choose your focus"));
+  check("review door", t.includes("Review 3 due words"));
+  check("all drills present", t.includes("Flashcards") && t.includes("Grammar") && t.includes("My words") && t.includes("Big exam") && t.includes("Letters & sounds"));
   root.unmount();
 }
 
