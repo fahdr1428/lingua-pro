@@ -160,6 +160,18 @@ export const LANGUAGES = {
     niche: true,
     loader: () => import("./languages/pcm.json"),
   },
+  tr: {
+    code: "tr",
+    name: "Turkish",
+    nativeName: "Türkçe",
+    flag: "🇹🇷",
+    rtl: false,
+    ttsCode: "tr-TR",
+    color: "#e30a17",
+    tagline: "The bridge between Europe and Asia — 80M+ speakers",
+    niche: false,
+    loader: () => import("./languages/tr.json"),
+  },
 };
 
 const cache = new Map();

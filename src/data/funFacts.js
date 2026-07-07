@@ -109,6 +109,14 @@ export const FUN_FACTS = {
     "Mandarin uses 'measure words' between numbers and nouns — you don't say 'three books', you say 'three (book-measure) book'.",
     "Simplified characters (used in mainland China) and traditional characters (Taiwan, Hong Kong) are mostly readable to speakers of both — the simplifications kept the recognisable parts.",
   ],
+  tr: [
+    "Turkish uses a 29-letter Latin alphabet and is fully phonetic — words are pronounced exactly as written.",
+    "Turkish is agglutinative: 'Gidebilecekmisiniz?' (will you be able to go?) is one word built from five pieces.",
+    "Turkish has no grammatical gender at all — no masculine or feminine nouns to memorise.",
+    "Vowel harmony makes suffixes predictable: houses is 'evler' but books is 'kitaplar' — the suffix vowel matches the word.",
+    "A Turkish saying holds that sharing one cup of coffee creates a friendship remembered for forty years.",
+    "After a number, Turkish nouns stay singular: five apples is 'beş elma', not 'beş elmalar'.",
+  ],
 };
 
 /** Pick a fun fact for a language, avoiding ones recently shown if possible. */

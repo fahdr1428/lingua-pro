@@ -1164,6 +1164,146 @@ export const SENTENCE_PATTERNS = {
       },
     },
   ],
+  // ===========================================================================
+  // TURKISH (v59) — high confidence, every full sentence verified verbatim
+  // against learner sources (turkish.academy, turkishclass101, Dem Turkish,
+  // TurkishMate, fluentinturkish): "Su lütfen", "İki ekmek lütfen",
+  // "Ben kitap okuyorum", "Ben Türkçe öğreniyorum", locative evde/okulda,
+  // "Film güzel mi?", "O kitap okuyor mu?", "Ben gelmiyorum", "Bilmiyorum".
+  // ===========================================================================
+  tr: [
+    {
+      level: 1,
+      skill: "Ask politely: thing + lütfen",
+      chunks: [
+        { text: "Su", translit: "soo", gloss: "water", role: "object" },
+        { text: "lütfen", translit: "LEWT-fen", gloss: "please", role: "particle" },
+      ],
+      translation: "Water, please",
+      extend: {
+        skill: "Add how many",
+        chunks: [
+          { text: "İki", translit: "ee-KEE", gloss: "two", role: "adjective" },
+          { text: "ekmek", translit: "ek-MEK", gloss: "bread", role: "object" },
+          { text: "lütfen", translit: "LEWT-fen", gloss: "please", role: "particle" },
+        ],
+        translation: "Two breads, please",
+      },
+      twist: {
+        prompt: "Now ask for the bill",
+        chunks: [
+          { text: "Hesap", translit: "heh-SAHP", gloss: "the bill", role: "object" },
+          { text: "lütfen", translit: "LEWT-fen", gloss: "please", role: "particle" },
+        ],
+        translation: "The bill, please",
+      },
+    },
+    {
+      level: 2,
+      skill: "Verb goes LAST: Subject + Object + Verb",
+      chunks: [
+        { text: "Ben", translit: "ben", gloss: "I", role: "subject" },
+        { text: "kitap", translit: "kee-TAHP", gloss: "book", role: "object" },
+        { text: "okuyorum", translit: "oh-KOO-yoh-room", gloss: "am reading", role: "verb" },
+      ],
+      translation: "I am reading a book",
+      extend: {
+        skill: "Same shape, new meaning",
+        chunks: [
+          { text: "Ben", translit: "ben", gloss: "I", role: "subject" },
+          { text: "Türkçe", translit: "TEWRK-cheh", gloss: "Turkish", role: "object" },
+          { text: "öğreniyorum", translit: "ur-reh-NEE-yoh-room", gloss: "am learning", role: "verb" },
+        ],
+        translation: "I am learning Turkish",
+      },
+      twist: {
+        prompt: "Now say: I ate an apple",
+        chunks: [
+          { text: "Ben", translit: "ben", gloss: "I", role: "subject" },
+          { text: "bir elma", translit: "beer el-MAH", gloss: "an apple", role: "object" },
+          { text: "yedim", translit: "yeh-DIM", gloss: "ate", role: "verb" },
+        ],
+        translation: "I ate an apple",
+      },
+    },
+    {
+      level: 3,
+      skill: "Say WHERE with a suffix: -de / -da",
+      chunks: [
+        { text: "Kedi", translit: "keh-DEE", gloss: "the cat", role: "subject" },
+        { text: "evde", translit: "ev-DEH", gloss: "at home (ev + -de)", role: "object" },
+      ],
+      translation: "The cat is at home",
+      extend: {
+        skill: "Vowel harmony picks the suffix",
+        chunks: [
+          { text: "Çocuk", translit: "cho-JOOK", gloss: "the child", role: "subject" },
+          { text: "okulda", translit: "oh-kool-DAH", gloss: "at school (okul + -da)", role: "object" },
+        ],
+        translation: "The child is at school",
+      },
+      twist: {
+        prompt: "No 'is' needed — Turkish drops it. Say: the money is in the bag",
+        chunks: [
+          { text: "Para", translit: "pah-RAH", gloss: "the money", role: "subject" },
+          { text: "çantada", translit: "chan-tah-DAH", gloss: "in the bag (çanta + -da)", role: "object" },
+        ],
+        translation: "The money is in the bag",
+      },
+    },
+    {
+      level: 4,
+      skill: "Turn it into a question with mi?",
+      chunks: [
+        { text: "Film", translit: "film", gloss: "the film", role: "subject" },
+        { text: "güzel", translit: "gew-ZEL", gloss: "nice", role: "adjective" },
+        { text: "mi?", translit: "mee", gloss: "(question particle)", role: "question" },
+      ],
+      translation: "Is the film nice?",
+      extend: {
+        skill: "The particle harmonises too: mu after o/u",
+        chunks: [
+          { text: "O", translit: "oh", gloss: "he/she", role: "subject" },
+          { text: "kitap", translit: "kee-TAHP", gloss: "book", role: "object" },
+          { text: "okuyor", translit: "oh-KOO-yor", gloss: "is reading", role: "verb" },
+          { text: "mu?", translit: "moo", gloss: "(question particle)", role: "question" },
+        ],
+        translation: "Is he/she reading a book?",
+      },
+      twist: {
+        prompt: "Ask: is the tea hot?",
+        chunks: [
+          { text: "Çay", translit: "chai", gloss: "the tea", role: "subject" },
+          { text: "sıcak", translit: "suh-JAHK", gloss: "hot", role: "adjective" },
+          { text: "mı?", translit: "muh", gloss: "(question particle)", role: "question" },
+        ],
+        translation: "Is the tea hot?",
+      },
+    },
+    {
+      level: 5,
+      skill: "Say NO inside the verb: -m-",
+      chunks: [
+        { text: "Ben", translit: "ben", gloss: "I", role: "subject" },
+        { text: "gelmiyorum", translit: "GEL-mee-yoh-room", gloss: "am not coming (gel + -m- + iyorum)", role: "negation" },
+      ],
+      translation: "I am not coming",
+      extend: {
+        skill: "One word can be a whole sentence",
+        chunks: [
+          { text: "Bilmiyorum", translit: "BIL-mee-yoh-room", gloss: "I don't know (bil + -m- + iyorum)", role: "negation" },
+        ],
+        translation: "I don't know",
+      },
+      twist: {
+        prompt: "Now say: I don't understand",
+        chunks: [
+          { text: "Anlamıyorum", translit: "an-LAH-muh-yoh-room", gloss: "I don't understand (anla + -m- + ıyorum)", role: "negation" },
+        ],
+        translation: "I don't understand",
+      },
+    },
+  ],
 };
 
 // Color for each grammatical role (used by the Sentence Lab UI for chunks).

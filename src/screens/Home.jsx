@@ -35,6 +35,29 @@ import {
 // =============================================================================
 // HOME
 // =============================================================================
+
+// v60 — SceneBand: the language's cultural place, embedded as a living hero.
+// Random scene pick per visit + slow Ken Burns drift (alive, never static).
+// Loads /scenes/{code}-{1..3}.jpg; falls back to -1, then hides entirely —
+// languages without images keep the clean minimal layout.
+function SceneBand({ code, name }) {
+  const [idx, setIdx] = useState(() => 1 + Math.floor(Math.random() * 3));
+  const [ok, setOk] = useState(true);
+  const kb = useMemo(() => (Math.random() < 0.5 ? "kb-a" : "kb-b"), []);
+  if (!ok) return null;
+  return (
+    <div className={`scene-band ${kb}`}>
+      <img
+        src={`/scenes/${code}-${idx}.jpg`}
+        alt=""
+        onError={() => (idx !== 1 ? setIdx(1) : setOk(false))}
+      />
+      <div className="scene-veil" />
+      <div className="scene-cap">{name}</div>
+    </div>
+  );
+}
+
 export function Home({ engine, pack, stats, appState, setAppState, onNavigate, onPickLanguage }) {
   const lang = LANGUAGES[pack.code];
   const [unitProgress, setUnitProgress] = useState([]);
@@ -182,6 +205,8 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         onPickLanguage={onPickLanguage}
       />
       <Container style={{ maxWidth: 560 }}>
+
+        <SceneBand code={pack.code} name={lang.name} />
 
         {/* ===== 1 · GREETING + COACH LINE ===== */}
         <div style={{ margin: "10px 0 26px" }}>

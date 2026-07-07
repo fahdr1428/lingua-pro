@@ -202,5 +202,185 @@ console.log("\n[PracticeHub]");
   root.unmount();
 }
 
+
+// ===========================================================================
+// v59 — TURKISH PACK INTEGRITY
+// ===========================================================================
+console.log("\n[Turkish pack integrity]");
+{
+  const fs = await import("fs");
+  const tr = JSON.parse(fs.readFileSync("./src/data/languages/tr.json", "utf8"));
+  check("97 words", tr.vocab.length === 97, String(tr.vocab.length));
+  check("10 units", tr.units.length === 10);
+  const ids = tr.vocab.map((v) => v.id);
+  check("ids unique", new Set(ids).size === ids.length);
+  const unitIds = new Set(tr.units.map((u) => u.id));
+  check("no orphan unit refs", tr.vocab.every((v) => unitIds.has(v.unit)));
+  check("every word complete", tr.vocab.every((v) => v.lemma && v.translit && v.translation && v.category && v.examples?.[0]?.native && v.examples?.[0]?.translation));
+  check("every unit has words", tr.units.every((u) => tr.vocab.some((v) => v.unit === u.id)));
+  check("frameworks verified trio", tr.frameworks.length === 3 && tr.frameworks.some((f) => f.id === "vowel-harmony"));
+  check("alphabet covers special letters", tr.alphabet.some((a) => a.char.includes("ğ")) && tr.alphabet.some((a) => a.char.includes("ı")));
+}
+
+// ===========================================================================
+// v59 — TURKISH REGISTRATION (registry, character, convos, patterns, facts)
+// ===========================================================================
+console.log("\n[Turkish registration]");
+{
+  const reg = await import("./reg-test.mjs");
+  check("registry has tr", !!reg.LANGUAGES.tr && reg.LANGUAGES.tr.ttsCode === "tr-TR");
+  check("13 languages listed", reg.listLanguages().length === 13, String(reg.listLanguages().length));
+  const chars = await import("./chars-test.mjs");
+  check("Elif exists", chars.getCharacter("tr")?.name === "Elif");
+  const convos = await import("./convos-test.mjs");
+  check("10 tr conversations", convos.getConversations("tr").length === 10);
+  const pats = await import("./pats-test.mjs");
+  check("tr sentence ladder = 5 rungs", pats.ladderHeight("tr") === 5);
+  check("tr pattern drop 1 exists", !!pats.getPatternForDrop("tr", 1));
+  check("tr rung 5 teaches negation", pats.getPatternForDrop("tr", 5).chunks.some((c) => c.role === "negation"));
+  const facts = await import("./facts-test.mjs");
+  const f = facts.pickFunFact("tr", []);
+  check("tr fun fact available", typeof f?.fact === "string" && f.fact.length > 10);
+}
+
+// ===========================================================================
+// v59 — NEW EXERCISE TYPES (letter scramble + true/false)
+// ===========================================================================
+console.log("\n[New exercise types]");
+{
+  const gen = await import("./gen-test.mjs");
+  const fs = await import("fs");
+  const tr = JSON.parse(fs.readFileSync("./src/data/languages/tr.json", "utf8"));
+  const pool = tr.vocab;
+
+  check("EXERCISE enum extended", gen.EXERCISE.LETTER_SCRAMBLE === "letter_scramble" && gen.EXERCISE.TRUE_FALSE === "true_false");
+
+  // Generate many lessons at mixed reps; both new types should appear for tr,
+  // and every produced exercise must be structurally valid.
+  const progress = {};
+  for (const v of pool.slice(0, 40)) progress[v.id] = { reps: 2, lapses: 0, stability: 5, lastReview: Date.now() };
+  let sawScramble = null, sawTF = null, structuralFail = null;
+  for (let i = 0; i < 60 && (!sawScramble || !sawTF); i++) {
+    const exercises = gen.generateLesson(pool.slice(0, 12), pool, progress, "tr");
+    for (const ex of exercises) {
+      if (ex.type === "letter_scramble") sawScramble = ex;
+      if (ex.type === "true_false") sawTF = ex;
+      if (ex.type === "letter_scramble" && (!Array.isArray(ex.bank) || ex.bank.join("").length !== ex.answer.length)) structuralFail = "scramble bank/answer mismatch";
+      if (ex.type === "true_false" && (!ex.options || ex.options.join() !== "True,False" || !["True","False"].includes(ex.answer))) structuralFail = "true_false malformed";
+    }
+  }
+  check("letter scramble appears for Turkish", !!sawScramble);
+  check("true/false appears", !!sawTF);
+  check("no structural failures", !structuralFail, structuralFail || "");
+
+  // Grading
+  if (sawScramble) {
+    check("scramble grades correct spelling", gen.gradeAnswer(sawScramble, sawScramble.answer).correct === true);
+    check("scramble rejects wrong spelling", gen.gradeAnswer(sawScramble, sawScramble.answer.split("").reverse().join("") + "x").correct === false);
+    check("scramble bank is the word's letters", [...sawScramble.bank].sort().join("") === [...sawScramble.answer].sort().join(""));
+  }
+  if (sawTF) {
+    check("true/false grades the truth", gen.gradeAnswer(sawTF, sawTF.answer).correct === true);
+    check("true/false rejects the lie", gen.gradeAnswer(sawTF, sawTF.answer === "True" ? "False" : "True").correct === false);
+  }
+
+  // Scramble must NEVER fire for Urdu (Arabic script) — the gate matters.
+  const urPool = [
+    { id: "u1", lemma: "سلام", translation: "hello", category: "Greetings", examples: [{ native: "سلام دوست", translation: "hello friend" }] },
+    { id: "u2", lemma: "پانی", translation: "water", category: "Food", examples: [{ native: "پانی دو", translation: "give water" }] },
+    { id: "u3", lemma: "شکریہ", translation: "thanks", category: "Greetings", examples: [] },
+    { id: "u4", lemma: "دوست", translation: "friend", category: "People", examples: [] },
+  ];
+  const urProgress = {}; for (const v of urPool) urProgress[v.id] = { reps: 2, lapses: 0, stability: 5, lastReview: Date.now() };
+  let urScramble = false;
+  for (let i = 0; i < 40; i++) {
+    const s = gen.generateLesson(urPool, urPool, urProgress, "ur");
+    if (s.some((e) => e.type === "letter_scramble")) urScramble = true;
+  }
+  check("scramble never fires for Arabic script", !urScramble);
+}
+
+// ===========================================================================
+// v59 — HOME RENDERS WITH THE TURKISH PACK
+// ===========================================================================
+console.log("\n[Home — Turkish]");
+{
+  const fs = await import("fs");
+  const trPack = JSON.parse(fs.readFileSync("./src/data/languages/tr.json", "utf8"));
+  const p = defaultProps();
+  p.pack = { ...trPack, code: "tr" };
+  p.engine = {
+    getUnitProgress: async () => trPack.units.map((u, i) => ({ ...u, total: 10, learned: i === 0 ? 4 : 0, mastered: 0, pct: i === 0 ? 0.4 : 0 })),
+    getProgress: async () => ({}),
+  };
+  p.appState = { ...BASE_STATE, metCharacters: [] }; // Elif introduces herself
+  const r = await renderHome(p);
+  check("no render error", !r.error, JSON.stringify(r.error));
+  check("Elif introduces herself", r.text.includes("Elif"));
+  check("Turkish greetings goal label", r.text.includes("Say hello like a local"));
+  check("Turkish unit titles render", r.text.includes("Getting By") || r.text.includes("Food & Drink"));
+  r.root.unmount();
+}
+
+
+// ===========================================================================
+// v59 — LESSON SCREEN RENDERS THE NEW EXERCISE UIs
+// ===========================================================================
+console.log("\n[Lesson — new exercise UIs]");
+{
+  const gen = await import("./gen-test.mjs");
+  const lessonMod = await import("./lesson-test.mjs");
+  const fs = await import("fs");
+  const tr = JSON.parse(fs.readFileSync("./src/data/languages/tr.json", "utf8"));
+  const merhaba = tr.vocab.find((v) => v.lemma === "Merhaba");
+  const pool = tr.vocab.slice(0, 20);
+
+  const scramble = { type: "letter_scramble", item: merhaba, prompt: `Spell the word for "hello"`, translation: merhaba.translation, showWord: false, playAudio: false, bank: [...merhaba.lemma].reverse(), answer: merhaba.lemma };
+  const tf = { type: "true_false", item: merhaba, prompt: `True or false: this means "water"`, showWord: true, playAudio: false, options: ["True", "False"], answer: "False" };
+
+  async function renderLesson(firstExercise) {
+    const container = document.createElement("div");
+    document.body.appendChild(container);
+    const root = createRoot(container);
+    let error = null;
+    const origErr = console.error;
+    console.error = (...a) => { const s = String(a[0]); if (s.includes("Error") && !s.includes("act(")) error = a; };
+    const engine = {
+      generateSession: async () => ({ exercises: [firstExercise], mode: "unit" }),
+      submitAnswer: async (ex, given) => ({ ...gen.gradeAnswer(ex, given), rating: 3, card: null, mastery: 1 }),
+      getStats: async () => ({ total: 20, learned: 5, due: 0, mastered: 0 }),
+      getSessions: async () => [],
+      logSession: async () => [],
+    };
+    root.render(React.createElement(lessonMod.Lesson, {
+      engine,
+      pack: { ...tr, code: "tr" },
+      stats: { total: 20, learned: 5, due: 0, mastered: 0 },
+      appState: { ...BASE_STATE },
+      setAppState: noop,
+      onNavigate: noop,
+      refreshStats: noop,
+      params: { mode: "unit" },
+    }));
+    await new Promise((r) => setTimeout(r, 300));
+    console.error = origErr;
+    return { text: container.textContent, root, error };
+  }
+
+  const r1 = await renderLesson(scramble);
+  check("scramble renders without error", !r1.error, JSON.stringify(r1.error));
+  check("scramble shows spell header", r1.text.includes("Spell the word for"));
+  check("scramble shows the meaning", r1.text.includes(`"hello"`));
+  check("scramble shows letter tiles", [...merhaba.lemma].every((ch) => r1.text.includes(ch)));
+  r1.root.unmount();
+
+  const r2 = await renderLesson(tf);
+  check("true/false renders without error", !r2.error, JSON.stringify(r2.error));
+  check("true/false shows the claim", r2.text.includes('this means "water"'));
+  check("true/false shows the word", r2.text.includes("Merhaba"));
+  check("true/false shows both options", r2.text.includes("True") && r2.text.includes("False"));
+  r2.root.unmount();
+}
+
 console.log(failures === 0 ? "\nALL RENDER TESTS PASSED ✅" : `\n${failures} FAILURES ❌`);
 process.exit(failures === 0 ? 0 : 1);

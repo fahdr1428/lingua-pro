@@ -471,3 +471,14 @@ button:active { transform: translateY(1px) scale(0.98); }
 
 /* v58: journey cards slimmer, calmer */
 .journey-row > * { flex: 0 0 min(260px, 76vw); }
+
+/* ===== v60 SceneBand — living cultural hero ===== */
+.scene-band { position: relative; height: 172px; border-radius: 18px; overflow: hidden; margin: 6px 0 20px; }
+.scene-band img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@keyframes kbA { from { transform: scale(1) translate(0,0); } to { transform: scale(1.09) translate(-2%,-1.5%); } }
+@keyframes kbB { from { transform: scale(1.09) translate(2%,1%); } to { transform: scale(1) translate(0,0); } }
+.kb-a img { animation: kbA 30s ease-in-out infinite alternate; }
+.kb-b img { animation: kbB 30s ease-in-out infinite alternate; }
+.scene-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(20,18,14,0.45) 100%); }
+.scene-cap { position: absolute; left: 14px; bottom: 10px; color: #fff; font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 14px; letter-spacing: 0.3px; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+@media (prefers-reduced-motion: reduce) { .kb-a img, .kb-b img { animation: none; } }

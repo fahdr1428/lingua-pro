@@ -265,6 +265,35 @@ export const CHARACTERS = {
       streak: ["Tài lìhai le!","Zhuàngtài hěn hǎo!","Jìxù!"],
     },
   },
+  // v59 — Turkish guide. Phrases verified against learner sources:
+  // Merhaba/Hoş geldin (Preply, Lingopie), Hadi bakalım (Lingopie),
+  // Kolay gelsin (turkish.academy, StoryLearning), Aferin (UChicago vocab),
+  // Çok güzel (Preply), Tebrikler (talkpal), Afiyet olsun (StoryLearning).
+  tr: {
+    name: "Elif",
+    role: "Your Turkish guide",
+    emoji: "👩🏻‍🦱",
+    accent: "#e30a17",
+    intro: "Merhaba! I'm Elif, from Istanbul. Turkish looks unusual until you spot its secret: it's one of the most logical languages on Earth. Hoş geldin — welcome. Çay is ready.",
+    greetings: [
+      "Merhaba! Hadi bakalım — let's get to it.",
+      "Hoş geldin! Ready for a few more words?",
+      "Kolay gelsin — may today's work come easy.",
+      "Selam! Çay in hand? Let's go.",
+    ],
+    encouragement: {
+      perfect: "Aferin! Not a single mistake. Çok güzel.",
+      great: "Çok iyi! You're really getting the rhythm of it.",
+      good: "İyi! Suffix by suffix, it's sticking.",
+      keep_going: "Sorun değil — mistakes are how vowel harmony becomes instinct. Tekrar.",
+    },
+    streakNote: "Damlaya damlaya göl olur — drop by drop, a lake forms.",
+    reactions: {
+      correct: ["Aferin!","Çok güzel!","Doğru!","Harika!","Tam olarak!"],
+      wrong: ["Sorun değil.","Tekrar dene!","Az kaldı!","Neredeyse!"],
+      streak: ["Harikasın!","Devam!","Çok iyi gidiyorsun!"],
+    },
+  },
 };
 
 export function getCharacter(langCode) {

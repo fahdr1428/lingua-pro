@@ -210,6 +210,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   async function check() {
     let given;
     if (exercise.type === EXERCISE.TAP_WORDS || exercise.type === EXERCISE.BUILD_SENTENCE) given = tapped.join(" ");
+    else if (exercise.type === EXERCISE.LETTER_SCRAMBLE) given = tapped.join(""); // v59: letters join with no space
     else if (exercise.type === EXERCISE.TYPE_TRANSLATION) given = typed;
     else if (exercise.type === EXERCISE.MATCH_PAIRS) {
       // Build the id:meaning|... string from matched pairs, sorted, to compare
@@ -454,7 +455,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     (exercise.type === EXERCISE.CONJUGATE_TENSE && picked) ||
     // v35: new formats
     (exercise.type === EXERCISE.ODD_ONE_OUT && picked) ||
-    (exercise.type === EXERCISE.MATCH_PAIRS && exercise.pairs && matchedPairs.length === exercise.pairs.length);
+    (exercise.type === EXERCISE.MATCH_PAIRS && exercise.pairs && matchedPairs.length === exercise.pairs.length) ||
+    // v59: new formats
+    (exercise.type === EXERCISE.LETTER_SCRAMBLE && tapped.length > 0) ||
+    (exercise.type === EXERCISE.TRUE_FALSE && picked);
 
   const voiceAvailable = hasVoiceFor(lang.ttsCode);
 
@@ -890,6 +894,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           {(exercise.type === EXERCISE.PICK_MEANING ||
             exercise.type === EXERCISE.PICK_WORD ||
             exercise.type === EXERCISE.LISTEN_PICK ||
+            exercise.type === EXERCISE.TRUE_FALSE ||
             exercise.type === EXERCISE.COMPLETE_SENTENCE) && (
             <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 10 }}>
               {exercise.options.map((opt, i) => {
@@ -1010,13 +1015,13 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             />
           )}
 
-          {/* TAP WORDS or BUILD SENTENCE — both use word-bank UI */}
-          {(exercise.type === EXERCISE.TAP_WORDS || exercise.type === EXERCISE.BUILD_SENTENCE) && (
+          {/* TAP WORDS, BUILD SENTENCE, or LETTER SCRAMBLE — all use the bank UI */}
+          {(exercise.type === EXERCISE.TAP_WORDS || exercise.type === EXERCISE.BUILD_SENTENCE || exercise.type === EXERCISE.LETTER_SCRAMBLE) && (
             <div style={{ marginTop: 24 }}>
-              {exercise.type === EXERCISE.BUILD_SENTENCE ? (
+              {exercise.type === EXERCISE.BUILD_SENTENCE || exercise.type === EXERCISE.LETTER_SCRAMBLE ? (
                 <Card style={{ background: "var(--surface-hi)", marginBottom: 16, padding: 18, textAlign: "center" }}>
                   <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
-                    Translate this
+                    {exercise.type === EXERCISE.LETTER_SCRAMBLE ? "Spell the word for" : "Translate this"}
                   </div>
                   <div style={{ fontSize: 22, fontWeight: 800, color: "var(--primary)" }}>
                     "{exercise.translation}"

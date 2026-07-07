@@ -28,6 +28,8 @@ export const EXERCISE = {
   CONJUGATE_TENSE: "conjugate_tense", // v34b: "How do you say 'I WENT' / 'I WILL GO'?"
   MATCH_PAIRS: "match_pairs",       // v35: tap word ↔ meaning to match 4 pairs
   ODD_ONE_OUT: "odd_one_out",       // v35: pick the word that doesn't belong to the category
+  LETTER_SCRAMBLE: "letter_scramble", // v59: spell the word from shuffled letter tiles
+  TRUE_FALSE: "true_false",         // v59: quick judgement — does this word mean X?
 };
 
 const NUM_DISTRACTORS = 3;
@@ -396,6 +398,48 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
         answer: item.translation,
       };
 
+    // v59: LETTER SCRAMBLE — spell the word yourself from shuffled letter
+    // tiles. Pure production at the letter level; makes the learner attend to
+    // the word's actual spelling (great for special characters like ç/ğ/ş).
+    // Only offered for single-word, Latin-script lemmas of a friendly length —
+    // chooseExerciseType gates this via canScramble(), but we re-check here
+    // because explicit-type callers (graduated sets) can request it directly.
+    case EXERCISE.LETTER_SCRAMBLE: {
+      if (!canScramble(item)) {
+        return buildExercise(item, pool, { ...card, reps: 1 }, _depth + 1, progress);
+      }
+      const letters = item.lemma.split("");
+      return {
+        type,
+        item,
+        prompt: `Spell the word for "${item.translation}"`,
+        translation: item.translation,
+        showWord: false,
+        playAudio: false,
+        bank: shuffle([...letters]),
+        answer: item.lemma,
+      };
+    }
+
+    // v59: TRUE / FALSE — a fast judgement call. Half the time the shown
+    // meaning is right, half the time it's a same-category distractor. Quick,
+    // low-friction recognition that adds variety between heavier exercises.
+    case EXERCISE.TRUE_FALSE: {
+      const lie = distractors[0]?.translation;
+      if (!lie) return safeFallback();
+      const truthful = Math.random() < 0.5;
+      const claim = truthful ? item.translation : lie;
+      return {
+        type,
+        item,
+        prompt: `True or false: this means "${claim}"`,
+        showWord: true,
+        playAudio: false,
+        options: ["True", "False"],
+        answer: truthful ? "True" : "False",
+      };
+    }
+
     case EXERCISE.TAP_WORDS: {
       const ex = pickBestExample();
       if (!ex || !ex.native || ex.native.split(" ").length < 2) {
@@ -731,19 +775,35 @@ function buildGraduatedSet(item, pool, card, progress = {}) {
   const levels = [];
   if (reps === 0) {
     levels.push(EXERCISE.PICK_MEANING); // recognise
+    // v59: sometimes swap plain recognition for a fast true/false judgement
+    if (Math.random() < 0.3) levels.push(EXERCISE.TRUE_FALSE);
     levels.push(EXERCISE.PICK_WORD);     // recall
     if (hasShortSentence) levels.push(EXERCISE.COMPLETE_SENTENCE); // produce
   } else if (reps < 3) {
     levels.push(EXERCISE.PICK_WORD);     // recall
+    // v59: spell it yourself — letter-level production for Latin-script words
+    if (canScramble(item) && Math.random() < 0.4) levels.push(EXERCISE.LETTER_SCRAMBLE);
     if (hasShortSentence) levels.push(EXERCISE.COMPLETE_SENTENCE);
   } else {
     // Mature: production only (or recall if no sentence available)
+    if (canScramble(item) && Math.random() < 0.25) levels.push(EXERCISE.LETTER_SCRAMBLE);
     if (hasShortSentence) levels.push(EXERCISE.COMPLETE_SENTENCE);
     else levels.push(EXERCISE.PICK_WORD);
   }
 
   // Build the exercises
   return levels.map((type) => buildExerciseOfType(item, type, pool, card, 0, progress));
+}
+
+// v59: LETTER_SCRAMBLE eligibility — single word, Latin script (incl. Turkish
+// ç ğ ı ö ş ü and Western European accents), 3–12 letters. Scripts like Arabic,
+// Devanagari, Hangul, or kanji don't decompose into tappable "letters" the
+// same way, so those languages simply never see this exercise.
+function canScramble(item) {
+  const lemma = item?.lemma || "";
+  if (lemma.length < 3 || lemma.length > 12) return false;
+  if (lemma.includes(" ")) return false;
+  return /^[a-zA-ZçğıöşüâîûÇĞİÖŞÜáéíóúñüàèìòùäëïöß']+$/.test(lemma);
 }
 
 function chooseExerciseType(reps, item) {
@@ -757,18 +817,20 @@ function chooseExerciseType(reps, item) {
   // not just isolated. Words alone don't teach language; context does.
   if (reps === 0) {
     const r = Math.random();
-    if (r < 0.55) return EXERCISE.PICK_MEANING;
-    if (r < 0.75) return EXERCISE.LISTEN_PICK;
-    if (hasShortSentence) return EXERCISE.COMPLETE_SENTENCE; // ~25%: see it in a sentence
+    if (r < 0.5) return EXERCISE.PICK_MEANING;
+    if (r < 0.6) return EXERCISE.TRUE_FALSE;    // v59: fast, low-stakes first contact
+    if (r < 0.78) return EXERCISE.LISTEN_PICK;
+    if (hasShortSentence) return EXERCISE.COMPLETE_SENTENCE; // see it in a sentence
     return EXERCISE.PICK_MEANING;
   }
 
   // Building familiarity (reps 1-2): real mix of recognition AND production.
-  // Sentence work now appears ~45% of the time, not just for mature words.
+  // Sentence work now appears ~40% of the time, not just for mature words.
   if (reps < 3) {
     const r = Math.random();
-    if (r < 0.25) return EXERCISE.PICK_MEANING;
-    if (r < 0.4) return EXERCISE.PICK_WORD;
+    if (r < 0.22) return EXERCISE.PICK_MEANING;
+    if (r < 0.32 && canScramble(item)) return EXERCISE.LETTER_SCRAMBLE; // v59: spell it yourself
+    if (r < 0.42) return EXERCISE.PICK_WORD;
     if (r < 0.5) return EXERCISE.LISTEN_PICK;
     if (r < 0.72 && hasShortSentence) return EXERCISE.COMPLETE_SENTENCE;
     if (r < 0.9 && hasRealSentence) return EXERCISE.TAP_WORDS;
@@ -780,7 +842,8 @@ function chooseExerciseType(reps, item) {
   const r = Math.random();
   if (r < 0.4 && hasRealSentence) return EXERCISE.BUILD_SENTENCE;   // up from 0.3
   if (r < 0.62 && hasShortSentence) return EXERCISE.TAP_WORDS;
-  if (r < 0.78) return EXERCISE.TYPE_TRANSLATION;
+  if (r < 0.72 && canScramble(item)) return EXERCISE.LETTER_SCRAMBLE; // v59: spelling under pressure
+  if (r < 0.8) return EXERCISE.TYPE_TRANSLATION;
   if (r < 0.92 && hasShortSentence) return EXERCISE.COMPLETE_SENTENCE;
   return EXERCISE.PICK_WORD;
 }

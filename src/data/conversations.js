@@ -582,6 +582,57 @@ export const CONVERSATIONS = {
       { native: "Okay, safe journey.", translit: "okay, safe journey", translation: "Okay, safe travels." },
     ]},
   ],
+
+  // ===========================================================================
+  // TURKISH (v59) — every line verified against learner sources (Preply,
+  // turkish.academy survival guide, Lingopie, talkpal, audilingua, italki).
+  // ===========================================================================
+  tr: [
+    { id: "tr_c1", situation: "Greeting someone", emoji: "👋", lines: [
+      { native: "Merhaba! Nasılsın?", translit: "mer-ha-BA, NA-suhl-suhn", translation: "Hello! How are you?" },
+      { native: "İyiyim, teşekkürler. Sen?", translit: "ee-YEE-yim, teh-shek-kewr-LEHR. sen", translation: "I'm fine, thanks. You?", note: "With elders or strangers, use the formal 'Siz nasılsınız?'" },
+    ]},
+    { id: "tr_c2", situation: "Introducing yourself", emoji: "🤝", lines: [
+      { native: "Benim adım Ali.", translit: "beh-NIM ah-DUHM ah-LEE", translation: "My name is Ali." },
+      { native: "Memnun oldum!", translit: "mem-NOON ol-DOOM", translation: "Nice to meet you!" },
+    ]},
+    { id: "tr_c3", situation: "Being welcomed", emoji: "🏠", lines: [
+      { native: "Hoş geldiniz!", translit: "hosh gel-dee-NEEZ", translation: "Welcome!" },
+      { native: "Hoş bulduk!", translit: "hosh bool-DOOK", translation: "Glad to be here!", note: "A set pair — 'Hoş geldiniz' is always answered with 'Hoş bulduk'." },
+    ]},
+    { id: "tr_c4", situation: "Ordering tea", emoji: "🫖", lines: [
+      { native: "Çay alabilir miyim?", translit: "chai ah-lah-bee-LEER mee-yim", translation: "Can I have a tea?", note: "'Alabilir miyim?' — 'may I have?' — works everywhere: cafés, shops, street stalls." },
+      { native: "Buyurun!", translit: "BOO-yoo-roon", translation: "Here you are!" },
+      { native: "Teşekkür ederim.", translit: "teh-shek-KEWR eh-deh-REEM", translation: "Thank you." },
+      { native: "Afiyet olsun!", translit: "ah-fee-YET ol-SOON", translation: "Enjoy!" },
+    ]},
+    { id: "tr_c5", situation: "At a restaurant", emoji: "🍽️", lines: [
+      { native: "Menü alabilir miyim lütfen?", translit: "meh-NEW ah-lah-bee-LEER mee-yim LEWT-fen", translation: "Can I have a menu, please?" },
+      { native: "Buyurun.", translit: "BOO-yoo-roon", translation: "Here you are." },
+      { native: "Hesap lütfen.", translit: "heh-SAHP LEWT-fen", translation: "The bill, please." },
+    ]},
+    { id: "tr_c6", situation: "Shopping at the bazaar", emoji: "🛍️", lines: [
+      { native: "Bu ne kadar?", translit: "boo neh kah-DAR", translation: "How much is this?" },
+      { native: "Çok güzel!", translit: "chok gew-ZEL", translation: "Very beautiful!" },
+      { native: "Teşekkürler, iyi günler!", translit: "teh-shek-kewr-LEHR, ee-YEE gewn-LEHR", translation: "Thanks, have a good day!" },
+    ]},
+    { id: "tr_c7", situation: "Finding your way", emoji: "🧭", lines: [
+      { native: "Affedersiniz, tuvalet nerede?", translit: "af-feh-DEHR-see-neez, too-vah-LET NEH-reh-deh", translation: "Excuse me, where is the bathroom?" },
+      { native: "Teşekkür ederim!", translit: "teh-shek-KEWR eh-deh-REEM", translation: "Thank you!" },
+    ]},
+    { id: "tr_c8", situation: "When you don't understand", emoji: "💬", lines: [
+      { native: "Anlamıyorum, affedersiniz.", translit: "an-LAH-muh-yoh-room, af-feh-DEHR-see-neez", translation: "I don't understand, sorry." },
+      { native: "Tekrar söyler misiniz?", translit: "tek-RAR soy-LEHR mee-see-neez", translation: "Could you say it again?" },
+    ]},
+    { id: "tr_c9", situation: "Talking about family", emoji: "👨‍👩‍👧", lines: [
+      { native: "Kaç kardeşin var?", translit: "kahch kar-deh-SHEEN var", translation: "How many siblings do you have?" },
+      { native: "Üç kardeşim var.", translit: "ewch kar-deh-SHEEM var", translation: "I have three siblings." },
+    ]},
+    { id: "tr_c10", situation: "Saying goodbye", emoji: "👋", lines: [
+      { native: "Hoşça kal! Görüşürüz.", translit: "HOSH-cha kal, gur-rew-shew-REWZ", translation: "Goodbye! See you." },
+      { native: "Güle güle! İyi günler!", translit: "gew-LEH gew-LEH, ee-YEE gewn-LEHR", translation: "Bye! Have a good day!", note: "The person leaving says 'Hoşça kal'; the one staying answers 'Güle güle'." },
+    ]},
+  ],
 };
 
 /** All conversations for a language, or [] if none. */
