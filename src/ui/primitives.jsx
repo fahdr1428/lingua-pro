@@ -75,6 +75,24 @@ export function Card({ children, style, className = "", ...rest }) {
   );
 }
 
+
+// v61 (ui-ux-pro-max skill): real SVG icons — emoji-as-icons is a core
+// anti-pattern (inconsistent cross-platform rendering, no color control).
+const ic = (paths, size = 20) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+    dangerouslySetInnerHTML={{ __html: paths }} />
+);
+export const ICONS = {
+  flame: ic('<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>', 16),
+  gem: ic('<path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/>', 16),
+  heart: ic('<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>', 16),
+  sprout: ic('<path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>'),
+  grid: ic('<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>'),
+  mic: ic('<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>'),
+  user: ic('<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'),
+};
+
 export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, onPickLanguage }) {
   const [pickerOpen, setPickerOpen] = useState(false);
   const lang = currentLang ? LANGUAGES[currentLang] : null;
@@ -110,9 +128,9 @@ export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, on
             <span style={{ fontSize: 10, opacity: 0.6 }}>▼</span>
           </button>
         )}
-        <Stat icon="🔥" value={streak} />
-        <Stat icon="💎" value={gems} color="var(--accent)" />
-        <Stat icon="❤️" value={premium ? "∞" : hearts} color="var(--danger)" />
+        <Stat icon={ICONS.flame} value={streak} />
+        <Stat icon={ICONS.gem} value={gems} color="var(--accent)" />
+        <Stat icon={ICONS.heart} value={premium ? "∞" : hearts} color="var(--danger)" />
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
         <div style={{ fontSize: 14, color: "var(--text-dim)", fontWeight: 700 }}>⚡ {totalXp}</div>
@@ -200,10 +218,10 @@ export function BottomNav({ screen, onNavigate }) {
   // v57: mobile-first nav — Learn | Practice | Speak | Profile.
   // Words moved inside the Practice hub; Settings moved inside Profile.
   const items = [
-    { id: "home", icon: "🌱", label: "Learn" },
-    { id: "hub", icon: "🧩", label: "Practice" },
-    { id: "practice", icon: "🗣️", label: "Speak" },
-    { id: "profile", icon: "👤", label: "Profile" },
+    { id: "home", icon: ICONS.sprout, label: "Learn" },
+    { id: "hub", icon: ICONS.grid, label: "Practice" },
+    { id: "practice", icon: ICONS.mic, label: "Speak" },
+    { id: "profile", icon: ICONS.user, label: "Profile" },
   ];
   return (
     <div
