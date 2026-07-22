@@ -39,23 +39,37 @@ export function isChapterExamAvailable(unitProgress, chapterNum, unitCompletionB
 }
 
 // Compute which unit indices are unlocked, applying chapter gates.
+//
+// v63 FIX: passing a chapter exam now genuinely unlocks EVERYTHING up to and
+// including that chapter, plus the whole next chapter. Previously a learner
+// could pass the exam and still find units locked because the old rule also
+// required the immediately-previous unit to be 30% complete — so people who
+// tested out of earlier material got stuck with nowhere to go. An exam pass is
+// proof of understanding; it should never leave the path blocked.
 export function computeUnlocks(unitProgress, appState, langCode) {
+  // Highest chapter the learner has passed the exam for (0 = none yet).
+  let highestPassed = 0;
+  for (let c = 1; c <= completeChapterCount(unitProgress.length) + 1; c++) {
+    if (hasPassedChapter(appState, langCode, c)) highestPassed = c;
+  }
+
   const unlocks = [];
   for (let i = 0; i < unitProgress.length; i++) {
     const chapter = chapterOfUnitIndex(i);
     let unlocked;
     if (i === 0) {
       unlocked = true;
-    } else if (chapter === 1) {
-      unlocked = (unitProgress[i - 1]?.pct || 0) >= 0.3;
+    } else if (chapter <= highestPassed) {
+      // Everything in a chapter you've already passed stays open — no
+      // back-tracking required to revisit or finish earlier units.
+      unlocked = true;
+    } else if (chapter === highestPassed + 1) {
+      // The chapter you've just unlocked: first unit always open, the rest
+      // follow the normal gentle 30% progression.
+      const isFirstOfChapter = i % UNITS_PER_CHAPTER === 0;
+      unlocked = isFirstOfChapter ? true : (unitProgress[i - 1]?.pct || 0) >= 0.3;
     } else {
-      const prevChapterPassed = hasPassedChapter(appState, langCode, chapter - 1);
-      if (!prevChapterPassed) {
-        unlocked = false; // GATED
-      } else {
-        const isFirstOfChapter = i % UNITS_PER_CHAPTER === 0;
-        unlocked = isFirstOfChapter ? true : (unitProgress[i - 1]?.pct || 0) >= 0.3;
-      }
+      unlocked = false; // still gated behind a chapter exam
     }
     unlocks.push(unlocked);
   }

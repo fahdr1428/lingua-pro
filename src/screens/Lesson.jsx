@@ -59,6 +59,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   const [matchedPairs, setMatchedPairs] = useState([]); // v35: MATCH_PAIRS matched pairs
   const [matchSelection, setMatchSelection] = useState(null); // v35: currently-selected left item
   const [feedback, setFeedback] = useState(null); // 'correct' | 'wrong'
+  const [combo, setCombo] = useState(0); // v62: consecutive correct answers
+  const [recoveryDone, setRecoveryDone] = useState(false); // v63: supportive re-ask round appended once
+  const [inRecovery, setInRecovery] = useState(false); // v63: currently in the "let's nail these" round
   const [reaction, setReaction] = useState(null);  // tutor's in-lesson interjection
   const [showExplain, setShowExplain] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
@@ -235,6 +238,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     if (result.intro) return;
 
     setFeedback(result.correct ? "correct" : "wrong");
+    setCombo((c) => (result.correct ? c + 1 : 0));
     // v30: play a short positive/negative chime (honours user setting)
     if (appState.soundEffects !== false) {
       try { result.correct ? playCorrect() : playWrong(); } catch {}
@@ -289,6 +293,51 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   }
 
   async function next() {
+    // v63 SUPPORTIVE RECOVERY ROUND — a lesson shouldn't end while words are
+    // still shaky. Instead of a blunt re-test, we append a short warm round
+    // that RE-TEACHES each missed word (INTRODUCE) and then asks it again in an
+    // easier recognition format. Happens once, only in normal lessons (never in
+    // exams, which must measure honestly), and only for real misses.
+    if (
+      idx + 1 >= session.exercises.length &&
+      !recoveryDone &&
+      missedItems.length > 0 &&
+      params?.mode !== "exam" &&
+      params?.mode !== "chapter_exam" &&
+      params?.milestone == null
+    ) {
+      try {
+        const pool = pack.vocab || [];
+        const extra = [];
+        for (const item of missedItems) {
+          // Re-teach first (no penalty, just a friendly reminder of the word)…
+          extra.push({ type: EXERCISE.INTRODUCE, item });
+          // …then ask it back in a gentle recognition format.
+          const distractors = pool
+            .filter((w) => w.id !== item.id)
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 3);
+          const options = [item, ...distractors].sort(() => Math.random() - 0.5);
+          extra.push({
+            type: EXERCISE.PICK_WORD,
+            item,
+            prompt: item.meaning,
+            options,
+            answer: item.lemma,
+          });
+        }
+        if (extra.length > 0) {
+          setSession((prev) => ({ ...prev, exercises: [...prev.exercises, ...extra] }));
+          setRecoveryDone(true);
+          setInRecovery(true);
+          setMissedItems([]); // cleared: they get a genuine second chance
+          reset();
+          setIdx((i) => i + 1);
+          return;
+        }
+      } catch {}
+    }
+
     if (idx + 1 >= session.exercises.length) {
       // Session complete — only count testable exercises (skip INTRODUCE)
       const testable = session.exercises.filter((e) => e.type !== EXERCISE.INTRODUCE && e.type !== EXERCISE.INTRODUCE_BATCH && e.type !== "GRAMMAR_MOMENT").length;
@@ -332,7 +381,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             streak: newStreak,
             lastStudyDate: today,
             gems: (s.gems || 0) + Math.floor(xpEarned / 10),
-            hearts,
+            // v62: flawless lesson earns a bonus heart (capped at 5)
+            hearts: accuracy >= 1 && !isExam && !isChapterExam && !s.isPremium
+              ? Math.min(5, hearts + 1) : hearts,
             sessions,
           };
           // Mark the grammar moment from this lesson as seen, so the next
@@ -480,6 +531,16 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         <button onClick={() => onNavigate("home")} style={{ background: "transparent", border: "none", color: "var(--text-dim)", fontSize: 22, cursor: "pointer" }}>✕</button>
         <div style={{ flex: 1, margin: "0 16px" }}>
           <ProgressBar value={idx + (feedback ? 1 : 0)} max={session.exercises.length} />
+          {/* v63: warm framing for the recovery round — never punitive */}
+          {inRecovery && (
+            <div style={{
+              marginTop: 10, background: "var(--primary-soft)", border: "1px solid var(--primary)",
+              borderRadius: 12, padding: "10px 14px", fontSize: 13, color: "var(--primary-dark)",
+              fontWeight: 700, textAlign: "center",
+            }}>
+              🌱 Let's lock in the tricky ones — one more look, no pressure
+            </div>
+          )}
         </div>
         {streakInLesson >= 3 && (
           <div
@@ -1116,7 +1177,15 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div style={{ fontWeight: 800, fontSize: 18, color: feedback === "correct" ? "var(--primary)" : "var(--danger)" }}>
-                    {feedback === "correct" ? "✓ Correct!" : "✗ Not quite"}
+                    {/* v62: varied coach reactions (stable per exercise via idx) */}
+                    {feedback === "correct"
+                      ? ["✓ Correct!", "✓ Nice one", "✓ That was clean", "✓ Exactly right", "✓ You've got this"][idx % 5]
+                      : ["✗ Not quite", "✗ Close — look again", "✗ No stress, check it"][idx % 3]}
+                    {feedback === "correct" && combo >= 2 && (
+                      <span className="pop" style={{ marginLeft: 10, fontSize: 14, background: "var(--accent-soft)", color: "var(--accent)", borderRadius: 999, padding: "3px 10px", verticalAlign: "middle" }}>
+                        🔥 {combo} in a row
+                      </span>
+                    )}
                   </div>
                   {/* Why? button — only shown if not already expanded */}
                   {!showExplain && (
@@ -1433,7 +1502,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
     keep_going: { emoji: "📚", title: `Exam grade: ${examGrade}`, subtitle: "Good honest checkpoint — now you know what to review" },
   };
   const celebrations = isExam ? examCelebrations : {
-    perfect: { emoji: "🏆", title: "PERFECT!", subtitle: "You absolutely smashed it" },
+    perfect: { emoji: "🏆", title: "PERFECT!", subtitle: "Flawless — bonus heart earned ❤️" },
     great: { emoji: "🎉", title: "Great job!", subtitle: "You're getting really good at this" },
     good: { emoji: "💪", title: "Lesson complete", subtitle: "Every rep makes the next one easier" },
     keep_going: { emoji: "🌱", title: "Keep growing", subtitle: "Mistakes are how the brain learns" },
