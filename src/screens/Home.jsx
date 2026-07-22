@@ -58,6 +58,68 @@ function SceneBand({ code, name }) {
   );
 }
 
+
+// ---------------------------------------------------------------------------
+// v65 SMART LAYER — reads signals the app already tracks (no AI backend, no
+// API cost, no latency, and it can never invent a wrong statistic). Every
+// number shown to the learner comes from their real progress data.
+// ---------------------------------------------------------------------------
+function useLearnerSignals(appState, stats, langCode) {
+  return useMemo(() => {
+    const today = new Date().toDateString();
+    const last = appState?.lastStudyDate || null;
+    // Days since last study (0 = today, 1 = yesterday, …)
+    let daysIdle = 0;
+    if (last && last !== today) {
+      const diff = Math.floor((Date.now() - new Date(last).getTime()) / 86400000);
+      daysIdle = Math.max(1, isNaN(diff) ? 1 : diff);
+    }
+    // Recent accuracy from the last few sessions (if recorded)
+    const sessions = Array.isArray(appState?.sessions) ? appState.sessions.slice(-5) : [];
+    const withAcc = sessions.filter((x) => typeof x?.accuracy === "number");
+    const recentAccuracy = withAcc.length
+      ? withAcc.reduce((a, b) => a + b.accuracy, 0) / withAcc.length
+      : null;
+    const lessonsDone = appState?.lessonsCompleted?.[langCode] || 0;
+    return {
+      daysIdle,
+      isComeback: daysIdle >= 2,
+      isFirstEver: lessonsDone === 0,
+      recentAccuracy,          // 0–1 or null when unknown
+      struggling: recentAccuracy !== null && recentAccuracy < 0.6,
+      confident: recentAccuracy !== null && recentAccuracy >= 0.9,
+      streak: appState?.streak || 0,
+      due: stats?.due || 0,
+    };
+  }, [appState, stats, langCode]);
+}
+
+// Context-aware phrasing. A written pool chosen by real signals — same warmth
+// as generated copy, but deterministic and honest.
+function adaptCopy(plan, sig) {
+  if (!plan) return plan;
+  const p = { ...plan };
+  if (sig.isComeback && (p.kind === "review" || p.kind === "lesson")) {
+    p.eyebrow = "Welcome back";
+    p.title = sig.due > 0
+      ? `Quick comeback — bring back ${sig.due} words`
+      : "Quick comeback session";
+    p.sub = `It's been ${sig.daysIdle} day${sig.daysIdle === 1 ? "" : "s"} — a short one is all it takes to pick the thread back up.`;
+    p.mins = Math.min(p.mins || 3, 2);
+  } else if (p.kind === "review" && sig.struggling) {
+    p.eyebrow = "Shore up";
+    p.sub = "These are the ones slipping — a few minutes here pays off more than new words.";
+  } else if (p.kind === "lesson" && sig.confident) {
+    p.eyebrow = "You're on a roll";
+    p.sub = p.sub || "";
+    p.sub = "Recent recall has been strong — good moment to take on new ground.";
+  } else if (p.kind === "lesson" && sig.isFirstEver) {
+    p.eyebrow = "Start here";
+    p.sub = "Your first few words — we'll quiz them gently until they stick.";
+  }
+  return p;
+}
+
 export function Home({ engine, pack, stats, appState, setAppState, onNavigate, onPickLanguage }) {
   const lang = LANGUAGES[pack.code];
   const [unitProgress, setUnitProgress] = useState([]);
@@ -169,6 +231,10 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
     return null;
   }, [appState, pack.code, stats, currentUnit]);
 
+  // v65: adapt the chosen plan's wording to the learner's current situation.
+  const signals = useLearnerSignals(appState, stats, pack.code);
+  const smartAction = useMemo(() => adaptCopy(nextAction, signals), [nextAction, signals]);
+
   // ---------------------------------------------------------------------------
   // The coach line
   // ---------------------------------------------------------------------------
@@ -226,42 +292,53 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         </div>
 
         {/* ===== 2 · UP NEXT — the one action ===== */}
-        {nextAction && (
+        {/* v65: comeback nudge — only when genuinely away 2+ days, warm not guilt-trippy */}
+        {signals.isComeback && (
+          <div style={{
+            background: "var(--primary-soft)", border: "1px solid var(--primary)",
+            borderRadius: 14, padding: "12px 16px", marginBottom: 14,
+            fontSize: 13, color: "var(--primary-dark)", fontWeight: 700,
+          }}>
+            🌱 Good to see you back{signals.streak > 0 ? "" : " — streaks restart easily"}. A two-minute session is enough today.
+          </div>
+        )}
+
+        {smartAction && (
           <div className="hero-premium">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 16 }}>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div className="eyebrow" style={{ color: "var(--root)" }}>
-                  {goalMet ? "Daily goal met · keep going" : nextAction.eyebrow}
+                  {goalMet ? "Daily goal met · keep going" : smartAction.eyebrow}
                 </div>
                 <div style={{
                   fontFamily: '"Fraunces", Georgia, serif',
                   fontSize: 25, fontWeight: 600, marginTop: 6, lineHeight: 1.2, color: "var(--ink)",
                 }}>
-                  {nextAction.title}
+                  {smartAction.title}
                 </div>
                 <div style={{ fontSize: 14, color: "var(--text-dim)", marginTop: 8, lineHeight: 1.5 }}>
-                  {nextAction.sub}
+                  {smartAction.sub}
                 </div>
               </div>
               <DailyRing pct={dailyPct} met={goalMet} />
             </div>
 
-            {nextAction.progress && (
+            {smartAction.progress && (
               <div style={{ marginTop: 16 }}>
                 <div className="hairline-bar">
-                  <div className="hairline-fill progress-fill" style={{ width: `${Math.round((nextAction.progress.value / nextAction.progress.max) * 100)}%` }} />
+                  <div className="hairline-fill progress-fill" style={{ width: `${Math.round((smartAction.progress.value / smartAction.progress.max) * 100)}%` }} />
                 </div>
                 <div style={{ fontSize: 12, color: "var(--text-mute)", marginTop: 6 }}>
-                  {nextAction.progress.value} of {nextAction.progress.max} words
+                  {smartAction.progress.value} of {smartAction.progress.max} words
                 </div>
               </div>
             )}
 
-            <button className="btn-premium" onClick={nextAction.go}>
-              {goalMet ? "Keep going" : "Continue"} · ~{nextAction.mins} min
+            <button className="btn-premium" onClick={smartAction.go}>
+              {goalMet ? "Keep going" : "Continue"} · ~{smartAction.mins} min
             </button>
 
-            {weakWord && nextAction.kind !== "review" && (
+            {weakWord && smartAction.kind !== "review" && (
               <button
                 className="quiet-link"
                 onClick={() => onNavigate("lesson", { mode: "weak", sessionSize: 4 })}
