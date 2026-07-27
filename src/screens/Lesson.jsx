@@ -254,8 +254,13 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       if (pool?.length) setReaction(pool[Math.floor(Math.random() * pool.length)]);
     }
     if (result.correct) {
-      setCorrectCount((c) => c + 1);
+      if (!exercise.pretest) setCorrectCount((c) => c + 1);
       setStreakInLesson((s) => s + 1);
+    } else if (exercise.pretest) {
+      // v68: a wrong guess on a word we haven't taught yet is expected — it's
+      // the mechanism, not a failure. No heart, no combo break, and it isn't
+      // added to missed items (the word is about to be introduced anyway).
+      setStreakInLesson((s) => s);
     } else {
       setStreakInLesson(0);
       // Record the missed item so we can offer a focused review at the end
@@ -340,7 +345,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
 
     if (idx + 1 >= session.exercises.length) {
       // Session complete — only count testable exercises (skip INTRODUCE)
-      const testable = session.exercises.filter((e) => e.type !== EXERCISE.INTRODUCE && e.type !== EXERCISE.INTRODUCE_BATCH && e.type !== "GRAMMAR_MOMENT").length;
+      const testable = session.exercises.filter((e) => e.type !== EXERCISE.INTRODUCE && e.type !== EXERCISE.INTRODUCE_BATCH && e.type !== "GRAMMAR_MOMENT" && !e.pretest).length;
       const total = testable || session.exercises.length; // fallback in edge case
       const accuracy = total > 0 ? correctCount / total : 1;
       // v36: rebalanced XP economy. Previously 10 XP/correct meant a ~17-exercise
@@ -532,6 +537,18 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         <div style={{ flex: 1, margin: "0 16px" }}>
           <ProgressBar value={idx + (feedback ? 1 : 0)} max={session.exercises.length} />
           {/* v63: warm framing for the recovery round — never punitive */}
+          {/* v68: pretest framing — makes the guess feel purposeful, not like a trap */}
+          {exercise?.pretest && (
+            <div style={{
+              marginTop: 10, background: "var(--surface-hi)", border: "1px solid var(--border)",
+              borderRadius: 12, padding: "10px 14px", fontSize: 13, color: "var(--text-dim)",
+              textAlign: "center", lineHeight: 1.5,
+            }}>
+              🤔 You haven't learnt this one yet — have a guess anyway.
+              <span style={{ color: "var(--text-mute)" }}> Guessing first makes it stick better.</span>
+            </div>
+          )}
+
           {inRecovery && (
             <div style={{
               marginTop: 10, background: "var(--primary-soft)", border: "1px solid var(--primary)",
@@ -1178,7 +1195,11 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div style={{ fontWeight: 800, fontSize: 18, color: feedback === "correct" ? "var(--primary)" : "var(--danger)" }}>
                     {/* v62: varied coach reactions (stable per exercise via idx) */}
-                    {feedback === "correct"
+                    {exercise?.pretest
+                      ? (feedback === "correct"
+                          ? "✓ Good instinct — you guessed it"
+                          : "That's the one to remember — now let's learn it")
+                      : feedback === "correct"
                       ? ["✓ Correct!", "✓ Nice one", "✓ That was clean", "✓ Exactly right", "✓ You've got this"][idx % 5]
                       : ["✗ Not quite", "✗ Close — look again", "✗ No stress, check it"][idx % 3]}
                     {feedback === "correct" && combo >= 2 && (

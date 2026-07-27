@@ -135,6 +135,29 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
     return !card || (card.reps || 0) === 0;
   });
 
+  // Phase 0 (v68) PRETESTING — "have a guess first".
+  //
+  // Counter-intuitive but well replicated: attempting an answer BEFORE being
+  // taught produces better retention than being taught first, even when the
+  // guess is wrong — provided the correct answer follows immediately.
+  // (Pan & Sana 2021 found pretesting beat post-testing across formats, with
+  // and without feedback; reported effect sizes d ~= 0.35-0.75.)
+  //
+  // The guess is deliberately harmless: no heart is lost, it doesn't count
+  // toward lesson accuracy, and it never touches SRS scheduling. Its only job
+  // is to prime attention before the word is introduced.
+  //
+  // Capped at 3 so a lesson never opens with a wall of unanswerable questions.
+  if (newWords.length > 0) {
+    for (const item of newWords.slice(0, 3)) {
+      const ex = buildExerciseOfType(item, EXERCISE.PICK_WORD, pool, null, 0, progress);
+      if (ex) {
+        ex.pretest = true;
+        exercises.push(ex);
+      }
+    }
+  }
+
   // Phase 1: intro flashcards
   if (newWords.length > 0) {
     exercises.push({
@@ -260,7 +283,35 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
   // Sprinkle conjugation + reinforcement throughout — insert at random valid
   // positions, but avoid placing an exercise next to another for the same word.
   const finalMix = [...interleaved];
-  const extras = [...conjugationExercises, ...tenseExercises, ...reinforcement, ...varietyExercises].sort(() => Math.random() - 0.5);
+  // Phase 4c (v68) HYBRID BLOCKED -> INTERLEAVED PRACTICE.
+  //
+  // Interleaving (mixing words from different units) beats blocked practice for
+  // long-term retention, because it forces discrimination between items rather
+  // than letting a learner coast on one category. BUT the same literature is
+  // clear that it BACKFIRES for beginners: Hwang (2025, Language Learning)
+  // found interleaving alone actively harmed low-achieving L2 vocabulary
+  // learners through cognitive overload, and that a HYBRID — block first, then
+  // interleave once a threshold of solid knowledge exists — outperformed both.
+  //
+  // So this only switches on once the learner has a real base of established
+  // words. Below that, lessons stay blocked, which is the correct treatment
+  // for someone still forming their first form-meaning links.
+  const INTERLEAVE_MIN_ESTABLISHED = 20;
+  const discrimination = [];
+  const qIds = new Set(queue.map((q) => q.id));
+  const established = pool.filter((w) => !qIds.has(w.id) && (progress[w.id]?.reps || 0) >= 2);
+  if (established.length >= INTERLEAVE_MIN_ESTABLISHED) {
+    const picks = [...established].sort(() => Math.random() - 0.5).slice(0, 2);
+    for (const item of picks) {
+      const ex = buildExercise(item, pool, progress[item.id], 0, progress);
+      if (ex) {
+        ex.interleaved = true;
+        discrimination.push(ex);
+      }
+    }
+  }
+
+  const extras = [...conjugationExercises, ...tenseExercises, ...reinforcement, ...discrimination, ...varietyExercises].sort(() => Math.random() - 0.5);
   for (const ex of extras) {
     const myId = ex.item?.id;
     // Find positions where inserting won't create a same-word back-to-back

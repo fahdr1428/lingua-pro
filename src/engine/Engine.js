@@ -253,6 +253,13 @@ export class Engine {
       return { ...result, rating: null, card: null, mastery: 0 };
     }
 
+    // v68 PRETEST: the learner is guessing at a word they haven't been taught
+    // yet. Grading it as a failed review would tell FSRS the word is hard when
+    // in truth it was never introduced — so scheduling stays untouched.
+    if (exercise.pretest) {
+      return { ...result, rating: null, card: null, mastery: 0, pretest: true };
+    }
+
     // Map correctness + exercise difficulty into FSRS rating (1..4)
     const rating = inferRating(exercise, result.correct);
 
