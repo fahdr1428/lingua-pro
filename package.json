@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "audio": "node scripts/generate-audio.cjs"
+    "audio": "node scripts/generate-audio.cjs",
+    "import-vocab": "node scripts/import-vocab.mjs",
+    "validate-vocab": "node scripts/validate-vocab.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
