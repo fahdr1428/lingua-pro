@@ -19,6 +19,7 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { TopBar, Container } from "../ui/primitives.jsx";
 import { LANGUAGES } from "../data/registry.js";
+import { hasJourney, getStops, getChapterTitle, stopsReached } from "../data/journey.js";
 import { getCharacter } from "../data/characters.js";
 import { getLevel } from "../engine/gamification.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
@@ -233,6 +234,12 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
 
   // v65: adapt the chosen plan's wording to the learner's current situation.
   const signals = useLearnerSignals(appState, stats, pack.code);
+
+  // v66 JOURNEY — capability stops for languages that have verified content.
+  // Languages without it keep the existing unit path untouched.
+  const stops = hasJourney(pack.code) ? getStops(pack.code) : [];
+  const reached = stops.length ? stopsReached(pack.code, unitProgress) : 0;
+  const currentStop = stops.length ? stops[Math.min(reached, stops.length - 1)] : null;
   const smartAction = useMemo(() => adaptCopy(nextAction, signals), [nextAction, signals]);
 
   // ---------------------------------------------------------------------------
@@ -270,9 +277,12 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         currentLang={pack.code}
         onPickLanguage={onPickLanguage}
       />
-      <Container style={{ maxWidth: 560 }}>
+      <Container className="home-container">
 
         <SceneBand code={pack.code} name={lang.name} />
+
+        <div className="home-cols">
+        <div>
 
         {/* ===== 1 · GREETING + COACH LINE ===== */}
         <div style={{ margin: "10px 0 26px" }}>
@@ -323,6 +333,22 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
               <DailyRing pct={dailyPct} met={goalMet} />
             </div>
 
+            {/* v66: the conversation this stop unlocks — shown on lesson steps */}
+            {currentStop && smartAction.kind === "lesson" && (
+              <div className="exchange">
+                <div>
+                  <div className="exchange-label">They say</div>
+                  <div className="exchange-line" dir={lang.rtl ? "rtl" : "ltr"}>{currentStop.they.text}</div>
+                  <div className="exchange-en">{currentStop.they.translit} — {currentStop.they.en}</div>
+                </div>
+                <div>
+                  <div className="exchange-label">You answer</div>
+                  <div className="exchange-line" dir={lang.rtl ? "rtl" : "ltr"}>{currentStop.you.text}</div>
+                  <div className="exchange-en">{currentStop.you.translit} — {currentStop.you.en}</div>
+                </div>
+              </div>
+            )}
+
             {smartAction.progress && (
               <div style={{ marginTop: 16 }}>
                 <div className="hairline-bar">
@@ -350,7 +376,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         )}
 
         {/* ===== 3 · STAT STRIP — retention, visible but quiet ===== */}
-        <div className="stat-strip">
+        <div className="stat-strip desktop-hide">
           <div className="stat-cell">
             <div className="stat-value">
               <span className={appState.streak >= 3 ? "flame-alive" : ""}>{flame.emoji}</span> {appState.streak || 0}
@@ -375,7 +401,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
 
         {/* ===== 4 · YOUR PATH — compact ===== */}
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", margin: "30px 0 14px" }}>
-          <h3 className="eyebrow" style={{ margin: 0 }}>Your path</h3>
+          <h3 className="eyebrow" style={{ margin: 0 }}>Your journey</h3>
           <button className="quiet-link" style={{ margin: 0 }} onClick={() => onNavigate("hub")}>
             All practice tools →
           </button>
@@ -383,6 +409,15 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
 
         {loadingUnits ? (
           <div style={{ textAlign: "center", padding: 40, color: "var(--text-dim)" }}>Loading…</div>
+        ) : stops.length > 0 ? (
+          <JourneySpine
+            stops={stops}
+            reached={reached}
+            unitProgress={unitProgress}
+            appState={appState}
+            pack={pack}
+            onNavigate={onNavigate}
+          />
         ) : (
           <div className="journey-row stagger">
             {unitProgress.map((unit, i) => {
@@ -425,6 +460,18 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             })}
           </div>
         )}
+        </div>
+
+        <aside className="reach-rail">
+          <ReachPanel
+            stops={stops}
+            reached={reached}
+            chapterTitle={getChapterTitle(pack.code)}
+            due={stats.due || 0}
+            onReview={() => onNavigate("lesson", { mode: "due" })}
+          />
+        </aside>
+        </div>
       </Container>
     </div>
   );
@@ -625,6 +672,168 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
 // =============================================================================
 // UNIT NODE — compact, quiet journey card (v58)
 // =============================================================================
+
+
+// v66 — "Your reach": the widening circle of conversations you can hold.
+// Reads from real unit progress, so it can never overstate what someone knows.
+export function ReachPanel({ stops = [], reached = 0, chapterTitle, due = 0, onReview }) {
+  const held = stops.slice(0, reached);
+  return (
+    <div>
+      {stops.length > 0 && (
+        <>
+          <h3 className="eyebrow" style={{ margin: "0 0 6px" }}>Your reach</h3>
+          <div style={{ fontSize: 12.5, color: "var(--text-dim)", lineHeight: 1.5, marginBottom: 12 }}>
+            {held.length === 0
+              ? "Nothing here yet — your first stop fills this in."
+              : "Things you can say without stopping to think."}
+          </div>
+          {held.length > 0 && (
+            <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 12, padding: 14 }}>
+              {held.map((st, i) => (
+                <div key={st.id} style={{
+                  display: "flex", gap: 8, alignItems: "flex-start",
+                  padding: i === 0 ? "0 0 9px" : (i === held.length - 1 ? "9px 0 0" : "9px 0"),
+                  borderBottom: i < held.length - 1 ? "1px solid var(--surface-hi)" : "none",
+                }}>
+                  <span style={{ color: "var(--primary)", fontWeight: 900, fontSize: 12, lineHeight: "18px" }}>✓</span>
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{ fontSize: 12.5, color: "var(--text)" }}>{st.done}</div>
+                    <div style={{ fontSize: 11.5, color: "var(--text-mute)", marginTop: 1 }}>{st.you.translit}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          {chapterTitle && (
+            <div style={{ fontSize: 11.5, color: "var(--text-mute)", marginTop: 10 }}>
+              Chapter one · {chapterTitle} — {reached} of {stops.length}
+            </div>
+          )}
+        </>
+      )}
+
+      {due > 0 && (
+        <button
+          onClick={onReview}
+          style={{
+            width: "100%", textAlign: "left", cursor: "pointer",
+            background: "var(--accent-soft)", border: "1px solid var(--border)",
+            borderRadius: 12, padding: 14, marginTop: stops.length ? 20 : 0,
+          }}
+        >
+          <div style={{ fontSize: 12.5, color: "var(--text)", fontWeight: 700 }}>
+            {due} {due === 1 ? "word is" : "words are"} ready to come back
+          </div>
+          <div style={{ fontSize: 11.5, color: "var(--text-dim)", marginTop: 3 }}>
+            A few minutes keeps them yours
+          </div>
+        </button>
+      )}
+    </div>
+  );
+}
+
+// v66 — the journey spine. Vertical, scrollable, and every stop states a
+// CONVERSATION rather than a unit number. Chapter exams sit inline on the same
+// line, and any units past the written stops still render as unit nodes, so
+// nothing in the curriculum becomes unreachable.
+export function JourneySpine({ stops, reached, unitProgress, appState, pack, onNavigate }) {
+  const rows = [];
+
+  stops.forEach((st, i) => {
+    const isDone = i < reached;
+    const isNow = i === reached;
+    const unit = unitProgress[st.unitIndex];
+    const label = isDone ? st.done : isNow ? `Next — ${st.next}` : `Then ${st.next}`;
+    const last = i === stops.length - 1;
+
+    rows.push(
+      <div className="stop-row" key={st.id}>
+        <div className="stop-gutter">
+          <div className={`stop-dot ${isDone ? "stop-dot-done" : isNow ? "stop-dot-now" : "stop-dot-todo"}`}>
+            {isDone ? "✓" : ""}
+          </div>
+          {!last && <div className={`stop-line ${isDone ? "stop-line-done" : ""}`} />}
+        </div>
+        <button
+          onClick={() => unit && unit.unlocked && onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
+          disabled={!unit || !unit.unlocked}
+          style={{
+            flex: 1, textAlign: "left", background: "none", border: "none",
+            padding: "0 0 16px", cursor: unit?.unlocked ? "pointer" : "default",
+            opacity: isDone ? 0.72 : unit?.unlocked ? 1 : 0.5, minWidth: 0,
+          }}
+        >
+          <div style={{ fontSize: 14.5, color: "var(--text)", lineHeight: 1.4, fontWeight: isNow ? 700 : 400 }}>
+            {label}
+          </div>
+          <div style={{ fontSize: 12, color: "var(--text-mute)", marginTop: 3 }}>
+            {isDone ? st.you.translit : `${st.they.translit} → ${st.you.translit}`}
+          </div>
+        </button>
+      </div>
+    );
+
+    // Chapter exam sits on the spine wherever a chapter closes.
+    const unitIdx = st.unitIndex;
+    const isChapterEnd = (unitIdx + 1) % UNITS_PER_CHAPTER === 0;
+    if (isChapterEnd && unitProgress.length > unitIdx + 1) {
+      const chapterNum = chapterOfUnitIndex(unitIdx);
+      const vocabIds = chapterVocabIds(pack.vocab, chapterNum);
+      rows.push(
+        <div className="stop-row" key={`exam-${chapterNum}`}>
+          <div className="stop-gutter">
+            <div className="stop-dot stop-dot-todo" style={{ borderRadius: 3 }} />
+            <div className="stop-line" />
+          </div>
+          <div style={{ flex: 1, paddingBottom: 16, minWidth: 0 }}>
+            <ChapterExamCard
+              chapterNum={chapterNum}
+              available={isChapterExamAvailable(unitProgress, chapterNum)}
+              passed={hasPassedChapter(appState, pack.code, chapterNum)}
+              onStart={() =>
+                onNavigate("lesson", {
+                  mode: "chapter_exam",
+                  chapter: chapterNum,
+                  filter: { vocabIds },
+                  sessionSize: Math.min(10, Math.max(6, vocabIds.length)),
+                })
+              }
+            />
+          </div>
+        </div>
+      );
+    }
+  });
+
+  // Units beyond the written stops keep their existing cards — the curriculum
+  // stays fully reachable while capability content is still being written.
+  const firstUnwritten = stops.length ? Math.max(...stops.map((s) => s.unitIndex)) + 1 : 0;
+  const rest = unitProgress.slice(firstUnwritten);
+  if (rest.length > 0) {
+    rows.push(
+      <div key="rest" style={{ marginTop: 6 }}>
+        <div className="eyebrow" style={{ marginBottom: 10 }}>Further on</div>
+        <div className="journey-row">
+          {rest.map((unit, j) => (
+            <UnitNode
+              key={unit.id}
+              unit={unit}
+              index={firstUnwritten + j}
+              isCurrent={false}
+              onTap={() => unit.unlocked && onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
+              onTestOut={() => onNavigate("testout", { fromUnit: unit.id })}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return <div className="stagger">{rows}</div>;
+}
+
 function UnitNode({ unit, index, isCurrent, onTap, onTestOut }) {
   const isComplete = unit.pct >= 1;
   const isLocked = !unit.unlocked;

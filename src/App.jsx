@@ -6,7 +6,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useEngine } from "./hooks/useEngine.js";
 import { usePersistentState } from "./hooks/usePersistentState.js";
 import { getStorage } from "./storage/index.js";
-import { BottomNav, Button, Container } from "./ui/primitives.jsx";
+import { BottomNav, SideRail, Button, Container } from "./ui/primitives.jsx";
 import { applyTheme } from "./ui/themes.js";
 import {
   Onboarding,
@@ -191,6 +191,15 @@ export default function App() {
     <ErrorBoundary onRecover={() => navigate("home")}>
       {/* v52: keyed wrapper — remounts on every screen change so the
           screenIn animation plays. No hard cuts between screens. */}
+      <div className="app-shell">
+      {screen !== "lesson" && (
+        <SideRail
+          screen={screen}
+          onNavigate={navigate}
+          streak={appState.streak || 0}
+          totalXp={appState.totalXp || 0}
+        />
+      )}
       <div key={screen} className="screen-enter">
         {screen === "home" && <Home {...screenProps} />}
         {screen === "hub" && <PracticeHub {...screenProps} />}
@@ -208,6 +217,7 @@ export default function App() {
         {screen === "profile" && <Profile {...screenProps} onSwitchLanguage={switchLanguage} />}
         {screen === "settings" && <Settings appState={appState} setAppState={setAppState} onResetAll={resetAll} onNavigate={navigate} />}
         {screen === "upgrade" && <Upgrade appState={appState} setAppState={setAppState} onNavigate={navigate} />}
+      </div>
       </div>
       {screen !== "lesson" && <BottomNav screen={screen} onNavigate={navigate} />}
     </ErrorBoundary>

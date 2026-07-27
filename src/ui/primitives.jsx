@@ -214,6 +214,50 @@ function Stat({ icon, value, color = "var(--text)" }) {
   );
 }
 
+
+// v66 — desktop side rail. Shown only at >=1024px (CSS), replacing the bottom
+// nav, which is a phone pattern. Uses the same item list as BottomNav so the
+// two can't drift apart.
+export function SideRail({ screen, onNavigate, streak = 0, totalXp = 0 }) {
+  const items = [
+    { id: "home", icon: ICONS.sprout, label: "Learn" },
+    { id: "hub", icon: ICONS.grid, label: "Practice" },
+    { id: "practice", icon: ICONS.mic, label: "Speak" },
+    { id: "profile", icon: ICONS.user, label: "Profile" },
+  ];
+  const active = screen === "home" ? "home" : screen;
+  return (
+    <nav className="side-rail" aria-label="Main">
+      <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "0 12px 20px" }}>
+        <img src="/zaban-mark-transparent.png" alt="" style={{ width: 22, height: 22, objectFit: "contain" }} />
+        <span className="brand-serif" style={{ fontSize: 17, color: "var(--ink)" }}>zaban</span>
+      </div>
+      {items.map((it) => (
+        <button
+          key={it.id}
+          className="side-rail-item"
+          aria-current={active === it.id ? "page" : undefined}
+          onClick={() => onNavigate(it.id)}
+        >
+          {it.icon}
+          {it.label}
+        </button>
+      ))}
+      <div style={{ flex: 1 }} />
+      <div style={{ borderTop: "1px solid var(--border)", paddingTop: 14, display: "flex", gap: 16, padding: "14px 12px 0" }}>
+        <div>
+          <div style={{ fontSize: 15, fontWeight: 800, color: "var(--ink)" }}>{streak}</div>
+          <div style={{ fontSize: 10.5, color: "var(--text-mute)" }}>day streak</div>
+        </div>
+        <div>
+          <div style={{ fontSize: 15, fontWeight: 800, color: "var(--ink)" }}>{totalXp}</div>
+          <div style={{ fontSize: 10.5, color: "var(--text-mute)" }}>xp</div>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
 export function BottomNav({ screen, onNavigate }) {
   // v57: mobile-first nav — Learn | Practice | Speak | Profile.
   // Words moved inside the Practice hub; Settings moved inside Profile.
@@ -225,6 +269,7 @@ export function BottomNav({ screen, onNavigate }) {
   ];
   return (
     <div
+      className="bottom-nav"
       style={{
         position: "fixed",
         bottom: 0,
@@ -264,9 +309,9 @@ export function BottomNav({ screen, onNavigate }) {
   );
 }
 
-export function Container({ children, style }) {
+export function Container({ children, style, className = "" }) {
   return (
-    <div style={{ maxWidth: 720, margin: "0 auto", padding: "20px 16px", paddingBottom: 100, ...style }}>
+    <div className={className} style={{ maxWidth: 720, margin: "0 auto", padding: "20px 16px", paddingBottom: 100, ...style }}>
       {children}
     </div>
   );

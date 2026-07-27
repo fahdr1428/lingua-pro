@@ -487,3 +487,100 @@ button:active { transform: translateY(1px) scale(0.98); }
 body { line-height: 1.5; }
 :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
 button:focus:not(:focus-visible) { outline: none; }
+
+/* ============================================================
+   v66 RESPONSIVE SHELL — phone and laptop are different layouts,
+   not the same column at two sizes.
+   Mobile (default): unchanged — single column + bottom nav.
+   Laptop (>=1024px): side rail replaces bottom nav, home gains a
+   reach column so the width does real work instead of sitting empty.
+   ============================================================ */
+
+/* Chrome stays left-to-right even for RTL languages; only the
+   language's own text flips. Prevents the whole layout mirroring. */
+.app-shell { direction: ltr; }
+
+.side-rail { display: none; }
+
+@media (min-width: 1024px) {
+  .app-shell {
+    display: grid;
+    grid-template-columns: 212px minmax(0, 1fr);
+    align-items: start;
+    min-height: 100vh;
+  }
+
+  .side-rail {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 22px 14px;
+    background: var(--bg-alt);
+    border-right: 1px solid var(--border);
+    box-sizing: border-box;
+  }
+
+  .side-rail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    transition: background 160ms var(--ease-smooth, ease);
+  }
+  .side-rail-item:hover { background: var(--surface-hi); }
+  .side-rail-item[aria-current="page"] { background: var(--primary-soft); color: var(--primary-dark); }
+
+  /* Bottom nav is a phone pattern — off on laptop, the rail replaces it. */
+  .bottom-nav { display: none !important; }
+
+  /* Home: centre journey + reach column. minmax(0,…) prevents overflow. */
+  .home-cols {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 34px;
+    align-items: start;
+  }
+  .reach-rail { display: block; position: sticky; top: 24px; }
+}
+
+/* Below the desktop breakpoint the reach column is inlined into the
+   single-column flow instead of being hidden, so nothing is lost. */
+.reach-rail { margin-top: 22px; }
+
+/* Journey spine ------------------------------------------------------- */
+.stop-row { display: flex; gap: 13px; }
+.stop-gutter { display: flex; flex-direction: column; align-items: center; }
+.stop-line { width: 1.5px; flex: 1; background: var(--border); min-height: 22px; }
+.stop-line-done { background: #c8ded4; }
+.stop-dot { width: 15px; height: 15px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.stop-dot-done { background: var(--primary-soft); color: var(--primary-dark); font-size: 10px; font-weight: 900; }
+.stop-dot-now { width: 17px; height: 17px; background: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+.stop-dot-todo { width: 11px; height: 11px; border: 1.5px solid var(--text-mute); background: var(--bg); }
+
+/* The exchange preview: they ask / you answer */
+.exchange { background: var(--surface-hi); border-radius: 10px; padding: 12px 14px; margin-top: 12px; }
+.exchange-label { font-size: 11.5px; color: var(--text-mute); }
+.exchange-line { font-size: 14px; color: var(--text); margin-top: 3px; }
+.exchange-en { font-size: 11.5px; color: var(--text-mute); margin-top: 1px; }
+@media (min-width: 640px) {
+  .exchange { display: flex; gap: 18px; }
+  .exchange > div { flex: 1; min-width: 0; }
+}
+
+/* Home container: comfortable measure on phone, room for two columns on laptop */
+.home-container { max-width: 560px; }
+@media (min-width: 1024px) {
+  .home-container { max-width: 1020px; padding-bottom: 40px; }
+  .desktop-hide { display: none !important; }
+}
