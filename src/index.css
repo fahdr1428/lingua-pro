@@ -584,3 +584,9 @@ button:focus:not(:focus-visible) { outline: none; }
   .home-container { max-width: 1020px; padding-bottom: 40px; }
   .desktop-hide { display: none !important; }
 }
+
+/* v67 — full-width shell for focused screens (lesson) that hide the rail.
+   Without this the single child lands in the rail's 212px track. */
+@media (min-width: 1024px) {
+  .app-shell.app-shell-full { grid-template-columns: minmax(0, 1fr); }
+}

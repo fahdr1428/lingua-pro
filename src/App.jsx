@@ -191,7 +191,10 @@ export default function App() {
     <ErrorBoundary onRecover={() => navigate("home")}>
       {/* v52: keyed wrapper — remounts on every screen change so the
           screenIn animation plays. No hard cuts between screens. */}
-      <div className="app-shell">
+      {/* v67 FIX: the lesson screen hides the side rail, so the shell must
+          collapse to a single column — otherwise the lesson lands in the
+          212px rail track and gets clipped. */}
+      <div className={screen === "lesson" ? "app-shell app-shell-full" : "app-shell"}>
       {screen !== "lesson" && (
         <SideRail
           screen={screen}
