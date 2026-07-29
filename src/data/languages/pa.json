@@ -5,12 +5,15 @@
     "Body",
     "Colors",
     "Common",
+    "Connectors",
     "Family",
     "Food",
     "Greetings",
     "Numbers",
     "People",
     "Time",
+    "Transport",
+    "Travel",
     "Verbs",
     "Weather"
   ],
@@ -133,6 +136,12 @@
       "title": "Food & Drink",
       "emoji": "🍽️",
       "description": "Water, bread, tea"
+    },
+    {
+      "id": "u6",
+      "title": "Getting Around",
+      "emoji": "🧭",
+      "description": "Connectors, transport, and travel basics"
     }
   ],
   "vocab": [
@@ -1413,6 +1422,405 @@
         {
           "native": "بہت چنگا",
           "translation": "Very good"
+        }
+      ]
+    },
+    {
+      "id": "pa_0081",
+      "unit": "u6",
+      "lemma": "تے",
+      "translit": "te",
+      "pronunciation": "TAY",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "چاۓ تے کافی",
+          "translation": "Tea and coffee"
+        }
+      ]
+    },
+    {
+      "id": "pa_0082",
+      "unit": "u6",
+      "lemma": "پر",
+      "translit": "par",
+      "pronunciation": "PUR",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "نکا پر سوہنا",
+          "translation": "Small but beautiful"
+        }
+      ]
+    },
+    {
+      "id": "pa_0083",
+      "unit": "u6",
+      "lemma": "کیونجے",
+      "translit": "kionje",
+      "pronunciation": "kyoon-JAY",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "تھکیا کیونجے کم بہت اے",
+          "translation": "Tired because there's a lot of work"
+        }
+      ]
+    },
+    {
+      "id": "pa_0084",
+      "unit": "u6",
+      "lemma": "یا",
+      "translit": "ya",
+      "pronunciation": "YAH",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "چاۓ یا کافی",
+          "translation": "Tea or coffee"
+        }
+      ]
+    },
+    {
+      "id": "pa_0085",
+      "unit": "u6",
+      "lemma": "وی",
+      "translit": "vi",
+      "pronunciation": "VEE",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "میں وی",
+          "translation": "Me too"
+        }
+      ]
+    },
+    {
+      "id": "pa_0086",
+      "unit": "u6",
+      "lemma": "جے",
+      "translit": "je",
+      "pronunciation": "JAY",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "جے تسیں چاہو",
+          "translation": "If you want"
+        }
+      ]
+    },
+    {
+      "id": "pa_0087",
+      "unit": "u6",
+      "lemma": "گڈی",
+      "translit": "gaddi",
+      "pronunciation": "GUD-dee",
+      "translation": "car",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "میری گڈی",
+          "translation": "My car"
+        }
+      ]
+    },
+    {
+      "id": "pa_0088",
+      "unit": "u6",
+      "lemma": "بس",
+      "translit": "bas",
+      "pronunciation": "BUSS",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "بس لوو",
+          "translation": "Take the bus"
+        }
+      ]
+    },
+    {
+      "id": "pa_0089",
+      "unit": "u6",
+      "lemma": "ریل",
+      "translit": "rail",
+      "pronunciation": "RAIL",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "ریل تیز اے",
+          "translation": "The train is fast"
+        }
+      ]
+    },
+    {
+      "id": "pa_0090",
+      "unit": "u6",
+      "lemma": "ٹیکسی",
+      "translit": "taxi",
+      "pronunciation": "TAK-see",
+      "translation": "taxi",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "ٹیکسی سدو",
+          "translation": "Call a taxi"
+        }
+      ]
+    },
+    {
+      "id": "pa_0091",
+      "unit": "u6",
+      "lemma": "ہوائی اڈا",
+      "translit": "hawai adda",
+      "pronunciation": "huh-VAI UD-dah",
+      "translation": "airport",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "ہوائی اڈے جانا",
+          "translation": "Going to the airport"
+        }
+      ]
+    },
+    {
+      "id": "pa_0092",
+      "unit": "u6",
+      "lemma": "سجے",
+      "translit": "sajje",
+      "pronunciation": "SUJ-jay",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "سجے مڑو",
+          "translation": "Turn right"
+        }
+      ]
+    },
+    {
+      "id": "pa_0093",
+      "unit": "u6",
+      "lemma": "کھبے",
+      "translit": "khabbe",
+      "pronunciation": "KHUB-bay",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "کھبے مڑو",
+          "translation": "Turn left"
+        }
+      ]
+    },
+    {
+      "id": "pa_0094",
+      "unit": "u6",
+      "lemma": "ہوٹل",
+      "translit": "hotel",
+      "pronunciation": "HO-tel",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "چنگا ہوٹل",
+          "translation": "A good hotel"
+        }
+      ]
+    },
+    {
+      "id": "pa_0095",
+      "unit": "u6",
+      "lemma": "ٹکٹ",
+      "translit": "tikat",
+      "pronunciation": "TI-kut",
+      "translation": "ticket",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "اک ٹکٹ مہربانی کرکے",
+          "translation": "One ticket please"
+        }
+      ]
+    },
+    {
+      "id": "pa_0096",
+      "unit": "u6",
+      "lemma": "پاسپورٹ",
+      "translit": "passport",
+      "pronunciation": "PASS-port",
+      "translation": "passport",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "میرا پاسپورٹ",
+          "translation": "My passport"
+        }
+      ]
+    },
+    {
+      "id": "pa_0097",
+      "unit": "u6",
+      "lemma": "سٹیشن",
+      "translit": "station",
+      "pronunciation": "STAY-shun",
+      "translation": "station",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "بس سٹیشن",
+          "translation": "The bus station"
+        }
+      ]
+    },
+    {
+      "id": "pa_0098",
+      "unit": "u6",
+      "lemma": "نقشہ",
+      "translit": "naksha",
+      "pronunciation": "NUK-shah",
+      "translation": "map",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "مینوں نقشہ دیو",
+          "translation": "Give me a map"
+        }
+      ]
+    },
+    {
+      "id": "pa_0099",
+      "unit": "u6",
+      "lemma": "نیڑے",
+      "translit": "nere",
+      "pronunciation": "NAY-ray",
+      "translation": "near",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "ہوٹل دے نیڑے",
+          "translation": "Near the hotel"
+        }
+      ]
+    },
+    {
+      "id": "pa_0100",
+      "unit": "u6",
+      "lemma": "دور",
+      "translit": "door",
+      "pronunciation": "DOOR",
+      "translation": "far",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "بہت دور",
+          "translation": "Very far"
+        }
+      ]
+    },
+    {
+      "id": "pa_0101",
+      "unit": "u6",
+      "lemma": "سدھا",
+      "translit": "siddha",
+      "pronunciation": "SID-dhah",
+      "translation": "straight ahead",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "سدھا جاوو",
+          "translation": "Go straight ahead"
         }
       ]
     }

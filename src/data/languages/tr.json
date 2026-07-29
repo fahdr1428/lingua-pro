@@ -2,16 +2,19 @@
  "schemaVersion": 1,
  "code": "tr",
  "categories": [
-  "Greetings",
-  "Politeness",
-  "Numbers",
+  "Adjectives",
+  "Connectors",
   "Family",
   "Food",
-  "Verbs",
+  "Greetings",
+  "Numbers",
   "Places",
-  "Adjectives",
+  "Politeness",
+  "Survival",
   "Time",
-  "Survival"
+  "Transport",
+  "Travel",
+  "Verbs"
  ],
  "alphabet": [
   {
@@ -1703,6 +1706,405 @@
     {
      "native": "Menü alabilir miyim lütfen?",
      "translation": "Can I have a menu, please?"
+    }
+   ]
+  },
+  {
+   "id": "tr_0098",
+   "unit": "u10",
+   "lemma": "ve",
+   "translit": "ve",
+   "pronunciation": "VEH",
+   "translation": "and",
+   "category": "Connectors",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "çay ve kahve",
+     "translation": "Tea and coffee"
+    }
+   ]
+  },
+  {
+   "id": "tr_0099",
+   "unit": "u10",
+   "lemma": "ama",
+   "translit": "ama",
+   "pronunciation": "ah-MAH",
+   "translation": "but",
+   "category": "Connectors",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "küçük ama güzel",
+     "translation": "Small but beautiful"
+    }
+   ]
+  },
+  {
+   "id": "tr_0100",
+   "unit": "u10",
+   "lemma": "çünkü",
+   "translit": "cunku",
+   "pronunciation": "CHEWN-kew",
+   "translation": "because",
+   "category": "Connectors",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "yorgunum çünkü iş çok",
+     "translation": "I'm tired because there's a lot of work"
+    }
+   ]
+  },
+  {
+   "id": "tr_0101",
+   "unit": "u10",
+   "lemma": "veya",
+   "translit": "veya",
+   "pronunciation": "veh-YAH",
+   "translation": "or",
+   "category": "Connectors",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "çay veya kahve",
+     "translation": "Tea or coffee"
+    }
+   ]
+  },
+  {
+   "id": "tr_0102",
+   "unit": "u10",
+   "lemma": "ayrıca",
+   "translit": "ayrica",
+   "pronunciation": "eye-rih-JAH",
+   "translation": "also, too",
+   "category": "Connectors",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "ben de ayrıca",
+     "translation": "Me too"
+    }
+   ]
+  },
+  {
+   "id": "tr_0103",
+   "unit": "u10",
+   "lemma": "eğer",
+   "translit": "eger",
+   "pronunciation": "eh-YEHR",
+   "translation": "if",
+   "category": "Connectors",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "eğer istersen",
+     "translation": "If you want"
+    }
+   ]
+  },
+  {
+   "id": "tr_0104",
+   "unit": "u10",
+   "lemma": "araba",
+   "translit": "araba",
+   "pronunciation": "ah-rah-BAH",
+   "translation": "car",
+   "category": "Transport",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "arabam",
+     "translation": "My car"
+    }
+   ]
+  },
+  {
+   "id": "tr_0105",
+   "unit": "u10",
+   "lemma": "minibüs",
+   "translit": "minibus",
+   "pronunciation": "MEE-nee-bews",
+   "translation": "minibus, shared van",
+   "category": "Transport",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "minibüse bin",
+     "translation": "Take the minibus"
+    }
+   ]
+  },
+  {
+   "id": "tr_0106",
+   "unit": "u10",
+   "lemma": "tren",
+   "translit": "tren",
+   "pronunciation": "TREN",
+   "translation": "train",
+   "category": "Transport",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "tren hızlı",
+     "translation": "The train is fast"
+    }
+   ]
+  },
+  {
+   "id": "tr_0107",
+   "unit": "u10",
+   "lemma": "taksi",
+   "translit": "taksi",
+   "pronunciation": "tahk-SEE",
+   "translation": "taxi",
+   "category": "Transport",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "taksi çağır",
+     "translation": "Call a taxi"
+    }
+   ]
+  },
+  {
+   "id": "tr_0108",
+   "unit": "u10",
+   "lemma": "havalimanı",
+   "translit": "havalimani",
+   "pronunciation": "hah-vah-lee-mah-NUH",
+   "translation": "airport",
+   "category": "Transport",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "havalimanına gitmek",
+     "translation": "Going to the airport"
+    }
+   ]
+  },
+  {
+   "id": "tr_0109",
+   "unit": "u10",
+   "lemma": "sağ",
+   "translit": "sag",
+   "pronunciation": "SAH",
+   "translation": "right (direction)",
+   "category": "Transport",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "sağa dön",
+     "translation": "Turn right"
+    }
+   ]
+  },
+  {
+   "id": "tr_0110",
+   "unit": "u10",
+   "lemma": "sol",
+   "translit": "sol",
+   "pronunciation": "SOL",
+   "translation": "left (direction)",
+   "category": "Transport",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "sola dön",
+     "translation": "Turn left"
+    }
+   ]
+  },
+  {
+   "id": "tr_0111",
+   "unit": "u10",
+   "lemma": "otel",
+   "translit": "otel",
+   "pronunciation": "oh-TEL",
+   "translation": "hotel",
+   "category": "Travel",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "iyi bir otel",
+     "translation": "A good hotel"
+    }
+   ]
+  },
+  {
+   "id": "tr_0112",
+   "unit": "u10",
+   "lemma": "bilet",
+   "translit": "bilet",
+   "pronunciation": "bee-LET",
+   "translation": "ticket",
+   "category": "Travel",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "bir bilet lütfen",
+     "translation": "One ticket please"
+    }
+   ]
+  },
+  {
+   "id": "tr_0113",
+   "unit": "u10",
+   "lemma": "pasaport",
+   "translit": "pasaport",
+   "pronunciation": "pah-sah-PORT",
+   "translation": "passport",
+   "category": "Travel",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "pasaportum",
+     "translation": "My passport"
+    }
+   ]
+  },
+  {
+   "id": "tr_0114",
+   "unit": "u10",
+   "lemma": "istasyon",
+   "translit": "istasyon",
+   "pronunciation": "ees-tahs-YOHN",
+   "translation": "station",
+   "category": "Travel",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "otobüs istasyonu",
+     "translation": "The bus station"
+    }
+   ]
+  },
+  {
+   "id": "tr_0115",
+   "unit": "u10",
+   "lemma": "harita",
+   "translit": "harita",
+   "pronunciation": "hah-ree-TAH",
+   "translation": "map",
+   "category": "Travel",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "bana harita ver",
+     "translation": "Give me a map"
+    }
+   ]
+  },
+  {
+   "id": "tr_0116",
+   "unit": "u10",
+   "lemma": "yakın",
+   "translit": "yakin",
+   "pronunciation": "yah-KUHN",
+   "translation": "near",
+   "category": "Travel",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "otele yakın",
+     "translation": "Near the hotel"
+    }
+   ]
+  },
+  {
+   "id": "tr_0117",
+   "unit": "u10",
+   "lemma": "uzak",
+   "translit": "uzak",
+   "pronunciation": "oo-ZAHK",
+   "translation": "far",
+   "category": "Travel",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "çok uzak",
+     "translation": "Very far"
+    }
+   ]
+  },
+  {
+   "id": "tr_0118",
+   "unit": "u10",
+   "lemma": "dosdoğru",
+   "translit": "dosdogru",
+   "pronunciation": "dohs-doh-ROO",
+   "translation": "straight ahead",
+   "category": "Travel",
+   "difficulty": 2,
+   "tags": [
+    "travel-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "dosdoğru git",
+     "translation": "Go straight ahead"
     }
    ]
   }

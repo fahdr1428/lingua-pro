@@ -6,42 +6,46 @@
 import React, { useState } from "react";
 import { LANGUAGES, listLanguages } from "../data/registry.js";
 
+// v69 (ui-ux-pro-max premium pass): brought the shared Button in line with the
+// "luxury is restraint" language already established by .btn-premium on Home —
+// ink-black primary, no shouty uppercase, soft layered shadow instead of a hard
+// 4px offset. This cascades to every screen still using the old loud style
+// (Onboarding, Settings, Upgrade, Letters, Profile) without touching Lesson.jsx's
+// bespoke exercise UI, which has its own carefully-tuned feedback colors.
 export function Button({ children, variant = "primary", style, ...rest }) {
   const base = {
     border: "none",
-    borderRadius: 12,
-    padding: "14px 24px",
-    fontSize: 16,
+    borderRadius: 16,
+    padding: "15px 22px",
+    fontSize: 15,
     fontWeight: 800,
+    letterSpacing: 0.1,
     cursor: "pointer",
     width: "100%",
-    transition: "transform 0.1s, background 0.2s",
-    textTransform: "uppercase",
-    letterSpacing: 0.5,
+    transition: "transform 150ms var(--ease-smooth, ease), box-shadow 200ms var(--ease-smooth, ease), filter 200ms var(--ease-smooth, ease)",
   };
   const variants = {
     primary: {
-      background: "var(--primary)",
+      background: "var(--ink)",
       color: "#fff",
-      boxShadow: "0 4px 0 var(--primary-dark)",
+      boxShadow: "0 2px 0 #161d2c, 0 8px 20px rgba(35,43,61,0.22)",
     },
     secondary: {
-      background: "var(--surface-hi)",
+      background: "var(--surface)",
       color: "var(--text)",
-      border: "2px solid var(--border)",
+      border: "1px solid var(--border)",
+      boxShadow: "var(--shadow-card)",
     },
     danger: {
       background: "var(--danger)",
       color: "#fff",
-      boxShadow: "0 4px 0 #991b1b",
+      boxShadow: "0 3px 0 #991b1b",
     },
     ghost: {
       background: "transparent",
       color: "var(--text-dim)",
       padding: "10px 16px",
       fontSize: 14,
-      letterSpacing: 0,
-      textTransform: "none",
     },
   };
   return <button style={{ ...base, ...variants[variant], ...style }} {...rest}>{children}</button>;
@@ -91,6 +95,7 @@ export const ICONS = {
   grid: ic('<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>'),
   mic: ic('<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>'),
   user: ic('<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'),
+  zap: ic('<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>', 16),
 };
 
 export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, onPickLanguage }) {
@@ -102,7 +107,8 @@ export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, on
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "16px 20px",
+        gap: 10,
+        padding: "14px 16px",
         background: "var(--bg-alt)",
         borderBottom: "1px solid var(--border)",
         position: "sticky",
@@ -110,32 +116,33 @@ export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, on
         zIndex: 10,
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0, flexShrink: 1 }}>
         {/* v40: visible, tappable language switcher — one tap to change language */}
         {lang && onPickLanguage && (
           <button
             onClick={() => setPickerOpen(true)}
             aria-label="Switch language"
             style={{
-              display: "flex", alignItems: "center", gap: 6,
+              display: "flex", alignItems: "center", gap: 5,
               background: "var(--surface-hi)", border: "1px solid var(--border)",
-              borderRadius: 999, padding: "5px 10px 5px 8px", cursor: "pointer",
-              fontWeight: 800, fontSize: 14, color: "var(--text)",
+              borderRadius: 999, padding: "5px 9px 5px 7px", cursor: "pointer",
+              fontWeight: 800, fontSize: 13, color: "var(--text)",
+              flexShrink: 1, minWidth: 0, whiteSpace: "nowrap",
             }}
           >
-            <span style={{ fontSize: 18 }}>{lang.flag}</span>
-            <span>{lang.name}</span>
-            <span style={{ fontSize: 10, opacity: 0.6 }}>▼</span>
+            <span style={{ fontSize: 16, flexShrink: 0 }}>{lang.flag}</span>
+            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: 84 }}>{lang.name}</span>
+            <span style={{ fontSize: 9, opacity: 0.6, flexShrink: 0 }}>▼</span>
           </button>
         )}
         <Stat icon={ICONS.flame} value={streak} />
         <Stat icon={ICONS.gem} value={gems} color="var(--accent)" />
         <Stat icon={ICONS.heart} value={premium ? "∞" : hearts} color="var(--danger)" />
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        <div style={{ fontSize: 14, color: "var(--text-dim)", fontWeight: 700 }}>⚡ {totalXp}</div>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+        <Stat icon={ICONS.zap} value={totalXp} color="var(--accent)" />
         {/* Zaban brand mark — present on every screen */}
-        <img src="/zaban-mark-transparent.png" alt="Zaban" style={{ height: 28, width: 28, objectFit: "contain", opacity: 0.95 }} />
+        <img src="/zaban-mark-transparent.png" alt="Zaban" style={{ height: 24, width: 24, objectFit: "contain", opacity: 0.95, flexShrink: 0 }} />
       </div>
 
       {pickerOpen && (
@@ -207,8 +214,8 @@ function LanguagePickerModal({ currentLang, onPick, onClose }) {
 
 function Stat({ icon, value, color = "var(--text)" }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 18, fontWeight: 800, color }}>
-      <span style={{ fontSize: 20 }}>{icon}</span>
+    <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 15, fontWeight: 800, color, flexShrink: 0, whiteSpace: "nowrap" }}>
+      <span style={{ display: "flex", flexShrink: 0 }}>{icon}</span>
       <span>{value}</span>
     </div>
   );

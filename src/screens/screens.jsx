@@ -21,6 +21,10 @@ import { hasSentencePatterns, getPatternForDrop, ladderHeight } from "../data/se
 // ONBOARDING — language picker + daily goal
 // =============================================================================
 
+// v69 (ui-ux-pro-max premium pass): onboarding is the first thing anyone sees,
+// so it now shares the "luxury is restraint" language the rest of the app
+// settled into — home-wash backdrop, eyebrow step counters, quiet ink-tinted
+// selection states instead of a wall of saturated per-language brand colors.
 export function Onboarding({ onComplete }) {
   const [step, setStep] = useState(0);
   const [language, setLanguage] = useState(null);
@@ -28,69 +32,78 @@ export function Onboarding({ onComplete }) {
 
   if (step === 0) {
     return (
-      <Container style={{ paddingTop: 60, textAlign: "center" }}>
-        <img
-          src="/zaban-logo.png"
-          alt="Zaban"
-          style={{ width: "min(280px, 70vw)", height: "auto", margin: "0 auto 8px", display: "block" }}
-        />
-        <p style={{ fontSize: 18, color: "var(--text-dim)", maxWidth: 380, margin: "0 auto 40px", lineHeight: 1.5 }}>
-          Learn the languages the world ignores. Real grammar frameworks. Adaptive spaced repetition. No fluff.
-        </p>
-        <Button onClick={() => setStep(1)}>Get Started</Button>
-      </Container>
+      <div className="home-wash">
+        <Container style={{ paddingTop: "14vh", textAlign: "center" }}>
+          <img
+            src="/zaban-logo.png"
+            alt="Zaban"
+            style={{ width: "min(260px, 66vw)", height: "auto", margin: "0 auto 8px", display: "block" }}
+          />
+          <p style={{ fontSize: 17, color: "var(--text-dim)", maxWidth: 380, margin: "0 auto 36px", lineHeight: 1.6 }}>
+            Learn the languages the world ignores. Real grammar frameworks. Adaptive spaced repetition. No fluff.
+          </p>
+          <Button onClick={() => setStep(1)}>Get started</Button>
+        </Container>
+      </div>
     );
   }
 
   if (step === 1) {
     return (
-      <Container>
-        <h2 style={{ fontSize: 26, fontWeight: 800, marginTop: 20 }}>Pick a language</h2>
-        <p style={{ color: "var(--text-dim)", marginBottom: 24 }}>Start with one. Add more later.</p>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-          {listLanguages().map((lang) => (
-            <button
-              key={lang.code}
-              onClick={() => setLanguage(lang.code)}
-              style={{
-                background: language === lang.code ? lang.color : "var(--surface)",
-                border: `2px solid ${language === lang.code ? lang.color : "var(--border)"}`,
-                borderRadius: 16,
-                padding: 18,
-                cursor: "pointer",
-                color: "var(--text)",
-                textAlign: "left",
-                transition: "all 0.15s",
-              }}
-            >
-              <div style={{ fontSize: 36, marginBottom: 6 }}>{lang.flag}</div>
-              <div style={{ fontWeight: 800, fontSize: 16 }}>{lang.name}</div>
-              <div style={{ fontSize: 13, opacity: 0.85 }}>{lang.nativeName}</div>
-              {lang.niche && (
-                <div
+      <div className="home-wash">
+        <Container>
+          <div className="eyebrow" style={{ marginTop: 24 }}>Step 1 of 2</div>
+          <h2 style={{ fontSize: 27, fontWeight: 600, marginTop: 6, marginBottom: 4 }}>Pick a language</h2>
+          <p style={{ color: "var(--text-dim)", marginBottom: 22, fontSize: 14 }}>Start with one. Add more later.</p>
+          <div className="stagger" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            {listLanguages().map((lang) => {
+              const selected = language === lang.code;
+              return (
+                <button
+                  key={lang.code}
+                  onClick={() => setLanguage(lang.code)}
+                  className="card-lift"
                   style={{
-                    display: "inline-block",
-                    marginTop: 8,
-                    fontSize: 11,
-                    padding: "3px 10px",
-                    borderRadius: 999,
-                    background: "rgba(0,0,0,0.3)",
-                    color: "#ffd700",
-                    fontWeight: 700,
+                    background: selected ? "var(--primary-soft)" : "var(--surface)",
+                    border: `1.5px solid ${selected ? "var(--ink)" : "var(--border)"}`,
+                    borderRadius: "var(--radius-lg)",
+                    padding: 16,
+                    cursor: "pointer",
+                    color: "var(--text)",
+                    textAlign: "left",
+                    boxShadow: selected ? "var(--shadow-deep)" : "var(--shadow-card)",
                   }}
                 >
-                  ⭐ Rare find
-                </div>
-              )}
-            </button>
-          ))}
-        </div>
-        <div style={{ marginTop: 24 }}>
-          <Button style={{ opacity: language ? 1 : 0.4 }} disabled={!language} onClick={() => setStep(2)}>
-            Continue
-          </Button>
-        </div>
-      </Container>
+                  <div style={{ fontSize: 32, marginBottom: 6 }}>{lang.flag}</div>
+                  <div style={{ fontWeight: 800, fontSize: 15, color: "var(--ink)" }}>{lang.name}</div>
+                  <div style={{ fontSize: 12.5, color: "var(--text-dim)" }}>{lang.nativeName}</div>
+                  {lang.niche && (
+                    <div
+                      style={{
+                        display: "inline-block",
+                        marginTop: 8,
+                        fontSize: 10.5,
+                        padding: "3px 9px",
+                        borderRadius: 999,
+                        background: "var(--accent-soft)",
+                        color: "var(--accent)",
+                        fontWeight: 800,
+                      }}
+                    >
+                      ✦ Rare find
+                    </div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+          <div style={{ marginTop: 22, paddingBottom: 24 }}>
+            <Button style={{ opacity: language ? 1 : 0.4 }} disabled={!language} onClick={() => setStep(2)}>
+              Continue
+            </Button>
+          </div>
+        </Container>
+      </div>
     );
   }
 
@@ -102,39 +115,49 @@ export function Onboarding({ onComplete }) {
     { xp: 140, label: "Intense", time: "~4 lessons a day" },
   ];
   return (
-    <Container>
-      <h2 style={{ fontSize: 26, fontWeight: 800, marginTop: 20 }}>Daily goal</h2>
-      <p style={{ color: "var(--text-dim)", marginBottom: 24 }}>You can change this anytime.</p>
-      {goals.map((g) => (
-        <button
-          key={g.xp}
-          onClick={() => setGoal(g.xp)}
-          style={{
-            background: goal === g.xp ? "var(--primary-dark)" : "var(--surface)",
-            border: `2px solid ${goal === g.xp ? "var(--primary)" : "var(--border)"}`,
-            borderRadius: 16,
-            padding: 20,
-            cursor: "pointer",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "100%",
-            color: "var(--text)",
-            textAlign: "left",
-            marginBottom: 12,
-          }}
-        >
-          <div>
-            <div style={{ fontSize: 18, fontWeight: 800 }}>{g.label}</div>
-            <div style={{ fontSize: 13, color: "var(--text-dim)" }}>{g.time}</div>
-          </div>
-          <div style={{ fontSize: 18, fontWeight: 800, color: "var(--accent)" }}>{g.xp} XP</div>
-        </button>
-      ))}
-      <div style={{ marginTop: 24 }}>
-        <Button onClick={() => onComplete({ language, goal })}>Start Learning</Button>
-      </div>
-    </Container>
+    <div className="home-wash">
+      <Container>
+        <div className="eyebrow" style={{ marginTop: 24 }}>Step 2 of 2</div>
+        <h2 style={{ fontSize: 27, fontWeight: 600, marginTop: 6, marginBottom: 4 }}>Daily goal</h2>
+        <p style={{ color: "var(--text-dim)", marginBottom: 22, fontSize: 14 }}>You can change this anytime.</p>
+        <div className="stagger">
+          {goals.map((g) => {
+            const selected = goal === g.xp;
+            return (
+              <button
+                key={g.xp}
+                onClick={() => setGoal(g.xp)}
+                className="card-lift"
+                style={{
+                  background: selected ? "var(--primary-soft)" : "var(--surface)",
+                  border: `1.5px solid ${selected ? "var(--ink)" : "var(--border)"}`,
+                  borderRadius: "var(--radius-lg)",
+                  padding: 18,
+                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "100%",
+                  color: "var(--text)",
+                  textAlign: "left",
+                  marginBottom: 10,
+                  boxShadow: selected ? "var(--shadow-deep)" : "var(--shadow-card)",
+                }}
+              >
+                <div>
+                  <div style={{ fontSize: 16, fontWeight: 800, color: "var(--ink)" }}>{g.label}</div>
+                  <div style={{ fontSize: 12.5, color: "var(--text-dim)" }}>{g.time}</div>
+                </div>
+                <div style={{ fontSize: 16, fontWeight: 800, color: "var(--root)" }}>{g.xp} XP</div>
+              </button>
+            );
+          })}
+        </div>
+        <div style={{ marginTop: 22, paddingBottom: 24 }}>
+          <Button onClick={() => onComplete({ language, goal })}>Start learning</Button>
+        </div>
+      </Container>
+    </div>
   );
 }
 
@@ -227,39 +250,52 @@ export function Vocab({ engine, pack, appState, onNavigate }) {
     return true;
   });
 
+  // v69: group into category sections instead of one flat 150+-item scroll.
+  // Each row is compact (no per-word Card chrome) — the mastery dots and
+  // speak button stay, but padding drops from a full card to a hairline row.
+  const grouped = useMemo(() => {
+    const byCat = new Map();
+    for (const v of filtered) {
+      if (!byCat.has(v.category)) byCat.set(v.category, []);
+      byCat.get(v.category).push(v);
+    }
+    return [...byCat.entries()];
+  }, [filtered]);
+
   return (
     <div>
       <TopBar streak={appState.streak} gems={appState.gems} hearts={appState.hearts} totalXp={appState.totalXp} premium={appState.isPremium} />
-      <Container>
-        <h2 style={{ fontSize: 26, fontWeight: 900, marginTop: 8 }}>Vocabulary</h2>
+      <Container style={{ maxWidth: 560 }}>
+        <h2 style={{ fontSize: 26, fontWeight: 600, marginTop: 8, marginBottom: 2 }}>Vocabulary</h2>
+        <p style={{ fontSize: 13, color: "var(--text-dim)", marginBottom: 16 }}>{all.length} words · {filtered.length} shown</p>
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search…"
           style={{
             width: "100%",
-            padding: 14,
-            borderRadius: 12,
-            background: "var(--surface-hi)",
+            padding: 13,
+            borderRadius: 14,
+            background: "var(--surface)",
             border: "1px solid var(--border)",
             color: "var(--text)",
-            fontSize: 16,
+            fontSize: 15,
             boxSizing: "border-box",
             marginBottom: 12,
           }}
         />
-        <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 8, marginBottom: 12 }}>
+        <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 8, marginBottom: 6 }}>
           {categories.map((c) => (
             <button
               key={c}
               onClick={() => setFilter(c)}
               style={{
-                background: filter === c ? "var(--primary)" : "var(--surface-hi)",
+                background: filter === c ? "var(--ink)" : "var(--surface)",
                 color: filter === c ? "#fff" : "var(--text-dim)",
-                border: "none",
+                border: `1px solid ${filter === c ? "var(--ink)" : "var(--border)"}`,
                 borderRadius: 999,
-                padding: "8px 16px",
-                fontSize: 12,
+                padding: "7px 15px",
+                fontSize: 12.5,
                 fontWeight: 700,
                 whiteSpace: "nowrap",
                 flexShrink: 0,
@@ -270,58 +306,71 @@ export function Vocab({ engine, pack, appState, onNavigate }) {
             </button>
           ))}
         </div>
-        {filtered.map((v) => {
-          const card = progress[v.id];
-          const m = card ? masteryLevel(card) : 0;
-          return (
-            <Card key={v.id} style={{ padding: 16 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div style={{ flex: 1 }}>
+
+        {grouped.map(([cat, words]) => (
+          <div key={cat} style={{ marginTop: 20 }}>
+            <div className="eyebrow" style={{ marginBottom: 8 }}>{cat} · {words.length}</div>
+            <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-card)", overflow: "hidden" }}>
+              {words.map((v, i) => {
+                const card = progress[v.id];
+                const m = card ? masteryLevel(card) : 0;
+                return (
                   <div
+                    key={v.id}
                     style={{
-                      fontSize: 22,
-                      fontWeight: 800,
-                      direction: lang.rtl ? "rtl" : "ltr",
-                      fontFamily: lang.rtl ? '"Noto Naskh Arabic", serif' : "inherit",
+                      display: "flex", alignItems: "center", gap: 12, padding: "11px 14px",
+                      borderBottom: i < words.length - 1 ? "1px solid var(--surface-hi)" : "none",
                     }}
                   >
-                    {v.lemma}
+                    <button
+                      onClick={() => speak(v.lemma, lang.ttsCode, { audioId: v.id })}
+                      aria-label={`Hear ${v.lemma}`}
+                      style={{
+                        background: "var(--surface-hi)", border: "none", borderRadius: "50%",
+                        width: 34, height: 34, fontSize: 15, cursor: "pointer", color: "var(--text-dim)",
+                        flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center",
+                      }}
+                    >
+                      🔊
+                    </button>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
+                        <span
+                          style={{
+                            fontSize: 16, fontWeight: 800, color: "var(--ink)",
+                            direction: lang.rtl ? "rtl" : "ltr",
+                            fontFamily: lang.rtl ? '"Noto Naskh Arabic", serif' : "inherit",
+                          }}
+                        >
+                          {v.lemma}
+                        </span>
+                        <span style={{ fontSize: 12, color: "var(--text-mute)", fontStyle: "italic" }}>{v.translit}</span>
+                      </div>
+                      <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 1 }}>{v.translation}</div>
+                    </div>
+                    <div style={{ display: "flex", gap: 3, flexShrink: 0, width: 44 }}>
+                      {[0, 1, 2, 3, 4].map((di) => (
+                        <div
+                          key={di}
+                          style={{
+                            flex: 1, height: 4, borderRadius: 999,
+                            background: di < m ? "var(--primary)" : "var(--surface-hi)",
+                          }}
+                        />
+                      ))}
+                    </div>
                   </div>
-                  <div style={{ fontSize: 13, color: "var(--text-dim)", fontStyle: "italic" }}>{v.translit}</div>
-                  <div style={{ fontSize: 14, marginTop: 4 }}>{v.translation}</div>
-                </div>
-                <button
-                  onClick={() => speak(v.lemma, lang.ttsCode, { audioId: v.id })}
-                  style={{
-                    background: "var(--surface-hi)",
-                    border: "none",
-                    borderRadius: 999,
-                    width: 40,
-                    height: 40,
-                    fontSize: 18,
-                    cursor: "pointer",
-                    color: "var(--text)",
-                  }}
-                >
-                  🔊
-                </button>
-              </div>
-              <div style={{ display: "flex", gap: 4, marginTop: 10 }}>
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    style={{
-                      flex: 1,
-                      height: 4,
-                      background: i < m ? "var(--primary)" : "var(--surface-hi)",
-                      borderRadius: 999,
-                    }}
-                  />
-                ))}
-              </div>
-            </Card>
-          );
-        })}
+                );
+              })}
+            </div>
+          </div>
+        ))}
+
+        {grouped.length === 0 && (
+          <div style={{ textAlign: "center", padding: 40, color: "var(--text-dim)", fontSize: 14 }}>
+            No words match “{search}”.
+          </div>
+        )}
       </Container>
     </div>
   );
@@ -392,41 +441,39 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
     <div>
       <TopBar streak={appState.streak} gems={appState.gems} hearts={appState.hearts} totalXp={appState.totalXp} premium={appState.isPremium} />
       <Container>
-        <Card style={{ textAlign: "center", background: `linear-gradient(135deg, ${lang.color}, var(--surface))`, position: "relative" }}>
+        <div className="hero-premium" style={{ textAlign: "center", position: "relative" }}>
           {/* v57: Settings moved off the bottom nav — it lives here now */}
           <button
             onClick={() => onNavigate("settings")}
             aria-label="Settings"
             style={{
-              position: "absolute", top: 10, right: 10,
-              background: "rgba(255,255,255,0.75)", border: "1px solid var(--border)",
-              borderRadius: 999, width: 40, height: 40, fontSize: 18, cursor: "pointer",
+              position: "absolute", top: 14, right: 14,
+              background: "var(--surface-hi)", border: "1px solid var(--border)",
+              borderRadius: 999, width: 38, height: 38, fontSize: 16, cursor: "pointer",
             }}
           >
             ⚙️
           </button>
-          <div style={{ fontSize: 60 }}>{lang.flag}</div>
-          <div style={{ fontSize: 22, fontWeight: 900, marginTop: 8 }}>Learning {lang.name}</div>
-          <div style={{ opacity: 0.9, fontSize: 14 }}>{lang.tagline}</div>
-        </Card>
+          <div style={{ fontSize: 52 }}>{lang.flag}</div>
+          <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: 22, fontWeight: 600, marginTop: 8, color: "var(--ink)" }}>Learning {lang.name}</div>
+          <div style={{ color: "var(--text-dim)", fontSize: 13.5, marginTop: 2 }}>{lang.tagline}</div>
+        </div>
 
         {/* This week summary */}
-        <h3 style={{ fontSize: 12, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginTop: 8, marginBottom: 12 }}>
-          This week
-        </h3>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 16 }}>
-          <Card style={{ marginBottom: 0, textAlign: "center", padding: 12 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: "var(--primary)" }}>{wordsThisWeek}</div>
-            <div style={{ fontSize: 11, color: "var(--text-dim)" }}>Words practiced</div>
-          </Card>
-          <Card style={{ marginBottom: 0, textAlign: "center", padding: 12 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: "var(--accent)" }}>{studyMinsThisWeek}</div>
-            <div style={{ fontSize: 11, color: "var(--text-dim)" }}>Minutes</div>
-          </Card>
-          <Card style={{ marginBottom: 0, textAlign: "center", padding: 12 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: "var(--danger)" }}>{appState.streak}🔥</div>
-            <div style={{ fontSize: 11, color: "var(--text-dim)" }}>Day streak</div>
-          </Card>
+        <h3 className="eyebrow" style={{ marginTop: 22, marginBottom: 10 }}>This week</h3>
+        <div className="stat-strip" style={{ marginBottom: 18 }}>
+          <div className="stat-cell">
+            <div className="stat-value">{wordsThisWeek}</div>
+            <div className="stat-label">Words</div>
+          </div>
+          <div className="stat-cell">
+            <div className="stat-value">{studyMinsThisWeek}</div>
+            <div className="stat-label">Minutes</div>
+          </div>
+          <div className="stat-cell">
+            <div className="stat-value">{appState.streak} <span className={appState.streak >= 3 ? "flame-alive" : ""}>🔥</span></div>
+            <div className="stat-label">Day streak</div>
+          </div>
         </div>
 
         {/* 7-day chart */}
@@ -505,10 +552,8 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
               <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 12 }}>
                 <div style={{ fontSize: 40 }}>{lv.emoji}</div>
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1 }}>
-                    Level {lv.level}
-                  </div>
-                  <div style={{ fontSize: 20, fontWeight: 900 }}>{lv.name}</div>
+                  <div className="eyebrow">Level {lv.level}</div>
+                  <div style={{ fontSize: 20, fontWeight: 800, color: "var(--ink)" }}>{lv.name}</div>
                 </div>
               </div>
               {lv.next ? (
@@ -530,9 +575,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
         })()}
 
         {/* TODAY'S MISSIONS — small purposeful goals */}
-        <h3 style={{ fontSize: 12, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginTop: 8, marginBottom: 12 }}>
-          Today's missions
-        </h3>
+        <h3 className="eyebrow" style={{ marginTop: 8, marginBottom: 12 }}>Today's missions</h3>
         <Card>
           {getDailyMissions(appState, pack).map((m, i, arr) => (
             <div key={m.id} style={{
@@ -560,9 +603,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
         </Card>
 
         {/* BADGES — real capabilities & honest consistency */}
-        <h3 style={{ fontSize: 12, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginTop: 8, marginBottom: 12 }}>
-          Badges
-        </h3>
+        <h3 className="eyebrow" style={{ marginTop: 8, marginBottom: 12 }}>Badges</h3>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
           {(() => {
             const ctx = { stats, appState, pack };
@@ -582,9 +623,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
 
         {/* PROGRESSION PATH — capability journey, not just numbers.
             Shows what the learner can now actually DO. Healthy motivation. */}
-        <h3 style={{ fontSize: 12, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginTop: 24, marginBottom: 12 }}>
-          Your journey
-        </h3>
+        <h3 className="eyebrow" style={{ marginTop: 24, marginBottom: 12 }}>Your journey</h3>
         <Card style={{ padding: 0, overflow: "hidden" }}>
           {(() => {
             // Build milestone context from available data
@@ -779,9 +818,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate }) {
         </Card>
 
         {/* Theme picker */}
-        <h3 style={{ fontSize: 12, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginTop: 24, marginBottom: 12 }}>
-          Theme
-        </h3>
+        <h3 className="eyebrow" style={{ marginTop: 24, marginBottom: 12 }}>Theme</h3>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 16 }}>
           {Object.entries(THEMES).map(([key, theme]) => {
             const isSelected = (appState.theme || "cream") === key;
@@ -791,16 +828,15 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate }) {
                 onClick={() => setAppState((s) => ({ ...s, theme: key }))}
                 style={{
                   background: theme.vars["--surface"],
-                  border: `2px solid ${isSelected ? theme.vars["--primary"] : theme.vars["--border"]}`,
-                  borderRadius: "var(--radius)",
+                  border: `1.5px solid ${isSelected ? theme.vars["--primary"] : theme.vars["--border"]}`,
+                  borderRadius: "var(--radius-lg)",
                   padding: 14,
                   cursor: "pointer",
                   textAlign: "center",
                   color: theme.vars["--text"],
                   position: "relative",
                   minHeight: 110,
-                  boxShadow: isSelected ? `0 4px 0 ${theme.vars["--primary-dark"]}` : "none",
-                  transition: "transform 0.1s",
+                  boxShadow: isSelected ? theme.vars["--shadow-deep"] || "var(--shadow-card)" : "none",
                 }}
               >
                 <div style={{ fontSize: 28, marginBottom: 4 }}>{theme.emoji}</div>

@@ -5,6 +5,7 @@
     "Body",
     "Colors",
     "Common",
+    "Connectors",
     "Family",
     "Feelings",
     "Food",
@@ -12,6 +13,8 @@
     "Numbers",
     "People",
     "Time",
+    "Transport",
+    "Travel",
     "Verbs",
     "Weather"
   ],
@@ -109,6 +112,12 @@
       "title": "Food & Drink",
       "emoji": "🍽️",
       "description": "Water, food, eating"
+    },
+    {
+      "id": "u6",
+      "title": "Getting Around",
+      "emoji": "🧭",
+      "description": "Connectors, transport, and travel basics"
     }
   ],
   "vocab": [
@@ -1405,6 +1414,405 @@
         {
           "native": "Sedikit air",
           "translation": "A little water"
+        }
+      ]
+    },
+    {
+      "id": "id_0082",
+      "unit": "u6",
+      "lemma": "Dan",
+      "translit": "dan",
+      "pronunciation": "DAHN",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Teh dan kopi",
+          "translation": "Tea and coffee"
+        }
+      ]
+    },
+    {
+      "id": "id_0083",
+      "unit": "u6",
+      "lemma": "Tapi",
+      "translit": "tapi",
+      "pronunciation": "TAH-pee",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Kecil tapi bagus",
+          "translation": "Small but nice"
+        }
+      ]
+    },
+    {
+      "id": "id_0084",
+      "unit": "u6",
+      "lemma": "Karena",
+      "translit": "karena",
+      "pronunciation": "kah-REH-nah",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Capek karena banyak kerja",
+          "translation": "Tired because there's a lot of work"
+        }
+      ]
+    },
+    {
+      "id": "id_0085",
+      "unit": "u6",
+      "lemma": "Atau",
+      "translit": "atau",
+      "pronunciation": "AH-tow",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Teh atau kopi",
+          "translation": "Tea or coffee"
+        }
+      ]
+    },
+    {
+      "id": "id_0086",
+      "unit": "u6",
+      "lemma": "Juga",
+      "translit": "juga",
+      "pronunciation": "JOO-gah",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Saya juga",
+          "translation": "Me too"
+        }
+      ]
+    },
+    {
+      "id": "id_0087",
+      "unit": "u6",
+      "lemma": "Kalau",
+      "translit": "kalau",
+      "pronunciation": "KAH-low",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Kalau kamu mau",
+          "translation": "If you want"
+        }
+      ]
+    },
+    {
+      "id": "id_0088",
+      "unit": "u6",
+      "lemma": "Mobil",
+      "translit": "mobil",
+      "pronunciation": "MOH-bil",
+      "translation": "car",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Mobil saya",
+          "translation": "My car"
+        }
+      ]
+    },
+    {
+      "id": "id_0089",
+      "unit": "u6",
+      "lemma": "Bus",
+      "translit": "bus",
+      "pronunciation": "BOOS",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Naik bus",
+          "translation": "Take the bus"
+        }
+      ]
+    },
+    {
+      "id": "id_0090",
+      "unit": "u6",
+      "lemma": "Kereta",
+      "translit": "kereta",
+      "pronunciation": "keh-REH-tah",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Kereta cepat",
+          "translation": "The train is fast"
+        }
+      ]
+    },
+    {
+      "id": "id_0091",
+      "unit": "u6",
+      "lemma": "Taksi",
+      "translit": "taksi",
+      "pronunciation": "TAHK-see",
+      "translation": "taxi",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Panggil taksi",
+          "translation": "Call a taxi"
+        }
+      ]
+    },
+    {
+      "id": "id_0092",
+      "unit": "u6",
+      "lemma": "Bandara",
+      "translit": "bandara",
+      "pronunciation": "bahn-DAH-rah",
+      "translation": "airport",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Pergi ke bandara",
+          "translation": "Going to the airport"
+        }
+      ]
+    },
+    {
+      "id": "id_0093",
+      "unit": "u6",
+      "lemma": "Kanan",
+      "translit": "kanan",
+      "pronunciation": "KAH-nahn",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Belok kanan",
+          "translation": "Turn right"
+        }
+      ]
+    },
+    {
+      "id": "id_0094",
+      "unit": "u6",
+      "lemma": "Kiri",
+      "translit": "kiri",
+      "pronunciation": "KEE-ree",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Belok kiri",
+          "translation": "Turn left"
+        }
+      ]
+    },
+    {
+      "id": "id_0095",
+      "unit": "u6",
+      "lemma": "Hotel",
+      "translit": "hotel",
+      "pronunciation": "HO-tel",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Hotel yang bagus",
+          "translation": "A good hotel"
+        }
+      ]
+    },
+    {
+      "id": "id_0096",
+      "unit": "u6",
+      "lemma": "Tiket",
+      "translit": "tiket",
+      "pronunciation": "TEE-ket",
+      "translation": "ticket",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Satu tiket, tolong",
+          "translation": "One ticket please"
+        }
+      ]
+    },
+    {
+      "id": "id_0097",
+      "unit": "u6",
+      "lemma": "Paspor",
+      "translit": "paspor",
+      "pronunciation": "PAHS-por",
+      "translation": "passport",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Paspor saya",
+          "translation": "My passport"
+        }
+      ]
+    },
+    {
+      "id": "id_0098",
+      "unit": "u6",
+      "lemma": "Stasiun",
+      "translit": "stasiun",
+      "pronunciation": "stah-see-OON",
+      "translation": "station",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Stasiun bus",
+          "translation": "The bus station"
+        }
+      ]
+    },
+    {
+      "id": "id_0099",
+      "unit": "u6",
+      "lemma": "Peta",
+      "translit": "peta",
+      "pronunciation": "PEH-tah",
+      "translation": "map",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Beri saya peta",
+          "translation": "Give me a map"
+        }
+      ]
+    },
+    {
+      "id": "id_0100",
+      "unit": "u6",
+      "lemma": "Dekat",
+      "translit": "dekat",
+      "pronunciation": "DEH-kaht",
+      "translation": "near",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Dekat hotel",
+          "translation": "Near the hotel"
+        }
+      ]
+    },
+    {
+      "id": "id_0101",
+      "unit": "u6",
+      "lemma": "Jauh",
+      "translit": "jauh",
+      "pronunciation": "JAH-oo",
+      "translation": "far",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Sangat jauh",
+          "translation": "Very far"
+        }
+      ]
+    },
+    {
+      "id": "id_0102",
+      "unit": "u6",
+      "lemma": "Lurus",
+      "translit": "lurus",
+      "pronunciation": "LOO-roos",
+      "translation": "straight ahead",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Jalan terus lurus",
+          "translation": "Go straight ahead"
         }
       ]
     }

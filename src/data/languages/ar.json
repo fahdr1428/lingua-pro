@@ -5,12 +5,15 @@
     "Body",
     "Colors",
     "Common",
+    "Connectors",
     "Food",
     "Greetings",
     "Numbers",
     "People",
     "Places",
     "Time",
+    "Transport",
+    "Travel",
     "Useful",
     "Verbs",
     "Weather"
@@ -1506,6 +1509,405 @@
         {
           "native": "أحتاج مساعدة",
           "translation": "I need help"
+        }
+      ]
+    },
+    {
+      "id": "ar_0080",
+      "unit": "u10",
+      "lemma": "و",
+      "translit": "wa",
+      "pronunciation": "WAH",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "شاي و قهوة",
+          "translation": "Tea and coffee"
+        }
+      ]
+    },
+    {
+      "id": "ar_0081",
+      "unit": "u10",
+      "lemma": "لكن",
+      "translit": "lakin",
+      "pronunciation": "LAH-kin",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "صغير لكن جميل",
+          "translation": "Small but beautiful"
+        }
+      ]
+    },
+    {
+      "id": "ar_0082",
+      "unit": "u10",
+      "lemma": "لأن",
+      "translit": "li'anna",
+      "pronunciation": "lee-AN-nah",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "متعب لأن العمل كثير",
+          "translation": "Tired because there's a lot of work"
+        }
+      ]
+    },
+    {
+      "id": "ar_0083",
+      "unit": "u10",
+      "lemma": "أو",
+      "translit": "aw",
+      "pronunciation": "AW",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "شاي أو قهوة",
+          "translation": "Tea or coffee"
+        }
+      ]
+    },
+    {
+      "id": "ar_0084",
+      "unit": "u10",
+      "lemma": "أيضا",
+      "translit": "aydan",
+      "pronunciation": "AY-dan",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "أنا أيضا",
+          "translation": "Me too"
+        }
+      ]
+    },
+    {
+      "id": "ar_0085",
+      "unit": "u10",
+      "lemma": "إذا",
+      "translit": "idha",
+      "pronunciation": "EE-dhah",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "إذا سمحت",
+          "translation": "If you allow"
+        }
+      ]
+    },
+    {
+      "id": "ar_0086",
+      "unit": "u11",
+      "lemma": "سيارة",
+      "translit": "sayyara",
+      "pronunciation": "sah-YAH-rah",
+      "translation": "car",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "سيارتي",
+          "translation": "My car"
+        }
+      ]
+    },
+    {
+      "id": "ar_0087",
+      "unit": "u11",
+      "lemma": "حافلة",
+      "translit": "hafila",
+      "pronunciation": "HAH-fee-lah",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "أخذ الحافلة",
+          "translation": "Take the bus"
+        }
+      ]
+    },
+    {
+      "id": "ar_0088",
+      "unit": "u11",
+      "lemma": "قطار",
+      "translit": "qitar",
+      "pronunciation": "kih-TAR",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "القطار سريع",
+          "translation": "The train is fast"
+        }
+      ]
+    },
+    {
+      "id": "ar_0089",
+      "unit": "u11",
+      "lemma": "تاكسي",
+      "translit": "taksi",
+      "pronunciation": "TAK-see",
+      "translation": "taxi",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "استدعاء تاكسي",
+          "translation": "Call a taxi"
+        }
+      ]
+    },
+    {
+      "id": "ar_0090",
+      "unit": "u11",
+      "lemma": "مطار",
+      "translit": "matar",
+      "pronunciation": "mah-TAR",
+      "translation": "airport",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "الذهاب إلى المطار",
+          "translation": "Going to the airport"
+        }
+      ]
+    },
+    {
+      "id": "ar_0091",
+      "unit": "u11",
+      "lemma": "يمين",
+      "translit": "yameen",
+      "pronunciation": "yah-MEEN",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "انعطف يمين",
+          "translation": "Turn right"
+        }
+      ]
+    },
+    {
+      "id": "ar_0092",
+      "unit": "u11",
+      "lemma": "يسار",
+      "translit": "yasar",
+      "pronunciation": "yah-SAR",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "انعطف يسار",
+          "translation": "Turn left"
+        }
+      ]
+    },
+    {
+      "id": "ar_0093",
+      "unit": "u11",
+      "lemma": "فندق",
+      "translit": "funduq",
+      "pronunciation": "FOON-duq",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "فندق جيد",
+          "translation": "A good hotel"
+        }
+      ]
+    },
+    {
+      "id": "ar_0094",
+      "unit": "u11",
+      "lemma": "تذكرة",
+      "translit": "tadhkira",
+      "pronunciation": "TAZH-ki-rah",
+      "translation": "ticket",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "تذكرة واحدة من فضلك",
+          "translation": "One ticket please"
+        }
+      ]
+    },
+    {
+      "id": "ar_0095",
+      "unit": "u11",
+      "lemma": "جواز سفر",
+      "translit": "jawaz safar",
+      "pronunciation": "jah-WAZ SAH-far",
+      "translation": "passport",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "جواز سفري",
+          "translation": "My passport"
+        }
+      ]
+    },
+    {
+      "id": "ar_0096",
+      "unit": "u11",
+      "lemma": "محطة",
+      "translit": "mahatta",
+      "pronunciation": "mah-HAH-tah",
+      "translation": "station",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "محطة الحافلات",
+          "translation": "The bus station"
+        }
+      ]
+    },
+    {
+      "id": "ar_0097",
+      "unit": "u11",
+      "lemma": "خريطة",
+      "translit": "khareeta",
+      "pronunciation": "khah-REE-tah",
+      "translation": "map",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "أعطني خريطة",
+          "translation": "Give me a map"
+        }
+      ]
+    },
+    {
+      "id": "ar_0098",
+      "unit": "u11",
+      "lemma": "قريب",
+      "translit": "qareeb",
+      "pronunciation": "kah-REEB",
+      "translation": "near",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "قريب من الفندق",
+          "translation": "Near the hotel"
+        }
+      ]
+    },
+    {
+      "id": "ar_0099",
+      "unit": "u11",
+      "lemma": "بعيد",
+      "translit": "baeed",
+      "pronunciation": "bah-EED",
+      "translation": "far",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "بعيد جدا",
+          "translation": "Very far"
+        }
+      ]
+    },
+    {
+      "id": "ar_0100",
+      "unit": "u11",
+      "lemma": "مباشرة",
+      "translit": "mubashara",
+      "pronunciation": "moo-BAH-shah-rah",
+      "translation": "straight ahead",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "اذهب مباشرة",
+          "translation": "Go straight ahead"
         }
       ]
     }

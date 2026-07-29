@@ -5,12 +5,15 @@
     "Body",
     "Colors",
     "Common",
+    "Connectors",
     "Family",
     "Food",
     "Greetings",
     "Numbers",
     "People",
     "Time",
+    "Transport",
+    "Travel",
     "Verbs",
     "Weather"
   ],
@@ -93,6 +96,12 @@
       "title": "Food & Life",
       "emoji": "🍽️",
       "description": "Eating, drinking, daily life"
+    },
+    {
+      "id": "u6",
+      "title": "Getting Around",
+      "emoji": "🧭",
+      "description": "Connectors, transport, and travel basics"
     }
   ],
   "vocab": [
@@ -1309,6 +1318,405 @@
         {
           "native": "Make we go",
           "translation": "Let's go"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0077",
+      "unit": "u6",
+      "lemma": "An",
+      "translit": "an",
+      "pronunciation": "AND",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Tea an coffee",
+          "translation": "Tea and coffee"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0078",
+      "unit": "u6",
+      "lemma": "But",
+      "translit": "but",
+      "pronunciation": "BUT",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "E small but e sweet",
+          "translation": "It's small but it's nice"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0079",
+      "unit": "u6",
+      "lemma": "Bikos",
+      "translit": "bikos",
+      "pronunciation": "bee-KOS",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "I tire bikos work plenty",
+          "translation": "I'm tired because there's a lot of work"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0080",
+      "unit": "u6",
+      "lemma": "Or",
+      "translit": "or",
+      "pronunciation": "OR",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Tea or coffee",
+          "translation": "Tea or coffee"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0081",
+      "unit": "u6",
+      "lemma": "Too",
+      "translit": "too",
+      "pronunciation": "TOO",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Me too",
+          "translation": "Me too"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0082",
+      "unit": "u6",
+      "lemma": "If",
+      "translit": "if",
+      "pronunciation": "IF",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "If you want am",
+          "translation": "If you want it"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0083",
+      "unit": "u6",
+      "lemma": "Moto",
+      "translit": "moto",
+      "pronunciation": "MOH-toh",
+      "translation": "car",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "My moto",
+          "translation": "My car"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0084",
+      "unit": "u6",
+      "lemma": "Bus",
+      "translit": "bus",
+      "pronunciation": "BUS",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Enter bus",
+          "translation": "Take the bus"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0085",
+      "unit": "u6",
+      "lemma": "Train",
+      "translit": "train",
+      "pronunciation": "TRAYN",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Train dey fast",
+          "translation": "The train is fast"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0086",
+      "unit": "u6",
+      "lemma": "Taxi",
+      "translit": "taxi",
+      "pronunciation": "TAK-see",
+      "translation": "taxi",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Call taxi",
+          "translation": "Call a taxi"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0087",
+      "unit": "u6",
+      "lemma": "Airport",
+      "translit": "airport",
+      "pronunciation": "AIR-port",
+      "translation": "airport",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "We dey go airport",
+          "translation": "We're going to the airport"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0088",
+      "unit": "u6",
+      "lemma": "Right",
+      "translit": "right",
+      "pronunciation": "RITE",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Turn right",
+          "translation": "Turn right"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0089",
+      "unit": "u6",
+      "lemma": "Left",
+      "translit": "left",
+      "pronunciation": "LEFT",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Turn left",
+          "translation": "Turn left"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0090",
+      "unit": "u6",
+      "lemma": "Hotel",
+      "translit": "hotel",
+      "pronunciation": "ho-TEL",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Fine hotel",
+          "translation": "A good hotel"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0091",
+      "unit": "u6",
+      "lemma": "Ticket",
+      "translit": "ticket",
+      "pronunciation": "TIK-et",
+      "translation": "ticket",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "One ticket abeg",
+          "translation": "One ticket please"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0092",
+      "unit": "u6",
+      "lemma": "Passport",
+      "translit": "passport",
+      "pronunciation": "PASS-port",
+      "translation": "passport",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "My passport",
+          "translation": "My passport"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0093",
+      "unit": "u6",
+      "lemma": "Station",
+      "translit": "station",
+      "pronunciation": "STAY-shun",
+      "translation": "station",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Bus station",
+          "translation": "The bus station"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0094",
+      "unit": "u6",
+      "lemma": "Map",
+      "translit": "map",
+      "pronunciation": "MAP",
+      "translation": "map",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Give me map",
+          "translation": "Give me a map"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0095",
+      "unit": "u6",
+      "lemma": "Near",
+      "translit": "near",
+      "pronunciation": "NEER",
+      "translation": "near",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "E near the hotel",
+          "translation": "It's near the hotel"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0096",
+      "unit": "u6",
+      "lemma": "Far",
+      "translit": "far",
+      "pronunciation": "FAR",
+      "translation": "far",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "E far well well",
+          "translation": "It's very far"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0097",
+      "unit": "u6",
+      "lemma": "Go Straight",
+      "translit": "go stret",
+      "pronunciation": "go STRET",
+      "translation": "straight ahead",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Just go straight",
+          "translation": "Just go straight ahead"
         }
       ]
     }

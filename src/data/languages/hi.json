@@ -5,12 +5,15 @@
     "Body",
     "Colors",
     "Common",
+    "Connectors",
     "Food",
     "Greetings",
     "Numbers",
     "People",
     "Places",
     "Time",
+    "Transport",
+    "Travel",
     "Useful",
     "Verbs",
     "Weather"
@@ -1521,6 +1524,405 @@
         {
           "native": "दोबारा बताइए",
           "translation": "Please say it again"
+        }
+      ]
+    },
+    {
+      "id": "hi_0080",
+      "unit": "u10",
+      "lemma": "और",
+      "translit": "aur",
+      "pronunciation": "OWR",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "चाय और कॉफ़ी",
+          "translation": "Tea and coffee"
+        }
+      ]
+    },
+    {
+      "id": "hi_0081",
+      "unit": "u10",
+      "lemma": "लेकिन",
+      "translit": "lekin",
+      "pronunciation": "LEH-kin",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "छोटा लेकिन सुंदर",
+          "translation": "Small but beautiful"
+        }
+      ]
+    },
+    {
+      "id": "hi_0082",
+      "unit": "u10",
+      "lemma": "क्योंकि",
+      "translit": "kyonki",
+      "pronunciation": "KYOHN-kee",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "थका हुआ क्योंकि काम बहुत है",
+          "translation": "Tired because there's a lot of work"
+        }
+      ]
+    },
+    {
+      "id": "hi_0083",
+      "unit": "u10",
+      "lemma": "या",
+      "translit": "ya",
+      "pronunciation": "YAH",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "चाय या कॉफ़ी",
+          "translation": "Tea or coffee"
+        }
+      ]
+    },
+    {
+      "id": "hi_0084",
+      "unit": "u10",
+      "lemma": "भी",
+      "translit": "bhi",
+      "pronunciation": "BHEE",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "मैं भी",
+          "translation": "Me too"
+        }
+      ]
+    },
+    {
+      "id": "hi_0085",
+      "unit": "u10",
+      "lemma": "अगर",
+      "translit": "agar",
+      "pronunciation": "ah-GAR",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "अगर आप चाहें",
+          "translation": "If you want"
+        }
+      ]
+    },
+    {
+      "id": "hi_0086",
+      "unit": "u11",
+      "lemma": "गाड़ी",
+      "translit": "gaadi",
+      "pronunciation": "GAH-ree",
+      "translation": "car",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "मेरी गाड़ी",
+          "translation": "My car"
+        }
+      ]
+    },
+    {
+      "id": "hi_0087",
+      "unit": "u11",
+      "lemma": "बस",
+      "translit": "bas",
+      "pronunciation": "BUSS",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "बस लो",
+          "translation": "Take the bus"
+        }
+      ]
+    },
+    {
+      "id": "hi_0088",
+      "unit": "u11",
+      "lemma": "ट्रेन",
+      "translit": "train",
+      "pronunciation": "TRAIN",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "ट्रेन तेज़ है",
+          "translation": "The train is fast"
+        }
+      ]
+    },
+    {
+      "id": "hi_0089",
+      "unit": "u11",
+      "lemma": "टैक्सी",
+      "translit": "taxi",
+      "pronunciation": "TAK-see",
+      "translation": "taxi",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "टैक्सी बुलाओ",
+          "translation": "Call a taxi"
+        }
+      ]
+    },
+    {
+      "id": "hi_0090",
+      "unit": "u11",
+      "lemma": "हवाई अड्डा",
+      "translit": "hawai adda",
+      "pronunciation": "hah-VAI AD-dah",
+      "translation": "airport",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "हवाई अड्डे जाना",
+          "translation": "Going to the airport"
+        }
+      ]
+    },
+    {
+      "id": "hi_0091",
+      "unit": "u11",
+      "lemma": "दायाँ",
+      "translit": "dayan",
+      "pronunciation": "DAH-yan",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "दायें मुड़ो",
+          "translation": "Turn right"
+        }
+      ]
+    },
+    {
+      "id": "hi_0092",
+      "unit": "u11",
+      "lemma": "बायाँ",
+      "translit": "bayan",
+      "pronunciation": "BAH-yan",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "बायें मुड़ो",
+          "translation": "Turn left"
+        }
+      ]
+    },
+    {
+      "id": "hi_0093",
+      "unit": "u11",
+      "lemma": "होटल",
+      "translit": "hotel",
+      "pronunciation": "HO-tel",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "अच्छा होटल",
+          "translation": "A good hotel"
+        }
+      ]
+    },
+    {
+      "id": "hi_0094",
+      "unit": "u11",
+      "lemma": "टिकट",
+      "translit": "tikat",
+      "pronunciation": "TI-kat",
+      "translation": "ticket",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "एक टिकट कृपया",
+          "translation": "One ticket please"
+        }
+      ]
+    },
+    {
+      "id": "hi_0095",
+      "unit": "u11",
+      "lemma": "पासपोर्ट",
+      "translit": "passport",
+      "pronunciation": "PASS-port",
+      "translation": "passport",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "मेरा पासपोर्ट",
+          "translation": "My passport"
+        }
+      ]
+    },
+    {
+      "id": "hi_0096",
+      "unit": "u11",
+      "lemma": "स्टेशन",
+      "translit": "station",
+      "pronunciation": "STAY-shun",
+      "translation": "station",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "बस स्टेशन",
+          "translation": "The bus station"
+        }
+      ]
+    },
+    {
+      "id": "hi_0097",
+      "unit": "u11",
+      "lemma": "नक्शा",
+      "translit": "naksha",
+      "pronunciation": "NAK-shah",
+      "translation": "map",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "मुझे नक्शा दो",
+          "translation": "Give me a map"
+        }
+      ]
+    },
+    {
+      "id": "hi_0098",
+      "unit": "u11",
+      "lemma": "पास",
+      "translit": "paas",
+      "pronunciation": "PAAS",
+      "translation": "near",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "होटल के पास",
+          "translation": "Near the hotel"
+        }
+      ]
+    },
+    {
+      "id": "hi_0099",
+      "unit": "u11",
+      "lemma": "दूर",
+      "translit": "door",
+      "pronunciation": "DOOR",
+      "translation": "far",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "बहुत दूर",
+          "translation": "Very far"
+        }
+      ]
+    },
+    {
+      "id": "hi_0100",
+      "unit": "u11",
+      "lemma": "सीधे",
+      "translit": "seedhe",
+      "pronunciation": "SEE-dhay",
+      "translation": "straight ahead",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "सीधे जाओ",
+          "translation": "Go straight ahead"
         }
       ]
     }
