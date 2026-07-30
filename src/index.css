@@ -1020,3 +1020,100 @@ button:focus:not(:focus-visible) { outline: none; }
 .fact-list li {
   font-size: 13px; color: var(--text-dim); line-height: 1.65; margin-bottom: 9px;
 }
+
+/* ============================================================
+   v71 SPOKEN COACH — the verdict talks, and the live coach thread.
+   ============================================================ */
+
+/* the coach's spoken verdict, with the seal breathing while it talks */
+.verdict-coach { display: flex; align-items: flex-start; gap: 10px; margin-top: 9px; }
+.verdict-coach .verdict-feedback { margin-top: 2px; }
+.verdict-attempt {
+  margin-top: 11px; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.5px; color: var(--text-mute);
+}
+
+/* --- live coach --- */
+.coach-note {
+  background: var(--surface-hi); border: 1px solid var(--border);
+  border-radius: 13px; padding: 11px 13px; margin-bottom: 12px;
+  font-size: 12.5px; color: var(--text-dim); line-height: 1.55;
+}
+
+.coach-thread {
+  display: flex; flex-direction: column; gap: 13px;
+  max-height: 52vh; overflow-y: auto;
+  padding: 4px 2px 2px;
+  scrollbar-width: thin;
+}
+
+.coach-turn { display: flex; gap: 10px; align-items: flex-start; }
+.coach-turn-guide {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 15px; padding: 13px 14px;
+  animation: riseIn 300ms var(--ease-out-expo) both;
+}
+.coach-coaching {
+  font-size: 12.5px; color: var(--root); line-height: 1.5;
+  padding-bottom: 8px; margin-bottom: 8px;
+  border-bottom: 1px solid var(--surface-hi);
+}
+.coach-native { font-size: 17px; color: var(--text); line-height: 1.55; }
+.coach-tl { font-size: 12.5px; color: var(--text-dim); margin-top: 3px; }
+.coach-en { font-size: 11.5px; color: var(--text-mute); margin-top: 2px; }
+
+.coach-turn-you { justify-content: flex-end; }
+.coach-you-bubble {
+  background: var(--ink); color: #fff;
+  border-radius: 15px 15px 4px 15px; padding: 10px 14px;
+  font-size: 14px; line-height: 1.45; max-width: 78%;
+  animation: riseIn 260ms var(--ease-out-expo) both;
+}
+
+/* three dots while the coach thinks */
+.coach-typing { display: flex; align-items: center; gap: 5px; padding: 8px 2px; }
+.coach-typing span {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--text-mute);
+  animation: coachDot 1.3s ease-in-out infinite;
+}
+.coach-typing span:nth-child(2) { animation-delay: 0.18s; }
+.coach-typing span:nth-child(3) { animation-delay: 0.36s; }
+@keyframes coachDot {
+  0%, 60%, 100% { opacity: 0.25; transform: translateY(0); }
+  30%           { opacity: 1;    transform: translateY(-3px); }
+}
+
+.coach-error {
+  margin-top: 12px; padding: 11px 13px; border-radius: 12px;
+  background: var(--accent-soft); border: 1px solid var(--accent);
+  font-size: 12.5px; color: var(--text); line-height: 1.5;
+}
+.coach-error .quiet-link { display: inline; margin: 0 0 0 6px; }
+
+.coach-suggestion {
+  display: block; width: 100%; margin-top: 11px;
+  background: var(--surface); border: 1px dashed var(--border);
+  border-radius: 12px; padding: 10px 13px; cursor: pointer;
+  font-size: 12.5px; color: var(--text-dim); text-align: left;
+}
+@media (hover: hover) { .coach-suggestion:hover { border-color: var(--ink); color: var(--ink); } }
+
+.coach-input { display: flex; gap: 8px; align-items: center; margin-top: 14px; }
+.coach-input .type-input { flex: 1; min-width: 0; padding: 13px 14px; font-size: 15px; }
+.coach-mic {
+  width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: #fff; border: none; cursor: pointer;
+}
+.coach-mic:disabled { opacity: 0.45; cursor: default; }
+.coach-mic-live { background: var(--danger); animation: micPulse 1.4s ease-out infinite; }
+.coach-send {
+  flex-shrink: 0; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 12px;
+  padding: 12px 15px; font-size: 13.5px; font-weight: 700; cursor: pointer;
+}
+.coach-send:disabled { border-color: var(--border); color: var(--text-mute); cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  .coach-typing span, .coach-mic-live, .coach-turn-guide, .coach-you-bubble { animation: none !important; }
+}

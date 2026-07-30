@@ -365,6 +365,20 @@ export function scoreAttempt(heard, target = {}) {
   const heardFlat = normalise(best.heard).replace(/\s/g, "");
   const trulyMissing = missing.filter((w) => !flatContains(heardFlat, w));
 
+  // "hun" for "hoon" is the learner's ATTEMPT at a target word, not an extra
+  // word they threw in. Without this, `extra` picks it up and the feedback says
+  // "you added a little extra" about a word they were trying to pronounce —
+  // confusing, and it contradicts the missing-word tip in the same breath.
+  const genuineExtra = leftover.filter((got) => {
+    for (const want of trulyMissing) {
+      // Same closeness bar as the token matcher, one step looser: close enough
+      // to be recognisable as an attempt, not close enough to have matched.
+      const slack = Math.max(2, Math.ceil(want.length * 0.5));
+      if (editDistance(want, got) <= slack) return false;
+    }
+    return true;
+  });
+
   // Leniency has a floor: leaving out a whole content word is "close", never
   // "got it". Judged by character mass rather than word count, so dropping a
   // one-letter connector ("o" in assalam-o-alaikum) is forgiven while dropping
@@ -383,7 +397,7 @@ export function scoreAttempt(heard, target = {}) {
     matchedForm: best.matchedForm,
     heard: best.heard,
     missing: trulyMissing,
-    extra: leftover,
+    extra: genuineExtra,
   };
 }
 
@@ -415,37 +429,159 @@ function bandFor(score) {
 /**
  * The seam. Everything in the UI calls this and awaits it, so a hosted grader
  * can be dropped in here later without touching a single screen.
+ *
+ * `opts.previousScore` makes the feedback aware of the learner's last attempt on
+ * the same phrase, so a second go can be told it improved. That's the difference
+ * between a grader and a coach.
  */
 export async function judge(heard, target, opts = {}) {
   const result = scoreAttempt(heard, target);
-  return { ...result, feedback: feedbackFor(result, target, opts) };
+  return {
+    ...result,
+    tip: pronunciationTip(result),
+    ...coachLines(result, opts),
+  };
 }
 
 /**
- * Turn a score into a sentence worth reading. Specific beats generic: naming
- * the word that went missing is actionable, "not quite" is not.
+ * Which single part of the phrase came through worst — the actionable detail.
+ * A missing word beats a mangled one; a mangled word beats nothing.
+ * Returns null when everything landed.
  */
-export function feedbackFor(result, target = {}, { guideName } = {}) {
-  const who = guideName ? `${guideName} heard` : "I heard";
+export function pronunciationTip(result) {
+  if (!result) return null;
+  if (result.missing?.length) {
+    return { kind: "missing", word: result.missing[0] };
+  }
+  // Nothing missing outright — find the target word that matched least cleanly.
+  const targetTokens = tokens(result.matchedForm);
+  const heardTokens = tokens(result.heard);
+  if (!targetTokens.length || !heardTokens.length) return null;
+
+  let worst = null;
+  for (const want of targetTokens) {
+    let best = Infinity;
+    for (const got of heardTokens) best = Math.min(best, editDistance(want, got));
+    // Normalise so a 1-char slip in a short word outranks one in a long word.
+    const severity = best / Math.max(1, want.length);
+    if (best > 0 && (!worst || severity > worst.severity)) {
+      worst = { kind: "rough", word: want, severity };
+    }
+  }
+  return worst;
+}
+
+/**
+ * COPY RULES, because this is the text that decides whether someone keeps going:
+ *
+ *  - A good attempt is praised as a good attempt, not merely accepted. "It
+ *    doesn't have to be exact" is said out loud, because learners assume it does.
+ *  - Never "wrong". "Not yet" plus the reason it's normal.
+ *  - One concrete thing to change, never a list.
+ *  - Improvement over the previous attempt is called out explicitly — it's the
+ *    single most motivating thing a coach can say.
+ *
+ * Returns { spoken, feedback }: `spoken` is what the coach says aloud (short,
+ * no quotes or punctuation that TTS reads literally), `feedback` is the on-screen
+ * version. They say the same thing so the two never contradict each other.
+ */
+export function coachLines(result, { guideName, previousScore = null } = {}) {
+  const tip = pronunciationTip(result);
+  const improved = previousScore !== null && result.score > previousScore + 0.06;
+  const plateaued = previousScore !== null && Math.abs(result.score - previousScore) <= 0.06;
 
   if (result.band === BAND.GOT) {
-    if (result.score >= 0.97) return "That's it — clean.";
-    if (result.extra.length) return "Understood you fine. You added a little extra, which is normal in real speech.";
-    return "Understood. That would land with a native speaker.";
+    // Nailing it AFTER a worse attempt is the moment worth naming — the
+    // improvement is the thing they did, not just the score. Checked before the
+    // plain perfect line so a retry never gets the same words as a first-try win.
+    if (result.score >= 0.97 && improved) {
+      return {
+        spoken: "That's it. Much better than last time.",
+        feedback: "That's it — much better than last time.",
+      };
+    }
+    if (result.score >= 0.97) {
+      return { spoken: "Perfect. That's exactly it.", feedback: "Perfect — that's exactly it." };
+    }
+    if (improved) {
+      return {
+        spoken: "That's better, and that's good enough. A native speaker would understand you.",
+        feedback: "Better than last time — and good enough. A native speaker would understand you.",
+      };
+    }
+    // A pass can still have one soft spot. Say it passed FIRST, then offer the
+    // polish — never lead with the correction on an attempt that worked.
+    if (tip) {
+      return {
+        spoken: `Good, I understood that. It doesn't have to be exact. If you want it sharper, ${tip.word} is the one to polish.`,
+        feedback: `Good — understood. It doesn't have to be exact; if you want it sharper, “${tip.word}” is the one to polish.`,
+      };
+    }
+    if (result.extra?.length) {
+      return {
+        spoken: "Good. I understood you completely. You added a little extra, which is what real speech sounds like.",
+        feedback: "Good — understood completely. You added a little extra, which is what real speech actually sounds like.",
+      };
+    }
+    return {
+      spoken: "Yes, that's good. It doesn't have to be exact, and that would land with any native speaker.",
+      feedback: "That's good. It doesn't have to be exact — that would land with any native speaker.",
+    };
   }
 
   if (result.band === BAND.CLOSE) {
-    if (result.missing.length === 1) {
-      return `Close — the part that went missing was “${result.missing[0]}”. Say it again with that in.`;
+    const lead = improved
+      ? "Better than last time, and a good attempt."
+      : "That's okay, and it's a good attempt.";
+    const reassure = "It doesn't have to be exact.";
+
+    if (tip?.kind === "missing") {
+      return {
+        spoken: `${lead} ${reassure} The one bit to add is ${tip.word}.`,
+        feedback: `${lead} ${reassure} The one bit to add is “${tip.word}”.`,
+      };
     }
-    if (result.missing.length > 1) {
-      return `Close. ${who} most of it, but “${result.missing.slice(0, 2).join("” and “")}” didn't come through.`;
+    if (tip?.kind === "rough") {
+      return {
+        spoken: `${lead} ${reassure} Give ${tip.word} another go — that's the part to lean on.`,
+        feedback: `${lead} ${reassure} Give “${tip.word}” another go — that's the part to lean on.`,
+      };
     }
-    return "Close — the words were right, the shape was a little off. One more go.";
+    if (plateaued) {
+      return {
+        spoken: "Still close. Listen to me say it once, then copy the rhythm rather than the letters.",
+        feedback: "Still close. Listen once more and copy the rhythm rather than the letters.",
+      };
+    }
+    return {
+      spoken: `${lead} ${reassure} The words were right, the shape was just a little off.`,
+      feedback: `${lead} ${reassure} The words were right — the shape was just a little off.`,
+    };
   }
 
-  if (!result.heard) return "Nothing came through. Check your mic and try again.";
-  return `${who} “${result.heard}”. Have another listen and match the rhythm — this one takes a couple of tries.`;
+  if (!result.heard) {
+    return {
+      spoken: "I didn't catch anything. Check your microphone and have another go.",
+      feedback: "Nothing came through. Check your mic and try again.",
+    };
+  }
+
+  const who = guideName || "I";
+  if (tip?.kind === "missing") {
+    return {
+      spoken: `Not yet, but that's completely normal. Start with just ${tip.word} on its own, then build up.`,
+      feedback: `Not yet — and that's completely normal. Start with just “${tip.word}” on its own, then build the rest around it.`,
+    };
+  }
+  return {
+    spoken: "Not yet, but this one takes a few tries for everyone. Listen to me say it, then copy the rhythm.",
+    feedback: `Not yet — this one takes a few tries for everyone. ${who} heard “${result.heard}”. Listen once more and copy the rhythm.`,
+  };
+}
+
+/** Back-compat shim: v70 callers expect a bare feedback string. */
+export function feedbackFor(result, target = {}, opts = {}) {
+  return coachLines(result, opts).feedback;
 }
 
 /** Percentage for display. Never shows 0% for a genuine attempt — demoralising. */

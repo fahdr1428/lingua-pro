@@ -13,9 +13,11 @@
     "validate-journey": "node scripts/validate-journey.mjs",
     "test-speech": "node scripts/test-speech.mjs",
     "test-generator": "node scripts/test-generator.mjs",
-    "check": "npm run validate-vocab && npm run validate-journey && npm run test-speech && npm run test-generator && npm run build"
+    "check": "npm run validate-vocab && npm run validate-journey && npm run test-speech && npm run test-generator && npm run test-coach && npm run build",
+    "test-coach": "node scripts/test-coach-api.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.115.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

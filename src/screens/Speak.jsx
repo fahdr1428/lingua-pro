@@ -39,6 +39,8 @@ import { getCharacter, getReaction, guideVoice } from "../data/characters.js";
 import { getStops, hasJourney, stopsReached } from "../data/journey.js";
 import { cultureOfTheDay, tagLabel } from "../data/culture.js";
 import { speak, stopSpeaking } from "../audio/tts.js";
+import { sayCoach, cancelVoice, idle as voiceIdle, voiceSupported } from "../audio/voice.js";
+import { probeCoach, coachTurn, levelFor, CoachError } from "../ai/coach.js";
 import {
   isRecognitionSupported, startListening, judge, displayScore, BAND,
 } from "../audio/speech.js";
@@ -50,6 +52,15 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate 
 
   const [mode, setMode] = useState("say");
   const [unitProgress, setUnitProgress] = useState([]);
+  // The AI coach is an enhancement, never a dependency: if /api/coach isn't
+  // configured the tab simply doesn't exist and everything else works.
+  const [coachReady, setCoachReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    probeCoach().then((p) => { if (!cancelled) setCoachReady(!!p.configured); });
+    return () => { cancelled = true; };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -57,9 +68,10 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate 
     return () => { cancelled = true; };
   }, [engine]);
 
-  // Stop any audio when the screen unmounts — otherwise the guide keeps talking
-  // over the next screen.
-  useEffect(() => () => stopSpeaking(), []);
+  // Stop all audio when the screen unmounts — otherwise the guide keeps talking
+  // over the next screen. cancelVoice() drains the coach queue as well as the
+  // target-language audio.
+  useEffect(() => () => cancelVoice(), []);
 
   const reached = hasJourney(pack.code) ? stopsReached(pack.code, unitProgress) : 0;
 
@@ -152,7 +164,7 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate 
 
   function leave() {
     bank();
-    stopSpeaking();
+    cancelVoice();
     onNavigate("home");
   }
 
@@ -187,11 +199,31 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate 
             onClick={() => setMode("convo")}
             disabled={!convoTurns.length}
           >
-            Conversation
+            Scripted
           </button>
+          {coachReady && (
+            <button
+              className={`seg-btn${mode === "coach" ? " seg-on" : ""}`}
+              onClick={() => setMode("coach")}
+            >
+              Live coach
+            </button>
+          )}
         </div>
 
-        {mode === "say" ? (
+        {mode === "coach" ? (
+          <CoachDrill
+            lang={lang}
+            langCode={pack.code}
+            guide={guide}
+            micSupported={micSupported}
+            level={levelFor(
+              appState?.lessonsCompleted?.[pack.code] || 0,
+              learnedIds ? learnedIds.size : 0
+            )}
+            tally={tally}
+          />
+        ) : mode === "say" ? (
           <SayItDrill
             drills={drills}
             lang={lang}
@@ -229,17 +261,30 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate 
 function SayItDrill({ drills, lang, langCode, guide, micSupported, tally }) {
   const [i, setI] = useState(0);
   const [result, setResult] = useState(null);
+  // The feedback LOOP lives here: attempt count and previous score for the
+  // current phrase. Without them every retry gets the same canned line, which
+  // is what made v70's feedback feel like a grader rather than a coach.
+  const [attempt, setAttempt] = useState(0);
+  const [lastScore, setLastScore] = useState(null);
   const drill = drills[i];
 
   function onGraded(r) {
     tally.current.attempts++;
     if (r.band === BAND.GOT) { tally.current.got++; tally.current.xp += 4; }
     else if (r.band === BAND.CLOSE) tally.current.xp += 2;
+    setAttempt((n) => n + 1);
     setResult(r);
+  }
+
+  function retry() {
+    setLastScore(result?.score ?? null);
+    setResult(null);
   }
 
   function next() {
     setResult(null);
+    setAttempt(0);
+    setLastScore(null);
     setI((n) => (n + 1) % Math.max(1, drills.length));
   }
 
@@ -269,15 +314,15 @@ function SayItDrill({ drills, lang, langCode, guide, micSupported, tally }) {
       </div>
 
       <AttemptPad
-        key={drill.key}
+        key={`${drill.key}-${attempt}`}
         target={drill.target}
         lang={lang}
         langCode={langCode}
         guide={guide}
         micSupported={micSupported}
+        previousScore={lastScore}
         onGraded={onGraded}
         result={result}
-        onRetry={() => setResult(null)}
       />
 
       {result && (
@@ -289,8 +334,9 @@ function SayItDrill({ drills, lang, langCode, guide, micSupported, tally }) {
           lang={lang}
           langCode={langCode}
           guide={guide}
+          attempt={attempt}
           onNext={next}
-          onRetry={() => setResult(null)}
+          onRetry={retry}
           nextLabel="Next phrase"
         />
       )}
@@ -419,7 +465,7 @@ function ConversationDrill({ turns, lang, langCode, guide, micSupported, tally }
 // ATTEMPT PAD — the mic, or the keyboard. Shared by both modes so the two can't
 // drift apart in behaviour.
 // =============================================================================
-function AttemptPad({ target, lang, langCode, guide, micSupported, onGraded, result, onRetry }) {
+function AttemptPad({ target, lang, langCode, guide, micSupported, onGraded, result, previousScore = null }) {
   const [state, setState] = useState("idle"); // idle | listening | judging
   const [heardLive, setHeardLive] = useState("");
   const [error, setError] = useState(null);
@@ -440,17 +486,27 @@ function AttemptPad({ target, lang, langCode, guide, micSupported, onGraded, res
     if (settled.current) return;
     settled.current = true;
     setState("judging");
-    const r = await judge(transcripts, target, { guideName: guide?.name });
+    const r = await judge(transcripts, target, {
+      guideName: guide?.name,
+      previousScore,   // lets the grader say "better than last time" and mean it
+    });
     setState("idle");
     onGraded(r);
   }
 
-  function listen() {
+  async function listen() {
     setError(null);
     setHeardLive("");
     heardRef.current = "";
     settled.current = false;
-    stopSpeaking(); // don't let TTS bleed into the mic
+
+    // Silence the coach and WAIT for it to actually stop before opening the
+    // mic. cancelVoice() alone isn't enough — speechSynthesis.cancel() is
+    // asynchronous, so a recogniser started immediately after it can still
+    // transcribe the tail of the coach's own sentence and grade the learner on
+    // the coach's words. awaiting idle() is what makes the loop safe.
+    cancelVoice();
+    await voiceIdle();
     setState("listening");
 
     handle.current = startListening({
@@ -546,16 +602,33 @@ function AttemptPad({ target, lang, langCode, guide, micSupported, onGraded, res
 }
 
 // =============================================================================
-// VERDICT — the answer, revealed only now, with what they actually said and one
-// specific thing to fix.
+// VERDICT (v71) — the coach SPEAKS. This is the loop, not a score card.
+//
+// v70 printed a sentence and played the model answer. Reading feedback is the
+// wrong medium for pronunciation work: the learner is listening and moving their
+// mouth, not reading a paragraph. So the sequence here is deliberately the one a
+// human tutor uses:
+//
+//   1. The coach says the verdict aloud, in English, warmly and specifically.
+//   2. Then the model line is spoken in the target language.
+//   3. Then "say it again" is the primary button — not "next".
+//
+// Both halves come from the same source (result.spoken / result.feedback in
+// speech.js) so what's heard and what's on screen can never disagree.
+//
+// The order matters: coaching FIRST, then the model line, so the last thing in
+// the learner's ear is the sound they're trying to copy.
 // =============================================================================
 function Verdict({
-  result, target, pronunciation, audioId, lang, langCode, guide, onNext, onRetry, nextLabel,
+  result, target, pronunciation, audioId, lang, langCode, guide,
+  attempt = 1, onNext, onRetry, nextLabel,
 }) {
   const [playing, setPlaying] = useState(false);
+  const [coachTalking, setCoachTalking] = useState(false);
   const band = result.band;
+  const passed = band === BAND.GOT;
 
-  const head = band === BAND.GOT ? "Got it" : band === BAND.CLOSE ? "Close" : "Not yet";
+  const head = passed ? "Got it" : band === BAND.CLOSE ? "Close" : "Not yet";
 
   async function hear() {
     setPlaying(true);
@@ -566,9 +639,24 @@ function Verdict({
     }
   }
 
-  // Play the model answer straight away — hearing it right after trying is when
-  // the correction actually lands.
-  useEffect(() => { const t = setTimeout(hear, 250); return () => clearTimeout(t); }, []);
+  // The spoken loop. Runs once per attempt; cancelled cleanly if the learner
+  // taps through before it finishes so it can't talk over the next screen.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      await new Promise((r) => setTimeout(r, 220));
+      if (cancelled) return;
+      if (result.spoken && voiceSupported()) {
+        setCoachTalking(true);
+        await sayCoach(result.spoken);
+        setCoachTalking(false);
+      }
+      if (cancelled) return;
+      await hear();
+    })();
+    return () => { cancelled = true; cancelVoice(); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={`verdict verdict-${band}`}>
@@ -577,7 +665,10 @@ function Verdict({
         <span className="verdict-score">{displayScore(result)}%</span>
       </div>
 
-      <div className="verdict-feedback">{result.feedback}</div>
+      <div className="verdict-coach">
+        <GuideMark code={langCode} size={26} speaking={coachTalking} />
+        <span className="verdict-feedback">{result.feedback}</span>
+      </div>
 
       {result.heard && (
         <div className="verdict-heard">You said: “{result.heard}”</div>
@@ -600,10 +691,255 @@ function Verdict({
         </button>
       </div>
 
+      {/* Retry is the primary action until they pass — the point is another go,
+          not moving on. Once they've got it, moving on becomes primary. */}
       <div className="verdict-actions">
-        <button className="station-go" onClick={onNext}>{nextLabel}</button>
-        <button className="station-speak" onClick={onRetry}>Try again</button>
+        {passed ? (
+          <>
+            <button className="station-go" onClick={onNext}>{nextLabel}</button>
+            <button className="station-speak" onClick={onRetry}>Once more</button>
+          </>
+        ) : (
+          <>
+            <button className="station-go" onClick={onRetry}>Say it again</button>
+            <button className="station-speak" onClick={onNext}>Skip ahead</button>
+          </>
+        )}
       </div>
+
+      {attempt > 1 && (
+        <div className="verdict-attempt">
+          Attempt {attempt}
+          {!passed && " — nobody gets this on the first go"}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// =============================================================================
+// COACH DRILL (v71) — the live conversation partner.
+//
+// The scripted partner walks a fixed set of journey lines. This one actually
+// converses: whatever the learner says goes to /api/coach, and the guide answers
+// in the target language, out loud, then asks something back. Because the reply
+// is generated it can follow a tangent, rephrase when the learner is stuck, and
+// pitch itself at their level.
+//
+// FAILURE IS A FIRST-CLASS PATH. Every error the endpoint can return (not
+// configured, rate limited, upstream down, timeout) surfaces as a plain sentence
+// plus a way to keep practising, because a conversation partner that dies
+// silently is worse than one that never existed. Nothing here can strand the
+// learner in a broken state.
+// =============================================================================
+function CoachDrill({ lang, langCode, guide, micSupported, level, tally }) {
+  const [turns, setTurns] = useState([]);   // { role: "guide"|"learner", ... }
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState(null);
+  const [speakingNow, setSpeakingNow] = useState(false);
+  const [typed, setTyped] = useState("");
+  const [listening, setListening] = useState(false);
+  const [micError, setMicError] = useState(null);
+  const handle = useRef(null);
+  const heardRef = useRef("");
+  const scroller = useRef(null);
+  const started = useRef(false);
+
+  const voice = guideVoice(langCode);
+
+  useEffect(() => () => { try { handle.current?.abort(); } catch {} cancelVoice(); }, []);
+
+  // Keep the newest turn in view without yanking the whole page around.
+  useEffect(() => {
+    scroller.current?.scrollTo({ top: scroller.current.scrollHeight, behavior: "smooth" });
+  }, [turns.length, pending]);
+
+  const send = useCallback(async ({ learnerText = "", opening = false }) => {
+    setError(null);
+    setPending(true);
+    try {
+      const history = turns.map((t) => ({
+        role: t.role,
+        text: t.role === "guide" ? t.native : t.text,
+      }));
+      const data = await coachTurn({
+        langName: lang.name,
+        guide: guide ? { name: guide.name, city: guide.city, craft: guide.craft } : null,
+        level,
+        history,
+        learnerText,
+        opening,
+      });
+
+      if (data.refused) {
+        setError(data.coaching);
+        return;
+      }
+
+      setTurns((prev) => [...prev, {
+        role: "guide",
+        native: data.reply.native,
+        translit: data.reply.translit,
+        en: data.reply.en,
+        coaching: data.coaching,
+        verdict: data.verdict,
+        suggestion: data.suggestion,
+      }]);
+
+      if (data.verdict === "good") { tally.current.got++; tally.current.xp += 6; }
+      else tally.current.xp += 3;
+      if (learnerText) tally.current.attempts++;
+
+      // Coaching in English first, then the guide's line in their own voice —
+      // same ordering rule as Verdict, for the same reason.
+      cancelVoice();
+      setSpeakingNow(true);
+      try {
+        if (data.coaching && learnerText && voiceSupported()) await sayCoach(data.coaching);
+        await speak(data.reply.native, lang.ttsCode, voice);
+      } finally {
+        setSpeakingNow(false);
+      }
+    } catch (e) {
+      setError(e instanceof CoachError ? e.message : "The coach couldn't answer that one.");
+    } finally {
+      setPending(false);
+    }
+  }, [turns, lang.name, lang.ttsCode, guide, level, voice.rate, voice.pitch, tally]);
+
+  // Open the conversation once, on mount.
+  useEffect(() => {
+    if (started.current) return;
+    started.current = true;
+    send({ opening: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function submit(text) {
+    const clean = String(text || "").trim();
+    if (!clean || pending) return;
+    setTurns((prev) => [...prev, { role: "learner", text: clean }]);
+    setTyped("");
+    send({ learnerText: clean });
+  }
+
+  async function listen() {
+    setMicError(null);
+    heardRef.current = "";
+    cancelVoice();
+    await voiceIdle();     // never record the coach's own voice
+    setListening(true);
+    handle.current = startListening({
+      langCode,
+      ttsCode: lang.ttsCode,
+      onResult: ({ transcripts, isFinal }) => {
+        heardRef.current = transcripts[0] || "";
+        if (isFinal) { setListening(false); submit(heardRef.current); }
+      },
+      onError: (e) => {
+        setListening(false);
+        if (!e.benign || e.code === "no-speech") setMicError(e.message);
+      },
+      onEnd: () => {
+        setListening(false);
+        if (heardRef.current) submit(heardRef.current);
+      },
+    });
+    if (!handle.current) setListening(false);
+  }
+
+  const last = turns[turns.length - 1];
+  const suggestion = last?.role === "guide" ? last.suggestion : "";
+
+  return (
+    <div>
+      <div className="coach-note">
+        A real conversation — say anything, in {lang.name} or English if you get stuck.
+        {guide?.name ? ` ${guide.name} will` : " The coach will"} keep it at your level and correct gently.
+      </div>
+
+      <div className="coach-thread" ref={scroller}>
+        {turns.map((t, i) => (
+          t.role === "guide" ? (
+            <div className="coach-turn coach-turn-guide" key={i}>
+              <GuideMark code={langCode} size={30} speaking={speakingNow && i === turns.length - 1} />
+              <div style={{ minWidth: 0, flex: 1 }}>
+                {t.coaching && <div className="coach-coaching">{t.coaching}</div>}
+                <div className="coach-native" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode}>{t.native}</div>
+                <div className="coach-tl">{t.translit}</div>
+                <div className="coach-en">{t.en}</div>
+              </div>
+              <button
+                className="xchg-play"
+                onClick={() => speak(t.native, lang.ttsCode, voice)}
+                aria-label="Play again"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                  <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+                </svg>
+              </button>
+            </div>
+          ) : (
+            <div className="coach-turn coach-turn-you" key={i}>
+              <div className="coach-you-bubble">{t.text}</div>
+            </div>
+          )
+        ))}
+        {pending && (
+          <div className="coach-turn coach-turn-guide">
+            <GuideMark code={langCode} size={30} />
+            <div className="coach-typing" aria-label="thinking">
+              <span /><span /><span />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {error && (
+        <div className="coach-error">
+          {error}
+          <button className="quiet-link" onClick={() => send({ opening: turns.length === 0 })}>
+            try again
+          </button>
+        </div>
+      )}
+
+      {suggestion && !pending && (
+        <button className="coach-suggestion" onClick={() => submit(suggestion)}>
+          Stuck? Say “{suggestion}”
+        </button>
+      )}
+
+      <div className="coach-input">
+        {micSupported && (
+          <button
+            className={`coach-mic${listening ? " coach-mic-live" : ""}`}
+            onClick={listening ? () => { try { handle.current?.stop(); } catch {} } : listen}
+            disabled={pending}
+            aria-label={listening ? "Stop" : "Speak"}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+              <line x1="12" x2="12" y1="19" y2="22" />
+            </svg>
+          </button>
+        )}
+        <input
+          className="type-input"
+          value={typed}
+          onChange={(e) => setTyped(e.target.value)}
+          onKeyDown={(e) => { if (e.key === "Enter") submit(typed); }}
+          placeholder={listening ? "Listening…" : "Say it, or type it…"}
+          disabled={pending}
+          autoComplete="off" autoCorrect="off" spellCheck={false}
+        />
+        <button className="coach-send" onClick={() => submit(typed)} disabled={pending || !typed.trim()}>
+          Send
+        </button>
+      </div>
+      {micError && <div className="mic-error" style={{ textAlign: "left" }}>{micError}</div>}
     </div>
   );
 }
