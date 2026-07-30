@@ -793,175 +793,6 @@ button:focus:not(:focus-visible) { outline: none; }
 }
 
 /* ============================================================
-   v70 SPEAK — the speaking trainer.
-   The mic is the loudest thing on the screen because it's the
-   only thing being asked of you. Everything else recedes.
-   ============================================================ */
-
-.speak-bar {
-  display: flex; align-items: center; gap: 12px;
-  padding: 13px 16px;
-  background: var(--bg-alt); border-bottom: 1px solid var(--border);
-  position: sticky; top: 0; z-index: 10;
-}
-.speak-close {
-  background: transparent; border: none; color: var(--text-dim);
-  font-size: 19px; cursor: pointer; padding: 4px 8px; flex-shrink: 0;
-}
-.speak-title {
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.2;
-}
-
-.mic-warn {
-  background: var(--accent-soft); border: 1px solid var(--accent);
-  border-radius: 13px; padding: 12px 14px; margin-bottom: 14px;
-  font-size: 12.5px; color: var(--text); line-height: 1.5;
-}
-
-/* segmented control */
-.seg {
-  display: flex; gap: 4px; padding: 4px; margin-bottom: 16px;
-  background: var(--surface-hi); border-radius: 999px;
-}
-.seg-btn {
-  flex: 1; border: none; background: transparent; cursor: pointer;
-  border-radius: 999px; padding: 9px 12px;
-  font-size: 13px; font-weight: 700; color: var(--text-dim);
-  transition: background 180ms var(--ease-smooth), color 180ms var(--ease-smooth);
-}
-.seg-on { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-card); }
-.seg-btn:disabled { opacity: 0.4; cursor: default; }
-
-/* --- the prompt --- */
-.drill-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); padding: 20px 20px 18px;
-  box-shadow: var(--shadow-card);
-}
-.drill-ask {
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 24px; font-weight: 600; color: var(--ink);
-  line-height: 1.28; margin-top: 7px;
-}
-.drill-context {
-  margin-top: 11px; padding-top: 11px; border-top: 1px solid var(--surface-hi);
-  font-size: 12.5px; color: var(--text-dim); line-height: 1.5;
-}
-.drill-nohint {
-  margin-top: 12px; font-size: 11.5px; color: var(--text-mute); line-height: 1.5;
-}
-.drill-count {
-  text-align: center; margin-top: 18px;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.8px;
-  text-transform: uppercase; color: var(--text-mute);
-}
-.speak-empty {
-  text-align: center; padding: 40px 20px; color: var(--text-dim);
-  font-size: 14px; line-height: 1.6;
-}
-
-/* --- the mic --- */
-.pad { display: flex; flex-direction: column; align-items: center; margin-top: 22px; }
-.mic {
-  width: 78px; height: 78px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  border: none; cursor: pointer; color: #fff; background: var(--ink);
-  box-shadow: 0 2px 0 #161d2c, 0 10px 26px rgba(35,43,61,0.26);
-  transition: transform 180ms var(--ease-spring), background 200ms var(--ease-smooth);
-}
-.mic-listening {
-  background: var(--danger);
-  box-shadow: 0 0 0 0 rgba(192,57,43,0.5);
-  animation: micPulse 1.4s ease-out infinite;
-}
-.mic-judging { background: var(--root); opacity: 0.85; }
-@keyframes micPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(192,57,43,0.42); }
-  100% { box-shadow: 0 0 0 22px rgba(192,57,43,0); }
-}
-.mic-state {
-  margin-top: 14px; font-size: 13.5px; color: var(--text-dim);
-  text-align: center; line-height: 1.5; min-height: 20px; max-width: 320px;
-}
-.mic-error {
-  margin-top: 8px; font-size: 12px; color: var(--danger);
-  text-align: center; line-height: 1.5; max-width: 320px;
-}
-
-/* --- typed fallback --- */
-.type-pad { width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
-.type-input {
-  width: 100%; padding: 15px 16px; font-size: 16px;
-  border: 1px solid var(--border); border-radius: 14px;
-  background: var(--surface); outline: none;
-}
-.type-input:focus { border-color: var(--ink); }
-.type-submit {
-  background: var(--ink); color: #fff; border: none; border-radius: 14px;
-  padding: 14px; font-size: 15px; font-weight: 800; cursor: pointer;
-}
-.type-submit:disabled { background: var(--surface-hi); color: var(--text-mute); cursor: default; }
-
-/* --- verdict --- */
-.verdict {
-  margin-top: 20px; padding: 18px;
-  border-radius: var(--radius-lg); border: 1px solid var(--border);
-  background: var(--surface); animation: riseIn 320ms var(--ease-out-expo) both;
-}
-.verdict-got   { border-color: var(--primary); background: var(--primary-soft); }
-.verdict-close { border-color: var(--accent); background: var(--accent-soft); }
-.verdict-miss  { border-color: var(--border); }
-.verdict-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.verdict-word {
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 21px; font-weight: 600; color: var(--ink);
-}
-.verdict-score {
-  font-size: 13px; font-weight: 800; color: var(--text-dim);
-  font-variant-numeric: tabular-nums;
-}
-.verdict-feedback { font-size: 13.5px; color: var(--text); line-height: 1.55; margin-top: 7px; }
-.verdict-heard { font-size: 12px; color: var(--text-mute); margin-top: 7px; line-height: 1.45; }
-.verdict-answer {
-  display: flex; align-items: flex-start; gap: 10px;
-  margin-top: 14px; padding: 13px 14px;
-  background: var(--surface); border: 1px solid var(--border); border-radius: 13px;
-}
-.verdict-native { font-size: 19px; color: var(--text); line-height: 1.55; margin-top: 4px; }
-.verdict-tl { font-size: 13px; color: var(--text-dim); margin-top: 3px; }
-.verdict-pron { font-size: 11.5px; color: var(--accent); margin-top: 3px; font-style: italic; }
-.verdict-actions { display: flex; gap: 9px; margin-top: 15px; flex-wrap: wrap; }
-
-/* --- conversation --- */
-.convo-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card);
-}
-.convo-them { display: flex; align-items: flex-start; gap: 12px; padding: 17px 17px 15px; }
-.convo-who {
-  font-size: 10px; font-weight: 800; letter-spacing: 0.9px;
-  text-transform: uppercase; color: var(--text-mute);
-}
-.convo-native { font-size: 19px; color: var(--text); line-height: 1.55; margin-top: 5px; }
-.convo-tl { font-size: 13px; color: var(--text-dim); margin-top: 3px; }
-.convo-en { font-size: 11.5px; color: var(--text-mute); margin-top: 2px; }
-.convo-your-turn {
-  padding: 14px 17px 16px;
-  background: var(--surface-hi); border-top: 1px solid var(--border);
-}
-.convo-goal {
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 20px; font-weight: 600; color: var(--ink); line-height: 1.3; margin-top: 5px;
-}
-.convo-reaction {
-  display: flex; align-items: center; gap: 9px; margin-top: 16px;
-  padding: 11px 13px; border-radius: 12px;
-  background: var(--surface-hi); border: 1px solid var(--border);
-  font-size: 13px; color: var(--text); line-height: 1.45;
-}
-
-/* ============================================================
    v70 CULTURE NOTE — the "why we say it that way" block.
    ============================================================ */
 .culture-note {
@@ -1022,16 +853,8 @@ button:focus:not(:focus-visible) { outline: none; }
 }
 
 /* ============================================================
-   v71 SPOKEN COACH — the verdict talks, and the live coach thread.
+   v71/v72 LIVE COACH — the conversation thread.
    ============================================================ */
-
-/* the coach's spoken verdict, with the seal breathing while it talks */
-.verdict-coach { display: flex; align-items: flex-start; gap: 10px; margin-top: 9px; }
-.verdict-coach .verdict-feedback { margin-top: 2px; }
-.verdict-attempt {
-  margin-top: 11px; font-size: 11px; font-weight: 700;
-  letter-spacing: 0.5px; color: var(--text-mute);
-}
 
 /* --- live coach --- */
 .coach-note {
@@ -1116,4 +939,260 @@ button:focus:not(:focus-visible) { outline: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .coach-typing span, .coach-mic-live, .coach-turn-guide, .coach-you-bubble { animation: none !important; }
+}
+
+/* ============================================================
+   v72 SPEAK — one session: intro → round → result → talk.
+   No tabs. The microphone is the hero of the round, and every
+   phase fills the screen rather than stacking under a chooser.
+   ============================================================ */
+
+.speak-screen {
+  min-height: 100vh;
+  background:
+    radial-gradient(760px 380px at 80% -80px, rgba(141,110,86,0.10), transparent 65%),
+    radial-gradient(620px 340px at -10% 8%, rgba(47,125,79,0.06), transparent 60%);
+}
+.speak-bar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 13px 16px;
+  background: var(--bg-alt); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.speak-close {
+  background: transparent; border: none; color: var(--text-dim);
+  font-size: 19px; cursor: pointer; padding: 4px 8px; flex-shrink: 0;
+}
+.speak-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.2;
+}
+.speak-body {
+  max-width: 520px; margin: 0 auto;
+  padding: 20px 16px calc(110px + env(safe-area-inset-bottom));
+}
+.speak-body-talk { max-width: 560px; }
+
+/* --- shared buttons --- */
+.btn-hero {
+  display: block; width: 100%; margin-top: 18px;
+  background: var(--ink); color: #fff; border: none; border-radius: 16px;
+  padding: 17px 20px; font-size: 15.5px; font-weight: 800; cursor: pointer;
+  box-shadow: 0 2px 0 #161d2c, 0 10px 26px rgba(35,43,61,0.24);
+  transition: transform 150ms var(--ease-smooth), filter 200ms var(--ease-smooth);
+}
+.btn-hero:disabled { background: var(--surface-hi); color: var(--text-mute); box-shadow: none; cursor: default; }
+.btn-hero-sm { margin-top: 0; padding: 13px 18px; font-size: 14px; width: auto; flex: 1; }
+@media (hover: hover) { .btn-hero:not(:disabled):hover { filter: brightness(1.12); } }
+.btn-quiet {
+  display: block; width: 100%; margin-top: 10px;
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--border); border-radius: 14px;
+  padding: 13px 18px; font-size: 14px; font-weight: 700; cursor: pointer;
+}
+@media (hover: hover) { .btn-quiet:hover { border-color: var(--ink); } }
+
+/* --- intro --- */
+.intro-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 26px 22px 22px;
+  box-shadow: var(--shadow-deep); text-align: center;
+  animation: riseIn 340ms var(--ease-out-expo) both;
+}
+.intro-mark { display: flex; justify-content: center; margin-bottom: 14px; }
+.intro-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 25px; font-weight: 600; color: var(--ink);
+  margin: 0; line-height: 1.22;
+}
+.intro-sub { font-size: 14px; color: var(--text-dim); line-height: 1.6; margin: 10px 0 0; }
+.intro-points {
+  text-align: left; margin: 18px 0 0; padding: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 9px;
+}
+.intro-points li {
+  font-size: 13px; color: var(--text-dim); line-height: 1.5;
+  padding-left: 16px; position: relative;
+}
+.intro-points li::before {
+  content: ""; position: absolute; left: 0; top: 7px;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--root);
+}
+.intro-points b { color: var(--text); font-weight: 700; }
+.intro-mic {
+  margin-top: 16px; padding: 11px 13px; border-radius: 12px;
+  font-size: 12.5px; line-height: 1.5; text-align: left;
+}
+.intro-mic-off { background: var(--accent-soft); border: 1px solid var(--accent); color: var(--text); }
+.intro-mic-on { background: var(--primary-soft); border: 1px solid var(--primary); color: var(--primary-dark); font-weight: 700; }
+.intro-empty { font-size: 12.5px; color: var(--text-mute); margin: 10px 0 0; line-height: 1.5; }
+
+/* --- round --- */
+.round-progress { display: flex; gap: 6px; margin-bottom: 18px; }
+.round-pip {
+  flex: 1; height: 3px; border-radius: 999px; background: var(--border);
+  transition: background 300ms var(--ease-smooth);
+}
+.pip-done { background: var(--primary); }
+.pip-now { background: var(--ink); }
+
+.prompt-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 20px;
+  box-shadow: var(--shadow-card);
+}
+.prompt-heard {
+  display: flex; align-items: flex-start; gap: 10px; width: 100%;
+  text-align: left; cursor: pointer; margin-bottom: 16px;
+  background: var(--surface-hi); border: 1px solid var(--border);
+  border-radius: 13px; padding: 11px 12px;
+}
+.prompt-heard-live { border-color: var(--ink); }
+.prompt-heard-icon {
+  width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: #fff;
+}
+.prompt-heard-native { display: block; font-size: 15px; color: var(--text); line-height: 1.5; }
+.prompt-heard-en { display: block; font-size: 11.5px; color: var(--text-mute); margin-top: 2px; }
+.prompt-ask {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 25px; font-weight: 600; color: var(--ink);
+  line-height: 1.26; margin-top: 7px;
+}
+.prompt-hint { font-size: 11.5px; color: var(--text-mute); margin-top: 11px; line-height: 1.5; }
+
+/* --- the mic: deliberately the largest control on the screen --- */
+.pad { display: flex; flex-direction: column; align-items: center; margin-top: 30px; }
+.mic {
+  border-radius: 50%; border: none; cursor: pointer; color: #fff;
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 0 #161d2c, 0 14px 34px rgba(35,43,61,0.30);
+  transition: transform 180ms var(--ease-spring), background 200ms var(--ease-smooth);
+}
+.mic-big { width: 104px; height: 104px; }
+.mic:active { transform: scale(0.96); }
+.mic-listening {
+  background: var(--danger);
+  animation: micPulse 1.4s ease-out infinite;
+}
+.mic-judging { background: var(--root); opacity: 0.85; }
+@keyframes micPulse {
+  0%   { box-shadow: 0 3px 0 #8f2419, 0 0 0 0 rgba(192,57,43,0.45); }
+  100% { box-shadow: 0 3px 0 #8f2419, 0 0 0 30px rgba(192,57,43,0); }
+}
+.mic-state {
+  margin-top: 16px; font-size: 14.5px; color: var(--text-dim);
+  text-align: center; line-height: 1.5; min-height: 22px; max-width: 330px;
+}
+.mic-error {
+  margin-top: 9px; font-size: 12px; color: var(--danger);
+  text-align: center; line-height: 1.5; max-width: 330px;
+}
+.type-pad { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+.type-input {
+  width: 100%; padding: 15px 16px; font-size: 16px;
+  border: 1px solid var(--border); border-radius: 14px;
+  background: var(--surface); outline: none;
+}
+.type-input:focus { border-color: var(--ink); }
+.type-submit {
+  background: var(--ink); color: #fff; border: none; border-radius: 14px;
+  padding: 14px; font-size: 15px; font-weight: 800; cursor: pointer;
+}
+.type-submit:disabled { background: var(--surface-hi); color: var(--text-mute); cursor: default; }
+
+/* --- slim verdict --- */
+.vslim {
+  margin-top: 20px; padding: 16px;
+  border-radius: var(--radius-lg); border: 1px solid var(--border);
+  background: var(--surface);
+  animation: riseIn 300ms var(--ease-out-expo) both;
+}
+.vslim-got   { border-color: var(--primary); background: var(--primary-soft); }
+.vslim-close { border-color: var(--accent); background: var(--accent-soft); }
+.vslim-top { display: flex; align-items: flex-start; gap: 11px; }
+.vslim-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.vslim-band {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 19px; font-weight: 600; color: var(--ink);
+}
+.vslim-score {
+  font-size: 12.5px; font-weight: 800; color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+.vslim-say { font-size: 13.5px; color: var(--text); line-height: 1.55; margin-top: 4px; }
+.vslim-line {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-top: 13px; padding: 12px 13px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 13px;
+}
+.vslim-native { font-size: 18px; color: var(--text); line-height: 1.55; }
+.vslim-tl { font-size: 12.5px; color: var(--text-dim); margin-top: 3px; }
+.vslim-heard { font-size: 11.5px; color: var(--text-mute); margin-top: 4px; }
+.vslim-actions { display: flex; gap: 9px; margin-top: 14px; }
+.vslim-actions .btn-quiet { margin-top: 0; }
+.vslim-attempt { font-size: 11px; font-weight: 700; color: var(--text-mute); margin-top: 10px; }
+
+/* --- result --- */
+.result-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 26px 22px 22px;
+  box-shadow: var(--shadow-deep); text-align: center;
+  animation: riseIn 340ms var(--ease-out-expo) both;
+}
+.result-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 24px; font-weight: 600; color: var(--ink); margin: 0; line-height: 1.24;
+}
+.result-sub { font-size: 14px; color: var(--text-dim); line-height: 1.6; margin: 9px 0 0; }
+.result-stats {
+  display: flex; justify-content: center; gap: 34px; margin: 20px 0 4px;
+}
+.result-stats div { display: flex; flex-direction: column; gap: 2px; }
+.result-stats b {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 24px; font-weight: 600; color: var(--ink);
+}
+.result-stats span {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.9px;
+  text-transform: uppercase; color: var(--text-mute);
+}
+.result-work {
+  text-align: left; margin-top: 20px; padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.result-work-row { padding: 8px 0; border-bottom: 1px solid var(--surface-hi); }
+.result-work-row:last-child { border-bottom: none; }
+.result-work-native { display: block; font-size: 15.5px; color: var(--text); line-height: 1.5; }
+.result-work-tl { display: block; font-size: 12px; color: var(--text-mute); margin-top: 1px; }
+.result-locked {
+  text-align: left; margin-top: 18px; padding: 13px 14px;
+  background: var(--surface-hi); border: 1px dashed var(--border);
+  border-radius: 13px; font-size: 12.5px; color: var(--text-dim); line-height: 1.6;
+}
+.result-locked b { color: var(--text); }
+.result-locked code {
+  font-size: 11.5px; background: var(--bg); padding: 1px 5px;
+  border-radius: 4px; border: 1px solid var(--border);
+}
+.result-actions { display: flex; gap: 9px; margin-top: 14px; }
+.result-actions .btn-quiet { margin-top: 0; }
+
+/* --- talk --- */
+.talk-back {
+  background: none; border: none; cursor: pointer; padding: 0 0 14px;
+  font-size: 13px; font-weight: 700; color: var(--text-dim);
+}
+@media (hover: hover) { .talk-back:hover { color: var(--ink); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-card, .result-card, .vslim, .mic-listening { animation: none !important; }
+}
+
+/* Generic empty state — used where a screen has nothing to show yet. */
+.empty-note {
+  text-align: center; padding: 40px 20px;
+  color: var(--text-dim); font-size: 14px; line-height: 1.6;
 }

@@ -68,7 +68,7 @@ export function Culture({ pack, onNavigate }) {
         )}
 
         {notes.length === 0 ? (
-          <div className="speak-empty">
+          <div className="empty-note">
             <p>No cultural notes written for {lang.name} yet.</p>
           </div>
         ) : (

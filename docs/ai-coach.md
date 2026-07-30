@@ -1,9 +1,10 @@
 # The AI conversation coach
 
-The **Live coach** tab in Speak holds an actual conversation with the learner:
-they say something, the guide answers in the target language out loud, corrects
-one thing gently, and asks something back. It's the difference between practising
-lines and having a conversation.
+At the end of a Speak session the learner is offered a real conversation with
+their guide: they say something, the guide answers in the target language out
+loud, corrects one thing gently, and asks something back. It's the difference
+between practising lines and having a conversation — and it sits where it does
+on purpose, as the thing you graduate to after controlled practice.
 
 It is **entirely optional**. Everything else in the app works without it.
 
@@ -21,7 +22,11 @@ You need an Anthropic API key: <https://console.anthropic.com/settings/keys>
 3. **Redeploy.** Environment variables are read at build/run time, so an existing
    deployment won't pick up a new variable until it redeploys.
 
-That's it. The **Live coach** tab appears on its own the next time the app loads.
+That's it. The offer appears at the end of the next Speak session.
+
+Until a key is set, the result screen says so in as many words rather than
+silently hiding the feature — an option that vanishes without explanation reads
+as a bug.
 
 ### Locally
 
@@ -31,7 +36,8 @@ npx vercel dev                 # NOT `npm run dev`
 ```
 
 `npm run dev` is plain Vite — it serves the app but has no `/api` routes, so the
-coach tab won't appear. `vercel dev` runs the serverless function alongside it.
+coach is reported as unconfigured. `vercel dev` runs the serverless function
+alongside it.
 
 ---
 
@@ -85,7 +91,7 @@ keeps a working app:
 
 | Situation | What happens |
 |---|---|
-| No `ANTHROPIC_API_KEY` | `/api/coach` returns 501; the tab never appears; scripted partner is used |
+| No `ANTHROPIC_API_KEY` | `/api/coach` returns 501; the result screen explains what's missing and how to enable it |
 | Learner is offline | Turn fails with "couldn't reach the coach"; earlier turns stay on screen |
 | Anthropic is down / rate limited | An honest one-line message plus a **try again** link |
 | Reply takes over 30s | Times out rather than hanging |
