@@ -3,6 +3,7 @@
 // =============================================================================
 
 import React, { useState, useEffect, useCallback } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { useEngine } from "./hooks/useEngine.js";
 import { usePersistentState } from "./hooks/usePersistentState.js";
 import { getStorage } from "./storage/index.js";
@@ -223,6 +224,7 @@ export default function App() {
       </div>
       </div>
       {screen !== "lesson" && <BottomNav screen={screen} onNavigate={navigate} />}
+      <Analytics />
     </ErrorBoundary>
   );
 }
