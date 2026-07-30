@@ -21,6 +21,10 @@ import { TopBar, Container } from "../ui/primitives.jsx";
 import { LANGUAGES } from "../data/registry.js";
 import { hasJourney, getStops, getChapterTitle, stopsReached } from "../data/journey.js";
 import { getCharacter } from "../data/characters.js";
+import { GuideMark } from "../ui/GuideMark.jsx";
+import { JourneyMap } from "./JourneyMap.jsx";
+import { cultureOfTheDay, tagLabel, hasCulture } from "../data/culture.js";
+import { isRecognitionSupported } from "../audio/speech.js";
 import { getLevel } from "../engine/gamification.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 import {
@@ -266,6 +270,13 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
   const flame = streakStage(appState.streak || 0);
   const dailyPct = Math.min(1, todayXp / (appState.dailyGoalXp || 35));
 
+  // v70: tied to the unit they're actually on, so the note is contextual rather
+  // than trivia — etiquette for the greetings unit, register for pronouns, etc.
+  const cultureNote = useMemo(
+    () => cultureOfTheDay(pack.code, { unit: currentUnit?.id, category: currentUnit?.title }),
+    [pack.code, currentUnit?.id, currentUnit?.title]
+  );
+
   return (
     <div className="home-wash">
       <TopBar
@@ -292,11 +303,22 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
               ? <>{milestone.remaining} {milestone.remaining === 1 ? "session" : "sessions"} from<br /><em style={{ fontStyle: "italic" }}>{milestone.goal}</em>.</>
               : <>Every session makes<br />{lang.name} more yours.</>}
           </h1>
-          <div style={{ display: "flex", gap: 10, alignItems: "flex-start", marginTop: 14 }}>
-            <span style={{ fontSize: 20, lineHeight: "26px" }}>{character?.emoji || "🌿"}</span>
-            <Typewriter key={line} text={line} style={{
-              fontSize: 15, color: "var(--text-dim)", lineHeight: 1.5, minHeight: 24, flex: 1,
-            }} />
+          {/* v70: the guide's seal, not an emoji. Their initial in their own
+              script — see ui/GuideMark.jsx for why the emoji had to go. */}
+          <div style={{ display: "flex", gap: 11, alignItems: "flex-start", marginTop: 14 }}>
+            {character
+              ? <GuideMark code={pack.code} size={30} style={{ marginTop: 1 }} />
+              : <span style={{ fontSize: 20, lineHeight: "26px" }}>🌿</span>}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <Typewriter key={line} text={line} style={{
+                fontSize: 15, color: "var(--text-dim)", lineHeight: 1.5, minHeight: 24,
+              }} />
+              {character && (
+                <div style={{ fontSize: 11.5, color: "var(--text-mute)", marginTop: 4 }}>
+                  {character.name} · {character.craft}
+                </div>
+              )}
+            </div>
           </div>
           {!appState.userName && <NameCapture onSave={(n) => setAppState((s) => ({ ...s, userName: n }))} />}
         </div>
@@ -399,9 +421,31 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           </div>
         </div>
 
-        {/* ===== 4 · YOUR PATH — compact ===== */}
+        {/* ===== 3b · SPEAK IT — the app can finally listen (v70) ===== */}
+        {(stats.learned || 0) >= 3 && (
+          <button className="speak-invite" onClick={() => onNavigate("speak")}>
+            <span className="speak-invite-icon" aria-hidden="true">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                <line x1="12" x2="12" y1="19" y2="22" />
+              </svg>
+            </span>
+            <span style={{ flex: 1, minWidth: 0 }}>
+              <span className="speak-invite-title">Say it out loud</span>
+              <span className="speak-invite-sub">
+                {isRecognitionSupported()
+                  ? "I'll listen and tell you honestly — accents welcome"
+                  : "Practise producing it from memory"}
+              </span>
+            </span>
+            <span className="speak-invite-arrow" aria-hidden="true">→</span>
+          </button>
+        )}
+
+        {/* ===== 4 · THE ROUTE — the journey as a map (v70) ===== */}
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", margin: "30px 0 14px" }}>
-          <h3 className="eyebrow" style={{ margin: 0 }}>Your journey</h3>
+          <h3 className="eyebrow" style={{ margin: 0 }}>Your route</h3>
           <button className="quiet-link" style={{ margin: 0 }} onClick={() => onNavigate("hub")}>
             All practice tools →
           </button>
@@ -410,7 +454,9 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         {loadingUnits ? (
           <div style={{ textAlign: "center", padding: 40, color: "var(--text-dim)" }}>Loading…</div>
         ) : stops.length > 0 ? (
-          <JourneySpine
+          <JourneyMap
+            langCode={pack.code}
+            lang={lang}
             stops={stops}
             reached={reached}
             unitProgress={unitProgress}
@@ -470,6 +516,17 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             due={stats.due || 0}
             onReview={() => onNavigate("lesson", { mode: "due" })}
           />
+
+          {/* v70: one cultural note a day — the "why it's said that way" layer
+              that a word list can't give you. Rotates daily, deterministic so
+              it doesn't flicker between renders. */}
+          {cultureNote && (
+            <div className="culture-note" style={{ marginTop: 22 }}>
+              <div className="culture-tag">{tagLabel(cultureNote.tag)}</div>
+              <div className="culture-title">{cultureNote.title}</div>
+              <div className="culture-body">{cultureNote.body}</div>
+            </div>
+          )}
         </aside>
         </div>
       </Container>
@@ -579,10 +636,21 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
   const [pickingFocus, setPickingFocus] = useState(false);
 
   const doors = [
+    // v70: the mic moved to the bottom nav's Speak tab, so reading and
+    // conversations — which used to live behind that tab — get a door here.
+    // Without this they'd have become unreachable.
+    { icon: "📖", title: "Read & listen", sub: "Short passages and scripted conversations", go: () => onNavigate("practice") },
     { icon: "📇", title: "Flashcards", sub: "Flip through your words at your own pace", go: () => onNavigate("flashcards") },
     { icon: "🧭", title: "Grammar", sub: `How ${lang.name} actually fits together`, go: () => onNavigate("grammar") },
     { icon: "📚", title: "My words", sub: `${stats.learned || 0} learned · ${stats.mastered || 0} mastered`, go: () => onNavigate("vocab") },
   ];
+  if (hasCulture(pack.code)) {
+    doors.push({
+      icon: "🫖", title: `Inside ${lang.name}`,
+      sub: "Etiquette, register, and what natives notice",
+      go: () => onNavigate("culture"),
+    });
+  }
   if (pack.alphabet?.length > 0) {
     doors.unshift({ icon: "🔤", title: "Letters & sounds", sub: "Learn to read the script itself", go: () => onNavigate("alphabet") });
   }

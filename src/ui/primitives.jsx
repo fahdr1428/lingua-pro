@@ -229,7 +229,7 @@ export function SideRail({ screen, onNavigate, streak = 0, totalXp = 0 }) {
   const items = [
     { id: "home", icon: ICONS.sprout, label: "Learn" },
     { id: "hub", icon: ICONS.grid, label: "Practice" },
-    { id: "practice", icon: ICONS.mic, label: "Speak" },
+    { id: "speak", icon: ICONS.mic, label: "Speak" },
     { id: "profile", icon: ICONS.user, label: "Profile" },
   ];
   const active = screen === "home" ? "home" : screen;
@@ -271,7 +271,7 @@ export function BottomNav({ screen, onNavigate }) {
   const items = [
     { id: "home", icon: ICONS.sprout, label: "Learn" },
     { id: "hub", icon: ICONS.grid, label: "Practice" },
-    { id: "practice", icon: ICONS.mic, label: "Speak" },
+    { id: "speak", icon: ICONS.mic, label: "Speak" },
     { id: "profile", icon: ICONS.user, label: "Profile" },
   ];
   return (

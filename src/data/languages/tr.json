@@ -3,10 +3,13 @@
  "code": "tr",
  "categories": [
   "Adjectives",
+  "Body",
   "Connectors",
   "Family",
+  "Feelings",
   "Food",
   "Greetings",
+  "Nature",
   "Numbers",
   "Places",
   "Politeness",
@@ -14,7 +17,8 @@
   "Time",
   "Transport",
   "Travel",
-  "Verbs"
+  "Verbs",
+  "Weather"
  ],
  "alphabet": [
   {
@@ -135,6 +139,18 @@
    "title": "Getting By",
    "emoji": "🧳",
    "description": "How much, the bill, I don't understand"
+  },
+  {
+   "id": "u11",
+   "title": "Body & Feelings",
+   "emoji": "🫀",
+   "description": "Head, hand, eye — and how you're feeling"
+  },
+  {
+   "id": "u12",
+   "title": "Weather & Nature",
+   "emoji": "🌦️",
+   "description": "Sun, rain, sea, mountain — the world outside"
   }
  ],
  "vocab": [
@@ -2105,6 +2121,348 @@
     {
      "native": "dosdoğru git",
      "translation": "Go straight ahead"
+    }
+   ]
+  },
+  {
+   "id": "tr_0119",
+   "unit": "u11",
+   "lemma": "baş",
+   "translit": "baş",
+   "pronunciation": "BAHSH",
+   "translation": "head",
+   "category": "Body",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Başım ağrıyor.",
+     "translation": "My head hurts."
+    }
+   ]
+  },
+  {
+   "id": "tr_0120",
+   "unit": "u11",
+   "lemma": "el",
+   "translit": "el",
+   "pronunciation": "EL",
+   "translation": "hand",
+   "category": "Body",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Elini yıka.",
+     "translation": "Wash your hand."
+    }
+   ]
+  },
+  {
+   "id": "tr_0121",
+   "unit": "u11",
+   "lemma": "göz",
+   "translit": "göz",
+   "pronunciation": "GOEZ",
+   "translation": "eye",
+   "category": "Body",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Gözlerim yorgun.",
+     "translation": "My eyes are tired."
+    }
+   ]
+  },
+  {
+   "id": "tr_0122",
+   "unit": "u11",
+   "lemma": "kalp",
+   "translit": "kalp",
+   "pronunciation": "KALP",
+   "translation": "heart",
+   "category": "Body",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Kalbim hızlı atıyor.",
+     "translation": "My heart is beating fast."
+    }
+   ]
+  },
+  {
+   "id": "tr_0123",
+   "unit": "u11",
+   "lemma": "ayak",
+   "translit": "ayak",
+   "pronunciation": "ah-YAHK",
+   "translation": "foot",
+   "category": "Body",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Ayağım soğuk.",
+     "translation": "My foot is cold."
+    }
+   ]
+  },
+  {
+   "id": "tr_0124",
+   "unit": "u11",
+   "lemma": "mutlu",
+   "translit": "mutlu",
+   "pronunciation": "moot-LOO",
+   "translation": "happy",
+   "category": "Feelings",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Bugün çok mutluyum.",
+     "translation": "I'm very happy today."
+    }
+   ]
+  },
+  {
+   "id": "tr_0125",
+   "unit": "u11",
+   "lemma": "yorgun",
+   "translit": "yorgun",
+   "pronunciation": "yor-GOON",
+   "translation": "tired",
+   "category": "Feelings",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Çok yorgunum.",
+     "translation": "I'm very tired."
+    }
+   ]
+  },
+  {
+   "id": "tr_0126",
+   "unit": "u11",
+   "lemma": "üzgün",
+   "translit": "üzgün",
+   "pronunciation": "uez-GUEN",
+   "translation": "sad",
+   "category": "Feelings",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Üzgün görünüyorsun.",
+     "translation": "You look sad."
+    }
+   ]
+  },
+  {
+   "id": "tr_0127",
+   "unit": "u11",
+   "lemma": "aç",
+   "translit": "aç",
+   "pronunciation": "AHCH",
+   "translation": "hungry",
+   "category": "Feelings",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Ben açım.",
+     "translation": "I'm hungry."
+    }
+   ]
+  },
+  {
+   "id": "tr_0128",
+   "unit": "u11",
+   "lemma": "susuz",
+   "translit": "susuz",
+   "pronunciation": "soo-SOOZ",
+   "translation": "thirsty",
+   "category": "Feelings",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Susuzum, su lütfen.",
+     "translation": "I'm thirsty, water please."
+    }
+   ]
+  },
+  {
+   "id": "tr_0129",
+   "unit": "u12",
+   "lemma": "güneş",
+   "translit": "güneş",
+   "pronunciation": "gue-NESH",
+   "translation": "sun",
+   "category": "Weather",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Bugün güneş var.",
+     "translation": "There's sun today."
+    }
+   ]
+  },
+  {
+   "id": "tr_0130",
+   "unit": "u12",
+   "lemma": "yağmur",
+   "translit": "yağmur",
+   "pronunciation": "yah-MOOR",
+   "translation": "rain",
+   "category": "Weather",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Yağmur yağıyor.",
+     "translation": "It's raining."
+    }
+   ]
+  },
+  {
+   "id": "tr_0131",
+   "unit": "u12",
+   "lemma": "kar",
+   "translit": "kar",
+   "pronunciation": "KAHR",
+   "translation": "snow",
+   "category": "Weather",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Kışın kar yağar.",
+     "translation": "It snows in winter."
+    }
+   ]
+  },
+  {
+   "id": "tr_0132",
+   "unit": "u12",
+   "lemma": "rüzgar",
+   "translit": "rüzgar",
+   "pronunciation": "ruez-GAHR",
+   "translation": "wind",
+   "category": "Weather",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Rüzgar çok güçlü.",
+     "translation": "The wind is very strong."
+    }
+   ]
+  },
+  {
+   "id": "tr_0133",
+   "unit": "u12",
+   "lemma": "gökyüzü",
+   "translit": "gökyüzü",
+   "pronunciation": "goek-yue-ZUE",
+   "translation": "sky",
+   "category": "Nature",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Gökyüzü mavi.",
+     "translation": "The sky is blue."
+    }
+   ]
+  },
+  {
+   "id": "tr_0134",
+   "unit": "u12",
+   "lemma": "deniz",
+   "translit": "deniz",
+   "pronunciation": "de-NEEZ",
+   "translation": "sea",
+   "category": "Nature",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Deniz çok güzel.",
+     "translation": "The sea is very beautiful."
+    }
+   ]
+  },
+  {
+   "id": "tr_0135",
+   "unit": "u12",
+   "lemma": "ağaç",
+   "translit": "ağaç",
+   "pronunciation": "ah-AHCH",
+   "translation": "tree",
+   "category": "Nature",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Bahçede bir ağaç var.",
+     "translation": "There is a tree in the garden."
+    }
+   ]
+  },
+  {
+   "id": "tr_0136",
+   "unit": "u12",
+   "lemma": "dağ",
+   "translit": "dağ",
+   "pronunciation": "DAH",
+   "translation": "mountain",
+   "category": "Nature",
+   "difficulty": 2,
+   "tags": [
+    "nature-pack-v1"
+   ],
+   "examples": [
+    {
+     "native": "Dağ çok yüksek.",
+     "translation": "The mountain is very high."
     }
    ]
   }

@@ -2,12 +2,16 @@
   "schemaVersion": 7,
   "code": "ar",
   "categories": [
+    "About You",
     "Body",
     "Colors",
     "Common",
     "Connectors",
+    "Family",
+    "Feelings",
     "Food",
     "Greetings",
+    "Nature",
     "Numbers",
     "People",
     "Places",
@@ -1910,6 +1914,196 @@
           "translation": "Go straight ahead"
         }
       ]
+    },
+    {
+      "id": "ar_0101",
+      "unit": "u12",
+      "lemma": "السماء",
+      "translit": "as-samaa",
+      "pronunciation": "as-sah-MAA",
+      "translation": "sky",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "السماء صافية اليوم.",
+          "translation": "The sky is clear today."
+        }
+      ]
+    },
+    {
+      "id": "ar_0102",
+      "unit": "u12",
+      "lemma": "شجرة",
+      "translit": "shajara",
+      "pronunciation": "SHA-ja-ra",
+      "translation": "tree",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "هذه شجرة كبيرة.",
+          "translation": "This is a big tree."
+        }
+      ]
+    },
+    {
+      "id": "ar_0103",
+      "unit": "u12",
+      "lemma": "زهرة",
+      "translit": "zahra",
+      "pronunciation": "ZAH-ra",
+      "translation": "flower",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "الزهرة جميلة.",
+          "translation": "The flower is beautiful."
+        }
+      ]
+    },
+    {
+      "id": "ar_0104",
+      "unit": "u12",
+      "lemma": "نهر",
+      "translit": "nahr",
+      "pronunciation": "NAHR",
+      "translation": "river",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "النهر قريب من البيت.",
+          "translation": "The river is near the house."
+        }
+      ]
+    },
+    {
+      "id": "ar_0105",
+      "unit": "u12",
+      "lemma": "جبل",
+      "translit": "jabal",
+      "pronunciation": "JA-bal",
+      "translation": "mountain",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "الجبل عالي جدا.",
+          "translation": "The mountain is very high."
+        }
+      ]
+    },
+    {
+      "id": "ar_0106",
+      "unit": "u12",
+      "lemma": "بحر",
+      "translit": "bahr",
+      "pronunciation": "BAHR",
+      "translation": "sea",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "البحر بعيد من هنا.",
+          "translation": "The sea is far from here."
+        }
+      ]
+    },
+    {
+      "id": "ar_0107",
+      "unit": "u12",
+      "lemma": "قمر",
+      "translit": "qamar",
+      "pronunciation": "QA-mar",
+      "translation": "moon",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "القمر جميل الليلة.",
+          "translation": "The moon is beautiful tonight."
+        }
+      ]
+    },
+    {
+      "id": "ar_0108",
+      "unit": "u12",
+      "lemma": "ريح",
+      "translit": "reeh",
+      "pronunciation": "REEH",
+      "translation": "wind",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "الريح قوية اليوم.",
+          "translation": "The wind is strong today."
+        }
+      ]
+    },
+    {
+      "id": "ar_0109",
+      "unit": "u12",
+      "lemma": "حار",
+      "translit": "haar",
+      "pronunciation": "HAAR",
+      "translation": "hot",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "الجو حار جدا.",
+          "translation": "The weather is very hot."
+        }
+      ]
+    },
+    {
+      "id": "ar_0110",
+      "unit": "u12",
+      "lemma": "بارد",
+      "translit": "baarid",
+      "pronunciation": "BAA-rid",
+      "translation": "cold",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "الماء بارد.",
+          "translation": "The water is cold."
+        }
+      ]
     }
   ],
   "units": [
@@ -1978,6 +2172,12 @@
       "title": "Getting Around",
       "emoji": "🚗",
       "description": "Here, there, left, right, water"
+    },
+    {
+      "id": "u12",
+      "title": "Weather & Nature",
+      "emoji": "🌦️",
+      "description": "Sky, sea, mountain, moon — the world outside"
     }
   ],
   "alphabetGroups": [

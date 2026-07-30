@@ -30,6 +30,7 @@ export const EXERCISE = {
   ODD_ONE_OUT: "odd_one_out",       // v35: pick the word that doesn't belong to the category
   LETTER_SCRAMBLE: "letter_scramble", // v59: spell the word from shuffled letter tiles
   TRUE_FALSE: "true_false",         // v59: quick judgement — does this word mean X?
+  SPEAK_PROMPT: "speak_prompt",     // v70: say it out loud; graded leniently by ear
 };
 
 const NUM_DISTRACTORS = 3;
@@ -329,6 +330,25 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
   }
 
   exercises.push(...finalMix);
+
+  // Phase 5 (v70) SAY IT OUT LOUD — one spoken production exercise per lesson.
+  //
+  // WHY IT'S LAST AND WHY IT'S ONE. Speaking is the highest-effort retrieval the
+  // app can ask for, so it goes after the word has been recognised and recalled
+  // in the same session — asking someone to pronounce a word they met ninety
+  // seconds ago tests courage, not memory. Gated on reps >= 1 for the same
+  // reason. One per lesson keeps it a moment rather than a gauntlet, and means a
+  // learner with no microphone loses very little (it falls back to typing).
+  const speakable = queue.filter((item) => (progress[item.id]?.reps || 0) >= 1 && item.lemma);
+  if (speakable.length) {
+    const pick = speakable[Math.floor(Math.random() * speakable.length)];
+    exercises.push({
+      type: EXERCISE.SPEAK_PROMPT,
+      item: pick,
+      answer: pick.lemma,
+      prompt: "Say it out loud",
+    });
+  }
 
   return exercises;
 }

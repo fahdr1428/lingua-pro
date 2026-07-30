@@ -9,7 +9,11 @@
     "preview": "vite preview",
     "audio": "node scripts/generate-audio.cjs",
     "import-vocab": "node scripts/import-vocab.mjs",
-    "validate-vocab": "node scripts/validate-vocab.mjs"
+    "validate-vocab": "node scripts/validate-vocab.mjs",
+    "validate-journey": "node scripts/validate-journey.mjs",
+    "test-speech": "node scripts/test-speech.mjs",
+    "test-generator": "node scripts/test-generator.mjs",
+    "check": "npm run validate-vocab && npm run validate-journey && npm run test-speech && npm run test-generator && npm run build"
   },
   "dependencies": {
     "react": "^18.3.1",

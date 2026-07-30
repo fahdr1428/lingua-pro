@@ -2,12 +2,16 @@
   "schemaVersion": 7,
   "code": "hi",
   "categories": [
+    "About You",
     "Body",
     "Colors",
     "Common",
     "Connectors",
+    "Family",
+    "Feelings",
     "Food",
     "Greetings",
+    "Nature",
     "Numbers",
     "People",
     "Places",
@@ -1925,6 +1929,196 @@
           "translation": "Go straight ahead"
         }
       ]
+    },
+    {
+      "id": "hi_0101",
+      "unit": "u12",
+      "lemma": "सूरज",
+      "translit": "sooraj",
+      "pronunciation": "SOO-raj",
+      "translation": "sun",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "सूरज निकल आया।",
+          "translation": "The sun has come out."
+        }
+      ]
+    },
+    {
+      "id": "hi_0102",
+      "unit": "u12",
+      "lemma": "आसमान",
+      "translit": "aasmaan",
+      "pronunciation": "aas-MAAN",
+      "translation": "sky",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "आसमान नीला है।",
+          "translation": "The sky is blue."
+        }
+      ]
+    },
+    {
+      "id": "hi_0103",
+      "unit": "u12",
+      "lemma": "पेड़",
+      "translit": "ped",
+      "pronunciation": "PAYRD",
+      "translation": "tree",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "यह पेड़ बहुत पुराना है।",
+          "translation": "This tree is very old."
+        }
+      ]
+    },
+    {
+      "id": "hi_0104",
+      "unit": "u12",
+      "lemma": "फूल",
+      "translit": "phool",
+      "pronunciation": "PHOOL",
+      "translation": "flower",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "फूल सुंदर है।",
+          "translation": "The flower is beautiful."
+        }
+      ]
+    },
+    {
+      "id": "hi_0105",
+      "unit": "u12",
+      "lemma": "नदी",
+      "translit": "nadi",
+      "pronunciation": "nuh-DEE",
+      "translation": "river",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "नदी का पानी ठंडा है।",
+          "translation": "The river water is cold."
+        }
+      ]
+    },
+    {
+      "id": "hi_0106",
+      "unit": "u12",
+      "lemma": "पहाड़",
+      "translit": "pahaad",
+      "pronunciation": "puh-HAARD",
+      "translation": "mountain",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "पहाड़ बहुत ऊँचा है।",
+          "translation": "The mountain is very high."
+        }
+      ]
+    },
+    {
+      "id": "hi_0107",
+      "unit": "u12",
+      "lemma": "समुद्र",
+      "translit": "samudra",
+      "pronunciation": "suh-MOOD-ruh",
+      "translation": "sea",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "समुद्र यहाँ से दूर है।",
+          "translation": "The sea is far from here."
+        }
+      ]
+    },
+    {
+      "id": "hi_0108",
+      "unit": "u12",
+      "lemma": "हवा",
+      "translit": "hawa",
+      "pronunciation": "huh-VAA",
+      "translation": "wind, air",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "आज हवा ठंडी है।",
+          "translation": "The wind is cold today."
+        }
+      ]
+    },
+    {
+      "id": "hi_0109",
+      "unit": "u12",
+      "lemma": "गरम",
+      "translit": "garam",
+      "pronunciation": "GUH-rum",
+      "translation": "hot, warm",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "चाय गरम है।",
+          "translation": "The tea is hot."
+        }
+      ]
+    },
+    {
+      "id": "hi_0110",
+      "unit": "u12",
+      "lemma": "ठंडा",
+      "translit": "thanda",
+      "pronunciation": "THUN-daa",
+      "translation": "cold",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "पानी ठंडा है।",
+          "translation": "The water is cold."
+        }
+      ]
     }
   ],
   "units": [
@@ -1993,6 +2187,12 @@
       "title": "Getting Around",
       "emoji": "🚗",
       "description": "Here, there, left, right, water"
+    },
+    {
+      "id": "u12",
+      "title": "Weather & Nature",
+      "emoji": "🌦️",
+      "description": "Sun, sky, river, mountain — the world outside"
     }
   ],
   "alphabetGroups": [

@@ -26,6 +26,8 @@ import { Conversations } from "./screens/Conversations.jsx";
 import { SentenceLab } from "./screens/SentenceLab.jsx";
 import { Grammar } from "./screens/Grammar.jsx";
 import { Practice } from "./screens/Practice.jsx";
+import { Speak } from "./screens/Speak.jsx";
+import { Culture } from "./screens/Culture.jsx";
 import { TestOut } from "./screens/TestOut.jsx";
 
 // Error boundary — catches crashes and shows a recovery button instead of a white screen
@@ -70,6 +72,15 @@ class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 }
+
+// Screens that take over the whole viewport: no side rail, no bottom nav, and a
+// single-column shell (without the shell override the lone child lands in the
+// rail's 212px track and gets clipped — that was the v67 bug).
+//
+// Speak is deliberately NOT in here. It's a bottom-nav destination, and having
+// the nav vanish the moment you tap it is disorienting; it carries its own close
+// button instead.
+const FOCUSED = new Set(["lesson"]);
 
 const DEFAULT_APP_STATE = {
   onboarded: false,
@@ -184,8 +195,17 @@ export default function App() {
     return <Tutorial onDone={() => setAppState((s) => ({ ...s, tutorialSeen: true }))} />;
   }
 
-  // Screen router
-  const screenProps = { engine, pack, stats, appState, setAppState, onNavigate: navigate, refreshStats, onPickLanguage: pickLanguageInstant };
+  // Screen router.
+  //
+  // v70 FIX: `params` is part of screenProps rather than passed by hand to the
+  // two or three screens someone remembered. It was missing on sentencelab,
+  // which reads params.pattern — so the Sentence Lab hero action on Home, one of
+  // the four things the coach can pick as your next session, always dead-ended
+  // on "No pattern available right now." Screens that take no params ignore it.
+  const screenProps = {
+    engine, pack, stats, appState, setAppState, params,
+    onNavigate: navigate, refreshStats, onPickLanguage: pickLanguageInstant,
+  };
 
   return (
     <ErrorBoundary onRecover={() => navigate("home")}>
@@ -194,8 +214,8 @@ export default function App() {
       {/* v67 FIX: the lesson screen hides the side rail, so the shell must
           collapse to a single column — otherwise the lesson lands in the
           212px rail track and gets clipped. */}
-      <div className={screen === "lesson" ? "app-shell app-shell-full" : "app-shell"}>
-      {screen !== "lesson" && (
+      <div className={FOCUSED.has(screen) ? "app-shell app-shell-full" : "app-shell"}>
+      {!FOCUSED.has(screen) && (
         <SideRail
           screen={screen}
           onNavigate={navigate}
@@ -207,10 +227,12 @@ export default function App() {
         {screen === "home" && <Home {...screenProps} />}
         {screen === "hub" && <PracticeHub {...screenProps} />}
         {screen === "letters" && <Letters {...screenProps} />}
-        {screen === "lesson" && <Lesson {...screenProps} params={params} />}
-        {screen === "flashcards" && <Flashcards {...screenProps} params={params} />}
+        {screen === "lesson" && <Lesson {...screenProps} />}
+        {screen === "flashcards" && <Flashcards {...screenProps} />}
         {screen === "alphabet" && <AlphabetLessons {...screenProps} />}
         {screen === "practice" && <Practice {...screenProps} />}
+        {screen === "speak" && <Speak {...screenProps} />}
+        {screen === "culture" && <Culture {...screenProps} />}
         {screen === "testout" && <TestOut {...screenProps} />}
         {screen === "reading" && <Reading {...screenProps} />}
         {screen === "conversations" && <Conversations {...screenProps} />}
@@ -222,7 +244,7 @@ export default function App() {
         {screen === "upgrade" && <Upgrade appState={appState} setAppState={setAppState} onNavigate={navigate} />}
       </div>
       </div>
-      {screen !== "lesson" && <BottomNav screen={screen} onNavigate={navigate} />}
+      {!FOCUSED.has(screen) && <BottomNav screen={screen} onNavigate={navigate} />}
     </ErrorBoundary>
   );
 }

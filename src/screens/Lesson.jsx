@@ -6,11 +6,13 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Button, Card, ProgressBar, Container } from "../ui/primitives.jsx";
 import { LANGUAGES } from "../data/registry.js";
-import { speak, hasVoiceFor } from "../audio/tts.js";
+import { speak, hasVoiceFor, stopSpeaking } from "../audio/tts.js";
 import { playCorrect, playWrong, playLessonComplete } from "../audio/sfx.js";
 import { EXERCISE, generateLesson } from "../engine/generator.js";
 import { explainAnswer } from "../engine/explain.js";
-import { getCharacter } from "../data/characters.js";
+import { getCharacter, getCelebration } from "../data/characters.js";
+import { GuideMark } from "../ui/GuideMark.jsx";
+import { isRecognitionSupported, startListening, judge, displayScore, BAND } from "../audio/speech.js";
 import { getGrammar } from "../data/grammar.js";
 import { pickFunFact } from "../data/funFacts.js";
 import { goalCategoryOrder } from "../data/goals.js";
@@ -466,6 +468,38 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         isNonLatin={isNonLatin}
         voiceAvailable={hasVoiceFor(lang.ttsCode)}
         onContinue={() => { reset(); setIdx((i) => i + 1); }}
+      />
+    );
+  }
+
+  // SPEAK IT OUT LOUD (v70) — handled here, before the shared exercise state
+  // machine, for the same reason GRAMMAR_MOMENT is: it's graded by ear rather
+  // than by string equality, so it has nothing to gain from picked/typed/tapped
+  // and everything to lose from being wired into them.
+  //
+  // It still feeds SRS. The lenient grader returns a band, and we submit the
+  // canonical answer on a pass or an explicit miss marker on a fail, so the card
+  // is rescheduled exactly as any other exercise would reschedule it.
+  if (exercise?.type === EXERCISE.SPEAK_PROMPT && exercise.item) {
+    return (
+      <SpeakMoment
+        item={exercise.item}
+        lang={lang}
+        langCode={pack.code}
+        isNonLatin={isNonLatin}
+        character={character}
+        onDone={async (band) => {
+          const passed = band === BAND.GOT || band === BAND.CLOSE;
+          try {
+            await engine.submitAnswer(exercise, passed ? exercise.answer : "\u0000speak-miss");
+          } catch (e) {
+            console.warn("speak grading not recorded:", e);
+          }
+          if (passed) setCorrectCount((c) => c + 1);
+          reset();
+          setIdx((i) => i + 1);
+        }}
+        onSkip={() => { reset(); setIdx((i) => i + 1); }}
       />
     );
   }
@@ -1238,7 +1272,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     fontWeight: 700,
                     color: character.accent,
                   }}>
-                    <span style={{ fontSize: 20 }}>{character.emoji}</span>
+                    <GuideMark code={pack.code} size={22} />
                     <span style={{ fontStyle: "italic" }}>“{reaction}”</span>
                   </div>
                 )}
@@ -1417,13 +1451,11 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: 34,
-                boxShadow: "0 4px 14px rgba(0,0,0,0.18)",
-                border: `3px solid ${character.accent || "var(--primary)"}`,
+                boxShadow: "0 4px 14px rgba(0,0,0,0.10)",
               }}
               aria-label={`${character.name}, your guide`}
             >
-              {character.emoji}
+              <GuideMark code={pack.code} size={54} />
             </div>
             {/* Tutor name label, soft pill */}
             <div style={{
@@ -1598,7 +1630,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
         {(() => {
           const character = getCharacter(pack.code);
           if (!character) return null;
-          const msg = character.celebrations[tier];
+          const msg = getCelebration(pack.code, tier);
           return (
             <Card style={{
               display: "flex",
@@ -1610,19 +1642,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
               borderLeft: `4px solid ${character.accent}`,
               marginBottom: 24,
             }}>
-              <div style={{
-                fontSize: 30,
-                width: 46,
-                height: 46,
-                borderRadius: "50%",
-                background: "var(--surface-hi)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-              }}>
-                {character.emoji}
-              </div>
+              <GuideMark code={pack.code} size={46} />
               <div>
                 <div style={{ fontSize: 12, fontWeight: 800, color: character.accent }}>{character.name}</div>
                 <div style={{ fontSize: 14, color: "var(--text)", marginTop: 2, lineHeight: 1.4 }}>{msg}</div>
@@ -1990,6 +2010,183 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
           <Button onClick={onContinue}>Got it — continue →</Button>
         </div>
       </div>
+    </Container>
+  );
+}
+
+
+// =============================================================================
+// SPEAK MOMENT (v70) — the in-lesson "say it out loud" exercise.
+//
+// The prompt is the MEANING, never the word: the learner has to produce the
+// target from memory, which is the point. Graded by audio/speech.js, leniently —
+// an accent is not an error. A microphone failure costs nothing (no heart, no
+// accuracy hit) because it isn't the learner's fault, which is the same principle
+// as skipForAudio() above.
+// =============================================================================
+function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSkip }) {
+  const micSupported = isRecognitionSupported();
+  const [state, setState] = useState("idle");   // idle | listening | judging
+  const [heard, setHeard] = useState("");
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
+  const [typing, setTyping] = useState(!micSupported);
+  const [typed, setTyped] = useState("");
+  const handle = useRef(null);
+  const settled = useRef(false);
+  const heardRef = useRef("");
+
+  useEffect(() => () => { try { handle.current?.abort(); } catch {} }, []);
+
+  const target = {
+    native: item.lemma,
+    translit: item.translit,
+    accept: [item.translit, item.lemma].filter(Boolean),
+  };
+
+  async function grade(transcripts) {
+    if (settled.current) return;
+    settled.current = true;
+    setState("judging");
+    const r = await judge(transcripts, target, { guideName: character?.name });
+    setState("idle");
+    setResult(r);
+    if (r.band !== BAND.MISS) {
+      try { playCorrect(); } catch {}
+    }
+  }
+
+  function listen() {
+    setError(null);
+    setHeard("");
+    heardRef.current = "";
+    settled.current = false;
+    stopSpeaking();
+    setState("listening");
+    handle.current = startListening({
+      langCode,
+      ttsCode: lang.ttsCode,
+      onResult: ({ transcripts, isFinal }) => {
+        setHeard(transcripts[0] || "");
+        heardRef.current = transcripts[0] || "";
+        if (isFinal) grade(transcripts);
+      },
+      onError: (e) => {
+        setState("idle");
+        setError(e.message);
+        if (e.code === "not-allowed" || e.code === "service-not-allowed" || e.code === "unsupported") {
+          setTyping(true);
+        }
+      },
+      onEnd: () => {
+        setState((s) => (s === "listening" ? "idle" : s));
+        if (!settled.current && heardRef.current) grade([heardRef.current]);
+      },
+    });
+    if (!handle.current) { setState("idle"); setTyping(true); }
+  }
+
+  return (
+    <Container style={{ maxWidth: 520, paddingTop: 28, paddingBottom: 60 }}>
+      <div style={{ textAlign: "center" }}>
+        <div className="eyebrow" style={{ color: "var(--accent)" }}>Say it out loud</div>
+        <div style={{
+          fontFamily: '"Fraunces", Georgia, serif',
+          fontSize: 27, fontWeight: 600, color: "var(--ink)",
+          margin: "10px 0 0", lineHeight: 1.25,
+        }}>
+          How do you say “{item.translation}”?
+        </div>
+        {!result && (
+          <div style={{ fontSize: 12.5, color: "var(--text-mute)", marginTop: 10, lineHeight: 1.5 }}>
+            From memory — no hint until you've had a go.
+          </div>
+        )}
+      </div>
+
+      {!result ? (
+        <div className="pad">
+          {!typing ? (
+            <>
+              <button
+                className={`mic mic-${state}`}
+                onClick={state === "listening" ? () => { try { handle.current?.stop(); } catch {} setState("idle"); } : listen}
+                disabled={state === "judging"}
+                aria-label={state === "listening" ? "Stop" : "Speak"}
+              >
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                  <line x1="12" x2="12" y1="19" y2="22" />
+                </svg>
+              </button>
+              <div className="mic-state">
+                {state === "listening"
+                  ? heard ? `\u201c${heard}\u201d` : "Listening\u2026"
+                  : state === "judging" ? "One moment\u2026" : "Tap, then say it"}
+              </div>
+              {error && <div className="mic-error">{error}</div>}
+              <button className="quiet-link" onClick={() => setTyping(true)}>or type it</button>
+              <button className="quiet-link" onClick={onSkip} style={{ marginTop: 4 }}>
+                skip this one
+              </button>
+            </>
+          ) : (
+            <div className="type-pad">
+              <input
+                className="type-input"
+                value={typed}
+                onChange={(e) => setTyped(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter" && typed.trim()) grade([typed]); }}
+                placeholder={isNonLatin ? "Type it in either script\u2026" : "Type the word\u2026"}
+                autoComplete="off" autoCorrect="off" spellCheck={false}
+              />
+              <button className="type-submit" disabled={!typed.trim()} onClick={() => grade([typed])}>
+                Check
+              </button>
+              <button className="quiet-link" onClick={onSkip}>skip this one</button>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className={`verdict verdict-${result.band}`} style={{ marginTop: 22 }}>
+          <div className="verdict-head">
+            <span className="verdict-word">
+              {result.band === BAND.GOT ? "Got it" : result.band === BAND.CLOSE ? "Close" : "Not yet"}
+            </span>
+            <span className="verdict-score">{displayScore(result)}%</span>
+          </div>
+          <div className="verdict-feedback">{result.feedback}</div>
+
+          <div className="verdict-answer">
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div className="eyebrow">The word</div>
+              <div className="verdict-native" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode}>{item.lemma}</div>
+              <div className="verdict-tl">{item.translit}</div>
+              {item.pronunciation && <div className="verdict-pron">say it like: {item.pronunciation}</div>}
+            </div>
+            <button
+              className="xchg-play"
+              onClick={() => speak(item.lemma, lang.ttsCode, { audioId: item.id })}
+              aria-label="Listen"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="verdict-actions">
+            <button className="station-go" onClick={() => onDone(result.band)}>Continue</button>
+            {result.band === BAND.MISS && (
+              <button className="station-speak" onClick={() => { setResult(null); settled.current = false; }}>
+                Try again
+              </button>
+            )}
+          </div>
+        </div>
+      )}
     </Container>
   );
 }
