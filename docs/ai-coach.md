@@ -66,7 +66,11 @@ What's already in place (`api/coach.js`):
 | Conversation history cap | 12 turns |
 | Single turn cap | 400 characters |
 | `max_tokens` per reply | 4096 |
-| Per-IP throttle | 20 requests/minute |
+| Per-IP throttle | 20 requests/minute (`/api/coach`), 8/minute (`/api/scenario`) |
+| Persona / pressure / region prompt caps | 700 / 500 / 500 characters |
+| Learner brief cap | 900 characters |
+| Mission objectives | 8 max, ids 40 chars, labels 120 chars |
+| Scenario description cap | 300 characters |
 
 **The throttle is best-effort only.** It lives in process memory, so on
 serverless it resets on every cold start and isn't shared between concurrent
@@ -91,7 +95,7 @@ keeps a working app:
 
 | Situation | What happens |
 |---|---|
-| No `ANTHROPIC_API_KEY` | `/api/coach` returns 501; the result screen explains what's missing and how to enable it |
+| No `ANTHROPIC_API_KEY` | `/api/coach` returns 501; the result screen and the Missions list both explain what's missing and how to enable it |
 | Learner is offline | Turn fails with "couldn't reach the coach"; earlier turns stay on screen |
 | Anthropic is down / rate limited | An honest one-line message plus a **try again** link |
 | Reply takes over 30s | Times out rather than hanging |
@@ -112,7 +116,8 @@ system prompt also tells the model to treat instruction-override attempts as
 off-topic.
 
 **Replies come back as structured JSON**, not prose:
-`{reply_native, reply_translit, reply_en, verdict, coaching, suggestion}`. The
+`{reply_native, reply_translit, reply_en, verdict, coaching, suggestion,
+corrections, fluent_version, objectives_met, mission_over}`. The
 client needs to know which part is the target language (spoken in the target
 voice) and which part is English coaching (spoken in an English voice) — prose
 would have to be guessed at.
@@ -128,12 +133,68 @@ that one function is the only thing that has to change.
 
 ---
 
+## v73 — what the coach now knows (memory, missions, corrections)
+
+The endpoint takes four more optional inputs. All of them are composed on the
+client and all of them are capped and placed in clearly-labelled sections of the
+system prompt rather than spliced into the instruction voice:
+
+| Input | Comes from | What it does |
+|---|---|---|
+| `learnerBrief` | `summariseForPrompt()` in `src/engine/profile.js` | A few hundred characters of what this learner keeps getting wrong, what they're solid on, and the level to pitch at. This is the memory — it's why the coach doesn't start from zero every session. |
+| `personaPrompt` + `pressurePrompt` | `src/data/personas.js` | Who they're talking to. A strict teacher, a sarcastic friend, an interviewer, someone in a hurry — and how much conversational pressure to apply. |
+| `regionPrompt` | `src/data/personas.js` | Which variety. Rioplatense vs peninsular Spanish, Egyptian vs Levantine Arabic. |
+| `mission` | `src/data/missions.js` or `/api/scenario` | The scene, the objectives, and what ends it badly. |
+
+And returns three more:
+
+- **`corrections`** — structured, at most two, each with a stable kebab-case `id`
+  reused across sessions so repeats can be counted. The `id` stability is what
+  makes "you've done this four times" possible; inconsistent ids break it.
+- **`fluent_version`** — the learner's own sentence rewritten as a native would
+  say the same thing. Their meaning, upgraded — not a different sentence.
+- **`objectives_met`** — cumulative ids of mission objectives satisfied so far.
+
+**Objective ids are validated twice.** The server discards any id that isn't in
+the mission the client sent, and `Missions.jsx` filters again before counting
+toward the pass mark. A hallucinated id must never hand out a pass nobody earned.
+
+### `/api/scenario`
+
+A separate function that turns a sentence the learner types ("I have to ring the
+letting agent about the boiler") into a real mission with checkable objectives
+and fail conditions. Same rules: key stays server-side, 501 when unconfigured,
+the learner's description goes in a **user** turn, and the system prompt tells the
+model to treat that description as a situation to model — never as instructions.
+
+The model writes the objectives because the client can't: inferring "ask when
+they can come" from free text without guessing is impossible, and a guessed
+objective is a fabricated pass.
+
+---
+
 ## Testing
 
 ```sh
-npm run test-coach     # exercises api/coach.js with the network stubbed — costs nothing
-npm run check          # everything: validators, speech + generator + coach tests, build
+npm run test-coach     # exercises api/coach.js + api/scenario.js with the network stubbed — costs nothing
+npm run test-engine    # profile, fluency scoring, missions and personas — pure logic, no network
+npm run check          # everything: validators, speech + generator + engine + coach tests, build
 ```
+
+There's also a full browser walk-through of the mission flow with both endpoints
+stubbed. It needs Playwright, which isn't a dependency of this project, so it
+isn't part of `npm run check`:
+
+```sh
+npm run build && npx vite preview --port 4173 &
+node scripts/verify-browser.mjs
+```
+
+It drives the real UI at 414px and 1440px: opens a mission, changes the persona,
+sends turns, and asserts that the correction renders on the learner's own line,
+that objectives tick off, that the turn lands in the stored profile, and that
+**the next conversation's brief contains the error made in the previous one**.
+That last assertion is the memory loop, proven end to end rather than claimed.
 
 `test-coach` stubs `fetch`, so the real SDK builds a real request and the test
 asserts on what went over the wire — model id, token headroom, JSON schema,

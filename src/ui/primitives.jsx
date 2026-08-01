@@ -95,6 +95,7 @@ export const ICONS = {
   grid: ic('<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>'),
   mic: ic('<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>'),
   user: ic('<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'),
+  flag: ic('<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/>'),
   zap: ic('<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>', 16),
 };
 
@@ -230,6 +231,7 @@ export function SideRail({ screen, onNavigate, streak = 0, totalXp = 0 }) {
     { id: "home", icon: ICONS.sprout, label: "Learn" },
     { id: "hub", icon: ICONS.grid, label: "Practice" },
     { id: "speak", icon: ICONS.mic, label: "Speak" },
+    { id: "missions", icon: ICONS.flag, label: "Missions" },
     { id: "profile", icon: ICONS.user, label: "Profile" },
   ];
   const active = screen === "home" ? "home" : screen;
@@ -272,6 +274,7 @@ export function BottomNav({ screen, onNavigate }) {
     { id: "home", icon: ICONS.sprout, label: "Learn" },
     { id: "hub", icon: ICONS.grid, label: "Practice" },
     { id: "speak", icon: ICONS.mic, label: "Speak" },
+    { id: "missions", icon: ICONS.flag, label: "Missions" },
     { id: "profile", icon: ICONS.user, label: "Profile" },
   ];
   return (

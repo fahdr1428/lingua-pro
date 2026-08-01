@@ -41,7 +41,10 @@ import { getCharacter, guideVoice } from "../data/characters.js";
 import { getStops, hasJourney, stopsReached } from "../data/journey.js";
 import { speak } from "../audio/tts.js";
 import { sayCoach, cancelVoice, idle as voiceIdle, voiceSupported } from "../audio/voice.js";
-import { probeCoach, coachTurn, levelFor, CoachError } from "../ai/coach.js";
+import { probeCoach, levelFor } from "../ai/coach.js";
+import { LiveConversation } from "../ui/LiveConversation.jsx";
+import { getPersona, getRegion } from "../data/personas.js";
+import { recordTurn, summariseForPrompt } from "../engine/profile.js";
 import {
   isRecognitionSupported, startListening, judge, displayScore, BAND,
 } from "../audio/speech.js";
@@ -54,7 +57,7 @@ const MIN_VERDICT_MS = 2200;
 // =============================================================================
 // ORCHESTRATOR
 // =============================================================================
-export function Speak({ engine, pack, appState, setAppState, params, onNavigate }) {
+export function Speak({ engine, pack, appState, setAppState, params, onNavigate, profile, mutateProfile }) {
   const lang = LANGUAGES[pack.code];
   const guide = getCharacter(pack.code);
   const micSupported = isRecognitionSupported();
@@ -169,6 +172,21 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate 
     setPhase("round");
   }
 
+  // v73: every graded attempt goes into the learner profile. This is the memory
+  // the coach reads back on the next conversation, and the evidence the fluency
+  // score is computed from — so it's recorded per ATTEMPT, not per session, and
+  // it carries `spoken` so a typed answer never claims a pronunciation signal.
+  const record = useCallback((entry) => {
+    mutateProfile?.((p) => recordTurn(p, {
+      band: entry.band,
+      score: entry.score,
+      latencyMs: entry.latencyMs,
+      topic: entry.topic,
+      said: entry.said,
+      spoken: entry.spoken,
+    }));
+  }, [mutateProfile]);
+
   const shared = { lang, langCode: pack.code, guide, micSupported };
 
   return (
@@ -194,7 +212,7 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate 
       )}
 
       {phase === "round" && (
-        <SpeakRound {...shared} session={session} onFinish={finish} />
+        <SpeakRound {...shared} session={session} onFinish={finish} onRecord={record} />
       )}
 
       {phase === "result" && (
@@ -205,6 +223,7 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate 
           onAgain={restart}
           onTalk={() => setPhase("talk")}
           onDone={close}
+          onNavigate={onNavigate}
         />
       )}
 
@@ -212,6 +231,8 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate 
         <TalkToGuide
           {...shared}
           level={levelFor(appState?.lessonsCompleted?.[pack.code] || 0, learnedIds?.size || 0)}
+          profile={profile}
+          mutateProfile={mutateProfile}
           onBack={() => setPhase("result")}
         />
       )}
@@ -303,7 +324,7 @@ function SpeakIntro({ lang, langCode, guide, micSupported, count, ready, onStart
 // =============================================================================
 // ROUND — one prompt at a time. The mic is the hero.
 // =============================================================================
-function SpeakRound({ lang, langCode, guide, micSupported, session, onFinish }) {
+function SpeakRound({ lang, langCode, guide, micSupported, session, onFinish, onRecord }) {
   const [i, setI] = useState(0);
   const [result, setResult] = useState(null);
   const [attempt, setAttempt] = useState(0);
@@ -321,9 +342,19 @@ function SpeakRound({ lang, langCode, guide, micSupported, session, onFinish }) 
     setI((n) => n + 1);
   }, [i, session.length, onFinish]);
 
-  function onGraded(r) {
+  function onGraded(r, meta = {}) {
     setAttempt((n) => n + 1);
     setResult(r);
+    // Recorded per attempt, including retries — a second go that lands IS
+    // evidence, and dropping it would make the profile flatter than the truth.
+    onRecord?.({
+      band: r.band,
+      score: r.score,
+      latencyMs: meta.latencyMs ?? null,
+      spoken: !!meta.spoken,
+      said: r.heard || "",
+      topic: drill.kind === "line" ? "conversation lines" : "vocabulary",
+    });
   }
 
   function retry() {
@@ -437,15 +468,30 @@ function MicPad({ target, lang, langCode, guide, micSupported, previousScore, on
   const settled = useRef(false);
   const heardRef = useRef("");
 
+  // Latency: from the mic opening to the first interim transcript — the moment
+  // they actually started talking. It is NOT measured for typed answers, because
+  // typing speed says nothing about whether you were translating in your head.
+  const openedAt = useRef(null);
+  const firstWordAt = useRef(null);
+
   useEffect(() => () => { try { handle.current?.abort(); } catch {} }, []);
 
-  async function grade(transcripts) {
+  async function grade(transcripts, meta = {}) {
     if (settled.current) return;
     settled.current = true;
     setState("judging");
     const r = await judge(transcripts, target, { guideName: guide?.name, previousScore });
     setState("idle");
-    onGraded(r);
+    onGraded(r, meta);
+  }
+
+  function spokenMeta() {
+    return {
+      spoken: true,
+      latencyMs: openedAt.current && firstWordAt.current
+        ? Math.max(0, firstWordAt.current - openedAt.current)
+        : null,
+    };
   }
 
   async function listen() {
@@ -453,18 +499,21 @@ function MicPad({ target, lang, langCode, guide, micSupported, previousScore, on
     setHeard("");
     heardRef.current = "";
     settled.current = false;
+    firstWordAt.current = null;
     // Wait for any audio to actually stop; speechSynthesis.cancel() is async, and
     // a mic opened too early transcribes the app's own voice.
     cancelVoice();
     await voiceIdle();
     setState("listening");
+    openedAt.current = Date.now();
     handle.current = startListening({
       langCode,
       ttsCode: lang.ttsCode,
       onResult: ({ transcripts, isFinal }) => {
+        if (!firstWordAt.current) firstWordAt.current = Date.now();
         setHeard(transcripts[0] || "");
         heardRef.current = transcripts[0] || "";
-        if (isFinal) grade(transcripts);
+        if (isFinal) grade(transcripts, spokenMeta());
       },
       onError: (e) => {
         setState("idle");
@@ -475,7 +524,7 @@ function MicPad({ target, lang, langCode, guide, micSupported, previousScore, on
       },
       onEnd: () => {
         setState((s) => (s === "listening" ? "idle" : s));
-        if (!settled.current && heardRef.current) grade([heardRef.current]);
+        if (!settled.current && heardRef.current) grade([heardRef.current], spokenMeta());
       },
     });
     if (!handle.current) { setState("idle"); setTyping(true); }
@@ -626,7 +675,7 @@ function InlineVerdict({ result, drill, lang, langCode, attempt, isLast, onRetry
 // =============================================================================
 // RESULT — the thing v71 had no concept of. How it went, and what's next.
 // =============================================================================
-function SpeakResult({ lang, langCode, guide, scored, coachReady, onAgain, onTalk, onDone }) {
+function SpeakResult({ lang, langCode, guide, scored, coachReady, onAgain, onTalk, onDone, onNavigate }) {
   const got = scored.filter((s) => s.band === BAND.GOT).length;
   const shaky = scored.filter((s) => s.band !== BAND.GOT);
   const xp = scored.reduce((n, e) => n + (e.band === BAND.GOT ? 5 : e.band === BAND.CLOSE ? 2 : 1), 0);
@@ -683,6 +732,13 @@ function SpeakResult({ lang, langCode, guide, scored, coachReady, onAgain, onTal
           </div>
         )}
 
+        {/* v73: the drill is the warm-up; the mission is the thing they came for. */}
+        {coachReady === true && scored.length > 0 && (
+          <button className="quiet-link" onClick={() => onNavigate("missions")}>
+            or take it into a real situation →
+          </button>
+        )}
+
         <div className="result-actions">
           <button className="btn-quiet" onClick={onAgain}>Another {ROUND_SIZE}</button>
           <button className="btn-quiet" onClick={onDone}>Done for now</button>
@@ -693,175 +749,32 @@ function SpeakResult({ lang, langCode, guide, scored, coachReady, onAgain, onTal
 }
 
 // =============================================================================
-// TALK — the live coach, full screen, no competing tabs.
+// TALK — the live coach. The conversation itself now lives in
+// ui/LiveConversation.jsx, shared with Missions; this is the framing around it.
 // =============================================================================
-function TalkToGuide({ lang, langCode, guide, micSupported, level, onBack }) {
-  const [turns, setTurns] = useState([]);
-  const [pending, setPending] = useState(false);
-  const [error, setError] = useState(null);
-  const [speakingNow, setSpeakingNow] = useState(false);
-  const [typed, setTyped] = useState("");
-  const [listening, setListening] = useState(false);
-  const [micError, setMicError] = useState(null);
-  const handle = useRef(null);
-  const heardRef = useRef("");
-  const scroller = useRef(null);
-  const started = useRef(false);
-  const voice = guideVoice(langCode);
+function TalkToGuide({ lang, langCode, guide, micSupported, level, profile, mutateProfile, onBack }) {
+  const learnerBrief = useMemo(() => summariseForPrompt(profile), [profile]);
+  const persona = getPersona(profile?.persona || "friendly");
+  const region = getRegion(langCode, profile?.region);
 
-  useEffect(() => () => { try { handle.current?.abort(); } catch {} cancelVoice(); }, []);
-  useEffect(() => {
-    scroller.current?.scrollTo({ top: scroller.current.scrollHeight, behavior: "smooth" });
-  }, [turns.length, pending]);
-
-  const send = useCallback(async ({ learnerText = "", opening = false }) => {
-    setError(null);
-    setPending(true);
-    try {
-      const history = turns.map((t) => ({
-        role: t.role,
-        text: t.role === "guide" ? t.native : t.text,
-      }));
-      const data = await coachTurn({
-        langName: lang.name,
-        guide: guide ? { name: guide.name, city: guide.city, craft: guide.craft } : null,
-        level, history, learnerText, opening,
-      });
-      if (data.refused) { setError(data.coaching); return; }
-
-      setTurns((prev) => [...prev, {
-        role: "guide",
-        native: data.reply.native, translit: data.reply.translit, en: data.reply.en,
-        coaching: data.coaching, verdict: data.verdict, suggestion: data.suggestion,
-      }]);
-
-      cancelVoice();
-      setSpeakingNow(true);
-      try {
-        if (data.coaching && learnerText && voiceSupported()) await sayCoach(data.coaching);
-        await speak(data.reply.native, lang.ttsCode, voice);
-      } finally { setSpeakingNow(false); }
-    } catch (e) {
-      setError(e instanceof CoachError ? e.message : "The coach couldn't answer that one.");
-    } finally {
-      setPending(false);
-    }
-  }, [turns, lang.name, lang.ttsCode, guide, level, voice.rate, voice.pitch]);
-
-  useEffect(() => {
-    if (started.current) return;
-    started.current = true;
-    send({ opening: true });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  function submit(text) {
-    const clean = String(text || "").trim();
-    if (!clean || pending) return;
-    setTurns((prev) => [...prev, { role: "learner", text: clean }]);
-    setTyped("");
-    send({ learnerText: clean });
-  }
-
-  async function listen() {
-    setMicError(null);
-    heardRef.current = "";
-    cancelVoice();
-    await voiceIdle();
-    setListening(true);
-    handle.current = startListening({
-      langCode, ttsCode: lang.ttsCode,
-      onResult: ({ transcripts, isFinal }) => {
-        heardRef.current = transcripts[0] || "";
-        if (isFinal) { setListening(false); submit(heardRef.current); }
-      },
-      onError: (e) => { setListening(false); if (!e.benign || e.code === "no-speech") setMicError(e.message); },
-      onEnd: () => { setListening(false); if (heardRef.current) submit(heardRef.current); },
-    });
-    if (!handle.current) setListening(false);
-  }
-
-  const last = turns[turns.length - 1];
-  const suggestion = last?.role === "guide" ? last.suggestion : "";
+  const onTurn = useCallback((rec) => {
+    mutateProfile?.((p) => recordTurn(p, rec));
+  }, [mutateProfile]);
 
   return (
     <div className="speak-body speak-body-talk">
       <button className="talk-back" onClick={onBack}>← back to the session</button>
-
-      <div className="coach-thread" ref={scroller}>
-        {turns.map((t, i) => (
-          t.role === "guide" ? (
-            <div className="coach-turn coach-turn-guide" key={i}>
-              <GuideMark code={langCode} size={30} speaking={speakingNow && i === turns.length - 1} />
-              <div style={{ minWidth: 0, flex: 1 }}>
-                {t.coaching && <div className="coach-coaching">{t.coaching}</div>}
-                <div className="coach-native" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode}>{t.native}</div>
-                <div className="coach-tl">{t.translit}</div>
-                <div className="coach-en">{t.en}</div>
-              </div>
-              <button className="xchg-play" onClick={() => speak(t.native, lang.ttsCode, voice)} aria-label="Play again">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                  <path d="M15.5 8.5a5 5 0 0 1 0 7" />
-                </svg>
-              </button>
-            </div>
-          ) : (
-            <div className="coach-turn coach-turn-you" key={i}>
-              <div className="coach-you-bubble">{t.text}</div>
-            </div>
-          )
-        ))}
-        {pending && (
-          <div className="coach-turn coach-turn-guide">
-            <GuideMark code={langCode} size={30} />
-            <div className="coach-typing" aria-label="thinking"><span /><span /><span /></div>
-          </div>
-        )}
-      </div>
-
-      {error && (
-        <div className="coach-error">
-          {error}
-          <button className="quiet-link" onClick={() => send({ opening: turns.length === 0 })}>try again</button>
-        </div>
-      )}
-
-      {suggestion && !pending && (
-        <button className="coach-suggestion" onClick={() => submit(suggestion)}>
-          Stuck? Say “{suggestion}”
-        </button>
-      )}
-
-      <div className="coach-input">
-        {micSupported && (
-          <button
-            className={`coach-mic${listening ? " coach-mic-live" : ""}`}
-            onClick={listening ? () => { try { handle.current?.stop(); } catch {} } : listen}
-            disabled={pending}
-            aria-label={listening ? "Stop" : "Speak"}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
-              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-              <line x1="12" x2="12" y1="19" y2="22" />
-            </svg>
-          </button>
-        )}
-        <input
-          className="type-input"
-          value={typed}
-          onChange={(e) => setTyped(e.target.value)}
-          onKeyDown={(e) => { if (e.key === "Enter") submit(typed); }}
-          placeholder={listening ? "Listening…" : "Say it, or type it…"}
-          disabled={pending}
-          autoComplete="off" autoCorrect="off" spellCheck={false}
-        />
-        <button className="coach-send" onClick={() => submit(typed)} disabled={pending || !typed.trim()}>
-          Send
-        </button>
-      </div>
-      {micError && <div className="mic-error" style={{ textAlign: "left" }}>{micError}</div>}
+      <LiveConversation
+        lang={lang}
+        langCode={langCode}
+        guide={guide}
+        micSupported={micSupported}
+        level={level}
+        persona={persona}
+        region={region}
+        learnerBrief={learnerBrief}
+        onTurn={onTurn}
+      />
     </div>
   );
 }

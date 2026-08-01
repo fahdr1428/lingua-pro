@@ -26,6 +26,8 @@ import { JourneyMap } from "./JourneyMap.jsx";
 import { cultureOfTheDay, tagLabel, hasCulture } from "../data/culture.js";
 import { isRecognitionSupported } from "../audio/speech.js";
 import { getLevel } from "../engine/gamification.js";
+import { computeFluency } from "../engine/fluency.js";
+import { MISSIONS } from "../data/missions.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 import {
   UNITS_PER_CHAPTER, computeUnlocks, isChapterExamAvailable,
@@ -125,7 +127,7 @@ function adaptCopy(plan, sig) {
   return p;
 }
 
-export function Home({ engine, pack, stats, appState, setAppState, onNavigate, onPickLanguage }) {
+export function Home({ engine, pack, stats, appState, setAppState, onNavigate, onPickLanguage, profile }) {
   const lang = LANGUAGES[pack.code];
   const [unitProgress, setUnitProgress] = useState([]);
   const [loadingUnits, setLoadingUnits] = useState(true);
@@ -442,6 +444,13 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             <span className="speak-invite-arrow" aria-hidden="true">→</span>
           </button>
         )}
+
+        {/* ===== 3c · WHERE YOU ACTUALLY ARE (v73) =====
+            The fluency number and the missions entry, side by side. This is the
+            answer to "no outcome": a figure that moves when you speak, and a list
+            of conversations you can now get through. Both show the truth when
+            there isn't one yet — a dash, not a flattering placeholder. */}
+        <FluencyStrip profile={profile} lang={lang} onNavigate={onNavigate} />
 
         {/* ===== 4 · THE ROUTE — the journey as a map (v70) ===== */}
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", margin: "30px 0 14px" }}>
@@ -1071,6 +1080,43 @@ function PathChooser({ onPick }) {
           </button>
         ))}
       </div>
+    </div>
+  );
+}
+
+
+// ---------------------------------------------------------------------------
+// v73 — the fluency score and the missions door, on the home screen where the
+// learner can see whether any of this is working.
+// ---------------------------------------------------------------------------
+function FluencyStrip({ profile, lang, onNavigate }) {
+  const f = computeFluency(profile);
+  const passed = Object.values(profile?.missions || {}).filter((m) => m.passed).length;
+
+  return (
+    <div className="home-strip">
+      <button className="strip-card" onClick={() => onNavigate("fluency")}>
+        <span className="strip-value">
+          {f.overall === null ? "—" : f.overall}
+          {f.overall !== null && <span className="strip-of">/100</span>}
+        </span>
+        <span className="strip-label">Fluency</span>
+        <span className="strip-sub">
+          {f.overall === null
+            ? "Speak once and this starts"
+            : f.provisional ? `Early — ${f.evidence.turns} attempts in` : "Tap to see the working"}
+        </span>
+      </button>
+
+      <button className="strip-card" onClick={() => onNavigate("missions")}>
+        <span className="strip-value">{passed}<span className="strip-of">/{MISSIONS.length}</span></span>
+        <span className="strip-label">Missions passed</span>
+        <span className="strip-sub">
+          {passed === 0
+            ? `Real situations, in ${lang.name}, with a pass mark`
+            : "Conversations you can now get through"}
+        </span>
+      </button>
     </div>
   );
 }

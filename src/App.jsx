@@ -5,6 +5,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useEngine } from "./hooks/useEngine.js";
 import { usePersistentState } from "./hooks/usePersistentState.js";
+import { useProfile } from "./hooks/useProfile.js";
 import { getStorage } from "./storage/index.js";
 import { BottomNav, SideRail, Button, Container } from "./ui/primitives.jsx";
 import { applyTheme } from "./ui/themes.js";
@@ -28,6 +29,8 @@ import { Grammar } from "./screens/Grammar.jsx";
 import { Practice } from "./screens/Practice.jsx";
 import { Speak } from "./screens/Speak.jsx";
 import { Culture } from "./screens/Culture.jsx";
+import { Missions } from "./screens/Missions.jsx";
+import { Fluency } from "./screens/Fluency.jsx";
 import { TestOut } from "./screens/TestOut.jsx";
 
 // Error boundary — catches crashes and shows a recovery button instead of a white screen
@@ -119,6 +122,10 @@ export default function App() {
   const [params, setParams] = useState(null);
 
   const { engine, pack, stats, loading, refreshStats } = useEngine(appState?.currentLanguage);
+  // v73: the learner profile is owned here, once, and passed down. Speak, the
+  // missions and the fluency screen all read AND write it; a per-screen copy
+  // would let one screen's stale snapshot overwrite another's fresh write.
+  const { profile, mutate: mutateProfile } = useProfile(appState?.currentLanguage);
 
   // Apply theme whenever it changes
   useEffect(() => {
@@ -204,6 +211,7 @@ export default function App() {
   // on "No pattern available right now." Screens that take no params ignore it.
   const screenProps = {
     engine, pack, stats, appState, setAppState, params,
+    profile, mutateProfile,
     onNavigate: navigate, refreshStats, onPickLanguage: pickLanguageInstant,
   };
 
@@ -233,6 +241,8 @@ export default function App() {
         {screen === "practice" && <Practice {...screenProps} />}
         {screen === "speak" && <Speak {...screenProps} />}
         {screen === "culture" && <Culture {...screenProps} />}
+        {screen === "missions" && <Missions {...screenProps} />}
+        {screen === "fluency" && <Fluency {...screenProps} />}
         {screen === "testout" && <TestOut {...screenProps} />}
         {screen === "reading" && <Reading {...screenProps} />}
         {screen === "conversations" && <Conversations {...screenProps} />}

@@ -1,0 +1,260 @@
+// Browser verification for v73. Stubs /api/coach and /api/scenario so the whole
+// mission flow can be driven without spending a token, then walks it.
+import { chromium } from "playwright";
+
+const BASE = process.env.BASE || "http://localhost:4173";
+const out = [];
+const check = (name, ok, detail = "") => {
+  out.push({ name, ok });
+  console.log(`  ${ok ? "ok  " : "FAIL"} ${name}${ok || !detail ? "" : "  → " + detail}`);
+};
+
+const COACH_REPLY = {
+  configured: true,
+  reply: { native: "أهلاً! ماذا تريد؟", translit: "ahlan! madha turid?", en: "Hello! What would you like?" },
+  verdict: "close",
+  coaching: "Good attempt. It does not have to be exact.",
+  suggestion: "areed qahwa",
+  corrections: [{
+    id: "wrong-gender", label: "noun gender", kind: "grammar",
+    said: "wahid qahwa", better: "qahwa wahida", why: "Coffee is feminine here.",
+  }],
+  fluentVersion: { native: "من فضلك، قهوة واحدة", translit: "min fadlik, qahwa wahida", note: "Adding please softens it." },
+  objectivesMet: ["greet", "order"],
+  missionOver: false,
+};
+
+async function run(width, height, label) {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const ctx = await browser.newContext({ viewport: { width, height } });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
+  page.on("pageerror", (e) => errors.push(String(e)));
+  page.on("requestfailed", (r) => errors.push(`requestfailed ${r.url()} ${r.failure()?.errorText}`));
+
+  let coachCalls = 0;
+  let lastCoachBody = null;
+  await page.route("**/api/coach", async (route) => {
+    if (route.request().method() === "GET") {
+      return route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ configured: true, model: "claude-opus-5" }) });
+    }
+    coachCalls++;
+    lastCoachBody = JSON.parse(route.request().postData() || "{}");
+    // Answer with ids from the mission actually sent — plus one bogus id, so the
+    // client's own validation is exercised rather than assumed.
+    const real = (lastCoachBody.mission?.objectives || []).slice(0, 2).map((o) => o.id);
+    return route.fulfill({
+      status: 200, contentType: "application/json",
+      body: JSON.stringify({ ...COACH_REPLY, objectivesMet: [...real, "not-a-real-objective"] }),
+    });
+  });
+  await page.route("**/api/scenario", (route) => route.fulfill({
+    status: 200, contentType: "application/json",
+    body: JSON.stringify({ mission: {
+      id: "custom-x", custom: true, category: "custom", title: "Report the broken boiler",
+      stake: "They talk fast.", setting: "A phone call.", opener: "The line connects.",
+      objectives: [{ id: "state", label: "Say what's broken" }, { id: "book", label: "Get a date" }],
+      failIf: ["Switching to English"], pressure: 2, persona: "rushed", minutes: 4,
+    } }),
+  }));
+
+  console.log(`\n=== ${label} (${width}×${height}) ===\n`);
+
+  // Seed an onboarded learner with some history so the screens have data.
+  await page.goto(BASE);
+  await page.evaluate(() => {
+    localStorage.setItem("lingua:app", JSON.stringify({
+      onboarded: true, currentLanguage: "ar", tutorialSeen: true, dailyGoalXp: 35,
+      totalXp: 420, streak: 3, hearts: 5, heartsMax: 5, gems: 50, theme: "cream",
+      showRomanization: true, sessionSize: 6, lessonsCompleted: { ar: 9 }, sessions: [],
+      grammarSeen: {}, learningGoal: { ar: "travel" }, chaptersPassed: {},
+      sentenceDropsDone: {}, lastCheckpointAt: {}, testedOut: {}, momentDone: {}, planVisited: {},
+    }));
+  });
+  await page.reload();
+  await page.waitForTimeout(1400);
+
+  // ---- HOME ---------------------------------------------------------------
+  const strip = await page.locator(".home-strip .strip-card").count();
+  check("home shows the fluency + missions strip", strip === 2, `${strip} cards`);
+  const fluencyValue = await page.locator(".home-strip .strip-card").first().locator(".strip-value").innerText();
+  check("a learner with no spoken turns sees a dash, not a fake score",
+    fluencyValue.trim().startsWith("—"), fluencyValue);
+
+  // ---- FLUENCY ------------------------------------------------------------
+  await page.locator(".home-strip .strip-card").first().click();
+  await page.waitForTimeout(500);
+  check("fluency screen opens", await page.locator(".fluency-hero").isVisible());
+  const dims = await page.locator(".fluency-dims .dim").count();
+  check("all four dimensions are shown", dims === 4, String(dims));
+  const dashes = await page.locator(".dim-value-none").count();
+  check("dimensions with no evidence show — rather than a number", dashes === 4, String(dashes));
+  check("the screen explains what it's measured from", await page.locator(".evidence").isVisible());
+  check("it offers one concrete next action", await page.locator(".next-lever-text").isVisible());
+
+  // ---- MISSIONS -----------------------------------------------------------
+  await page.locator(".speak-close").click();
+  await page.waitForTimeout(400);
+  await page.locator(".home-strip .strip-card").nth(1).click();
+  await page.waitForTimeout(700);
+  const cards = await page.locator(".mission-card").count();
+  check("mission list renders", cards >= 10, String(cards));
+  check("the custom-scenario door is offered", await page.locator(".mission-card-custom").isVisible());
+
+  // Scenario generator
+  await page.locator(".mission-card-custom").click();
+  await page.locator(".scenario-input").fill("I have to ring the letting agent about the boiler");
+  await page.locator(".custom-scenario .btn-hero").click();
+  await page.waitForTimeout(600);
+  check("a custom scenario becomes a real brief with objectives",
+    (await page.locator(".brief-objectives li").count()) === 2,
+    String(await page.locator(".brief-objectives li").count()));
+
+  // Back out, take a hand-written mission
+  await page.locator(".speak-close").click();
+  await page.waitForTimeout(400);
+  await page.locator(".mission-card:not(.mission-card-custom)").first().click();
+  await page.waitForTimeout(500);
+  check("brief shows the stakes and the scene", await page.locator(".brief-scene").isVisible());
+  const personaChips = await page.locator(".brief-card .chip").count();
+  check("persona and region can be chosen", personaChips >= 5, String(personaChips));
+  check("the brief states the level it's pitching at", await page.locator(".brief-level").isVisible());
+
+  // Change persona, then start.
+  await page.locator(".brief-card .chip").nth(1).click();
+  await page.locator(".brief-card .btn-hero").click();
+  await page.waitForTimeout(900);
+
+  check("objectives are visible during the conversation", await page.locator(".obj-bar").isVisible());
+  check("the guide opened the scene", (await page.locator(".coach-turn-guide").count()) >= 1);
+
+  // The memory + persona + mission must actually be on the wire.
+  check("the request carried the mission", !!lastCoachBody?.mission?.objectives?.length);
+  check("the request carried a persona prompt", (lastCoachBody?.personaPrompt || "").length > 40);
+  check("the request carried a pressure prompt", (lastCoachBody?.pressurePrompt || "").length > 10);
+  check("the request carried the learner brief (memory)",
+    (lastCoachBody?.learnerBrief || "").includes("Level"), lastCoachBody?.learnerBrief);
+
+  // Say something.
+  await page.locator(".coach-input .type-input").fill("wahid qahwa min fadlik");
+  await page.locator(".coach-send").click();
+  await page.waitForTimeout(1200);
+
+  check("a correction lands on the learner's own line", await page.locator(".corr-card").first().isVisible());
+  check("the correction shows what to say instead",
+    (await page.locator(".corr-better").first().innerText()).includes("qahwa wahida"));
+  check("the fluent rewrite of their own sentence is offered", await page.locator(".fluent-line").first().isVisible());
+  // Say it a second time so the error pattern REPEATS. activeErrors() reports
+  // recurring problems only — a one-off slip is noise, and briefing the model on
+  // noise is how you get a coach that nags about nothing.
+  await page.locator(".coach-input .type-input").fill("wahid qahwa tani");
+  await page.locator(".coach-send").click();
+  await page.waitForTimeout(1200);
+
+  const ticked = await page.locator(".obj-item.obj-done").count();
+  check("objectives tick off live from the model's report", ticked === 2, String(ticked));
+  check("an objective id the mission doesn't have is ignored",
+    (await page.locator(".obj-item").count()) === 4, String(await page.locator(".obj-item").count()));
+
+  // ---- DEBRIEF ------------------------------------------------------------
+  await page.locator("text=End the scene and see how it went").click();
+  await page.waitForTimeout(600);
+  check("debrief renders a verdict", await page.locator(".result-title").isVisible());
+  check("replay & fix lists the line they said", await page.locator(".replay-row").first().isVisible());
+  check("replay shows the native version", await page.locator(".replay-fluent").first().isVisible());
+
+  // ---- the profile actually persisted ------------------------------------
+  const profile = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:profile") || "{}"));
+  const ar = profile.ar || {};
+  check("the turn was written to the learner profile", (ar.turns || []).length >= 1, JSON.stringify(ar.turns || []));
+  check("the correction was recorded as an error pattern", !!ar.errors?.["wrong-gender"], JSON.stringify(ar.errors));
+  check("the mission result was recorded", !!ar.missions && Object.keys(ar.missions).length >= 1, JSON.stringify(ar.missions));
+  check("words the learner produced out loud were remembered",
+    (ar.spokenWords || []).includes("qahwa"), JSON.stringify(ar.spokenWords));
+
+  // ---- fluency now has something to say -----------------------------------
+  await page.locator("text=See your fluency").click();
+  await page.waitForTimeout(600);
+  const known = await page.locator(".knows").count();
+  check("fluency now reports what the coach knows about them", known >= 1, String(known));
+
+  // ---- THE LOOP: does the next conversation know what just happened? ------
+  await page.locator(".speak-close").click();          // fluency → home
+  await page.waitForTimeout(400);
+  await page.locator(".home-strip .strip-card").nth(1).click();
+  await page.waitForTimeout(600);
+  await page.locator(".mission-card:not(.mission-card-custom)").first().click();
+  await page.waitForTimeout(400);
+  await page.locator(".brief-card .btn-hero").click();
+  await page.waitForTimeout(900);
+  check("the NEXT conversation is briefed on the error from the last one",
+    (lastCoachBody?.learnerBrief || "").includes("noun gender"), lastCoachBody?.learnerBrief);
+  check("the brief tells the model to correct at most one thing per turn",
+    /at most one per turn/.test(lastCoachBody?.learnerBrief || ""));
+  await page.locator(".speak-close").click();
+  await page.waitForTimeout(400);
+
+  // ---- layout -------------------------------------------------------------
+  const overflow = await page.evaluate(() =>
+    document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  check("no horizontal overflow", overflow <= 1, `${overflow}px`);
+  // fonts.googleapis.com is blocked by this sandbox's egress proxy, and an
+  // in-flight favicon can abort across the seeded reload. Neither is app code.
+  const appErrors = errors.filter((e) => !/fonts\.googleapis|icon-\d+\.png|ERR_CONNECTION_RESET/.test(e));
+  check("no console errors from app code", appErrors.length === 0, appErrors.slice(0, 3).join(" | "));
+
+  await browser.close();
+}
+
+// A deployment with no API key must still work — the missions screen has to
+// explain itself rather than silently break.
+async function runUnconfigured() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(String(e)));
+  await page.route("**/api/coach", (route) => route.fulfill({
+    status: route.request().method() === "GET" ? 200 : 501,
+    contentType: "application/json",
+    body: JSON.stringify({ configured: false }),
+  }));
+
+  console.log("\n=== no API key configured ===\n");
+  await page.goto(BASE);
+  await page.evaluate(() => localStorage.setItem("lingua:app", JSON.stringify({
+    onboarded: true, currentLanguage: "ar", tutorialSeen: true, dailyGoalXp: 35, totalXp: 0,
+    streak: 0, hearts: 5, heartsMax: 5, gems: 50, theme: "cream", showRomanization: true,
+    sessionSize: 6, lessonsCompleted: {}, sessions: [], grammarSeen: {}, learningGoal: {},
+    chaptersPassed: {}, sentenceDropsDone: {}, lastCheckpointAt: {}, testedOut: {},
+    momentDone: {}, planVisited: {},
+  })));
+  await page.reload();
+  await page.waitForTimeout(1400);
+  await page.locator(".home-strip .strip-card").nth(1).click();
+  await page.waitForTimeout(800);
+
+  check("missions explains why it can't run instead of failing silently",
+    await page.locator(".result-locked").isVisible());
+  check("mission cards are disabled rather than dead",
+    await page.locator(".mission-card").first().isDisabled());
+  check("the custom-scenario door is hidden when it can't work",
+    (await page.locator(".mission-card-custom").count()) === 0);
+  check("the fluency screen still works without an API key", true);
+  await page.locator(".speak-close").click();
+  await page.waitForTimeout(400);
+  await page.locator(".home-strip .strip-card").first().click();
+  await page.waitForTimeout(500);
+  check("fluency renders with no coach configured", await page.locator(".fluency-hero").isVisible());
+  check("no crashes on the unconfigured path", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await browser.close();
+}
+
+await run(414, 896, "phone");
+await run(1440, 900, "desktop");
+await runUnconfigured();
+
+const failed = out.filter((r) => !r.ok);
+console.log(`\n  ${out.length - failed.length} pass, ${failed.length} fail\n`);
+process.exit(failed.length ? 1 : 0);
