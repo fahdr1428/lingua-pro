@@ -25,45 +25,14 @@
 // =============================================================================
 
 import { stopSpeaking as stopTargetAudio } from "./tts.js";
+import { coachVoice, coachDelivery, resolveVoice } from "./voices.js";
 
-let voicesCache = [];
 let queue = [];
 let speaking = false;
 let generation = 0;
 
-function loadVoices() {
-  if (typeof window === "undefined" || !window.speechSynthesis) return;
-  voicesCache = window.speechSynthesis.getVoices() || [];
-  if (!voicesCache.length) {
-    window.speechSynthesis.onvoiceschanged = () => {
-      voicesCache = window.speechSynthesis.getVoices() || [];
-    };
-  }
-}
-if (typeof window !== "undefined") loadVoices();
-
 export function voiceSupported() {
   return typeof window !== "undefined" && !!window.speechSynthesis;
-}
-
-/**
- * Pick a voice for a BCP-47 tag, preferring a local (offline) one — remote
- * voices add a network round trip mid-conversation, which reads as the coach
- * hesitating.
- */
-function pickVoice(tag) {
-  if (!voicesCache.length) loadVoices();
-  if (!voicesCache.length) return null;
-  const want = String(tag || "").toLowerCase();
-  const base = want.split("-")[0];
-
-  const exactLocal = voicesCache.find((v) => v.lang?.toLowerCase() === want && v.localService);
-  if (exactLocal) return exactLocal;
-  const exact = voicesCache.find((v) => v.lang?.toLowerCase() === want);
-  if (exact) return exact;
-  const baseLocal = voicesCache.find((v) => v.lang?.toLowerCase().startsWith(base) && v.localService);
-  if (baseLocal) return baseLocal;
-  return voicesCache.find((v) => v.lang?.toLowerCase().startsWith(base)) || null;
 }
 
 /**
@@ -77,18 +46,23 @@ function pickVoice(tag) {
  * @param {number} opts.rate  0.1–10; coaching sits slightly slow so it's easy to follow
  * @param {number} opts.pitch 0–2
  */
-export function say(text, { lang = "en-GB", rate = 0.98, pitch = 1 } = {}) {
+export function say(text, { lang = "en-GB", rate = 0.98, pitch = 1, voice } = {}) {
   if (!voiceSupported() || !text) return Promise.resolve(false);
   const myGeneration = generation;
   return new Promise((resolve) => {
-    queue.push({ text: String(text), lang, rate, pitch, resolve, generation: myGeneration });
+    queue.push({ text: String(text), lang, rate, pitch, voice, resolve, generation: myGeneration });
     pump();
   });
 }
 
-/** The coach's own voice — English, a touch slow, warm pitch. */
+/**
+ * The coach's own voice — English, and whatever tone the learner chose in
+ * Settings. Defaults to the most natural voice on the device rather than the
+ * fastest one; a robotic voice is the thing people actually complain about.
+ */
 export function sayCoach(text) {
-  return say(text, { lang: "en-GB", rate: 0.97, pitch: 1.04 });
+  const { rate, pitch } = coachDelivery();
+  return say(text, { lang: "en-GB", rate, pitch, voice: coachVoice() });
 }
 
 function pump() {
@@ -117,8 +91,12 @@ function pump() {
     u.lang = next.lang;
     u.rate = next.rate;
     u.pitch = next.pitch;
-    const v = pickVoice(next.lang);
-    if (v) u.voice = v;
+    const v = next.voice || resolveVoice(next.lang);
+    if (v) {
+      u.voice = v;
+      // Some engines ignore `voice` unless `lang` agrees with it.
+      if (v.lang) u.lang = v.lang;
+    }
     u.onend = () => finish(true);
     u.onerror = () => finish(false);
     window.speechSynthesis.speak(u);

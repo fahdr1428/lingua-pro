@@ -35,6 +35,8 @@
 // Recognition support
 // ---------------------------------------------------------------------------
 
+import { romanise, foldVowels, scriptOf } from "./romanise.js";
+
 function RecognitionCtor() {
   if (typeof window === "undefined") return null;
   return window.SpeechRecognition || window.webkitSpeechRecognition || null;
@@ -44,18 +46,30 @@ export function isRecognitionSupported() {
   return !!RecognitionCtor();
 }
 
-// Locales the browser is most likely to have a recogniser for. When a language
-// has no recogniser at all, listening in a nearby locale still produces a
-// usable transcript because we score against transliteration as well.
+// v74 — TRY THE REAL LANGUAGE FIRST.
+//
+// This used to jump straight to a fallback locale for ur/pa, on the assumption
+// that no browser ships a recogniser for them. Chrome does ship Urdu, and
+// listening in Hindi when Urdu was available made the transcript worse for no
+// reason. There is no way to feature-detect language support — the API accepts
+// any tag and only complains at start time — so we ask for the real one and
+// switch to the fallback only if the browser actually rejects it.
 const RECOGNITION_FALLBACK = {
-  ur: "hi-IN",   // no widely-shipped Urdu recogniser; Hindi is phonetically close
-  pa: "hi-IN",
-  pcm: "en-NG",
-  bn: "bn-IN",
+  ur: ["hi-IN"],       // phonetically close; the scorer bridges the script gap
+  pa: ["hi-IN"],
+  pcm: ["en-US"],      // Nigerian Pidgin: en-NG first, then plain English
+  bn: ["bn-BD"],
 };
 
+/** Ordered list of locales to try, best first. */
+export function recognitionLocales(langCode, ttsCode) {
+  const primary = ttsCode || "en-US";
+  return [...new Set([primary, ...(RECOGNITION_FALLBACK[langCode] || [])])];
+}
+
+/** The locale we'd try first. Kept for callers that just want a label. */
 export function recognitionLocale(langCode, ttsCode) {
-  return RECOGNITION_FALLBACK[langCode] || ttsCode || "en-US";
+  return recognitionLocales(langCode, ttsCode)[0];
 }
 
 /**
@@ -81,55 +95,84 @@ export function startListening({
     return null;
   }
 
-  let rec;
-  try {
-    rec = new Ctor();
-  } catch (e) {
-    onError?.({ code: "init_failed", message: String(e?.message || e) });
-    return null;
-  }
-
-  rec.lang = recognitionLocale(langCode, ttsCode);
-  rec.continuous = false;
-  rec.interimResults = interim;
-  rec.maxAlternatives = maxAlternatives;
-
+  const locales = recognitionLocales(langCode, ttsCode);
   let stopped = false;
+  let heardAnything = false;
+  let rec = null;
 
-  rec.onresult = (event) => {
-    const result = event.results?.[event.results.length - 1];
-    if (!result) return;
-    const transcripts = [];
-    for (let i = 0; i < result.length; i++) {
-      const t = result[i]?.transcript;
-      if (t) transcripts.push(t);
+  // Returns false if the recogniser couldn't even be constructed/started.
+  function attempt(index) {
+    if (stopped) return true;
+    let r;
+    try {
+      r = new Ctor();
+    } catch (e) {
+      onError?.({ code: "init_failed", message: String(e?.message || e) });
+      return false;
     }
-    if (transcripts.length) onResult?.({ transcripts, isFinal: !!result.isFinal });
-  };
 
-  rec.onerror = (event) => {
-    // "no-speech" and "aborted" are ordinary user behaviour, not faults —
-    // callers get them tagged so they can stay quiet about them.
-    const code = event?.error || "unknown";
-    onError?.({
-      code,
-      benign: code === "no-speech" || code === "aborted",
-      message: MIC_ERRORS[code] || "Something went wrong with the microphone.",
-    });
-  };
+    r.lang = locales[index];
+    r.continuous = false;
+    r.interimResults = interim;
+    r.maxAlternatives = maxAlternatives;
 
-  rec.onend = () => { if (!stopped) onEnd?.(); };
+    // A locale the browser can't serve is not the learner's problem. Retry
+    // silently on the next one rather than showing an error for something they
+    // can do nothing about — this is what made Urdu look simply broken.
+    let switched = false;
+    const tryNextLocale = () => {
+      if (switched || stopped || heardAnything) return false;
+      if (index + 1 >= locales.length) return false;
+      switched = true;
+      return attempt(index + 1);
+    };
 
-  try {
-    rec.start();
-  } catch (e) {
-    onError?.({ code: "start_failed", message: String(e?.message || e) });
-    return null;
+    r.onresult = (event) => {
+      const result = event.results?.[event.results.length - 1];
+      if (!result) return;
+      const transcripts = [];
+      for (let i = 0; i < result.length; i++) {
+        const t = result[i]?.transcript;
+        if (t) transcripts.push(t);
+      }
+      if (transcripts.length) {
+        heardAnything = true;
+        onResult?.({ transcripts, isFinal: !!result.isFinal });
+      }
+    };
+
+    r.onerror = (event) => {
+      const code = event?.error || "unknown";
+      if ((code === "language-not-supported" || code === "bad-grammar") && tryNextLocale()) return;
+      onError?.({
+        code,
+        benign: code === "no-speech" || code === "aborted",
+        message: MIC_ERRORS[code] || "Something went wrong with the microphone.",
+      });
+    };
+
+    r.onend = () => {
+      if (stopped || switched) return;
+      onEnd?.();
+    };
+
+    try {
+      r.start();
+    } catch (e) {
+      if (tryNextLocale()) return true;
+      onError?.({ code: "start_failed", message: String(e?.message || e) });
+      return false;
+    }
+    rec = r;
+    return true;
   }
+
+  if (!attempt(0)) return null;
 
   return {
-    stop() { stopped = true; try { rec.stop(); } catch {} },
-    abort() { stopped = true; try { rec.abort(); } catch {} },
+    locale: locales[0],
+    stop() { stopped = true; try { rec?.stop(); } catch {} },
+    abort() { stopped = true; try { rec?.abort(); } catch {} },
   };
 }
 
@@ -140,6 +183,7 @@ const MIC_ERRORS = {
   "audio-capture": "No microphone found.",
   network: "Speech recognition needs a connection and couldn't reach it.",
   aborted: "Listening stopped.",
+  "language-not-supported": "This browser has no recogniser for that language. You can type your answer instead — it's graded exactly the same.",
 };
 
 // ---------------------------------------------------------------------------
@@ -306,10 +350,57 @@ export function scoreAttempt(heard, target = {}) {
     return { score: 0, band: BAND.MISS, matchedForm: forms[0] || "", heard: "", missing: [], extra: [] };
   }
 
-  let best = { score: -1, band: BAND.MISS, matchedForm: forms[0], heard: candidates[0] };
+  // v74 — THE CROSS-SCRIPT BRIDGE.
+  //
+  // Where a language has no browser recogniser we listen in a nearby locale, so
+  // the transcript can come back in a completely different writing system from
+  // the target: an Urdu learner saying assalam-o-alaikum perfectly got back
+  // Devanagari, which matched neither the Urdu script nor the transliteration,
+  // and scored 0.00. Every Urdu attempt failed that way, and Punjabi with it.
+  //
+  // So each side also gets a rough Latin skeleton, and those are scored too.
+  // `display` keeps the ORIGINAL transcript for "you said …" — the learner must
+  // never be shown the internal skeleton.
+  const scorable = [];
+  const addVariants = (text, display, push) => {
+    push(text, display);
+    const r = romanise(text);
+    const latin = r || (scriptOf(text) === "latin" ? text : "");
+    if (r && r !== text) push(r, display);
+    // Vowel-length folding, on whichever Latin form we have. Both sides get it,
+    // or they'd never meet in the middle.
+    if (latin) {
+      const folded = foldVowels(latin);
+      if (folded && folded !== latin && folded !== text) push(folded, display);
+    }
+  };
 
-  for (const candidate of candidates) {
-    for (const form of forms) {
+  for (const c of candidates) {
+    addVariants(c, c, (text, display) => scorable.push({ text, display }));
+  }
+  // `form` is always the real, displayable target; `text` may be its skeleton.
+  // Keeping them apart is what stops a skeleton leaking into the feedback the
+  // learner reads.
+  const targetForms = [];
+  for (const f of forms) {
+    addVariants(f, f, (text, form) => targetForms.push({ text, form }));
+  }
+
+  // `matchedForm` / `heard` are what the learner is SHOWN. `scoredForm` /
+  // `scoredHeard` are the strings that actually produced the score — which for a
+  // cross-script attempt are the Latin skeletons. The word-level diagnostics
+  // below must use the scored pair: comparing Urdu script against a Devanagari
+  // transcript makes every word look missing, and the missing-mass cap then
+  // pulls a perfect attempt back under the pass mark. That was the second half
+  // of the Urdu bug, and it survived the first fix.
+  let best = {
+    score: -1, band: BAND.MISS,
+    matchedForm: forms[0], heard: candidates[0],
+    scoredForm: forms[0], scoredHeard: candidates[0],
+  };
+
+  for (const { text: candidate, display } of scorable) {
+    for (const { text: form, form: displayForm } of targetForms) {
       // Blend, weighted toward token overlap: saying all the right words in a
       // slightly wrong order or accent should pass, whereas a fluent-sounding
       // string of the wrong words should not.
@@ -335,15 +426,15 @@ export function scoreAttempt(heard, target = {}) {
       if (cn && fn && cn === fn) score = 1;
 
       if (score > best.score) {
-        best = { score, matchedForm: form, heard: candidate };
+        best = { score, matchedForm: displayForm, heard: display, scoredForm: form, scoredHeard: candidate };
       }
     }
   }
 
   // Which target words didn't land — used for specific, actionable feedback
   // instead of a bare "try again".
-  const targetTokens = tokens(best.matchedForm);
-  const heardTokens = tokens(best.heard);
+  const targetTokens = tokens(best.scoredForm);
+  const heardTokens = tokens(best.scoredHeard);
   const leftover = [...heardTokens];
   const missing = [];
   for (const want of targetTokens) {
@@ -362,7 +453,7 @@ export function scoreAttempt(heard, target = {}) {
   // for assalam. Speech has no spaces, so before calling anything absent we
   // check it against the space-stripped transcript. This keeps the cap below
   // honest and stops feedback naming words the learner clearly did say.
-  const heardFlat = normalise(best.heard).replace(/\s/g, "");
+  const heardFlat = normalise(best.scoredHeard).replace(/\s/g, "");
   const trulyMissing = missing.filter((w) => !flatContains(heardFlat, w));
 
   // "hun" for "hoon" is the learner's ATTEMPT at a target word, not an extra

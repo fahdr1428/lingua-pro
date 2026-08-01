@@ -15,32 +15,16 @@
 // a pre-generated file. If the file doesn't exist, we fall back automatically.
 // =============================================================================
 
-let voicesLoaded = false;
-let voicesCache = [];
+// v74: voice selection lives in voices.js, so the target language and the
+// coach's English narration rank voices the same way — most natural first, not
+// most local first — and both honour the learner's choice in Settings.
+import { targetVoice, voicesFor, voicesLoaded as synthVoicesLoaded } from "./voices.js";
+
 let mp3AvailabilityCache = new Map(); // 'langCode/wordId' -> true|false (cached HEAD requests)
 let activeAudio = null;
 
-function ensureVoices() {
-  if (typeof window === "undefined" || !window.speechSynthesis) return;
-  voicesCache = window.speechSynthesis.getVoices();
-  if (voicesCache.length > 0) voicesLoaded = true;
-  else {
-    window.speechSynthesis.onvoiceschanged = () => {
-      voicesCache = window.speechSynthesis.getVoices();
-      voicesLoaded = true;
-    };
-  }
-}
-
-if (typeof window !== "undefined") ensureVoices();
-
-function bestVoice(langCode) {
-  if (!voicesCache.length) return null;
-  let v = voicesCache.find((x) => x.lang === langCode);
-  if (v) return v;
-  const lang2 = langCode.split("-")[0];
-  v = voicesCache.find((x) => x.lang.startsWith(lang2));
-  return v || null;
+function bestVoice(langCode, code) {
+  return targetVoice(langCode, code) || voicesFor(langCode)[0] || null;
 }
 
 /** Build the URL where the pre-generated MP3 should live. */
@@ -94,7 +78,7 @@ async function tryPlayMp3(langCode, audioId) {
 }
 
 /** Speak using browser TTS. Resolves when speech ends. */
-function speakWithBrowser(text, langCode, { rate = 0.85, pitch = 1 } = {}) {
+function speakWithBrowser(text, langCode, { rate = 0.85, pitch = 1, code } = {}) {
   return new Promise((resolve) => {
     if (typeof window === "undefined" || !window.speechSynthesis) return resolve(false);
     try {
@@ -103,9 +87,10 @@ function speakWithBrowser(text, langCode, { rate = 0.85, pitch = 1 } = {}) {
       u.lang = langCode;
       u.rate = rate;
       u.pitch = pitch;
-      const v = bestVoice(langCode);
+      const v = bestVoice(langCode, code);
       if (!v) return resolve(false); // no voice for this language
       u.voice = v;
+      if (v.lang) u.lang = v.lang;   // some engines ignore `voice` without it
       u.onend = () => resolve(true);
       u.onerror = () => resolve(false);
       window.speechSynthesis.speak(u);
@@ -123,7 +108,7 @@ function speakWithBrowser(text, langCode, { rate = 0.85, pitch = 1 } = {}) {
  * @param {string} opts.audioId - if provided, attempts to play pre-generated MP3 first
  */
 export async function speak(text, langCode, opts = {}) {
-  const { audioId, rate = 0.85, pitch = 1 } = opts;
+  const { audioId, rate = 0.85, pitch = 1, code } = opts;
 
   // Stop any currently playing audio
   stopSpeaking();
@@ -135,7 +120,7 @@ export async function speak(text, langCode, opts = {}) {
   }
 
   // Tier 2: browser TTS
-  const ok = await speakWithBrowser(text, langCode, { rate, pitch });
+  const ok = await speakWithBrowser(text, langCode, { rate, pitch, code });
   return ok;
 }
 
@@ -151,7 +136,7 @@ export function hasAudioFor(langCode, audioId) {
     if (mp3AvailabilityCache.get(cacheKey) === true) return true;
   }
   // Check browser TTS availability
-  if (!voicesLoaded) return true; // optimistic: assume yes until we know
+  if (!synthVoicesLoaded()) return true; // optimistic: assume yes until we know
   return !!bestVoice(langCode);
 }
 

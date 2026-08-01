@@ -463,5 +463,7 @@ export function getReaction(langCode, kind) {
 /** TTS parameters for this guide's voice, with safe defaults. */
 export function guideVoice(langCode) {
   const v = CHARACTERS[langCode]?.voice;
-  return { rate: v?.rate ?? 0.85, pitch: v?.pitch ?? 1 };
+  // `code` rides along so tts.js can honour a per-language voice the learner
+  // picked in Settings; without it every caller would have to remember to pass it.
+  return { rate: v?.rate ?? 0.85, pitch: v?.pitch ?? 1, code: langCode };
 }

@@ -11,6 +11,7 @@ import { pickFunFact } from "../data/funFacts.js";
 import { HeroBackdrop } from "../ui/HeroBackdrop.jsx";
 import { masteryLevel, retrievability } from "../engine/srs.js";
 import { THEMES } from "../ui/themes.js";
+import { VoiceSettings } from "./VoiceSettings.jsx";
 import { getCharacter, getGreeting } from "../data/characters.js";
 import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilestones } from "../engine/gamification.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
@@ -740,7 +741,7 @@ function MasteryRow({ color, label, count }) {
 // SETTINGS
 // =============================================================================
 
-export function Settings({ appState, setAppState, onResetAll, onNavigate }) {
+export function Settings({ appState, setAppState, onResetAll, onNavigate, pack }) {
   return (
     <div>
       <TopBar streak={appState.streak} gems={appState.gems} hearts={appState.hearts} totalXp={appState.totalXp} premium={appState.isPremium} />
@@ -816,6 +817,9 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate }) {
             }
           />
         </Card>
+
+        {/* v74 — the voice the learner actually hears, and their choice of it. */}
+        <VoiceSettings appState={appState} setAppState={setAppState} langCode={pack?.code || appState.currentLanguage} />
 
         {/* Theme picker */}
         <h3 className="eyebrow" style={{ marginTop: 24, marginBottom: 12 }}>Theme</h3>

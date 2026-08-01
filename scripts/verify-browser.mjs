@@ -251,9 +251,98 @@ async function runUnconfigured() {
   await browser.close();
 }
 
+// ---------------------------------------------------------------------------
+// v74 — the voice the learner hears, and their control over it.
+// Headless Chromium ships no speech voices, so one pass fakes a realistic voice
+// list (a robotic local one next to a natural network one, which is the exact
+// situation that made the app sound "rough and scary") and one pass runs with
+// none, to check the honest empty state.
+// ---------------------------------------------------------------------------
+const FAKE_VOICES = `
+  const mk = (name, lang, localService, def) => ({
+    name, lang, voiceURI: name, localService, default: !!def,
+  });
+  const list = [
+    mk("English (eSpeak)", "en-GB", true, true),
+    mk("Google UK English Female", "en-GB", false),
+    mk("Microsoft Sonia Online (Natural) - English (United Kingdom)", "en-GB", false),
+    mk("Urdu Pakistan", "ur-PK", true),
+    mk("Google urdu", "ur-PK", false),
+  ];
+  window.speechSynthesis.getVoices = () => list;
+`;
+
+async function runVoiceSettings({ withVoices }) {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(String(e)));
+  if (withVoices) await page.addInitScript(FAKE_VOICES);
+
+  console.log(`\n=== voice settings (${withVoices ? "voices available" : "no voices installed"}) ===\n`);
+  await page.goto(BASE);
+  await page.evaluate(() => localStorage.setItem("lingua:app", JSON.stringify({
+    onboarded: true, currentLanguage: "ur", tutorialSeen: true, dailyGoalXp: 35, totalXp: 0,
+    streak: 0, hearts: 5, heartsMax: 5, gems: 50, theme: "cream", showRomanization: true,
+    sessionSize: 6, lessonsCompleted: {}, sessions: [], grammarSeen: {}, learningGoal: {},
+    chaptersPassed: {}, sentenceDropsDone: {}, lastCheckpointAt: {}, testedOut: {},
+    momentDone: {}, planVisited: {},
+  })));
+  await page.reload();
+  await page.waitForTimeout(1400);
+
+  // Profile → Settings. Scoped to the bottom nav: the desktop side rail is in
+  // the DOM but hidden at this width, and an unscoped text match finds it first.
+  await page.locator(".bottom-nav button", { hasText: "Profile" }).click();
+  await page.waitForTimeout(500);
+  await page.locator('button[aria-label="Settings"]').click();
+  // Long enough for the voice list to arrive (or to be confirmed absent).
+  await page.waitForTimeout(1600);
+
+  check("the voice section is on the settings screen", await page.locator(".voice-settings").isVisible());
+
+  if (withVoices) {
+    const tones = await page.locator(".voice-block").first().locator(".chip").count();
+    check("tone can be chosen in plain words", tones === 4, String(tones));
+    check("speed can be changed", await page.locator(".voice-slider").isVisible());
+
+    const coachOptions = await page.locator(".voice-select").first().locator("option").count();
+    check("the coaching voice list offers the device's voices", coachOptions >= 4, String(coachOptions));
+
+    // The whole point: the natural voice must be offered above the robotic one.
+    const firstReal = await page.locator(".voice-select").first().locator("option").nth(1).innerText();
+    check("the natural voice is ranked above the robotic local one",
+      !/espeak/i.test(firstReal), firstReal);
+
+    check("a target-language voice can be chosen too",
+      (await page.locator(".voice-select").count()) >= 2,
+      String(await page.locator(".voice-select").count()));
+
+    // Choosing one has to persist.
+    await page.locator(".voice-select").first().selectOption({ index: 2 });
+    await page.waitForTimeout(300);
+    await page.locator(".voice-block .chip").nth(2).click();   // a different tone
+    await page.waitForTimeout(300);
+    const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app") || "{}").voice);
+    check("the chosen voice is persisted", !!saved?.coachVoiceURI, JSON.stringify(saved));
+    check("the chosen tone is persisted", saved?.tone === "calm", JSON.stringify(saved));
+  } else {
+    check("with no voices it says so instead of showing an empty picker",
+      (await page.locator(".voice-settings .empty-note").count()) === 1);
+    check("no voice dropdowns are shown when there is nothing to choose",
+      (await page.locator(".voice-select").count()) === 0);
+  }
+
+  check("no crashes on the voice settings screen", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await browser.close();
+}
+
 await run(414, 896, "phone");
 await run(1440, 900, "desktop");
 await runUnconfigured();
+await runVoiceSettings({ withVoices: true });
+await runVoiceSettings({ withVoices: false });
 
 const failed = out.filter((r) => !r.ok);
 console.log(`\n  ${out.length - failed.length} pass, ${failed.length} fail\n`);

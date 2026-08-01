@@ -43,7 +43,7 @@ import { speak } from "../audio/tts.js";
 import { sayCoach, cancelVoice, idle as voiceIdle, voiceSupported } from "../audio/voice.js";
 import { probeCoach, levelFor } from "../ai/coach.js";
 import { LiveConversation } from "../ui/LiveConversation.jsx";
-import { getPersona, getRegion } from "../data/personas.js";
+import { PERSONAS, getPersona, getRegion } from "../data/personas.js";
 import { recordTurn, summariseForPrompt } from "../engine/profile.js";
 import {
   isRecognitionSupported, startListening, judge, displayScore, BAND,
@@ -754,7 +754,8 @@ function SpeakResult({ lang, langCode, guide, scored, coachReady, onAgain, onTal
 // =============================================================================
 function TalkToGuide({ lang, langCode, guide, micSupported, level, profile, mutateProfile, onBack }) {
   const learnerBrief = useMemo(() => summariseForPrompt(profile), [profile]);
-  const persona = getPersona(profile?.persona || "friendly");
+  const personaId = profile?.persona || "friendly";
+  const persona = getPersona(personaId);
   const region = getRegion(langCode, profile?.region);
 
   const onTurn = useCallback((rec) => {
@@ -764,7 +765,25 @@ function TalkToGuide({ lang, langCode, guide, micSupported, level, profile, muta
   return (
     <div className="speak-body speak-body-talk">
       <button className="talk-back" onClick={onBack}>← back to the session</button>
+
+      {/* v74 — how they talk to you is your call. Changing it starts the
+          conversation again, because a partner who changes character mid-way is
+          more confusing than starting over. */}
+      <div className="manner-row">
+        <span className="manner-label">Talk to me like a</span>
+        {PERSONAS.map((p) => (
+          <button
+            key={p.id}
+            className={`chip${personaId === p.id ? " chip-on" : ""}`}
+            onClick={() => mutateProfile?.((prev) => ({ ...prev, persona: p.id }))}
+          >
+            {p.name}
+          </button>
+        ))}
+      </div>
+
       <LiveConversation
+        key={personaId}
         lang={lang}
         langCode={langCode}
         guide={guide}

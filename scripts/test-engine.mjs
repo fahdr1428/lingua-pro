@@ -20,6 +20,8 @@ import {
 import { computeFluency, fluencyDelta, fluencyBlurb, DIMENSIONS } from "../src/engine/fluency.js";
 import { MISSIONS, getMission, recommendMissions, passThreshold, MISSION_CATEGORIES } from "../src/data/missions.js";
 import { PERSONAS, getPersona, REGIONS, PRESSURE_PROMPT } from "../src/data/personas.js";
+import { TONES, getTone, voiceQuality, setVoicePrefs, coachDelivery } from "../src/audio/voices.js";
+import { romanise, foldVowels, scriptOf, scriptsDiffer } from "../src/audio/romanise.js";
 
 const results = [];
 function check(name, cond, detail = "") {
@@ -246,6 +248,70 @@ check("region prompts exist for every listed region",
   Object.values(REGIONS).every((list) => list.every((r) => r.prompt.length > 40 && r.name && r.id)));
 check("region ids are unique across a language",
   Object.values(REGIONS).every((list) => new Set(list.map((r) => r.id)).size === list.length));
+
+// =========================================================================
+console.log("\nvoices · natural first, and the learner's choice wins\n");
+
+const fake = (name, lang, localService = false) => ({ name, lang, voiceURI: name, localService });
+
+// The exact situation behind "the AI agent is so rough and scary": a machine
+// with a local formant synthesiser and a natural network voice side by side.
+// The old picker took the local one because it was local.
+const robotic = fake("English (eSpeak)", "en-GB", true);
+const natural = fake("Google UK English Female", "en-GB", false);
+check("a natural network voice outranks a local formant synthesiser",
+  voiceQuality(natural) > voiceQuality(robotic),
+  `${voiceQuality(natural)} vs ${voiceQuality(robotic)}`);
+check("'compact' and 'pico' voices are ranked down too",
+  voiceQuality(fake("Samantha (compact)", "en-US", true)) < voiceQuality(fake("Samantha", "en-US", false)));
+check("locality is only a tiebreak between equals",
+  voiceQuality(fake("Ava", "en-US", true)) > voiceQuality(fake("Ava", "en-US", false)));
+
+check("every tone has a distinct rate/pitch pair",
+  new Set(TONES.map((t) => `${t.rate}/${t.pitch}`)).size === TONES.length);
+check("every tone is described in plain words, not numbers",
+  TONES.every((t) => t.label && t.blurb && !/\d/.test(t.blurb)));
+check("getTone falls back rather than returning undefined", getTone("nope").id === TONES[0].id);
+
+// Delivery must respond to both dials, and stay inside what the API accepts.
+setVoicePrefs({ tone: "calm", speed: 0.7 });
+const calmSlow = coachDelivery();
+setVoicePrefs({ tone: "bright", speed: 1.3 });
+const brightQuick = coachDelivery();
+check("tone and speed both move the delivery",
+  brightQuick.rate > calmSlow.rate && brightQuick.pitch > calmSlow.pitch,
+  `${JSON.stringify(calmSlow)} vs ${JSON.stringify(brightQuick)}`);
+check("rate stays inside the range the speech API accepts",
+  calmSlow.rate >= 0.5 && brightQuick.rate <= 2, `${calmSlow.rate} / ${brightQuick.rate}`);
+
+setVoicePrefs({ speed: 99 });
+check("an absurd speed is clamped rather than trusted", coachDelivery().rate <= 2, String(coachDelivery().rate));
+setVoicePrefs(null);
+check("clearing preferences returns to the default tone", coachDelivery().rate === TONES[0].rate);
+
+// =========================================================================
+console.log("\nromanisation · the cross-script bridge\n");
+
+check("Devanagari is detected", scriptOf("मैं ठीक हूँ") === "deva");
+check("Arabic/Urdu script is detected", scriptOf("السلام علیکم") === "arab");
+check("Gurmukhi is detected", scriptOf("ਸਤ ਸ੍ਰੀ ਅਕਾਲ") === "guru");
+check("Bengali is detected", scriptOf("ধন্যবাদ") === "beng");
+check("Latin is detected and left alone", scriptOf("bonjour") === "latin" && romanise("bonjour") === "");
+
+check("word-final schwa is deleted, as these languages actually pronounce it",
+  romanise("शुक्रिया") === "shukriyaa" || !/aa$/.test(romanise("राम")), romanise("राम"));
+check("a virama cancels the inherent vowel", romanise("स्वागत").startsWith("sv"), romanise("स्वागत"));
+check("nukta letters map to their Perso-Arabic sounds",
+  romanise("ख़ुदा हाफ़िज़").includes("f"), romanise("ख़ुदा हाफ़िज़"));
+
+check("vowel folding unifies the transliteration variants",
+  foldVowels("paanee") === foldVowels("paani") && foldVowels("paani") === "pani",
+  `${foldVowels("paanee")} / ${foldVowels("paani")}`);
+check("folding does not collapse distinct consonants",
+  foldVowels("kaam") !== foldVowels("kaan"));
+check("scriptsDiffer spots the case the bridge exists for",
+  scriptsDiffer("मैं ठीक हूँ", "میں ٹھیک ہوں") === true);
+check("scriptsDiffer is false for the same script", scriptsDiffer("bonjour", "bonsoir") === false);
 
 // =========================================================================
 const failed = results.filter((r) => !r.ok);

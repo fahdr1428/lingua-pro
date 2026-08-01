@@ -9,6 +9,7 @@ import { useProfile } from "./hooks/useProfile.js";
 import { getStorage } from "./storage/index.js";
 import { BottomNav, SideRail, Button, Container } from "./ui/primitives.jsx";
 import { applyTheme } from "./ui/themes.js";
+import { setVoicePrefs } from "./audio/voices.js";
 import {
   Onboarding,
   Home,
@@ -110,6 +111,7 @@ const DEFAULT_APP_STATE = {
   sentenceDropsDone: {}, // v47: { langCode: highestDropNumber } — Sentence Lab progress
   lastCheckpointAt: {}, // { langCode: lessonCount when last checkpoint cleared }
   testedOut: {}, // { langCode: [wordId,...] } — words skipped via placement test
+  voice: null, // v74: { coachVoiceURI, tone, speed, targetVoiceURI } — null = automatic
   userName: "", // v57: what the coach calls you
   momentDone: {}, // v57: { langCode: dateString } — daily Moment recall done
   planVisited: {}, // v57: { langCode: { date, speak, life } } — plan step visits
@@ -131,6 +133,13 @@ export default function App() {
   useEffect(() => {
     if (appState?.theme) applyTheme(appState.theme);
   }, [appState?.theme]);
+
+  // v74: push the learner's voice choice into the audio layer. It lives in
+  // module state rather than context so audio can be called from anywhere, so
+  // this is the one place that keeps it in sync with what's persisted.
+  useEffect(() => {
+    setVoicePrefs(appState?.voice);
+  }, [appState?.voice]);
 
   // Hearts auto-refill: 1 heart per 30 min for free users
   useEffect(() => {
@@ -250,7 +259,7 @@ export default function App() {
         {screen === "grammar" && <Grammar {...screenProps} />}
         {screen === "vocab" && <Vocab {...screenProps} />}
         {screen === "profile" && <Profile {...screenProps} onSwitchLanguage={switchLanguage} />}
-        {screen === "settings" && <Settings appState={appState} setAppState={setAppState} onResetAll={resetAll} onNavigate={navigate} />}
+        {screen === "settings" && <Settings appState={appState} setAppState={setAppState} onResetAll={resetAll} onNavigate={navigate} pack={pack} />}
         {screen === "upgrade" && <Upgrade appState={appState} setAppState={setAppState} onNavigate={navigate} />}
       </div>
       </div>
