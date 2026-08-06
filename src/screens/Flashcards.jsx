@@ -255,7 +255,7 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
         <Button
           variant="secondary"
           style={{ marginBottom: 12 }}
-          onClick={(e) => { e.stopPropagation(); speak(card.lemma, lang.ttsCode, { audioId: card.id }); }}
+          onClick={(e) => { e.stopPropagation(); speak(card.lemma, lang.ttsCode, { audioId: card.id, code: pack.code, translit: card.translit }); }}
         >
           🔊 Listen
         </Button>

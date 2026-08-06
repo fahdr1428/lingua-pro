@@ -613,7 +613,7 @@ function ReplayRow({ turn, lang, langCode, micSupported }) {
         {target && (
           <button
             className="xchg-play"
-            onClick={() => speak(target, lang.ttsCode, guideVoice(langCode))}
+            onClick={() => speak(target, lang.ttsCode, { ...guideVoice(langCode), translit: turn.fluent?.translit })}
             aria-label="Hear it"
           >
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

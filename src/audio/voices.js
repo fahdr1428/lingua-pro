@@ -163,6 +163,49 @@ export function targetVoice(tag, langCode) {
   return resolveVoice(tag, prefs.targetVoiceURI?.[langCode]);
 }
 
+// ---------------------------------------------------------------------------
+// v75 — WHEN THERE IS NO VOICE FOR THE LANGUAGE AT ALL.
+//
+// Urdu ships no recorded audio in this repo and most devices have no ur-PK
+// voice, so the audio button did precisely nothing: no sound, no message, no
+// way to tell a broken app from a quiet one.
+//
+// Urdu and Hindi are the same spoken language. A Hindi voice pronounces Urdu
+// correctly — it simply cannot read the Perso-Arabic script. Every word in the
+// packs carries a Latin transliteration, so we convert that to Devanagari and
+// hand it to a hi-IN voice. Punjabi (written here in Shahmukhi) takes the same
+// route for the same reason.
+//
+// This is a last resort, tried only after a real voice and a recorded file have
+// both failed.
+// ---------------------------------------------------------------------------
+export const SPEECH_FALLBACK = {
+  ur: { tag: "hi-IN", convert: "devanagari", via: "Hindi" },
+  pa: { tag: "hi-IN", convert: "devanagari", via: "Hindi" },
+};
+
+export function fallbackVoiceFor(langCode) {
+  const spec = SPEECH_FALLBACK[langCode];
+  if (!spec) return null;
+  const v = voicesFor(spec.tag)[0];
+  return v ? { ...spec, voice: v } : null;
+}
+
+/**
+ * What can this device actually do for this language?
+ *   "voice"    a real voice for the language
+ *   "fallback" a near-language voice reading a converted transliteration
+ *   "none"     nothing — the UI should say so rather than offering a dead button
+ *
+ * Recorded MP3s are checked separately and asynchronously by tts.js; this is the
+ * synchronous answer the UI needs to decide whether to render a play button.
+ */
+export function speechAvailability(tag, langCode) {
+  if (voicesFor(tag).length) return "voice";
+  if (fallbackVoiceFor(langCode)) return "fallback";
+  return "none";
+}
+
 /** A short label for a voice, without the noisy vendor suffixes. */
 export function voiceLabel(v) {
   if (!v) return "Automatic";

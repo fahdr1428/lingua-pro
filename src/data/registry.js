@@ -172,6 +172,18 @@ export const LANGUAGES = {
     niche: false,
     loader: () => import("./languages/tr.json"),
   },
+  de: {
+    code: "de",
+    name: "German",
+    nativeName: "Deutsch",
+    flag: "🇩🇪",
+    rtl: false,
+    ttsCode: "de-DE",
+    color: "#1a1a1a",
+    tagline: "Europe's most spoken native language — and it's more logical than its reputation",
+    niche: false,
+    loader: () => import("./languages/de.json"),
+  },
 };
 
 const cache = new Map();

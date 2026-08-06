@@ -18,7 +18,11 @@
 // v74: voice selection lives in voices.js, so the target language and the
 // coach's English narration rank voices the same way — most natural first, not
 // most local first — and both honour the learner's choice in Settings.
-import { targetVoice, voicesFor, voicesLoaded as synthVoicesLoaded } from "./voices.js";
+import {
+  targetVoice, voicesFor, voicesLoaded as synthVoicesLoaded,
+  fallbackVoiceFor, speechAvailability,
+} from "./voices.js";
+import { toDevanagari } from "./romanise.js";
 
 let mp3AvailabilityCache = new Map(); // 'langCode/wordId' -> true|false (cached HEAD requests)
 let activeAudio = null;
@@ -77,20 +81,17 @@ async function tryPlayMp3(langCode, audioId) {
   });
 }
 
-/** Speak using browser TTS. Resolves when speech ends. */
-function speakWithBrowser(text, langCode, { rate = 0.85, pitch = 1, code } = {}) {
+/** Speak one utterance with a specific voice. Resolves when speech ends. */
+function utter(text, tag, voice, { rate = 0.85, pitch = 1 } = {}) {
   return new Promise((resolve) => {
-    if (typeof window === "undefined" || !window.speechSynthesis) return resolve(false);
+    if (typeof window === "undefined" || !window.speechSynthesis || !text) return resolve(false);
     try {
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = langCode;
+      u.lang = voice?.lang || tag;   // some engines ignore `voice` unless lang agrees
       u.rate = rate;
       u.pitch = pitch;
-      const v = bestVoice(langCode, code);
-      if (!v) return resolve(false); // no voice for this language
-      u.voice = v;
-      if (v.lang) u.lang = v.lang;   // some engines ignore `voice` without it
+      if (voice) u.voice = voice;
       u.onend = () => resolve(true);
       u.onerror = () => resolve(false);
       window.speechSynthesis.speak(u);
@@ -101,6 +102,25 @@ function speakWithBrowser(text, langCode, { rate = 0.85, pitch = 1, code } = {})
 }
 
 /**
+ * Browser TTS with a fallback for languages the device has no voice for.
+ * @param {string} translit  Latin transliteration — the only thing a
+ *                           near-language voice can be given to read.
+ */
+function speakWithBrowser(text, langCode, { rate = 0.85, pitch = 1, code, translit } = {}) {
+  const v = bestVoice(langCode, code);
+  if (v) return utter(text, langCode, v, { rate, pitch });
+
+  // No voice for this language. Try the near-language route rather than going
+  // silent — silence is indistinguishable from a broken button.
+  const fb = fallbackVoiceFor(code);
+  if (fb && translit) {
+    const converted = fb.convert === "devanagari" ? toDevanagari(translit) : translit;
+    if (converted) return utter(converted, fb.tag, fb.voice, { rate: rate * 0.95, pitch });
+  }
+  return Promise.resolve(false);
+}
+
+/**
  * Speak a phrase. Tries MP3 first, browser TTS second.
  * @param {string} text - native text to speak (used for browser TTS fallback)
  * @param {string} langCode - BCP-47 like "ur-PK", "es-ES"
@@ -108,7 +128,7 @@ function speakWithBrowser(text, langCode, { rate = 0.85, pitch = 1, code } = {})
  * @param {string} opts.audioId - if provided, attempts to play pre-generated MP3 first
  */
 export async function speak(text, langCode, opts = {}) {
-  const { audioId, rate = 0.85, pitch = 1, code } = opts;
+  const { audioId, rate = 0.85, pitch = 1, code, translit } = opts;
 
   // Stop any currently playing audio
   stopSpeaking();
@@ -119,9 +139,16 @@ export async function speak(text, langCode, opts = {}) {
     if (ok) return true;
   }
 
-  // Tier 2: browser TTS
-  const ok = await speakWithBrowser(text, langCode, { rate, pitch, code });
-  return ok;
+  // Tier 2: browser TTS, Tier 3: a near-language voice reading the translit
+  return speakWithBrowser(text, langCode, { rate, pitch, code, translit });
+}
+
+/**
+ * Can this device produce audio for this language at all? Used by the UI to
+ * decide between a play button, a fallback note, and an honest "no voice here".
+ */
+export function speechModeFor(langCode, code) {
+  return speechAvailability(langCode, code);
 }
 
 /**
@@ -137,7 +164,7 @@ export function hasAudioFor(langCode, audioId) {
   }
   // Check browser TTS availability
   if (!synthVoicesLoaded()) return true; // optimistic: assume yes until we know
-  return !!bestVoice(langCode);
+  return !!bestVoice(langCode) || !!fallbackVoiceFor(langCode.split("-")[0]);
 }
 
 /** Legacy alias — older code paths may still use this name. */

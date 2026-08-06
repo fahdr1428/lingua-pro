@@ -416,7 +416,7 @@ function PromptCard({ drill, lang, langCode, revealed }) {
   const play = useCallback(async () => {
     if (!drill.prompt) return;
     setPlaying(true);
-    try { await speak(drill.prompt.text, lang.ttsCode, guideVoice(langCode)); }
+    try { await speak(drill.prompt.text, lang.ttsCode, { ...guideVoice(langCode), translit: drill.prompt.translit }); }
     finally { setPlaying(false); }
   }, [drill, lang.ttsCode, langCode]);
 
@@ -602,7 +602,7 @@ function InlineVerdict({ result, drill, lang, langCode, attempt, isLast, onRetry
         setTalking(false);
       }
       if (cancelled) return;
-      await speak(target.native, lang.ttsCode, { audioId: drill.audioId, ...guideVoice(langCode) });
+      await speak(target.native, lang.ttsCode, { audioId: drill.audioId, ...guideVoice(langCode), translit: target.translit });
 
       // A pass carries itself forward — staying on a question you've answered is
       // just friction. A miss stays put, because that's where the work is.
@@ -645,7 +645,7 @@ function InlineVerdict({ result, drill, lang, langCode, attempt, isLast, onRetry
         </div>
         <button
           className="xchg-play"
-          onClick={() => speak(target.native, lang.ttsCode, { audioId: drill.audioId, ...guideVoice(langCode) })}
+          onClick={() => speak(target.native, lang.ttsCode, { audioId: drill.audioId, ...guideVoice(langCode), translit: target.translit })}
           aria-label="Hear it again"
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -53,6 +53,12 @@ const NUM_DISTRACTORS = 3;
  * @param {Object} conjugations  the language's CONJUGATIONS entry (optional)
  */
 export function generateLesson(queue, pool, progress = {}, langCode = null, conjugations = null, tenses = null, examMode = false, chapterExam = false) {
+  // A default only applies when the argument is undefined, so an explicit null
+  // — which is what an in-flight storage read hands us — sailed straight through
+  // and threw on the first progress[id] lookup.
+  if (!progress || typeof progress !== "object") progress = {};
+  if (!Array.isArray(queue)) queue = [];
+  if (!Array.isArray(pool)) pool = [];
   const exercises = [];
 
   // v44 CHAPTER EXAM — a gated, 3-round exam (easy → medium → hard). Each word
@@ -374,7 +380,13 @@ function buildExercise(item, pool, card, _depth = 0, progress = {}) {
 // instead of choosing it. Used by buildGraduatedSet to generate multiple
 // exercises of EXPLICIT difficulty levels for one word in a single lesson.
 function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) {
-  const distractors = pickDistractors(item, pool, NUM_DISTRACTORS);
+  // Options are labelled by translation for meaning-picking exercises and by
+  // lemma for word-picking ones, so the two sets are deduped separately —
+  // "tomorrow" appearing twice and "غدا"/"بكرة" appearing twice are different
+  // collisions and only one matters per exercise type.
+  const byMeaning = pickDistractors(item, pool, NUM_DISTRACTORS, (p) => p.translation);
+  const byWord = pickDistractors(item, pool, NUM_DISTRACTORS, (p) => p.lemma);
+  const distractors = byMeaning.length ? byMeaning : byWord;
 
   // Safe fallback: if recursion gets too deep, always return a simple pick_meaning
   const safeFallback = () => ({
@@ -383,7 +395,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
     prompt: "What does this word mean?",
     showWord: true,
     playAudio: false,
-    options: shuffle([item.translation, ...distractors.map((d) => d.translation)]).filter(Boolean),
+    options: shuffle([item.translation, ...byMeaning.map((d) => d.translation)]).filter(Boolean),
     answer: item.translation,
   });
 
@@ -433,7 +445,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
         prompt: "What does this word mean?",
         showWord: true,
         playAudio: false,
-        options: safeOptions(shuffle([item.translation, ...distractors.map((d) => d.translation)])),
+        options: safeOptions(shuffle([item.translation, ...byMeaning.map((d) => d.translation)])),
         answer: item.translation,
       };
 
@@ -444,7 +456,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
         prompt: `Pick the word for "${item.translation}"`,
         showWord: false,
         playAudio: false,
-        options: safeOptions(shuffle([item.lemma, ...distractors.map((d) => d.lemma)])),
+        options: safeOptions(shuffle([item.lemma, ...byWord.map((d) => d.lemma)])),
         answer: item.lemma,
       };
 
@@ -455,7 +467,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
         prompt: "Tap the word you hear",
         showWord: false,
         playAudio: true,
-        options: safeOptions(shuffle([item.translation, ...distractors.map((d) => d.translation)])),
+        options: safeOptions(shuffle([item.translation, ...byMeaning.map((d) => d.translation)])),
         answer: item.translation,
       };
 
@@ -496,7 +508,9 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
     // meaning is right, half the time it's a same-category distractor. Quick,
     // low-friction recognition that adds variety between heavier exercises.
     case EXERCISE.TRUE_FALSE: {
-      const lie = distractors[0]?.translation;
+      // The lie must differ from the truth, or the claim shown is actually TRUE
+      // while the graded answer is "False" — unanswerable, and it costs a heart.
+      const lie = byMeaning.find((d) => d.translation && d.translation !== item.translation)?.translation;
       if (!lie) return safeFallback();
       const truthful = Math.random() < 0.5;
       const claim = truthful ? item.translation : lie;
@@ -542,7 +556,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
       // v34b: stricter distractor picking for fill-in-the-gap — same category
       // AND comparable word length (so distractors LOOK like they could fit).
       // This makes the choice about MEANING, not visual elimination.
-      const fillDistractors = pickGrammaticalDistractors(item, pool, NUM_DISTRACTORS);
+      const fillDistractors = pickGrammaticalDistractors(item, pool, NUM_DISTRACTORS, (p) => p.lemma);
       return {
         type,
         item,
@@ -779,9 +793,20 @@ function pastForm(verb) {
 // =============================================================================
 function buildMatchPairs(items) {
   // items: array of vocab entries to pair (need at least 3, ideally 4)
-  const usable = items.filter((it) => it && it.lemma && it.translation);
+  //
+  // v75: the meaning column is what gets tapped, so two pairs sharing a meaning
+  // leaves one of them permanently unmatchable — the learner can never complete
+  // the exercise and the Check button never enables. That is a hard stop in the
+  // middle of a lesson, and it reads exactly like the lesson has broken.
+  const seenMeaning = new Set();
+  const usable = shuffle(items.filter((it) => it && it.lemma && it.translation))
+    .filter((it) => {
+      if (seenMeaning.has(it.translation)) return false;
+      seenMeaning.add(it.translation);
+      return true;
+    });
   if (usable.length < 3) return null;
-  const chosen = shuffle(usable).slice(0, 4);
+  const chosen = usable.slice(0, 4);
 
   // Each pair: { id, lemma, translit, meaning }
   const pairs = chosen.map((it) => ({
@@ -920,25 +945,35 @@ function chooseExerciseType(reps, item) {
 }
 
 /** Prefer distractors from the same category — feels less random. */
-function pickDistractors(item, pool, n) {
+function pickDistractors(item, pool, n, labelOf = null) {
   const all = pool.filter((p) => p.id !== item.id);
   if (all.length === 0) return [];
+
+  // v75 — DEDUPE BY WHAT THE LEARNER SEES, not by id.
+  //
+  // Two different words can share a translation: Arabic has more than one word
+  // for "tomorrow", and the pack lists both. Deduping on id alone let both into
+  // the same question, so the learner saw "tomorrow" twice, and tapping the
+  // wrong identical option was marked wrong and cost a heart. There is no way
+  // to be right in that question. The label the option RENDERS with is the only
+  // thing that can be compared, so that is what's deduped.
+  const label = labelOf || ((p) => p.id);
+  const taken = new Set([label(item)]);
+  const chosen = [];
+  const consider = (d) => {
+    if (chosen.length >= n) return;
+    const l = label(d);
+    if (l == null || l === "" || taken.has(l)) return;
+    taken.add(l);
+    chosen.push(d);
+  };
+
   const sameCat = shuffle(all.filter((p) => p.category === item.category));
   const others = shuffle(all.filter((p) => p.category !== item.category));
-  const chosen = [];
-  // Prefer same category first, then fill from others
-  for (const src of [sameCat, others]) {
-    for (const d of src) {
-      if (chosen.length >= n) break;
-      if (!chosen.find((c) => c.id === d.id)) chosen.push(d);
-    }
-  }
-  // If still not enough, fill with any remaining
-  if (chosen.length < n) {
-    for (const d of shuffle(all)) {
-      if (chosen.length >= n) break;
-      if (!chosen.find((c) => c.id === d.id)) chosen.push(d);
-    }
+  // Prefer same category first, then fill from others, then anything.
+  for (const src of [sameCat, others, shuffle(all)]) {
+    for (const d of src) consider(d);
+    if (chosen.length >= n) break;
   }
   return chosen;
 }
@@ -953,9 +988,12 @@ function pickDistractors(item, pool, n) {
 //   1. First pool: same category AND same is-it-a-verb pattern.
 //   2. Backfill: same category only.
 //   3. Last resort: any pool item (matches old behaviour).
-function pickGrammaticalDistractors(item, pool, n) {
+function pickGrammaticalDistractors(item, pool, n, labelOf = null) {
   const all = pool.filter((p) => p.id !== item.id);
   if (all.length === 0) return [];
+  // Same rule as pickDistractors: no two options may render identically.
+  const label = labelOf || ((p) => p.id);
+  const takenLabels = new Set([label(item)]);
 
   // Detect if the target is a verb (translation starts with "to ")
   const isVerb = /^to\s/i.test(item.translation || "");
@@ -981,7 +1019,10 @@ function pickGrammaticalDistractors(item, pool, n) {
   for (const src of [tier1, tier2, tier3]) {
     for (const d of src) {
       if (chosen.length >= n) break;
-      if (!chosen.find((c) => c.id === d.id)) chosen.push(d);
+      const l = label(d);
+      if (l == null || l === "" || takenLabels.has(l)) continue;
+      takenLabels.add(l);
+      chosen.push(d);
     }
     if (chosen.length >= n) break;
   }

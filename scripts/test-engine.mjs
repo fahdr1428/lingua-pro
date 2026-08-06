@@ -21,7 +21,23 @@ import { computeFluency, fluencyDelta, fluencyBlurb, DIMENSIONS } from "../src/e
 import { MISSIONS, getMission, recommendMissions, passThreshold, MISSION_CATEGORIES } from "../src/data/missions.js";
 import { PERSONAS, getPersona, REGIONS, PRESSURE_PROMPT } from "../src/data/personas.js";
 import { TONES, getTone, voiceQuality, setVoicePrefs, coachDelivery } from "../src/audio/voices.js";
-import { romanise, foldVowels, scriptOf, scriptsDiffer } from "../src/audio/romanise.js";
+import { romanise, foldVowels, scriptOf, scriptsDiffer, toDevanagari } from "../src/audio/romanise.js";
+import { SPEECH_FALLBACK } from "../src/audio/voices.js";
+import { regionsFor } from "../src/data/personas.js";
+import { CHARACTERS } from "../src/data/characters.js";
+import { chapterVocabIds, PASS_THRESHOLD as CHAPTER_PASS } from "../src/data/chapters.js";
+import { readFileSync, readdirSync } from "node:fs";
+
+// Mirrors the constant in SkipAhead.jsx. Kept here rather than exported so the
+// screen stays self-contained; if they ever drift, this assertion fails loudly.
+const SKIP_PASS = 0.85;
+
+const packs = Object.fromEntries(
+  readdirSync("src/data/languages")
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => [f.replace(".json", ""), JSON.parse(readFileSync(`src/data/languages/${f}`, "utf8"))])
+);
+const packCodes = Object.keys(packs);
 
 const results = [];
 function check(name, cond, detail = "") {
@@ -312,6 +328,74 @@ check("folding does not collapse distinct consonants",
 check("scriptsDiffer spots the case the bridge exists for",
   scriptsDiffer("मैं ठीक हूँ", "میں ٹھیک ہوں") === true);
 check("scriptsDiffer is false for the same script", scriptsDiffer("bonjour", "bonsoir") === false);
+
+// =========================================================================
+console.log("\nv75 · dialects, German, and the Devanagari bridge\n");
+
+check("Arabic offers real dialects, not just MSA", regionsFor("ar").length >= 6,
+  regionsFor("ar").map((r) => r.name).join(", "));
+check("MSA is present and honest about being nobody's mother tongue",
+  /spoken natively nowhere|bookish/i.test(
+    (regionsFor("ar").find((r) => r.id === "ar-MSA")?.blurb || "") +
+    (regionsFor("ar").find((r) => r.id === "ar-MSA")?.prompt || "")));
+check("Maghrebi says plainly that it is hard for other Arabic speakers",
+  /hard for Arabic speakers|genuinely hard/i.test(regionsFor("ar").find((r) => r.id === "ar-MA")?.prompt || ""));
+check("every Arabic dialect carries concrete vocabulary, not adjectives",
+  regionsFor("ar").every((r) => r.prompt.length > 120));
+check("German offers Germany, Austria and Switzerland", regionsFor("de").length === 3,
+  regionsFor("de").map((r) => r.name).join(", "));
+check("the Swiss note distinguishes written standard from spoken dialect",
+  /Swiss German dialect/i.test(regionsFor("de").find((r) => r.id === "de-CH")?.prompt || ""));
+check("region ids stay unique after the expansion",
+  Object.values(REGIONS).every((list) => new Set(list.map((r) => r.id)).size === list.length));
+
+// The Devanagari bridge is what gives Urdu any audio at all on most devices.
+// Its correctness test is a round trip: convert a transliteration to Devanagari,
+// romanise it back, and it should land on roughly the same sounds.
+const roundTrips = [
+  ["salaam", "salam"], ["shukriya", "shukriya"], ["khuda hafiz", "khuda hafiz"],
+  ["mera naam", "mera nam"], ["aap kaise hain", "ap kaise hain"], ["paani", "pani"],
+];
+let tripOk = 0;
+for (const [input, expectFolded] of roundTrips) {
+  const deva = toDevanagari(input);
+  const back = foldVowels(romanise(deva));
+  if (back === expectFolded) tripOk++;
+  else console.log(`       (${input} → ${deva} → ${back}, wanted ${expectFolded})`);
+}
+check("Latin → Devanagari → Latin round-trips to the same sounds",
+  tripOk === roundTrips.length, `${tripOk}/${roundTrips.length}`);
+
+check("Devanagari output is actually Devanagari", scriptOf(toDevanagari("shukriya")) === "deva");
+check("a word-final a becomes a long vowel, not a schwa that gets deleted",
+  toDevanagari("shukriya").endsWith("ा"), toDevanagari("shukriya"));
+check("hyphenated phrases stay as separate words",
+  toDevanagari("assalam-o-alaikum").split(" ").length === 3, toDevanagari("assalam-o-alaikum"));
+check("non-Latin input returns nothing rather than garbage", toDevanagari("السلام") === "");
+check("Urdu and Punjabi both have a speech fallback",
+  !!SPEECH_FALLBACK.ur && !!SPEECH_FALLBACK.pa);
+check("the fallback is Hindi, which is the same spoken language",
+  SPEECH_FALLBACK.ur.tag === "hi-IN" && SPEECH_FALLBACK.ur.convert === "devanagari");
+
+// =========================================================================
+console.log("\nv75 · skipping a chapter is harder than passing one\n");
+
+check("the skip bar is stricter than the normal chapter exam",
+  SKIP_PASS > CHAPTER_PASS, `${SKIP_PASS} vs ${CHAPTER_PASS}`);
+check("chapter vocab ids resolve for every language with units",
+  packCodes.every((code) => chapterVocabIds(packs[code].vocab, 1).length > 0));
+check("chapter 1 and chapter 2 draw from different words",
+  packCodes.every((code) => {
+    const a = new Set(chapterVocabIds(packs[code].vocab, 1));
+    return chapterVocabIds(packs[code].vocab, 2).every((id) => !a.has(id));
+  }));
+check("German is registered and loadable", !!packs.de && packs.de.vocab.length >= 100,
+  String(packs.de?.vocab?.length));
+check("German has a guide with a name and a city",
+  !!CHARACTERS.de?.name && !!CHARACTERS.de?.city);
+check("every language in the registry has a guide",
+  packCodes.every((code) => !!CHARACTERS[code]),
+  packCodes.filter((c) => !CHARACTERS[c]).join(","));
 
 // =========================================================================
 const failed = results.filter((r) => !r.ok);

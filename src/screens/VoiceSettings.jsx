@@ -16,6 +16,7 @@
 
 import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { LANGUAGES } from "../data/registry.js";
+import { regionsFor } from "../data/personas.js";
 import { getCharacter } from "../data/characters.js";
 import {
   TONES, getTone, voicesFor, voiceLabel, onVoicesReady, voicesLoaded,
@@ -229,3 +230,53 @@ const SAMPLES = {
   pcm: "How you dey? I hope say you dey fine.",
   tr: "Merhaba, nasılsın bugün?",
 };
+
+// =============================================================================
+// DIALECT (v75) — which variety of the language you're actually learning.
+//
+// "Arabic" is not one spoken language and neither is Spanish. A learner heading
+// to Casablanca and one heading to Kuwait need different things, and being
+// taught the wrong variety is worse than being taught neither. This used to be
+// buried in the mission brief; it belongs here, as a standing preference that
+// every conversation reads.
+//
+// It is stored on the learner PROFILE rather than app settings, because it is
+// per-language: someone learning both Arabic and German has one answer for each.
+// =============================================================================
+export function DialectSettings({ langCode, profile, mutateProfile }) {
+  const lang = LANGUAGES[langCode];
+  const regions = regionsFor(langCode);
+  if (!lang || regions.length === 0) return null;
+
+  const chosen = profile?.region || null;
+  const current = regions.find((r) => r.id === chosen);
+
+  return (
+    <div className="dialect-settings">
+      <h3 className="eyebrow" style={{ marginTop: 24, marginBottom: 4 }}>Which {lang.name}</h3>
+      <p className="brief-note" style={{ marginBottom: 12 }}>
+        Your guide will stay in this variety in every conversation. Lessons still
+        teach the standard forms — this changes who you practise talking to.
+      </p>
+
+      <div className="voice-block">
+        <div className="chip-row">
+          {regions.map((r) => (
+            <button
+              key={r.id}
+              className={`chip${chosen === r.id ? " chip-on" : ""}`}
+              onClick={() => mutateProfile?.((p) => ({ ...p, region: chosen === r.id ? null : r.id }))}
+            >
+              {r.flag ? `${r.flag} ` : ""}{r.name}
+            </button>
+          ))}
+        </div>
+        <div className="brief-note">
+          {current
+            ? (current.blurb || `Your guide will speak ${current.name} ${lang.name}.`)
+            : `No preference — you'll get the standard variety. Tap one if you're learning for somewhere specific.`}
+        </div>
+      </div>
+    </div>
+  );
+}

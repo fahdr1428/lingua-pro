@@ -426,6 +426,35 @@ export const CHARACTERS = {
       streak: ["You dey burst my head!", "Continue like this!", "You dey fly!"],
     },
   },
+  de: {
+    name: "Matthias",
+    role: "Your German guide",
+    initial: "M",
+    city: "Leipzig",
+    craft: "Repairs and sells second-hand bicycles",
+    accent: "#3d5a80",
+    voice: { rate: 0.88, pitch: 0.96 },
+    signature: { text: "Also gut — fangen wir an", translit: "AL-zo goot, FANG-en veer AN", en: "Right then — let's begin" },
+    intro: "Servus. I'm Matthias, from Leipzig. I fix bicycles, which means I spend all day explaining things simply to people who are slightly annoyed. Good practice for teaching German. It has a reputation for being hard — mostly it's just honest about its rules.",
+    greetings: [
+      "Na? Ready to carry on?",
+      "Guten Tag. Let's do a bit more.",
+      "Schön, dass du wieder da bist.",
+      "Also — weiter geht's.",
+    ],
+    celebrations: {
+      perfect: "Perfekt. Not one wrong — that's proper work.",
+      great: "Sehr gut! You've got the feel of it now.",
+      good: "Gut gemacht. Steady progress is the only kind that lasts.",
+      keep_going: "Macht nichts. German takes a while to click. Nochmal.",
+    },
+    streakNote: "Jeden Tag ein bisschen. A little every day beats a lot once.",
+    reactions: {
+      correct: ["Genau!", "Richtig.", "Sehr gut.", "Stimmt!", "Perfekt."],
+      wrong: ["Nicht ganz.", "Nochmal — das schaffst du.", "Fast! Schau nochmal.", "Kein Problem."],
+      streak: ["Läuft!", "Du bist im Flow.", "Weiter so!"],
+    },
+  },
 };
 
 export function getCharacter(langCode) {

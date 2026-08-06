@@ -130,7 +130,7 @@ export function LiveConversation({
       setSpeakingNow(true);
       try {
         if (data.coaching && learnerText && voiceSupported()) await sayCoach(data.coaching);
-        await speak(data.reply.native, lang.ttsCode, voice);
+        await speak(data.reply.native, lang.ttsCode, { ...voice, translit: data.reply.translit });
       } finally {
         setSpeakingNow(false);
         readyAt.current = Date.now();
@@ -210,7 +210,7 @@ export function LiveConversation({
                 <div className="coach-tl">{t.translit}</div>
                 <div className="coach-en">{t.en}</div>
               </div>
-              <button className="xchg-play" onClick={() => speak(t.native, lang.ttsCode, voice)} aria-label="Play again">
+              <button className="xchg-play" onClick={() => speak(t.native, lang.ttsCode, { ...voice, translit: t.translit })} aria-label="Play again">
                 <PlayIcon />
               </button>
             </div>
@@ -227,7 +227,7 @@ export function LiveConversation({
               {t.fluent?.native && (
                 <button
                   className="fluent-line"
-                  onClick={() => speak(t.fluent.native, lang.ttsCode, voice)}
+                  onClick={() => speak(t.fluent.native, lang.ttsCode, { ...voice, translit: t.fluent.translit })}
                   title="Hear it"
                 >
                   <span className="fluent-tag">a native would say</span>

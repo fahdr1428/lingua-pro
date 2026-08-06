@@ -114,22 +114,60 @@ export const REGIONS = {
         "and the sh sound for ll and y (yo sounds like sho). Vocabulary: che, boludo (affectionate between friends), colectivo, birra.",
     },
   ],
+  // "Arabic" is not one spoken language. A learner heading to Casablanca and one
+  // heading to Kuwait need genuinely different things, and MSA — which is what
+  // most courses teach — is nobody's mother tongue. Each note below is something
+  // a speaker from that place would recognise, not a stereotype, and each says
+  // plainly where the variety is and isn't understood.
   ar: [
     {
-      id: "ar-MSA", name: "Modern Standard", flag: "📖",
-      prompt: "Use Modern Standard Arabic — the register of news, books and formal speech. Note when a phrase would sound bookish in conversation.",
+      id: "ar-MSA", name: "Modern Standard", flag: "📖", blurb: "News, books, formal speech — understood everywhere, spoken natively nowhere",
+      prompt:
+        "Use Modern Standard Arabic — the register of news, books and formal speech. " +
+        "Note when a phrase would sound bookish or stiff in an everyday conversation, because MSA often does.",
     },
     {
-      id: "ar-EG", name: "Egyptian", flag: "🇪🇬",
+      id: "ar-EG", name: "Egyptian", flag: "🇪🇬", blurb: "Cairo and the films everyone grew up on — the most widely understood dialect",
       prompt:
-        "Use Egyptian colloquial Arabic: ba- prefix on present verbs, g for jeem, and vocabulary like ezzayak, kwayyis, delwa'ti, eh. " +
+        "Use Egyptian colloquial Arabic: the ba- prefix on present verbs, jeem pronounced as a hard g, " +
+        "and vocabulary like ezzayak, kwayyis, delwa'ti, eh, mafeesh. Negation wraps the verb: ma...sh. " +
         "This is the most widely understood dialect across the Arab world thanks to Egyptian film and television.",
     },
     {
-      id: "ar-LV", name: "Levantine", flag: "🇱🇧",
+      id: "ar-LV", name: "Levantine", flag: "🇱🇧", blurb: "Lebanon, Syria, Jordan, Palestine — soft and widely understood",
       prompt:
-        "Use Levantine Arabic (Lebanon, Syria, Jordan, Palestine): kifak/kifik, mnih, hallaq, shu. " +
-        "Softer qaf, often dropped to a glottal stop.",
+        "Use Levantine Arabic (Lebanon, Syria, Jordan, Palestine): kifak/kifik, mnih, hallaq, shu, badde. " +
+        "Qaf is usually a glottal stop, so qalb sounds like 'alb. Present tense takes a b- prefix: bshuf, bruh. " +
+        "Widely understood across the region thanks to Lebanese and Syrian television drama.",
+    },
+    {
+      id: "ar-GULF", name: "Gulf (Khaleeji)", flag: "🇦🇪", blurb: "UAE, Saudi, Kuwait, Qatar, Bahrain",
+      prompt:
+        "Use Gulf Arabic (Khaleeji): shlonak/shlonich for how are you, wayed for a lot, abee/abgha for I want, " +
+        "hnee for here, chidhi for like this. Kaf often softens to ch before front vowels, and jeem stays a j. " +
+        "This is the register of the Gulf states, and it differs noticeably from Egyptian and Levantine.",
+    },
+    {
+      id: "ar-MA", name: "Maghrebi (Darija)", flag: "🇲🇦", blurb: "Morocco, Algeria, Tunisia — the hardest for others to follow, and worth it if you're going",
+      prompt:
+        "Use Moroccan Darija: labas, wakha, bezzaf, dyal for possession, bghit for I want, fin for where. " +
+        "Short vowels are heavily reduced, and there is substantial French and Amazigh vocabulary in everyday speech. " +
+        "Be honest with the learner that Darija is genuinely hard for Arabic speakers from the east to follow — " +
+        "that is a real fact about the language, not a failing on their part.",
+    },
+    {
+      id: "ar-IQ", name: "Iraqi", flag: "🇮🇶", blurb: "Baghdad and the south",
+      prompt:
+        "Use Iraqi Arabic (Mesopotamian): shlonak, aku/maku for there is/there isn't, hwaya for a lot, " +
+        "da- prefix marking the present continuous (da-aruh, I'm going). Qaf is often pronounced as a g. " +
+        "There is noticeable Turkish and Persian vocabulary in everyday speech.",
+    },
+    {
+      id: "ar-SD", name: "Sudanese", flag: "🇸🇩", blurb: "Khartoum and the Nile valley",
+      prompt:
+        "Use Sudanese Arabic: kef/keef for how, shinu for what, jeem pronounced with a hard g in many words, " +
+        "and a slower, clearly articulated rhythm that speakers of other dialects often find easy to follow. " +
+        "Vocabulary is closer to classical Arabic in places than Egyptian is.",
     },
   ],
   pt: [],
@@ -155,6 +193,29 @@ export const REGIONS = {
       prompt:
         "Use Taiwanese Mandarin with traditional characters. Softer retroflex sounds, and vocabulary differences " +
         "(捷運 for metro, 腳踏車 for bicycle). Sentence-final 喔 and 啦 are common.",
+    },
+  ],
+  de: [
+    {
+      id: "de-DE", name: "Germany", flag: "🇩🇪", blurb: "Standard High German",
+      prompt:
+        "Use standard German as spoken in Germany. Everyday register with the usual spoken contractions " +
+        "(gibt's, hab ich, 'nen) and Standard High German vocabulary: Brötchen, Tüte, Samstag, Tschüss.",
+    },
+    {
+      id: "de-AT", name: "Austria", flag: "🇦🇹", blurb: "Vienna and the Alps",
+      prompt:
+        "Use Austrian German: Servus and Grüß Gott instead of Hallo and Guten Tag, Jänner for Januar, " +
+        "Semmel for Brötchen, Sackerl for Tüte, Erdäpfel for Kartoffeln, Paradeiser for Tomaten. " +
+        "The perfect tense is used where Germany often uses the simple past.",
+    },
+    {
+      id: "de-CH", name: "Switzerland", flag: "🇨🇭", blurb: "Zurich, Bern, Basel — written standard, spoken dialect",
+      prompt:
+        "Use Swiss Standard German: no ß at all (always ss), Grüezi for hello, Velo for Fahrrad, " +
+        "Znüni for a mid-morning snack, parkieren for parken. " +
+        "Be clear with the learner that everyday SPEECH in Switzerland is Swiss German dialect, which is a " +
+        "different thing again — Swiss Standard German is what is written and what is used with foreigners.",
     },
   ],
   ur: [

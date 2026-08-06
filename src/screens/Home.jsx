@@ -460,6 +460,16 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           </button>
         </div>
 
+        {/* v75 — for anyone who already knows a chunk of this. Grinding "hello"
+            when you grew up hearing the language is why people leave on day one. */}
+        <button className="skip-invite" onClick={() => onNavigate("skipahead")}>
+          <span style={{ flex: 1, minWidth: 0 }}>
+            <span className="speak-invite-title">Already know some {lang.name}?</span>
+            <span className="speak-invite-sub">Take a chapter test and skip straight past it</span>
+          </span>
+          <span className="speak-invite-arrow" aria-hidden="true">→</span>
+        </button>
+
         {loadingUnits ? (
           <div style={{ textAlign: "center", padding: 40, color: "var(--text-dim)" }}>Loading…</div>
         ) : stops.length > 0 ? (
@@ -834,6 +844,7 @@ export function JourneySpine({ stops, reached, unitProgress, appState, pack, onN
           {!last && <div className={`stop-line ${isDone ? "stop-line-done" : ""}`} />}
         </div>
         <button
+          data-unit={unit?.id}
           onClick={() => unit && unit.unlocked && onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
           disabled={!unit || !unit.unlocked}
           style={{
@@ -941,6 +952,8 @@ function UnitNode({ unit, index, isCurrent, onTap, onTestOut }) {
       <button
         onClick={onTap}
         disabled={isLocked}
+        data-unit={unit.id}
+        aria-label={`${unit.title}${isLocked ? " — locked" : isComplete ? " — complete" : ""}`}
         style={{
           width: "100%", background: "transparent", border: "none", padding: 14,
           color: "inherit", cursor: isLocked ? "not-allowed" : "pointer",

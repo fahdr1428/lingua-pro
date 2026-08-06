@@ -27,6 +27,78 @@
 // =============================================================================
 
 export const CULTURE = {
+  de: [
+    {
+      id: "de-siezen",
+      tag: "register",
+      when: "Greetings",
+      title: "Sie until you're invited to du",
+      body: "Sie is the default with anyone you don't know: shopkeepers, officials, neighbours, colleagues you've just met. Switching to du is a small social event — someone offers it (\"Wollen wir uns duzen?\") and you accept. Using du unasked with an older stranger reads as either rude or foreign. Under-thirties and most tech workplaces have loosened this considerably, but the rule still holds outside those bubbles.",
+    },
+    {
+      id: "de-gruss",
+      tag: "etiquette",
+      when: "Greetings",
+      title: "You greet the room, not the person",
+      body: "Walking into a doctor's waiting room, a small shop or a lift, people say Guten Tag to nobody in particular — and it is genuinely noticed if you don't. Leaving gets an Auf Wiedersehen or Tschüss on the way out. It costs nothing and it is the single fastest way to stop reading as a tourist.",
+    },
+    {
+      id: "de-directness",
+      tag: "custom",
+      when: "any",
+      title: "Directness is not rudeness",
+      body: "\"Das ist falsch\" — that's wrong — is a normal thing for a German colleague to say, and it is about the work, not about you. The softening layers English uses (\"I wonder whether we might…\") are often read as vague or evasive rather than polite. It cuts both ways: praise, when it comes, means it.",
+    },
+    {
+      id: "de-servus",
+      tag: "sound",
+      when: "any",
+      title: "Hallo, Servus, Moin, Grüß Gott",
+      body: "Which hello you use places you on a map. Moin is the north — Hamburg, Bremen, and used at any hour despite meaning morning. Grüß Gott and Servus are Bavaria and Austria. Hallo works everywhere and marks you as from nowhere in particular, which is usually the right call while you're learning.",
+    },
+    {
+      id: "de-verb-end",
+      tag: "sound",
+      when: "u9",
+      title: "The verb arrives last, and you must wait for it",
+      body: "\"Ich glaube, dass er das Buch gestern in der Bibliothek vergessen hat.\" The thing he did — forgot — lands at the very end. Germans hold the whole sentence in their head and resolve it at the close. Learners tend to panic halfway through. Expect the wait rather than fighting it, and listening gets dramatically easier.",
+    },
+    {
+      id: "de-ordnung",
+      tag: "custom",
+      when: "u13",
+      title: "Anmeldung, Termin, and the paper that runs everything",
+      body: "Registering your address (Anmeldung) within two weeks of moving is a legal requirement, and almost nothing else — bank account, phone contract, tax number — happens without the certificate it produces. Everything runs on the Termin, a booked appointment, often weeks out. Turning up without one usually means being sent away, politely.",
+    },
+    {
+      id: "de-punctual",
+      tag: "etiquette",
+      when: "u8",
+      title: "On time means five minutes early",
+      body: "Arriving at the agreed minute is already slightly late for a private invitation and unambiguously late for anything professional. If you're going to be more than a few minutes behind, the expectation is that you message. This is real rather than a stereotype, and it is one of the easiest things to get right.",
+    },
+    {
+      id: "de-du-siezen-kids",
+      tag: "register",
+      when: "u3",
+      title: "Children, animals and God get du",
+      body: "The du/Sie line has fixed exceptions: children up to roughly sixteen, pets, and — in prayer — God. Students address teachers as Sie; teachers address students as du until the upper years, when many schools switch to Sie as a small ceremony of adulthood.",
+    },
+    {
+      id: "de-brot",
+      tag: "custom",
+      when: "any",
+      title: "Bread is a serious subject",
+      body: "There are several hundred registered bread varieties, most bakeries sell out of the good ones by mid-morning, and Abendbrot — literally evening bread — is a real meal: bread, cheese, cold cuts, eaten cold, on a weeknight. Asking a German which bakery is best is an excellent way to start a long conversation.",
+    },
+    {
+      id: "de-handshake",
+      tag: "gesture",
+      when: "u2",
+      title: "Handshake, eye contact, and your name",
+      body: "Introductions come with a firm handshake, direct eye contact, and often just your surname. Eye contact matters again when clinking glasses — look each person in the eye as you say Prost, one at a time. Skipping it is a running superstition about seven years of bad luck, and everyone will notice.",
+    },
+  ],
   ur: [
     {
       id: "ur-salam",

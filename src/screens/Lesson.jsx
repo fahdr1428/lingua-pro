@@ -127,7 +127,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   // Auto-play audio for listening exercises — must be at top with other hooks
   const exercise = session?.exercises?.[idx];
   useEffect(() => {
-    if (exercise?.playAudio) speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id });
+    if (exercise?.playAudio) speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id, code: pack.code, translit: exercise.item.translit });
   }, [exercise, lang.ttsCode]);
 
   // After 60s of being stuck on a question (no answer submitted yet), quietly
@@ -295,8 +295,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         ],
       }));
     } catch {}
-    reset();
-    setIdx((i) => i + 1);
+    // Through advance(), not a bare increment: skipping the LAST exercise
+    // because its audio wouldn't play must still end the lesson properly.
+    advance();
   }
 
   async function next() {
@@ -346,6 +347,18 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     }
 
     if (idx + 1 >= session.exercises.length) {
+      finishSession();
+      return;
+    }
+    reset();
+    setIdx((i) => i + 1);
+  }
+
+  // The end-of-lesson routine: grading, XP, streak, storage, results screen.
+  // Called from next() and from advance(), so no exercise type can reach the end
+  // of a lesson without it running.
+  async function finishSession() {
+    {
       // Session complete — only count testable exercises (skip INTRODUCE)
       const testable = session.exercises.filter((e) => e.type !== EXERCISE.INTRODUCE && e.type !== EXERCISE.INTRODUCE_BATCH && e.type !== "GRAMMAR_MOMENT" && !e.pretest).length;
       const total = testable || session.exercises.length; // fallback in edge case
@@ -441,10 +454,25 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       if (appState.soundEffects !== false) {
         try { playLessonComplete(); } catch {}
       }
-      return;
     }
+  }
+
+  // v75 — THE ONE WAY TO MOVE FORWARD.
+  //
+  // THE BUG THIS FIXES: the exercises that aren't part of the check/answer state
+  // machine — the speaking prompt, the grammar moment, the intro flashcards —
+  // each advanced with a bare `setIdx(i => i + 1)`, skipping the end-of-lesson
+  // check that lives in next(). Since v70 the generator appends the SPEAKING
+  // PROMPT LAST, so finishing it stepped `idx` past the final exercise, the
+  // renderer got `undefined`, and the learner saw "Hmm, something odd happened"
+  // instead of their results — no summary, no XP, no streak. It reproduced in 20
+  // of the 56 language/progress combinations the browser harness plays.
+  //
+  // Everything that moves the lesson on now goes through here.
+  function advance() {
     reset();
-    setIdx((i) => i + 1);
+    if (idx + 1 >= (session?.exercises?.length || 0)) finishSession();
+    else setIdx((i) => i + 1);
   }
 
   const wordStyle = {
@@ -467,7 +495,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         lang={lang}
         isNonLatin={isNonLatin}
         voiceAvailable={hasVoiceFor(lang.ttsCode)}
-        onContinue={() => { reset(); setIdx((i) => i + 1); }}
+        onContinue={advance}
       />
     );
   }
@@ -496,10 +524,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             console.warn("speak grading not recorded:", e);
           }
           if (passed) setCorrectCount((c) => c + 1);
-          reset();
-          setIdx((i) => i + 1);
+          advance();
         }}
-        onSkip={() => { reset(); setIdx((i) => i + 1); }}
+        onSkip={advance}
       />
     );
   }
@@ -626,7 +653,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               lang={lang}
               isNonLatin={isNonLatin}
               voiceAvailable={voiceAvailable}
-              onComplete={() => { reset(); setIdx((i) => i + 1); }}
+              onComplete={advance}
             />
           )}
 
@@ -693,7 +720,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 <Button
                   variant="secondary"
                   style={{ marginTop: 12, marginBottom: 16, width: "auto", padding: "12px 24px" }}
-                  onClick={() => speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id })}
+                  onClick={() => speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id, code: pack.code, translit: exercise.item.translit })}
                 >
                   🔊 Hear it again
                 </Button>
@@ -760,7 +787,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 <Button
                   variant="ghost"
                   style={{ marginTop: 8, fontSize: 18 }}
-                  onClick={() => speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id })}
+                  onClick={() => speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id, code: pack.code, translit: exercise.item.translit })}
                 >
                   🔊 Listen
                 </Button>
@@ -771,7 +798,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           {exercise.type === EXERCISE.LISTEN_PICK && (
             <div style={{ textAlign: "center", margin: "20px 0" }}>
               <button
-                onClick={() => speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id })}
+                onClick={() => speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id, code: pack.code, translit: exercise.item.translit })}
                 style={{
                   background: "var(--blue)",
                   border: "none",
@@ -1737,7 +1764,7 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
   useEffect(() => {
     if (card && voiceAvailable) {
       // Small delay so it doesn't feel jarring
-      const t = setTimeout(() => speak(card.lemma, lang.ttsCode, { audioId: card.id }), 250);
+      const t = setTimeout(() => speak(card.lemma, lang.ttsCode, { audioId: card.id, code: lang.code, translit: card.translit }), 250);
       return () => clearTimeout(t);
     }
   }, [card?.id, voiceAvailable, lang.ttsCode]);
@@ -1873,7 +1900,7 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
         <Button
           variant="secondary"
           style={{ marginBottom: 12 }}
-          onClick={(e) => { e.stopPropagation(); speak(card.lemma, lang.ttsCode, { audioId: card.id }); }}
+          onClick={(e) => { e.stopPropagation(); speak(card.lemma, lang.ttsCode, { audioId: card.id, code: lang.code, translit: card.translit }); }}
         >
           🔊 Hear it again
         </Button>
@@ -2167,7 +2194,7 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
             </div>
             <button
               className="xchg-play"
-              onClick={() => speak(item.lemma, lang.ttsCode, { audioId: item.id })}
+              onClick={() => speak(item.lemma, lang.ttsCode, { audioId: item.id, code: lang.code, translit: item.translit })}
               aria-label="Listen"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

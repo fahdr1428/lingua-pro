@@ -672,6 +672,112 @@ export const JOURNEY = {
       },
     ],
   },
+
+  // -------------------------------------------------------------- German -----
+  // Checked against the de pack's own vocabulary: every line below uses only
+  // words the course teaches by that unit. Verb-second order is observed
+  // throughout, and the du/Sie register is consistent within each exchange.
+  de: {
+    chapterTitle: "Meeting people",
+    stops: [
+      {
+        id: "de-c1-s1",
+        done: "You can greet someone and be greeted back",
+        next: "you'll be able to greet someone properly",
+        they: { text: "Guten Tag!", translit: "GOO-ten TAHK", en: "hello / good day" },
+        you: { text: "Guten Tag, wie geht es Ihnen?", translit: "GOO-ten TAHK, vee GAYT es EE-nen", en: "hello, how are you? (formal)" },
+        unitIndex: 0,
+      },
+      {
+        id: "de-c1-s2",
+        done: "You can say how you're doing",
+        next: "you'll be able to answer 'how are you?'",
+        they: { text: "Wie geht es dir?", translit: "vee GAYT es DEER", en: "how are you? (informal)" },
+        you: { text: "Mir geht es gut, danke.", translit: "MEER gayt es GOOT, DAN-kuh", en: "I'm well, thank you" },
+        unitIndex: 1,
+      },
+      {
+        id: "de-c1-s3",
+        done: "You can introduce yourself",
+        next: "you'll be able to give your name and where you're from",
+        they: { text: "Wie heißen Sie?", translit: "vee HY-sen ZEE", en: "what's your name?" },
+        you: { text: "Ich heiße … und ich komme aus England.", translit: "ikh HY-suh … oont ikh KOM-uh owss ENG-lant", en: "my name is … and I'm from England" },
+        unitIndex: 2,
+      },
+      {
+        id: "de-c2-s1",
+        done: "You can order a drink",
+        next: "you'll be able to order without switching to English",
+        they: { text: "Was möchten Sie trinken?", translit: "vas MERKH-ten zee TRINK-en", en: "what would you like to drink?" },
+        you: { text: "Einen Kaffee, bitte.", translit: "INE-en KA-fay, BIT-uh", en: "a coffee, please" },
+        unitIndex: 3,
+      },
+      {
+        id: "de-c2-s2",
+        done: "You can ask what something costs",
+        next: "you'll be able to ask the price and understand the answer",
+        they: { text: "Das macht fünf Euro.", translit: "das MAKHT FUENF OY-ro", en: "that's five euros" },
+        you: { text: "Was kostet das, bitte?", translit: "vas KOS-tet das, BIT-uh", en: "what does that cost, please?" },
+        unitIndex: 4,
+      },
+      {
+        id: "de-c2-s3",
+        done: "You can ask for the bill",
+        next: "you'll be able to finish a meal and pay",
+        they: { text: "Hat es Ihnen geschmeckt?", translit: "HAT es EE-nen guh-SHMEKT", en: "did you enjoy it?" },
+        you: { text: "Sehr lecker, danke. Die Rechnung, bitte.", translit: "zayr LEK-er, DAN-kuh. dee REKH-noong, BIT-uh", en: "very tasty, thanks. The bill, please." },
+        unitIndex: 5,
+      },
+      {
+        id: "de-c3-s1",
+        done: "You can ask the way",
+        next: "you'll be able to stop someone and ask directions",
+        they: { text: "Immer geradeaus, dann links.", translit: "IM-mer guh-RAH-duh-owss, dan LINKS", en: "straight ahead, then left" },
+        you: { text: "Entschuldigung, wo ist der Bahnhof?", translit: "ent-SHOOL-di-goong, vo IST dayr BAHN-hohf", en: "excuse me, where is the station?" },
+        unitIndex: 6,
+      },
+      {
+        id: "de-c3-s2",
+        done: "You can arrange a time",
+        next: "you'll be able to agree when to meet",
+        they: { text: "Wann hast du Zeit?", translit: "VAN hast doo TSITE", en: "when do you have time?" },
+        you: { text: "Morgen um drei Uhr.", translit: "MOR-gen oom DRY OOR", en: "tomorrow at three o'clock" },
+        unitIndex: 7,
+      },
+      {
+        id: "de-c3-s3",
+        done: "You can give a reason",
+        next: "you'll be able to explain why — with the verb at the end",
+        they: { text: "Kommst du mit?", translit: "KOMST doo MIT", en: "are you coming along?" },
+        you: { text: "Nein, weil ich arbeiten muss.", translit: "NINE, vile ikh AR-by-ten MOOSS", en: "no, because I have to work" },
+        unitIndex: 8,
+      },
+      {
+        id: "de-c4-s1",
+        done: "You can buy a train ticket",
+        next: "you'll be able to buy a ticket and understand the platform",
+        they: { text: "Der Zug fährt von Gleis drei ab.", translit: "dayr TSOOK fairt fon GLICE DRY AP", en: "the train departs from platform three" },
+        you: { text: "Eine Fahrkarte nach Hamburg, bitte.", translit: "INE-uh FAR-kar-tuh nakh HAM-boork, BIT-uh", en: "a ticket to Hamburg, please" },
+        unitIndex: 9,
+      },
+      {
+        id: "de-c4-s2",
+        done: "You can say what hurts",
+        next: "you'll be able to explain a problem to a doctor",
+        they: { text: "Was fehlt Ihnen?", translit: "vas FAYLT EE-nen", en: "what's wrong? (at the doctor's)" },
+        you: { text: "Ich bin krank und mein Kopf tut weh.", translit: "ikh bin KRANK oont mine KOPF toot VAY", en: "I'm ill and my head hurts" },
+        unitIndex: 10,
+      },
+      {
+        id: "de-c4-s3",
+        done: "You can hold small talk about the weather",
+        next: "you'll be able to make conversation about nothing in particular",
+        they: { text: "Schönes Wetter heute, oder?", translit: "SHER-ness VET-ter HOY-tuh, OH-der", en: "nice weather today, isn't it?" },
+        you: { text: "Ja, die Sonne scheint. Sehr schön!", translit: "YAH, dee ZON-nuh SHINET. zayr SHERN", en: "yes, the sun is shining. Very nice!" },
+        unitIndex: 11,
+      },
+    ],
+  },
 };
 
 export function hasJourney(langCode) {

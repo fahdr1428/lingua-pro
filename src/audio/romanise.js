@@ -226,3 +226,108 @@ export function scriptsDiffer(a, b) {
   const sa = scriptOf(a), sb = scriptOf(b);
   return !!sa && !!sb && sa !== sb;
 }
+
+// =============================================================================
+// LATIN → DEVANAGARI (v75) — so a Hindi voice can speak Urdu.
+//
+// THE PROBLEM: there are no recorded audio files for Urdu, and most devices have
+// no ur-PK speech voice, so the audio button did nothing at all — no sound, no
+// explanation. Turkish had the same gap.
+//
+// THE FIX THAT ACTUALLY WORKS: Urdu and Hindi are the same spoken language.
+// A Hindi voice pronounces Urdu correctly — it just can't read the Perso-Arabic
+// script. Every word in the packs ships with a Latin transliteration, and this
+// converts that into Devanagari, which a hi-IN voice reads natively.
+//
+// It is a pronunciation aid, never shown to the learner. Approximate is fine;
+// silence is not.
+// =============================================================================
+
+// Longest-first, so "chh" wins over "ch" and "aa" over "a".
+const L2D_CONSONANT = [
+  ["cch", "च्छ"], ["chh", "छ"], ["shh", "श"],
+  ["kh", "ख"], ["gh", "घ"], ["ch", "च"], ["jh", "झ"], ["th", "थ"], ["dh", "ध"],
+  ["ph", "फ"], ["bh", "भ"], ["sh", "श"], ["ng", "ं"], ["ny", "ञ"], ["zh", "झ"],
+  ["k", "क"], ["q", "क़"], ["g", "ग"], ["c", "क"], ["j", "ज"], ["z", "ज़"],
+  ["t", "त"], ["d", "द"], ["n", "न"], ["p", "प"], ["f", "फ़"], ["b", "ब"],
+  ["m", "म"], ["y", "य"], ["r", "र"], ["l", "ल"], ["v", "व"], ["w", "व"],
+  ["s", "स"], ["h", "ह"], ["x", "क्स"],
+];
+
+// Independent vowel (word-initial) and matra (after a consonant).
+const L2D_VOWEL = [
+  ["aa", "आ", "ा"], ["ai", "ऐ", "ै"], ["au", "औ", "ौ"], ["ee", "ई", "ी"],
+  ["ii", "ई", "ी"], ["oo", "ऊ", "ू"], ["uu", "ऊ", "ू"], ["ou", "औ", "ौ"],
+  ["ei", "ऐ", "ै"], ["a", "अ", ""], ["i", "इ", "ि"], ["u", "उ", "ु"],
+  ["e", "ए", "े"], ["o", "ओ", "ो"],
+];
+
+const VIRAMA = "्";
+
+function matchAt(s, i, table) {
+  for (const entry of table) {
+    if (s.startsWith(entry[0], i)) return entry;
+  }
+  return null;
+}
+
+/**
+ * Convert a Latin transliteration to Devanagari, well enough for a Hindi
+ * text-to-speech voice to pronounce it.
+ *
+ * Returns "" for input that isn't Latin, so callers can cheaply decide whether
+ * the fallback is available at all.
+ */
+export function toDevanagari(latin) {
+  const s = String(latin || "").toLowerCase().trim();
+  if (!s || !/[a-z]/.test(s)) return "";
+
+  let out = "";
+  let i = 0;
+  // True when the previous emission was a consonant carrying an unwritten 'a'.
+  let pendingConsonant = false;
+
+  while (i < s.length) {
+    const ch = s[i];
+
+    if (/\s/.test(ch)) { out += " "; pendingConsonant = false; i++; continue; }
+    // assalam-o-alaikum is three words; merging them makes one unpronounceable one.
+    if (ch === "-") { out += " "; pendingConsonant = false; i++; continue; }
+    if (ch === "'") { i++; continue; }
+    if (!/[a-z]/.test(ch)) { out += ch; pendingConsonant = false; i++; continue; }
+
+    const vowel = matchAt(s, i, L2D_VOWEL);
+    if (vowel) {
+      const [seq, independent, matra] = vowel;
+      const atWordEnd = i + seq.length >= s.length || /[\s-]/.test(s[i + seq.length]);
+
+      // A word-final "a" after a consonant is long in Devanagari orthography
+      // almost every time: shukriya → शुक्रिया, mera → मेरा, khuda → खुदा.
+      // Writing it as the inherent vowel instead leaves a bare consonant, which
+      // Hindi text-to-speech then schwa-deletes — "shukriy", "mer", "khud".
+      if (seq === "a" && pendingConsonant && atWordEnd) out += "ा";
+      // Otherwise: a matra after a consonant, an independent vowel at the start,
+      // and nothing at all for a medial "a", which the consonant already implies.
+      else out += pendingConsonant ? matra : independent;
+
+      pendingConsonant = false;
+      i += seq.length;
+      continue;
+    }
+
+    const cons = matchAt(s, i, L2D_CONSONANT);
+    if (cons) {
+      // Two consonants in a row form a cluster: the first loses its inherent
+      // vowel, which is what the virama marks.
+      if (pendingConsonant) out += VIRAMA;
+      out += cons[1];
+      pendingConsonant = cons[1] !== "ं";   // anusvara is not a cluster head
+      i += cons[0].length;
+      continue;
+    }
+
+    i++;   // unmapped letter — skip rather than emit noise
+  }
+
+  return out.trim();
+}

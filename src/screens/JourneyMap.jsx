@@ -158,6 +158,7 @@ export function JourneyMap({
                           {unlocked ? (
                             <button
                               className="station-go"
+                              data-unit={unit?.id}
                               onClick={() => onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
                             >
                               {isDone ? "Practise again" : "Learn this"}
@@ -239,6 +240,7 @@ export function JourneyMap({
               <button
                 key={unit.id}
                 className={`beyond-tile${unit.unlocked ? "" : " beyond-locked"}`}
+                data-unit={unit.id}
                 disabled={!unit.unlocked}
                 onClick={() => unit.unlocked && onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
               >
@@ -267,7 +269,7 @@ function Exchange({ stop, lang, langCode }) {
     const line = stop[side];
     setPlaying(side);
     try {
-      await speak(line.text, lang.ttsCode);
+      await speak(line.text, lang.ttsCode, { code: langCode, translit: line.translit });
     } finally {
       setPlaying(null);
     }

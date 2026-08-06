@@ -33,6 +33,7 @@ import { Culture } from "./screens/Culture.jsx";
 import { Missions } from "./screens/Missions.jsx";
 import { Fluency } from "./screens/Fluency.jsx";
 import { TestOut } from "./screens/TestOut.jsx";
+import { SkipAhead } from "./screens/SkipAhead.jsx";
 
 // Error boundary — catches crashes and shows a recovery button instead of a white screen
 class ErrorBoundary extends React.Component {
@@ -253,13 +254,14 @@ export default function App() {
         {screen === "missions" && <Missions {...screenProps} />}
         {screen === "fluency" && <Fluency {...screenProps} />}
         {screen === "testout" && <TestOut {...screenProps} />}
+        {screen === "skipahead" && <SkipAhead {...screenProps} />}
         {screen === "reading" && <Reading {...screenProps} />}
         {screen === "conversations" && <Conversations {...screenProps} />}
         {screen === "sentencelab" && <SentenceLab {...screenProps} />}
         {screen === "grammar" && <Grammar {...screenProps} />}
         {screen === "vocab" && <Vocab {...screenProps} />}
         {screen === "profile" && <Profile {...screenProps} onSwitchLanguage={switchLanguage} />}
-        {screen === "settings" && <Settings appState={appState} setAppState={setAppState} onResetAll={resetAll} onNavigate={navigate} pack={pack} />}
+        {screen === "settings" && <Settings {...screenProps} onResetAll={resetAll} />}
         {screen === "upgrade" && <Upgrade appState={appState} setAppState={setAppState} onNavigate={navigate} />}
       </div>
       </div>

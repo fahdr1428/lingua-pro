@@ -28,7 +28,7 @@ const SCRIPTS = {
   ko: { name: "Korean (Hangul)", re: /[\uAC00-\uD7AF\u1100-\u11FF]/ },
   zh: { name: "Chinese", re: /[\u4E00-\u9FFF]/ },
 };
-const LATIN = new Set(["es", "fr", "id", "pcm", "tr"]);
+const LATIN = new Set(["es", "fr", "id", "pcm", "tr", "de"]);
 
 function checkLanguage(code) {
   const file = path.join(LANG_DIR, `${code}.json`);

@@ -303,15 +303,15 @@ async function runVoiceSettings({ withVoices }) {
   check("the voice section is on the settings screen", await page.locator(".voice-settings").isVisible());
 
   if (withVoices) {
-    const tones = await page.locator(".voice-block").first().locator(".chip").count();
+    const tones = await page.locator(".voice-settings .voice-block").first().locator(".chip").count();
     check("tone can be chosen in plain words", tones === 4, String(tones));
     check("speed can be changed", await page.locator(".voice-slider").isVisible());
 
-    const coachOptions = await page.locator(".voice-select").first().locator("option").count();
+    const coachOptions = await page.locator(".voice-settings .voice-select").first().locator("option").count();
     check("the coaching voice list offers the device's voices", coachOptions >= 4, String(coachOptions));
 
     // The whole point: the natural voice must be offered above the robotic one.
-    const firstReal = await page.locator(".voice-select").first().locator("option").nth(1).innerText();
+    const firstReal = await page.locator(".voice-settings .voice-select").first().locator("option").nth(1).innerText();
     check("the natural voice is ranked above the robotic local one",
       !/espeak/i.test(firstReal), firstReal);
 
@@ -320,9 +320,9 @@ async function runVoiceSettings({ withVoices }) {
       String(await page.locator(".voice-select").count()));
 
     // Choosing one has to persist.
-    await page.locator(".voice-select").first().selectOption({ index: 2 });
+    await page.locator(".voice-settings .voice-select").first().selectOption({ index: 2 });
     await page.waitForTimeout(300);
-    await page.locator(".voice-block .chip").nth(2).click();   // a different tone
+    await page.locator(".voice-settings .voice-block").first().locator(".chip").nth(2).click();   // Calm
     await page.waitForTimeout(300);
     const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app") || "{}").voice);
     check("the chosen voice is persisted", !!saved?.coachVoiceURI, JSON.stringify(saved));
@@ -338,11 +338,130 @@ async function runVoiceSettings({ withVoices }) {
   await browser.close();
 }
 
+// ---------------------------------------------------------------------------
+// v75 — skipping a chapter, choosing an Arabic dialect, and German.
+// ---------------------------------------------------------------------------
+import { readFileSync } from "node:fs";
+
+async function seeded(browser, code, extra = {}) {
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(String(e)));
+  await page.goto(BASE);
+  await page.evaluate(([c, ex]) => localStorage.setItem("lingua:app", JSON.stringify({
+    onboarded: true, currentLanguage: c, tutorialSeen: true, dailyGoalXp: 35, totalXp: 0,
+    streak: 0, hearts: 5, heartsMax: 5, gems: 50, theme: "cream", showRomanization: true,
+    sessionSize: 6, lessonsCompleted: {}, sessions: [], grammarSeen: {}, learningGoal: {},
+    chaptersPassed: {}, sentenceDropsDone: {}, lastCheckpointAt: {}, testedOut: {},
+    momentDone: {}, planVisited: {}, ...ex,
+  })), [code, extra]);
+  await page.reload();
+  await page.waitForTimeout(1500);
+  return { ctx, page, errors };
+}
+
+async function runSkipAhead() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  console.log("\n=== skip ahead (German) ===\n");
+  const { ctx, page, errors } = await seeded(browser, "de");
+
+  const pack = JSON.parse(readFileSync("src/data/languages/de.json", "utf8"));
+  const byLemma = new Map(pack.vocab.map((v) => [v.lemma, v]));
+  const byMeaning = new Map(pack.vocab.map((v) => [v.translation, v]));
+
+  check("German loads as a language", (await page.locator("body").innerText()).includes("German") ||
+    (await page.locator(".home-container, body").count()) > 0);
+
+  await page.locator(".skip-invite").click();
+  await page.waitForTimeout(700);
+  const chapters = await page.locator(".mission-card").count();
+  check("the skip-ahead screen lists chapters", chapters >= 4, String(chapters));
+  check("it states the pass bar up front",
+    /85% to pass/.test(await page.locator(".mission-list").innerText()));
+
+  await page.locator(".mission-card").first().click();
+  await page.waitForTimeout(600);
+  check("the chapter test starts", await page.locator(".skip-options").isVisible());
+
+  // Answer every question CORRECTLY, derived from the pack rather than from a
+  // data attribute — the DOM must never carry the answer.
+  let answered = 0;
+  for (let i = 0; i < 20; i++) {
+    if (!(await page.locator(".skip-options").count())) break;
+    const eyebrow = (await page.locator(".prompt-card .eyebrow").innerText()).trim();
+    const prompt = (await page.locator(".prompt-ask").innerText()).trim();
+    const toNative = /Say this in/i.test(eyebrow);
+    const want = toNative ? byMeaning.get(prompt)?.lemma : byLemma.get(prompt)?.translation;
+    if (!want) break;
+    const opts = page.locator(".skip-option");
+    const n = await opts.count();
+    let hit = false;
+    for (let k = 0; k < n; k++) {
+      const label = (await opts.nth(k).locator(".skip-option-main").innerText()).trim();
+      if (label === want) { await opts.nth(k).click(); hit = true; break; }
+    }
+    if (!hit) break;
+    answered++;
+    await page.waitForTimeout(850);
+  }
+  check("every question could be answered correctly from the pack", answered >= 14, String(answered));
+
+  await page.waitForTimeout(700);
+  const resultText = await page.locator(".result-card").innerText().catch(() => "");
+  check("a perfect run passes the chapter", /is behind you/.test(resultText), resultText.slice(0, 120));
+
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app") || "{}"));
+  check("passing marks the chapter as passed", (saved.chaptersPassed?.de || []).includes(1),
+    JSON.stringify(saved.chaptersPassed));
+  check("passing seeds the chapter's words as known",
+    (saved.testedOut?.de || []).length >= 30, String((saved.testedOut?.de || []).length));
+
+  const prog = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:progress") || "{}"));
+  check("the words got real progress cards, not just a flag",
+    Object.keys(prog.de || {}).length >= 30, String(Object.keys(prog.de || {}).length));
+
+  check("no crashes in the skip-ahead flow", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await ctx.close();
+  await browser.close();
+}
+
+async function runDialects() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  console.log("\n=== Arabic dialects ===\n");
+  const { ctx, page, errors } = await seeded(browser, "ar");
+
+  await page.locator(".bottom-nav button", { hasText: "Profile" }).click();
+  await page.waitForTimeout(500);
+  await page.locator('button[aria-label="Settings"]').click();
+  await page.waitForTimeout(1600);
+
+  const dialectBlock = page.locator(".dialect-settings");
+  check("settings offers a dialect choice for Arabic",
+    /which arabic/i.test(await dialectBlock.innerText()),
+    (await dialectBlock.innerText()).replace(/\s+/g, " ").slice(0, 80));
+  const chips = await dialectBlock.locator(".chip").count();
+  check("all seven Arabic varieties are offered", chips === 7, String(chips));
+
+  await dialectBlock.locator(".chip").nth(4).click();   // Maghrebi
+  await page.waitForTimeout(500);
+  const profile = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:profile") || "{}"));
+  check("the chosen dialect is persisted on the profile", !!profile.ar?.region, JSON.stringify(profile.ar?.region));
+  check("choosing a dialect explains what it means",
+    (await dialectBlock.innerText()).length > 120);
+
+  check("no crashes on the dialect picker", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await ctx.close();
+  await browser.close();
+}
+
 await run(414, 896, "phone");
 await run(1440, 900, "desktop");
 await runUnconfigured();
 await runVoiceSettings({ withVoices: true });
 await runVoiceSettings({ withVoices: false });
+await runSkipAhead();
+await runDialects();
 
 const failed = out.filter((r) => !r.ok);
 console.log(`\n  ${out.length - failed.length} pass, ${failed.length} fail\n`);

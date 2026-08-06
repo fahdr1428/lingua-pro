@@ -11,7 +11,7 @@ import { pickFunFact } from "../data/funFacts.js";
 import { HeroBackdrop } from "../ui/HeroBackdrop.jsx";
 import { masteryLevel, retrievability } from "../engine/srs.js";
 import { THEMES } from "../ui/themes.js";
-import { VoiceSettings } from "./VoiceSettings.jsx";
+import { VoiceSettings, DialectSettings } from "./VoiceSettings.jsx";
 import { getCharacter, getGreeting } from "../data/characters.js";
 import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilestones } from "../engine/gamification.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
@@ -324,7 +324,7 @@ export function Vocab({ engine, pack, appState, onNavigate }) {
                     }}
                   >
                     <button
-                      onClick={() => speak(v.lemma, lang.ttsCode, { audioId: v.id })}
+                      onClick={() => speak(v.lemma, lang.ttsCode, { audioId: v.id, code: lang.code, translit: v.translit })}
                       aria-label={`Hear ${v.lemma}`}
                       style={{
                         background: "var(--surface-hi)", border: "none", borderRadius: "50%",
@@ -741,7 +741,7 @@ function MasteryRow({ color, label, count }) {
 // SETTINGS
 // =============================================================================
 
-export function Settings({ appState, setAppState, onResetAll, onNavigate, pack }) {
+export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, profile, mutateProfile }) {
   return (
     <div>
       <TopBar streak={appState.streak} gems={appState.gems} hearts={appState.hearts} totalXp={appState.totalXp} premium={appState.isPremium} />
@@ -819,6 +819,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack }
         </Card>
 
         {/* v74 — the voice the learner actually hears, and their choice of it. */}
+        <DialectSettings langCode={pack?.code || appState.currentLanguage} profile={profile} mutateProfile={mutateProfile} />
         <VoiceSettings appState={appState} setAppState={setAppState} langCode={pack?.code || appState.currentLanguage} />
 
         {/* Theme picker */}

@@ -1490,3 +1490,29 @@ button:focus:not(:focus-visible) { outline: none; }
   text-transform: uppercase; color: var(--text-dim); margin-right: 2px;
 }
 .manner-row .chip { padding: 5px 11px; min-height: 32px; font-size: 11.5px; }
+
+/* --- v75 skip-ahead --- */
+.skip-invite {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  background: var(--surface); border: 1px dashed var(--border);
+  border-radius: 16px; padding: 13px 15px; margin-bottom: 14px;
+  cursor: pointer; color: var(--text); text-align: left; min-height: 44px;
+}
+.skip-invite:hover { border-color: var(--primary); border-style: solid; }
+
+.skip-options { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.skip-option {
+  background: var(--surface); border: 2px solid var(--border);
+  border-radius: 14px; padding: 15px 16px; cursor: pointer;
+  color: var(--text); text-align: center; min-height: 56px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+}
+.skip-option:hover:not(:disabled) { border-color: var(--primary); }
+.skip-option:disabled { cursor: default; }
+.skip-option-main { font-size: 17px; font-weight: 800; line-height: 1.3; }
+.skip-option-sub { font-size: 12.5px; color: var(--text-dim); }
+.skip-right { background: var(--primary-dark); border-color: var(--primary); color: #fff; }
+.skip-right .skip-option-sub { color: rgba(255,255,255,0.8); }
+.skip-wrong { background: var(--danger); border-color: var(--danger); color: #fff; }
+.skip-wrong .skip-option-sub { color: rgba(255,255,255,0.8); }
+.dialect-settings { margin-top: 4px; }
