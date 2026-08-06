@@ -26,6 +26,8 @@ import { SPEECH_FALLBACK } from "../src/audio/voices.js";
 import { regionsFor } from "../src/data/personas.js";
 import { CHARACTERS } from "../src/data/characters.js";
 import { chapterVocabIds, PASS_THRESHOLD as CHAPTER_PASS } from "../src/data/chapters.js";
+import { CONJUGATIONS, hasConjugations, listConjugatableLemmas } from "../src/data/conjugations.js";
+import { TENSES } from "../src/data/tenses.js";
 import { readFileSync, readdirSync } from "node:fs";
 
 // Mirrors the constant in SkipAhead.jsx. Kept here rather than exported so the
@@ -396,6 +398,49 @@ check("German has a guide with a name and a city",
 check("every language in the registry has a guide",
   packCodes.every((code) => !!CHARACTERS[code]),
   packCodes.filter((c) => !CHARACTERS[c]).join(","));
+
+// =========================================================================
+console.log("\nconjugation and tense tables\n");
+
+for (const code of Object.keys(CONJUGATIONS)) {
+  const pack = packs[code];
+  if (!pack) { check(`${code} conjugations belong to a real language`, false); continue; }
+  const lemmas = new Set(pack.vocab.map((v) => v.lemma));
+  const missing = listConjugatableLemmas(code).filter((l) => !lemmas.has(l));
+  check(`${code}: every conjugated verb is a word the course teaches`,
+    missing.length === 0, missing.join(", "));
+}
+
+for (const [code, t] of Object.entries(TENSES)) {
+  const present = new Set(listConjugatableLemmas(code));
+  const strayPast = Object.keys(t.past || {}).filter((l) => !present.has(l));
+  const strayFuture = Object.keys(t.future || {}).filter((l) => !present.has(l));
+  check(`${code}: past-tense verbs also have a present tense`, strayPast.length === 0, strayPast.join(", "));
+  check(`${code}: future-tense verbs also have a present tense`, strayFuture.length === 0, strayFuture.join(", "));
+  check(`${code}: tenses are named and explained`, !!t.pastName && !!t.pastNote && !!t.futureName && !!t.futureNote);
+}
+
+const PERSONS = ["I", "you", "he", "she", "we", "they"];
+function everyPerson(table) {
+  return Object.values(table).every((forms) =>
+    PERSONS.every((p) => forms[p] && typeof forms[p].form === "string" && forms[p].form.length > 0));
+}
+check("every conjugation table covers all six persons",
+  Object.entries(CONJUGATIONS).every(([, c]) => everyPerson(c.verbs)),
+  Object.entries(CONJUGATIONS).filter(([, c]) => !everyPerson(c.verbs)).map(([k]) => k).join(","));
+check("every tense table covers all six persons",
+  Object.entries(TENSES).every(([, t]) => everyPerson(t.past || {}) && everyPerson(t.future || {})),
+  Object.entries(TENSES).filter(([, t]) => !(everyPerson(t.past || {}) && everyPerson(t.future || {}))).map(([k]) => k).join(","));
+
+// German was added in v75 with no verb tables at all, so two exercise types
+// never fired for it. This is the assertion that stops that regressing.
+check("German has conjugations", hasConjugations("de"), String(listConjugatableLemmas("de").length));
+check("German teaches the stem-changing verbs, which is the part learners get wrong",
+  ["sehen", "sprechen", "essen", "helfen"].every((v) => listConjugatableLemmas("de").includes(v)));
+check("German's past is the Perfekt, which is what people actually say",
+  /Perfekt/i.test(TENSES.de.pastName) && /gegangen/.test(JSON.stringify(TENSES.de.past)));
+check("German's future note admits the present tense is more common",
+  /present/i.test(TENSES.de.futureNote));
 
 // =========================================================================
 const failed = results.filter((r) => !r.ok);

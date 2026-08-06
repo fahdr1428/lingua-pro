@@ -29,6 +29,45 @@
 
 export const CONJUGATIONS = {
   // ---------------------------------------------------------------------------
+  // GERMAN — present indicative. HIGH confidence: standard textbook forms.
+  //
+  // The teaching point isn't the endings, which are regular and quickly learned.
+  // It's that the du and er/sie forms of strong verbs change their STEM VOWEL:
+  // sehen → du siehst, sprechen → du sprichst, essen → du isst, helfen → du hilfst.
+  // Learners conjugate them regularly (du sehst) and are understood but marked
+  // instantly as foreign, so those verbs are over-represented here on purpose.
+  //
+  // "sie" is both "she" and "they"; the verb form is what tells them apart
+  // (sie spricht = she speaks, sie sprechen = they speak). Formal "Sie" takes
+  // the same form as "they" — which is why it looks like plural respect, and is.
+  // ---------------------------------------------------------------------------
+  de: {
+    pronouns: {
+      I:   { form: "ich", translit: "ikh" },
+      you: { form: "du",  translit: "doo" },
+      he:  { form: "er",  translit: "air" },
+      she: { form: "sie", translit: "zee" },
+      we:  { form: "wir", translit: "veer" },
+      they:{ form: "sie", translit: "zee" },
+    },
+    note: "German verbs take an ending for each person. Strong verbs also change their stem vowel in the du and er/sie forms — that's the part worth memorising.",
+    verbs: {
+      "sein":      { I:{form:"bin",      translit:"bin"},        you:{form:"bist",      translit:"bist"},        he:{form:"ist",      translit:"ist"},        she:{form:"ist",      translit:"ist"},        we:{form:"sind",      translit:"zint"},        they:{form:"sind",      translit:"zint"} },
+      "haben":     { I:{form:"habe",     translit:"HAH-buh"},    you:{form:"hast",      translit:"hast"},        he:{form:"hat",      translit:"hat"},        she:{form:"hat",      translit:"hat"},        we:{form:"haben",     translit:"HAH-ben"},     they:{form:"haben",     translit:"HAH-ben"} },
+      "gehen":     { I:{form:"gehe",     translit:"GAY-uh"},     you:{form:"gehst",     translit:"gayst"},       he:{form:"geht",     translit:"gayt"},       she:{form:"geht",     translit:"gayt"},       we:{form:"gehen",     translit:"GAY-en"},      they:{form:"gehen",     translit:"GAY-en"} },
+      "machen":    { I:{form:"mache",    translit:"MAKH-uh"},    you:{form:"machst",    translit:"makhst"},      he:{form:"macht",    translit:"makht"},      she:{form:"macht",    translit:"makht"},      we:{form:"machen",    translit:"MAKH-en"},     they:{form:"machen",    translit:"MAKH-en"} },
+      "sehen":     { I:{form:"sehe",     translit:"ZAY-uh"},     you:{form:"siehst",    translit:"zeest"},       he:{form:"sieht",    translit:"zeet"},       she:{form:"sieht",    translit:"zeet"},       we:{form:"sehen",     translit:"ZAY-en"},      they:{form:"sehen",     translit:"ZAY-en"} },
+      "sprechen":  { I:{form:"spreche",  translit:"SHPREKH-uh"}, you:{form:"sprichst",  translit:"shprikhst"},   he:{form:"spricht",  translit:"shprikht"},   she:{form:"spricht",  translit:"shprikht"},   we:{form:"sprechen",  translit:"SHPREKH-en"},  they:{form:"sprechen",  translit:"SHPREKH-en"} },
+      "essen":     { I:{form:"esse",     translit:"ES-uh"},      you:{form:"isst",      translit:"ist"},         he:{form:"isst",     translit:"ist"},        she:{form:"isst",     translit:"ist"},        we:{form:"essen",     translit:"ES-en"},       they:{form:"essen",     translit:"ES-en"} },
+      "trinken":   { I:{form:"trinke",   translit:"TRINK-uh"},   you:{form:"trinkst",   translit:"trinkst"},     he:{form:"trinkt",   translit:"trinkt"},     she:{form:"trinkt",   translit:"trinkt"},     we:{form:"trinken",   translit:"TRINK-en"},    they:{form:"trinken",   translit:"TRINK-en"} },
+      "kommen":    { I:{form:"komme",    translit:"KOM-uh"},     you:{form:"kommst",    translit:"komst"},       he:{form:"kommt",    translit:"komt"},       she:{form:"kommt",    translit:"komt"},       we:{form:"kommen",    translit:"KOM-en"},      they:{form:"kommen",    translit:"KOM-en"} },
+      "arbeiten":  { I:{form:"arbeite",  translit:"AR-by-tuh"},  you:{form:"arbeitest", translit:"AR-by-test"},  he:{form:"arbeitet", translit:"AR-by-tet"},  she:{form:"arbeitet", translit:"AR-by-tet"},  we:{form:"arbeiten",  translit:"AR-by-ten"},   they:{form:"arbeiten",  translit:"AR-by-ten"} },
+      "kaufen":    { I:{form:"kaufe",    translit:"COW-fuh"},    you:{form:"kaufst",    translit:"cowfst"},      he:{form:"kauft",    translit:"cowft"},      she:{form:"kauft",    translit:"cowft"},      we:{form:"kaufen",    translit:"COW-fen"},     they:{form:"kaufen",    translit:"COW-fen"} },
+      "helfen":    { I:{form:"helfe",    translit:"HEL-fuh"},    you:{form:"hilfst",    translit:"hilfst"},      he:{form:"hilft",    translit:"hilft"},      she:{form:"hilft",    translit:"hilft"},      we:{form:"helfen",    translit:"HEL-fen"},     they:{form:"helfen",    translit:"HEL-fen"} },
+    },
+  },
+
+  // ---------------------------------------------------------------------------
   // SPANISH — present indicative, standard textbook forms
   // ---------------------------------------------------------------------------
   es: {

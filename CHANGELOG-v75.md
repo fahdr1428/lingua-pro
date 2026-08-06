@@ -175,6 +175,38 @@ npm run check    # validators + speech + generator + lessons + engine + coach + 
   every language at four progress levels. Zero crashes, zero dead ends. Twenty
   of those combinations failed before the `advance()` fix.
 
+---
+
+## 6. German verb tables
+
+Added after the rest: German shipped without conjugation or tense data, so two of
+the fourteen exercise types never fired for it. It now has both.
+
+**Present tense**, twelve verbs, weighted toward the ones learners get wrong.
+The endings are regular and quickly learned; what catches people is that strong
+verbs change their STEM VOWEL in the du and er/sie forms — sehen → du siehst,
+sprechen → du sprichst, essen → du isst, helfen → du hilfst. Conjugate them
+regularly and you'll be understood and marked instantly as foreign, so those
+verbs are over-represented on purpose.
+
+**Past tense is the Perfekt, not the Präteritum.** Textbooks teach both; Germans
+speak one. In conversation the past is almost always ich habe gemacht / ich bin
+gegangen, with two everyday exceptions — sein and haben, where war and hatte are
+what people actually say. Both are taught accordingly. The auxiliary is the real
+lesson: most verbs take haben, verbs of motion take sein.
+
+**Future with werden**, and a note that says plainly Germans usually just use the
+present with a time word ("Morgen arbeite ich") rather than "ich werde arbeiten".
+
+Verified: over 300 generated German lessons, CONJUGATE and CONJUGATE_TENSE both
+fire, and 12 more real German lessons played in the browser at four progress
+levels with no crashes. `test-engine` now also asserts, for every language, that
+every conjugated verb is a word the course actually teaches, that every
+past/future verb also has a present tense, and that every table covers all six
+persons.
+
+---
+
 ## Known limitations
 
 - The Devanagari conversion is a pronunciation aid, never shown to the learner,
@@ -183,5 +215,6 @@ npm run check    # validators + speech + generator + lessons + engine + coach + 
 - Urdu, Turkish and German still have **no recorded audio files**. Generating them
   needs Google Cloud TTS credentials this repo doesn't have; `scripts/generate-audio.cjs`
   is ready when they exist.
-- German has no conjugation or tense tables yet, so the CONJUGATE exercise types
-  don't fire for it. The other twelve exercise types all do.
+- German has no `pronunciation`-distinct transliteration: the pack stores the
+  lemma as its own translit (it's Latin script) and carries the say-it-like guide
+  separately, which is the same shape the other Latin-script packs use.

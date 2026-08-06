@@ -27,6 +27,59 @@
 
 export const TENSES = {
   // ---------------------------------------------------------------------------
+  // GERMAN — Perfekt for the past, werden for the future.
+  //
+  // WHY PERFEKT AND NOT PRÄTERITUM. Textbooks teach both; Germans speak one.
+  // In conversation the past is almost always the Perfekt (ich habe gemacht,
+  // ich bin gegangen), and the Präteritum is largely written or literary — with
+  // two everyday exceptions, sein and haben, where war and hatte are what people
+  // actually say. Both are taught here accordingly.
+  //
+  // THE AUXILIARY IS THE THING TO LEARN. Most verbs take haben; verbs of motion
+  // and change of state take sein (ich BIN gegangen, ich BIN gekommen). Getting
+  // it wrong is understood but instantly foreign, so the sein-verbs are in here.
+  //
+  // AND THE FUTURE IS USUALLY THE PRESENT. "Morgen gehe ich" — tomorrow I go —
+  // is what a German says far more often than "ich werde gehen". werden is
+  // taught because it's explicit and unambiguous, but the note says plainly that
+  // present-plus-a-time-word is the everyday habit.
+  // ---------------------------------------------------------------------------
+  de: {
+    pastName: "Perfekt (the spoken past)",
+    pastNote: "The past you'll actually hear. Built from haben or sein plus the participle: ich habe gemacht, ich bin gegangen. Verbs of movement take sein — that's the bit worth memorising. sein and haben themselves are the exception: people say war and hatte, not 'bin gewesen'.",
+    futureName: "Future with werden",
+    futureNote: "werden + the infinitive, which goes to the end: ich werde morgen arbeiten. Worth knowing — but Germans usually just use the present with a time word: 'Morgen arbeite ich.'",
+    past: {
+      "sein":     { I:{form:"war",              translit:"var"},                    you:{form:"warst",             translit:"varst"},                 he:{form:"war",              translit:"var"},                she:{form:"war",              translit:"var"},                we:{form:"waren",              translit:"VAR-en"},               they:{form:"waren",              translit:"VAR-en"} },
+      "haben":    { I:{form:"hatte",            translit:"HAT-uh"},                 you:{form:"hattest",           translit:"HAT-est"},               he:{form:"hatte",            translit:"HAT-uh"},             she:{form:"hatte",            translit:"HAT-uh"},             we:{form:"hatten",             translit:"HAT-en"},               they:{form:"hatten",             translit:"HAT-en"} },
+      "gehen":    { I:{form:"bin gegangen",     translit:"bin guh-GANG-en"},        you:{form:"bist gegangen",     translit:"bist guh-GANG-en"},      he:{form:"ist gegangen",     translit:"ist guh-GANG-en"},    she:{form:"ist gegangen",     translit:"ist guh-GANG-en"},    we:{form:"sind gegangen",      translit:"zint guh-GANG-en"},     they:{form:"sind gegangen",      translit:"zint guh-GANG-en"} },
+      "kommen":   { I:{form:"bin gekommen",     translit:"bin guh-KOM-en"},         you:{form:"bist gekommen",     translit:"bist guh-KOM-en"},       he:{form:"ist gekommen",     translit:"ist guh-KOM-en"},     she:{form:"ist gekommen",     translit:"ist guh-KOM-en"},     we:{form:"sind gekommen",      translit:"zint guh-KOM-en"},      they:{form:"sind gekommen",      translit:"zint guh-KOM-en"} },
+      "machen":   { I:{form:"habe gemacht",     translit:"HAH-buh guh-MAKHT"},      you:{form:"hast gemacht",      translit:"hast guh-MAKHT"},        he:{form:"hat gemacht",      translit:"hat guh-MAKHT"},      she:{form:"hat gemacht",      translit:"hat guh-MAKHT"},      we:{form:"haben gemacht",      translit:"HAH-ben guh-MAKHT"},    they:{form:"haben gemacht",      translit:"HAH-ben guh-MAKHT"} },
+      "sehen":    { I:{form:"habe gesehen",     translit:"HAH-buh guh-ZAY-en"},     you:{form:"hast gesehen",      translit:"hast guh-ZAY-en"},       he:{form:"hat gesehen",      translit:"hat guh-ZAY-en"},     she:{form:"hat gesehen",      translit:"hat guh-ZAY-en"},     we:{form:"haben gesehen",      translit:"HAH-ben guh-ZAY-en"},   they:{form:"haben gesehen",      translit:"HAH-ben guh-ZAY-en"} },
+      "sprechen": { I:{form:"habe gesprochen",  translit:"HAH-buh guh-SHPROKH-en"}, you:{form:"hast gesprochen",   translit:"hast guh-SHPROKH-en"},   he:{form:"hat gesprochen",   translit:"hat guh-SHPROKH-en"}, she:{form:"hat gesprochen",   translit:"hat guh-SHPROKH-en"}, we:{form:"haben gesprochen",   translit:"HAH-ben guh-SHPROKH-en"}, they:{form:"haben gesprochen", translit:"HAH-ben guh-SHPROKH-en"} },
+      "essen":    { I:{form:"habe gegessen",    translit:"HAH-buh guh-GES-en"},     you:{form:"hast gegessen",     translit:"hast guh-GES-en"},       he:{form:"hat gegessen",     translit:"hat guh-GES-en"},     she:{form:"hat gegessen",     translit:"hat guh-GES-en"},     we:{form:"haben gegessen",     translit:"HAH-ben guh-GES-en"},   they:{form:"haben gegessen",     translit:"HAH-ben guh-GES-en"} },
+      "trinken":  { I:{form:"habe getrunken",   translit:"HAH-buh guh-TROONK-en"},  you:{form:"hast getrunken",    translit:"hast guh-TROONK-en"},    he:{form:"hat getrunken",    translit:"hat guh-TROONK-en"},  she:{form:"hat getrunken",    translit:"hat guh-TROONK-en"},  we:{form:"haben getrunken",    translit:"HAH-ben guh-TROONK-en"}, they:{form:"haben getrunken",   translit:"HAH-ben guh-TROONK-en"} },
+      "arbeiten": { I:{form:"habe gearbeitet",  translit:"HAH-buh guh-AR-by-tet"},  you:{form:"hast gearbeitet",   translit:"hast guh-AR-by-tet"},    he:{form:"hat gearbeitet",   translit:"hat guh-AR-by-tet"},  she:{form:"hat gearbeitet",   translit:"hat guh-AR-by-tet"},  we:{form:"haben gearbeitet",   translit:"HAH-ben guh-AR-by-tet"}, they:{form:"haben gearbeitet", translit:"HAH-ben guh-AR-by-tet"} },
+      "kaufen":   { I:{form:"habe gekauft",     translit:"HAH-buh guh-COWFT"},      you:{form:"hast gekauft",      translit:"hast guh-COWFT"},        he:{form:"hat gekauft",      translit:"hat guh-COWFT"},      she:{form:"hat gekauft",      translit:"hat guh-COWFT"},      we:{form:"haben gekauft",      translit:"HAH-ben guh-COWFT"},    they:{form:"haben gekauft",      translit:"HAH-ben guh-COWFT"} },
+      "helfen":   { I:{form:"habe geholfen",    translit:"HAH-buh guh-HOLF-en"},    you:{form:"hast geholfen",     translit:"hast guh-HOLF-en"},      he:{form:"hat geholfen",     translit:"hat guh-HOLF-en"},    she:{form:"hat geholfen",     translit:"hat guh-HOLF-en"},    we:{form:"haben geholfen",     translit:"HAH-ben guh-HOLF-en"},  they:{form:"haben geholfen",     translit:"HAH-ben guh-HOLF-en"} },
+    },
+    future: {
+      "sein":     { I:{form:"werde sein",      translit:"VAIR-duh zine"},      you:{form:"wirst sein",      translit:"veerst zine"},      he:{form:"wird sein",      translit:"veert zine"},      she:{form:"wird sein",      translit:"veert zine"},      we:{form:"werden sein",      translit:"VAIR-den zine"},      they:{form:"werden sein",      translit:"VAIR-den zine"} },
+      "haben":    { I:{form:"werde haben",     translit:"VAIR-duh HAH-ben"},   you:{form:"wirst haben",     translit:"veerst HAH-ben"},   he:{form:"wird haben",     translit:"veert HAH-ben"},   she:{form:"wird haben",     translit:"veert HAH-ben"},   we:{form:"werden haben",     translit:"VAIR-den HAH-ben"},   they:{form:"werden haben",     translit:"VAIR-den HAH-ben"} },
+      "gehen":    { I:{form:"werde gehen",     translit:"VAIR-duh GAY-en"},    you:{form:"wirst gehen",     translit:"veerst GAY-en"},    he:{form:"wird gehen",     translit:"veert GAY-en"},    she:{form:"wird gehen",     translit:"veert GAY-en"},    we:{form:"werden gehen",     translit:"VAIR-den GAY-en"},    they:{form:"werden gehen",     translit:"VAIR-den GAY-en"} },
+      "kommen":   { I:{form:"werde kommen",    translit:"VAIR-duh KOM-en"},    you:{form:"wirst kommen",    translit:"veerst KOM-en"},    he:{form:"wird kommen",    translit:"veert KOM-en"},    she:{form:"wird kommen",    translit:"veert KOM-en"},    we:{form:"werden kommen",    translit:"VAIR-den KOM-en"},    they:{form:"werden kommen",    translit:"VAIR-den KOM-en"} },
+      "machen":   { I:{form:"werde machen",    translit:"VAIR-duh MAKH-en"},   you:{form:"wirst machen",    translit:"veerst MAKH-en"},   he:{form:"wird machen",    translit:"veert MAKH-en"},   she:{form:"wird machen",    translit:"veert MAKH-en"},   we:{form:"werden machen",    translit:"VAIR-den MAKH-en"},   they:{form:"werden machen",    translit:"VAIR-den MAKH-en"} },
+      "sehen":    { I:{form:"werde sehen",     translit:"VAIR-duh ZAY-en"},    you:{form:"wirst sehen",     translit:"veerst ZAY-en"},    he:{form:"wird sehen",     translit:"veert ZAY-en"},    she:{form:"wird sehen",     translit:"veert ZAY-en"},    we:{form:"werden sehen",     translit:"VAIR-den ZAY-en"},    they:{form:"werden sehen",     translit:"VAIR-den ZAY-en"} },
+      "sprechen": { I:{form:"werde sprechen",  translit:"VAIR-duh SHPREKH-en"},you:{form:"wirst sprechen",  translit:"veerst SHPREKH-en"},he:{form:"wird sprechen",  translit:"veert SHPREKH-en"},she:{form:"wird sprechen",  translit:"veert SHPREKH-en"},we:{form:"werden sprechen",  translit:"VAIR-den SHPREKH-en"},they:{form:"werden sprechen",  translit:"VAIR-den SHPREKH-en"} },
+      "essen":    { I:{form:"werde essen",     translit:"VAIR-duh ES-en"},     you:{form:"wirst essen",     translit:"veerst ES-en"},     he:{form:"wird essen",     translit:"veert ES-en"},     she:{form:"wird essen",     translit:"veert ES-en"},     we:{form:"werden essen",     translit:"VAIR-den ES-en"},     they:{form:"werden essen",     translit:"VAIR-den ES-en"} },
+      "trinken":  { I:{form:"werde trinken",   translit:"VAIR-duh TRINK-en"},  you:{form:"wirst trinken",   translit:"veerst TRINK-en"},  he:{form:"wird trinken",   translit:"veert TRINK-en"},  she:{form:"wird trinken",   translit:"veert TRINK-en"},  we:{form:"werden trinken",   translit:"VAIR-den TRINK-en"},  they:{form:"werden trinken",   translit:"VAIR-den TRINK-en"} },
+      "arbeiten": { I:{form:"werde arbeiten",  translit:"VAIR-duh AR-by-ten"}, you:{form:"wirst arbeiten",  translit:"veerst AR-by-ten"}, he:{form:"wird arbeiten",  translit:"veert AR-by-ten"}, she:{form:"wird arbeiten",  translit:"veert AR-by-ten"}, we:{form:"werden arbeiten",  translit:"VAIR-den AR-by-ten"}, they:{form:"werden arbeiten",  translit:"VAIR-den AR-by-ten"} },
+      "kaufen":   { I:{form:"werde kaufen",    translit:"VAIR-duh COW-fen"},   you:{form:"wirst kaufen",    translit:"veerst COW-fen"},   he:{form:"wird kaufen",    translit:"veert COW-fen"},   she:{form:"wird kaufen",    translit:"veert COW-fen"},   we:{form:"werden kaufen",    translit:"VAIR-den COW-fen"},   they:{form:"werden kaufen",    translit:"VAIR-den COW-fen"} },
+      "helfen":   { I:{form:"werde helfen",    translit:"VAIR-duh HEL-fen"},   you:{form:"wirst helfen",    translit:"veerst HEL-fen"},   he:{form:"wird helfen",    translit:"veert HEL-fen"},   she:{form:"wird helfen",    translit:"veert HEL-fen"},   we:{form:"werden helfen",    translit:"VAIR-den HEL-fen"},   they:{form:"werden helfen",    translit:"VAIR-den HEL-fen"} },
+    },
+  },
+
+  // ---------------------------------------------------------------------------
   // SPANISH — preterite (completed past) + ir-a-future
   // ---------------------------------------------------------------------------
   es: {
