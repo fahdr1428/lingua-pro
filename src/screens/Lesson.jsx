@@ -9,6 +9,7 @@ import { LANGUAGES } from "../data/registry.js";
 import { speak, hasVoiceFor, stopSpeaking } from "../audio/tts.js";
 import { playCorrect, playWrong, playLessonComplete } from "../audio/sfx.js";
 import { EXERCISE, generateLesson } from "../engine/generator.js";
+import { dialectForm, acceptedForms, regionLabel } from "../data/dialects.js";
 import { explainAnswer } from "../engine/explain.js";
 import { getCharacter, getCelebration } from "../data/characters.js";
 import { GuideMark } from "../ui/GuideMark.jsx";

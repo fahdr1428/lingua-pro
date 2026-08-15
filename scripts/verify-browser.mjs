@@ -525,6 +525,68 @@ async function runExerciseToggles() {
   await browser.close();
 }
 
+// ---------------------------------------------------------------------------
+// A FAST LESSON SMOKE TEST.
+//
+// This exists because a missing import shipped to main: dialectForm was used in
+// Lesson.jsx and never imported, so EVERY lesson in EVERY language crashed on
+// the first word card. `vite build` doesn't catch an undefined identifier, and
+// this suite never opened a lesson — only the 40-minute full fuzz did, and by
+// then it was already pushed.
+//
+// Thirty seconds, three languages, a handful of steps each. Enough to catch
+// anything that breaks the lesson screen outright.
+// ---------------------------------------------------------------------------
+async function runLessonSmoke() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  console.log("\n=== lesson smoke test ===\n");
+
+  for (const code of ["ar", "es", "ur"]) {
+    const { ctx, page, errors } = await seeded(browser, code, { lessonsCompleted: { [code]: 4 } });
+
+    // Open a lesson: expand a route stop if this language has a journey, then
+    // tap a unit.
+    const heads = await page.locator(".station-head").count();
+    for (let h = 0; h < heads; h++) {
+      await page.locator(".station-head").nth(h).click().catch(() => {});
+      await page.waitForTimeout(200);
+      if (await page.locator("button[data-unit]:not([disabled])").count()) break;
+    }
+    const opened = await page.locator("button[data-unit]:not([disabled])").count();
+    check(`${code}: a lesson can be opened`, opened > 0, "no unlocked unit on the home screen");
+    if (!opened) { await ctx.close(); continue; }
+
+    await page.locator("button[data-unit]:not([disabled])").first().click();
+    await page.waitForTimeout(1200);
+    check(`${code}: the lesson screen renders`, (await page.locator(".bottom-nav").count()) === 0);
+    check(`${code}: no error boundary on the first card`,
+      (await page.locator("text=Something went wrong").count()) === 0,
+      await page.evaluate(() => document.body.innerText.replace(/\s+/g, " ").slice(0, 120)));
+
+    // Walk a few steps so more than the first renderer is exercised.
+    for (let i = 0; i < 10; i++) {
+      await page.evaluate(() => {
+        const SKIP = /^(check|continue|next|skip|got it|hear|listen|play|back|close|try again|or type|✕|🔊|report)/i;
+        const b = [...document.querySelectorAll("button")].filter((x) => {
+          if (x.disabled) return false;
+          const r = x.getBoundingClientRect();
+          const t = (x.innerText || "").trim();
+          return r.height > 20 && t && !SKIP.test(t);
+        });
+        b.slice(0, 4).forEach((x) => x.click());
+        const go = [...document.querySelectorAll("button")].find((x) =>
+          /^(check|continue|next|got it)/i.test((x.innerText || "").trim()) && !x.disabled);
+        if (go) go.click();
+      });
+      await page.waitForTimeout(320);
+    }
+    check(`${code}: still no crash after ten steps`, errors.length === 0, errors.slice(0, 2).join(" | "));
+    await ctx.close();
+  }
+  await browser.close();
+}
+
+await runLessonSmoke();
 await run(414, 896, "phone");
 await run(1440, 900, "desktop");
 await runUnconfigured();
