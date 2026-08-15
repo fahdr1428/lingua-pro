@@ -46,6 +46,7 @@ import { LiveConversation } from "../ui/LiveConversation.jsx";
 import { PERSONAS, getPersona, getRegion } from "../data/personas.js";
 import { recordTurn, summariseForPrompt } from "../engine/profile.js";
 import { acceptedForms } from "../data/dialects.js";
+import { AiGate, aiAccepted } from "../ui/AiDisclosure.jsx";
 import {
   isRecognitionSupported, startListening, judge, displayScore, BAND,
 } from "../audio/speech.js";
@@ -210,6 +211,7 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate,
           count={session.length}
           ready={session.length > 0}
           onStart={() => setPhase("round")}
+          onNavigate={onNavigate}
         />
       )}
 
@@ -229,12 +231,31 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate,
         />
       )}
 
-      {phase === "talk" && (
+      {/* v77 — the AI conversation is the one part of the app that sends
+          anything anywhere, and the one part where a machine plays a person.
+          It doesn't open until the learner has been told both and confirmed
+          their age. Declining drops them back into the drill, which is fully
+          functional without any of this. */}
+      {phase === "talk" && !aiAccepted(appState) && (
+        <AiGate
+          appState={appState}
+          setAppState={setAppState}
+          guideName={guide?.name}
+          langName={lang.name}
+          onDecline={() => setPhase("result")}
+          onNavigate={onNavigate}
+        />
+      )}
+
+      {phase === "talk" && aiAccepted(appState) && (
         <TalkToGuide
           {...shared}
           level={levelFor(appState?.lessonsCompleted?.[pack.code] || 0, learnedIds?.size || 0)}
           profile={profile}
           mutateProfile={mutateProfile}
+          appState={appState}
+          setAppState={setAppState}
+          onNavigate={onNavigate}
           onBack={() => setPhase("result")}
         />
       )}
@@ -245,7 +266,7 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate,
 // =============================================================================
 // INTRO — say what's about to happen, and get the microphone out of the way.
 // =============================================================================
-function SpeakIntro({ lang, langCode, guide, micSupported, count, ready, onStart }) {
+function SpeakIntro({ lang, langCode, guide, micSupported, count, ready, onStart, onNavigate }) {
   const [mic, setMic] = useState("unknown"); // unknown | granted | denied | unavailable
   const [asking, setAsking] = useState(false);
 
@@ -308,6 +329,26 @@ function SpeakIntro({ lang, langCode, guide, micSupported, count, ready, onStart
           <button className="btn-quiet" onClick={askForMic} disabled={asking}>
             {asking ? "Waiting for permission…" : "Turn on the microphone"}
           </button>
+        )}
+
+        {/* v77 — the honest sentence, at the moment the microphone is being
+            asked for rather than buried in a policy. Recognition is done by the
+            browser, and in Chrome that means the audio goes to Google. This app
+            never receives it, but "we don't get it" is not the same as "it stays
+            here", and the difference is exactly what someone deciding whether to
+            press the button needs to know. */}
+        {micSupported && mic !== "unavailable" && (
+          <p className="intro-privacy">
+            Your browser does the listening, not us — in Chrome that means the
+            audio goes to Google's speech service and comes back as text. Zaban
+            never receives or stores it. Rather not? Type your answers instead;
+            they're graded identically.
+            {onNavigate && (
+              <button className="quiet-link" onClick={() => onNavigate("legal", { policy: "privacy", back: "speak" })}>
+                what leaves this device
+              </button>
+            )}
+          </p>
         )}
 
         <button className="btn-hero" onClick={onStart} disabled={!ready}>
@@ -754,7 +795,7 @@ function SpeakResult({ lang, langCode, guide, scored, coachReady, onAgain, onTal
 // TALK — the live coach. The conversation itself now lives in
 // ui/LiveConversation.jsx, shared with Missions; this is the framing around it.
 // =============================================================================
-function TalkToGuide({ lang, langCode, guide, micSupported, level, profile, mutateProfile, onBack }) {
+function TalkToGuide({ lang, langCode, guide, micSupported, level, profile, mutateProfile, appState, setAppState, onNavigate, onBack }) {
   const learnerBrief = useMemo(() => summariseForPrompt(profile), [profile]);
   const personaId = profile?.persona || "friendly";
   const persona = getPersona(personaId);
@@ -795,6 +836,9 @@ function TalkToGuide({ lang, langCode, guide, micSupported, level, profile, muta
         region={region}
         learnerBrief={learnerBrief}
         onTurn={onTurn}
+        appState={appState}
+        setAppState={setAppState}
+        onNavigate={onNavigate}
       />
     </div>
   );

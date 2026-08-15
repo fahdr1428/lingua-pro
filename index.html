@@ -16,12 +16,18 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Zaban — reconnect with your language" />
     <meta name="twitter:description" content="A free app for the heritage languages most apps ignore. 12 languages, real audio." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- v77: fonts are served from this origin, not fonts.googleapis.com.
+         The CDN version sent every visitor's IP to Google before a single line
+         of the app had run — no consent, no way to decline, and a German court
+         has awarded damages over precisely that (LG München I, 3 O 17493/20).
+         Regenerate with `node scripts/fetch-fonts.mjs`. -->
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+
+    <!-- Installable on a phone home screen without an app store. -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Zaban" />
   </head>
   <body>
     <div id="root"></div>

@@ -17,6 +17,8 @@ import { LocalStorageAdapter } from "./localStorageAdapter.js";
  * @property {(key: string, value: any) => Promise<void>} set
  * @property {(key: string) => Promise<void>} remove
  * @property {(key: string, fn: (current: any) => any) => Promise<any>} update
+ * @property {() => Promise<string[]>} keys
+ * @property {() => Promise<void>} clear
  */
 
 let instance = null;

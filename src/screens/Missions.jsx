@@ -37,6 +37,7 @@ import { PERSONAS, getPersona, regionsFor, getRegion } from "../data/personas.js
 import { recordTurn, recordMission, summariseForPrompt, difficultyFor, DIFFICULTY_LABEL } from "../engine/profile.js";
 import { probeCoach, levelFor, CoachError } from "../ai/coach.js";
 import { buildScenario } from "../ai/scenario.js";
+import { AiGate, aiAccepted } from "../ui/AiDisclosure.jsx";
 import { isRecognitionSupported, startListening, judge, BAND } from "../audio/speech.js";
 import { speak } from "../audio/tts.js";
 import { cancelVoice, idle as voiceIdle } from "../audio/voice.js";
@@ -47,6 +48,9 @@ export function Missions({ pack, appState, setAppState, params, onNavigate, prof
   const micSupported = isRecognitionSupported();
 
   const [phase, setPhase] = useState("pick"); // pick | brief | run | debrief
+  // v77 — set when something AI-backed was tapped before consent was given.
+  // Holds the phase to return to, so declining doesn't strand anyone.
+  const [gateBackTo, setGateBackTo] = useState(null);
   const [mission, setMission] = useState(null);
   const [personaId, setPersonaId] = useState(null);
   const [regionId, setRegionId] = useState(profile?.region || null);
@@ -143,8 +147,13 @@ export function Missions({ pack, appState, setAppState, params, onNavigate, prof
     setMission(null);
     setTranscript([]);
     setMet([]);
+    setGateBackTo(null);
     setPhase("pick");
   }
+
+  // Consent is the single condition: accepting inside the gate flips this and
+  // the gate disappears on its own, leaving whatever asked for it on screen.
+  const showGate = !aiAccepted(appState) && (gateBackTo !== null || phase === "run");
 
   return (
     <div className="speak-screen">
@@ -165,7 +174,22 @@ export function Missions({ pack, appState, setAppState, params, onNavigate, prof
         {guide && <GuideMark code={pack.code} size={34} />}
       </header>
 
-      {phase === "pick" && (
+      {/* v77 — one gate covers both doors into the model: running a scene, and
+          describing your own situation for one to be built. The scenario builder
+          sends the learner's own words off the device, so it can't sit behind
+          the same consent as everything else "later". */}
+      {showGate && (
+        <AiGate
+          appState={appState}
+          setAppState={setAppState}
+          guideName={guide?.name}
+          langName={lang.name}
+          onDecline={() => { setGateBackTo(null); setPhase(gateBackTo || "pick"); }}
+          onNavigate={onNavigate}
+        />
+      )}
+
+      {phase === "pick" && !showGate && (
         <MissionPicker
           profile={profile}
           goalId={appState?.learningGoal?.[pack.code]}
@@ -173,6 +197,8 @@ export function Missions({ pack, appState, setAppState, params, onNavigate, prof
           lang={lang}
           level={level}
           onPick={begin}
+          aiOk={aiAccepted(appState)}
+          onNeedAi={() => setGateBackTo("pick")}
         />
       )}
 
@@ -193,7 +219,7 @@ export function Missions({ pack, appState, setAppState, params, onNavigate, prof
         />
       )}
 
-      {phase === "run" && mission && (
+      {phase === "run" && mission && !showGate && (
         <div className="speak-body speak-body-talk">
           <ObjectiveBar mission={mission} met={met} />
           <LiveConversation
@@ -211,6 +237,9 @@ export function Missions({ pack, appState, setAppState, params, onNavigate, prof
             onEnd={finish}
             onTranscript={onTranscriptChange}
             emptyHint={mission.opener}
+            appState={appState}
+            setAppState={setAppState}
+            onNavigate={onNavigate}
           />
           <button className="quiet-link" style={{ marginTop: 10 }} onClick={finish}>
             End the scene and see how it went
@@ -239,7 +268,7 @@ export function Missions({ pack, appState, setAppState, params, onNavigate, prof
 // =============================================================================
 // PICK
 // =============================================================================
-function MissionPicker({ profile, goalId, coachReady, lang, level, onPick }) {
+function MissionPicker({ profile, goalId, coachReady, lang, level, onPick, aiOk, onNeedAi }) {
   const [filter, setFilter] = useState("all");
   const ordered = useMemo(() => recommendMissions(profile, goalId), [profile, goalId]);
   const shown = filter === "all" ? ordered : ordered.filter((m) => m.category === filter);
@@ -274,7 +303,7 @@ function MissionPicker({ profile, goalId, coachReady, lang, level, onPick }) {
         ))}
       </div>
 
-      <CustomScenario lang={lang} level={level} coachReady={coachReady} onBuilt={onPick} />
+      <CustomScenario lang={lang} level={level} coachReady={coachReady} onBuilt={onPick} aiOk={aiOk} onNeedAi={onNeedAi} />
 
       <div className="mission-list">
         {shown.map((m) => {
@@ -310,7 +339,7 @@ const PRESSURE_WORD = { 0: "relaxed", 1: "steady", 2: "brisk", 3: "under pressur
 // ---------------------------------------------------------------------------
 // The scenario generator. Their situation, not ours.
 // ---------------------------------------------------------------------------
-function CustomScenario({ lang, level, coachReady, onBuilt }) {
+function CustomScenario({ lang, level, coachReady, onBuilt, aiOk = true, onNeedAi }) {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
@@ -333,7 +362,7 @@ function CustomScenario({ lang, level, coachReady, onBuilt }) {
 
   if (!open) {
     return (
-      <button className="mission-card mission-card-custom" onClick={() => setOpen(true)}>
+      <button className="mission-card mission-card-custom" onClick={() => (aiOk ? setOpen(true) : onNeedAi?.())}>
         <div className="mission-card-top">
           <span className="mission-title">Describe your own situation</span>
         </div>

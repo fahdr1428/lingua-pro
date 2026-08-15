@@ -39,6 +39,20 @@ export class LocalStorageAdapter {
     return next;
   }
 
+  /**
+   * Every key this app owns, without the prefix.
+   *
+   * v77: added for the data export. GDPR portability means handing someone
+   * everything you hold about them, and "everything" can't be a hand-written
+   * list that goes stale the first time a feature adds a key — it has to be
+   * whatever is actually in there.
+   */
+  async keys() {
+    return Object.keys(localStorage)
+      .filter((k) => k.startsWith(this.prefix))
+      .map((k) => k.slice(this.prefix.length));
+  }
+
   async clear() {
     Object.keys(localStorage)
       .filter((k) => k.startsWith(this.prefix))

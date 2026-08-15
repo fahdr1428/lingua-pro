@@ -36,6 +36,8 @@ import { Fluency } from "./screens/Fluency.jsx";
 import { TestOut } from "./screens/TestOut.jsx";
 import { SkipAhead } from "./screens/SkipAhead.jsx";
 import { DialectDrill } from "./screens/DialectDrill.jsx";
+import { Legal } from "./screens/Legal.jsx";
+import { APP_MIN_AGE } from "./legal/policies.js";
 
 // Error boundary — catches crashes and shows a recovery button instead of a white screen
 class ErrorBoundary extends React.Component {
@@ -116,6 +118,9 @@ const DEFAULT_APP_STATE = {
   testedOut: {}, // { langCode: [wordId,...] } — words skipped via placement test
   voice: null, // v74: { coachVoiceURI, tone, speed, targetVoiceURI } — null = automatic
   disabledExercises: [], // v76: exercise types the learner switched off
+  consent: null, // v77: { ageConfirmed, terms, at, policyVersion } — set at onboarding
+  aiConsent: null, // v77: { accepted, at, ageConfirmed } — the separate, higher AI bar
+  aiReports: [], // v77: locally-held reports of bad AI output; goes out with the export
   userName: "", // v57: what the coach calls you
   momentDone: {}, // v57: { langCode: dateString } — daily Moment recall done
   planVisited: {}, // v57: { langCode: { date, speak, life } } — plan step visits
@@ -199,8 +204,17 @@ export default function App() {
   if (!appState.onboarded || !appState.currentLanguage) {
     return (
       <Onboarding
-        onComplete={({ language, goal }) =>
-          setAppState((s) => ({ ...s, onboarded: true, currentLanguage: language, dailyGoalXp: goal }))
+        onComplete={({ language, goal, consent }) =>
+          setAppState((s) => ({
+            ...s,
+            onboarded: true,
+            currentLanguage: language,
+            dailyGoalXp: goal,
+            // v77 — recorded so the app can prove what was agreed and when, and
+            // re-ask if the policies change. Separate from aiConsent, which is a
+            // higher bar for a narrower thing.
+            consent: consent || s.consent || null,
+          }))
         }
       />
     );
@@ -267,6 +281,7 @@ export default function App() {
         {screen === "profile" && <Profile {...screenProps} onSwitchLanguage={switchLanguage} />}
         {screen === "settings" && <Settings {...screenProps} onResetAll={resetAll} />}
         {screen === "upgrade" && <Upgrade appState={appState} setAppState={setAppState} onNavigate={navigate} />}
+        {screen === "legal" && <Legal {...screenProps} />}
       </div>
       </div>
       {!FOCUSED.has(screen) && <BottomNav screen={screen} onNavigate={navigate} />}

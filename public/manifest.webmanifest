@@ -1,0 +1,20 @@
+{
+  "name": "Zaban — learn the languages the world forgets",
+  "short_name": "Zaban",
+  "description": "Learn Urdu, Punjabi, Bengali, Arabic, Nigerian Pidgin and more. Real audio, real conversations, spaced repetition. Your progress stays on your device.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf7f2",
+  "theme_color": "#0a0f1f",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "/icon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

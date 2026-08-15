@@ -3,11 +3,25 @@
 //
 // Two halves:
 //
-//   1. RECOGNITION — a thin wrapper over the browser's SpeechRecognition. This
-//      runs on-device: no API key, no per-request cost, no network latency, and
-//      nothing about the learner's voice leaves their machine. Support is real
-//      but uneven (Chrome and Safari yes, Firefox no), so every caller must
-//      handle `isRecognitionSupported() === false` by falling back to typing.
+//   1. RECOGNITION — a thin wrapper over the browser's SpeechRecognition.
+//
+//      ⚠️ PRIVACY, CORRECTED IN v77. An earlier version of this comment claimed
+//      recognition "runs on-device" and that "nothing about the learner's voice
+//      leaves their machine". THAT IS NOT TRUE IN CHROME. Chrome's Web Speech
+//      API streams the microphone audio to Google's speech service and returns
+//      the transcript; it is not local. Safari may use on-device recognition or
+//      Apple's servers depending on the device and language.
+//
+//      This matters beyond accuracy: the claim was on its way into a privacy
+//      policy, where it would have been a false statement to users and to
+//      regulators. What the app can honestly say is that IT does not receive,
+//      store or transmit audio — the browser does, to its own vendor, under that
+//      vendor's policy. src/legal/policies.js says exactly that, and the
+//      microphone screens link to it.
+//
+//      Support is real but uneven (Chrome and Safari yes, Firefox no), so every
+//      caller must handle `isRecognitionSupported() === false` by falling back
+//      to typing.
 //
 //   2. JUDGEMENT — scoreAttempt(). Deliberately lenient, because the failure
 //      mode that kills a speaking feature is telling someone with a perfectly

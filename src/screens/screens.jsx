@@ -18,6 +18,10 @@ import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilesto
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 import { UNITS_PER_CHAPTER, computeUnlocks, isChapterExamAvailable, hasPassedChapter, chapterOfUnitIndex, chapterVocabIds } from "../data/chapters.js";
 import { hasSentencePatterns, getPatternForDrop, ladderHeight } from "../data/sentencePatterns.js";
+import { APP_MIN_AGE, AI_MIN_AGE, LAST_UPDATED, policiesIncomplete } from "../legal/policies.js";
+import { Legal } from "./Legal.jsx";
+import { aiAccepted, aiDeclined } from "../ui/AiDisclosure.jsx";
+import { downloadExport } from "../legal/exportData.js";
 
 // =============================================================================
 // ONBOARDING — language picker + daily goal
@@ -31,6 +35,18 @@ export function Onboarding({ onComplete }) {
   const [step, setStep] = useState(0);
   const [language, setLanguage] = useState(null);
   const [goal, setGoal] = useState(35);
+  // v77 — the two things we have to establish before anyone starts, and a
+  // reader for the policies so "I accept" isn't a claim about something the
+  // person had no way of seeing.
+  const [ageOk, setAgeOk] = useState(false);
+  const [terms, setTerms] = useState(false);
+  const [reading, setReading] = useState(null); // policy id, or null
+
+  // The router doesn't exist yet at onboarding, so the policy reader is shown
+  // inline. Better than a link that leaves the flow and loses the answers.
+  if (reading) {
+    return <Legal params={{ policy: reading }} onNavigate={() => setReading(null)} />;
+  }
 
   if (step === 0) {
     return (
@@ -54,7 +70,7 @@ export function Onboarding({ onComplete }) {
     return (
       <div className="home-wash">
         <Container>
-          <div className="eyebrow" style={{ marginTop: 24 }}>Step 1 of 2</div>
+          <div className="eyebrow" style={{ marginTop: 24 }}>Step 1 of 3</div>
           <h2 style={{ fontSize: 27, fontWeight: 600, marginTop: 6, marginBottom: 4 }}>Pick a language</h2>
           <p style={{ color: "var(--text-dim)", marginBottom: 22, fontSize: 14 }}>Start with one. Add more later.</p>
           <div className="stagger" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
@@ -109,6 +125,68 @@ export function Onboarding({ onComplete }) {
     );
   }
 
+  // Step 3 — the bit every consumer app has to have and most bury. Kept short,
+  // in plain words, and with the policies one tap away rather than a URL that
+  // opens somewhere else. Neither box is pre-ticked: a pre-ticked consent box is
+  // not consent, and that is settled law in the EU (Planet49).
+  if (step === 3) {
+    return (
+      <div className="home-wash">
+        <Container>
+          <div className="eyebrow" style={{ marginTop: 24 }}>Step 3 of 3</div>
+          <h2 style={{ fontSize: 27, fontWeight: 600, marginTop: 6, marginBottom: 4 }}>Before you start</h2>
+          <p style={{ color: "var(--text-dim)", marginBottom: 20, fontSize: 14, lineHeight: 1.6 }}>
+            Two quick things. Your progress is stored on this device only — there's
+            no account, we don't have a copy of it, and we never ask for your name
+            or email. The only feature that sends anything anywhere is the AI
+            conversation, and that one asks you separately, later.
+          </p>
+
+          {policiesIncomplete() && (
+            <div className="legal-warn" style={{ marginBottom: 16 }}>
+              <b>Development build.</b> The policies still have operator
+              placeholders in them. See <code>COMPLIANCE.md</code>.
+            </div>
+          )}
+
+          <label className="ai-check">
+            <input type="checkbox" checked={ageOk} onChange={(e) => setAgeOk(e.target.checked)} />
+            <span>I'm {APP_MIN_AGE} or older. <span style={{ color: "var(--text-mute)" }}>(The AI conversation features need {AI_MIN_AGE}+ and ask again.)</span></span>
+          </label>
+          <label className="ai-check">
+            <input type="checkbox" checked={terms} onChange={(e) => setTerms(e.target.checked)} />
+            <span>I've read and accept the terms and the privacy policy.</span>
+          </label>
+
+          <div className="chip-row" style={{ marginTop: 4, marginBottom: 18 }}>
+            <button className="chip" onClick={() => setReading("privacy")}>Read the privacy policy</button>
+            <button className="chip" onClick={() => setReading("terms")}>Read the terms</button>
+            <button className="chip" onClick={() => setReading("ai")}>About the AI</button>
+          </div>
+
+          <div style={{ paddingBottom: 24 }}>
+            <Button
+              style={{ opacity: ageOk && terms ? 1 : 0.4 }}
+              disabled={!ageOk || !terms}
+              onClick={() =>
+                onComplete({
+                  language,
+                  goal,
+                  consent: { ageConfirmed: APP_MIN_AGE, terms: true, at: Date.now(), policyVersion: LAST_UPDATED },
+                })
+              }
+            >
+              Start learning
+            </Button>
+            <p style={{ fontSize: 12, color: "var(--text-mute)", marginTop: 12, textAlign: "center" }}>
+              Under {APP_MIN_AGE}? This app isn't for you yet — please don't tick the box.
+            </p>
+          </div>
+        </Container>
+      </div>
+    );
+  }
+
   // Step 2 — daily goal
   const goals = [
     { xp: 20, label: "Casual", time: "1 lesson / few days" },
@@ -119,7 +197,7 @@ export function Onboarding({ onComplete }) {
   return (
     <div className="home-wash">
       <Container>
-        <div className="eyebrow" style={{ marginTop: 24 }}>Step 2 of 2</div>
+        <div className="eyebrow" style={{ marginTop: 24 }}>Step 2 of 3</div>
         <h2 style={{ fontSize: 27, fontWeight: 600, marginTop: 6, marginBottom: 4 }}>Daily goal</h2>
         <p style={{ color: "var(--text-dim)", marginBottom: 22, fontSize: 14 }}>You can change this anytime.</p>
         <div className="stagger">
@@ -156,7 +234,7 @@ export function Onboarding({ onComplete }) {
           })}
         </div>
         <div style={{ marginTop: 22, paddingBottom: 24 }}>
-          <Button onClick={() => onComplete({ language, goal })}>Start learning</Button>
+          <Button onClick={() => setStep(3)}>Continue</Button>
         </div>
       </Container>
     </div>
@@ -889,15 +967,11 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
           🎯 Test out (skip ahead if you already know it)
         </Button>
 
-        <Button
-          variant="secondary"
-          style={{ color: "var(--danger)", borderColor: "var(--danger)" }}
-          onClick={() => {
-            if (confirm("Reset all progress? This cannot be undone.")) onResetAll();
-          }}
-        >
-          Reset all progress
-        </Button>
+        {/* v77 — privacy, AI and the law, in the app rather than on a website
+            nobody visits. Grouped together because that's how people look for
+            them, and because a reviewer opening the app needs to find them
+            without a tour. */}
+        <PrivacyAndAi appState={appState} setAppState={setAppState} onNavigate={onNavigate} onResetAll={onResetAll} />
         <Card style={{ marginTop: 16, fontSize: 12, color: "var(--text-mute)", textAlign: "center" }}>
           <img src="/zaban-mark-transparent.png" alt="Zaban" style={{ width: 48, height: 48, objectFit: "contain", margin: "0 auto 8px", display: "block", opacity: 0.85 }} />
           <div style={{ fontWeight: 800, fontSize: 15, color: "var(--text-dim)", marginBottom: 2 }}>Zaban</div>
@@ -906,6 +980,132 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
         </Card>
       </Container>
     </div>
+  );
+}
+
+// =============================================================================
+// PRIVACY, AI AND YOUR DATA (v77)
+//
+// The three things a person is entitled to be able to do without asking anyone:
+// read what the app does, take their data with them, and destroy it. Plus the
+// one switch that turns the AI off after they've already said yes — consent you
+// can't withdraw isn't consent.
+// =============================================================================
+function PrivacyAndAi({ appState, setAppState, onNavigate, onResetAll }) {
+  const [exported, setExported] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const reports = appState?.aiReports || [];
+  const on = aiAccepted(appState);
+
+  async function doExport() {
+    setBusy(true);
+    try {
+      const n = await downloadExport();
+      setExported(n);
+    } catch {
+      setExported(-1);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <>
+      <h3 className="eyebrow" style={{ marginTop: 26, marginBottom: 10 }}>Privacy, AI and your data</h3>
+
+      <Card style={{ marginBottom: 12 }}>
+        <Row
+          label="AI conversation features"
+          sub={
+            on
+              ? "On. Your text and a short summary of your practice record go to Anthropic when you use them."
+              : aiDeclined(appState)
+              ? "Off. Everything else in the app works exactly as it does now."
+              : `Not set up yet. You'll be asked the first time you open a conversation. Needs ${AI_MIN_AGE}+.`
+          }
+          control={
+            <input
+              type="checkbox"
+              checked={on}
+              onChange={(e) =>
+                setAppState((s) => ({
+                  ...s,
+                  // Turning it ON here still requires the full gate, so this only
+                  // ever records a withdrawal. Consent has to be given where the
+                  // disclosure is, not from a switch with no text next to it.
+                  aiConsent: e.target.checked
+                    ? null
+                    : { accepted: false, at: Date.now(), version: 1 },
+                }))
+              }
+              style={{ width: 20, height: 20 }}
+              aria-label="AI conversation features"
+            />
+          }
+        />
+        {!on && (
+          <div style={{ fontSize: 12, color: "var(--text-mute)", marginTop: -8 }}>
+            To turn it back on, open Speak and start a conversation — the
+            disclosure comes with it.
+          </div>
+        )}
+      </Card>
+
+      <div className="chip-row" style={{ marginBottom: 14 }}>
+        <button className="chip" onClick={() => onNavigate?.("legal", { policy: "privacy" })}>Privacy policy</button>
+        <button className="chip" onClick={() => onNavigate?.("legal", { policy: "ai" })}>About the AI</button>
+        <button className="chip" onClick={() => onNavigate?.("legal", { policy: "terms" })}>Terms</button>
+      </div>
+
+      <Button variant="secondary" style={{ marginBottom: 12 }} disabled={busy} onClick={doExport}>
+        {busy ? "Building your file…" : "⬇ Export everything the app holds about you"}
+      </Button>
+      {exported !== null && (
+        <div style={{ fontSize: 12.5, color: exported < 0 ? "var(--danger)" : "var(--text-dim)", marginTop: -6, marginBottom: 12 }}>
+          {exported < 0
+            ? "Couldn't build the file. If you're in private browsing, storage may be blocked."
+            : `Saved — ${exported} record${exported === 1 ? "" : "s"}, as JSON. That's the whole of it; there's no copy anywhere else.`}
+        </div>
+      )}
+
+      {reports.length > 0 && (
+        <Card style={{ marginBottom: 12 }}>
+          <div style={{ fontWeight: 700, marginBottom: 4 }}>
+            AI replies you flagged ({reports.length})
+          </div>
+          <div style={{ fontSize: 12.5, color: "var(--text-dim)", marginBottom: 10 }}>
+            Held on this device — this app has no reporting server, and saying a
+            report had been filed when it hadn't would be worse than saying so.
+            They go out with your export.
+          </div>
+          {reports.slice(-5).reverse().map((r, i) => (
+            <div key={i} style={{ fontSize: 12, color: "var(--text-mute)", borderTop: "1px solid var(--border)", padding: "8px 0" }}>
+              <span style={{ opacity: 0.7 }}>{new Date(r.ts).toLocaleDateString()} · {r.context?.where || "conversation"} — </span>
+              {String(r.text || "").slice(0, 120)}
+            </div>
+          ))}
+          <button
+            className="quiet-link"
+            onClick={() => setAppState((s) => ({ ...s, aiReports: [] }))}
+          >
+            clear the list
+          </button>
+        </Card>
+      )}
+
+      <Button
+        variant="secondary"
+        style={{ color: "var(--danger)", borderColor: "var(--danger)" }}
+        onClick={() => {
+          if (confirm("Delete everything? Your progress, streak, review schedule and settings all go, permanently. There is no copy anywhere else, so this cannot be undone.")) onResetAll();
+        }}
+      >
+        Delete all my data
+      </Button>
+      <div style={{ fontSize: 12, color: "var(--text-mute)", marginTop: 6, marginBottom: 4 }}>
+        Erases everything on this device. Export first if you want to keep it.
+      </div>
+    </>
   );
 }
 

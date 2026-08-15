@@ -70,6 +70,9 @@ async function run(width, height, label) {
       showRomanization: true, sessionSize: 6, lessonsCompleted: { ar: 9 }, sessions: [],
       grammarSeen: {}, learningGoal: { ar: "travel" }, chaptersPassed: {},
       sentenceDropsDone: {}, lastCheckpointAt: {}, testedOut: {}, momentDone: {}, planVisited: {},
+      // v77: this pass is about the conversation itself, so consent is already
+      // given. The gate gets its own section below.
+      aiConsent: { accepted: true, at: 0, ageConfirmed: 16, version: 1 },
     }));
   });
   await page.reload();
@@ -586,6 +589,262 @@ async function runLessonSmoke() {
   await browser.close();
 }
 
+// ---------------------------------------------------------------------------
+// v77 — publishing: disclosure, consent, age gates, data rights.
+//
+// These are the assertions that stop a compliance regression shipping. Every one
+// of them corresponds to something a regulator or an app reviewer would look for,
+// and they're written against behaviour rather than against the copy, so
+// rewording a policy doesn't turn them red.
+// ---------------------------------------------------------------------------
+async function runOnboardingGate() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(String(e)));
+
+  // Anything reaching a Google font host is a privacy regression, so watch every
+  // request rather than trusting that index.html still says what it said.
+  const thirdParty = [];
+  page.on("request", (r) => {
+    const u = r.url();
+    if (!u.startsWith(BASE) && !u.startsWith("data:") && !u.startsWith("blob:")) thirdParty.push(u);
+  });
+
+  console.log("\n=== onboarding: age and terms ===\n");
+  await page.goto(BASE);
+  await page.evaluate(() => localStorage.clear());
+  await page.reload();
+  await page.waitForTimeout(900);
+
+  check("no third-party requests on first load", thirdParty.length === 0, thirdParty.slice(0, 3).join(" | "));
+
+  await page.locator("button", { hasText: "Get started" }).click();
+  await page.waitForTimeout(400);
+  await page.locator("button").filter({ hasText: "Urdu" }).first().click();
+  await page.locator("button", { hasText: "Continue" }).click();
+  await page.waitForTimeout(400);
+  await page.locator("button", { hasText: "Continue" }).click();
+  await page.waitForTimeout(400);
+
+  const boxes = page.locator(".ai-check input");
+  check("onboarding asks for age and terms before starting", (await boxes.count()) === 2, String(await boxes.count()));
+  check("neither consent box is pre-ticked",
+    !(await boxes.nth(0).isChecked()) && !(await boxes.nth(1).isChecked()));
+
+  const start = page.locator("button", { hasText: "Start learning" });
+  check("you cannot start without answering both", await start.isDisabled());
+  await boxes.nth(0).check();
+  check("one box is not enough", await start.isDisabled());
+
+  // The policies must be readable BEFORE accepting, not linked from a screen you
+  // reach afterwards — "I have read it" has to be capable of being true.
+  await page.locator(".chip", { hasText: "Read the privacy policy" }).click();
+  await page.waitForTimeout(400);
+  const privacy = await page.locator(".speak-body").innerText();
+  check("the privacy policy is readable during onboarding", /local storage/i.test(privacy));
+  check("it admits the browser sends microphone audio to its vendor",
+    /Google's speech service/i.test(privacy), privacy.slice(0, 160));
+  check("a dev build warns that the policies are unfinished",
+    (await page.locator(".legal-warn").count()) > 0);
+
+  await page.locator(".speak-close").click();
+  await page.waitForTimeout(400);
+  check("coming back from the policy keeps the answers already given", await boxes.nth(0).isChecked());
+
+  await boxes.nth(1).check();
+  check("both boxes enable the start button", await start.isEnabled());
+  await start.click();
+  await page.waitForTimeout(900);
+
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app") || "{}"));
+  check("what was agreed, and when, is recorded", saved.consent?.terms === true && saved.consent?.ageConfirmed === 13,
+    JSON.stringify(saved.consent));
+  check("agreeing to the app does NOT silently agree to the AI", !saved.aiConsent,
+    JSON.stringify(saved.aiConsent));
+  check("no crashes through onboarding", errors.length === 0, errors.slice(0, 2).join(" | "));
+  check("still no third-party requests after onboarding", thirdParty.length === 0, thirdParty.slice(0, 3).join(" | "));
+  await browser.close();
+}
+
+async function runAiGate() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(String(e)));
+
+  let coachCalls = 0;
+  await page.route("**/api/coach", async (route) => {
+    if (route.request().method() === "GET") {
+      return route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ configured: true, model: "m" }) });
+    }
+    coachCalls++;
+    return route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(COACH_REPLY) });
+  });
+  await page.route("**/api/scenario", (route) => route.fulfill({
+    status: 200, contentType: "application/json", body: JSON.stringify({ mission: null }),
+  }));
+
+  console.log("\n=== AI disclosure gate ===\n");
+  await page.goto(BASE);
+  await page.evaluate(() => localStorage.setItem("lingua:app", JSON.stringify({
+    onboarded: true, currentLanguage: "ar", tutorialSeen: true, dailyGoalXp: 35, totalXp: 0,
+    streak: 0, hearts: 5, heartsMax: 5, gems: 50, theme: "cream", showRomanization: true,
+    sessionSize: 6, lessonsCompleted: { ar: 4 }, sessions: [], grammarSeen: {}, learningGoal: {},
+    chaptersPassed: {}, sentenceDropsDone: {}, lastCheckpointAt: {}, testedOut: {},
+    momentDone: {}, planVisited: {}, consent: { terms: true, ageConfirmed: 13, at: 0 },
+  })));
+  await page.reload();
+  await page.waitForTimeout(1400);
+
+  await page.locator(".home-strip .strip-card").nth(1).click();
+  await page.waitForTimeout(700);
+
+  // The scenario builder is the OTHER door into the model — it sends the
+  // learner's own typed description off the device — so it has to be behind the
+  // same consent, not just the conversation itself.
+  await page.locator(".mission-card-custom").click();
+  await page.waitForTimeout(500);
+  check("describing your own scenario is gated too", await page.locator(".ai-gate").isVisible());
+  check("the scenario box never opened before consent",
+    (await page.locator(".scenario-input").count()) === 0);
+  await page.locator(".btn-quiet", { hasText: "No thanks" }).click();
+  await page.waitForTimeout(500);
+
+  await page.locator(".mission-list .mission-card").first().click();
+  await page.waitForTimeout(400);
+  await page.locator(".btn-hero").first().click(); // start the mission
+  await page.waitForTimeout(700);
+
+  check("the AI gate stands between the learner and the model", await page.locator(".ai-gate").isVisible());
+  check("nothing was sent before consent", coachCalls === 0, String(coachCalls));
+
+  const gateBoxes = page.locator(".ai-gate .ai-check input");
+  check("the gate asks both what it is and how old they are", (await gateBoxes.count()) === 2);
+  const go = page.locator(".ai-gate .btn-hero");
+  check("you cannot proceed without both", await go.isDisabled());
+
+  const gateText = await page.locator(".ai-gate").innerText();
+  check("the gate says it is an AI, not a person", /is an AI/i.test(gateText));
+  check("the gate says it gets things wrong", /wrong/i.test(gateText));
+  check("the gate says what leaves the device", /Anthropic/.test(gateText));
+  check("the gate says declining costs them nothing", /keep working|keep the rest/i.test(gateText));
+  check("the age asked for the AI is 16, not 13", /\b16 or older\b/.test(gateText), gateText.slice(0, 200));
+
+  // Declining must leave the app working, not strand them on the gate.
+  await page.locator(".btn-quiet", { hasText: "No thanks" }).click();
+  await page.waitForTimeout(600);
+  check("declining returns to the app rather than dead-ending",
+    (await page.locator(".ai-gate").count()) === 0);
+  check("still nothing sent after declining", coachCalls === 0, String(coachCalls));
+  const declined = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app") || "{}"));
+  check("the refusal is remembered", declined.aiConsent?.accepted === false);
+
+  // Now accept, and check the standing marker is actually on screen.
+  await page.locator(".mission-list .mission-card").first().click();
+  await page.waitForTimeout(400);
+  await page.locator(".btn-hero").first().click();
+  await page.waitForTimeout(600);
+  for (const i of [0, 1]) await page.locator(".ai-gate .ai-check input").nth(i).check();
+  await page.locator(".ai-gate .btn-hero").click();
+  await page.waitForTimeout(1200);
+
+  check("accepting opens the conversation", await page.locator(".coach-thread").isVisible());
+  check("a permanent AI marker sits above the conversation", await page.locator(".ai-strip").isVisible());
+  check("the marker names the character as an AI",
+    /AI/.test(await page.locator(".ai-strip").innerText()));
+  check("the model was called only after consent", coachCalls >= 1, String(coachCalls));
+
+  await page.waitForTimeout(900);
+  const reports = await page.locator(".ai-report").count();
+  check("every AI reply carries a report control", reports >= 1, String(reports));
+  await page.locator(".ai-report").first().click();
+  await page.waitForTimeout(400);
+  const afterReport = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app") || "{}"));
+  check("a report is actually stored", (afterReport.aiReports || []).length === 1,
+    JSON.stringify((afterReport.aiReports || []).length));
+  check("the app says honestly where the report went",
+    /Settings|export/i.test(await page.locator(".ai-report-done").innerText()));
+  check("no crashes through the gate", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await browser.close();
+}
+
+async function runDataRights() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 }, acceptDownloads: true });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(String(e)));
+
+  console.log("\n=== data rights ===\n");
+  await page.goto(BASE);
+  await page.evaluate(() => {
+    localStorage.setItem("lingua:app", JSON.stringify({
+      onboarded: true, currentLanguage: "ar", tutorialSeen: true, dailyGoalXp: 35, totalXp: 120,
+      streak: 2, hearts: 5, heartsMax: 5, gems: 50, theme: "cream", showRomanization: true,
+      sessionSize: 6, lessonsCompleted: { ar: 3 }, sessions: [], grammarSeen: {}, learningGoal: {},
+      chaptersPassed: {}, sentenceDropsDone: {}, lastCheckpointAt: {}, testedOut: {},
+      momentDone: {}, planVisited: {}, consent: { terms: true, ageConfirmed: 13, at: 0 },
+      aiConsent: { accepted: true, at: 0, ageConfirmed: 16, version: 1 },
+    }));
+    localStorage.setItem("lingua:progress:ar", JSON.stringify({ items: { ar_0001: { reps: 3 } } }));
+  });
+  await page.reload();
+  await page.waitForTimeout(1400);
+
+  await page.locator(".bottom-nav button", { hasText: "Profile" }).click();
+  await page.waitForTimeout(500);
+  await page.locator('button[aria-label="Settings"]').click();
+  await page.waitForTimeout(700);
+
+  const settingsText = await page.locator("body").innerText();
+  check("settings offers the policies", /Privacy policy/i.test(settingsText));
+  check("settings offers an export", /Export everything/i.test(settingsText));
+  check("delete says what it destroys", /Delete all my data/i.test(settingsText));
+
+  const [download] = await Promise.all([
+    page.waitForEvent("download", { timeout: 8000 }),
+    page.locator("button", { hasText: "Export everything" }).click(),
+  ]);
+  const path = await download.path();
+  const payload = JSON.parse(readFileSync(path, "utf8"));
+  check("the export is a real file", !!path);
+  check("the export contains every stored key, not a curated subset",
+    !!payload.data?.["app"] && !!payload.data?.["progress:ar"], Object.keys(payload.data || {}).join(","));
+  check("the export says where the data lived", /local storage/i.test(payload.note || ""));
+
+  // Turning the AI off must be possible after having said yes.
+  const aiToggle = page.locator('input[aria-label="AI conversation features"]');
+  check("the AI can be switched off after consent", await aiToggle.isChecked());
+  await aiToggle.uncheck();
+  await page.waitForTimeout(400);
+  const off = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app") || "{}"));
+  check("withdrawing consent is recorded", off.aiConsent?.accepted === false, JSON.stringify(off.aiConsent));
+
+  await page.locator(".chip", { hasText: "About the AI" }).click();
+  await page.waitForTimeout(500);
+  check("the AI disclosure is reachable from settings",
+    /not a person/i.test(await page.locator(".speak-body").innerText()));
+
+  // The microphone screen has to be honest at the point the decision is made,
+  // not only in a policy the person would have to go looking for.
+  await page.locator(".speak-close").click();
+  await page.waitForTimeout(400);
+  await page.locator(".bottom-nav button", { hasText: "Speak" }).click();
+  await page.waitForTimeout(900);
+  const micText = await page.locator(".intro-card").innerText();
+  check("the mic screen says the browser does the listening", /browser does the listening/i.test(micText));
+  check("the mic screen names where the audio goes", /Google/.test(micText), micText.slice(0, 200));
+  check("the mic screen offers typing as an equal alternative", /graded identically/i.test(micText));
+  check("no crashes on the data-rights path", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await browser.close();
+}
+
+await runOnboardingGate();
+await runAiGate();
+await runDataRights();
 await runLessonSmoke();
 await run(414, 896, "phone");
 await run(1440, 900, "desktop");

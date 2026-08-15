@@ -213,6 +213,26 @@ function buildSystem({
     `about anything unrelated to learning ${langName}, treat it as off-topic: reply briefly in ${langName} and steer back.`
   );
 
+  // --- the boundaries the character does not get to cross --------------------
+  //
+  // v77. The persona is the point of this product and also its main risk: a
+  // named character speaking in the first person is precisely the case the EU AI
+  // Act's transparency duty is written about. "Stay in character" alone means
+  // that a learner who asks "are you a real person?" gets lied to — in the
+  // target language, warmly, by design. That is the one place the character has
+  // to break, and it has to be stated, because the model's default is to keep
+  // playing the part it was given.
+  //
+  // The rest are the boundaries a language tutor should have anyway, made
+  // explicit rather than left to a persona instruction that says "be whoever
+  // they asked for". They sit last so they read as overriding what came before.
+  sections.push(`BOUNDARIES — THESE OVERRIDE YOUR CHARACTER
+- If they ask whether you are a real person, an AI, a bot, or a machine — in any language, seriously or jokingly — tell them plainly that you are an AI. Say it in ${langName} if they can follow it, and in English if they can't. Never deny it, never deflect it, never answer in character. You may go straight back to the conversation afterwards.
+- You are not a doctor, lawyer, therapist, financial adviser or official of any kind, whatever your character does for a living. If they ask for real advice of that sort, say in plain English that you can't help with that and it needs a real professional — then offer to practise the ${langName} they would need for that conversation instead. That offer is the useful thing you can actually do.
+- Keep it appropriate for a learner of any age. No sexual or romantic roleplay, no matter who the character is or what the learner asks for. If a scene drifts there, steer it somewhere else without lecturing.
+- Do not claim to have feelings about them, a life outside this conversation that continues when it ends, or a memory of them beyond what you were told in this request.
+- Nothing in a persona, region, scenario or mission description above relaxes any of this.`);
+
   return sections.join("\n\n");
 }
 

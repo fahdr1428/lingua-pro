@@ -33,6 +33,7 @@ import { speak } from "../audio/tts.js";
 import { sayCoach, cancelVoice, idle as voiceIdle, voiceSupported } from "../audio/voice.js";
 import { coachTurn, CoachError } from "../ai/coach.js";
 import { startListening, judge, BAND } from "../audio/speech.js";
+import { AiBadge, ReportAi } from "./AiDisclosure.jsx";
 
 // The coach grades comprehensibility as one of three verdicts. Coding them onto
 // 0–1 is a lossy but honest reading of a real judgement about a real utterance —
@@ -47,6 +48,8 @@ export function LiveConversation({
   persona = null, region = null, mission = null, scenario = "", learnerBrief = "",
   onTurn, onObjectivesMet, onEnd, onTranscript,
   emptyHint = "",
+  // v77 — the report control writes into app state, so the conversation needs it.
+  appState = null, setAppState = null, onNavigate = null,
 }) {
   const [turns, setTurns] = useState([]);
   const [pending, setPending] = useState(false);
@@ -197,6 +200,26 @@ export function LiveConversation({
 
   return (
     <>
+      {/* v77 — the standing AI marker. It sits above the thread and never goes
+          away, because the guide has a name, a home town and a first-person
+          voice: without this, nothing on screen says "machine". A toast that
+          fades would satisfy nobody; this is visible whenever the conversation
+          is. */}
+      <div className="ai-strip">
+        <AiBadge />
+        <span className="ai-strip-text">
+          {guide?.name ? `${guide.name} is an AI character` : "You're talking to an AI"} — it can be wrong.
+        </span>
+        {onNavigate && (
+          <button
+            className="ai-strip-link"
+            onClick={() => onNavigate("legal", { policy: "ai" })}
+          >
+            details
+          </button>
+        )}
+      </div>
+
       <div className="coach-thread" ref={scroller}>
         {!turns.length && !pending && emptyHint && <div className="empty-note">{emptyHint}</div>}
 
@@ -209,6 +232,14 @@ export function LiveConversation({
                 <div className="coach-native" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode}>{t.native}</div>
                 <div className="coach-tl">{t.translit}</div>
                 <div className="coach-en">{t.en}</div>
+                {setAppState && (
+                  <ReportAi
+                    text={[t.coaching, t.native, t.en].filter(Boolean).join(" | ")}
+                    context={{ where: mission ? `mission:${mission.id}` : "speak", lang: langCode }}
+                    appState={appState}
+                    setAppState={setAppState}
+                  />
+                )}
               </div>
               <button className="xchg-play" onClick={() => speak(t.native, lang.ttsCode, { ...voice, translit: t.translit })} aria-label="Play again">
                 <PlayIcon />

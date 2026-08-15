@@ -21,6 +21,7 @@ import {
   difficultyFor, DIFFICULTY_LABEL, profileMaturity,
 } from "../engine/profile.js";
 import { MISSIONS } from "../data/missions.js";
+import { AiNote } from "../ui/AiDisclosure.jsx";
 
 export function Fluency({ pack, onNavigate, profile, mutateProfile }) {
   const lang = LANGUAGES[pack.code];
@@ -109,6 +110,16 @@ export function Fluency({ pack, onNavigate, profile, mutateProfile }) {
             <li><b>{f.evidence.distinctWords}</b> distinct words produced out loud</li>
             <li><b>{f.evidence.spoken}</b> attempts scored against a target phrase</li>
           </ul>
+          {/* v77 — some of what's counted here was graded by the model, not by
+              string comparison against a known target. Saying which is which
+              stops the score reading as more objective than it is. */}
+          {f.evidence.turns > f.evidence.spoken && (
+            <AiNote>
+              Conversation turns were graded by the AI, so those parts of this
+              score carry its judgement — and its mistakes. The target-phrase
+              attempts are scored against the written answer instead.
+            </AiNote>
+          )}
           {f.provisional && f.overall !== null && (
             <div className="evidence-note">
               This is still an early reading. It'll move a lot per session until
