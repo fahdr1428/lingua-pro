@@ -14,6 +14,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { REGIONS } from "../src/data/personas.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const LANG_DIR = path.resolve(__dirname, "..", "src", "data", "languages");
@@ -71,6 +72,27 @@ function checkLanguage(code) {
       if (!ex.native) errors.push(`${at}: example missing native text`);
       if (!ex.translation) warnings.push(`${at}: example missing translation`);
     }
+
+    // v76 DIALECT FORMS. A wrong region id fails silently in the UI — the form
+    // simply never shows — so it's checked here where it's loud.
+    if (w.dialects) {
+      const valid = new Set((REGIONS[code] || []).map((r) => r.id));
+      for (const [regionId, form] of Object.entries(w.dialects)) {
+        if (!valid.has(regionId)) {
+          errors.push(`${at}: dialect "${regionId}" is not a variety of ${code} (have: ${[...valid].join(", ") || "none"})`);
+        }
+        if (!form?.lemma) errors.push(`${at}: dialect ${regionId} has no lemma`);
+        if (!form?.translit) warnings.push(`${at}: dialect ${regionId} has no transliteration`);
+        // A "dialect form" identical to the standard one teaches nothing and
+        // makes the drill ask a question with two identical answers.
+        if (form?.lemma && form.lemma === w.lemma) {
+          errors.push(`${at}: dialect ${regionId} is identical to the standard form — drop it rather than implying a difference`);
+        }
+        if (script && form?.lemma && !script.re.test(form.lemma)) {
+          errors.push(`${at}: dialect ${regionId} ("${form.lemma}") is not in ${script.name}`);
+        }
+      }
+    }
   }
 
   // A unit with too few words produces thin, repetitive lessons.
@@ -80,7 +102,8 @@ function checkLanguage(code) {
     if (n < 4) warnings.push(`unit ${u} has only ${n} word${n === 1 ? "" : "s"} — lessons will be thin`);
   }
 
-  return { code, count: (d.vocab || []).length, errors, warnings };
+  const dialectWords = (d.vocab || []).filter((w) => w.dialects && Object.keys(w.dialects).length).length;
+  return { code, count: (d.vocab || []).length, dialectWords, errors, warnings };
 }
 
 const only = process.argv.slice(2).filter((a) => !a.startsWith("--"));
@@ -97,6 +120,7 @@ for (const code of codes) {
   totalWords += r.count;
   const mark = r.errors.length ? "x" : r.warnings.length ? "!" : "ok";
   console.log(`  [${mark}] ${code}  ${String(r.count).padStart(4)} words` +
+    (r.dialectWords ? `  ${r.dialectWords} with dialects` : "") +
     (r.errors.length ? `  ${r.errors.length} error(s)` : "") +
     (r.warnings.length ? `  ${r.warnings.length} warning(s)` : ""));
   r.errors.slice(0, 10).forEach((e) => console.log(`        x ${e}`));

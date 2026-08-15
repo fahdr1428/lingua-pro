@@ -52,13 +52,28 @@ const NUM_DISTRACTORS = 3;
  * @param {string} langCode  required for conjugation lookup (optional; if absent, conjugation skipped)
  * @param {Object} conjugations  the language's CONJUGATIONS entry (optional)
  */
-export function generateLesson(queue, pool, progress = {}, langCode = null, conjugations = null, tenses = null, examMode = false, chapterExam = false) {
+/**
+ * v76 — EXERCISE PREFERENCES.
+ *
+ * Some exercise types are a wall for some people rather than a challenge:
+ * listening questions on a device with no voice for the language, typing on a
+ * phone in a script you can't type, speaking on a train. Before this, the only
+ * options were to endure them or stop using the app.
+ *
+ * `disabled` is a Set of EXERCISE values the learner has switched off. It is
+ * applied as a FILTER on what gets built, never as a hard requirement — if
+ * turning everything off would leave a word untestable, it still gets a plain
+ * pick-the-meaning question, because an empty lesson is worse than an
+ * unwelcome one.
+ */
+export function generateLesson(queue, pool, progress = {}, langCode = null, conjugations = null, tenses = null, examMode = false, chapterExam = false, disabled = null) {
   // A default only applies when the argument is undefined, so an explicit null
   // — which is what an in-flight storage read hands us — sailed straight through
   // and threw on the first progress[id] lookup.
   if (!progress || typeof progress !== "object") progress = {};
   if (!Array.isArray(queue)) queue = [];
   if (!Array.isArray(pool)) pool = [];
+  DISABLED = disabled instanceof Set ? disabled : (Array.isArray(disabled) ? new Set(disabled) : null);
   const exercises = [];
 
   // v44 CHAPTER EXAM — a gated, 3-round exam (easy → medium → hard). Each word
@@ -256,7 +271,7 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
     if (learnedWords.length >= 5) {
       // Alternate between the two formats based on a coin flip
       if (Math.random() < 0.5) {
-        const mp = buildMatchPairs(shuffle(learnedWords).slice(0, 4));
+        const mp = allowed(EXERCISE.MATCH_PAIRS) ? buildMatchPairs(shuffle(learnedWords).slice(0, 4)) : null;
         if (mp) varietyExercises.push(mp);
       } else {
         // odd-one-out needs a seed item with a category that has >=3 members
@@ -266,7 +281,7 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
           return sameCat.length >= 3 && otherCat.length >= 1;
         });
         if (seed) {
-          const oo = buildOddOneOut(seed, learnedWords);
+          const oo = allowed(EXERCISE.ODD_ONE_OUT) ? buildOddOneOut(seed, learnedWords) : null;
           if (oo) varietyExercises.push(oo);
         }
       }
@@ -345,7 +360,9 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
   // seconds ago tests courage, not memory. Gated on reps >= 1 for the same
   // reason. One per lesson keeps it a moment rather than a gauntlet, and means a
   // learner with no microphone loses very little (it falls back to typing).
-  const speakable = queue.filter((item) => (progress[item.id]?.reps || 0) >= 1 && item.lemma);
+  const speakable = allowed(EXERCISE.SPEAK_PROMPT)
+    ? queue.filter((item) => (progress[item.id]?.reps || 0) >= 1 && item.lemma)
+    : [];
   if (speakable.length) {
     const pick = speakable[Math.floor(Math.random() * speakable.length)];
     exercises.push({
@@ -379,7 +396,22 @@ function buildExercise(item, pool, card, _depth = 0, progress = {}) {
 // v32: explicit-type variant — same renderer, takes the type as a parameter
 // instead of choosing it. Used by buildGraduatedSet to generate multiple
 // exercises of EXPLICIT difficulty levels for one word in a single lesson.
+// Set for the current lesson, read by buildExerciseOfType. Module-scoped rather
+// than threaded through nine call sites; generateLesson sets it on entry.
+let DISABLED = null;
+
+/** Is this exercise type available to build right now? */
+function allowed(type) {
+  return !DISABLED || !DISABLED.has(type);
+}
+
 function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) {
+  // A disabled type falls back to the simplest always-available question rather
+  // than producing nothing.
+  const UNDISABLEABLE = [EXERCISE.PICK_MEANING, EXERCISE.PICK_WORD, EXERCISE.INTRODUCE, EXERCISE.INTRODUCE_BATCH];
+  if (!allowed(type) && !UNDISABLEABLE.includes(type)) {
+    type = EXERCISE.PICK_WORD;
+  }
   // Options are labelled by translation for meaning-picking exercises and by
   // lemma for word-picking ones, so the two sets are deduped separately —
   // "tomorrow" appearing twice and "غدا"/"بكرة" appearing twice are different

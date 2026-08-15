@@ -289,7 +289,7 @@
    "translation": "goodbye (formal)",
    "category": "Greetings",
    "difficulty": 2,
-   "frequencyRank": 6,
+   "frequencyRank": 109,
    "examples": [
     {
      "native": "Auf Wiedersehen und danke.",
@@ -306,7 +306,7 @@
    "translation": "please, you're welcome",
    "category": "Greetings",
    "difficulty": 1,
-   "frequencyRank": 7,
+   "frequencyRank": 6,
    "examples": [
     {
      "native": "Einen Kaffee, bitte.",
@@ -323,7 +323,7 @@
    "translation": "thank you",
    "category": "Greetings",
    "difficulty": 1,
-   "frequencyRank": 8,
+   "frequencyRank": 7,
    "examples": [
     {
      "native": "Danke schön!",
@@ -340,7 +340,7 @@
    "translation": "excuse me, sorry",
    "category": "Greetings",
    "difficulty": 2,
-   "frequencyRank": 9,
+   "frequencyRank": 110,
    "examples": [
     {
      "native": "Entschuldigung, wo ist der Bahnhof?",
@@ -357,7 +357,7 @@
    "translation": "yes",
    "category": "Greetings",
    "difficulty": 1,
-   "frequencyRank": 10,
+   "frequencyRank": 8,
    "examples": [
     {
      "native": "Ja, gerne.",
@@ -374,7 +374,7 @@
    "translation": "no",
    "category": "Greetings",
    "difficulty": 1,
-   "frequencyRank": 11,
+   "frequencyRank": 9,
    "examples": [
     {
      "native": "Nein, danke.",
@@ -391,7 +391,7 @@
    "translation": "hi/bye (Bavaria & Austria)",
    "category": "Greetings",
    "difficulty": 2,
-   "frequencyRank": 12,
+   "frequencyRank": 111,
    "examples": [
     {
      "native": "Servus, alles gut?",
@@ -408,7 +408,7 @@
    "translation": "I",
    "category": "People",
    "difficulty": 1,
-   "frequencyRank": 13,
+   "frequencyRank": 10,
    "examples": [
     {
      "native": "Ich bin müde.",
@@ -425,7 +425,7 @@
    "translation": "you (informal)",
    "category": "People",
    "difficulty": 1,
-   "frequencyRank": 14,
+   "frequencyRank": 11,
    "examples": [
     {
      "native": "Woher kommst du?",
@@ -442,7 +442,7 @@
    "translation": "you (formal)",
    "category": "People",
    "difficulty": 2,
-   "frequencyRank": 15,
+   "frequencyRank": 112,
    "examples": [
     {
      "native": "Wie heißen Sie?",
@@ -459,7 +459,7 @@
    "translation": "to be called",
    "category": "Verbs",
    "difficulty": 2,
-   "frequencyRank": 16,
+   "frequencyRank": 113,
    "examples": [
     {
      "native": "Ich heiße Anna.",
@@ -476,7 +476,7 @@
    "translation": "to come",
    "category": "Verbs",
    "difficulty": 1,
-   "frequencyRank": 17,
+   "frequencyRank": 12,
    "examples": [
     {
      "native": "Ich komme aus England.",
@@ -493,7 +493,7 @@
    "translation": "to live, to reside",
    "category": "Verbs",
    "difficulty": 2,
-   "frequencyRank": 18,
+   "frequencyRank": 114,
    "examples": [
     {
      "native": "Ich wohne in Berlin.",
@@ -510,7 +510,7 @@
    "translation": "good, well",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 19,
+   "frequencyRank": 13,
    "examples": [
     {
      "native": "Mir geht es gut.",
@@ -527,7 +527,7 @@
    "translation": "bad",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 20,
+   "frequencyRank": 115,
    "examples": [
     {
      "native": "Das Wetter ist schlecht.",
@@ -544,7 +544,7 @@
    "translation": "tired",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 21,
+   "frequencyRank": 116,
    "examples": [
     {
      "native": "Ich bin sehr müde.",
@@ -561,7 +561,7 @@
    "translation": "name",
    "category": "People",
    "difficulty": 1,
-   "frequencyRank": 22,
+   "frequencyRank": 14,
    "examples": [
     {
      "native": "Mein Name ist Tom.",
@@ -578,7 +578,7 @@
    "translation": "friend",
    "category": "People",
    "difficulty": 2,
-   "frequencyRank": 23,
+   "frequencyRank": 117,
    "examples": [
     {
      "native": "Er ist mein Freund.",
@@ -595,7 +595,7 @@
    "translation": "very",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 24,
+   "frequencyRank": 15,
    "examples": [
     {
      "native": "Sehr gut, danke.",
@@ -612,7 +612,7 @@
    "translation": "family",
    "category": "Family",
    "difficulty": 1,
-   "frequencyRank": 25,
+   "frequencyRank": 16,
    "examples": [
     {
      "native": "Meine Familie wohnt in Köln.",
@@ -629,7 +629,7 @@
    "translation": "mother",
    "category": "Family",
    "difficulty": 1,
-   "frequencyRank": 26,
+   "frequencyRank": 17,
    "examples": [
     {
      "native": "Meine Mutter kocht gern.",
@@ -646,7 +646,7 @@
    "translation": "father",
    "category": "Family",
    "difficulty": 1,
-   "frequencyRank": 27,
+   "frequencyRank": 18,
    "examples": [
     {
      "native": "Mein Vater arbeitet viel.",
@@ -663,7 +663,7 @@
    "translation": "brother",
    "category": "Family",
    "difficulty": 1,
-   "frequencyRank": 28,
+   "frequencyRank": 19,
    "examples": [
     {
      "native": "Ich habe einen Bruder.",
@@ -680,7 +680,7 @@
    "translation": "sister",
    "category": "Family",
    "difficulty": 1,
-   "frequencyRank": 29,
+   "frequencyRank": 20,
    "examples": [
     {
      "native": "Meine Schwester ist Ärztin.",
@@ -697,7 +697,7 @@
    "translation": "child",
    "category": "Family",
    "difficulty": 1,
-   "frequencyRank": 30,
+   "frequencyRank": 21,
    "examples": [
     {
      "native": "Das Kind schläft.",
@@ -714,7 +714,7 @@
    "translation": "son",
    "category": "Family",
    "difficulty": 2,
-   "frequencyRank": 31,
+   "frequencyRank": 118,
    "examples": [
     {
      "native": "Ihr Sohn ist sieben.",
@@ -731,7 +731,7 @@
    "translation": "daughter",
    "category": "Family",
    "difficulty": 2,
-   "frequencyRank": 32,
+   "frequencyRank": 119,
    "examples": [
     {
      "native": "Meine Tochter lernt Deutsch.",
@@ -748,7 +748,7 @@
    "translation": "parents",
    "category": "Family",
    "difficulty": 2,
-   "frequencyRank": 33,
+   "frequencyRank": 120,
    "examples": [
     {
      "native": "Meine Eltern kommen morgen.",
@@ -765,7 +765,7 @@
    "translation": "grandma",
    "category": "Family",
    "difficulty": 1,
-   "frequencyRank": 34,
+   "frequencyRank": 22,
    "examples": [
     {
      "native": "Oma macht den besten Kuchen.",
@@ -782,7 +782,7 @@
    "translation": "grandpa",
    "category": "Family",
    "difficulty": 1,
-   "frequencyRank": 35,
+   "frequencyRank": 23,
    "examples": [
     {
      "native": "Opa erzählt gern Geschichten.",
@@ -799,7 +799,7 @@
    "translation": "man, husband",
    "category": "Family",
    "difficulty": 1,
-   "frequencyRank": 36,
+   "frequencyRank": 24,
    "examples": [
     {
      "native": "Ihr Mann heißt Peter.",
@@ -816,7 +816,7 @@
    "translation": "woman, wife",
    "category": "Family",
    "difficulty": 1,
-   "frequencyRank": 37,
+   "frequencyRank": 25,
    "examples": [
     {
      "native": "Die Frau dort ist Lehrerin.",
@@ -833,7 +833,7 @@
    "translation": "one",
    "category": "Numbers",
    "difficulty": 1,
-   "frequencyRank": 38,
+   "frequencyRank": 26,
    "examples": [
     {
      "native": "Nur eins, bitte.",
@@ -850,7 +850,7 @@
    "translation": "two",
    "category": "Numbers",
    "difficulty": 1,
-   "frequencyRank": 39,
+   "frequencyRank": 27,
    "examples": [
     {
      "native": "Zwei Bier, bitte.",
@@ -867,7 +867,7 @@
    "translation": "three",
    "category": "Numbers",
    "difficulty": 1,
-   "frequencyRank": 40,
+   "frequencyRank": 28,
    "examples": [
     {
      "native": "Drei Tage in München.",
@@ -884,7 +884,7 @@
    "translation": "four",
    "category": "Numbers",
    "difficulty": 1,
-   "frequencyRank": 41,
+   "frequencyRank": 29,
    "examples": [
     {
      "native": "Ein Tisch für vier.",
@@ -901,7 +901,7 @@
    "translation": "five",
    "category": "Numbers",
    "difficulty": 1,
-   "frequencyRank": 42,
+   "frequencyRank": 30,
    "examples": [
     {
      "native": "Fünf Euro, bitte.",
@@ -918,7 +918,7 @@
    "translation": "six",
    "category": "Numbers",
    "difficulty": 1,
-   "frequencyRank": 43,
+   "frequencyRank": 31,
    "examples": [
     {
      "native": "Um sechs Uhr.",
@@ -935,7 +935,7 @@
    "translation": "seven",
    "category": "Numbers",
    "difficulty": 1,
-   "frequencyRank": 44,
+   "frequencyRank": 32,
    "examples": [
     {
      "native": "Sieben Minuten.",
@@ -952,7 +952,7 @@
    "translation": "eight",
    "category": "Numbers",
    "difficulty": 1,
-   "frequencyRank": 45,
+   "frequencyRank": 33,
    "examples": [
     {
      "native": "Acht Personen.",
@@ -969,7 +969,7 @@
    "translation": "nine",
    "category": "Numbers",
    "difficulty": 1,
-   "frequencyRank": 46,
+   "frequencyRank": 34,
    "examples": [
     {
      "native": "Neun Uhr abends.",
@@ -986,7 +986,7 @@
    "translation": "ten",
    "category": "Numbers",
    "difficulty": 1,
-   "frequencyRank": 47,
+   "frequencyRank": 35,
    "examples": [
     {
      "native": "Zehn Kilometer.",
@@ -1003,7 +1003,7 @@
    "translation": "twenty",
    "category": "Numbers",
    "difficulty": 2,
-   "frequencyRank": 48,
+   "frequencyRank": 121,
    "examples": [
     {
      "native": "Zwanzig Euro.",
@@ -1020,7 +1020,7 @@
    "translation": "hundred",
    "category": "Numbers",
    "difficulty": 2,
-   "frequencyRank": 49,
+   "frequencyRank": 122,
    "examples": [
     {
      "native": "Hundert Prozent.",
@@ -1037,7 +1037,7 @@
    "translation": "water",
    "category": "Food",
    "difficulty": 1,
-   "frequencyRank": 50,
+   "frequencyRank": 36,
    "examples": [
     {
      "native": "Ein Glas Wasser, bitte.",
@@ -1054,7 +1054,7 @@
    "translation": "coffee",
    "category": "Food",
    "difficulty": 1,
-   "frequencyRank": 51,
+   "frequencyRank": 37,
    "examples": [
     {
      "native": "Kaffee mit Milch.",
@@ -1071,7 +1071,7 @@
    "translation": "beer",
    "category": "Food",
    "difficulty": 1,
-   "frequencyRank": 52,
+   "frequencyRank": 38,
    "examples": [
     {
      "native": "Ein großes Bier, bitte.",
@@ -1088,7 +1088,7 @@
    "translation": "bread",
    "category": "Food",
    "difficulty": 1,
-   "frequencyRank": 53,
+   "frequencyRank": 39,
    "examples": [
     {
      "native": "Frisches Brot vom Bäcker.",
@@ -1105,7 +1105,7 @@
    "translation": "cheese",
    "category": "Food",
    "difficulty": 1,
-   "frequencyRank": 54,
+   "frequencyRank": 40,
    "examples": [
     {
      "native": "Brot mit Käse.",
@@ -1122,7 +1122,7 @@
    "translation": "apple",
    "category": "Food",
    "difficulty": 1,
-   "frequencyRank": 55,
+   "frequencyRank": 41,
    "examples": [
     {
      "native": "Ein Apfel am Tag.",
@@ -1139,11 +1139,15 @@
    "translation": "to eat",
    "category": "Verbs",
    "difficulty": 1,
-   "frequencyRank": 56,
+   "frequencyRank": 42,
    "examples": [
     {
      "native": "Wir essen um acht.",
      "translation": "We eat at eight."
+    },
+    {
+     "native": "Das Essen ist gut",
+     "translation": "The food is good"
     }
    ]
   },
@@ -1156,7 +1160,7 @@
    "translation": "to drink",
    "category": "Verbs",
    "difficulty": 1,
-   "frequencyRank": 57,
+   "frequencyRank": 43,
    "examples": [
     {
      "native": "Was möchten Sie trinken?",
@@ -1173,7 +1177,7 @@
    "translation": "bill, check",
    "category": "Food",
    "difficulty": 2,
-   "frequencyRank": 58,
+   "frequencyRank": 123,
    "examples": [
     {
      "native": "Die Rechnung, bitte.",
@@ -1190,7 +1194,7 @@
    "translation": "tasty",
    "category": "Food",
    "difficulty": 1,
-   "frequencyRank": 59,
+   "frequencyRank": 44,
    "examples": [
     {
      "native": "Das war sehr lecker.",
@@ -1207,7 +1211,7 @@
    "translation": "breakfast",
    "category": "Food",
    "difficulty": 2,
-   "frequencyRank": 60,
+   "frequencyRank": 124,
    "examples": [
     {
      "native": "Frühstück gibt es ab sieben.",
@@ -1224,7 +1228,7 @@
    "translation": "cake",
    "category": "Food",
    "difficulty": 1,
-   "frequencyRank": 61,
+   "frequencyRank": 45,
    "examples": [
     {
      "native": "Kaffee und Kuchen.",
@@ -1241,7 +1245,7 @@
    "translation": "to be",
    "category": "Verbs",
    "difficulty": 1,
-   "frequencyRank": 62,
+   "frequencyRank": 46,
    "examples": [
     {
      "native": "Ich bin hier.",
@@ -1258,7 +1262,7 @@
    "translation": "to have",
    "category": "Verbs",
    "difficulty": 1,
-   "frequencyRank": 63,
+   "frequencyRank": 47,
    "examples": [
     {
      "native": "Ich habe Zeit.",
@@ -1275,7 +1279,7 @@
    "translation": "to go, to walk",
    "category": "Verbs",
    "difficulty": 1,
-   "frequencyRank": 64,
+   "frequencyRank": 48,
    "examples": [
     {
      "native": "Wir gehen nach Hause.",
@@ -1292,7 +1296,7 @@
    "translation": "to do, to make",
    "category": "Verbs",
    "difficulty": 1,
-   "frequencyRank": 65,
+   "frequencyRank": 49,
    "examples": [
     {
      "native": "Was machst du?",
@@ -1309,7 +1313,7 @@
    "translation": "to see",
    "category": "Verbs",
    "difficulty": 1,
-   "frequencyRank": 66,
+   "frequencyRank": 50,
    "examples": [
     {
      "native": "Ich sehe nichts.",
@@ -1326,7 +1330,7 @@
    "translation": "to speak",
    "category": "Verbs",
    "difficulty": 2,
-   "frequencyRank": 67,
+   "frequencyRank": 125,
    "examples": [
     {
      "native": "Sprechen Sie Englisch?",
@@ -1343,7 +1347,7 @@
    "translation": "to understand",
    "category": "Verbs",
    "difficulty": 2,
-   "frequencyRank": 68,
+   "frequencyRank": 126,
    "examples": [
     {
      "native": "Ich verstehe nicht.",
@@ -1360,11 +1364,15 @@
    "translation": "to know (a fact)",
    "category": "Verbs",
    "difficulty": 2,
-   "frequencyRank": 69,
+   "frequencyRank": 127,
    "examples": [
     {
      "native": "Ich weiß es nicht.",
      "translation": "I don't know."
+    },
+    {
+     "native": "Ich weiss es nicht",
+     "translation": "I don't know"
     }
    ]
   },
@@ -1377,7 +1385,7 @@
    "translation": "to work",
    "category": "Verbs",
    "difficulty": 2,
-   "frequencyRank": 70,
+   "frequencyRank": 128,
    "examples": [
     {
      "native": "Ich arbeite von zu Hause.",
@@ -1394,7 +1402,7 @@
    "translation": "to buy",
    "category": "Verbs",
    "difficulty": 1,
-   "frequencyRank": 71,
+   "frequencyRank": 51,
    "examples": [
     {
      "native": "Ich kaufe Brot.",
@@ -1411,7 +1419,7 @@
    "translation": "to help",
    "category": "Verbs",
    "difficulty": 2,
-   "frequencyRank": 72,
+   "frequencyRank": 129,
    "examples": [
     {
      "native": "Können Sie mir helfen?",
@@ -1428,7 +1436,7 @@
    "translation": "would like",
    "category": "Verbs",
    "difficulty": 2,
-   "frequencyRank": 73,
+   "frequencyRank": 130,
    "examples": [
     {
      "native": "Ich möchte einen Tee.",
@@ -1445,7 +1453,7 @@
    "translation": "house",
    "category": "Places",
    "difficulty": 1,
-   "frequencyRank": 74,
+   "frequencyRank": 53,
    "examples": [
     {
      "native": "Das Haus ist alt.",
@@ -1462,7 +1470,7 @@
    "translation": "city, town",
    "category": "Places",
    "difficulty": 1,
-   "frequencyRank": 75,
+   "frequencyRank": 54,
    "examples": [
     {
      "native": "Die Stadt ist schön.",
@@ -1479,7 +1487,7 @@
    "translation": "train station",
    "category": "Places",
    "difficulty": 2,
-   "frequencyRank": 76,
+   "frequencyRank": 137,
    "examples": [
     {
      "native": "Der Bahnhof ist dort drüben.",
@@ -1496,11 +1504,15 @@
    "translation": "street",
    "category": "Places",
    "difficulty": 1,
-   "frequencyRank": 77,
+   "frequencyRank": 55,
    "examples": [
     {
      "native": "Diese Straße ist lang.",
      "translation": "This street is long."
+    },
+    {
+     "native": "Die Straße ist gesperrt",
+     "translation": "The road is closed"
     }
    ]
   },
@@ -1513,7 +1525,7 @@
    "translation": "shop",
    "category": "Places",
    "difficulty": 2,
-   "frequencyRank": 78,
+   "frequencyRank": 138,
    "examples": [
     {
      "native": "Das Geschäft macht um zehn auf.",
@@ -1530,7 +1542,7 @@
    "translation": "hospital",
    "category": "Places",
    "difficulty": 2,
-   "frequencyRank": 79,
+   "frequencyRank": 139,
    "examples": [
     {
      "native": "Wo ist das Krankenhaus?",
@@ -1547,7 +1559,7 @@
    "translation": "hotel",
    "category": "Places",
    "difficulty": 1,
-   "frequencyRank": 80,
+   "frequencyRank": 56,
    "examples": [
     {
      "native": "Das Hotel liegt zentral.",
@@ -1564,7 +1576,7 @@
    "translation": "left",
    "category": "Places",
    "difficulty": 1,
-   "frequencyRank": 81,
+   "frequencyRank": 57,
    "examples": [
     {
      "native": "Dann links.",
@@ -1581,7 +1593,7 @@
    "translation": "right",
    "category": "Places",
    "difficulty": 1,
-   "frequencyRank": 82,
+   "frequencyRank": 58,
    "examples": [
     {
      "native": "Die zweite Straße rechts.",
@@ -1598,7 +1610,7 @@
    "translation": "straight ahead",
    "category": "Places",
    "difficulty": 2,
-   "frequencyRank": 83,
+   "frequencyRank": 140,
    "examples": [
     {
      "native": "Immer geradeaus.",
@@ -1615,7 +1627,7 @@
    "translation": "here",
    "category": "Places",
    "difficulty": 1,
-   "frequencyRank": 84,
+   "frequencyRank": 59,
    "examples": [
     {
      "native": "Ich bin hier.",
@@ -1632,7 +1644,7 @@
    "translation": "there",
    "category": "Places",
    "difficulty": 1,
-   "frequencyRank": 85,
+   "frequencyRank": 60,
    "examples": [
     {
      "native": "Dort ist die Apotheke.",
@@ -1649,7 +1661,7 @@
    "translation": "today",
    "category": "Time",
    "difficulty": 1,
-   "frequencyRank": 86,
+   "frequencyRank": 64,
    "examples": [
     {
      "native": "Heute ist Montag.",
@@ -1666,7 +1678,7 @@
    "translation": "tomorrow",
    "category": "Time",
    "difficulty": 1,
-   "frequencyRank": 87,
+   "frequencyRank": 65,
    "examples": [
     {
      "native": "Bis morgen!",
@@ -1683,7 +1695,7 @@
    "translation": "yesterday",
    "category": "Time",
    "difficulty": 1,
-   "frequencyRank": 88,
+   "frequencyRank": 66,
    "examples": [
     {
      "native": "Gestern war es kalt.",
@@ -1700,7 +1712,7 @@
    "translation": "now",
    "category": "Time",
    "difficulty": 1,
-   "frequencyRank": 89,
+   "frequencyRank": 67,
    "examples": [
     {
      "native": "Nicht jetzt.",
@@ -1717,7 +1729,7 @@
    "translation": "later",
    "category": "Time",
    "difficulty": 2,
-   "frequencyRank": 90,
+   "frequencyRank": 141,
    "examples": [
     {
      "native": "Bis später!",
@@ -1734,7 +1746,7 @@
    "translation": "o'clock, clock",
    "category": "Time",
    "difficulty": 1,
-   "frequencyRank": 91,
+   "frequencyRank": 68,
    "examples": [
     {
      "native": "Es ist drei Uhr.",
@@ -1751,7 +1763,7 @@
    "translation": "week",
    "category": "Time",
    "difficulty": 1,
-   "frequencyRank": 92,
+   "frequencyRank": 69,
    "examples": [
     {
      "native": "Nächste Woche.",
@@ -1768,7 +1780,7 @@
    "translation": "month",
    "category": "Time",
    "difficulty": 2,
-   "frequencyRank": 93,
+   "frequencyRank": 142,
    "examples": [
     {
      "native": "Diesen Monat.",
@@ -1785,7 +1797,7 @@
    "translation": "year",
    "category": "Time",
    "difficulty": 1,
-   "frequencyRank": 94,
+   "frequencyRank": 70,
    "examples": [
     {
      "native": "Ein gutes neues Jahr!",
@@ -1802,7 +1814,7 @@
    "translation": "Monday",
    "category": "Time",
    "difficulty": 1,
-   "frequencyRank": 95,
+   "frequencyRank": 71,
    "examples": [
     {
      "native": "Am Montag arbeite ich.",
@@ -1819,7 +1831,7 @@
    "translation": "weekend",
    "category": "Time",
    "difficulty": 2,
-   "frequencyRank": 96,
+   "frequencyRank": 143,
    "examples": [
     {
      "native": "Schönes Wochenende!",
@@ -1836,7 +1848,7 @@
    "translation": "always",
    "category": "Time",
    "difficulty": 1,
-   "frequencyRank": 97,
+   "frequencyRank": 72,
    "examples": [
     {
      "native": "Er kommt immer zu spät.",
@@ -1853,7 +1865,7 @@
    "translation": "and",
    "category": "Connectors",
    "difficulty": 1,
-   "frequencyRank": 98,
+   "frequencyRank": 75,
    "examples": [
     {
      "native": "Brot und Käse.",
@@ -1870,7 +1882,7 @@
    "translation": "but",
    "category": "Connectors",
    "difficulty": 1,
-   "frequencyRank": 99,
+   "frequencyRank": 76,
    "examples": [
     {
      "native": "Klein, aber gemütlich.",
@@ -1887,7 +1899,7 @@
    "translation": "or",
    "category": "Connectors",
    "difficulty": 1,
-   "frequencyRank": 100,
+   "frequencyRank": 77,
    "examples": [
     {
      "native": "Tee oder Kaffee?",
@@ -1904,7 +1916,7 @@
    "translation": "because",
    "category": "Connectors",
    "difficulty": 2,
-   "frequencyRank": 101,
+   "frequencyRank": 144,
    "examples": [
     {
      "native": "Ich bleibe, weil es regnet.",
@@ -1921,7 +1933,7 @@
    "translation": "if, when",
    "category": "Connectors",
    "difficulty": 2,
-   "frequencyRank": 102,
+   "frequencyRank": 145,
    "examples": [
     {
      "native": "Wenn du willst.",
@@ -1938,7 +1950,7 @@
    "translation": "also, too",
    "category": "Connectors",
    "difficulty": 1,
-   "frequencyRank": 103,
+   "frequencyRank": 78,
    "examples": [
     {
      "native": "Ich auch.",
@@ -1955,7 +1967,7 @@
    "translation": "still, yet",
    "category": "Connectors",
    "difficulty": 2,
-   "frequencyRank": 104,
+   "frequencyRank": 146,
    "examples": [
     {
      "native": "Noch ein Bier, bitte.",
@@ -1972,7 +1984,7 @@
    "translation": "already",
    "category": "Connectors",
    "difficulty": 2,
-   "frequencyRank": 105,
+   "frequencyRank": 147,
    "examples": [
     {
      "native": "Schon fertig?",
@@ -1989,7 +2001,7 @@
    "translation": "not",
    "category": "Connectors",
    "difficulty": 1,
-   "frequencyRank": 106,
+   "frequencyRank": 79,
    "examples": [
     {
      "native": "Das ist nicht richtig.",
@@ -2006,7 +2018,7 @@
    "translation": "only",
    "category": "Connectors",
    "difficulty": 1,
-   "frequencyRank": 107,
+   "frequencyRank": 80,
    "examples": [
     {
      "native": "Nur ein bisschen.",
@@ -2023,7 +2035,7 @@
    "translation": "with",
    "category": "Connectors",
    "difficulty": 1,
-   "frequencyRank": 108,
+   "frequencyRank": 81,
    "examples": [
     {
      "native": "Kaffee mit Zucker.",
@@ -2040,7 +2052,7 @@
    "translation": "without",
    "category": "Connectors",
    "difficulty": 2,
-   "frequencyRank": 109,
+   "frequencyRank": 148,
    "examples": [
     {
      "native": "Ohne Milch, bitte.",
@@ -2057,7 +2069,7 @@
    "translation": "train",
    "category": "Travel",
    "difficulty": 1,
-   "frequencyRank": 110,
+   "frequencyRank": 89,
    "examples": [
     {
      "native": "Der Zug hat Verspätung.",
@@ -2074,7 +2086,7 @@
    "translation": "ticket",
    "category": "Travel",
    "difficulty": 2,
-   "frequencyRank": 111,
+   "frequencyRank": 149,
    "examples": [
     {
      "native": "Eine Fahrkarte nach Hamburg.",
@@ -2091,7 +2103,7 @@
    "translation": "platform, track",
    "category": "Travel",
    "difficulty": 2,
-   "frequencyRank": 112,
+   "frequencyRank": 150,
    "examples": [
     {
      "native": "Der Zug fährt von Gleis drei.",
@@ -2108,7 +2120,7 @@
    "translation": "airport",
    "category": "Travel",
    "difficulty": 2,
-   "frequencyRank": 113,
+   "frequencyRank": 151,
    "examples": [
     {
      "native": "Zum Flughafen, bitte.",
@@ -2125,7 +2137,7 @@
    "translation": "suitcase",
    "category": "Travel",
    "difficulty": 2,
-   "frequencyRank": 114,
+   "frequencyRank": 152,
    "examples": [
     {
      "native": "Mein Koffer ist weg.",
@@ -2142,7 +2154,7 @@
    "translation": "delay",
    "category": "Travel",
    "difficulty": 3,
-   "frequencyRank": 115,
+   "frequencyRank": 172,
    "examples": [
     {
      "native": "Zwanzig Minuten Verspätung.",
@@ -2159,7 +2171,7 @@
    "translation": "to change (trains)",
    "category": "Travel",
    "difficulty": 3,
-   "frequencyRank": 116,
+   "frequencyRank": 173,
    "examples": [
     {
      "native": "Sie müssen in Köln umsteigen.",
@@ -2176,7 +2188,7 @@
    "translation": "to depart",
    "category": "Travel",
    "difficulty": 3,
-   "frequencyRank": 117,
+   "frequencyRank": 174,
    "examples": [
     {
      "native": "Wann fährt der Zug ab?",
@@ -2193,7 +2205,7 @@
    "translation": "timetable",
    "category": "Travel",
    "difficulty": 2,
-   "frequencyRank": 118,
+   "frequencyRank": 153,
    "examples": [
     {
      "native": "Steht das im Fahrplan?",
@@ -2210,7 +2222,7 @@
    "translation": "occupied, taken",
    "category": "Travel",
    "difficulty": 2,
-   "frequencyRank": 119,
+   "frequencyRank": 154,
    "examples": [
     {
      "native": "Ist der Platz besetzt?",
@@ -2227,7 +2239,7 @@
    "translation": "exit",
    "category": "Travel",
    "difficulty": 2,
-   "frequencyRank": 120,
+   "frequencyRank": 155,
    "examples": [
     {
      "native": "Wo ist der Ausgang?",
@@ -2244,7 +2256,7 @@
    "translation": "arrival",
    "category": "Travel",
    "difficulty": 3,
-   "frequencyRank": 121,
+   "frequencyRank": 175,
    "examples": [
     {
      "native": "Ankunft um halb sechs.",
@@ -2261,7 +2273,7 @@
    "translation": "head",
    "category": "Body",
    "difficulty": 1,
-   "frequencyRank": 122,
+   "frequencyRank": 91,
    "examples": [
     {
      "native": "Mein Kopf tut weh.",
@@ -2278,7 +2290,7 @@
    "translation": "hand",
    "category": "Body",
    "difficulty": 1,
-   "frequencyRank": 123,
+   "frequencyRank": 92,
    "examples": [
     {
      "native": "Gib mir deine Hand.",
@@ -2295,7 +2307,7 @@
    "translation": "stomach, belly",
    "category": "Body",
    "difficulty": 2,
-   "frequencyRank": 124,
+   "frequencyRank": 156,
    "examples": [
     {
      "native": "Mir tut der Bauch weh.",
@@ -2312,7 +2324,7 @@
    "translation": "back",
    "category": "Body",
    "difficulty": 2,
-   "frequencyRank": 125,
+   "frequencyRank": 157,
    "examples": [
     {
      "native": "Mein Rücken ist steif.",
@@ -2329,7 +2341,7 @@
    "translation": "ill, sick",
    "category": "Body",
    "difficulty": 1,
-   "frequencyRank": 126,
+   "frequencyRank": 93,
    "examples": [
     {
      "native": "Ich bin krank.",
@@ -2346,7 +2358,7 @@
    "translation": "pain",
    "category": "Body",
    "difficulty": 3,
-   "frequencyRank": 127,
+   "frequencyRank": 176,
    "examples": [
     {
      "native": "Ich habe Schmerzen hier.",
@@ -2363,7 +2375,7 @@
    "translation": "happy",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 128,
+   "frequencyRank": 158,
    "examples": [
     {
      "native": "Ich bin sehr glücklich.",
@@ -2380,7 +2392,7 @@
    "translation": "sad",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 129,
+   "frequencyRank": 159,
    "examples": [
     {
      "native": "Sie sieht traurig aus.",
@@ -2397,7 +2409,7 @@
    "translation": "fear, anxiety",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 130,
+   "frequencyRank": 160,
    "examples": [
     {
      "native": "Ich habe Angst davor.",
@@ -2414,7 +2426,7 @@
    "translation": "hunger",
    "category": "Body",
    "difficulty": 1,
-   "frequencyRank": 131,
+   "frequencyRank": 94,
    "examples": [
     {
      "native": "Ich habe Hunger.",
@@ -2431,7 +2443,7 @@
    "translation": "thirst",
    "category": "Body",
    "difficulty": 1,
-   "frequencyRank": 132,
+   "frequencyRank": 95,
    "examples": [
     {
      "native": "Hast du Durst?",
@@ -2448,7 +2460,7 @@
    "translation": "doctor",
    "category": "Body",
    "difficulty": 2,
-   "frequencyRank": 133,
+   "frequencyRank": 161,
    "examples": [
     {
      "native": "Ich brauche einen Arzt.",
@@ -2465,7 +2477,7 @@
    "translation": "weather",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 134,
+   "frequencyRank": 96,
    "examples": [
     {
      "native": "Wie ist das Wetter?",
@@ -2482,7 +2494,7 @@
    "translation": "sun",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 135,
+   "frequencyRank": 97,
    "examples": [
     {
      "native": "Die Sonne scheint.",
@@ -2499,7 +2511,7 @@
    "translation": "rain",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 136,
+   "frequencyRank": 98,
    "examples": [
     {
      "native": "Der Regen hört nicht auf.",
@@ -2516,7 +2528,7 @@
    "translation": "snow",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 137,
+   "frequencyRank": 99,
    "examples": [
     {
      "native": "Es liegt Schnee.",
@@ -2533,7 +2545,7 @@
    "translation": "cold",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 138,
+   "frequencyRank": 100,
    "examples": [
     {
      "native": "Heute ist es kalt.",
@@ -2550,7 +2562,7 @@
    "translation": "warm",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 139,
+   "frequencyRank": 101,
    "examples": [
     {
      "native": "Es wird warm.",
@@ -2567,7 +2579,7 @@
    "translation": "wind",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 140,
+   "frequencyRank": 102,
    "examples": [
     {
      "native": "Der Wind ist stark.",
@@ -2584,7 +2596,7 @@
    "translation": "tree",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 141,
+   "frequencyRank": 103,
    "examples": [
     {
      "native": "Ein alter Baum.",
@@ -2601,7 +2613,7 @@
    "translation": "mountain",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 142,
+   "frequencyRank": 162,
    "examples": [
     {
      "native": "Wir fahren in die Berge.",
@@ -2618,7 +2630,7 @@
    "translation": "lake",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 143,
+   "frequencyRank": 163,
    "examples": [
     {
      "native": "Der See ist ruhig.",
@@ -2635,7 +2647,7 @@
    "translation": "forest",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 144,
+   "frequencyRank": 164,
    "examples": [
     {
      "native": "Ein Spaziergang im Wald.",
@@ -2652,7 +2664,7 @@
    "translation": "beautiful, nice",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 145,
+   "frequencyRank": 104,
    "examples": [
     {
      "native": "Ein schöner Tag.",
@@ -2669,7 +2681,7 @@
    "translation": "money",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 146,
+   "frequencyRank": 107,
    "examples": [
     {
      "native": "Ich habe kein Geld dabei.",
@@ -2686,7 +2698,7 @@
    "translation": "expensive",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 147,
+   "frequencyRank": 165,
    "examples": [
     {
      "native": "Das ist zu teuer.",
@@ -2703,7 +2715,7 @@
    "translation": "cheap",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 148,
+   "frequencyRank": 166,
    "examples": [
     {
      "native": "Billig, aber gut.",
@@ -2720,7 +2732,7 @@
    "translation": "supermarket",
    "category": "Places",
    "difficulty": 2,
-   "frequencyRank": 149,
+   "frequencyRank": 167,
    "examples": [
     {
      "native": "Ich gehe in den Supermarkt.",
@@ -2737,7 +2749,7 @@
    "translation": "appointment",
    "category": "Common",
    "difficulty": 3,
-   "frequencyRank": 150,
+   "frequencyRank": 177,
    "examples": [
     {
      "native": "Ich habe einen Termin um drei.",
@@ -2754,7 +2766,7 @@
    "translation": "registration",
    "category": "Common",
    "difficulty": 3,
-   "frequencyRank": 151,
+   "frequencyRank": 178,
    "examples": [
     {
      "native": "Die Anmeldung dauert lange.",
@@ -2771,7 +2783,7 @@
    "translation": "key",
    "category": "Common",
    "difficulty": 2,
-   "frequencyRank": 152,
+   "frequencyRank": 168,
    "examples": [
     {
      "native": "Wo ist mein Schlüssel?",
@@ -2788,7 +2800,7 @@
    "translation": "flat, apartment",
    "category": "Places",
    "difficulty": 2,
-   "frequencyRank": 153,
+   "frequencyRank": 169,
    "examples": [
     {
      "native": "Die Wohnung ist klein.",
@@ -2805,7 +2817,7 @@
    "translation": "rent",
    "category": "Common",
    "difficulty": 3,
-   "frequencyRank": 154,
+   "frequencyRank": 179,
    "examples": [
     {
      "native": "Die Miete ist hoch.",
@@ -2822,7 +2834,7 @@
    "translation": "to pay",
    "category": "Verbs",
    "difficulty": 2,
-   "frequencyRank": 155,
+   "frequencyRank": 170,
    "examples": [
     {
      "native": "Ich möchte bezahlen.",
@@ -2839,7 +2851,7 @@
    "translation": "mobile phone",
    "category": "Common",
    "difficulty": 1,
-   "frequencyRank": 156,
+   "frequencyRank": 108,
    "examples": [
     {
      "native": "Mein Handy ist leer.",
@@ -2856,13 +2868,404 @@
    "translation": "to make an appointment",
    "category": "Common",
    "difficulty": 3,
-   "frequencyRank": 157,
+   "frequencyRank": 180,
    "examples": [
     {
      "native": "Ich möchte einen Termin machen.",
      "translation": "I'd like to make an appointment."
     }
    ]
+  },
+  {
+   "id": "de_0158",
+   "lemma": "gross",
+   "translit": "gross",
+   "pronunciation": "GROHSS",
+   "translation": "big",
+   "category": "Common",
+   "difficulty": 1,
+   "unit": "u12",
+   "examples": [
+    {
+     "native": "Ein grosses Haus",
+     "translation": "A big house"
+    }
+   ],
+   "frequencyRank": 105
+  },
+  {
+   "id": "de_0159",
+   "lemma": "klein",
+   "translit": "klein",
+   "pronunciation": "KLINE",
+   "translation": "small",
+   "category": "Common",
+   "difficulty": 1,
+   "unit": "u12",
+   "examples": [
+    {
+     "native": "Ein kleines Zimmer",
+     "translation": "A small room"
+    }
+   ],
+   "frequencyRank": 106
+  },
+  {
+   "id": "de_0160",
+   "lemma": "wollen",
+   "translit": "wollen",
+   "pronunciation": "VOL-en",
+   "translation": "to want",
+   "category": "Verbs",
+   "difficulty": 2,
+   "unit": "u6",
+   "examples": [
+    {
+     "native": "Ich will nach Hause",
+     "translation": "I want to go home"
+    }
+   ],
+   "frequencyRank": 131
+  },
+  {
+   "id": "de_0161",
+   "lemma": "sagen",
+   "translit": "sagen",
+   "pronunciation": "ZAH-gen",
+   "translation": "to say",
+   "category": "Verbs",
+   "difficulty": 1,
+   "unit": "u6",
+   "examples": [
+    {
+     "native": "Was hast du gesagt?",
+     "translation": "What did you say?"
+    }
+   ],
+   "frequencyRank": 52
+  },
+  {
+   "id": "de_0162",
+   "lemma": "können",
+   "translit": "können",
+   "pronunciation": "KERN-en",
+   "translation": "to be able to, can",
+   "category": "Verbs",
+   "difficulty": 2,
+   "unit": "u6",
+   "examples": [
+    {
+     "native": "Kannst du mir helfen?",
+     "translation": "Can you help me?"
+    }
+   ],
+   "frequencyRank": 132
+  },
+  {
+   "id": "de_0163",
+   "lemma": "brauchen",
+   "translit": "brauchen",
+   "pronunciation": "BROW-khen",
+   "translation": "to need",
+   "category": "Verbs",
+   "difficulty": 2,
+   "unit": "u6",
+   "examples": [
+    {
+     "native": "Ich brauche Hilfe",
+     "translation": "I need help"
+    }
+   ],
+   "frequencyRank": 133
+  },
+  {
+   "id": "de_0164",
+   "lemma": "geben",
+   "translit": "geben",
+   "pronunciation": "GAY-ben",
+   "translation": "to give",
+   "category": "Verbs",
+   "difficulty": 2,
+   "unit": "u6",
+   "examples": [
+    {
+     "native": "Gib mir bitte das Salz",
+     "translation": "Give me the salt please"
+    }
+   ],
+   "frequencyRank": 134
+  },
+  {
+   "id": "de_0165",
+   "lemma": "nehmen",
+   "translit": "nehmen",
+   "pronunciation": "NAY-men",
+   "translation": "to take",
+   "category": "Verbs",
+   "difficulty": 2,
+   "unit": "u6",
+   "examples": [
+    {
+     "native": "Ich nehme den Zug",
+     "translation": "I'll take the train"
+    }
+   ],
+   "frequencyRank": 135
+  },
+  {
+   "id": "de_0166",
+   "lemma": "Zeit",
+   "translit": "Zeit",
+   "pronunciation": "TSITE",
+   "translation": "time",
+   "category": "Time",
+   "difficulty": 1,
+   "unit": "u8",
+   "examples": [
+    {
+     "native": "Ich habe keine Zeit",
+     "translation": "I don't have time"
+    }
+   ],
+   "frequencyRank": 73
+  },
+  {
+   "id": "de_0167",
+   "lemma": "Tag",
+   "translit": "Tag",
+   "pronunciation": "TAHK",
+   "translation": "day",
+   "category": "Time",
+   "difficulty": 1,
+   "unit": "u8",
+   "examples": [
+    {
+     "native": "Einen schönen Tag!",
+     "translation": "Have a nice day!"
+    }
+   ],
+   "frequencyRank": 74
+  },
+  {
+   "id": "de_0168",
+   "lemma": "was",
+   "translit": "was",
+   "pronunciation": "VAS",
+   "translation": "what",
+   "category": "Connectors",
+   "difficulty": 1,
+   "unit": "u9",
+   "examples": [
+    {
+     "native": "Was ist das?",
+     "translation": "What is that?"
+    }
+   ],
+   "frequencyRank": 82
+  },
+  {
+   "id": "de_0169",
+   "lemma": "wo",
+   "translit": "wo",
+   "pronunciation": "VO",
+   "translation": "where",
+   "category": "Connectors",
+   "difficulty": 1,
+   "unit": "u9",
+   "examples": [
+    {
+     "native": "Wo bist du?",
+     "translation": "Where are you?"
+    }
+   ],
+   "frequencyRank": 83
+  },
+  {
+   "id": "de_0170",
+   "lemma": "warum",
+   "translit": "warum",
+   "pronunciation": "va-ROOM",
+   "translation": "why",
+   "category": "Connectors",
+   "difficulty": 1,
+   "unit": "u9",
+   "examples": [
+    {
+     "native": "Warum nicht?",
+     "translation": "Why not?"
+    }
+   ],
+   "frequencyRank": 84
+  },
+  {
+   "id": "de_0171",
+   "lemma": "wie",
+   "translit": "wie",
+   "pronunciation": "VEE",
+   "translation": "how",
+   "category": "Connectors",
+   "difficulty": 1,
+   "unit": "u9",
+   "examples": [
+    {
+     "native": "Wie funktioniert das?",
+     "translation": "How does that work?"
+    }
+   ],
+   "frequencyRank": 85
+  },
+  {
+   "id": "de_0172",
+   "lemma": "wer",
+   "translit": "wer",
+   "pronunciation": "VAIR",
+   "translation": "who",
+   "category": "Connectors",
+   "difficulty": 1,
+   "unit": "u9",
+   "examples": [
+    {
+     "native": "Wer ist das?",
+     "translation": "Who is that?"
+    }
+   ],
+   "frequencyRank": 86
+  },
+  {
+   "id": "de_0173",
+   "lemma": "Auto",
+   "translit": "Auto",
+   "pronunciation": "OW-to",
+   "translation": "car",
+   "category": "Travel",
+   "difficulty": 1,
+   "unit": "u10",
+   "examples": [
+    {
+     "native": "Das Auto ist kaputt",
+     "translation": "The car is broken"
+    }
+   ],
+   "frequencyRank": 90
+  },
+  {
+   "id": "de_0174",
+   "lemma": "Preis",
+   "translit": "Preis",
+   "pronunciation": "PRICE",
+   "translation": "price",
+   "category": "Common",
+   "difficulty": 2,
+   "unit": "u13",
+   "examples": [
+    {
+     "native": "Wie hoch ist der Preis?",
+     "translation": "What's the price?"
+    }
+   ],
+   "frequencyRank": 171
+  },
+  {
+   "id": "de_0175",
+   "lemma": "öffnen",
+   "translit": "öffnen",
+   "pronunciation": "ERF-nen",
+   "translation": "to open",
+   "category": "Verbs",
+   "difficulty": 2,
+   "unit": "u6",
+   "examples": [
+    {
+     "native": "Öffne bitte das Fenster",
+     "translation": "Open the window please"
+    }
+   ],
+   "frequencyRank": 136
+  },
+  {
+   "id": "de_0176",
+   "lemma": "mehr",
+   "translit": "mehr",
+   "pronunciation": "MAIR",
+   "translation": "more",
+   "category": "Connectors",
+   "difficulty": 1,
+   "unit": "u9",
+   "examples": [
+    {
+     "native": "Ein bisschen mehr",
+     "translation": "A little more"
+    }
+   ],
+   "frequencyRank": 87
+  },
+  {
+   "id": "de_0177",
+   "lemma": "alles",
+   "translit": "alles",
+   "pronunciation": "AL-es",
+   "translation": "all, everything",
+   "category": "Connectors",
+   "difficulty": 1,
+   "unit": "u9",
+   "examples": [
+    {
+     "native": "Alles ist gut",
+     "translation": "Everything is fine"
+    }
+   ],
+   "frequencyRank": 88
+  },
+  {
+   "id": "de_0178",
+   "lemma": "nah",
+   "translit": "nah",
+   "pronunciation": "NAH",
+   "translation": "near",
+   "category": "Places",
+   "difficulty": 1,
+   "unit": "u7",
+   "examples": [
+    {
+     "native": "Der Bahnhof ist nah",
+     "translation": "The station is near"
+    }
+   ],
+   "frequencyRank": 61
+  },
+  {
+   "id": "de_0179",
+   "lemma": "weit",
+   "translit": "weit",
+   "pronunciation": "VITE",
+   "translation": "far",
+   "category": "Places",
+   "difficulty": 1,
+   "unit": "u7",
+   "examples": [
+    {
+     "native": "Ist es weit?",
+     "translation": "Is it far?"
+    }
+   ],
+   "frequencyRank": 62
+  },
+  {
+   "id": "de_0180",
+   "lemma": "Toilette",
+   "translit": "Toilette",
+   "pronunciation": "twa-LET-uh",
+   "translation": "bathroom, toilet",
+   "category": "Places",
+   "difficulty": 1,
+   "unit": "u7",
+   "examples": [
+    {
+     "native": "Wo ist die Toilette?",
+     "translation": "Where is the toilet?"
+    }
+   ],
+   "frequencyRank": 63
   }
  ]
 }

@@ -22,7 +22,7 @@ import { WORD_PRONUNCIATION } from "../data/wordPronunciation.js";
 // hero (so beginners can read it) and the native script is a smaller reference.
 const NON_LATIN_LANGUAGES = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
-export function Lesson({ engine, pack, appState, setAppState, params, onNavigate, refreshStats }) {
+export function Lesson({ engine, pack, appState, setAppState, params, onNavigate, refreshStats, profile }) {
   const lang = LANGUAGES[pack.code];
   const isNonLatin = NON_LATIN_LANGUAGES.has(pack.code);
   const character = getCharacter(pack.code);
@@ -86,6 +86,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         sessionSize: params?.sessionSize || appState?.sessionSize || 6,
         newPerSession: Math.max(2, Math.round((appState?.sessionSize || 6) / 2)),
         goalCategories: goalCategoryOrder(appState?.learningGoal?.[pack.code]),
+        // v76: exercise types the learner turned off in Settings.
+        disabledExercises: appState?.disabledExercises || null,
       })
       .then((s) => {
         if (cancelled) return;
@@ -512,6 +514,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     return (
       <SpeakMoment
         item={exercise.item}
+        // v76: a learner who answers in the dialect they chose is RIGHT. Marking
+        // them wrong for it is the fastest way to make the setting feel like a lie.
+        accept={acceptedForms(exercise.item, profile?.region)}
         lang={lang}
         langCode={pack.code}
         isNonLatin={isNonLatin}
@@ -534,6 +539,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   // Safety: if exercise is malformed, skip it.
   // INTRODUCE_BATCH uses `items`, MATCH_PAIRS uses `pairs`, ODD_ONE_OUT uses
   // `options` — none of these have a single `item`, so they need their own checks.
+  // v76: the spoken form for the learner's chosen variety, when this word differs.
+  const localForm = dialectForm(exercise?.item, profile?.region);
+  const regionName = regionLabel(pack.code, profile?.region);
+
   const isBatch = exercise?.type === EXERCISE.INTRODUCE_BATCH;
   const isMatchPairs = exercise?.type === EXERCISE.MATCH_PAIRS;
   const isOddOneOut = exercise?.type === EXERCISE.ODD_ONE_OUT;
@@ -724,6 +733,31 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 >
                   🔊 Hear it again
                 </Button>
+              )}
+
+              {/* v76 — what people actually say. Learning ماذا and then hearing
+                  إيه in Cairo is the moment a learner decides the app taught them
+                  nothing useful. If they've picked a variety and this word
+                  differs in it, they see both, here, the first time they meet it. */}
+              {localForm && (
+                <div className="local-form">
+                  <div className="eyebrow">In {regionName} they say</div>
+                  <div className="local-form-row">
+                    <span className="local-form-native" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code}>{localForm.lemma}</span>
+                    <span className="local-form-tl">{localForm.translit}</span>
+                    <button
+                      className="xchg-play"
+                      onClick={() => speak(localForm.lemma, lang.ttsCode, { code: pack.code, translit: localForm.translit })}
+                      aria-label="Hear the local form"
+                    >
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                        <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="local-form-note">Both are right. This is the one you'll hear.</div>
+                </div>
               )}
 
               {exercise.item.examples?.[0] && (
@@ -2051,7 +2085,7 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
 // accuracy hit) because it isn't the learner's fault, which is the same principle
 // as skipForAudio() above.
 // =============================================================================
-function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSkip }) {
+function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSkip, accept = [] }) {
   const micSupported = isRecognitionSupported();
   const [state, setState] = useState("idle");   // idle | listening | judging
   const [heard, setHeard] = useState("");
@@ -2068,7 +2102,9 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
   const target = {
     native: item.lemma,
     translit: item.translit,
-    accept: [item.translit, item.lemma].filter(Boolean),
+    // `accept` carries the learner's chosen dialect form when the word differs,
+    // so saying إيه instead of ماذا passes rather than failing.
+    accept: [...new Set([item.translit, item.lemma, ...accept])].filter(Boolean),
   };
 
   async function grade(transcripts) {

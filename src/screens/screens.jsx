@@ -12,6 +12,7 @@ import { HeroBackdrop } from "../ui/HeroBackdrop.jsx";
 import { masteryLevel, retrievability } from "../engine/srs.js";
 import { THEMES } from "../ui/themes.js";
 import { VoiceSettings, DialectSettings } from "./VoiceSettings.jsx";
+import { ExerciseSettings } from "./ExerciseSettings.jsx";
 import { getCharacter, getGreeting } from "../data/characters.js";
 import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilestones } from "../engine/gamification.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
@@ -819,6 +820,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
         </Card>
 
         {/* v74 — the voice the learner actually hears, and their choice of it. */}
+        <ExerciseSettings appState={appState} setAppState={setAppState} />
         <DialectSettings langCode={pack?.code || appState.currentLanguage} profile={profile} mutateProfile={mutateProfile} />
         <VoiceSettings appState={appState} setAppState={setAppState} langCode={pack?.code || appState.currentLanguage} />
 

@@ -45,6 +45,7 @@ import { probeCoach, levelFor } from "../ai/coach.js";
 import { LiveConversation } from "../ui/LiveConversation.jsx";
 import { PERSONAS, getPersona, getRegion } from "../data/personas.js";
 import { recordTurn, summariseForPrompt } from "../engine/profile.js";
+import { acceptedForms } from "../data/dialects.js";
 import {
   isRecognitionSupported, startListening, judge, displayScore, BAND,
 } from "../audio/speech.js";
@@ -110,13 +111,14 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate,
           key: `word-${v.id}`,
           kind: "word",
           ask: v.translation,
-          target: { native: v.lemma, translit: v.translit, accept: [v.translit] },
+          // Dialect forms count: the learner chose that variety, so it's a pass.
+          target: { native: v.lemma, translit: v.translit, accept: acceptedForms(v, profile?.region) },
           audioId: v.id,
           pronunciation: v.pronunciation,
         }));
     }
     return out;
-  }, [pack.code, pack.vocab, reached, learnedIds]);
+  }, [pack.code, pack.vocab, reached, learnedIds, profile?.region]);
 
   // The session: journey lines first, then a shuffled spread of words, capped at
   // ROUND_SIZE so it always ends. A deep link from the route map pins its phrase

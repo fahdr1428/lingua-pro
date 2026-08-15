@@ -112,7 +112,7 @@ export class Engine {
   // ---------------------------------------------------------------------------
   // Lesson generation — bulletproof: ALWAYS returns at least sessionSize exercises
   // ---------------------------------------------------------------------------
-  async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null } = {}) {
+  async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null, disabledExercises = null } = {}) {
     const progress = await this.getProgress();
     let pool = this.pack.vocab;
     if (filter) pool = filterVocab(pool, filter);
@@ -238,6 +238,7 @@ export class Engine {
         TENSES, // v34b: pass the full TENSES map; generator picks the right one
         mode === "exam", // v38: exam mode = one test question per word, no intros
         mode === "chapter_exam", // v44: 3-round gated chapter exam
+        disabledExercises, // v76: exercise types the learner switched off
       ),
     };
   }

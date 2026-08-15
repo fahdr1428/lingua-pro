@@ -27,6 +27,7 @@ import { cultureOfTheDay, tagLabel, hasCulture } from "../data/culture.js";
 import { isRecognitionSupported } from "../audio/speech.js";
 import { getLevel } from "../engine/gamification.js";
 import { computeFluency } from "../engine/fluency.js";
+import { hasDialectData, regionLabel } from "../data/dialects.js";
 import { MISSIONS } from "../data/missions.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 import {
@@ -459,6 +460,27 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             All practice tools →
           </button>
         </div>
+
+        {/* v76 — the words that differ where they're going. Only shown when the
+            language actually has dialect data, so it never appears as an empty
+            promise. */}
+        {hasDialectData(pack.vocab) && (
+          <button className="skip-invite" onClick={() => onNavigate("dialect")}>
+            <span style={{ flex: 1, minWidth: 0 }}>
+              <span className="speak-invite-title">
+                {profile?.region
+                  ? `What they actually say in ${regionLabel(pack.code, profile.region)}`
+                  : `${lang.name} isn't one language`}
+              </span>
+              <span className="speak-invite-sub">
+                {profile?.region
+                  ? "Drill the words that change — the ones that'd leave you stuck"
+                  : "Pick the variety you're learning for and drill what differs"}
+              </span>
+            </span>
+            <span className="speak-invite-arrow" aria-hidden="true">→</span>
+          </button>
+        )}
 
         {/* v75 — for anyone who already knows a chunk of this. Grinding "hello"
             when you grew up hearing the language is why people leave on day one. */}

@@ -27,6 +27,8 @@ import { regionsFor } from "../src/data/personas.js";
 import { CHARACTERS } from "../src/data/characters.js";
 import { chapterVocabIds, PASS_THRESHOLD as CHAPTER_PASS } from "../src/data/chapters.js";
 import { CONJUGATIONS, hasConjugations, listConjugatableLemmas } from "../src/data/conjugations.js";
+import { hasDialectData, dialectWords, acceptedForms } from "../src/data/dialects.js";
+import { generateLesson, EXERCISE } from "../src/engine/generator.js";
 import { TENSES } from "../src/data/tenses.js";
 import { readFileSync, readdirSync } from "node:fs";
 
@@ -441,6 +443,116 @@ check("German's past is the Perfekt, which is what people actually say",
   /Perfekt/i.test(TENSES.de.pastName) && /gegangen/.test(JSON.stringify(TENSES.de.past)));
 check("German's future note admits the present tense is more common",
   /present/i.test(TENSES.de.futureNote));
+
+// =========================================================================
+console.log("\nv76 · vocabulary reach and dialects\n");
+
+// The 85 concepts a beginner course has to cover to be usable at all. This is
+// the assertion that stops the packs drifting back into "pretty but useless".
+const ESSENTIAL = ["i","you","yes","no","hello","thank you","please","sorry","good","bad","big","small",
+  "water","food","eat","drink","go","come","have","want","know","see","say","do","make","can","need",
+  "give","take","help","understand","speak","money","time","day","today","tomorrow","yesterday","now",
+  "here","there","what","where","when","why","how","who","man","woman","friend","house","city","work",
+  "buy","price","open","hot","cold","more","very","with","without","but","because","and","or","not",
+  "all","one","two","three","left","right","near","far","name","happy","sad","tired","sick","doctor"];
+
+for (const code of packCodes) {
+  // Normalise the way a learner would read it: "hot (to touch)" covers "hot",
+  // and "to the left" covers "left". A qualifier in brackets is a disambiguation,
+  // not a different concept.
+  const have = new Set(packs[code].vocab.flatMap((v) =>
+    String(v.translation).toLowerCase().split(/\s*,\s*/).flatMap((x) => {
+      const base = x.replace(/\([^)]*\)/g, " ").replace(/^to the /, "").replace(/^to /, "").trim();
+      return [base, base.replace(/^the /, "")];
+    }).filter(Boolean)));
+  const missing = ESSENTIAL.filter((c) => !have.has(c));
+  check(`${code}: covers the beginner essentials (${ESSENTIAL.length - missing.length}/${ESSENTIAL.length})`,
+    missing.length <= 8, `still missing: ${missing.join(" ")}`);
+}
+
+check("every pack has enough words to teach from",
+  packCodes.every((c) => packs[c].vocab.length >= 120),
+  packCodes.filter((c) => packs[c].vocab.length < 120).map((c) => `${c}:${packs[c].vocab.length}`).join(" "));
+
+check("no unit is too small to make a varied lesson",
+  packCodes.every((c) => {
+    const per = {};
+    for (const v of packs[c].vocab) per[v.unit] = (per[v.unit] || 0) + 1;
+    return (packs[c].units || []).every((u) => (per[u.id] || 0) >= 6);
+  }),
+  packCodes.flatMap((c) => {
+    const per = {};
+    for (const v of packs[c].vocab) per[v.unit] = (per[v.unit] || 0) + 1;
+    return (packs[c].units || []).filter((u) => (per[u.id] || 0) < 6).map((u) => `${c}/${u.id}:${per[u.id] || 0}`);
+  }).join(" "));
+
+check("frequency ranks are dense and unique, so the selector has a real order",
+  packCodes.every((c) => {
+    const ranks = packs[c].vocab.map((v) => v.frequencyRank);
+    return new Set(ranks).size === ranks.length && Math.min(...ranks) === 1;
+  }),
+  packCodes.filter((c) => new Set(packs[c].vocab.map((v) => v.frequencyRank)).size !== packs[c].vocab.length).join(" "));
+
+// --- dialects -------------------------------------------------------------
+const ar = packs.ar;
+check("Arabic teaches the spoken forms, not only MSA", hasDialectData(ar.vocab));
+check("the words that differ are the high-frequency ones",
+  ["ماذا", "أين", "كيف", "يريد"].every((l) => ar.vocab.find((v) => v.lemma === l)?.dialects),
+  "the question words and 'to want' must carry dialect forms — they're what a learner hits first");
+
+for (const r of regionsFor("ar")) {
+  const n = dialectWords(ar.vocab, r.id).length;
+  if (r.id === "ar-MSA") continue;
+  check(`${r.name} has spoken forms to drill`, n >= 5, `${n} words`);
+}
+
+check("no dialect form is identical to the standard word",
+  ar.vocab.every((v) => Object.values(v.dialects || {}).every((d) => d.lemma !== v.lemma)));
+check("a dialect answer is accepted as correct",
+  acceptedForms(ar.vocab.find((v) => v.lemma === "أين"), "ar-EG").includes("فين"));
+check("with no dialect chosen, nothing extra is accepted",
+  acceptedForms(ar.vocab.find((v) => v.lemma === "أين"), null).length === 2);
+check("dialect data doesn't leak into languages that have none",
+  !hasDialectData(packs.es.vocab) && !hasDialectData(packs.ja.vocab));
+
+// --- exercise preferences -------------------------------------------------
+console.log("\nv76 · turning off question types\n");
+
+const esPack = packs.es;
+const esProgress = Object.fromEntries(esPack.vocab.map((v) => [v.id, { reps: 6, lapses: 0, ease: 2.5, interval: 10 }]));
+const queue = esPack.vocab.slice(0, 12);
+
+function typesOver(disabled, runs = 60) {
+  const seen = new Set();
+  for (let i = 0; i < runs; i++) {
+    for (const ex of generateLesson(queue, esPack.vocab, esProgress, "es", null, null, false, false, disabled)) {
+      seen.add(ex.type);
+    }
+  }
+  return seen;
+}
+
+const everything = typesOver(null);
+check("with nothing disabled the lesson uses many question types", everything.size >= 6, [...everything].join(" "));
+
+const noListening = typesOver(new Set([EXERCISE.LISTEN_PICK]));
+check("listening can be switched off", !noListening.has(EXERCISE.LISTEN_PICK), [...noListening].join(" "));
+
+const noSpeaking = typesOver(new Set([EXERCISE.SPEAK_PROMPT]));
+check("speaking can be switched off", !noSpeaking.has(EXERCISE.SPEAK_PROMPT));
+
+const noneOfIt = typesOver(new Set([
+  EXERCISE.LISTEN_PICK, EXERCISE.SPEAK_PROMPT, EXERCISE.TYPE_TRANSLATION, EXERCISE.LETTER_SCRAMBLE,
+  EXERCISE.BUILD_SENTENCE, EXERCISE.MATCH_PAIRS, EXERCISE.ODD_ONE_OUT, EXERCISE.CONJUGATE,
+  EXERCISE.CONJUGATE_TENSE, EXERCISE.TAP_WORDS, EXERCISE.TRUE_FALSE, EXERCISE.COMPLETE_SENTENCE,
+]));
+check("switching everything off still produces a usable lesson rather than an empty one",
+  noneOfIt.size > 0 && [...noneOfIt].every((t) =>
+    [EXERCISE.PICK_MEANING, EXERCISE.PICK_WORD, EXERCISE.INTRODUCE, EXERCISE.INTRODUCE_BATCH].includes(t)),
+  [...noneOfIt].join(" "));
+check("every disabled type is genuinely absent, including the two built outside the main switch",
+  [EXERCISE.MATCH_PAIRS, EXERCISE.ODD_ONE_OUT, EXERCISE.COMPLETE_SENTENCE].every((t) => !noneOfIt.has(t)),
+  [...noneOfIt].join(" "));
 
 // =========================================================================
 const failed = results.filter((r) => !r.ok);

@@ -9,6 +9,7 @@ import { useProfile } from "./hooks/useProfile.js";
 import { getStorage } from "./storage/index.js";
 import { BottomNav, SideRail, Button, Container } from "./ui/primitives.jsx";
 import { applyTheme } from "./ui/themes.js";
+import { LANGUAGES } from "./data/registry.js";
 import { setVoicePrefs } from "./audio/voices.js";
 import {
   Onboarding,
@@ -34,6 +35,7 @@ import { Missions } from "./screens/Missions.jsx";
 import { Fluency } from "./screens/Fluency.jsx";
 import { TestOut } from "./screens/TestOut.jsx";
 import { SkipAhead } from "./screens/SkipAhead.jsx";
+import { DialectDrill } from "./screens/DialectDrill.jsx";
 
 // Error boundary — catches crashes and shows a recovery button instead of a white screen
 class ErrorBoundary extends React.Component {
@@ -113,6 +115,7 @@ const DEFAULT_APP_STATE = {
   lastCheckpointAt: {}, // { langCode: lessonCount when last checkpoint cleared }
   testedOut: {}, // { langCode: [wordId,...] } — words skipped via placement test
   voice: null, // v74: { coachVoiceURI, tone, speed, targetVoiceURI } — null = automatic
+  disabledExercises: [], // v76: exercise types the learner switched off
   userName: "", // v57: what the coach calls you
   momentDone: {}, // v57: { langCode: dateString } — daily Moment recall done
   planVisited: {}, // v57: { langCode: { date, speak, life } } — plan step visits
@@ -209,7 +212,7 @@ export default function App() {
 
   // One-time tutorial — shown right after onboarding, before first use.
   if (!appState.tutorialSeen) {
-    return <Tutorial onDone={() => setAppState((s) => ({ ...s, tutorialSeen: true }))} />;
+    return <Tutorial langName={LANGUAGES[appState.currentLanguage]?.name || "the language"} onDone={() => setAppState((s) => ({ ...s, tutorialSeen: true }))} />;
   }
 
   // Screen router.
@@ -255,6 +258,7 @@ export default function App() {
         {screen === "fluency" && <Fluency {...screenProps} />}
         {screen === "testout" && <TestOut {...screenProps} />}
         {screen === "skipahead" && <SkipAhead {...screenProps} />}
+        {screen === "dialect" && <DialectDrill {...screenProps} />}
         {screen === "reading" && <Reading {...screenProps} />}
         {screen === "conversations" && <Conversations {...screenProps} />}
         {screen === "sentencelab" && <SentenceLab {...screenProps} />}
@@ -279,30 +283,52 @@ function CenterMsg({ children }) {
   );
 }
 
-// One-time tutorial — explains how the app works. Shown once after onboarding.
-// Kept short and skippable; this is "how to use it", not a feature tour.
-function Tutorial({ onDone }) {
+// =============================================================================
+// TUTORIAL — how the app works, shown once after onboarding.
+//
+// The old version was four emoji slides written when the app was flashcards and
+// quizzes. It never mentioned speaking, missions, dialects or skipping ahead —
+// so the features people most needed to know about were the ones nobody found.
+//
+// This says what's here, in the order a new learner meets it, and it makes two
+// things explicit that people otherwise discover too late or not at all:
+// you can skip material you already know, and you can turn off question types
+// that don't suit you.
+//
+// It stays skippable, and Settings can replay it.
+// =============================================================================
+function Tutorial({ onDone, langName }) {
   const [step, setStep] = React.useState(0);
   const steps = [
     {
       emoji: "📚",
-      title: "Learn by doing",
-      body: "Each lesson introduces a few new words as flashcards, then quizzes you in different ways — picking, listening, and building sentences. Short sessions, every day, is how it sticks.",
+      title: "Short lessons, every day",
+      body: `Each lesson introduces a few new words, then tests them several ways — picking, listening, spelling, building sentences. The most useful ${langName} words come first, so even a week gets you something you can actually use.`,
     },
     {
-      emoji: "🔤",
-      title: "Reading the script",
-      body: "For languages like Urdu or Korean, you'll always see the pronunciation (in English letters) under the native script. You don't need to read the script on day one — sound it out and it comes with time.",
-    },
-    {
-      emoji: "💡",
-      title: "Stuck? That's fine",
-      body: "If you're stuck on a question for a while, a hint appears. If audio won't play on your device, you can skip listening questions. Getting things wrong is part of learning — you'll review your mistakes at the end.",
+      emoji: "⏩",
+      title: "Already know some? Skip it",
+      body: "You don't have to start at hello. From the home screen you can take a chapter test and jump straight past anything you already know — pass it and those words are marked as known instead of taught from scratch.",
     },
     {
       emoji: "🗣️",
-      title: "Beyond words",
-      body: "Once you know some words, try Read & Understand for short passages, and Conversation Starters for real phrases you'll actually use. Browse those freely — they're not tested.",
+      title: "Say things out loud",
+      body: "The app listens. It's deliberately lenient: if a native speaker would understand you, that's a pass, and an accent is never a mistake. No microphone, or not somewhere you can talk? Type instead — it's graded the same.",
+    },
+    {
+      emoji: "🎭",
+      title: "Real situations, not just words",
+      body: "Missions are conversations with something at stake — order without switching to English, argue a refund, get through an interview. You choose who you're up against, and afterwards you get every line you said with a native version beside it.",
+    },
+    {
+      emoji: "🌍",
+      title: "The version people actually speak",
+      body: `Courses teach the standard form. Streets don't use it. Pick the variety you're learning for and ${langName === "Arabic" ? "you'll see what Cairo or Beirut or the Gulf actually says" : "you'll see the local forms alongside the standard ones"} — and your guide will speak it too.`,
+    },
+    {
+      emoji: "⚙️",
+      title: "Make it fit you",
+      body: "In Settings you can change the voice that talks to you and how fast it speaks, choose your dialect, set the daily goal and lesson length, and switch off any question type that gets in your way rather than pushing you.",
     },
   ];
   const s = steps[step];

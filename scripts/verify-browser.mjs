@@ -201,7 +201,9 @@ async function run(width, height, label) {
   check("no horizontal overflow", overflow <= 1, `${overflow}px`);
   // fonts.googleapis.com is blocked by this sandbox's egress proxy, and an
   // in-flight favicon can abort across the seeded reload. Neither is app code.
-  const appErrors = errors.filter((e) => !/fonts\.googleapis|icon-\d+\.png|ERR_CONNECTION_RESET/.test(e));
+  // Transient aborts on images the page was still fetching when it navigated
+  // away, and the sandbox's blocked font CDN. Neither is app code.
+  const appErrors = errors.filter((e) => !/fonts\.googleapis|icon-\d+\.png|zaban-\w+\.png|ERR_CONNECTION_RESET|ERR_ABORTED/.test(e));
   check("no console errors from app code", appErrors.length === 0, appErrors.slice(0, 3).join(" | "));
 
   await browser.close();
@@ -455,6 +457,74 @@ async function runDialects() {
   await browser.close();
 }
 
+// ---------------------------------------------------------------------------
+// v76 — the dialect drill and the exercise-type toggles.
+// ---------------------------------------------------------------------------
+async function runDialectDrill() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  console.log("\n=== dialect drill (Arabic) ===\n");
+  const { ctx, page, errors } = await seeded(browser, "ar");
+
+  await page.locator(".skip-invite").first().click();
+  await page.waitForTimeout(800);
+  check("the dialect screen offers the varieties",
+    (await page.locator(".mission-card").count()) >= 6, String(await page.locator(".mission-card").count()));
+  check("each variety states how many words actually differ",
+    /words differ/.test(await page.locator(".mission-list").innerText()));
+
+  // Pick Egyptian (index 1 — MSA is first and has nothing to drill).
+  await page.locator(".mission-card").nth(1).click();
+  await page.waitForTimeout(700);
+  check("it says how many words change, out of how many", /words change in/.test(await page.locator(".intro-title").innerText()));
+  check("the full reference list is shown", (await page.locator(".dialect-row").count()) >= 10,
+    String(await page.locator(".dialect-row").count()));
+  check("the choice is stored on the profile",
+    (await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:profile") || "{}").ar?.region)) === "ar-EG");
+
+  await page.locator(".intro-card .btn-hero").click();
+  await page.waitForTimeout(700);
+  check("a drill round starts", (await page.locator(".skip-options").count()) === 1);
+  const prompt = await page.locator(".prompt-card .eyebrow").innerText();
+  check("the question names the variety", /egyptian/i.test(prompt), prompt);
+
+  // Answer every question by tapping something, and reach the result.
+  for (let i = 0; i < 12; i++) {
+    if (!(await page.locator(".skip-options").count())) break;
+    await page.locator(".skip-option").first().click().catch(() => {});
+    await page.waitForTimeout(850);
+  }
+  check("the drill reaches a result screen", (await page.locator(".result-card").count()) === 1);
+  check("no crashes in the dialect drill", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await ctx.close();
+  await browser.close();
+}
+
+async function runExerciseToggles() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  console.log("\n=== exercise-type toggles ===\n");
+  const { ctx, page, errors } = await seeded(browser, "es");
+
+  await page.locator(".bottom-nav button", { hasText: "Profile" }).click();
+  await page.waitForTimeout(500);
+  await page.locator('button[aria-label="Settings"]').click();
+  await page.waitForTimeout(1600);
+
+  const toggles = await page.locator(".ex-toggle").count();
+  check("every optional question type has a switch", toggles >= 8, String(toggles));
+  check("they all start on", (await page.locator(".ex-toggle.ex-on").count()) === toggles);
+
+  await page.locator(".ex-toggle").first().click();
+  await page.waitForTimeout(400);
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app") || "{}").disabledExercises);
+  check("switching one off is persisted", Array.isArray(saved) && saved.length === 1, JSON.stringify(saved));
+  check("the screen says what turning it off costs",
+    /narrower|least practice/.test(await page.locator(".exercise-settings").innerText()));
+
+  check("no crashes on the exercise settings", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await ctx.close();
+  await browser.close();
+}
+
 await run(414, 896, "phone");
 await run(1440, 900, "desktop");
 await runUnconfigured();
@@ -462,6 +532,8 @@ await runVoiceSettings({ withVoices: true });
 await runVoiceSettings({ withVoices: false });
 await runSkipAhead();
 await runDialects();
+await runDialectDrill();
+await runExerciseToggles();
 
 const failed = out.filter((r) => !r.ok);
 console.log(`\n  ${out.length - failed.length} pass, ${failed.length} fail\n`);
