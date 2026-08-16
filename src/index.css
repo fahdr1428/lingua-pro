@@ -1,3 +1,5 @@
+@import "./fonts.css";
+
 :root {
   /* Warm heritage palette — matched to the Zaban logo (deep ink + root-brown) */
   --bg: #fbf7f0;
@@ -437,25 +439,27 @@ button:active { transform: translateY(1px) scale(0.98); }
 }
 
 /* --- Stat strip: three quiet cells, hairline dividers --- */
+/* v78: tightened. These are three numbers you glance at, not a dashboard —
+   they were costing 112px of a 896px screen. */
 .stat-strip {
   display: flex;
   background: rgba(255,255,255,0.7);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 14px 0;
+  padding: 9px 0;
 }
 .stat-cell {
-  flex: 1; text-align: center; padding: 2px 16px;
+  flex: 1; text-align: center; padding: 1px 12px;
   border-right: 1px solid var(--border);
 }
 .stat-cell:last-child { border-right: none; }
 .stat-value {
   font-family: "Fraunces", Georgia, serif;
-  font-size: 19px; font-weight: 600; color: var(--ink);
+  font-size: 17px; font-weight: 600; color: var(--ink);
 }
 .stat-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.6px;
-  text-transform: uppercase; color: var(--text-mute); margin-top: 5px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; color: var(--text-mute); margin-top: 3px;
 }
 
 /* --- Quiet secondary action --- */
@@ -730,6 +734,12 @@ button:focus:not(:focus-visible) { outline: none; }
   padding: 11px 16px; font-size: 13px; font-weight: 700; cursor: pointer;
 }
 .station-locked-note { font-size: 12px; color: var(--text-mute); line-height: 1.5; }
+.station-testout {
+  width: 100%; margin-top: 9px; text-align: left;
+  background: var(--surface); color: var(--ink);
+  border: 1px dashed var(--ink); border-radius: 12px;
+  padding: 10px 14px; font-size: 13px; font-weight: 700; cursor: pointer;
+}
 .station-guide {
   display: flex; align-items: center; gap: 9px; margin-top: 11px;
   font-size: 12px; color: var(--text-dim); line-height: 1.45;
@@ -768,6 +778,23 @@ button:focus:not(:focus-visible) { outline: none; }
 .jog svg { display: block; }
 
 /* --- unmapped units past the written stops --- */
+/* v78 — the greeting, compacted from a 291px block to a single row. */
+.home-greet {
+  display: flex; gap: 11px; align-items: center;
+  margin: 8px 0 14px;
+}
+
+/* v78 — collapsed future regions. A shut region is one row, not a wall. */
+.route-region-shut { margin-bottom: 8px; }
+.route-region-shut .region-head { margin-bottom: 0; }
+.region-head-tap { cursor: pointer; border-radius: 12px; padding: 6px; margin: -6px -6px 6px; }
+.region-head-tap:hover { background: var(--surface-hi, var(--surface)); }
+.region-head-tap:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+.region-caret {
+  font-size: 17px; font-weight: 700; color: var(--text-mute);
+  width: 26px; text-align: center; flex-shrink: 0;
+}
+
 .route-beyond { margin-top: 10px; }
 .beyond-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 9px; }
 .beyond-tile {
@@ -775,7 +802,9 @@ button:focus:not(:focus-visible) { outline: none; }
   background: var(--surface); border: 1px solid var(--border);
   display: flex; flex-direction: column; gap: 3px;
 }
-.beyond-locked { opacity: 0.55; cursor: default; }
+/* v78: a locked tile is now a door to the placement test, not a wall, so it
+   keeps a pointer and enough contrast to read as tappable. */
+.beyond-locked { opacity: 0.72; border-style: dashed; }
 .beyond-name { font-size: 13px; font-weight: 700; color: var(--text); }
 .beyond-meta { font-size: 11px; color: var(--text-mute); }
 
@@ -1632,3 +1661,163 @@ button:focus:not(:focus-visible) { outline: none; }
 }
 .intro-privacy .quiet-link { display: inline; margin-left: 5px; font-size: 11.5px; }
 
+/* v78 — iOS zooms the whole page when you focus an input smaller than 16px.
+   That used to be suppressed with maximum-scale=1 in the viewport tag, which
+   also blocked pinch-zoom entirely — an accessibility failure in an app that
+   renders Nastaliq at 14px. Fixing the cause instead: every text field is 16px
+   on touch, so there is nothing to suppress. */
+.screen-loading {
+  padding: 80px 20px; text-align: center; color: var(--text-dim); font-size: 14px;
+}
+
+@media (pointer: coarse) {
+  input[type="text"], input[type="search"], input[type="email"],
+  input[type="number"], input:not([type]), textarea, select {
+    font-size: 16px;
+  }
+}
+
+
+/* =============================================================================
+   v78 — DECODE. Paste real text, get it broken down.
+   ============================================================================= */
+
+/* The lead invite on home gets a warmer ground than the others, because it is
+   the answer to a question the learner already has rather than another feature
+   they have to be told to want. */
+.skip-invite-lead {
+  background: var(--primary-soft, var(--surface-hi));
+  border-color: var(--ink);
+}
+
+.decode-privacy {
+  display: flex; gap: 9px; align-items: flex-start;
+  font-size: 11.5px; line-height: 1.55; color: var(--text-dim);
+  background: var(--surface-hi, var(--surface));
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 10px 12px; margin: 4px 0 12px;
+}
+.decode-privacy .quiet-link { display: inline; margin: 0; font-size: 11.5px; }
+
+.decode-input {
+  width: 100%; box-sizing: border-box;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: 14px;
+  padding: 14px 15px; font: inherit; font-size: 16px; line-height: 1.7;
+  resize: vertical; min-height: 120px;
+}
+.decode-input:focus { outline: 2px solid var(--ink); outline-offset: 1px; }
+.decode-count { text-align: right; font-size: 11px; color: var(--text-mute); margin: 5px 2px 12px; }
+
+/* --- the number that makes the screen worth opening --- */
+.decode-score {
+  display: flex; align-items: center; gap: 15px;
+  background: var(--primary-soft, var(--surface-hi));
+  border: 1px solid var(--ink); border-radius: 16px;
+  padding: 15px 17px; margin-bottom: 16px;
+}
+.decode-score-big {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 34px; font-weight: 700; color: var(--ink); line-height: 1; flex-shrink: 0;
+}
+.decode-score-big span { font-size: 19px; opacity: 0.5; }
+.decode-score-text { font-size: 13.5px; line-height: 1.5; color: var(--text); min-width: 0; }
+
+/* --- meaning --- */
+.decode-meaning {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 15px 17px;
+}
+.decode-natural { font-size: 17px; line-height: 1.55; margin: 6px 0 0; color: var(--text); }
+.decode-literal {
+  font-size: 13px; line-height: 1.6; color: var(--text-dim);
+  margin: 12px 0 0; padding-top: 11px; border-top: 1px solid var(--border);
+}
+.decode-literal-tag {
+  display: block; font-size: 10px; font-weight: 800; letter-spacing: 0.6px;
+  text-transform: uppercase; color: var(--text-mute); margin-bottom: 4px;
+}
+.decode-register {
+  font-size: 12.5px; line-height: 1.55; color: var(--text-dim);
+  margin: 10px 0 0; font-style: italic;
+}
+
+/* --- word by word --- */
+.decode-tokens { display: flex; flex-direction: column; gap: 7px; }
+.decode-tok {
+  display: flex; gap: 11px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 13px; padding: 10px 12px;
+}
+.decode-tok-known { border-color: var(--ink); background: var(--primary-soft, var(--surface-hi)); }
+.decode-tok-new { border-style: dashed; }
+.decode-tok-say {
+  background: none; border: none; padding: 0; cursor: pointer;
+  text-align: inherit; flex-shrink: 0; max-width: 42%;
+}
+.decode-tok-native { font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.5; }
+.decode-tok-body { flex: 1; min-width: 0; }
+.decode-tok-translit { font-size: 12.5px; color: var(--text-dim); font-weight: 700; }
+.decode-tok-meaning { font-size: 13.5px; color: var(--text); margin-top: 1px; }
+.decode-tok-note { font-size: 11.5px; color: var(--text-mute); line-height: 1.45; margin-top: 4px; }
+.decode-tok-lemma { font-size: 11px; color: var(--text-mute); margin-top: 3px; }
+.decode-tok-right {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 5px;
+  flex-shrink: 0;
+}
+.decode-flag {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.4px; text-transform: uppercase;
+  color: var(--text-mute); white-space: nowrap;
+}
+.decode-flag-known { color: var(--ink); }
+.decode-pick {
+  display: flex; align-items: center; gap: 5px; cursor: pointer;
+  font-size: 11px; font-weight: 700; color: var(--text-dim);
+}
+.decode-pick input { width: 18px; height: 18px; accent-color: var(--primary); }
+
+.decode-grammar {
+  background: var(--surface-hi, var(--surface)); border: 1px solid var(--border);
+  border-radius: 14px; padding: 13px 15px; margin-top: 18px;
+}
+.decode-grammar p { font-size: 13.5px; line-height: 1.6; color: var(--text-dim); margin: 5px 0 0; }
+
+/* --- the reply. Understanding a message you can't answer is half a rescue. --- */
+.decode-reply { margin-top: 18px; }
+.decode-reply-line {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--ink);
+  border-radius: 14px; padding: 14px 16px; margin-top: 6px;
+}
+.decode-reply-native { display: block; font-size: 19px; font-weight: 700; color: var(--ink); line-height: 1.6; }
+.decode-reply-tl { display: block; font-size: 12.5px; color: var(--text-dim); font-weight: 700; margin-top: 3px; }
+.decode-reply-en { display: block; font-size: 12.5px; color: var(--text-mute); margin-top: 2px; }
+
+.decode-save { margin-top: 22px; }
+.decode-saved {
+  background: var(--primary-soft, var(--surface-hi)); border: 1px solid var(--ink);
+  border-radius: 14px; padding: 14px 16px; font-size: 13.5px; line-height: 1.55;
+  text-align: center; margin-bottom: 10px;
+}
+
+/* --- the deck built out of the learner's own life --- */
+.decode-mine { margin-top: 26px; }
+.decode-mine-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  width: 100%; text-align: left; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 13px 15px; font-size: 14px; color: var(--text);
+}
+.decode-mine-sub { display: block; font-size: 12px; color: var(--text-mute); margin-top: 2px; font-weight: 600; }
+.decode-mine-list { margin: 10px 0; }
+.decode-mine-row {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 9px 2px; border-bottom: 1px solid var(--border);
+}
+.decode-mine-native { font-size: 16px; font-weight: 700; color: var(--ink); flex-shrink: 0; }
+.decode-mine-gloss { flex: 1; min-width: 0; font-size: 12.5px; color: var(--text-dim); }
+.decode-forget {
+  background: none; border: none; cursor: pointer; flex-shrink: 0;
+  font-size: 11px; font-weight: 700; color: var(--text-mute);
+  text-decoration: underline; text-underline-offset: 2px;
+}

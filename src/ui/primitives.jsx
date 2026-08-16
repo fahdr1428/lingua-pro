@@ -143,7 +143,7 @@ export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, on
       <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
         <Stat icon={ICONS.zap} value={totalXp} color="var(--accent)" />
         {/* Zaban brand mark — present on every screen */}
-        <img src="/zaban-mark-transparent.png" alt="Zaban" style={{ height: 24, width: 24, objectFit: "contain", opacity: 0.95, flexShrink: 0 }} />
+        <img src="/mark-64.webp" alt="Zaban" width="24" height="24" style={{ height: 24, width: 24, objectFit: "contain", opacity: 0.95, flexShrink: 0 }} />
       </div>
 
       {pickerOpen && (
@@ -238,7 +238,7 @@ export function SideRail({ screen, onNavigate, streak = 0, totalXp = 0 }) {
   return (
     <nav className="side-rail" aria-label="Main">
       <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "0 12px 20px" }}>
-        <img src="/zaban-mark-transparent.png" alt="" style={{ width: 22, height: 22, objectFit: "contain" }} />
+        <img src="/mark-64.webp" alt="" width="22" height="22" style={{ width: 22, height: 22, objectFit: "contain" }} />
         <span className="brand-serif" style={{ fontSize: 17, color: "var(--ink)" }}>zaban</span>
       </div>
       {items.map((it) => (

@@ -53,8 +53,11 @@ export function Onboarding({ onComplete }) {
       <div className="home-wash">
         <Container style={{ paddingTop: "14vh", textAlign: "center" }}>
           <img
-            src="/zaban-logo.png"
+            src="/logo-560.webp"
             alt="Zaban"
+            width="551"
+            height="527"
+            fetchPriority="high"
             style={{ width: "min(260px, 66vw)", height: "auto", margin: "0 auto 8px", display: "block" }}
           />
           <p style={{ fontSize: 17, color: "var(--text-dim)", maxWidth: 380, margin: "0 auto 36px", lineHeight: 1.6 }}>
@@ -973,7 +976,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
             without a tour. */}
         <PrivacyAndAi appState={appState} setAppState={setAppState} onNavigate={onNavigate} onResetAll={onResetAll} />
         <Card style={{ marginTop: 16, fontSize: 12, color: "var(--text-mute)", textAlign: "center" }}>
-          <img src="/zaban-mark-transparent.png" alt="Zaban" style={{ width: 48, height: 48, objectFit: "contain", margin: "0 auto 8px", display: "block", opacity: 0.85 }} />
+          <img src="/mark-160.webp" alt="Zaban" width="48" height="48" style={{ width: 48, height: 48, objectFit: "contain", margin: "0 auto 8px", display: "block", opacity: 0.85 }} />
           <div style={{ fontWeight: 800, fontSize: 15, color: "var(--text-dim)", marginBottom: 2 }}>Zaban</div>
           Built with love for the languages the world forgets.
           <div style={{ marginTop: 4, fontStyle: "italic" }}>Language connects us.</div>

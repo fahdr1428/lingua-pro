@@ -72,6 +72,7 @@ export const AI_DISCLOSURE = {
       heading: "What is sent, and to whom",
       body: [
         "When you use the conversation features, the following is sent to our server and from there to Anthropic, which runs the language model: what you type or say (as text), the recent turns of that conversation, the language and variety you are learning, the character you are talking to, and a short summary of your practice record — your level, the error patterns you repeat, and the topics you find hard.",
+      "When you use Decode, only the text you pasted and the language you are learning are sent. Your practice record is not: the count of “words you already know” is worked out on your own device, by comparing the breakdown against your own progress, and never leaves it.",
         "That summary contains no name, no email and no identifier. It is derived from your own answers and looks like: “Level 3/5. Recurring trouble: past tense ending (4x). Least confident on: Directions.”",
         "Nothing is sent unless you open a conversation. Every other part of the app — lessons, flashcards, the route map, spaced repetition — works entirely on your device and sends nothing.",
       ],
@@ -104,6 +105,7 @@ export const PRIVACY = {
       heading: "What leaves your device",
       body: [
         "1. CONVERSATION TEXT, when you use the AI conversation features. See the AI disclosure for exactly what is included. It goes to our server and to Anthropic, which processes it to generate a reply. We do not store conversation content on our server beyond the moment it takes to answer.",
+      "1b. TEXT YOU PASTE INTO “DECODE”, when you ask us to break down a piece of real writing. It goes the same way — to our server and to Anthropic — and comes back as a breakdown. We do not store it. Please note this is often a message written by somebody else, who has not agreed to anything: only paste what you are comfortable sending. Words you choose to save are kept on your device along with a short fragment of the sentence they came from, so you can see the context later; that fragment is included in your export and destroyed when you delete your data.",
         "2. MICROPHONE AUDIO, when you use a speaking exercise — but not to us. Speech recognition is performed by your browser. In Chrome and Chromium-based browsers this means the audio is sent to Google's speech service and a transcript is returned. In Safari it may be handled on the device or by Apple, depending on your device and language. This app never receives, stores or transmits your audio; your browser vendor does, under their privacy policy. If you would rather not, every speaking exercise can be answered by typing instead, and it is graded identically.",
       ],
     },

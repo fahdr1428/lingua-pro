@@ -27,7 +27,109 @@ export class Engine {
     if (this.languageCode === code && this.pack) return this.pack;
     this.pack = await loadLanguagePack(code);
     this.languageCode = code;
+    await this._attachCustomWords();
     return this.pack;
+  }
+
+  // ---------------------------------------------------------------------------
+  // v78 — WORDS THE LEARNER BROUGHT THEMSELVES.
+  //
+  // The Decode screen turns a real message into vocabulary. Those words are not
+  // in any pack — they came off someone's phone — but they should behave like
+  // every other word once saved: scheduled by the same FSRS, reviewed in the
+  // same sessions, counted in the same stats. So rather than building a parallel
+  // deck with a parallel review system that would drift out of sync within a
+  // release, they are appended to the loaded pack's vocab and are from that
+  // point indistinguishable to the SRS.
+  //
+  // They carry `custom: true` and `unit: "custom"`, which does two things:
+  // generateSession excludes them from the ordinary course pool (your lesson
+  // three should not suddenly contain a word from your aunt's WhatsApp), and
+  // getUnitProgress ignores them because it iterates pack.units, which has no
+  // "custom" entry. They come back through review and through their own drill.
+  // ---------------------------------------------------------------------------
+  async _attachCustomWords() {
+    const all = (await this.storage.get("custom")) || {};
+    const mine = all[this.languageCode] || [];
+    if (!mine.length) return;
+    const have = new Set(this.pack.vocab.map((v) => v.id));
+    this.pack.vocab = [...this.pack.vocab, ...mine.filter((v) => !have.has(v.id))];
+  }
+
+  /** Everything the learner has saved from real text, newest first. */
+  async getCustomWords() {
+    const all = (await this.storage.get("custom")) || {};
+    return [...(all[this.languageCode] || [])].reverse();
+  }
+
+  /**
+   * Save words pulled out of real text.
+   *
+   * Deduped on the lemma, because the same word turning up in three messages is
+   * the normal case and three deck entries for it is not. Returns how many were
+   * genuinely new so the UI can say something true rather than "saved!".
+   *
+   * @param {Array<{lemma,translit,translation,source}>} words
+   */
+  async addCustomWords(words = []) {
+    if (!Array.isArray(words) || !words.length) return { added: 0, already: 0 };
+    const all = (await this.storage.get("custom")) || {};
+    const mine = all[this.languageCode] || [];
+
+    // Against the whole pack, not just previous custom words: if the course
+    // already teaches it, saving a second copy would give the learner two cards
+    // for one word and the generator two identical options for one question.
+    const key = (s) => String(s || "").trim().toLowerCase();
+    const taken = new Set([
+      ...this.pack.vocab.map((v) => key(v.lemma)),
+      ...mine.map((v) => key(v.lemma)),
+    ]);
+
+    const added = [];
+    for (const w of words) {
+      const lemma = String(w?.lemma || "").trim();
+      const translation = String(w?.translation || "").trim();
+      if (!lemma || !translation || taken.has(key(lemma))) continue;
+      taken.add(key(lemma));
+      added.push({
+        id: `${this.languageCode}_c${Date.now().toString(36)}${added.length}`,
+        lemma,
+        translit: String(w.translit || lemma).trim(),
+        pronunciation: String(w.translit || lemma).trim(),
+        translation,
+        category: "From your life",
+        difficulty: 2,
+        unit: "custom",
+        custom: true,
+        savedAt: Date.now(),
+        // Where it came from, so the learner can see the sentence it was in.
+        // Capped hard: this is a fragment of a private message living in
+        // storage, and it goes out with the data export like everything else.
+        source: String(w.source || "").slice(0, 200),
+        examples: [],
+      });
+    }
+
+    if (added.length) {
+      all[this.languageCode] = [...mine, ...added];
+      await this.storage.set("custom", all);
+      const have = new Set(this.pack.vocab.map((v) => v.id));
+      this.pack.vocab = [...this.pack.vocab, ...added.filter((v) => !have.has(v.id))];
+    }
+    return { added: added.length, already: words.length - added.length };
+  }
+
+  /** Forget a saved word — removes the entry and its review card. */
+  async removeCustomWord(id) {
+    const all = (await this.storage.get("custom")) || {};
+    all[this.languageCode] = (all[this.languageCode] || []).filter((v) => v.id !== id);
+    await this.storage.set("custom", all);
+    this.pack.vocab = this.pack.vocab.filter((v) => v.id !== id);
+    const progress = (await this.storage.get("progress")) || {};
+    if (progress[this.languageCode]) {
+      delete progress[this.languageCode][id];
+      await this.storage.set("progress", progress);
+    }
   }
 
   // ---------------------------------------------------------------------------
@@ -115,7 +217,15 @@ export class Engine {
   async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null, disabledExercises = null } = {}) {
     const progress = await this.getProgress();
     let pool = this.pack.vocab;
-    if (filter) pool = filterVocab(pool, filter);
+    if (filter) {
+      pool = filterVocab(pool, filter);
+    } else if (mode !== "due") {
+      // v78: words the learner saved from their own messages stay out of the
+      // ordinary course pool. They're reviewed once learned (mode "due" keeps
+      // them) and drilled deliberately via filter { unit: "custom" }, but the
+      // curriculum's own progression shouldn't be interrupted by them.
+      pool = pool.filter((v) => !v.custom);
+    }
 
     // Safety: if filter returned empty, fall back to whole vocab
     if (pool.length === 0) pool = this.pack.vocab;

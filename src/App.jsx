@@ -2,7 +2,7 @@
 // APP — root component, owns navigation state, wires engine + screens together.
 // =============================================================================
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
 import { useEngine } from "./hooks/useEngine.js";
 import { usePersistentState } from "./hooks/usePersistentState.js";
 import { useProfile } from "./hooks/useProfile.js";
@@ -22,22 +22,39 @@ import {
   Upgrade,
 } from "./screens/screens.jsx";
 import { Lesson } from "./screens/Lesson.jsx";
-import { Flashcards } from "./screens/Flashcards.jsx";
-import { AlphabetLessons } from "./screens/AlphabetLessons.jsx";
-import { Reading } from "./screens/Reading.jsx";
-import { Conversations } from "./screens/Conversations.jsx";
-import { SentenceLab } from "./screens/SentenceLab.jsx";
-import { Grammar } from "./screens/Grammar.jsx";
-import { Practice } from "./screens/Practice.jsx";
-import { Speak } from "./screens/Speak.jsx";
-import { Culture } from "./screens/Culture.jsx";
-import { Missions } from "./screens/Missions.jsx";
-import { Fluency } from "./screens/Fluency.jsx";
-import { TestOut } from "./screens/TestOut.jsx";
-import { SkipAhead } from "./screens/SkipAhead.jsx";
-import { DialectDrill } from "./screens/DialectDrill.jsx";
-import { Legal } from "./screens/Legal.jsx";
 import { APP_MIN_AGE } from "./legal/policies.js";
+
+// v78 — CODE SPLITTING.
+//
+// Everything used to be in one 759KB bundle, of which Lighthouse measured 108KB
+// as unused on first load: a learner opening the app to do a lesson downloaded
+// the mission engine, the fluency dial, the dialect drill and three legal
+// policies before the first word appeared.
+//
+// Home and Lesson stay eagerly imported — they are the two screens someone
+// actually arrives at, and lazy-loading the thing you always need immediately
+// just adds a round trip. Everything else loads when it's first opened, which on
+// a phone is the difference between a fast first paint and a slow one.
+//
+// The `.then` shims exist because these are named exports; React.lazy wants a
+// module with a default.
+const named = (loader, key) => React.lazy(() => loader().then((m) => ({ default: m[key] })));
+
+const Flashcards = named(() => import("./screens/Flashcards.jsx"), "Flashcards");
+const AlphabetLessons = named(() => import("./screens/AlphabetLessons.jsx"), "AlphabetLessons");
+const Reading = named(() => import("./screens/Reading.jsx"), "Reading");
+const Conversations = named(() => import("./screens/Conversations.jsx"), "Conversations");
+const SentenceLab = named(() => import("./screens/SentenceLab.jsx"), "SentenceLab");
+const Grammar = named(() => import("./screens/Grammar.jsx"), "Grammar");
+const Practice = named(() => import("./screens/Practice.jsx"), "Practice");
+const Speak = named(() => import("./screens/Speak.jsx"), "Speak");
+const Culture = named(() => import("./screens/Culture.jsx"), "Culture");
+const Missions = named(() => import("./screens/Missions.jsx"), "Missions");
+const Fluency = named(() => import("./screens/Fluency.jsx"), "Fluency");
+const SkipAhead = named(() => import("./screens/SkipAhead.jsx"), "SkipAhead");
+const DialectDrill = named(() => import("./screens/DialectDrill.jsx"), "DialectDrill");
+const Legal = named(() => import("./screens/Legal.jsx"), "Legal");
+const Decode = named(() => import("./screens/Decode.jsx"), "Decode");
 
 // Error boundary — catches crashes and shows a recovery button instead of a white screen
 class ErrorBoundary extends React.Component {
@@ -258,7 +275,13 @@ export default function App() {
           totalXp={appState.totalXp || 0}
         />
       )}
-      <div key={screen} className="screen-enter">
+      {/* v78: <main> — screen readers navigate by landmark, and without one the
+          only way to reach content is to walk the whole nav on every screen
+          change. Suspense wraps it because the heavier screens are code-split;
+          the fallback is deliberately plain, since it shows for a few hundred
+          milliseconds at most and a spinner that flashes is worse than a word. */}
+      <main key={screen} className="screen-enter" id="main">
+        <Suspense fallback={<div className="screen-loading">Loading…</div>}>
         {screen === "home" && <Home {...screenProps} />}
         {screen === "hub" && <PracticeHub {...screenProps} />}
         {screen === "letters" && <Letters {...screenProps} />}
@@ -270,8 +293,11 @@ export default function App() {
         {screen === "culture" && <Culture {...screenProps} />}
         {screen === "missions" && <Missions {...screenProps} />}
         {screen === "fluency" && <Fluency {...screenProps} />}
-        {screen === "testout" && <TestOut {...screenProps} />}
-        {screen === "skipahead" && <SkipAhead {...screenProps} />}
+        {/* v78: both routes land on SkipAhead. "testout" carries params.fromUnit
+            and tests that one unit; "skipahead" shows the chapter picker. The old
+            TestOut screen ignored the unit it was given and quizzed the whole
+            language at random, so the button existed and did the wrong thing. */}
+        {(screen === "testout" || screen === "skipahead") && <SkipAhead {...screenProps} />}
         {screen === "dialect" && <DialectDrill {...screenProps} />}
         {screen === "reading" && <Reading {...screenProps} />}
         {screen === "conversations" && <Conversations {...screenProps} />}
@@ -282,7 +308,9 @@ export default function App() {
         {screen === "settings" && <Settings {...screenProps} onResetAll={resetAll} />}
         {screen === "upgrade" && <Upgrade appState={appState} setAppState={setAppState} onNavigate={navigate} />}
         {screen === "legal" && <Legal {...screenProps} />}
-      </div>
+        {screen === "decode" && <Decode {...screenProps} />}
+        </Suspense>
+      </main>
       </div>
       {!FOCUSED.has(screen) && <BottomNav screen={screen} onNavigate={navigate} />}
     </ErrorBoundary>
@@ -292,7 +320,7 @@ export default function App() {
 function CenterMsg({ children }) {
   return (
     <div style={{ textAlign: "center", paddingTop: 100, color: "var(--text-dim)" }}>
-      <img src="/zaban-mark-transparent.png" alt="Zaban" style={{ width: 72, height: 72, objectFit: "contain", margin: "0 auto 20px", display: "block", opacity: 0.9 }} />
+      <img src="/mark-160.webp" alt="Zaban" width="72" height="72" style={{ width: 72, height: 72, objectFit: "contain", margin: "0 auto 20px", display: "block", opacity: 0.9 }} />
       {children}
     </div>
   );

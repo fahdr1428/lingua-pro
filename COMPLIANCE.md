@@ -22,8 +22,8 @@ Everything below follows from these facts, so they're worth stating plainly.
 | **Advertising** | None. No ad SDK, no advertising identifier. |
 | **Cookies** | None set by the app. |
 | **Payments** | None. `isPremium` is a local flag with no payment path behind it. |
-| **Data leaving the device** | Two things, both feature-gated: conversation text to Anthropic via `/api/coach`, and microphone audio to the **browser vendor** during speech recognition. |
-| **Server-side storage** | None. `/api/coach` and `/api/scenario` are stateless — they hold nothing between requests. |
+| **Data leaving the device** | Three things, all feature-gated: conversation text to Anthropic via `/api/coach`, text the learner pastes into Decode via `/api/decode`, and microphone audio to the **browser vendor** during speech recognition. |
+| **Server-side storage** | None. `/api/coach`, `/api/scenario` and `/api/decode` are stateless — they hold nothing between requests and log no request content. |
 
 That "no accounts, no analytics, no server-side storage" combination is why this
 is a genuinely small compliance surface. Most of the risk sits in one place: the
@@ -54,7 +54,7 @@ there was **no disclosure anywhere in the conversation UI**.
 | Keep telling them | `AiBadge` on a permanent strip above every conversation thread. Not a toast — it's on screen whenever the conversation is | `LiveConversation.jsx` |
 | Don't let it deny being AI | A `BOUNDARIES` block in the system prompt that overrides the persona: asked in any language whether it's a person, it says plainly that it's an AI | `api/coach.js` |
 | Say it can be wrong | On the gate, on the strip, in the AI disclosure policy, and on the Fluency score where model-graded turns feed the number | throughout |
-| Reporting mechanism | `ReportAi` on every AI turn | `src/ui/AiDisclosure.jsx` |
+| Reporting mechanism | `ReportAi` on every AI turn and on every decode | `src/ui/AiDisclosure.jsx` |
 | Withdrawal | Settings switch that turns the AI off after consent was given | `screens.jsx` → `PrivacyAndAi` |
 | Full written disclosure | "About the AI" policy — what's sent, to whom, what it's not for | `src/legal/policies.js` |
 
@@ -73,6 +73,33 @@ character:
   the current request.**
 - The scenario generator has a matching block, since a learner-typed description
   is otherwise a free hand at defining the scene.
+- The decoder has its own, adapted to what it does: it must translate faithfully
+  even when the content is difficult (a real message about an illness is exactly
+  when someone most needs to understand it), it must not advise on the content,
+  and the suggested reply must never commit the learner to anything.
+
+### Decode: a third-party data path worth naming explicitly
+
+`/api/decode` (v78) takes text the learner pastes — very often **a private
+message written by somebody else**, who has not agreed to anything. That is a
+materially different kind of input from the learner's own conversation turns, and
+it is treated as such:
+
+- the screen says where the text goes **above the box**, before anything is
+  typed, not in a policy afterwards;
+- it is capped at 600 characters, goes in a user turn, is never interpolated into
+  the system prompt, and is not logged;
+- it sits behind the same AI consent gate as the conversation;
+- the model is instructed that the text is data and never an instruction to it;
+- words the learner saves keep a 200-character fragment of the source sentence
+  locally so they can see the context — that fragment is in the data export and
+  is destroyed by Delete, like everything else.
+
+⚠️ **For a lawyer:** the learner is pasting a third party's message. Our lawful
+basis analysis covers the learner's own data; text about, and written by, other
+people passing through a processor is worth a specific look before launch. The
+mitigation in the product is that nothing is retained server-side and the learner
+is told before they paste.
 
 ### AI risk classification
 
@@ -216,9 +243,11 @@ probably not enough: reviewers expect reports to reach the operator. See blocker
 
 ### 🟡 Should do
 
-4. **Set a Content-Security-Policy header.** Now that fonts are self-hosted the
-   app has no third-party origins to allow, so a strict policy is finally
-   practical. On Vercel, `vercel.json` → `headers`.
+4. ~~**Set a Content-Security-Policy header.**~~ **Done in v78** — `vercel.json`
+   sets a strict CSP (`default-src 'self'`, no third-party origins at all), plus
+   COOP, `X-Frame-Options: DENY`, `nosniff`, a referrer policy, HSTS, and a
+   `Permissions-Policy` that grants the microphone to this origin only and denies
+   camera, geolocation and payment outright.
 5. **Serve the policies at stable public URLs** too, not only in-app — app stores
    and payment processors ask for a link, not a screenshot.
 6. **Re-ask for consent when the policies change.** `LAST_UPDATED` is stored in
@@ -262,4 +291,4 @@ scripts/fetch-fonts.mjs    regenerates the self-hosted fonts
 public/manifest.webmanifest
 ```
 
-Last reviewed against the code: **2026-08-15**.
+Last reviewed against the code: **2026-08-16** (v78).

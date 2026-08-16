@@ -48,18 +48,45 @@ import {
 // Random scene pick per visit + slow Ken Burns drift (alive, never static).
 // Loads /scenes/{code}-{1..3}.jpg; falls back to -1, then hides entirely —
 // languages without images keep the clean minimal layout.
+//
+// v78: `public/scenes/` does not exist and never has. Every home render fired
+// two image requests that 404'd before the band hid itself — wasted round trips
+// on the critical path, and 404s in the console of anyone who opened dev tools.
+// The component is kept, because the idea is good and the images may yet be
+// made, but it now checks whether the file is there before rendering anything,
+// and stays silent when it isn't.
+const sceneCache = new Map(); // code → Promise<string|null>
+
+function findScene(code) {
+  if (sceneCache.has(code)) return sceneCache.get(code);
+  const p = new Promise((resolve) => {
+    const idx = 1 + Math.floor(Math.random() * 3);
+    const tryLoad = (n, fallback) => {
+      const img = new Image();
+      img.onload = () => resolve(`/scenes/${code}-${n}.jpg`);
+      img.onerror = () => (fallback ? tryLoad(1, false) : resolve(null));
+      img.src = `/scenes/${code}-${n}.jpg`;
+    };
+    tryLoad(idx, idx !== 1);
+  });
+  sceneCache.set(code, p);
+  return p;
+}
+
 function SceneBand({ code, name }) {
-  const [idx, setIdx] = useState(() => 1 + Math.floor(Math.random() * 3));
-  const [ok, setOk] = useState(true);
+  const [src, setSrc] = useState(null);
   const kb = useMemo(() => (Math.random() < 0.5 ? "kb-a" : "kb-b"), []);
-  if (!ok) return null;
+
+  useEffect(() => {
+    let live = true;
+    findScene(code).then((s) => { if (live) setSrc(s); });
+    return () => { live = false; };
+  }, [code]);
+
+  if (!src) return null;
   return (
     <div className={`scene-band ${kb}`}>
-      <img
-        src={`/scenes/${code}-${idx}.jpg`}
-        alt=""
-        onError={() => (idx !== 1 ? setIdx(1) : setOk(false))}
-      />
+      <img src={src} alt="" width="880" height="344" />
       <div className="scene-veil" />
       <div className="scene-cap">{name}</div>
     </div>
@@ -298,33 +325,30 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         <div className="home-cols">
         <div>
 
-        {/* ===== 1 · GREETING + COACH LINE ===== */}
-        <div style={{ margin: "10px 0 26px" }}>
-          <div className="eyebrow">{daypart()}{appState.userName ? `, ${appState.userName}` : ""}</div>
-          <h1 style={{ fontSize: 30, fontWeight: 600, margin: "6px 0 0", lineHeight: 1.18 }}>
-            {milestone
-              ? <>{milestone.remaining} {milestone.remaining === 1 ? "session" : "sessions"} from<br /><em style={{ fontStyle: "italic" }}>{milestone.goal}</em>.</>
-              : <>Every session makes<br />{lang.name} more yours.</>}
-          </h1>
-          {/* v70: the guide's seal, not an emoji. Their initial in their own
-              script — see ui/GuideMark.jsx for why the emoji had to go. */}
-          <div style={{ display: "flex", gap: 11, alignItems: "flex-start", marginTop: 14 }}>
-            {character
-              ? <GuideMark code={pack.code} size={30} style={{ marginTop: 1 }} />
-              : <span style={{ fontSize: 20, lineHeight: "26px" }}>🌿</span>}
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <Typewriter key={line} text={line} style={{
-                fontSize: 15, color: "var(--text-dim)", lineHeight: 1.5, minHeight: 24,
-              }} />
-              {character && (
-                <div style={{ fontSize: 11.5, color: "var(--text-mute)", marginTop: 4 }}>
-                  {character.name} · {character.craft}
-                </div>
-              )}
+        {/* ===== 1 · GREETING + COACH LINE =====
+            v78: this block was 291px — a 30px two-line headline, a typewriter
+            line, a byline and a name field — which pushed the one thing on this
+            screen you can actually press below the fold on a phone. It's now a
+            single compact row. The headline earns its place at the top of a
+            marketing page; on the screen you open every day to do a lesson, the
+            lesson is what should be visible. */}
+        <div className="home-greet">
+          {character
+            ? <GuideMark code={pack.code} size={34} />
+            : <span style={{ fontSize: 22, lineHeight: "30px" }}>🌿</span>}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div className="eyebrow" style={{ marginBottom: 2 }}>
+              {daypart()}{appState.userName ? `, ${appState.userName}` : ""}
+              {character ? ` · ${character.name}` : ""}
             </div>
+            <Typewriter key={line} text={line} style={{
+              fontSize: 14.5, color: "var(--text-dim)", lineHeight: 1.45, minHeight: 21,
+            }} />
           </div>
-          {!appState.userName && <NameCapture onSave={(n) => setAppState((s) => ({ ...s, userName: n }))} />}
         </div>
+        {!appState.userName && (
+          <NameCapture onSave={(n) => setAppState((s) => ({ ...s, userName: n }))} />
+        )}
 
         {/* ===== 2 · UP NEXT — the one action ===== */}
         {/* v65: comeback nudge — only when genuinely away 2+ days, warm not guilt-trippy */}
@@ -481,6 +505,20 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             <span className="speak-invite-arrow" aria-hidden="true">→</span>
           </button>
         )}
+
+        {/* v78 — the door to real life. Placed above the route, because for the
+            audience this app is actually for, the message they can't read is a
+            more urgent problem than lesson four. */}
+        <button className="skip-invite skip-invite-lead" onClick={() => onNavigate("decode")}>
+          <span style={{ flex: 1, minWidth: 0 }}>
+            <span className="speak-invite-title">Got a message you can't read?</span>
+            <span className="speak-invite-sub">
+              Paste any real {lang.name} — a text from family, a sign, a song.
+              See what it says, and how much of it you already knew.
+            </span>
+          </span>
+          <span className="speak-invite-arrow" aria-hidden="true">→</span>
+        </button>
 
         {/* v75 — for anyone who already knows a chunk of this. Grinding "hello"
             when you grew up hearing the language is why people leave on day one. */}

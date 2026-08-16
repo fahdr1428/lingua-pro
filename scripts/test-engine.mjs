@@ -555,6 +555,68 @@ check("every disabled type is genuinely absent, including the two built outside 
   [...noneOfIt].join(" "));
 
 // =========================================================================
+// v78 — WORDS THE LEARNER SAVED FROM REAL TEXT
+//
+// These live in the same pack.vocab as everything else so the SRS treats them
+// identically. The rule that keeps that from being a mistake is that they stay
+// out of the ordinary course pool: someone on lesson three should not meet a
+// word from their aunt's WhatsApp in the middle of "Greetings". Asserted against
+// the real Engine rather than a stub, because the exclusion lives in
+// generateSession and a stub would only prove the stub.
+// =========================================================================
+{
+  const { Engine } = await import("../src/engine/Engine.js");
+
+  // In-memory storage, so this runs in node with no browser and no localStorage.
+  const mem = new Map();
+  const storage = {
+    async get(k) { return mem.has(k) ? JSON.parse(mem.get(k)) : null; },
+    async set(k, v) { mem.set(k, JSON.stringify(v)); },
+    async remove(k) { mem.delete(k); },
+    async update(k, fn) { const v = fn(await this.get(k)); await this.set(k, v); return v; },
+    async keys() { return [...mem.keys()]; },
+    async clear() { mem.clear(); },
+  };
+
+  const engine = new Engine(storage);
+  // The pack is set directly rather than through loadLanguage(): the registry
+  // loads packs with dynamic JSON imports, which node refuses without import
+  // attributes. What's under test here is addCustomWords and the pool exclusion
+  // in generateSession, and neither of those cares how the pack arrived.
+  engine.pack = JSON.parse(readFileSync("src/data/languages/ar.json", "utf8"));
+  engine.languageCode = "ar";
+  await engine._attachCustomWords();
+  const packSize = engine.pack.vocab.length;
+
+  const res = await engine.addCustomWords([
+    { lemma: "زقنبوت", translit: "ziqanbuut", translation: "a word from a message", source: "a message" },
+    { lemma: "زقنبوت", translit: "ziqanbuut", translation: "duplicate", source: "again" },
+  ]);
+  check("a word saved from real text is added once, not twice", res.added === 1, JSON.stringify(res));
+  check("saving puts it in the same vocab the SRS reads",
+    engine.pack.vocab.length === packSize + 1, `${packSize} → ${engine.pack.vocab.length}`);
+
+  const already = await engine.addCustomWords([
+    { lemma: engine.pack.vocab[0].lemma, translit: "x", translation: "already taught" },
+  ]);
+  check("a word the course already teaches isn't duplicated into a second card",
+    already.added === 0, JSON.stringify(already));
+
+  const smart = await engine.generateSession({ mode: "smart", sessionSize: 12 });
+  const smartIds = new Set(smart.exercises.map((e) => e.item?.id).filter(Boolean));
+  check("saved words stay out of the ordinary course lesson",
+    ![...smartIds].some((id) => id.includes("_c")), [...smartIds].join(" "));
+
+  const own = await engine.generateSession({ filter: { unit: "custom" }, sessionSize: 6 });
+  const ownItems = own.exercises.flatMap((e) => [e.item?.lemma, ...(e.items || []).map((i) => i.lemma)]).filter(Boolean);
+  check("they can be drilled deliberately", ownItems.includes("زقنبوت"), ownItems.join(" "));
+
+  await engine.removeCustomWord(engine.pack.vocab.find((v) => v.custom).id);
+  check("forgetting one removes it from the deck",
+    engine.pack.vocab.length === packSize && !(await engine.getCustomWords()).length);
+}
+
+// =========================================================================
 const failed = results.filter((r) => !r.ok);
 console.log(`\n  ${results.length - failed.length} pass, ${failed.length} fail\n`);
 process.exit(failed.length ? 1 : 0);

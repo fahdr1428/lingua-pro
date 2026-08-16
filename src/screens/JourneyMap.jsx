@@ -44,6 +44,24 @@ export function JourneyMap({
   const guide = getCharacter(langCode);
   const [openStop, setOpenStop] = useState(null);
 
+  // v78 — THE ROUTE WAS 1,896px OF MOSTLY LOCKED FUTURE.
+  //
+  // Measured on a 414×896 phone: home was 3,424px, nearly four full screens, and
+  // more than half of it was chapters the learner cannot open yet, rendered in
+  // full. Someone on lesson three scrolled past forty locked stops to reach the
+  // bottom of a page whose only actionable item was in the first screen.
+  //
+  // Future chapters now collapse to one line each. Nothing is removed — tapping
+  // a region opens it, which matters because the test-out doors live inside
+  // those stations — but the default view is what you can act on today.
+  const [openRegions, setOpenRegions] = useState(() => new Set());
+  const toggleRegion = (n) =>
+    setOpenRegions((s) => {
+      const next = new Set(s);
+      next.has(n) ? next.delete(n) : next.add(n);
+      return next;
+    });
+
   // Stops are the written content; the course may run past them. Anything beyond
   // the last written stop still needs a way in, handled at the foot of the map.
   const lastMappedUnit = stops.length
@@ -68,27 +86,49 @@ export function JourneyMap({
         const vocabIds = chapterVocabIds(pack.vocab, chapter.number);
         const showCheckpoint = unitProgress.length > chapter.endsAtUnit + 1;
 
+        // A future chapter is collapsed unless the learner opens it. The one
+        // they're in, and the ones behind them, stay open — those are the ones
+        // with something to do in them.
+        const collapsed = isFutureChapter && !openRegions.has(chapter.number);
+
         return (
-          <section key={chapter.number} className="route-region">
+          <section key={chapter.number} className={`route-region${collapsed ? " route-region-shut" : ""}`}>
             {/* ---- region header ---- */}
-            <header className="region-head">
+            <header
+              className={`region-head${isFutureChapter ? " region-head-tap" : ""}`}
+              onClick={isFutureChapter ? () => toggleRegion(chapter.number) : undefined}
+              role={isFutureChapter ? "button" : undefined}
+              tabIndex={isFutureChapter ? 0 : undefined}
+              aria-expanded={isFutureChapter ? !collapsed : undefined}
+              onKeyDown={
+                isFutureChapter
+                  ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleRegion(chapter.number); } }
+                  : undefined
+              }
+            >
               <div className="region-index">{chapter.number}</div>
               <div style={{ minWidth: 0, flex: 1 }}>
                 <h4 className="region-title">{chapter.title}</h4>
                 <div className="region-sub">
-                  {chapter.stops
-                    .map((s) => unitProgress[s.unitIndex]?.title)
-                    .filter(Boolean)
-                    .join(" · ") || `${chapter.stops.length} stops`}
+                  {collapsed
+                    ? `${chapter.stops.length} stops · tap to look ahead`
+                    : chapter.stops
+                        .map((s) => unitProgress[s.unitIndex]?.title)
+                        .filter(Boolean)
+                        .join(" · ") || `${chapter.stops.length} stops`}
                 </div>
               </div>
-              <div className={`region-count${isPastChapter ? " region-count-done" : ""}`}>
-                {doneInChapter}/{chapter.stops.length}
-              </div>
+              {isFutureChapter ? (
+                <div className="region-caret" aria-hidden="true">{collapsed ? "+" : "−"}</div>
+              ) : (
+                <div className={`region-count${isPastChapter ? " region-count-done" : ""}`}>
+                  {doneInChapter}/{chapter.stops.length}
+                </div>
+              )}
             </header>
 
             {/* ---- the stations ---- */}
-            {chapter.stops.map((stop, si) => {
+            {!collapsed && chapter.stops.map((stop, si) => {
               const gi = stop.globalIndex;
               const unit = unitProgress[stop.unitIndex];
               const isDone = gi < reached;
@@ -165,9 +205,30 @@ export function JourneyMap({
                               {unit ? ` · ${unit.learned || 0}/${unit.total || 0} words` : ""}
                             </button>
                           ) : (
-                            <div className="station-locked-note">
-                              Opens once you've made a start on “{unitProgress[stop.unitIndex - 1]?.title || "the stop before"}”.
-                            </div>
+                            /* v78 — THE MISSING DOOR.
+                               "Test out" existed since v75 but only on the
+                               fallback unit list, which renders for the seven
+                               languages with no written journey. On every
+                               language that HAS a journey — Urdu, Arabic,
+                               Punjabi, the ones people actually pick — a locked
+                               stop was a dead end with an apology on it. The
+                               feature was built and then unreachable for most of
+                               the app's users, which from where they sit is the
+                               same as never having been built. */
+                            <>
+                              <div className="station-locked-note">
+                                Opens once you've made a start on “{unitProgress[stop.unitIndex - 1]?.title || "the stop before"}”.
+                              </div>
+                              {unit && (
+                                <button
+                                  className="station-testout"
+                                  data-unit={unit.id}
+                                  onClick={() => onNavigate("testout", { fromUnit: unit.id })}
+                                >
+                                  Already know this? Test out →
+                                </button>
+                              )}
+                            </>
                           )}
 
                           {unlocked && (
@@ -199,7 +260,7 @@ export function JourneyMap({
             })}
 
             {/* ---- checkpoint closing the region ---- */}
-            {showCheckpoint && (
+            {showCheckpoint && !collapsed && (
               <Checkpoint
                 number={chapter.number}
                 available={examAvailable}
@@ -237,16 +298,23 @@ export function JourneyMap({
           </header>
           <div className="beyond-grid">
             {beyond.map((unit, i) => (
+              /* A locked tile is no longer disabled — it opens the placement
+                 test for that unit. "Locked" with nothing behind it is the
+                 single most common reason someone who already speaks some of
+                 the language closes the app. */
               <button
                 key={unit.id}
                 className={`beyond-tile${unit.unlocked ? "" : " beyond-locked"}`}
                 data-unit={unit.id}
-                disabled={!unit.unlocked}
-                onClick={() => unit.unlocked && onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
+                onClick={() =>
+                  unit.unlocked
+                    ? onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })
+                    : onNavigate("testout", { fromUnit: unit.id })
+                }
               >
                 <span className="beyond-name">{unit.title}</span>
                 <span className="beyond-meta">
-                  {unit.unlocked ? `${unit.learned || 0}/${unit.total || 0} words` : "Locked"}
+                  {unit.unlocked ? `${unit.learned || 0}/${unit.total || 0} words` : "Locked · test out"}
                 </span>
               </button>
             ))}

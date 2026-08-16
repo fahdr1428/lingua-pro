@@ -24,7 +24,7 @@
 // detail is the least useful thing a test can say.
 // =============================================================================
 
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, useEffect } from "react";
 import { LANGUAGES } from "../data/registry.js";
 import { getCharacter } from "../data/characters.js";
 import { GuideMark } from "../ui/GuideMark.jsx";
@@ -39,13 +39,13 @@ const PASS = 0.85;
 const QUESTIONS = 14;
 const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
-export function SkipAhead({ engine, pack, appState, setAppState, onNavigate, refreshStats }) {
+export function SkipAhead({ engine, pack, appState, setAppState, params, onNavigate, refreshStats }) {
   const lang = LANGUAGES[pack.code];
   const guide = getCharacter(pack.code);
   const isNonLatin = NON_LATIN.has(pack.code);
 
   const [phase, setPhase] = useState("pick");   // pick | quiz | result
-  const [chapter, setChapter] = useState(null);
+  const [chapter, setChapter] = useState(null); // the target: a chapter OR a unit
   const [result, setResult] = useState(null);
 
   const chapterCount = Math.max(1, completeChapterCount((pack.units || []).length));
@@ -58,7 +58,9 @@ export function SkipAhead({ engine, pack, appState, setAppState, onNavigate, ref
         .map((i) => pack.units?.[i]?.title)
         .filter(Boolean);
       out.push({
+        kind: "chapter",
         num: c,
+        label: `Chapter ${c}`,
         ids,
         unitTitles,
         passed: hasPassedChapter(appState, pack.code, c),
@@ -68,6 +70,29 @@ export function SkipAhead({ engine, pack, appState, setAppState, onNavigate, ref
     }
     return out;
   }, [pack.vocab, pack.units, pack.code, appState, chapterCount]);
+
+  // v78 — TESTING OUT OF A SINGLE UNIT.
+  //
+  // The route map's locked stops now link here with a unit id. Previously they
+  // pointed at a separate v26 screen that ignored the unit entirely and quizzed
+  // twelve random words from the whole language — so "test out of Family"
+  // handed you words from Directions and Numbers, and passing it meant nothing
+  // in particular. One rigorous test, scoped to whatever you tapped, is better
+  // than two tests where the reachable one is wrong.
+  const unitTarget = useMemo(() => {
+    const unitId = params?.fromUnit;
+    if (!unitId) return null;
+    const ids = (pack.vocab || []).filter((v) => v.unit === unitId).map((v) => v.id);
+    if (ids.length < 6) return null; // too few words to judge anyone on
+    const title = (pack.units || []).find((u) => u.id === unitId)?.title || "this unit";
+    return { kind: "unit", unitId, num: null, label: title, ids, unitTitles: [title], testable: true, passed: false };
+  }, [params?.fromUnit, pack.vocab, pack.units]);
+
+  // Arriving with a unit id means the learner already chose — go straight to the
+  // questions rather than making them pick a chapter they didn't ask about.
+  useEffect(() => {
+    if (unitTarget) { setChapter(unitTarget); setResult(null); setPhase("quiz"); }
+  }, [unitTarget]);
 
   const start = useCallback((c) => {
     setChapter(c);
@@ -80,21 +105,25 @@ export function SkipAhead({ engine, pack, appState, setAppState, onNavigate, ref
     setPhase("result");
     if (!r.passed || !chapter) return;
 
-    // Seed the chapter's words as known, and mark the chapter passed so the
-    // normal unlock rule in chapters.js opens the next one.
+    // Seed the words as known. For a unit that's the whole effect: the unit's
+    // completion percentage jumps, which is exactly what the unlock rule in
+    // chapters.js reads, so the next unit opens. A unit pass deliberately does
+    // NOT clear a chapter gate — the chapter exam still stands, because proving
+    // one unit is not proving six.
     await engine.seedKnown(chapter.ids);
     setAppState((s) => {
-      const passed = new Set(s.chaptersPassed?.[pack.code] || []);
-      // Everything up to and including this chapter — you cannot meaningfully
-      // skip chapter 3 while chapter 1 is still gated.
-      for (let c = 1; c <= chapter.num; c++) passed.add(c);
       const testedOut = new Set(s.testedOut?.[pack.code] || []);
       chapter.ids.forEach((id) => testedOut.add(id));
-      return {
-        ...s,
-        chaptersPassed: { ...s.chaptersPassed, [pack.code]: [...passed].sort((a, b) => a - b) },
-        testedOut: { ...s.testedOut, [pack.code]: [...testedOut] },
-      };
+      const next = { ...s, testedOut: { ...s.testedOut, [pack.code]: [...testedOut] } };
+
+      if (chapter.kind === "chapter") {
+        const passed = new Set(s.chaptersPassed?.[pack.code] || []);
+        // Everything up to and including this chapter — you cannot meaningfully
+        // skip chapter 3 while chapter 1 is still gated.
+        for (let c = 1; c <= chapter.num; c++) passed.add(c);
+        next.chaptersPassed = { ...s.chaptersPassed, [pack.code]: [...passed].sort((a, b) => a - b) };
+      }
+      return next;
     });
     refreshStats?.();
   }, [chapter, engine, pack.code, setAppState, refreshStats]);
@@ -110,9 +139,9 @@ export function SkipAhead({ engine, pack, appState, setAppState, onNavigate, ref
           {phase === "pick" ? "✕" : "←"}
         </button>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div className="eyebrow">Skip ahead</div>
+          <div className="eyebrow">{chapter?.kind === "unit" ? "Test out" : "Skip ahead"}</div>
           <div className="speak-title">
-            {phase === "pick" ? `Already know some ${lang.name}?` : `Chapter ${chapter?.num} test`}
+            {phase === "pick" ? `Already know some ${lang.name}?` : `${chapter?.label} test`}
           </div>
         </div>
         {guide && <GuideMark code={pack.code} size={34} />}
@@ -129,7 +158,7 @@ export function SkipAhead({ engine, pack, appState, setAppState, onNavigate, ref
 
       {phase === "quiz" && chapter && (
         <ChapterQuiz
-          key={chapter.num}
+          key={chapter.unitId || chapter.num}
           chapter={chapter}
           pack={pack}
           lang={lang}
@@ -357,12 +386,18 @@ function SkipResult({ result, chapter, lang, langCode, guide, isNonLatin, onRetr
       <div className={`result-card debrief-${result.passed ? "pass" : "fail"}`}>
         {guide && <GuideMark code={langCode} size={54} style={{ margin: "0 auto 14px" }} />}
         <h2 className="result-title">
-          {result.passed ? `Chapter ${chapter.num} is behind you` : "Not quite — and that's useful to know"}
+          {result.passed
+            ? chapter.kind === "unit"
+              ? `“${chapter.label}” is behind you`
+              : `Chapter ${chapter.num} is behind you`
+            : "Not quite — and that's useful to know"}
         </h2>
         <p className="result-sub">
           {result.passed
-            ? `${result.correct} of ${result.total}. Everything up to chapter ${chapter.num} is open, and those words are marked as known — they'll come back for review, not as new words.`
-            : `${result.correct} of ${result.total}. You need ${Math.round(PASS * 100)}% to skip a chapter, because everything after it builds on these words. The ones below are what let you down.`}
+            ? chapter.kind === "unit"
+              ? `${result.correct} of ${result.total}. Those words are marked as known and the next stop is open. The chapter exam still stands — proving one unit isn't proving six.`
+              : `${result.correct} of ${result.total}. Everything up to chapter ${chapter.num} is open, and those words are marked as known — they'll come back for review, not as new words.`
+            : `${result.correct} of ${result.total}. You need ${Math.round(PASS * 100)}% to skip ${chapter.kind === "unit" ? "a stop" : "a chapter"}, because everything after it builds on these words. The ones below are what let you down.`}
         </p>
 
         <div className="result-stats">
@@ -390,13 +425,17 @@ function SkipResult({ result, chapter, lang, langCode, guide, isNonLatin, onRetr
           {result.passed ? (
             <>
               <button className="btn-hero btn-hero-sm" onClick={() => onNavigate("home")}>See what's open now</button>
-              <button className="btn-quiet" onClick={onPick}>Try the next chapter</button>
+              <button className="btn-quiet" onClick={onPick}>
+                {chapter.kind === "unit" ? "Skip a whole chapter instead" : "Try the next chapter"}
+              </button>
             </>
           ) : (
             <>
               <button className="btn-hero btn-hero-sm" onClick={() => onNavigate("hub")}>Learn these properly</button>
               <button className="btn-quiet" onClick={onRetry}>Try the test again</button>
-              <button className="btn-quiet" onClick={onPick}>Other chapters</button>
+              <button className="btn-quiet" onClick={onPick}>
+                {chapter.kind === "unit" ? "Test out of a whole chapter" : "Other chapters"}
+              </button>
             </>
           )}
         </div>

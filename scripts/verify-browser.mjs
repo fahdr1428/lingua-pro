@@ -378,7 +378,8 @@ async function runSkipAhead() {
   check("German loads as a language", (await page.locator("body").innerText()).includes("German") ||
     (await page.locator(".home-container, body").count()) > 0);
 
-  await page.locator(".skip-invite").click();
+  // The decode door shares the .skip-invite class, so scope to the chapter one.
+  await page.locator(".skip-invite:not(.skip-invite-lead)").click();
   await page.waitForTimeout(700);
   const chapters = await page.locator(".mission-card").count();
   check("the skip-ahead screen lists chapters", chapters >= 4, String(chapters));
@@ -842,6 +843,213 @@ async function runDataRights() {
   await browser.close();
 }
 
+// ---------------------------------------------------------------------------
+// v78 — DECODE. Paste real text, get it broken down, keep the words.
+//
+// The assertions that matter here are the two that make the feature more than a
+// translator: that the count of already-known words is computed against the
+// learner's OWN progress rather than asserted by the model, and that saving a
+// word puts it into the same review machinery as everything else rather than a
+// parallel list that never comes back.
+// ---------------------------------------------------------------------------
+const DECODE_REPLY = {
+  configured: true,
+  isTarget: true,
+  detectedNote: "",
+  natural: "How are you? I made food, come over.",
+  literal: "you how are? I food made, come",
+  register: "Warm and informal — how an aunt writes to a nephew.",
+  grammarNote: "The verb lands at the end, which is why the last word is the one doing the work.",
+  tokens: [
+    { native: "كيف", lemma: "كيف", translit: "kayf", meaning: "how", role: "adverb", note: "" },
+    { native: "حالك", lemma: "حال", translit: "haal", meaning: "condition, state", role: "noun", note: "the -ak ending is 'your', addressed to a man" },
+    { native: "فاطمة", lemma: "فاطمة", translit: "Fatima", meaning: "Fatima", role: "name", note: "" },
+    { native: "طعام", lemma: "طعام", translit: "ta'aam", meaning: "food", role: "noun", note: "" },
+    { native: "زقنبوت", lemma: "زقنبوت", translit: "ziqanbuut", meaning: "a made-up word", role: "noun", note: "" },
+  ],
+  reply: { native: "الحمد لله، جاي حالاً", translit: "al-hamdu lillah, jaay haalan", en: "All good — coming right now." },
+};
+
+async function runDecode() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(String(e)));
+
+  let sent = null;
+  await page.route("**/api/decode", async (route) => {
+    if (route.request().method() === "GET") {
+      return route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ configured: true }) });
+    }
+    sent = JSON.parse(route.request().postData() || "{}");
+    return route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(DECODE_REPLY) });
+  });
+
+  console.log("\n=== decode: real text into a lesson ===\n");
+  await page.goto(BASE);
+
+  // Seed a learner who has genuinely learned one of the words in the message,
+  // so the "you already know N" count has something true to find.
+  const pack = JSON.parse(readFileSync("src/data/languages/ar.json", "utf8"));
+  const kayf = pack.vocab.find((v) => v.translit === "kayf" || v.lemma === "كيف");
+  await page.evaluate(([id]) => {
+    localStorage.setItem("lingua:app", JSON.stringify({
+      onboarded: true, currentLanguage: "ar", tutorialSeen: true, dailyGoalXp: 35, totalXp: 100,
+      streak: 1, hearts: 5, heartsMax: 5, gems: 50, theme: "cream", showRomanization: true,
+      sessionSize: 6, lessonsCompleted: { ar: 3 }, sessions: [], grammarSeen: {}, learningGoal: {},
+      chaptersPassed: {}, sentenceDropsDone: {}, lastCheckpointAt: {}, testedOut: {},
+      momentDone: {}, planVisited: {}, consent: { terms: true, ageConfirmed: 13, at: 0 },
+      aiConsent: { accepted: true, at: 0, ageConfirmed: 16, version: 1 },
+    }));
+    if (id) {
+      localStorage.setItem("lingua:progress", JSON.stringify({
+        ar: { [id]: { difficulty: 5, stability: 20, lastReview: Date.now(), nextReview: Date.now() + 8.64e7, reps: 5, lapses: 0 } },
+      }));
+    }
+  }, [kayf?.id]);
+  await page.reload();
+  await page.waitForTimeout(1500);
+
+  check("the decode door is on home", await page.locator(".skip-invite-lead").isVisible());
+  await page.locator(".skip-invite-lead").click();
+  await page.waitForTimeout(900);
+
+  check("it says what leaves the device before the box, not after",
+    await page.locator(".decode-privacy").isVisible());
+  check("the AI marker is on the screen", (await page.locator(".decode-privacy .ai-badge").count()) === 1);
+
+  await page.locator(".decode-input").fill("كيف حالك فاطمة؟ طعام زقنبوت");
+  await page.locator(".btn-hero").first().click();
+  await page.waitForTimeout(1200);
+
+  check("the pasted text is sent, and nothing else about the learner",
+    sent?.text?.includes("كيف") && !JSON.stringify(sent).includes("lessonsCompleted"),
+    JSON.stringify(sent).slice(0, 120));
+
+  check("the breakdown renders", await page.locator(".decode-tokens").isVisible());
+  const toks = await page.locator(".decode-tok").count();
+  check("every word from the text is shown", toks === 5, String(toks));
+
+  const score = await page.locator(".decode-score").innerText();
+  // Four teachable words (the proper noun is excluded), one of which the seeded
+  // learner has real progress on.
+  check("the score counts teachable words, excluding proper nouns", /\/4/.test(score), score.replace(/\n/g, " "));
+  check("it counts what the learner actually knows, from their own progress",
+    /^1\b/.test(score.trim()), score.replace(/\n/g, " "));
+  check("a known word is marked as known",
+    (await page.locator(".decode-tok-known").count()) === 1,
+    String(await page.locator(".decode-tok-known").count()));
+
+  check("it shows the word-for-word order, not just a translation",
+    await page.locator(".decode-literal").isVisible());
+  check("it says who talks like that", await page.locator(".decode-register").isVisible());
+  check("it explains one thing about how the sentence is built",
+    await page.locator(".decode-grammar").isVisible());
+  check("it gives something to send back", await page.locator(".decode-reply-line").isVisible());
+  check("the AI output can be reported", (await page.locator(".ai-report").count()) >= 1);
+
+  // Saving.
+  const ticked = await page.locator(".decode-pick input:checked").count();
+  check("words the learner doesn't know are pre-ticked, the known one isn't", ticked === 3, String(ticked));
+
+  await page.locator(".decode-save .btn-hero").click();
+  await page.waitForTimeout(900);
+  check("saving confirms with a real number", /3 words added/i.test(await page.locator(".decode-saved").innerText()));
+
+  const custom = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:custom") || "{}"));
+  check("saved words are persisted", (custom.ar || []).length === 3, String((custom.ar || []).length));
+  check("they carry the sentence they came from",
+    (custom.ar || []).every((w) => w.source?.includes("كيف")));
+  check("they are marked custom so the course pool can exclude them",
+    (custom.ar || []).every((w) => w.custom === true && w.unit === "custom"));
+
+  // The point of saving: they enter the same review machinery.
+  await page.locator(".decode-saved .btn-hero").click();
+  await page.waitForTimeout(1600);
+
+  // A lesson can open on a grammar moment or an intro card before the first
+  // question, so walk a few steps rather than asserting on the first screen.
+  let sawWord = false;
+  for (let i = 0; i < 6 && !sawWord; i++) {
+    const body = await page.locator("body").innerText();
+    if (/ziqanbuut|زقنبوت|ta'aam|ta_aam|طعام|haal|حال/.test(body)) { sawWord = true; break; }
+    await page.evaluate(() => {
+      const go = [...document.querySelectorAll("button")].find((b) =>
+        /^(check|continue|next|got it|i've got these)/i.test((b.innerText || "").trim()) && !b.disabled);
+      if (go) go.click();
+    });
+    await page.waitForTimeout(500);
+  }
+  check("drilling saved words opens a lesson built from them", sawWord);
+  check("no crashes through decode", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await browser.close();
+}
+
+// ---------------------------------------------------------------------------
+// v78 — TESTING OUT OF A SINGLE STOP.
+//
+// The button existed since v75 but only on the fallback unit list, which renders
+// for languages with no written journey. On the seven that HAVE one — Urdu,
+// Arabic, the ones people pick — a locked stop was a dead end. This asserts the
+// door exists on a journey language AND that what it opens is scoped to the unit
+// tapped, which the old screen got wrong: it quizzed the whole language at random.
+// ---------------------------------------------------------------------------
+async function runUnitTestOut() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  console.log("\n=== testing out of one stop (Urdu) ===\n");
+  const { ctx, page, errors } = await seeded(browser, "ur");
+
+  check("Urdu renders the written route, not the fallback list",
+    (await page.locator(".route-region").count()) > 0);
+
+  // Open a locked stop in the current region.
+  const locked = page.locator(".station-locked .station-head, .station-locked button").first();
+  await locked.click();
+  await page.waitForTimeout(500);
+
+  const door = page.locator(".station-testout").first();
+  check("a locked stop offers a way to prove you already know it",
+    (await door.count()) > 0, String(await door.count()));
+
+  const unitId = await door.getAttribute("data-unit");
+  await door.click();
+  await page.waitForTimeout(900);
+
+  check("it opens a test", await page.locator(".skip-options").isVisible());
+  check("the test is named after the stop, not 'Chapter 1'",
+    !/Chapter/i.test(await page.locator(".speak-title").innerText()),
+    await page.locator(".speak-title").innerText());
+
+  // Scoped: every question must come from the unit that was tapped.
+  const pack = JSON.parse(readFileSync("src/data/languages/ur.json", "utf8"));
+  // Both directions and both scripts: the English gloss when asked to produce,
+  // and for a non-Latin pack the ROMANISATION (not the lemma) when asked to
+  // recognise — see the prompt built in SkipAhead's ChapterQuiz.
+  const ofUnit = pack.vocab.filter((v) => v.unit === unitId);
+  const accepted = new Set([
+    ...ofUnit.map((v) => v.translation),
+    ...ofUnit.map((v) => v.lemma),
+    ...ofUnit.map((v) => v.translit).filter(Boolean),
+  ]);
+  let checked = 0, offTopic = 0;
+  for (let i = 0; i < 4; i++) {
+    if (!(await page.locator(".skip-options").count())) break;
+    const prompt = (await page.locator(".prompt-ask").innerText()).trim();
+    if (!accepted.has(prompt)) offTopic++;
+    checked++;
+    await page.locator(".skip-option").first().click();
+    await page.waitForTimeout(850);
+  }
+  check("every question comes from the stop you tapped", checked > 0 && offTopic === 0,
+    `${offTopic} of ${checked} off-topic`);
+  check("no crashes testing out of a stop", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await ctx.close();
+  await browser.close();
+}
+
+await runDecode();
+await runUnitTestOut();
 await runOnboardingGate();
 await runAiGate();
 await runDataRights();
