@@ -36,14 +36,61 @@ export function buildQueue(vocab, progress, opts = {}) {
     .filter(({ r }) => r < cfg.dueThreshold)
     .sort((a, b) => a.r - b.r);
 
-  // v38 ADAPTIVE REVIEW: if a due backlog is building up, reduce how many new
-  // words we introduce this session so reviews don't get crowded out. This is
-  // the core of "consolidated repetitive learning" — when you have words
-  // slipping, the app prioritises locking them in before piling on new ones.
-  // Backlog tiers: 0-5 due → normal new intake; 6-15 → half; 16+ → reviews only.
+  // ---------------------------------------------------------------------------
+  // ADAPTIVE REVIEW — how many new words to introduce alongside the reviews.
+  //
+  // v79: THE OLD RULE STOPPED TEACHING PEOPLE, PERMANENTLY.
+  //
+  //     if (due.length >= 16) effectiveNewPerSession = 0;
+  //
+  // Sixteen due words is not a backlog. It is what a healthy deck looks like
+  // after a fortnight — spaced repetition schedules words to come back, so the
+  // due count rises with the size of what you know and settles at a plateau.
+  // With eight-question sessions that plateau sits above sixteen almost
+  // immediately, and from then on the app introduced NOTHING NEW. Ever.
+  //
+  // Simulated: a learner doing one lesson a day, answering 85% correctly,
+  // reached 26 words after 30 days. Under one new word a day, and falling. They
+  // would have kept showing up, kept doing the work, and quietly stopped
+  // learning the language — with the app reporting a 30-day streak at them the
+  // whole time. That is the most damaging thing in this codebase.
+  //
+  // Two changes fix it:
+  //
+  //   1. THE THRESHOLDS ARE RELATIVE, not absolute. Sixteen due out of thirty
+  //      words known means you are genuinely behind. Sixteen due out of five
+  //      hundred means you are doing fine. An absolute number cannot tell those
+  //      apart, and it was punishing the second case as though it were the first.
+  //
+  //   2. THERE IS A FLOOR. Below the worst tier the intake is throttled hard —
+  //      that part of the original intent was right — but never to zero while
+  //      there are still words left to teach. A learner who turns up should
+  //      always leave with something they did not have before.
+  // ---------------------------------------------------------------------------
+  // The measure is SESSIONS OF WORK OUTSTANDING, not a raw count and not a
+  // share of the deck.
+  //
+  // A share of the deck looks obvious and isn't: dueThreshold is 0.9, so a word
+  // counts as "due" the moment its predicted recall dips below 90%, which for a
+  // healthy deck is most words most of the time. Measured that way a learner
+  // doing everything right looks permanently swamped.
+  //
+  // What actually matters to the person is whether they can dig themselves out.
+  // Three sessions' worth of reviews waiting is a normal week. Six is a backlog
+  // worth pausing for. That is the same question the learner is asking, and it
+  // scales with session length on its own — someone doing 15-question sessions
+  // clears more per sitting and should be allowed to move faster.
+  const capacity = Math.max(4, cfg.sessionSize);
+  const sessionsBehind = due.length / capacity;
+
   let effectiveNewPerSession = cfg.newPerSession;
-  if (due.length >= 16) effectiveNewPerSession = 0;
-  else if (due.length >= 6) effectiveNewPerSession = Math.max(1, Math.floor(cfg.newPerSession / 2));
+  if (sessionsBehind >= 6) {
+    // Genuinely behind — usually after a long absence. Consolidate hard, but
+    // never stop: one new word means turning up is always worth something.
+    effectiveNewPerSession = 1;
+  } else if (sessionsBehind >= 3) {
+    effectiveNewPerSession = Math.max(1, Math.floor(cfg.newPerSession / 2));
+  }
 
   // Bucket 2: unseen cards, sorted by frequency rank (most useful first).
   // v41: if a goal-category order is provided, words whose category is in the

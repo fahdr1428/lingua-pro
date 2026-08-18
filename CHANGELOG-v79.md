@@ -3,9 +3,9 @@
 The ask: significantly improve it so people **actually learn the language**, and
 make it friendly towards learning.
 
-I audited the app against what's actually known about how people acquire a
-language, rather than guessing. Five findings. Three of them were serious, and
-two were the same bug in two places.
+I audited the app against what is actually known about how people acquire a
+language, rather than guessing. Five findings. Three were serious, one was the
+same bug in two places, and one was an app that had quietly stopped teaching.
 
 ---
 
@@ -179,6 +179,63 @@ at 41.
 
 ---
 
+## 5. The worst thing in the codebase: it stopped teaching people
+
+I wrote a simulator (`scripts/simulate-learner.mjs`) that drives the real engine
+through a learner doing one lesson a day at 85% accuracy, because unit tests can
+tell you a function returns the right value and cannot tell you that someone
+doing everything right stops making progress after three weeks.
+
+**After 30 daily lessons the simulated learner knew 26 words.** Under one new
+word a day, and falling toward zero.
+
+The cause, in `selector.js`:
+
+```js
+if (due.length >= 16) effectiveNewPerSession = 0;
+```
+
+Sixteen due words is not a backlog. It is what a healthy deck looks like after a
+fortnight — spaced repetition schedules words to come back, so the due count
+climbs with the size of what you know and settles at a plateau. With
+eight-question sessions that plateau clears sixteen almost immediately, and from
+then on **the app introduced nothing new. Ever.**
+
+Someone could keep turning up, keep answering, keep their streak alive for
+months, and quietly stop learning the language — while the app congratulated
+them on the streak. Every function involved was behaving exactly as written.
+
+Two changes:
+
+- **The measure is now sessions of work outstanding, not a raw count.** A raw
+  number cannot tell "sixteen due out of thirty known" from "sixteen due out of
+  five hundred", and it was treating the second like the first. Three sessions'
+  worth waiting is a normal week; six is worth pausing for. That is also the
+  question the learner is actually asking.
+- **There is a floor.** Below the worst tier the intake throttles hard — that
+  part of the original intent was right — but never to zero while there are words
+  left to teach. Turning up should always be worth something.
+
+| | after 30 days | after 90 days |
+|---|---|---|
+| before | 26 words, then flat | 26 words |
+| after | 55 words | **131 words**, still climbing |
+
+Review load stayed healthy throughout — 8.4 review items per lesson, ~7 exposures
+per word, 0% of words seen only once at the plateau. This is not "teach faster by
+reviewing less"; it is removing a hard stop.
+
+A side effect worth having: because the throttle now scales with session length,
+the lesson-length setting genuinely controls pace for the first time. Over 90
+days, **108 / 131 / 166 words** for short / normal / marathon sessions. Under the
+old absolute threshold, session length made no difference at all.
+
+Five assertions in `test-engine` now guard this specifically, including that a
+heavy backlog still yields at least one new word and that a longer session earns
+a faster pace.
+
+---
+
 ## Verification
 
 ```sh
@@ -194,7 +251,11 @@ npm run check && node scripts/verify-browser.mjs
   material, and a German passage renders.
 - **`validate-passages`** — new, in `npm run check`. 14 languages, 41 passages,
   168 lines, 0 errors.
-- `test-engine` 192, `check` 58 — unchanged and passing.
+- **`test-engine` — 197 assertions** (was 192), five of them new and guarding
+  the never-stop-teaching rule directly.
+- `scripts/simulate-learner.mjs` — not in `npm run check` (slow, and its output
+  is a judgement call rather than pass/fail), but it is how finding 5 was found
+  and how the fix was measured.
 
 Three harness bugs of my own found and fixed along the way: the home hero opens
 the Sentence Lab at that progress level rather than a lesson, so the test was

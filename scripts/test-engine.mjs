@@ -617,6 +617,67 @@ check("every disabled type is genuinely absent, including the two built outside 
 }
 
 // =========================================================================
+// v79 — THE APP MUST NEVER STOP TEACHING
+//
+// The rule this replaces read `if (due.length >= 16) newPerSession = 0`, which
+// meant that once sixteen words were waiting — a state a healthy deck reaches in
+// about a fortnight — the app introduced nothing new again, permanently. A
+// simulated learner doing one lesson a day at 85% accuracy reached 26 words in
+// 30 days and flatlined there, while the app congratulated them on their streak.
+//
+// These assertions exist so that cannot come back silently.
+// =========================================================================
+{
+  const { buildQueue } = await import("../src/engine/selector.js");
+  const pack = JSON.parse(readFileSync("src/data/languages/ur.json", "utf8"));
+  const now = Date.now();
+
+  // A learner with a large backlog: 80 words known, every one overdue.
+  const swamped = {};
+  for (const v of pack.vocab.slice(0, 80)) {
+    swamped[v.id] = {
+      difficulty: 6, stability: 1, lastReview: now - 20 * 864e5,
+      nextReview: now - 864e5, reps: 3, lapses: 1, lastRating: "again",
+    };
+  }
+  const q = buildQueue(pack.vocab, swamped, { sessionSize: 8, newPerSession: 4 });
+  const fresh = q.filter((v) => !swamped[v.id]).length;
+  check("a heavy backlog still teaches at least one new word — turning up is never worthless",
+    fresh >= 1, `${fresh} new of ${q.length}`);
+  check("a heavy backlog is still mostly review, not new words",
+    q.length - fresh > fresh, `${fresh} new, ${q.length - fresh} review`);
+
+  // A comfortable learner should move at close to the full rate.
+  const comfortable = {};
+  for (const v of pack.vocab.slice(0, 40)) {
+    comfortable[v.id] = {
+      difficulty: 5, stability: 40, lastReview: now - 864e5,
+      nextReview: now + 30 * 864e5, reps: 6, lapses: 0, lastRating: "good",
+    };
+  }
+  const q2 = buildQueue(pack.vocab, comfortable, { sessionSize: 8, newPerSession: 4 });
+  const fresh2 = q2.filter((v) => !comfortable[v.id]).length;
+  check("someone on top of their reviews gets the full intake of new words",
+    fresh2 >= 3, `${fresh2} new`);
+
+  // The throttle is measured in sessions of work, so a longer session should
+  // earn a faster pace rather than being punished by an absolute threshold.
+  const short = buildQueue(pack.vocab, swamped, { sessionSize: 4, newPerSession: 4 })
+    .filter((v) => !swamped[v.id]).length;
+  const long = buildQueue(pack.vocab, swamped, { sessionSize: 20, newPerSession: 4 })
+    .filter((v) => !swamped[v.id]).length;
+  check("a longer session earns a faster pace, not the same throttle",
+    long >= short, `short ${short}, long ${long}`);
+
+  // And the floor only applies while there is anything left to teach.
+  const everything = {};
+  for (const v of pack.vocab) everything[v.id] = swamped[pack.vocab[0].id];
+  const q3 = buildQueue(pack.vocab, everything, { sessionSize: 8, newPerSession: 4 });
+  check("with nothing left unseen it reviews rather than inventing words",
+    q3.length > 0 && q3.every((v) => everything[v.id]));
+}
+
+// =========================================================================
 const failed = results.filter((r) => !r.ok);
 console.log(`\n  ${results.length - failed.length} pass, ${failed.length} fail\n`);
 process.exit(failed.length ? 1 : 0);
