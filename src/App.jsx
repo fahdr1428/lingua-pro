@@ -133,6 +133,7 @@ const DEFAULT_APP_STATE = {
   sentenceDropsDone: {}, // v47: { langCode: highestDropNumber } — Sentence Lab progress
   lastCheckpointAt: {}, // { langCode: lessonCount when last checkpoint cleared }
   testedOut: {}, // { langCode: [wordId,...] } — words skipped via placement test
+  passagesRead: {}, // v79: { langCode: [passageId,...] } — so the reading library advances
   voice: null, // v74: { coachVoiceURI, tone, speed, targetVoiceURI } — null = automatic
   disabledExercises: [], // v76: exercise types the learner switched off
   consent: null, // v77: { ageConfirmed, terms, at, policyVersion } — set at onboarding

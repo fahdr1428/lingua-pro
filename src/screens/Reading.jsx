@@ -19,8 +19,20 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
   const voiceAvailable = hasVoiceFor(lang.ttsCode);
   const hasPassages = !!(PASSAGES[pack.code] && PASSAGES[pack.code].length);
 
-  const [seenIds, setSeenIds] = useState([]);
-  const [passage, setPassage] = useState(() => getPassage(pack.code, []));
+  // v79: which passages have been read is remembered across visits.
+  //
+  // It used to be component state, reset every time the screen mounted, so the
+  // next passage was drawn at random from the whole set each visit. With one or
+  // two passages per language that hardly mattered. With a real library it does:
+  // a learner could open Reading five times and be handed the same piece four
+  // times, and conclude there was nothing else in there.
+  const seenIds = appState?.passagesRead?.[pack.code] || [];
+  const setSeenIds = (ids) =>
+    setAppState((st) => ({
+      ...st,
+      passagesRead: { ...(st.passagesRead || {}), [pack.code]: ids.slice(-60) },
+    }));
+  const [passage, setPassage] = useState(() => getPassage(pack.code, seenIds));
   const [showTranslation, setShowTranslation] = useState(false);
   const [showRomanization, setShowRomanization] = useState(isNonLatin);
   const [phase, setPhase] = useState("read"); // "read" | "question" | "done"

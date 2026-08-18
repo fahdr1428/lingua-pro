@@ -1,6 +1,14 @@
 @import "./fonts.css";
 
 :root {
+  /* v79 — the colour of a missed answer.
+     Everything that said "you got this wrong" used --danger, the same red as
+     "delete all my data permanently". A learner attempting a word they're unsure
+     of is not committing an error; they are doing the one thing that makes the
+     word stick. Amber says "look at this", which is the actual instruction, and
+     leaves red for things that are genuinely destructive. */
+  --miss: #b45309;
+
   /* Warm heritage palette — matched to the Zaban logo (deep ink + root-brown) */
   --bg: #fbf7f0;
   --bg-alt: #f5efe2;
@@ -1542,7 +1550,7 @@ button:focus:not(:focus-visible) { outline: none; }
 .skip-option-sub { font-size: 12.5px; color: var(--text-dim); }
 .skip-right { background: var(--primary-dark); border-color: var(--primary); color: #fff; }
 .skip-right .skip-option-sub { color: rgba(255,255,255,0.8); }
-.skip-wrong { background: var(--danger); border-color: var(--danger); color: #fff; }
+.skip-wrong { background: var(--miss); border-color: var(--miss); color: #fff; }
 .skip-wrong .skip-option-sub { color: rgba(255,255,255,0.8); }
 .dialect-settings { margin-top: 4px; }
 
@@ -1821,3 +1829,42 @@ button:focus:not(:focus-visible) { outline: none; }
   font-size: 11px; font-weight: 700; color: var(--text-mute);
   text-decoration: underline; text-underline-offset: 2px;
 }
+
+/* =============================================================================
+   v79 — the word in a real sentence, shown after every miss.
+   ============================================================================= */
+.explain-sentence {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  margin-top: 12px; padding: 12px 14px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+}
+.explain-sentence:hover { border-color: var(--ink); }
+.explain-sentence-tag {
+  display: block; font-size: 10px; font-weight: 800; letter-spacing: 0.6px;
+  text-transform: uppercase; color: var(--text-mute); margin-bottom: 6px;
+}
+.explain-sentence-native {
+  display: block; font-size: 17px; font-weight: 700; color: var(--ink); line-height: 1.65;
+}
+.explain-sentence-tl { display: block; font-size: 12.5px; color: var(--text-dim); font-weight: 600; margin-top: 3px; }
+.explain-sentence-en { display: block; font-size: 13px; color: var(--text-dim); margin-top: 3px; }
+
+/* v79 — the example sentence on the back of a new-word card. */
+.in-context {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  margin-top: 4px; padding: 12px 14px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+}
+.in-context-tag {
+  display: block; font-size: 9.5px; font-weight: 800; letter-spacing: 0.6px;
+  text-transform: uppercase; color: var(--text-mute); margin-bottom: 6px;
+}
+.in-context-native {
+  display: block; font-size: 16px; font-weight: 600; color: var(--text); line-height: 1.7;
+}
+.in-context-mark {
+  background: var(--accent-soft, rgba(217,119,6,0.18));
+  color: inherit; border-radius: 5px; padding: 1px 3px; font-weight: 800;
+}
+.in-context-tl { display: block; font-size: 12px; color: var(--text-dim); font-weight: 600; margin-top: 4px; }
+.in-context-en { display: block; font-size: 12.5px; color: var(--text-dim); margin-top: 3px; font-style: italic; }

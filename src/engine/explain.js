@@ -1,6 +1,20 @@
 // =============================================================================
-// EXPLAIN — generate "why is the right answer right?" content shown after a
-// wrong answer, when the user taps the "Why?" button.
+// EXPLAIN — what to say the moment a learner gets something wrong.
+//
+// v79: THIS IS NO LONGER BEHIND A BUTTON. It used to be: you got a question
+// wrong, the app said "✗ Not quite" in red, and the explanation sat behind a
+// "Why?" chip that most people never pressed. A wrong answer with no
+// explanation is the single most wasteful moment in a language app — the
+// learner is at peak attention, actively wanting to know, and we said nothing.
+// Now the explanation opens by itself on every mistake.
+//
+// v79 also fixes a real bug in here. Four of the templates below showed
+// `examples[0].translation` — the ENGLISH gloss of the example sentence —
+// without `examples[0].native`, the sentence in the language being learned.
+// So the explanation for a missed Urdu word read "Used in a sentence: 'My
+// father is a doctor'", which teaches nothing about Urdu. Every word in every
+// pack carries a real example sentence; dropping it was throwing away the most
+// valuable thing we had to show.
 //
 // Two layers:
 //   1. SPECIAL CASES — hand-written explanations for famous gotchas where
@@ -146,75 +160,117 @@ const SPECIAL_CASES = {
 };
 
 /**
- * Generate an explanation for why an answer was wrong (or right).
- * Always returns a friendly explanation — never null.
+ * What to tell the learner about the answer they just gave.
  *
- * @param {object} exercise - the exercise the user just answered
- * @param {string} userAnswer - what the user picked/typed
- * @param {string} langCode - language code (es, fr, ja, etc.)
- * @returns {object} { title, body, special: bool }
+ * @param {object} exercise    the exercise they just answered
+ * @param {string} userAnswer  what they actually picked or typed
+ * @param {string} langCode
+ * @param {object} opts
+ * @param {boolean} opts.correct  whether they got it right
+ * @param {Array}  opts.options   the choices offered, so a wrong pick can be named
+ * @returns {{ title, body, special, sentence }}
+ *          `sentence` is { native, translit, translation } or null — kept
+ *          structured rather than mashed into `body` so the UI can render it in
+ *          the right script and direction. A right-to-left sentence spliced into
+ *          an English paragraph renders as a mess.
  */
-export function explainAnswer(exercise, userAnswer, langCode) {
+export function explainAnswer(exercise, userAnswer, langCode, opts = {}) {
+  const { correct = false, options = null } = opts;
   const item = exercise.item;
+
+  // The example sentence, in the language being learned. This is the payload —
+  // everything else is framing around it.
+  const ex = item?.examples?.[0];
+  const sentence = ex?.native
+    ? { native: ex.native, translit: ex.translit || "", translation: ex.translation || "" }
+    : null;
+
   if (!item) {
     return {
-      title: "Why this answer?",
-      body: "The correct answer is highlighted above.",
+      title: correct ? "That's right" : "Here's the answer",
+      body: exercise.answer ? `The answer is **${exercise.answer}**.` : "The right answer is highlighted above.",
       special: false,
+      sentence: null,
     };
   }
 
-  // 1. Check special cases (handwritten explanations for famous gotchas)
+  // 1. Hand-written explanations for the famous confusions, where a template
+  //    would miss the actual teaching point (ser vs estar, tú vs usted).
   const specialMap = SPECIAL_CASES[langCode] || {};
-  const specialKey = `${item.lemma}→${userAnswer}`;
-  const specialExplanation = specialMap[specialKey];
+  const specialExplanation = specialMap[`${item.lemma}→${userAnswer}`];
   if (specialExplanation) {
     return {
       title: `${item.lemma} vs ${userAnswer}`,
       body: specialExplanation,
       special: true,
+      sentence,
     };
   }
 
-  // 2. Templated explanation built from the word's data
-  const parts = [];
+  // 2. Name what they actually chose.
+  //
+  //    "The answer is X" tells you the answer. "You picked Y, which means Z —
+  //    the one you wanted is X" tells you where your idea of the language was
+  //    wrong, which is the thing that stops it happening again. Only when the
+  //    wrong pick is identifiable and isn't just an empty or skipped answer.
+  const missBody = [];
+  if (!correct && userAnswer && options) {
+    const picked = options.find(
+      (o) => o?.lemma === userAnswer || o?.form === userAnswer || o === userAnswer
+    );
+    const pickedMeaning =
+      picked?.translation || (typeof picked === "object" ? picked?.meaning : null);
+    if (pickedMeaning && pickedMeaning !== item.translation) {
+      missBody.push(`You went for **${userAnswer}**, which means "${pickedMeaning}".`);
+    }
+  }
 
-  if (exercise.type === EXERCISE.PICK_MEANING) {
-    parts.push(`**${item.lemma}** means "${item.translation}".`);
-    if (item.pronunciation) parts.push(`Pronounced: ${item.pronunciation}.`);
-    if (item.examples?.[0]) {
-      parts.push(`Used in a sentence: "${item.examples[0].translation}"`);
-    }
-  } else if (exercise.type === EXERCISE.PICK_WORD) {
-    parts.push(`The word for "${item.translation}" is **${item.lemma}**.`);
-    if (item.pronunciation) parts.push(`Pronounced: ${item.pronunciation}.`);
-    if (item.examples?.[0]) {
-      parts.push(`Example: "${item.examples[0].translation}"`);
-    }
-  } else if (exercise.type === EXERCISE.LISTEN_PICK) {
-    parts.push(`The word you heard was **${item.lemma}** — meaning "${item.translation}".`);
-    if (item.pronunciation) parts.push(`It's pronounced: ${item.pronunciation}.`);
-  } else if (exercise.type === EXERCISE.TYPE_TRANSLATION) {
-    parts.push(`**${item.lemma}** translates to "${item.translation}" in English.`);
-    if (item.examples?.[0]) {
-      parts.push(`Example: "${item.examples[0].translation}"`);
-    }
-  } else if (exercise.type === EXERCISE.COMPLETE_SENTENCE) {
-    parts.push(`The missing word is **${item.lemma}** — meaning "${item.translation}".`);
-    if (item.examples?.[0]) {
-      parts.push(`The full sentence: "${item.examples[0].native}" = "${item.examples[0].translation}".`);
-    }
-  } else if (exercise.type === EXERCISE.TAP_WORDS || exercise.type === EXERCISE.BUILD_SENTENCE) {
-    parts.push(`The correct sentence is: **${exercise.answer}**`);
-    if (exercise.translation) parts.push(`Which means: "${exercise.translation}"`);
-    parts.push(`Tip: word order matters in this language. Try saying it out loud a few times.`);
-  } else {
-    parts.push(`The correct answer is **${exercise.answer || item.translation}**.`);
+  const parts = [...missBody];
+
+  switch (exercise.type) {
+    case EXERCISE.PICK_MEANING:
+      parts.push(`**${item.lemma}** means "${item.translation}".`);
+      if (item.pronunciation) parts.push(`It sounds like: ${item.pronunciation}.`);
+      break;
+    case EXERCISE.PICK_WORD:
+      parts.push(`The word for "${item.translation}" is **${item.lemma}**.`);
+      if (item.pronunciation) parts.push(`It sounds like: ${item.pronunciation}.`);
+      break;
+    case EXERCISE.LISTEN_PICK:
+      parts.push(`What you heard was **${item.lemma}** — "${item.translation}".`);
+      if (item.pronunciation) parts.push(`Said as: ${item.pronunciation}.`);
+      break;
+    case EXERCISE.TYPE_TRANSLATION:
+      parts.push(`**${item.lemma}** is "${item.translation}".`);
+      break;
+    case EXERCISE.LETTER_SCRAMBLE:
+      parts.push(`It's spelled **${exercise.answer || item.lemma}** — "${item.translation}".`);
+      break;
+    case EXERCISE.COMPLETE_SENTENCE:
+      parts.push(`The missing word is **${item.lemma}** — "${item.translation}".`);
+      break;
+    case EXERCISE.TRUE_FALSE:
+      parts.push(`**${item.lemma}** means "${item.translation}".`);
+      break;
+    case EXERCISE.TAP_WORDS:
+    case EXERCISE.BUILD_SENTENCE:
+      parts.push(`The sentence is **${exercise.answer}**.`);
+      if (exercise.translation) parts.push(`It means "${exercise.translation}".`);
+      parts.push("Word order carries meaning here, so it's worth saying the whole thing out loud once before moving on.");
+      break;
+    case EXERCISE.CONJUGATE:
+    case EXERCISE.CONJUGATE_TENSE:
+      parts.push(`The form you want is **${exercise.answer}**.`);
+      if (item.lemma) parts.push(`It comes from **${item.lemma}** — "${item.translation}".`);
+      break;
+    default:
+      parts.push(`The answer is **${exercise.answer || item.translation}**.`);
   }
 
   return {
-    title: "Why this answer?",
+    title: correct ? "Worth knowing" : "Here's what happened",
     body: parts.join(" "),
     special: false,
+    sentence,
   };
 }

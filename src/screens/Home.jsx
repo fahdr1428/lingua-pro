@@ -718,7 +718,14 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
     // v70: the mic moved to the bottom nav's Speak tab, so reading and
     // conversations — which used to live behind that tab — get a door here.
     // Without this they'd have become unreachable.
-    { icon: "📖", title: "Read & listen", sub: "Short passages and scripted conversations", go: () => onNavigate("practice") },
+    // v79: reading gets its own door. It used to be reachable only through the
+    // combined "Read & listen" screen, two taps in — which was defensible when
+    // the library was 13 passages across 14 languages, and isn't now there are
+    // 41 and every language has some. Connected text you can mostly understand
+    // is the best-evidenced way anyone learns a language; it shouldn't be the
+    // hardest thing in the app to find.
+    { icon: "📖", title: `Read some ${lang.name}`, sub: "Short pieces built only from words you've met", go: () => onNavigate("reading"), highlight: (stats.learned || 0) >= 10 },
+    { icon: "🎧", title: "Listen & follow", sub: "Scripted conversations, with subtitles", go: () => onNavigate("practice") },
     { icon: "📇", title: "Flashcards", sub: "Flip through your words at your own pace", go: () => onNavigate("flashcards") },
     { icon: "🧭", title: "Grammar", sub: `How ${lang.name} actually fits together`, go: () => onNavigate("grammar") },
     { icon: "📚", title: "My words", sub: `${stats.learned || 0} learned · ${stats.mastered || 0} mastered`, go: () => onNavigate("vocab") },

@@ -783,9 +783,18 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
               color: "#000",
             }}
           >
+            {/* v79: this used to lead with "Unlimited hearts". Hearts are no
+                longer spent on wrong answers, so that was selling relief from a
+                penalty that doesn't exist — and it was never true even before,
+                because hearts gated nothing. Nothing here is charged for a
+                mistake, and the pitch shouldn't imply otherwise. */}
             <div style={{ fontSize: 18, fontWeight: 900 }}>✨ Zaban Plus</div>
             <div style={{ fontSize: 14, marginTop: 4, marginBottom: 12 }}>
-              Unlimited hearts • Offline mode • No ads
+              Offline mode • No ads • Support the languages nobody else builds for
+            </div>
+            <div style={{ fontSize: 11.5, marginBottom: 12, opacity: 0.8 }}>
+              Every lesson, every word and every exercise stays free. We don't
+              charge you for getting something wrong.
             </div>
             <button
               style={{

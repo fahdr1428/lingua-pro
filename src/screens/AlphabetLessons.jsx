@@ -377,8 +377,8 @@ function AlphabetQuiz({ letters, lang, voiceAvailable, onComplete, onBack }) {
               key={i}
               onClick={() => !feedback && setPicked(opt)}
               style={{
-                background: isAnswer ? "var(--primary-dark)" : isWrong ? "var(--danger)" : isPicked ? "var(--surface-hi)" : "var(--surface)",
-                border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--danger)" : isPicked ? "var(--primary)" : "var(--border)"}`,
+                background: isAnswer ? "var(--primary-dark)" : isWrong ? "var(--miss)" : isPicked ? "var(--surface-hi)" : "var(--surface)",
+                border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--miss)" : isPicked ? "var(--primary)" : "var(--border)"}`,
                 borderRadius: 12,
                 padding: 14,
                 color: isAnswer || isWrong ? "#fff" : "var(--text)",

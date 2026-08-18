@@ -72,7 +72,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   const [streakInLesson, setStreakInLesson] = useState(0); // consecutive correct in this lesson
   const [hintActive, setHintActive] = useState(false);     // user accepted the hint offer
   const [hintOffered, setHintOffered] = useState(false);   // 60s passed → "Need a hint?" fades in
-  const [hearts, setHearts] = useState(appState.hearts);
+  // v79: read-only now. Nothing in a lesson spends a heart any more — see the
+  // note in check(). Kept because a clean run still tops one up.
+  const hearts = appState.hearts;
   const [done, setDone] = useState(false);
   const [resultData, setResultData] = useState(null);
   const startedAt = useRef(Date.now());
@@ -243,6 +245,13 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     if (result.intro) return;
 
     setFeedback(result.correct ? "correct" : "wrong");
+    // v79: a wrong answer opens its own explanation. It used to sit behind a
+    // "Why?" chip, which meant the one moment a learner is most willing to be
+    // taught — they've just been surprised, and they want to know — passed in
+    // silence unless they went looking. Getting it right still leaves the
+    // explanation collapsed: they don't need it, and stopping to read one
+    // after every correct answer makes a six-question lesson feel like twelve.
+    if (!result.correct && !result.intro) setShowExplain(true);
     setCombo((c) => (result.correct ? c + 1 : 0));
     // v30: play a short positive/negative chime (honours user setting)
     if (appState.soundEffects !== false) {
@@ -274,7 +283,19 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           prev.find((m) => m.id === exercise.item.id) ? prev : [...prev, exercise.item]
         );
       }
-      if (!appState.isPremium) setHearts((h) => Math.max(0, h - 1));
+      // v79 — NO HEART IS TAKEN FOR GETTING SOMETHING WRONG.
+      //
+      // A wrong answer is not a failure state. It is the mechanism: retrieval
+      // that fails, followed by the correct answer, is what moves a word into
+      // memory. Charging the learner for the one behaviour the whole app
+      // depends on teaches them to attempt less — to skip the words they're
+      // unsure of, which are exactly the words they need.
+      //
+      // And it was doing that for nothing. Hearts gated no lesson, blocked no
+      // screen, and unlocked nothing when spent: the counter went down, turned
+      // red, and had no mechanic behind it at all. All of the discouragement,
+      // none of the design. Hearts now only ever go up, as a small thank-you
+      // for a clean run, and the counter is gone from the lesson.
     }
   }
 
@@ -645,7 +666,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             🔥 {streakInLesson} in a row
           </div>
         )}
-        <div style={{ color: "var(--danger)", fontWeight: 800 }}>❤️ {appState.isPremium ? "∞" : hearts}</div>
+        {/* v79: the heart counter is gone from the lesson. A number in danger
+            red, counting down while you work, is a running commentary on how
+            badly you're doing — and it never gated anything. What replaced it
+            is the progress bar to the left, which counts up. */}
       </div>
 
       <Container style={{ paddingBottom: 200 }}>
@@ -898,9 +922,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   <button
                     key={i}
                     onClick={() => !feedback && setPicked(opt.lemma)}
+                    className="opt-btn"
                     style={{
-                      background: isAnswer ? "var(--primary-dark)" : isWrong ? "var(--danger)" : isPicked ? "var(--surface-hi)" : "var(--surface)",
-                      border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--danger)" : isPicked ? "var(--primary)" : "var(--border)"}`,
+                      background: isAnswer ? "var(--primary-dark)" : isWrong ? "var(--miss)" : isPicked ? "var(--surface-hi)" : "var(--surface)",
+                      border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--miss)" : isPicked ? "var(--primary)" : "var(--border)"}`,
                       borderRadius: 12, padding: 16,
                       color: isAnswer || isWrong ? "#fff" : "var(--text)",
                       cursor: feedback ? "default" : "pointer", textAlign: "center",
@@ -1033,9 +1058,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     <button
                       key={i}
                       onClick={() => !feedback && setPicked(opt.form)}
+                    className="opt-btn"
                       style={{
-                        background: isAnswer ? "var(--primary-dark)" : isWrong ? "var(--danger)" : isPicked ? "var(--surface-hi)" : "var(--surface)",
-                        border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--danger)" : isPicked ? "var(--primary)" : "var(--border)"}`,
+                        background: isAnswer ? "var(--primary-dark)" : isWrong ? "var(--miss)" : isPicked ? "var(--surface-hi)" : "var(--surface)",
+                        border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--miss)" : isPicked ? "var(--primary)" : "var(--border)"}`,
                         borderRadius: 12,
                         padding: 16,
                         color: isAnswer || isWrong ? "#fff" : "var(--text)",
@@ -1105,9 +1131,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   <button
                     key={i}
                     onClick={() => !feedback && !isHinted && setPicked(opt)}
+                    className="opt-btn"
                     style={{
-                      background: isAnswer ? "var(--primary-dark)" : isWrong ? "var(--danger)" : isPicked ? "var(--surface-hi)" : "var(--surface)",
-                      border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--danger)" : isPicked ? "var(--primary)" : "var(--border)"}`,
+                      background: isAnswer ? "var(--primary-dark)" : isWrong ? "var(--miss)" : isPicked ? "var(--surface-hi)" : "var(--surface)",
+                      border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--miss)" : isPicked ? "var(--primary)" : "var(--border)"}`,
                       borderRadius: 12,
                       padding: 16,
                       color: isAnswer || isWrong ? "#fff" : "var(--text)",
@@ -1284,12 +1311,17 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               <Card
                 style={{
                   marginTop: 24,
-                  background: feedback === "correct" ? "rgba(34,197,94,0.15)" : "rgba(239,68,68,0.15)",
-                  border: `2px solid ${feedback === "correct" ? "var(--primary)" : "var(--danger)"}`,
+                  // v79: a missed answer is no longer alarm-red. The learner
+                  // still needs to know unambiguously which it was — that's
+                  // information they can't do without — but red is the colour of
+                  // an error, and this isn't one. Amber says "look here", which
+                  // is the actual instruction.
+                  background: feedback === "correct" ? "rgba(34,197,94,0.15)" : "rgba(217,119,6,0.13)",
+                  border: `2px solid ${feedback === "correct" ? "var(--primary)" : "var(--accent, #d97706)"}`,
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <div style={{ fontWeight: 800, fontSize: 18, color: feedback === "correct" ? "var(--primary)" : "var(--danger)" }}>
+                  <div style={{ fontWeight: 800, fontSize: 18, color: feedback === "correct" ? "var(--primary)" : "var(--accent, #b45309)" }}>
                     {/* v62: varied coach reactions (stable per exercise via idx) */}
                     {exercise?.pretest
                       ? (feedback === "correct"
@@ -1297,7 +1329,12 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                           : "That's the one to remember — now let's learn it")
                       : feedback === "correct"
                       ? ["✓ Correct!", "✓ Nice one", "✓ That was clean", "✓ Exactly right", "✓ You've got this"][idx % 5]
-                      : ["✗ Not quite", "✗ Close — look again", "✗ No stress, check it"][idx % 3]}
+                      /* v79: no ✗. A cross is a mark on schoolwork — it says
+                         "you failed" and stops there. What a learner needs at
+                         this exact moment is to look at the right answer, which
+                         is now sitting open underneath, so the line's job is to
+                         point at it rather than to score them. */
+                      : ["Not this one — here's why", "Have a look at this one", "This one's worth a second look"][idx % 3]}
                     {feedback === "correct" && combo >= 2 && (
                       <span className="pop" style={{ marginLeft: 10, fontSize: 14, background: "var(--accent-soft)", color: "var(--accent)", borderRadius: 999, padding: "3px 10px", verticalAlign: "middle" }}>
                         🔥 {combo} in a row
@@ -1357,7 +1394,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   : exercise.type === EXERCISE.TYPE_TRANSLATION
                   ? typed
                   : picked;
-                const exp = explainAnswer(exercise, userGiven, pack.code);
+                const exp = explainAnswer(exercise, userGiven, pack.code, {
+                  correct: feedback === "correct",
+                  options: exercise.options || null,
+                });
                 return (
                   <Card
                     className="slide-up"
@@ -1375,7 +1415,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                         letterSpacing: 1,
                         textTransform: "uppercase",
                       }}>
-                        {exp.special ? "⚡ Grammar tip" : "💡 Explanation"}
+                        {exp.special ? "⚡ Worth knowing" : "💡 Here's the thing"}
                       </div>
                     </div>
                     <div style={{ fontSize: 15, fontWeight: 800, marginBottom: 8 }}>{exp.title}</div>
@@ -1389,6 +1429,31 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                         )
                       )}
                     </div>
+
+                    {/* v79 — THE WORD IN A REAL SENTENCE.
+                        This used to be rendered as English only: "Used in a
+                        sentence: 'My father is a doctor'", with the actual
+                        target-language sentence dropped on the floor. Seeing the
+                        word doing a job in a real sentence is most of what makes
+                        it stick, and it's tappable so it can be heard as well as
+                        read. Kept structured rather than spliced into the
+                        paragraph so RTL scripts render correctly. */}
+                    {exp.sentence && (
+                      <button
+                        className="explain-sentence"
+                        onClick={() => speak(exp.sentence.native, lang.ttsCode, { code: pack.code, translit: exp.sentence.translit })}
+                        aria-label="Hear this sentence"
+                      >
+                        <span className="explain-sentence-tag">seen in the wild ▸ tap to hear</span>
+                        <span className="explain-sentence-native" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code}>
+                          {exp.sentence.native}
+                        </span>
+                        {isNonLatin && exp.sentence.translit && (
+                          <span className="explain-sentence-tl">{exp.sentence.translit}</span>
+                        )}
+                        <span className="explain-sentence-en">{exp.sentence.translation}</span>
+                      </button>
+                    )}
                   </Card>
                 );
               })()}
@@ -1658,12 +1723,12 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
           }}>
             <div style={{ fontSize: 40, marginBottom: 6 }}>{chapterPassed ? "🔓" : "🔒"}</div>
             <div style={{ fontSize: 22, fontWeight: 900, color: chapterPassed ? "#fff" : "var(--text)" }}>
-              {chapterPassed ? `Chapter ${chapterNum} passed!` : "Not quite — give it another go"}
+              {chapterPassed ? `Chapter ${chapterNum} passed!` : "Not this time — and you can take it as many times as you like"}
             </div>
             <div style={{ fontSize: 15, color: chapterPassed ? "rgba(255,255,255,0.85)" : "var(--text-dim)", marginTop: 6, lineHeight: 1.5 }}>
               {chapterPassed
                 ? `You scored ${data.accuracy}%. The next chapter is now unlocked — keep going!`
-                : `You scored ${data.accuracy}%. You need ${passThreshold}% to unlock the next chapter. Review the words you missed and retake the exam — unlimited tries.`}
+                : `${data.accuracy}%, and the bar is ${passThreshold}% — the words below are the ones between you and it. Have a look at those and come back; there is no limit on retakes and nothing is lost by trying.`}
             </div>
             {!chapterPassed && (
               <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 16 }}>
@@ -1785,6 +1850,68 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
 // card, "Start practice" appears. This batch-introduction is much better
 // pedagogy than testing each word right after introducing it.
 // =============================================================================
+
+// =============================================================================
+// IN CONTEXT (v79) — one word, inside a real sentence, with the word picked out.
+//
+// A word learned as a pair — "kitaab = book" — is a fact about a dictionary. A
+// word seen doing a job in a sentence is a piece of the language. The second one
+// survives contact with a native speaker talking at normal speed; the first one
+// mostly doesn't.
+//
+// The highlight is a substring match on the lemma, matched case-insensitively —
+// packs store "Ser" as the dictionary form and write "yo soy" or "es" in the
+// sentence, and an exact match found the word in only 65% of entries against
+// 82% this way. Spanish went from 47% to 88%, French 46% to 90%. It's the
+// SENTENCE's own text that gets rendered, never the lemma's, so a capitalised
+// dictionary form can't appear mid-sentence where the real word is lower case.
+//
+// It FAILS SOFTLY on purpose. In an inflected language the example often carries
+// a conjugated or declined form that doesn't contain the dictionary form at all,
+// and in Japanese and Chinese there are no word boundaries to match on — those
+// two sit around 50% and always will. When the match fails the sentence renders
+// plain, rather than the app guessing at morphology and highlighting half a word,
+// which would teach something false.
+// =============================================================================
+function InContext({ example, lemma, lang, isNonLatin, voiceAvailable }) {
+  const native = example.native || "";
+  const at = lemma && lemma.length > 1
+    ? native.toLowerCase().indexOf(lemma.toLowerCase())
+    : -1;
+  const found = at >= 0;
+  // Sliced out of the sentence, so the casing shown is the sentence's own.
+  const asWritten = found ? native.slice(at, at + lemma.length) : "";
+
+  return (
+    <button
+      className="in-context"
+      onClick={(e) => {
+        e.stopPropagation(); // the card itself flips on click
+        if (voiceAvailable) speak(native, lang.ttsCode, { code: lang.code, translit: example.translit });
+      }}
+      aria-label={voiceAvailable ? "Hear this sentence" : "Example sentence"}
+    >
+      <span className="in-context-tag">
+        {voiceAvailable ? "how it's actually used ▸ tap to hear" : "how it's actually used"}
+      </span>
+      <span className="in-context-native" dir={lang.rtl ? "rtl" : "ltr"} lang={lang.code}>
+        {found ? (
+          <>
+            {native.slice(0, at)}
+            <mark className="in-context-mark">{asWritten}</mark>
+            {native.slice(at + lemma.length)}
+          </>
+        ) : (
+          native
+        )}
+      </span>
+      {isNonLatin && example.translit && (
+        <span className="in-context-tl">{example.translit}</span>
+      )}
+      <span className="in-context-en">{example.translation}</span>
+    </button>
+  );
+}
 
 function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }) {
   const [idx, setIdx] = useState(0);
@@ -1921,10 +2048,23 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
             <div style={{ fontSize: 28, fontWeight: 800, color: "var(--primary)", marginBottom: 16 }}>
               {card.translation}
             </div>
-            {card.examples?.[0] && (
-              <div style={{ fontSize: 13, color: "var(--text-dim)", fontStyle: "italic", lineHeight: 1.5 }}>
-                "{card.examples[0].translation}"
-              </div>
+
+            {/* v79 — THE WORD DOING A JOB.
+                This card used to show the example sentence's English gloss and
+                throw the sentence itself away, so the first time anyone met a
+                new Urdu word they were shown the word, its English meaning, and
+                an English sentence. Nothing about how the word behaves in Urdu.
+                Every one of the 2,235 words in this app carries a real example
+                sentence and we were discarding it at the exact moment it was
+                worth most. It's here now, with the word picked out inside it. */}
+            {card.examples?.[0]?.native && (
+              <InContext
+                example={card.examples[0]}
+                lemma={card.lemma}
+                lang={lang}
+                isNonLatin={isNonLatin}
+                voiceAvailable={voiceAvailable}
+              />
             )}
           </>
         )}

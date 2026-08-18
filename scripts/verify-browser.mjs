@@ -346,7 +346,7 @@ async function runVoiceSettings({ withVoices }) {
 // ---------------------------------------------------------------------------
 // v75 — skipping a chapter, choosing an Arabic dialect, and German.
 // ---------------------------------------------------------------------------
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 
 async function seeded(browser, code, extra = {}) {
   const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
@@ -1048,6 +1048,135 @@ async function runUnitTestOut() {
   await browser.close();
 }
 
+// ---------------------------------------------------------------------------
+// v79 — DOES A MISTAKE TEACH ANYTHING?
+//
+// The three things that decide whether a wrong answer is a learning moment or a
+// dead end, asserted against a real lesson: the explanation appears without
+// being asked for, it shows the word inside a sentence in the language being
+// learned (not just the English gloss, which is the bug this replaced), and
+// nothing is taken away for having attempted.
+// ---------------------------------------------------------------------------
+async function runMistakesTeach() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  console.log("\n=== what happens when you get it wrong ===\n");
+  // Narrow the lesson to plain multiple choice, using the app's own exercise
+  // toggles. Not a workaround: match-pairs and sentence-building have no single
+  // "wrong answer" moment to test, and driving them here would be testing the
+  // harness's ability to play them rather than what a mistake does.
+  const { ctx, page, errors } = await seeded(browser, "ur", {
+    lessonsCompleted: { ur: 4 },
+    disabledExercises: [
+      "match_pairs", "odd_one_out", "build_sentence", "tap_words", "letter_scramble",
+      "speak_prompt", "type_translation", "listen_pick", "conjugate", "conjugate_tense",
+      "true_false", "complete_sentence",
+    ],
+  });
+
+  const pack = JSON.parse(readFileSync("src/data/languages/ur.json", "utf8"));
+  const heartsBefore = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app")).hearts);
+
+  // Open a lesson from the route map, not from the home hero. The hero shows
+  // whatever the coach picks next, which at this progress is the Sentence Lab —
+  // clicking it walked the harness into a different screen entirely and the
+  // failure looked like the app's, not the test's.
+  for (let h = 0; h < 6; h++) {
+    await page.locator(".station-head").nth(h).click().catch(() => {});
+    await page.waitForTimeout(250);
+    if (await page.locator("button[data-unit]:not([disabled])").count()) break;
+  }
+  await page.locator("button[data-unit]:not([disabled])").first().click();
+  await page.waitForTimeout(1800);
+  check("a lesson opened", (await page.locator(".bottom-nav").count()) === 0);
+
+  // Walk to the first multiple-choice question and answer it WRONG on purpose.
+  // The wrong option is chosen by elimination against the pack, never from the
+  // DOM — the correct answer is deliberately not present in the markup, and a
+  // test that read it from there would be proving the wrong thing.
+  const meanings = new Set(pack.vocab.map((v) => v.translation));
+  let answeredWrong = false;
+  for (let i = 0; i < 16 && !answeredWrong; i++) {
+    const opts = page.locator(".opt-btn");
+    if (await opts.count() >= 2) {
+      // Pick the LAST option. With four choices that's wrong three times in
+      // four, and the loop simply carries on to the next question if it's right.
+      await opts.last().click();
+      await page.waitForTimeout(200);
+      await page.evaluate(() => {
+        const go = [...document.querySelectorAll("button")].find(
+          (b) => /^check/i.test((b.innerText || "").trim()) && !b.disabled);
+        if (go) go.click();
+      });
+      await page.waitForTimeout(800);
+      const body = await page.locator("body").innerText();
+      if (/here's what happened|here's the thing/i.test(body)) { answeredWrong = true; break; }
+    }
+    await page.evaluate(() => {
+      const go = [...document.querySelectorAll("button")].find(
+        (b) => /^(continue|next|got it|i've got these|start practice|done)/i.test((b.innerText || "").trim()) && !b.disabled);
+      if (go) go.click();
+    });
+    await page.waitForTimeout(500);
+  }
+
+  check("a wrong answer explains itself without being asked", answeredWrong);
+
+  if (answeredWrong) {
+    check("the explanation is open, not hidden behind a 'Why?' button",
+      (await page.locator("button", { hasText: "Why?" }).count()) === 0);
+    check("it shows the word inside a real sentence in the target language",
+      await page.locator(".explain-sentence-native").isVisible());
+    const native = await page.locator(".explain-sentence-native").innerText();
+    check("that sentence is Urdu, not the English gloss",
+      /[؀-ۿ]/.test(native), native.slice(0, 60));
+    check("the sentence is translated too",
+      (await page.locator(".explain-sentence-en").innerText()).length > 3);
+    const banner = await page.locator("body").innerText();
+    check("the app doesn't put a cross next to their attempt", !/✗/.test(banner));
+  }
+
+  const heartsAfter = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app")).hearts);
+  check("nothing is taken away for attempting", heartsAfter >= heartsBefore, `${heartsBefore} → ${heartsAfter}`);
+  check("no heart counter is shown during a lesson",
+    !/❤️/.test(await page.locator("body").innerText()));
+  check("no crashes getting things wrong", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await ctx.close();
+  await browser.close();
+}
+
+// ---------------------------------------------------------------------------
+// v79 — READING. Comprehensible input is the best-evidenced mechanism in second
+// language acquisition, and until this release the app had 13 passages across
+// 14 languages, 5 of them with none at all.
+// ---------------------------------------------------------------------------
+async function runReading() {
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  console.log("\n=== reading: connected text you can follow ===\n");
+
+  const { PASSAGES } = await import("../src/data/passages.js");
+  const codes = readdirSync("src/data/languages").filter((f) => f.endsWith(".json")).map((f) => f.replace(".json", ""));
+  check("every language has reading material",
+    codes.every((c) => (PASSAGES[c] || []).length >= 1),
+    codes.filter((c) => !(PASSAGES[c] || []).length).join(" "));
+  check("the five that had none now have several",
+    ["de", "id", "pa", "pcm", "tr"].every((c) => (PASSAGES[c] || []).length >= 4));
+
+  const { ctx, page, errors } = await seeded(browser, "de");
+  await page.locator(".bottom-nav button", { hasText: "Practice" }).click();
+  await page.waitForTimeout(700);
+  await page.locator("button", { hasText: "Read some German" }).click();
+  await page.waitForTimeout(900);
+
+  const body = await page.locator("body").innerText();
+  check("a German passage renders", !/No reading passages/i.test(body), body.slice(0, 120));
+  check("the passage is more than one line", (await page.locator("body").innerText()).length > 120);
+  check("no crashes reading", errors.length === 0, errors.slice(0, 2).join(" | "));
+  await ctx.close();
+  await browser.close();
+}
+
+await runMistakesTeach();
+await runReading();
 await runDecode();
 await runUnitTestOut();
 await runOnboardingGate();
