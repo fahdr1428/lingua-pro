@@ -222,7 +222,13 @@ export function JourneyMap({
                               {unit && (
                                 <button
                                   className="station-testout"
-                                  data-unit={unit.id}
+                                  /* v79: data-TESTOUT, not data-unit. `data-unit`
+                                     means "opens this unit's lesson" — the lesson
+                                     fuzz finds every lesson entry point with it —
+                                     and putting it on a button that opens a
+                                     placement test instead sent the fuzz into the
+                                     test and made it report that no lesson opened. */
+                                  data-testout={unit.id}
                                   onClick={() => onNavigate("testout", { fromUnit: unit.id })}
                                 >
                                   Already know this? Test out →
@@ -305,7 +311,7 @@ export function JourneyMap({
               <button
                 key={unit.id}
                 className={`beyond-tile${unit.unlocked ? "" : " beyond-locked"}`}
-                data-unit={unit.id}
+                {...(unit.unlocked ? { "data-unit": unit.id } : { "data-testout": unit.id })}
                 onClick={() =>
                   unit.unlocked
                     ? onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })

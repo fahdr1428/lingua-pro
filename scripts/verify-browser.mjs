@@ -1012,7 +1012,7 @@ async function runUnitTestOut() {
   check("a locked stop offers a way to prove you already know it",
     (await door.count()) > 0, String(await door.count()));
 
-  const unitId = await door.getAttribute("data-unit");
+  const unitId = await door.getAttribute("data-testout");
   await door.click();
   await page.waitForTimeout(900);
 
