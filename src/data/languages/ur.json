@@ -303,7 +303,8 @@
    "examples": [
     {
      "native": "بہت شکریہ",
-     "translation": "Thank you very much"
+     "translation": "Thank you very much",
+     "translit": "bohot shukriya"
     }
    ],
    "pronunciation": "shook-REE-yah"
@@ -337,7 +338,8 @@
    "examples": [
     {
      "native": "نہیں شکریہ",
-     "translation": "No, thank you"
+     "translation": "No, thank you",
+     "translit": "nahin shukriya"
     }
    ],
    "pronunciation": "nah-HEEN"
@@ -354,7 +356,8 @@
    "examples": [
     {
      "native": "اچھا خدا حافظ",
-     "translation": "Okay, goodbye"
+     "translation": "Okay, goodbye",
+     "translit": "achcha khuda hafiz"
     }
    ],
    "pronunciation": "khoo-DAH HAH-fiz"
@@ -405,7 +408,8 @@
    "examples": [
     {
      "native": "گھر میں خوش آمدید",
-     "translation": "Welcome home"
+     "translation": "Welcome home",
+     "translit": "ghar mein khush amdeed"
     }
    ],
    "pronunciation": "khoosh-aam-DEED"
@@ -439,7 +443,8 @@
    "examples": [
     {
      "native": "آپ کہاں سے ہیں",
-     "translation": "Where are you from"
+     "translation": "Where are you from",
+     "translit": "aap kahan se hain"
     }
    ],
    "pronunciation": "AAP"
@@ -460,7 +465,8 @@
     },
     {
      "native": "تم کہاں ہو؟",
-     "translation": "Where are you?"
+     "translation": "Where are you?",
+     "translit": "tum kahan ho"
     }
    ],
    "pronunciation": "TUM"
@@ -477,7 +483,8 @@
    "examples": [
     {
      "native": "ہم دوست ہیں",
-     "translation": "We are friends"
+     "translation": "We are friends",
+     "translit": "hum dost hain"
     }
    ],
    "pronunciation": "HUM"
@@ -494,7 +501,8 @@
    "examples": [
     {
      "native": "وہ ڈاکٹر ہے",
-     "translation": "He is a doctor"
+     "translation": "He is a doctor",
+     "translit": "woh doctor hai"
     }
    ],
    "pronunciation": "WOH"
@@ -511,7 +519,8 @@
    "examples": [
     {
      "native": "یہ کتاب ہے",
-     "translation": "This is a book"
+     "translation": "This is a book",
+     "translit": "yeh kitaab hai"
     }
    ],
    "pronunciation": "YEH"
@@ -528,7 +537,8 @@
    "examples": [
     {
      "native": "یہ کیا ہے",
-     "translation": "What is this"
+     "translation": "What is this",
+     "translit": "yeh kya hai"
     }
    ],
    "pronunciation": "kee-YAH"
@@ -545,7 +555,8 @@
    "examples": [
     {
      "native": "وہ کون ہے",
-     "translation": "Who is that"
+     "translation": "Who is that",
+     "translit": "woh kaun hai"
     }
    ],
    "pronunciation": "COWN"
@@ -562,7 +573,8 @@
    "examples": [
     {
      "native": "میری ماں",
-     "translation": "My mother"
+     "translation": "My mother",
+     "translit": "meri maa"
     }
    ],
    "pronunciation": "MAA"
@@ -579,7 +591,8 @@
    "examples": [
     {
      "native": "میرا باپ",
-     "translation": "My father"
+     "translation": "My father",
+     "translit": "mera baap"
     }
    ],
    "pronunciation": "BAAP"
@@ -596,7 +609,8 @@
    "examples": [
     {
      "native": "میرا بڑا بھائی",
-     "translation": "My older brother"
+     "translation": "My older brother",
+     "translit": "mera bara bhai"
     }
    ],
    "pronunciation": "buh-HAI"
@@ -613,7 +627,8 @@
    "examples": [
     {
      "native": "میری بہن",
-     "translation": "My sister"
+     "translation": "My sister",
+     "translit": "meri behen"
     }
    ],
    "pronunciation": "BEH-hen"
@@ -630,7 +645,8 @@
    "examples": [
     {
      "native": "میرا اچھا دوست",
-     "translation": "My good friend"
+     "translation": "My good friend",
+     "translit": "mera achcha dost"
     }
    ],
    "pronunciation": "DOAST"
@@ -647,7 +663,8 @@
    "examples": [
     {
      "native": "چھوٹا بچہ",
-     "translation": "Small child"
+     "translation": "Small child",
+     "translit": "chhota bachcha"
     }
    ],
    "pronunciation": "BUCH-cha"
@@ -664,7 +681,8 @@
    "examples": [
     {
      "native": "میرا بیٹا",
-     "translation": "My son"
+     "translation": "My son",
+     "translit": "mera beta"
     }
    ],
    "pronunciation": "BEH-tah"
@@ -681,7 +699,8 @@
    "examples": [
     {
      "native": "ایک کتاب",
-     "translation": "One book"
+     "translation": "One book",
+     "translit": "ek kitaab"
     }
    ],
    "pronunciation": "AYK"
@@ -698,7 +717,8 @@
    "examples": [
     {
      "native": "دو بھائی",
-     "translation": "Two brothers"
+     "translation": "Two brothers",
+     "translit": "do bhai"
     }
    ],
    "pronunciation": "DOH"
@@ -715,7 +735,8 @@
    "examples": [
     {
      "native": "تین دن",
-     "translation": "Three days"
+     "translation": "Three days",
+     "translit": "teen din"
     }
    ],
    "pronunciation": "TEEN"
@@ -783,7 +804,8 @@
    "examples": [
     {
      "native": "ایک سو",
-     "translation": "One hundred"
+     "translation": "One hundred",
+     "translit": "ek sau"
     }
    ],
    "pronunciation": "SOW (like 'sow' rhymes with 'now')"
@@ -817,7 +839,8 @@
    "examples": [
     {
      "native": "گرم روٹی",
-     "translation": "Hot bread"
+     "translation": "Hot bread",
+     "translit": "garam roti"
     }
    ],
    "pronunciation": "ROH-tee"
@@ -868,7 +891,8 @@
    "examples": [
     {
      "native": "گرم دودھ",
-     "translation": "Hot milk"
+     "translation": "Hot milk",
+     "translit": "garam doodh"
     }
    ],
    "pronunciation": "DOODH"
@@ -936,7 +960,8 @@
    "examples": [
     {
      "native": "کھانا تیار ہے",
-     "translation": "Food is ready"
+     "translation": "Food is ready",
+     "translit": "khana tayyar hai"
     }
    ],
    "pronunciation": "KHAH-nah"
@@ -953,7 +978,8 @@
    "examples": [
     {
      "native": "چائے میں چینی",
-     "translation": "Sugar in tea"
+     "translation": "Sugar in tea",
+     "translit": "chai mein cheeni"
     }
    ],
    "pronunciation": "CHEE-nee"
@@ -1021,7 +1047,8 @@
    "examples": [
     {
      "native": "پانی پینا",
-     "translation": "To drink water"
+     "translation": "To drink water",
+     "translit": "pani peena"
     }
    ],
    "pronunciation": "PEE-nah"
@@ -1089,7 +1116,8 @@
    "examples": [
     {
      "native": "کتاب پڑھنا",
-     "translation": "To read a book"
+     "translation": "To read a book",
+     "translit": "kitaab parhna"
     }
    ],
    "pronunciation": "PURH-nah"
@@ -1123,7 +1151,8 @@
    "examples": [
     {
      "native": "کام کرنا",
-     "translation": "To do work"
+     "translation": "To do work",
+     "translit": "kaam karna"
     }
    ],
    "pronunciation": "KAR-nah"
@@ -1140,7 +1169,8 @@
    "examples": [
     {
      "native": "میرا گھر",
-     "translation": "My house"
+     "translation": "My house",
+     "translit": "mera ghar"
     }
    ],
    "pronunciation": "GUR (like 'gurr')"
@@ -1173,7 +1203,8 @@
    "examples": [
     {
      "native": "بازار جانا",
-     "translation": "To go to the market"
+     "translation": "To go to the market",
+     "translit": "bazaar jana"
     }
    ],
    "pronunciation": "buh-ZAAR"
@@ -1190,7 +1221,8 @@
    "examples": [
     {
      "native": "ہسپتال میں",
-     "translation": "In the hospital"
+     "translation": "In the hospital",
+     "translit": "hospital mein"
     }
    ]
   },
@@ -1206,7 +1238,8 @@
    "examples": [
     {
      "native": "بڑا شہر",
-     "translation": "Big city"
+     "translation": "Big city",
+     "translit": "bara sheher"
     }
    ],
    "pronunciation": "SHEH-her"
@@ -1223,7 +1256,8 @@
    "examples": [
     {
      "native": "میرا کمرہ",
-     "translation": "My room"
+     "translation": "My room",
+     "translit": "mera kamra"
     }
    ],
    "pronunciation": "KUM-rah"
@@ -1257,7 +1291,8 @@
    "examples": [
     {
      "native": "میرا دفتر",
-     "translation": "My office"
+     "translation": "My office",
+     "translit": "mera daftar"
     }
    ],
    "pronunciation": "DUF-tar"
@@ -1274,7 +1309,8 @@
    "examples": [
     {
      "native": "آج کا دن",
-     "translation": "Today"
+     "translation": "Today",
+     "translit": "aaj ka din"
     }
    ],
    "pronunciation": "AAJ"
@@ -1308,7 +1344,8 @@
    "examples": [
     {
      "native": "ابھی آؤ",
-     "translation": "Come now"
+     "translation": "Come now",
+     "translit": "abhi aao"
     }
    ],
    "pronunciation": "uh-BHEE"
@@ -1325,7 +1362,8 @@
    "examples": [
     {
      "native": "کیا وقت ہے",
-     "translation": "What time is it"
+     "translation": "What time is it",
+     "translit": "kya waqt hai"
     }
    ],
    "pronunciation": "WUKT"
@@ -1342,7 +1380,8 @@
    "examples": [
     {
      "native": "اچھا دن",
-     "translation": "Good day"
+     "translation": "Good day",
+     "translit": "achcha din"
     }
    ],
    "pronunciation": "DIN"
@@ -1410,7 +1449,8 @@
    "examples": [
     {
      "native": "میں اور تم",
-     "translation": "Me and you"
+     "translation": "Me and you",
+     "translit": "mein aur tum"
     }
    ],
    "pronunciation": "OWR"
@@ -1495,7 +1535,8 @@
    "examples": [
     {
      "native": "میں بھی",
-     "translation": "Me too"
+     "translation": "Me too",
+     "translit": "mein bhi"
     }
    ],
    "pronunciation": "BHEE"
@@ -1529,7 +1570,8 @@
    "examples": [
     {
      "native": "کتنا ہے",
-     "translation": "How much is it"
+     "translation": "How much is it",
+     "translit": "kitna hai"
     }
    ],
    "pronunciation": "KIT-nah"
@@ -1546,7 +1588,8 @@
    "examples": [
     {
      "native": "مدد چاہیے",
-     "translation": "I need help"
+     "translation": "I need help",
+     "translit": "madad chahiye"
     }
    ],
    "pronunciation": "muh-DUD"
@@ -1563,7 +1606,8 @@
    "examples": [
     {
      "native": "ایک ٹیکسی",
-     "translation": "A taxi"
+     "translation": "A taxi",
+     "translit": "ek taxi"
     }
    ]
   },
@@ -1579,7 +1623,8 @@
    "examples": [
     {
      "native": "اچھا ہوٹل",
-     "translation": "Good hotel"
+     "translation": "Good hotel",
+     "translit": "achcha hotel"
     }
    ]
   },
@@ -1595,7 +1640,8 @@
    "examples": [
     {
      "native": "چائے چاہیے",
-     "translation": "I want tea"
+     "translation": "I want tea",
+     "translit": "chai chahiye"
     }
    ],
    "pronunciation": "CHAH-nah"
@@ -1612,7 +1658,8 @@
    "examples": [
     {
      "native": "میں ٹھیک ہوں",
-     "translation": "I am fine"
+     "translation": "I am fine",
+     "translit": "mein theek hoon"
     }
    ],
    "pronunciation": "THEEK"
@@ -1629,7 +1676,8 @@
    "examples": [
     {
      "native": "بہت اچھا",
-     "translation": "Very good"
+     "translation": "Very good",
+     "translit": "bohot achcha"
     }
    ],
    "pronunciation": "UCH-cha"
@@ -1646,7 +1694,8 @@
    "examples": [
     {
      "native": "میری بیٹی",
-     "translation": "My daughter"
+     "translation": "My daughter",
+     "translit": "meri beti"
     }
    ],
    "pronunciation": "BEH-tee"
@@ -1663,7 +1712,8 @@
    "examples": [
     {
      "native": "میرا شوہر",
-     "translation": "My husband"
+     "translation": "My husband",
+     "translit": "mera shauhar"
     }
    ],
    "pronunciation": "SHOW-har"
@@ -1680,7 +1730,8 @@
    "examples": [
     {
      "native": "میری بیوی",
-     "translation": "My wife"
+     "translation": "My wife",
+     "translit": "meri biwi"
     }
    ],
    "pronunciation": "BEE-wee"
@@ -1714,7 +1765,8 @@
    "examples": [
     {
      "native": "سات دن",
-     "translation": "Seven days"
+     "translation": "Seven days",
+     "translit": "saat din"
     }
    ],
    "pronunciation": "SAAT"
@@ -1831,7 +1883,8 @@
    "examples": [
     {
      "native": "تیز چلنا",
-     "translation": "To walk fast"
+     "translation": "To walk fast",
+     "translit": "tez chalna"
     }
    ],
    "pronunciation": "CHUL-nah"
@@ -1848,7 +1901,8 @@
    "examples": [
     {
      "native": "تیز دوڑنا",
-     "translation": "To run fast"
+     "translation": "To run fast",
+     "translit": "tez daurna"
     }
    ],
    "pronunciation": "DOWR-nah"
@@ -1865,7 +1919,8 @@
    "examples": [
     {
      "native": "یہاں بیٹھنا",
-     "translation": "To sit here"
+     "translation": "To sit here",
+     "translit": "yahan baithna"
     }
    ],
    "pronunciation": "BAITH-nah"
@@ -1899,7 +1954,8 @@
    "examples": [
     {
      "native": "جلدی سونا",
-     "translation": "To sleep early"
+     "translation": "To sleep early",
+     "translit": "jaldi sona"
     }
    ],
    "pronunciation": "SOH-nah"
@@ -1933,7 +1989,8 @@
    "examples": [
     {
      "native": "اچھا ریستوران",
-     "translation": "Good restaurant"
+     "translation": "Good restaurant",
+     "translit": "achcha restaurant"
     }
    ]
   },
@@ -1966,7 +2023,8 @@
    "examples": [
     {
      "native": "دوپہر کا کھانا",
-     "translation": "Lunch"
+     "translation": "Lunch",
+     "translit": "dopahar ka khana"
     }
    ],
    "pronunciation": "doh-PAH-har"
@@ -2017,7 +2075,8 @@
    "examples": [
     {
      "native": "اس سال",
-     "translation": "This year"
+     "translation": "This year",
+     "translit": "is saal"
     }
    ],
    "pronunciation": "SAAL"
@@ -2034,7 +2093,8 @@
    "examples": [
     {
      "native": "بڑا گھر",
-     "translation": "Big house"
+     "translation": "Big house",
+     "translit": "bara ghar"
     }
    ],
    "pronunciation": "buh-RAH"
@@ -2051,7 +2111,8 @@
    "examples": [
     {
      "native": "چھوٹا بچہ",
-     "translation": "Small child"
+     "translation": "Small child",
+     "translit": "chhota bachcha"
     }
    ],
    "pronunciation": "CHHOH-tah"
@@ -2068,7 +2129,8 @@
    "examples": [
     {
      "native": "خوبصورت دن",
-     "translation": "Beautiful day"
+     "translation": "Beautiful day",
+     "translit": "khoobsurat din"
     }
    ],
    "pronunciation": "khoob-SOO-rat"
@@ -2085,7 +2147,8 @@
    "examples": [
     {
      "native": "گرم چائے",
-     "translation": "Hot tea"
+     "translation": "Hot tea",
+     "translit": "garam chai"
     }
    ],
    "pronunciation": "guh-RUM"
@@ -2102,7 +2165,8 @@
    "examples": [
     {
      "native": "ٹھنڈا پانی",
-     "translation": "Cold water"
+     "translation": "Cold water",
+     "translit": "thanda pani"
     }
    ],
    "pronunciation": "THUN-dah"
@@ -2119,7 +2183,8 @@
    "examples": [
     {
      "native": "نیا گھر",
-     "translation": "New house"
+     "translation": "New house",
+     "translit": "naya ghar"
     }
    ],
    "pronunciation": "nuh-YAH"
@@ -2154,7 +2219,8 @@
    "examples": [
     {
      "native": "میرا سر",
-     "translation": "My head"
+     "translation": "My head",
+     "translit": "mera sar"
     }
    ]
   },
@@ -2171,7 +2237,8 @@
    "examples": [
     {
      "native": "دایاں ہاتھ",
-     "translation": "Right hand"
+     "translation": "Right hand",
+     "translit": "dayan haath"
     }
    ]
   },
@@ -2205,7 +2272,8 @@
    "examples": [
     {
      "native": "مجھے بھوک ہے",
-     "translation": "I am hungry"
+     "translation": "I am hungry",
+     "translit": "mujhe bhook hai"
     }
    ]
   },
@@ -2222,7 +2290,8 @@
    "examples": [
     {
      "native": "میں تھکا ہوں",
-     "translation": "I am tired"
+     "translation": "I am tired",
+     "translit": "mein thaka hoon"
     }
    ]
   },
@@ -2239,7 +2308,8 @@
    "examples": [
     {
      "native": "بہت خوش",
-     "translation": "Very happy"
+     "translation": "Very happy",
+     "translit": "bohot khush"
     }
    ]
   },
@@ -2273,7 +2343,8 @@
    "examples": [
     {
      "native": "تیز سورج",
-     "translation": "Bright sun"
+     "translation": "Bright sun",
+     "translit": "tez sooraj"
     }
    ]
   },
@@ -2290,7 +2361,8 @@
    "examples": [
     {
      "native": "تیز بارش",
-     "translation": "Heavy rain"
+     "translation": "Heavy rain",
+     "translit": "tez baarish"
     }
    ]
   },
@@ -2311,7 +2383,8 @@
     },
     {
      "native": "آسمان پر بادل ہیں",
-     "translation": "There are clouds in the sky"
+     "translation": "There are clouds in the sky",
+     "translit": "asmaan par badal hain"
     }
    ]
   },
@@ -2332,7 +2405,8 @@
     },
     {
      "native": "ہوا تیز ہے",
-     "translation": "The wind is strong"
+     "translation": "The wind is strong",
+     "translit": "hawa tez hai"
     }
    ]
   },
@@ -2366,7 +2440,8 @@
    "examples": [
     {
      "native": "تیز گاڑی",
-     "translation": "Fast car"
+     "translation": "Fast car",
+     "translit": "tez gaadi"
     }
    ]
   },
@@ -2400,7 +2475,8 @@
    "examples": [
     {
      "native": "تیز ٹرین",
-     "translation": "Fast train"
+     "translation": "Fast train",
+     "translit": "tez train"
     }
    ]
   },
@@ -2451,7 +2527,8 @@
    "examples": [
     {
      "native": "یہاں آؤ",
-     "translation": "Come here"
+     "translation": "Come here",
+     "translit": "yahan aao"
     }
    ]
   },
@@ -2506,7 +2583,8 @@
    "examples": [
     {
      "native": "گھر بیچنا",
-     "translation": "To sell a house"
+     "translation": "To sell a house",
+     "translit": "ghar bechna"
     }
    ]
   },
@@ -2540,7 +2618,8 @@
    "examples": [
     {
      "native": "کھانا تیار ہے",
-     "translation": "Food is ready"
+     "translation": "Food is ready",
+     "translit": "khana tayyar hai"
     }
    ]
   },
@@ -2557,7 +2636,8 @@
    "examples": [
     {
      "native": "جلدی آؤ",
-     "translation": "Come quickly"
+     "translation": "Come quickly",
+     "translit": "jaldi aao"
     }
    ]
   },
@@ -2621,7 +2701,8 @@
    "examples": [
     {
      "native": "مجھے دو",
-     "translation": "Give me"
+     "translation": "Give me",
+     "translit": "mujhe do"
     }
    ],
    "pronunciation": "DAY-na"
@@ -2659,7 +2740,8 @@
    "examples": [
     {
      "native": "میرا دل",
-     "translation": "My heart"
+     "translation": "My heart",
+     "translit": "mera dil"
     }
    ]
   },
@@ -2675,7 +2757,8 @@
    "examples": [
     {
      "native": "سیاہ چائے",
-     "translation": "Black tea"
+     "translation": "Black tea",
+     "translit": "siyaah chai"
     }
    ]
   },
@@ -2723,7 +2806,8 @@
    "examples": [
     {
      "native": "تیز دھوپ",
-     "translation": "Strong sunlight"
+     "translation": "Strong sunlight",
+     "translit": "tez dhoop"
     }
    ]
   },
@@ -2739,7 +2823,8 @@
    "examples": [
     {
      "native": "ایک گھنٹہ",
-     "translation": "One hour"
+     "translation": "One hour",
+     "translit": "ek ghanta"
     }
    ]
   },
@@ -2771,7 +2856,8 @@
    "examples": [
     {
      "native": "کیوں نہیں؟",
-     "translation": "Why not?"
+     "translation": "Why not?",
+     "translit": "kyun nahin"
     }
    ]
   },
@@ -2838,7 +2924,8 @@
    "examples": [
     {
      "native": "مجھے مدد کی ضرورت ہے",
-     "translation": "I need help"
+     "translation": "I need help",
+     "translit": "mujhe madad ki zaroorat hai"
     }
    ],
    "frequencyRank": 125
@@ -2889,7 +2976,8 @@
    "examples": [
     {
      "native": "یہ کیسے کام کرتا ہے؟",
-     "translation": "How does this work?"
+     "translation": "How does this work?",
+     "translit": "yeh kaise kaam karta hai"
     }
    ],
    "frequencyRank": 48
@@ -2906,7 +2994,8 @@
    "examples": [
     {
      "native": "وہ آدمی میرا بھائی ہے",
-     "translation": "That man is my brother"
+     "translation": "That man is my brother",
+     "translit": "woh aadmi mera bhai hai"
     }
    ],
    "frequencyRank": 10
@@ -2923,7 +3012,8 @@
    "examples": [
     {
      "native": "وہ عورت ڈاکٹر ہے",
-     "translation": "That woman is a doctor"
+     "translation": "That woman is a doctor",
+     "translit": "woh aurat doctor hai"
     }
    ],
    "frequencyRank": 11
@@ -2957,7 +3047,8 @@
    "examples": [
     {
      "native": "اس کی قیمت کیا ہے؟",
-     "translation": "What's the price of this?"
+     "translation": "What's the price of this?",
+     "translit": "is ki qeemat kya hai"
     }
    ],
    "frequencyRank": 160
@@ -3008,7 +3099,8 @@
    "examples": [
     {
      "native": "بہت اچھا",
-     "translation": "Very good"
+     "translation": "Very good",
+     "translit": "bohot achcha"
     }
    ],
    "frequencyRank": 50
@@ -3025,7 +3117,8 @@
    "examples": [
     {
      "native": "دودھ کے ساتھ چائے",
-     "translation": "Tea with milk"
+     "translation": "Tea with milk",
+     "translit": "doodh ke saath chai"
     }
    ],
    "frequencyRank": 51
@@ -3042,7 +3135,8 @@
    "examples": [
     {
      "native": "چینی کے بغیر",
-     "translation": "Without sugar"
+     "translation": "Without sugar",
+     "translit": "cheeni ke baghair"
     }
    ],
    "frequencyRank": 152
@@ -3059,7 +3153,8 @@
    "examples": [
     {
      "native": "سب ٹھیک ہے",
-     "translation": "Everything is fine"
+     "translation": "Everything is fine",
+     "translit": "sab theek hai"
     }
    ],
    "frequencyRank": 52
@@ -3110,7 +3205,8 @@
    "examples": [
     {
      "native": "یہ قریب ہے",
-     "translation": "It's near"
+     "translation": "It's near",
+     "translit": "yeh qareeb hai"
     }
    ],
    "frequencyRank": 78
@@ -3127,7 +3223,8 @@
    "examples": [
     {
      "native": "بہت دور ہے",
-     "translation": "It's very far"
+     "translation": "It's very far",
+     "translit": "bohot door hai"
     }
    ],
    "frequencyRank": 79
@@ -3144,7 +3241,8 @@
    "examples": [
     {
      "native": "آپ کا نام کیا ہے؟",
-     "translation": "What is your name?"
+     "translation": "What is your name?",
+     "translit": "aap ka naam kya hai"
     }
    ],
    "frequencyRank": 13
@@ -3161,7 +3259,8 @@
    "examples": [
     {
      "native": "میں بیمار ہوں",
-     "translation": "I am sick"
+     "translation": "I am sick",
+     "translit": "mein beemar hoon"
     }
    ],
    "frequencyRank": 66
@@ -3178,7 +3277,8 @@
    "examples": [
     {
      "native": "مجھے ڈاکٹر چاہیے",
-     "translation": "I need a doctor"
+     "translation": "I need a doctor",
+     "translit": "mujhe doctor chahiye"
     }
    ],
    "frequencyRank": 67
@@ -3246,7 +3346,8 @@
    "examples": [
     {
      "native": "ایک پرانا درخت",
-     "translation": "An old tree"
+     "translation": "An old tree",
+     "translit": "ek purana darakht"
     }
    ],
    "frequencyRank": 72

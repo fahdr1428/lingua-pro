@@ -1397,6 +1397,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 const exp = explainAnswer(exercise, userGiven, pack.code, {
                   correct: feedback === "correct",
                   options: exercise.options || null,
+                  vocab: pack.vocab,
                 });
                 return (
                   <Card

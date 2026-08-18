@@ -157,7 +157,8 @@
    "examples": [
     {
      "native": "مرحبا صديقي",
-     "translation": "Hello my friend"
+     "translation": "Hello my friend",
+     "translit": "marhaba sadeeqi"
     }
    ],
    "unit": "u1",
@@ -217,7 +218,8 @@
    "examples": [
     {
      "native": "لا شكرا",
-     "translation": "No thank you"
+     "translation": "No thank you",
+     "translit": "la shukran"
     }
    ],
    "unit": "u1",
@@ -237,11 +239,13 @@
    "examples": [
     {
      "native": "مع السلامة",
-     "translation": "Goodbye"
+     "translation": "Goodbye",
+     "translit": "maa salama"
     },
     {
      "native": "مع السلامة، أراك غدا",
-     "translation": "Goodbye, see you tomorrow"
+     "translation": "Goodbye, see you tomorrow",
+     "translit": "maa salama araak ghadan"
     }
    ],
    "unit": "u1",
@@ -302,7 +306,8 @@
    "examples": [
     {
      "native": "كيف حالك",
-     "translation": "How are you"
+     "translation": "How are you",
+     "translit": "kayfa haluk"
     }
    ],
    "unit": "u2",
@@ -394,7 +399,8 @@
     },
     {
      "native": "هو صديقي",
-     "translation": "He is my friend"
+     "translation": "He is my friend",
+     "translit": "huwa sadeeqi"
     }
    ],
    "unit": "u2",
@@ -428,7 +434,8 @@
     },
     {
      "native": "أريد ماء من فضلك",
-     "translation": "I'd like water please"
+     "translation": "I'd like water please",
+     "translit": "ureed maa min fadlik"
     }
    ],
    "unit": "u5",
@@ -518,7 +525,8 @@
    "examples": [
     {
      "native": "واحد اثنان",
-     "translation": "One two"
+     "translation": "One two",
+     "translit": "wahid ithnan"
     }
    ],
    "unit": "u4",
@@ -598,7 +606,8 @@
    "examples": [
     {
      "native": "أذهب إلى البيت",
-     "translation": "I go home"
+     "translation": "I go home",
+     "translit": "adhhab ila al-bayt"
     }
    ],
    "unit": "u6",
@@ -618,7 +627,8 @@
    "examples": [
     {
      "native": "آكل الخبز",
-     "translation": "I eat bread"
+     "translation": "I eat bread",
+     "translit": "aakul al-khubz"
     },
     {
      "native": "نأكل في الثامنة",
@@ -642,7 +652,8 @@
    "examples": [
     {
      "native": "أشرب الماء",
-     "translation": "I drink water"
+     "translation": "I drink water",
+     "translit": "ashrab al-maa"
     },
     {
      "native": "ماذا تشرب؟",
@@ -716,7 +727,8 @@
    "examples": [
     {
      "native": "أذهب إلى المدرسة",
-     "translation": "I go to school"
+     "translation": "I go to school",
+     "translit": "adhhab ila al-madrasa"
     },
     {
      "native": "المدرسة قريبة",
@@ -740,7 +752,8 @@
    "examples": [
     {
      "native": "اليوم جميل",
-     "translation": "Today is beautiful"
+     "translation": "Today is beautiful",
+     "translit": "al-yawm jameel"
     }
    ],
    "unit": "u8",
@@ -820,11 +833,13 @@
    "examples": [
     {
      "native": "أنا سعيد",
-     "translation": "I am happy"
+     "translation": "I am happy",
+     "translit": "ana saeed"
     },
     {
      "native": "أنا سعيد جدا",
-     "translation": "I'm very happy"
+     "translation": "I'm very happy",
+     "translit": "ana saeed jiddan"
     }
    ],
    "dialects": {
@@ -851,11 +866,13 @@
    "examples": [
     {
      "native": "أنا تعبان",
-     "translation": "I am tired"
+     "translation": "I am tired",
+     "translit": "ana taban"
     },
     {
      "native": "أنا تعبان اليوم",
-     "translation": "I'm tired today"
+     "translation": "I'm tired today",
+     "translit": "ana taban al-yawm"
     }
    ],
    "frequencyRank": 143
@@ -872,7 +889,8 @@
    "examples": [
     {
      "native": "أنا جوعان",
-     "translation": "I am hungry"
+     "translation": "I am hungry",
+     "translit": "ana jouan"
     }
    ],
    "frequencyRank": 144
@@ -889,7 +907,8 @@
    "examples": [
     {
      "native": "جيد جداً",
-     "translation": "Very good"
+     "translation": "Very good",
+     "translit": "jayyid jiddan"
     },
     {
      "native": "عمل جيد",
@@ -936,7 +955,8 @@
    "examples": [
     {
      "native": "ماء من فضلك",
-     "translation": "Water please"
+     "translation": "Water please",
+     "translit": "maa min fadlik"
     }
    ],
    "frequencyRank": 148
@@ -953,7 +973,8 @@
    "examples": [
     {
      "native": "أنا آسف",
-     "translation": "I am sorry"
+     "translation": "I am sorry",
+     "translit": "ana aasif"
     },
     {
      "native": "آسف، تأخرت",
@@ -974,7 +995,8 @@
    "examples": [
     {
      "native": "بيت كبير",
-     "translation": "Big house"
+     "translation": "Big house",
+     "translit": "bayt kabeer"
     }
    ],
    "frequencyRank": 57
@@ -1016,7 +1038,8 @@
     },
     {
      "native": "أنا هنا",
-     "translation": "I'm here"
+     "translation": "I'm here",
+     "translit": "ana huna"
     }
    ],
    "dialects": {
@@ -1060,7 +1083,8 @@
    "examples": [
     {
      "native": "حليب بارد",
-     "translation": "Cold milk"
+     "translation": "Cold milk",
+     "translit": "haleeb baarid"
     }
    ],
    "frequencyRank": 100
@@ -1094,7 +1118,8 @@
    "examples": [
     {
      "native": "أراك غداً",
-     "translation": "See you tomorrow"
+     "translation": "See you tomorrow",
+     "translit": "araak ghadan"
     }
    ],
    "frequencyRank": 138
@@ -1111,11 +1136,13 @@
    "examples": [
     {
      "native": "أعرف",
-     "translation": "I know"
+     "translation": "I know",
+     "translit": "a'rif"
     },
     {
      "native": "لا أعرف",
-     "translation": "I don't know"
+     "translation": "I don't know",
+     "translit": "la a'rif"
     }
    ],
    "pronunciation": "YAA-rif"
@@ -1207,7 +1234,8 @@
    "examples": [
     {
      "native": "أرى البيت",
-     "translation": "I see the house"
+     "translation": "I see the house",
+     "translit": "araa al-bayt"
     },
     {
      "native": "لا أرى شيئا",
@@ -1322,7 +1350,8 @@
    "examples": [
     {
      "native": "خبز أبيض",
-     "translation": "White bread"
+     "translation": "White bread",
+     "translit": "khubz abyad"
     }
    ]
   },
@@ -1371,7 +1400,8 @@
    "examples": [
     {
      "native": "كثير من المطر",
-     "translation": "Lots of rain"
+     "translation": "Lots of rain",
+     "translit": "katheer min al-matar"
     },
     {
      "native": "المطر لا يتوقف",
@@ -1392,7 +1422,8 @@
    "examples": [
     {
      "native": "هذه السنة",
-     "translation": "This year"
+     "translation": "This year",
+     "translit": "hadhihi al-sana"
     }
    ]
   },
@@ -1408,7 +1439,8 @@
    "examples": [
     {
      "native": "هذا الأسبوع",
-     "translation": "This week"
+     "translation": "This week",
+     "translit": "hadha al-usbu'"
     }
    ]
   },
@@ -1428,7 +1460,8 @@
     },
     {
      "native": "بعد ساعة",
-     "translation": "In an hour"
+     "translation": "In an hour",
+     "translit": "ba'd saa'a"
     }
    ],
    "pronunciation": "SAA-a"
@@ -1488,7 +1521,8 @@
    "examples": [
     {
      "native": "لماذا لا؟",
-     "translation": "Why not?"
+     "translation": "Why not?",
+     "translit": "limaadhaa la"
     },
     {
      "native": "لماذا تسأل؟",
@@ -1535,7 +1569,8 @@
    "examples": [
     {
      "native": "من هذا؟",
-     "translation": "Who is this?"
+     "translation": "Who is this?",
+     "translit": "min hadha"
     }
    ],
    "dialects": {
@@ -1578,7 +1613,8 @@
    "examples": [
     {
      "native": "أين البيت؟",
-     "translation": "Where is the house?"
+     "translation": "Where is the house?",
+     "translit": "ayna al-bayt"
     },
     {
      "native": "أين تسكن؟",
@@ -1641,7 +1677,8 @@
    "examples": [
     {
      "native": "يوم جميل",
-     "translation": "A beautiful day"
+     "translation": "A beautiful day",
+     "translit": "yawm jameel"
     }
    ]
   },
@@ -1657,7 +1694,8 @@
    "examples": [
     {
      "native": "هذا الشهر",
-     "translation": "This month"
+     "translation": "This month",
+     "translit": "hadha al-shahr"
     }
    ]
   },
@@ -1673,7 +1711,8 @@
    "examples": [
     {
      "native": "كان أمس",
-     "translation": "It was yesterday"
+     "translation": "It was yesterday",
+     "translit": "kana ams"
     },
     {
      "native": "كان أمس باردا",
@@ -1704,11 +1743,13 @@
    "examples": [
     {
      "native": "عفوا، لا أفهم",
-     "translation": "Sorry, I don't understand"
+     "translation": "Sorry, I don't understand",
+     "translit": "afwan la afham"
     },
     {
      "native": "عفوا، أين المحطة؟",
-     "translation": "Excuse me, where is the station?"
+     "translation": "Excuse me, where is the station?",
+     "translit": "afwan ayna al-mahatta"
     }
    ],
    "pronunciation": "AF-wan"
@@ -1725,7 +1766,8 @@
    "examples": [
     {
      "native": "عفوا، أين الحمام؟",
-     "translation": "Excuse me, where is the bathroom?"
+     "translation": "Excuse me, where is the bathroom?",
+     "translit": "afwan ayna al-hammam"
     }
    ]
   },
@@ -1741,7 +1783,8 @@
    "examples": [
     {
      "native": "كم الساعة؟",
-     "translation": "What time is it?"
+     "translation": "What time is it?",
+     "translit": "kam al-saa'a"
     }
    ],
    "dialects": {
@@ -1772,7 +1815,8 @@
    "examples": [
     {
      "native": "كيف حالك؟",
-     "translation": "How are you?"
+     "translation": "How are you?",
+     "translit": "kayfa haluk"
     },
     {
      "native": "كيف أصل إلى هناك؟",
@@ -1811,7 +1855,8 @@
    "examples": [
     {
      "native": "شكرا كثيرا",
-     "translation": "Thank you very much"
+     "translation": "Thank you very much",
+     "translit": "shukran katheeran"
     }
    ],
    "dialects": {
@@ -1854,11 +1899,13 @@
    "examples": [
     {
      "native": "قليل من الماء",
-     "translation": "A little water"
+     "translation": "A little water",
+     "translit": "qaleel min al-maa"
     },
     {
      "native": "وقت قليل",
-     "translation": "A little time"
+     "translation": "A little time",
+     "translit": "waqt qaleel"
     }
    ],
    "pronunciation": "qa-LEEL"
@@ -1875,11 +1922,13 @@
    "examples": [
     {
      "native": "الآن",
-     "translation": "Now"
+     "translation": "Now",
+     "translit": "al-aan"
     },
     {
      "native": "ليس الآن",
-     "translation": "Not now"
+     "translation": "Not now",
+     "translit": "laysa al-aan"
     }
    ],
    "dialects": {
@@ -1922,7 +1971,8 @@
    "examples": [
     {
      "native": "أريد ماء",
-     "translation": "I want water"
+     "translation": "I want water",
+     "translit": "ureed maa"
     },
     {
      "native": "أريد أن أتعلم",
@@ -1965,7 +2015,8 @@
    "examples": [
     {
      "native": "أحتاج مساعدة",
-     "translation": "I need help"
+     "translation": "I need help",
+     "translit": "ahtaaj musaa'ada"
     }
    ]
   },
@@ -1981,7 +2032,8 @@
    "examples": [
     {
      "native": "لا أفهم",
-     "translation": "I don't understand"
+     "translation": "I don't understand",
+     "translit": "la afham"
     }
    ],
    "pronunciation": "YAF-ham"
@@ -1998,7 +2050,8 @@
    "examples": [
     {
      "native": "أحتاج مساعدة",
-     "translation": "I need help"
+     "translation": "I need help",
+     "translit": "ahtaaj musaa'ada"
     }
    ]
   },
@@ -2017,7 +2070,8 @@
    "examples": [
     {
      "native": "شاي و قهوة",
-     "translation": "Tea and coffee"
+     "translation": "Tea and coffee",
+     "translit": "shay wa qahwa"
     }
    ],
    "frequencyRank": 150
@@ -2037,7 +2091,8 @@
    "examples": [
     {
      "native": "صغير لكن جميل",
-     "translation": "Small but beautiful"
+     "translation": "Small but beautiful",
+     "translit": "sagheer lakin jameel"
     }
    ],
    "dialects": {
@@ -2101,7 +2156,8 @@
    "examples": [
     {
      "native": "شاي أو قهوة",
-     "translation": "Tea or coffee"
+     "translation": "Tea or coffee",
+     "translit": "shay aw qahwa"
     }
    ],
    "frequencyRank": 153
@@ -2121,7 +2177,8 @@
    "examples": [
     {
      "native": "أنا أيضا",
-     "translation": "Me too"
+     "translation": "Me too",
+     "translit": "ana aydan"
     }
    ],
    "dialects": {
@@ -2255,7 +2312,8 @@
     },
     {
      "native": "إلى المطار من فضلك",
-     "translation": "To the airport please"
+     "translation": "To the airport please",
+     "translit": "ila al-matar min fadlik"
     }
    ],
    "frequencyRank": 163
@@ -2333,7 +2391,8 @@
    "examples": [
     {
      "native": "فندق جيد",
-     "translation": "A good hotel"
+     "translation": "A good hotel",
+     "translit": "funduq jayyid"
     },
     {
      "native": "الفندق في الوسط",
@@ -2441,11 +2500,13 @@
    "examples": [
     {
      "native": "قريب من الفندق",
-     "translation": "Near the hotel"
+     "translation": "Near the hotel",
+     "translit": "qareeb min al-funduq"
     },
     {
      "native": "قريب جدا",
-     "translation": "Very near"
+     "translation": "Very near",
+     "translit": "qareeb jiddan"
     }
    ],
    "frequencyRank": 171
@@ -2465,11 +2526,13 @@
    "examples": [
     {
      "native": "بعيد جدا",
-     "translation": "Very far"
+     "translation": "Very far",
+     "translit": "baeed jiddan"
     },
     {
      "native": "هل هو بعيد؟",
-     "translation": "Is it far?"
+     "translation": "Is it far?",
+     "translit": "hal huwa baeed"
     }
    ],
    "frequencyRank": 172
@@ -2583,7 +2646,8 @@
    "examples": [
     {
      "native": "النهر قريب من البيت.",
-     "translation": "The river is near the house."
+     "translation": "The river is near the house.",
+     "translit": "al-nahr qareeb min al-bayt"
     }
    ],
    "frequencyRank": 178
@@ -2627,7 +2691,8 @@
    "examples": [
     {
      "native": "البحر بعيد من هنا.",
-     "translation": "The sea is far from here."
+     "translation": "The sea is far from here.",
+     "translit": "al-bahr baeed min huna"
     },
     {
      "native": "البحر هادئ",
@@ -2715,11 +2780,13 @@
    "examples": [
     {
      "native": "الماء بارد.",
-     "translation": "The water is cold."
+     "translation": "The water is cold.",
+     "translit": "al-maa baarid"
     },
     {
      "native": "الماء بارد",
-     "translation": "The water is cold"
+     "translation": "The water is cold",
+     "translit": "al-maa baarid"
     }
    ],
    "frequencyRank": 184
@@ -2804,7 +2871,8 @@
    "examples": [
     {
      "native": "كيف حالك اليوم؟",
-     "translation": "How are you today?"
+     "translation": "How are you today?",
+     "translit": "kayfa haluk al-yawm"
     }
    ],
    "dialects": {
@@ -2847,7 +2915,8 @@
    "examples": [
     {
      "native": "أنا بخير، شكرا",
-     "translation": "I'm fine, thank you"
+     "translation": "I'm fine, thank you",
+     "translit": "ana bi-khayr shukran"
     }
    ],
    "dialects": {
@@ -2960,7 +3029,8 @@
    "examples": [
     {
      "native": "أعمل في مستشفى",
-     "translation": "I work at a hospital"
+     "translation": "I work at a hospital",
+     "translit": "a'mal fi mustashfa"
     }
    ],
    "frequencyRank": 89
@@ -3184,7 +3254,8 @@
    "examples": [
     {
      "native": "عشرون دقيقة",
-     "translation": "Twenty minutes"
+     "translation": "Twenty minutes",
+     "translit": "ishrun daqiqa"
     }
    ],
    "frequencyRank": 98
@@ -3201,7 +3272,8 @@
    "examples": [
     {
      "native": "مئة في المئة",
-     "translation": "A hundred percent"
+     "translation": "A hundred percent",
+     "translit": "mi'a fi al-mi'a"
     }
    ],
    "frequencyRank": 99
@@ -3218,7 +3290,8 @@
    "examples": [
     {
      "native": "الأكل لذيذ",
-     "translation": "The food is delicious"
+     "translation": "The food is delicious",
+     "translit": "al-akl ladhidh"
     }
    ],
    "frequencyRank": 35
@@ -3235,7 +3308,8 @@
    "examples": [
     {
      "native": "لا آكل اللحم",
-     "translation": "I don't eat meat"
+     "translation": "I don't eat meat",
+     "translit": "la aakul al-lahm"
     }
    ],
    "frequencyRank": 36
@@ -3269,7 +3343,8 @@
    "examples": [
     {
      "native": "أحب الفاكهة",
-     "translation": "I love fruit"
+     "translation": "I love fruit",
+     "translit": "uhibb al-fakiha"
     }
    ],
    "frequencyRank": 101
@@ -3286,7 +3361,8 @@
    "examples": [
     {
      "native": "هذا لذيذ جدا",
-     "translation": "This is very delicious"
+     "translation": "This is very delicious",
+     "translit": "hadha ladhidh jiddan"
     }
    ],
    "dialects": {
@@ -3313,7 +3389,8 @@
    "examples": [
     {
      "native": "الحساب من فضلك",
-     "translation": "The bill, please"
+     "translation": "The bill, please",
+     "translit": "al-hisab min fadlik"
     }
    ],
    "frequencyRank": 102
@@ -3330,7 +3407,8 @@
    "examples": [
     {
      "native": "مطعم قريب من هنا",
-     "translation": "A restaurant near here"
+     "translation": "A restaurant near here",
+     "translit": "mat'am qareeb min huna"
     }
    ],
    "frequencyRank": 39
@@ -3364,7 +3442,8 @@
    "examples": [
     {
      "native": "عنده سيارة",
-     "translation": "He has a car"
+     "translation": "He has a car",
+     "translit": "indahu sayyara"
     }
    ],
    "frequencyRank": 108
@@ -3438,7 +3517,8 @@
    "examples": [
     {
      "native": "لا أستطيع اليوم",
-     "translation": "I can't today"
+     "translation": "I can't today",
+     "translit": "la astati' al-yawm"
     }
    ],
    "dialects": {
@@ -3477,7 +3557,8 @@
    "examples": [
     {
      "native": "أين المستشفى؟",
-     "translation": "Where is the hospital?"
+     "translation": "Where is the hospital?",
+     "translit": "ayna al-mustashfa"
     }
    ],
    "frequencyRank": 126
@@ -3568,7 +3649,8 @@
    "examples": [
     {
      "native": "أين الحمام؟",
-     "translation": "Where is the bathroom?"
+     "translation": "Where is the bathroom?",
+     "translit": "ayna al-hammam"
     }
    ],
    "frequencyRank": 47
@@ -3619,7 +3701,8 @@
    "examples": [
     {
      "native": "في المساء",
-     "translation": "In the evening"
+     "translation": "In the evening",
+     "translit": "fi al-masaa'"
     }
    ],
    "frequencyRank": 50
@@ -3852,7 +3935,8 @@
    "examples": [
     {
      "native": "قهوة مع حليب",
-     "translation": "Coffee with milk"
+     "translation": "Coffee with milk",
+     "translit": "qahwa maa haleeb"
     }
    ],
    "frequencyRank": 61
@@ -3886,7 +3970,8 @@
    "examples": [
     {
      "native": "واحد فقط",
-     "translation": "Only one"
+     "translation": "Only one",
+     "translit": "wahid faqat"
     }
    ],
    "dialects": {
@@ -4059,7 +4144,8 @@
    "examples": [
     {
      "native": "ليس لدي وقت",
-     "translation": "I don't have time"
+     "translation": "I don't have time",
+     "translit": "laysa ladayya waqt"
     }
    ],
    "frequencyRank": 53
@@ -4130,7 +4216,8 @@
    "examples": [
     {
      "native": "كم السعر؟",
-     "translation": "What's the price?"
+     "translation": "What's the price?",
+     "translit": "kam al-si'r"
     }
    ],
    "dialects": {
@@ -4170,7 +4257,8 @@
    "examples": [
     {
      "native": "أكثر قليلا",
-     "translation": "A little more"
+     "translation": "A little more",
+     "translit": "akthar qalilan"
     }
    ],
    "dialects": {
@@ -4197,7 +4285,8 @@
    "examples": [
     {
      "native": "جيد جدا",
-     "translation": "Very good"
+     "translation": "Very good",
+     "translit": "jayyid jiddan"
     }
    ],
    "dialects": {

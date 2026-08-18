@@ -257,7 +257,8 @@
    "examples": [
     {
      "native": "নমস্কার বন্ধু",
-     "translation": "Hello friend"
+     "translation": "Hello friend",
+     "translit": "nomoshkar bondhu"
     }
    ]
   },
@@ -274,7 +275,8 @@
    "examples": [
     {
      "native": "আসসালামু আলাইকুম ভাই",
-     "translation": "Peace be upon you brother"
+     "translation": "Peace be upon you brother",
+     "translit": "assalamu alaikum bhai"
     }
    ]
   },
@@ -291,7 +293,8 @@
    "examples": [
     {
      "native": "অনেক ধন্যবাদ",
-     "translation": "Thank you very much"
+     "translation": "Thank you very much",
+     "translit": "onek dhonnobad"
     }
    ]
   },
@@ -308,7 +311,8 @@
    "examples": [
     {
      "native": "হ্যাঁ অবশ্যই",
-     "translation": "Yes of course"
+     "translation": "Yes of course",
+     "translit": "hyan obashjai"
     }
    ]
   },
@@ -325,7 +329,8 @@
    "examples": [
     {
      "native": "না ধন্যবাদ",
-     "translation": "No thank you"
+     "translation": "No thank you",
+     "translit": "na dhonnobad"
     }
    ]
   },
@@ -342,7 +347,8 @@
    "examples": [
     {
      "native": "বিদায় বন্ধু",
-     "translation": "Goodbye friend"
+     "translation": "Goodbye friend",
+     "translit": "biday bondhu"
     }
    ]
   },
@@ -359,7 +365,8 @@
    "examples": [
     {
      "native": "আমি দুঃখিত",
-     "translation": "I am sorry"
+     "translation": "I am sorry",
+     "translit": "ami dukkhito"
     }
    ]
   },
@@ -376,7 +383,8 @@
    "examples": [
     {
      "native": "দয়া করে বসুন",
-     "translation": "Please sit"
+     "translation": "Please sit",
+     "translit": "doya kore basun"
     }
    ]
   },
@@ -393,7 +401,8 @@
    "examples": [
     {
      "native": "আমি ছাত্র",
-     "translation": "I am a student"
+     "translation": "I am a student",
+     "translit": "ami chhatr"
     }
    ]
   },
@@ -410,11 +419,13 @@
    "examples": [
     {
      "native": "তুমি কেমন আছ",
-     "translation": "How are you"
+     "translation": "How are you",
+     "translit": "tumi keman achh"
     },
     {
      "native": "তুমি কোথায়?",
-     "translation": "Where are you?"
+     "translation": "Where are you?",
+     "translit": "tumi kothay"
     }
    ]
   },
@@ -431,7 +442,8 @@
    "examples": [
     {
      "native": "আপনি কোথায় থাকেন",
-     "translation": "Where do you live"
+     "translation": "Where do you live",
+     "translit": "apni kothay thaken"
     }
    ]
   },
@@ -448,7 +460,8 @@
    "examples": [
     {
      "native": "সে ডাক্তার",
-     "translation": "He is a doctor"
+     "translation": "He is a doctor",
+     "translit": "she daktar"
     }
    ]
   },
@@ -465,7 +478,8 @@
    "examples": [
     {
      "native": "আমরা বন্ধু",
-     "translation": "We are friends"
+     "translation": "We are friends",
+     "translit": "amra bondhu"
     }
    ]
   },
@@ -482,7 +496,8 @@
    "examples": [
     {
      "native": "এটা কী",
-     "translation": "What is this"
+     "translation": "What is this",
+     "translit": "eta ki"
     }
    ]
   },
@@ -499,7 +514,8 @@
    "examples": [
     {
      "native": "সে কে",
-     "translation": "Who is he"
+     "translation": "Who is he",
+     "translit": "she ke"
     }
    ]
   },
@@ -516,11 +532,13 @@
    "examples": [
     {
      "native": "আমার মা",
-     "translation": "My mother"
+     "translation": "My mother",
+     "translit": "amar ma"
     },
     {
      "native": "আমার মা রান্না করেন",
-     "translation": "My mother cooks"
+     "translation": "My mother cooks",
+     "translit": "amar ma ranna karen"
     }
    ]
   },
@@ -537,11 +555,13 @@
    "examples": [
     {
      "native": "আমার বাবা",
-     "translation": "My father"
+     "translation": "My father",
+     "translit": "amar baba"
     },
     {
      "native": "আমার বাবা কাজ করেন",
-     "translation": "My father works"
+     "translation": "My father works",
+     "translit": "amar baba kaj karen"
     }
    ]
   },
@@ -558,7 +578,8 @@
    "examples": [
     {
      "native": "আমার ভাই",
-     "translation": "My brother"
+     "translation": "My brother",
+     "translit": "amar bhai"
     }
    ]
   },
@@ -575,7 +596,8 @@
    "examples": [
     {
      "native": "আমার বোন",
-     "translation": "My sister"
+     "translation": "My sister",
+     "translit": "amar bon"
     }
    ]
   },
@@ -592,7 +614,8 @@
    "examples": [
     {
      "native": "ভালো বন্ধু",
-     "translation": "Good friend"
+     "translation": "Good friend",
+     "translit": "bhalo bondhu"
     }
    ]
   },
@@ -609,11 +632,13 @@
    "examples": [
     {
      "native": "ছোট ছেলে",
-     "translation": "Small boy"
+     "translation": "Small boy",
+     "translit": "choto chele"
     },
     {
      "native": "তার ছেলে সাত বছরের",
-     "translation": "His son is seven"
+     "translation": "His son is seven",
+     "translit": "tar chele sat bachharer"
     }
    ]
   },
@@ -630,11 +655,13 @@
    "examples": [
     {
      "native": "আমার মেয়ে",
-     "translation": "My daughter"
+     "translation": "My daughter",
+     "translit": "amar meye"
     },
     {
      "native": "আমার মেয়ে স্কুলে যায়",
-     "translation": "My daughter goes to school"
+     "translation": "My daughter goes to school",
+     "translit": "amar meye skule jay"
     }
    ]
   },
@@ -651,7 +678,8 @@
    "examples": [
     {
      "native": "এক বই",
-     "translation": "One book"
+     "translation": "One book",
+     "translit": "ek bai"
     }
    ]
   },
@@ -668,7 +696,8 @@
    "examples": [
     {
      "native": "দুই ভাই",
-     "translation": "Two brothers"
+     "translation": "Two brothers",
+     "translit": "dui bhai"
     }
    ]
   },
@@ -685,7 +714,8 @@
    "examples": [
     {
      "native": "তিন দিন",
-     "translation": "Three days"
+     "translation": "Three days",
+     "translit": "tin din"
     }
    ]
   },
@@ -702,7 +732,8 @@
    "examples": [
     {
      "native": "চার ঘণ্টা",
-     "translation": "Four hours"
+     "translation": "Four hours",
+     "translit": "char ghanta"
     }
    ]
   },
@@ -719,7 +750,8 @@
    "examples": [
     {
      "native": "পাঁচ মিনিট",
-     "translation": "Five minutes"
+     "translation": "Five minutes",
+     "translit": "panch minit"
     }
    ]
   },
@@ -736,7 +768,8 @@
    "examples": [
     {
      "native": "দশ টাকা",
-     "translation": "Ten taka"
+     "translation": "Ten taka",
+     "translit": "dosh taka"
     }
    ]
   },
@@ -753,7 +786,8 @@
    "examples": [
     {
      "native": "একশ টাকা",
-     "translation": "One hundred taka"
+     "translation": "One hundred taka",
+     "translit": "eksho taka"
     }
    ]
   },
@@ -770,7 +804,8 @@
    "examples": [
     {
      "native": "এক গ্লাস পানি",
-     "translation": "A glass of water"
+     "translation": "A glass of water",
+     "translit": "ek glas pani"
     }
    ]
   },
@@ -787,7 +822,8 @@
    "examples": [
     {
      "native": "গরম ভাত",
-     "translation": "Hot rice"
+     "translation": "Hot rice",
+     "translit": "gorom bhat"
     }
    ]
   },
@@ -804,7 +840,8 @@
    "examples": [
     {
      "native": "রুটি খাও",
-     "translation": "Eat bread"
+     "translation": "Eat bread",
+     "translit": "ruti khao"
     }
    ]
   },
@@ -821,7 +858,8 @@
    "examples": [
     {
      "native": "এক কাপ চা",
-     "translation": "A cup of tea"
+     "translation": "A cup of tea",
+     "translit": "ek kap cha"
     }
    ]
   },
@@ -838,7 +876,8 @@
    "examples": [
     {
      "native": "গরম দুধ",
-     "translation": "Hot milk"
+     "translation": "Hot milk",
+     "translit": "gorom dudh"
     }
    ]
   },
@@ -855,7 +894,8 @@
    "examples": [
     {
      "native": "তাজা মাছ",
-     "translation": "Fresh fish"
+     "translation": "Fresh fish",
+     "translit": "taja mach"
     }
    ]
   },
@@ -872,7 +912,8 @@
    "examples": [
     {
      "native": "মুরগির মাংস",
-     "translation": "Chicken meat"
+     "translation": "Chicken meat",
+     "translit": "muragir mangsho"
     }
    ]
   },
@@ -889,7 +930,8 @@
    "examples": [
     {
      "native": "মজার খাবার",
-     "translation": "Tasty food"
+     "translation": "Tasty food",
+     "translit": "majar khabar"
     }
    ]
   },
@@ -906,7 +948,8 @@
    "examples": [
     {
      "native": "বাড়ি যাওয়া",
-     "translation": "To go home"
+     "translation": "To go home",
+     "translit": "bari jaowa"
     }
    ]
   },
@@ -923,7 +966,8 @@
    "examples": [
     {
      "native": "কাল আসা",
-     "translation": "To come tomorrow"
+     "translation": "To come tomorrow",
+     "translit": "kal asha"
     }
    ]
   },
@@ -940,7 +984,8 @@
    "examples": [
     {
      "native": "ভাত খাওয়া",
-     "translation": "To eat rice"
+     "translation": "To eat rice",
+     "translit": "bhat khaowa"
     }
    ]
   },
@@ -957,7 +1002,8 @@
    "examples": [
     {
      "native": "পানি পান করা",
-     "translation": "To drink water"
+     "translation": "To drink water",
+     "translit": "pani pan kora"
     }
    ]
   },
@@ -974,7 +1020,8 @@
    "examples": [
     {
      "native": "সিনেমা দেখা",
-     "translation": "To watch a movie"
+     "translation": "To watch a movie",
+     "translit": "sinema dekha"
     }
    ]
   },
@@ -991,7 +1038,8 @@
    "examples": [
     {
      "native": "বাংলা বলা",
-     "translation": "To speak Bengali"
+     "translation": "To speak Bengali",
+     "translit": "bangla bola"
     }
    ]
   },
@@ -1008,7 +1056,8 @@
    "examples": [
     {
      "native": "বই পড়া",
-     "translation": "To read a book"
+     "translation": "To read a book",
+     "translit": "bai pora"
     }
    ]
   },
@@ -1025,7 +1074,8 @@
    "examples": [
     {
      "native": "কাজ করা",
-     "translation": "To do work"
+     "translation": "To do work",
+     "translit": "kaj kora"
     }
    ]
   },
@@ -1042,7 +1092,8 @@
    "examples": [
     {
      "native": "আমার বাড়ি",
-     "translation": "My house"
+     "translation": "My house",
+     "translit": "amar bari"
     }
    ]
   },
@@ -1059,7 +1110,8 @@
    "examples": [
     {
      "native": "স্কুলে যাওয়া",
-     "translation": "To go to school"
+     "translation": "To go to school",
+     "translit": "skule jaowa"
     }
    ]
   },
@@ -1076,7 +1128,8 @@
    "examples": [
     {
      "native": "বাজার যাওয়া",
-     "translation": "To go to the market"
+     "translation": "To go to the market",
+     "translit": "bajar jaowa"
     }
    ]
   },
@@ -1093,11 +1146,13 @@
    "examples": [
     {
      "native": "বড় শহর",
-     "translation": "Big city"
+     "translation": "Big city",
+     "translit": "boro shohor"
     },
     {
      "native": "শহরটা বড়",
-     "translation": "The city is big"
+     "translation": "The city is big",
+     "translit": "shaharata boro"
     }
    ]
   },
@@ -1114,7 +1169,8 @@
    "examples": [
     {
      "native": "হাসপাতালে",
-     "translation": "At the hospital"
+     "translation": "At the hospital",
+     "translit": "hasapatale"
     }
    ]
   },
@@ -1131,7 +1187,8 @@
    "examples": [
     {
      "native": "ছোট দোকান",
-     "translation": "Small shop"
+     "translation": "Small shop",
+     "translit": "choto dokan"
     }
    ]
   },
@@ -1148,7 +1205,8 @@
    "examples": [
     {
      "native": "আজকের দিন",
-     "translation": "Today"
+     "translation": "Today",
+     "translit": "ajaker din"
     }
    ]
   },
@@ -1165,7 +1223,8 @@
    "examples": [
     {
      "native": "কাল দেখা হবে",
-     "translation": "See you tomorrow"
+     "translation": "See you tomorrow",
+     "translit": "kal dekha habe"
     }
    ]
   },
@@ -1182,7 +1241,8 @@
    "examples": [
     {
      "native": "এখন আসো",
-     "translation": "Come now"
+     "translation": "Come now",
+     "translit": "ekhon aso"
     }
    ]
   },
@@ -1199,7 +1259,8 @@
    "examples": [
     {
      "native": "ভালো দিন",
-     "translation": "Good day"
+     "translation": "Good day",
+     "translit": "bhalo din"
     }
    ]
   },
@@ -1216,7 +1277,8 @@
    "examples": [
     {
      "native": "শুভ রাত্রি",
-     "translation": "Good night"
+     "translation": "Good night",
+     "translit": "shubh ratri"
     }
    ]
   },
@@ -1233,7 +1295,8 @@
    "examples": [
     {
      "native": "শুভ সকাল",
-     "translation": "Good morning"
+     "translation": "Good morning",
+     "translit": "shubh shokal"
     }
    ]
   },
@@ -1250,7 +1313,8 @@
    "examples": [
     {
      "native": "শুভ সন্ধ্যা",
-     "translation": "Good evening"
+     "translation": "Good evening",
+     "translit": "shubh shondhya"
     }
    ]
   },
@@ -1267,7 +1331,8 @@
    "examples": [
     {
      "native": "তুমি এবং আমি",
-     "translation": "You and me"
+     "translation": "You and me",
+     "translit": "tumi ebong ami"
     }
    ]
   },
@@ -1284,7 +1349,8 @@
    "examples": [
     {
      "native": "যাব কিন্তু দেরিতে",
-     "translation": "I'll go but late"
+     "translation": "I'll go but late",
+     "translit": "jab kintu derite"
     }
    ]
   },
@@ -1301,7 +1367,8 @@
    "examples": [
     {
      "native": "কারণ আমি ব্যস্ত",
-     "translation": "Because I am busy"
+     "translation": "Because I am busy",
+     "translit": "karon ami bjast"
     }
    ]
   },
@@ -1318,7 +1385,8 @@
    "examples": [
     {
      "native": "যদি তুমি আস",
-     "translation": "If you come"
+     "translation": "If you come",
+     "translit": "jodi tumi as"
     }
    ]
   },
@@ -1335,7 +1403,8 @@
    "examples": [
     {
      "native": "চা অথবা কফি",
-     "translation": "Tea or coffee"
+     "translation": "Tea or coffee",
+     "translit": "cha othoba kaphi"
     }
    ]
   },
@@ -1352,7 +1421,8 @@
    "examples": [
     {
      "native": "তুমি কোথায়",
-     "translation": "Where are you"
+     "translation": "Where are you",
+     "translit": "tumi kothay"
     }
    ]
   },
@@ -1369,7 +1439,8 @@
    "examples": [
     {
      "native": "কত টাকা",
-     "translation": "How much money"
+     "translation": "How much money",
+     "translit": "koto taka"
     }
    ]
   },
@@ -1386,7 +1457,8 @@
    "examples": [
     {
      "native": "সাহায্য চাই",
-     "translation": "I need help"
+     "translation": "I need help",
+     "translit": "shahajjo chai"
     }
    ]
   },
@@ -1403,7 +1475,8 @@
    "examples": [
     {
      "native": "খুব ভালো",
-     "translation": "Very good"
+     "translation": "Very good",
+     "translit": "khub bhalo"
     }
    ]
   },
@@ -1420,7 +1493,8 @@
    "examples": [
     {
      "native": "বড় বাড়ি",
-     "translation": "Big house"
+     "translation": "Big house",
+     "translit": "boro bari"
     }
    ]
   },
@@ -1437,7 +1511,8 @@
    "examples": [
     {
      "native": "ছোট কুকুর",
-     "translation": "Small dog"
+     "translation": "Small dog",
+     "translit": "choto kukur"
     }
    ]
   },
@@ -1454,7 +1529,8 @@
    "examples": [
     {
      "native": "নতুন বই",
-     "translation": "New book"
+     "translation": "New book",
+     "translit": "notun bai"
     }
    ]
   },
@@ -1470,7 +1546,8 @@
    "examples": [
     {
      "native": "আমি জানি",
-     "translation": "I know"
+     "translation": "I know",
+     "translit": "ami jani"
     }
    ]
   },
@@ -1486,7 +1563,8 @@
    "examples": [
     {
      "native": "আমি ভাবি",
-     "translation": "I think"
+     "translation": "I think",
+     "translit": "ami bhabi"
     }
    ]
   },
@@ -1502,7 +1580,8 @@
    "examples": [
     {
      "native": "আমাকে দাও",
-     "translation": "Give me"
+     "translation": "Give me",
+     "translit": "amake dao"
     }
    ]
   },
@@ -1518,7 +1597,8 @@
    "examples": [
     {
      "native": "এটা নাও",
-     "translation": "Take this"
+     "translation": "Take this",
+     "translit": "eta nao"
     }
    ]
   },
@@ -1534,7 +1614,8 @@
    "examples": [
     {
      "native": "শোনো",
-     "translation": "Listen"
+     "translation": "Listen",
+     "translit": "shono"
     }
    ]
   },
@@ -1550,7 +1631,8 @@
    "examples": [
     {
      "native": "আমার মাথা",
-     "translation": "My head"
+     "translation": "My head",
+     "translit": "amar matha"
     }
    ]
   },
@@ -1566,7 +1648,8 @@
    "examples": [
     {
      "native": "আমার হাত",
-     "translation": "My hand"
+     "translation": "My hand",
+     "translit": "amar hat"
     }
    ]
   },
@@ -1582,7 +1665,8 @@
    "examples": [
     {
      "native": "আমার মন",
-     "translation": "My heart"
+     "translation": "My heart",
+     "translit": "amar mon"
     }
    ]
   },
@@ -1598,7 +1682,8 @@
    "examples": [
     {
      "native": "কালো চা",
-     "translation": "Black tea"
+     "translation": "Black tea",
+     "translit": "kalo cha"
     }
    ]
   },
@@ -1614,7 +1699,8 @@
    "examples": [
     {
      "native": "সাদা কাগজ",
-     "translation": "White paper"
+     "translation": "White paper",
+     "translit": "sada kagaj"
     }
    ]
   },
@@ -1630,7 +1716,8 @@
    "examples": [
     {
      "native": "হলুদ ফুল",
-     "translation": "Yellow flower"
+     "translation": "Yellow flower",
+     "translit": "holud phul"
     }
    ]
   },
@@ -1646,7 +1733,8 @@
    "examples": [
     {
      "native": "উজ্জ্বল সূর্য",
-     "translation": "Bright sun"
+     "translation": "Bright sun",
+     "translit": "ujjbal shurjo"
     }
    ]
   },
@@ -1662,7 +1750,8 @@
    "examples": [
     {
      "native": "অনেক বৃষ্টি",
-     "translation": "Lots of rain"
+     "translation": "Lots of rain",
+     "translit": "onek brishti"
     }
    ]
   },
@@ -1678,7 +1767,8 @@
    "examples": [
     {
      "native": "এই বছর",
-     "translation": "This year"
+     "translation": "This year",
+     "translit": "ei bochor"
     }
    ]
   },
@@ -1694,7 +1784,8 @@
    "examples": [
     {
      "native": "এই সপ্তাহ",
-     "translation": "This week"
+     "translation": "This week",
+     "translit": "ei shoptaho"
     }
    ]
   },
@@ -1710,7 +1801,8 @@
    "examples": [
     {
      "native": "কখন আসবে?",
-     "translation": "When will you come?"
+     "translation": "When will you come?",
+     "translit": "kokhon asabe"
     }
    ]
   },
@@ -1726,7 +1818,8 @@
    "examples": [
     {
      "native": "কেন না?",
-     "translation": "Why not?"
+     "translation": "Why not?",
+     "translit": "keno na"
     }
    ]
   },
@@ -1742,7 +1835,8 @@
    "examples": [
     {
      "native": "আমি ঘুমাই",
-     "translation": "I sleep"
+     "translation": "I sleep",
+     "translit": "ami ghumai"
     }
    ]
   },
@@ -1758,7 +1852,8 @@
    "examples": [
     {
      "native": "মাফ করবেন",
-     "translation": "Excuse me"
+     "translation": "Excuse me",
+     "translit": "maaf korben"
     }
    ]
   },
@@ -1774,7 +1869,8 @@
    "examples": [
     {
      "native": "এটা কি?",
-     "translation": "What is this?"
+     "translation": "What is this?",
+     "translit": "eta ki"
     }
    ]
   },
@@ -1790,7 +1886,8 @@
    "examples": [
     {
      "native": "আমি বুঝি না",
-     "translation": "I don't understand"
+     "translation": "I don't understand",
+     "translit": "ami bujhi na"
     }
    ]
   },
@@ -1806,7 +1903,8 @@
    "examples": [
     {
      "native": "আমি চা চাই",
-     "translation": "I want tea"
+     "translation": "I want tea",
+     "translit": "ami cha chai"
     }
    ]
   },
@@ -1822,7 +1920,8 @@
    "examples": [
     {
      "native": "আবার বলুন",
-     "translation": "Please say it again"
+     "translation": "Please say it again",
+     "translit": "abar balun"
     }
    ]
   },
@@ -1838,7 +1937,8 @@
    "examples": [
     {
      "native": "একটু পানি",
-     "translation": "A little water"
+     "translation": "A little water",
+     "translit": "ektu pani"
     }
    ]
   },
@@ -1854,7 +1954,8 @@
    "examples": [
     {
      "native": "আমি ক্ষুধার্ত",
-     "translation": "I am hungry"
+     "translation": "I am hungry",
+     "translit": "ami khudharto"
     }
    ]
   },
@@ -1870,7 +1971,8 @@
    "examples": [
     {
      "native": "একটু বেশি",
-     "translation": "A little more"
+     "translation": "A little more",
+     "translit": "ektu beshi"
     }
    ]
   },
@@ -1886,7 +1988,8 @@
    "examples": [
     {
      "native": "একটু কম",
-     "translation": "A little less"
+     "translation": "A little less",
+     "translit": "ektu kom"
     }
    ]
   },
@@ -1902,7 +2005,8 @@
    "examples": [
     {
      "native": "আবহাওয়া খারাপ",
-     "translation": "The weather is bad"
+     "translation": "The weather is bad",
+     "translit": "abahaoya kharap"
     }
    ],
    "frequencyRank": 43
@@ -1919,7 +2023,8 @@
    "examples": [
     {
      "native": "আমার সময় নেই",
-     "translation": "I don't have time"
+     "translation": "I don't have time",
+     "translit": "amar somoy nei"
     }
    ],
    "frequencyRank": 96
@@ -1936,7 +2041,8 @@
    "examples": [
     {
      "native": "আমি চা বানাই",
-     "translation": "I make tea"
+     "translation": "I make tea",
+     "translit": "ami cha banai"
     }
    ],
    "frequencyRank": 97
@@ -1953,7 +2059,8 @@
    "examples": [
     {
      "native": "আপনি সাহায্য করতে পারেন?",
-     "translation": "Can you help?"
+     "translation": "Can you help?",
+     "translit": "apni shahajjo karate paren"
     }
    ],
    "frequencyRank": 98
@@ -1970,7 +2077,8 @@
    "examples": [
     {
      "native": "আমার সাহায্য দরকার",
-     "translation": "I need help"
+     "translation": "I need help",
+     "translit": "amar shahajjo dorkar"
     }
    ],
    "frequencyRank": 122
@@ -1987,7 +2095,8 @@
    "examples": [
     {
      "native": "আমি বুঝিনি",
-     "translation": "I didn't understand"
+     "translation": "I didn't understand",
+     "translit": "ami bujhini"
     }
    ],
    "frequencyRank": 99
@@ -2004,7 +2113,8 @@
    "examples": [
     {
      "native": "আমার টাকা নেই",
-     "translation": "I don't have money"
+     "translation": "I don't have money",
+     "translit": "amar taka nei"
     }
    ],
    "frequencyRank": 55
@@ -2021,7 +2131,8 @@
    "examples": [
     {
      "native": "সময় নেই",
-     "translation": "There's no time"
+     "translation": "There's no time",
+     "translit": "somoy nei"
     }
    ],
    "frequencyRank": 41
@@ -2038,7 +2149,8 @@
    "examples": [
     {
      "native": "আমি এখানে আছি",
-     "translation": "I'm here"
+     "translation": "I'm here",
+     "translit": "ami ekhane achhi"
     }
    ],
    "frequencyRank": 56
@@ -2055,7 +2167,8 @@
    "examples": [
     {
      "native": "ওটা ওখানে",
-     "translation": "It's there"
+     "translation": "It's there",
+     "translit": "ota okhane"
     }
    ],
    "frequencyRank": 57
@@ -2072,7 +2185,8 @@
    "examples": [
     {
      "native": "এটা কীভাবে কাজ করে?",
-     "translation": "How does this work?"
+     "translation": "How does this work?",
+     "translit": "eta kibhabe kaj kore"
     }
    ],
    "frequencyRank": 44
@@ -2089,7 +2203,8 @@
    "examples": [
     {
      "native": "ওই পুরুষ আমার ভাই",
-     "translation": "That man is my brother"
+     "translation": "That man is my brother",
+     "translit": "oi purush amar bhai"
     }
    ],
    "frequencyRank": 12
@@ -2106,7 +2221,8 @@
    "examples": [
     {
      "native": "ওই মহিলা ডাক্তার",
-     "translation": "That woman is a doctor"
+     "translation": "That woman is a doctor",
+     "translit": "oi mohila daktar"
     }
    ],
    "frequencyRank": 13
@@ -2123,7 +2239,8 @@
    "examples": [
     {
      "native": "রাস্তাটা লম্বা",
-     "translation": "The road is long"
+     "translation": "The road is long",
+     "translit": "rastata lamba"
     }
    ],
    "frequencyRank": 35
@@ -2140,7 +2257,8 @@
    "examples": [
     {
      "native": "আমার কাজ শেষ",
-     "translation": "My work is done"
+     "translation": "My work is done",
+     "translit": "amar kaj shesh"
     }
    ],
    "frequencyRank": 14
@@ -2157,7 +2275,8 @@
    "examples": [
     {
      "native": "আমি রুটি কিনি",
-     "translation": "I buy bread"
+     "translation": "I buy bread",
+     "translit": "ami ruti kini"
     }
    ],
    "frequencyRank": 100
@@ -2174,7 +2293,8 @@
    "examples": [
     {
      "native": "এটার দাম কত?",
-     "translation": "What's the price of this?"
+     "translation": "What's the price of this?",
+     "translit": "etar dam koto"
     }
    ],
    "frequencyRank": 58
@@ -2191,7 +2311,8 @@
    "examples": [
     {
      "native": "দরজা খুলুন",
-     "translation": "Open the door"
+     "translation": "Open the door",
+     "translit": "daraja khulun"
     }
    ],
    "frequencyRank": 101
@@ -2208,7 +2329,8 @@
    "examples": [
     {
      "native": "আজ গরম",
-     "translation": "It's hot today"
+     "translation": "It's hot today",
+     "translit": "aaj gorom"
     }
    ],
    "frequencyRank": 45
@@ -2225,7 +2347,8 @@
    "examples": [
     {
      "native": "পানি ঠান্ডা",
-     "translation": "The water is cold"
+     "translation": "The water is cold",
+     "translit": "pani thanda"
     }
    ],
    "frequencyRank": 46
@@ -2242,7 +2365,8 @@
    "examples": [
     {
      "native": "খুব ভালো",
-     "translation": "Very good"
+     "translation": "Very good",
+     "translit": "khub bhalo"
     }
    ],
    "frequencyRank": 47
@@ -2259,7 +2383,8 @@
    "examples": [
     {
      "native": "দুধের সঙ্গে চা",
-     "translation": "Tea with milk"
+     "translation": "Tea with milk",
+     "translit": "dudher shonge cha"
     }
    ],
    "frequencyRank": 48
@@ -2276,7 +2401,8 @@
    "examples": [
     {
      "native": "চিনি ছাড়া",
-     "translation": "Without sugar"
+     "translation": "Without sugar",
+     "translit": "chini chhara"
     }
    ],
    "frequencyRank": 123
@@ -2293,7 +2419,8 @@
    "examples": [
     {
      "native": "সব ঠিক আছে",
-     "translation": "Everything is fine"
+     "translation": "Everything is fine",
+     "translit": "shob thik achhe"
     }
    ],
    "frequencyRank": 49
@@ -2310,7 +2437,8 @@
    "examples": [
     {
      "native": "বাঁ দিকে",
-     "translation": "On the left"
+     "translation": "On the left",
+     "translit": "ban dike"
     }
    ],
    "frequencyRank": 59
@@ -2327,7 +2455,8 @@
    "examples": [
     {
      "native": "ডান দিকে",
-     "translation": "On the right"
+     "translation": "On the right",
+     "translit": "dan dike"
     }
    ],
    "frequencyRank": 60
@@ -2344,7 +2473,8 @@
    "examples": [
     {
      "native": "আপনার নাম কী?",
-     "translation": "What's your name?"
+     "translation": "What's your name?",
+     "translit": "apanar nam ki"
     }
    ],
    "frequencyRank": 15
@@ -2361,7 +2491,8 @@
    "examples": [
     {
      "native": "আমি খুব খুশি",
-     "translation": "I'm very happy"
+     "translation": "I'm very happy",
+     "translit": "ami khub khushi"
     }
    ],
    "frequencyRank": 50
@@ -2378,7 +2509,8 @@
    "examples": [
     {
      "native": "আমি ক্লান্ত",
-     "translation": "I'm tired"
+     "translation": "I'm tired",
+     "translit": "ami klanto"
     }
    ],
    "frequencyRank": 124
@@ -2395,7 +2527,8 @@
    "examples": [
     {
      "native": "আমি অসুস্থ",
-     "translation": "I'm ill"
+     "translation": "I'm ill",
+     "translit": "ami oshustho"
     }
    ],
    "frequencyRank": 125
@@ -2412,7 +2545,8 @@
    "examples": [
     {
      "native": "আমার ডাক্তার দরকার",
-     "translation": "I need a doctor"
+     "translation": "I need a doctor",
+     "translit": "amar daktar dorkar"
     }
    ],
    "frequencyRank": 36
@@ -2429,7 +2563,8 @@
    "examples": [
     {
      "native": "তার স্বামী ইঞ্জিনিয়ার",
-     "translation": "Her husband is an engineer"
+     "translation": "Her husband is an engineer",
+     "translit": "tar shami injiniyar"
     }
    ],
    "frequencyRank": 80
@@ -2446,7 +2581,8 @@
    "examples": [
     {
      "native": "তার স্ত্রী শিক্ষিকা",
-     "translation": "His wife is a teacher"
+     "translation": "His wife is a teacher",
+     "translit": "tar stri shikshika"
     }
    ],
    "frequencyRank": 81

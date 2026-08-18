@@ -4,7 +4,7 @@ The ask: significantly improve it so people **actually learn the language**, and
 make it friendly towards learning.
 
 I audited the app against what is actually known about how people acquire a
-language, rather than guessing. Five findings. Three were serious, one was the
+language, rather than guessing. Six findings. Three were serious, one was the
 same bug in two places, and one was an app that had quietly stopped teaching.
 
 ---
@@ -233,6 +233,63 @@ old absolute threshold, session length made no difference at all.
 Five assertions in `test-engine` now guard this specifically, including that a
 heavy backlog still yields at least one new word and that a longer session earns
 a faster pace.
+
+---
+
+## 6. The example sentences had no pronunciation. None of them.
+
+Having made the example sentence the centre of how a word is taught (finding 2),
+I measured what was in them:
+
+> **0 of 1,333** example sentences across the eight non-Latin languages carried a
+> romanisation. Not a low number. Zero.
+
+For this app's audience that is close to fatal. The people it's built for
+overwhelmingly understand their family's language spoken and **cannot read the
+script** — that's the whole premise of Decode. Showing them `آج کا دن` with no
+way to say it out loud makes the most valuable thing on the card unreadable to
+exactly the people it's for.
+
+### Why not just run it through a transliterator
+
+Because for Arabic-script languages it produces something worse than nothing.
+Urdu and Arabic don't write short vowels, so `src/audio/romanise.js` — correct
+for the fuzzy speech matching it was built for — gives:
+
+```
+میں گھر جاتا ہوں  →  "myn ghr jata hon"     ✗ would teach the wrong pronunciation
+```
+
+A bad pronunciation guide is worse than no guide, because no guide is at least
+honest about not knowing.
+
+### What it does instead
+
+`scripts/content/romanise-examples.mjs` composes each sentence out of the pack's
+own **hand-written word-level transliterations**, which are correct. Every token
+must resolve; if one doesn't, **the sentence is left alone** rather than shipped
+with a hole in it. Devanagari, Bengali and Gurmukhi write their vowels, so those
+three may fall back to the machine for a gap. Arabic-script languages never do.
+
+Two systematic gaps were worth fixing by hand: the Arabic definite article is
+written joined to its noun (`الماء` is `ال` + `ماء`, and only the bare noun is in
+the vocabulary), and the packs store Arabic verbs in the dictionary's
+third-person form (`يريد`) while the sentences are written in the first
+(`أريد`) — so none of them resolved.
+
+| | before | after |
+|---|---|---|
+| Hindi | 0% | **100%** |
+| Bengali | 0% | **100%** |
+| Punjabi | 0% | **93%** |
+| Urdu | 0% | **55%** |
+| Arabic | 0% | **38%** |
+| **total** | **0 of 843** | **609 of 843 (72%)** |
+
+Urdu and Arabic stay lowest because they're the hardest and the one place a
+guess is unacceptable. The remaining 28% show the sentence and its translation
+with no pronunciation line, which is what they did before — nothing was made
+worse, and nothing invented.
 
 ---
 

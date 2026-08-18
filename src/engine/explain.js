@@ -168,6 +168,7 @@ const SPECIAL_CASES = {
  * @param {object} opts
  * @param {boolean} opts.correct  whether they got it right
  * @param {Array}  opts.options   the choices offered, so a wrong pick can be named
+ * @param {Array}  opts.vocab     the language pack, to look up what they chose
  * @returns {{ title, body, special, sentence }}
  *          `sentence` is { native, translit, translation } or null — kept
  *          structured rather than mashed into `body` so the UI can render it in
@@ -175,7 +176,7 @@ const SPECIAL_CASES = {
  *          an English paragraph renders as a mess.
  */
 export function explainAnswer(exercise, userAnswer, langCode, opts = {}) {
-  const { correct = false, options = null } = opts;
+  const { correct = false, options = null, vocab = null } = opts;
   const item = exercise.item;
 
   // The example sentence, in the language being learned. This is the payload —
@@ -209,19 +210,31 @@ export function explainAnswer(exercise, userAnswer, langCode, opts = {}) {
 
   // 2. Name what they actually chose.
   //
-  //    "The answer is X" tells you the answer. "You picked Y, which means Z —
-  //    the one you wanted is X" tells you where your idea of the language was
-  //    wrong, which is the thing that stops it happening again. Only when the
-  //    wrong pick is identifiable and isn't just an empty or skipped answer.
+  //    "The answer is X" tells you the answer. "You went for Y, which means Z"
+  //    tells you where your idea of the language was wrong, which is the thing
+  //    that stops it happening again.
+  //
+  //    Only on exercises whose options are WORDS. On PICK_MEANING the options
+  //    are English glosses, so "you went for 'tomorrow', which means 'tomorrow'"
+  //    is a sentence that says nothing — there the highlighted right answer is
+  //    already the whole story.
+  //
+  //    The meaning is looked up in the pack because the options for these types
+  //    are plain strings, not objects. Without the lookup this branch silently
+  //    never fired, which is how it shipped the first time.
+  const WORD_CHOICE = new Set([
+    EXERCISE.PICK_WORD, EXERCISE.COMPLETE_SENTENCE, EXERCISE.LETTER_SCRAMBLE,
+    EXERCISE.LISTEN_PICK, EXERCISE.ODD_ONE_OUT,
+  ]);
   const missBody = [];
-  if (!correct && userAnswer && options) {
-    const picked = options.find(
-      (o) => o?.lemma === userAnswer || o?.form === userAnswer || o === userAnswer
-    );
-    const pickedMeaning =
-      picked?.translation || (typeof picked === "object" ? picked?.meaning : null);
-    if (pickedMeaning && pickedMeaning !== item.translation) {
-      missBody.push(`You went for **${userAnswer}**, which means "${pickedMeaning}".`);
+  if (!correct && userAnswer && WORD_CHOICE.has(exercise.type)) {
+    const key = String(userAnswer).trim().toLowerCase();
+    const chosen =
+      (vocab || []).find((v) => String(v.lemma).trim().toLowerCase() === key) ||
+      (options || []).find((o) => o && typeof o === "object" && (o.lemma === userAnswer || o.form === userAnswer));
+    const meaning = chosen?.translation || chosen?.meaning;
+    if (meaning && meaning !== item.translation) {
+      missBody.push(`You went for **${userAnswer}**, which means "${meaning}".`);
     }
   }
 

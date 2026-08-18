@@ -176,7 +176,8 @@
    "examples": [
     {
      "native": "नमस्ते दोस्त",
-     "translation": "Hello friend"
+     "translation": "Hello friend",
+     "translit": "namaste dost"
     }
    ],
    "unit": "u1",
@@ -196,7 +197,8 @@
    "examples": [
     {
      "native": "बहुत धन्यवाद",
-     "translation": "Thank you very much"
+     "translation": "Thank you very much",
+     "translit": "bahut dhanyavaad"
     }
    ],
    "unit": "u1",
@@ -216,7 +218,8 @@
    "examples": [
     {
      "native": "हाँ ज़रूर",
-     "translation": "Yes of course"
+     "translation": "Yes of course",
+     "translit": "haan zaroor"
     }
    ],
    "unit": "u1",
@@ -236,7 +239,8 @@
    "examples": [
     {
      "native": "नहीं धन्यवाद",
-     "translation": "No thank you"
+     "translation": "No thank you",
+     "translit": "nahin dhanyavaad"
     }
    ],
    "unit": "u1",
@@ -256,7 +260,8 @@
    "examples": [
     {
      "native": "अलविदा फिर मिलेंगे",
-     "translation": "Goodbye see you"
+     "translation": "Goodbye see you",
+     "translit": "alvida phir milenge"
     }
    ],
    "unit": "u1",
@@ -276,7 +281,8 @@
    "examples": [
     {
      "native": "मैं छात्र हूँ",
-     "translation": "I am a student"
+     "translation": "I am a student",
+     "translit": "main chhaatr hoon"
     }
    ],
    "unit": "u2",
@@ -297,7 +303,8 @@
    "examples": [
     {
      "native": "आप कैसे हैं",
-     "translation": "How are you"
+     "translation": "How are you",
+     "translit": "aap kaise hain"
     }
    ],
    "unit": "u2",
@@ -317,11 +324,13 @@
    "examples": [
     {
      "native": "मेरी माँ",
-     "translation": "My mother"
+     "translation": "My mother",
+     "translit": "meree maa"
     },
     {
      "native": "मेरी माँ खाना बनाती है",
-     "translation": "My mother cooks"
+     "translation": "My mother cooks",
+     "translit": "meree maa khana banaatee hai"
     }
    ],
    "unit": "u2",
@@ -341,11 +350,13 @@
    "examples": [
     {
      "native": "मेरे पिता",
-     "translation": "My father"
+     "translation": "My father",
+     "translit": "mere pita"
     },
     {
      "native": "मेरे पिता काम करते हैं",
-     "translation": "My father works"
+     "translation": "My father works",
+     "translit": "mere pita kaam karate hain"
     }
    ],
    "unit": "u2",
@@ -365,7 +376,8 @@
    "examples": [
     {
      "native": "अच्छा दोस्त",
-     "translation": "Good friend"
+     "translation": "Good friend",
+     "translit": "accha dost"
     }
    ],
    "unit": "u2",
@@ -385,7 +397,8 @@
    "examples": [
     {
      "native": "एक गिलास पानी",
-     "translation": "A glass of water"
+     "translation": "A glass of water",
+     "translit": "ek gilaas paani"
     }
    ],
    "unit": "u5",
@@ -405,7 +418,8 @@
    "examples": [
     {
      "native": "मसाला चाय",
-     "translation": "Spiced tea"
+     "translation": "Spiced tea",
+     "translit": "masaalaa chai"
     }
    ],
    "unit": "u5",
@@ -425,7 +439,8 @@
    "examples": [
     {
      "native": "स्वादिष्ट खाना",
-     "translation": "Delicious food"
+     "translation": "Delicious food",
+     "translit": "svaadisht khana"
     }
    ],
    "unit": "u5",
@@ -445,7 +460,8 @@
    "examples": [
     {
      "native": "गरम रोटी",
-     "translation": "Hot bread"
+     "translation": "Hot bread",
+     "translit": "garam roti"
     }
    ],
    "unit": "u5",
@@ -465,7 +481,8 @@
    "examples": [
     {
      "native": "एक किताब",
-     "translation": "One book"
+     "translation": "One book",
+     "translit": "ek kitaab"
     }
    ],
    "unit": "u4",
@@ -485,7 +502,8 @@
    "examples": [
     {
      "native": "दो भाई",
-     "translation": "Two brothers"
+     "translation": "Two brothers",
+     "translit": "do bhai"
     }
    ],
    "unit": "u4",
@@ -505,7 +523,8 @@
    "examples": [
     {
      "native": "तीन दिन",
-     "translation": "Three days"
+     "translation": "Three days",
+     "translit": "teen din"
     }
    ],
    "unit": "u4",
@@ -525,7 +544,8 @@
    "examples": [
     {
      "native": "दस रुपये",
-     "translation": "Ten rupees"
+     "translation": "Ten rupees",
+     "translit": "das rupaye"
     }
    ],
    "unit": "u4",
@@ -545,7 +565,8 @@
    "examples": [
     {
      "native": "घर जाना",
-     "translation": "To go home"
+     "translation": "To go home",
+     "translit": "ghar jana"
     }
    ],
    "unit": "u6",
@@ -565,7 +586,8 @@
    "examples": [
     {
      "native": "खाना खाना",
-     "translation": "To eat food"
+     "translation": "To eat food",
+     "translit": "khana khana"
     }
    ],
    "unit": "u6",
@@ -585,7 +607,8 @@
    "examples": [
     {
      "native": "पानी पीना",
-     "translation": "To drink water"
+     "translation": "To drink water",
+     "translit": "paani peena"
     }
    ],
    "unit": "u6",
@@ -605,7 +628,8 @@
    "examples": [
     {
      "native": "हिंदी बोलना",
-     "translation": "To speak Hindi"
+     "translation": "To speak Hindi",
+     "translit": "hindee bolna"
     }
    ],
    "unit": "u6",
@@ -625,7 +649,8 @@
    "examples": [
     {
      "native": "मेरा घर",
-     "translation": "My house"
+     "translation": "My house",
+     "translit": "meraa ghar"
     }
    ],
    "unit": "u7",
@@ -645,7 +670,8 @@
    "examples": [
     {
      "native": "स्कूल जाना",
-     "translation": "To go to school"
+     "translation": "To go to school",
+     "translit": "school jana"
     }
    ],
    "unit": "u7",
@@ -665,7 +691,8 @@
    "examples": [
     {
      "native": "आज सोमवार",
-     "translation": "Today is Monday"
+     "translation": "Today is Monday",
+     "translit": "aaj somavaar"
     }
    ],
    "unit": "u8",
@@ -685,11 +712,13 @@
    "examples": [
     {
      "native": "कल मिलेंगे",
-     "translation": "See you tomorrow"
+     "translation": "See you tomorrow",
+     "translit": "kal milenge"
     },
     {
      "native": "कल मिलते हैं",
-     "translation": "See you tomorrow"
+     "translation": "See you tomorrow",
+     "translit": "kal milate hain"
     }
    ],
    "unit": "u8",
@@ -707,11 +736,13 @@
    "examples": [
     {
      "native": "मेरी बहन",
-     "translation": "My sister"
+     "translation": "My sister",
+     "translit": "meree behen"
     },
     {
      "native": "मेरी बहन डॉक्टर है",
-     "translation": "My sister is a doctor"
+     "translation": "My sister is a doctor",
+     "translit": "meree behen doctor hai"
     }
    ],
    "frequencyRank": 16
@@ -728,7 +759,8 @@
    "examples": [
     {
      "native": "मेरा भाई",
-     "translation": "My brother"
+     "translation": "My brother",
+     "translit": "meraa bhai"
     }
    ],
    "frequencyRank": 17
@@ -745,7 +777,8 @@
    "examples": [
     {
      "native": "छोटा बच्चा",
-     "translation": "Small child"
+     "translation": "Small child",
+     "translit": "chota baccha"
     }
    ],
    "frequencyRank": 73
@@ -762,7 +795,8 @@
    "examples": [
     {
      "native": "मैं खुश हूँ",
-     "translation": "I am happy"
+     "translation": "I am happy",
+     "translit": "main khush hoon"
     }
    ],
    "frequencyRank": 44
@@ -779,7 +813,8 @@
    "examples": [
     {
      "native": "मैं थका हूँ",
-     "translation": "I am tired"
+     "translation": "I am tired",
+     "translit": "main thaka hoon"
     }
    ],
    "frequencyRank": 112
@@ -796,7 +831,8 @@
    "examples": [
     {
      "native": "मैं भूखा हूँ",
-     "translation": "I am hungry"
+     "translation": "I am hungry",
+     "translit": "main bhookha hoon"
     }
    ],
    "frequencyRank": 113
@@ -813,7 +849,8 @@
    "examples": [
     {
      "native": "बहुत अच्छा",
-     "translation": "Very good"
+     "translation": "Very good",
+     "translit": "bahut accha"
     }
    ],
    "frequencyRank": 45
@@ -830,7 +867,8 @@
    "examples": [
     {
      "native": "कृपया बैठिए",
-     "translation": "Please sit"
+     "translation": "Please sit",
+     "translit": "kripya baithie"
     }
    ],
    "frequencyRank": 117
@@ -847,7 +885,8 @@
    "examples": [
     {
      "native": "माफ़ करना",
-     "translation": "Sorry / Excuse me"
+     "translation": "Sorry / Excuse me",
+     "translit": "maaf karna"
     }
    ],
    "frequencyRank": 118
@@ -864,7 +903,8 @@
    "examples": [
     {
      "native": "बड़ा घर",
-     "translation": "Big house"
+     "translation": "Big house",
+     "translit": "bara ghar"
     }
    ],
    "frequencyRank": 48
@@ -881,7 +921,8 @@
    "examples": [
     {
      "native": "छोटा कमरा",
-     "translation": "Small room"
+     "translation": "Small room",
+     "translit": "chota kamaraa"
     }
    ],
    "frequencyRank": 49
@@ -898,7 +939,8 @@
    "examples": [
     {
      "native": "यहाँ आओ",
-     "translation": "Come here"
+     "translation": "Come here",
+     "translit": "yahan aao"
     }
    ],
    "frequencyRank": 55
@@ -915,7 +957,8 @@
    "examples": [
     {
      "native": "वहाँ जाओ",
-     "translation": "Go there"
+     "translation": "Go there",
+     "translit": "wahan jaao"
     }
    ],
    "frequencyRank": 56
@@ -932,11 +975,13 @@
    "examples": [
     {
      "native": "गरम दूध",
-     "translation": "Hot milk"
+     "translation": "Hot milk",
+     "translit": "garam doodh"
     },
     {
      "native": "दूध वाली चाय",
-     "translation": "Tea with milk"
+     "translation": "Tea with milk",
+     "translit": "doodh vaalee chai"
     }
    ],
    "frequencyRank": 30
@@ -953,7 +998,8 @@
    "examples": [
     {
      "native": "यहाँ आना",
-     "translation": "To come here"
+     "translation": "To come here",
+     "translit": "yahan aana"
     }
    ],
    "frequencyRank": 34
@@ -970,7 +1016,8 @@
    "examples": [
     {
      "native": "आपका नाम?",
-     "translation": "Your name?"
+     "translation": "Your name?",
+     "translit": "aapakaa naam"
     }
    ],
    "frequencyRank": 11
@@ -987,7 +1034,8 @@
    "examples": [
     {
      "native": "मैं जानता हूँ",
-     "translation": "I know"
+     "translation": "I know",
+     "translit": "main jaanataa hoon"
     }
    ]
   },
@@ -1003,7 +1051,8 @@
    "examples": [
     {
      "native": "मैं सोचता हूँ",
-     "translation": "I think"
+     "translation": "I think",
+     "translit": "main sochataa hoon"
     }
    ]
   },
@@ -1019,7 +1068,8 @@
    "examples": [
     {
      "native": "वह कहता है",
-     "translation": "He says"
+     "translation": "He says",
+     "translit": "woh kahataa hai"
     }
    ]
   },
@@ -1035,7 +1085,8 @@
    "examples": [
     {
      "native": "मुझे दो",
-     "translation": "Give me"
+     "translation": "Give me",
+     "translit": "mujhe do"
     }
    ]
   },
@@ -1051,7 +1102,8 @@
    "examples": [
     {
      "native": "यह लो",
-     "translation": "Take this"
+     "translation": "Take this",
+     "translit": "yeh lo"
     }
    ]
   },
@@ -1067,7 +1119,8 @@
    "examples": [
     {
      "native": "मैं देख रहा हूँ",
-     "translation": "I am looking"
+     "translation": "I am looking",
+     "translit": "main dekh rahaa hoon"
     }
    ]
   },
@@ -1083,7 +1136,8 @@
    "examples": [
     {
      "native": "सुनो",
-     "translation": "Listen"
+     "translation": "Listen",
+     "translit": "suno"
     }
    ]
   },
@@ -1099,7 +1153,8 @@
    "examples": [
     {
      "native": "मेरा सिर",
-     "translation": "My head"
+     "translation": "My head",
+     "translit": "meraa sir"
     }
    ]
   },
@@ -1115,7 +1170,8 @@
    "examples": [
     {
      "native": "मेरा हाथ",
-     "translation": "My hand"
+     "translation": "My hand",
+     "translit": "meraa haath"
     }
    ]
   },
@@ -1131,7 +1187,8 @@
    "examples": [
     {
      "native": "मेरा दिल",
-     "translation": "My heart"
+     "translation": "My heart",
+     "translit": "meraa dil"
     }
    ]
   },
@@ -1147,7 +1204,8 @@
    "examples": [
     {
      "native": "काली चाय",
-     "translation": "Black tea"
+     "translation": "Black tea",
+     "translit": "kaalee chai"
     }
    ]
   },
@@ -1163,7 +1221,8 @@
    "examples": [
     {
      "native": "सफ़ेद कागज़",
-     "translation": "White paper"
+     "translation": "White paper",
+     "translit": "safed kaagaz"
     }
    ]
   },
@@ -1179,7 +1238,8 @@
    "examples": [
     {
      "native": "पीला फूल",
-     "translation": "Yellow flower"
+     "translation": "Yellow flower",
+     "translit": "peela phool"
     }
    ]
   },
@@ -1195,7 +1255,8 @@
    "examples": [
     {
      "native": "तेज़ धूप",
-     "translation": "Strong sunlight"
+     "translation": "Strong sunlight",
+     "translit": "tez dhoop"
     }
    ]
   },
@@ -1211,7 +1272,8 @@
    "examples": [
     {
      "native": "बहुत बारिश",
-     "translation": "Lots of rain"
+     "translation": "Lots of rain",
+     "translit": "bahut baarish"
     }
    ]
   },
@@ -1227,7 +1289,8 @@
    "examples": [
     {
      "native": "इस साल",
-     "translation": "This year"
+     "translation": "This year",
+     "translit": "is saal"
     }
    ]
   },
@@ -1243,7 +1306,8 @@
    "examples": [
     {
      "native": "इस हफ़्ते",
-     "translation": "This week"
+     "translation": "This week",
+     "translit": "is hafte"
     }
    ]
   },
@@ -1259,7 +1323,8 @@
    "examples": [
     {
      "native": "एक घंटा",
-     "translation": "One hour"
+     "translation": "One hour",
+     "translit": "ek ghanta"
     }
    ]
   },
@@ -1275,7 +1340,8 @@
    "examples": [
     {
      "native": "कब आओगे?",
-     "translation": "When will you come?"
+     "translation": "When will you come?",
+     "translit": "kab aaoge"
     }
    ]
   },
@@ -1291,7 +1357,8 @@
    "examples": [
     {
      "native": "क्यों नहीं?",
-     "translation": "Why not?"
+     "translation": "Why not?",
+     "translit": "kyun nahin"
     }
    ]
   },
@@ -1307,7 +1374,8 @@
    "examples": [
     {
      "native": "कौन है?",
-     "translation": "Who is it?"
+     "translation": "Who is it?",
+     "translit": "kaun hai"
     }
    ]
   },
@@ -1323,7 +1391,8 @@
    "examples": [
     {
      "native": "मैं सो रहा हूँ",
-     "translation": "I am sleeping"
+     "translation": "I am sleeping",
+     "translit": "main so rahaa hoon"
     }
    ]
   },
@@ -1339,7 +1408,8 @@
    "examples": [
     {
      "native": "माफ़ कीजिए",
-     "translation": "Excuse me"
+     "translation": "Excuse me",
+     "translit": "maaf kijiye"
     }
    ]
   },
@@ -1355,7 +1425,8 @@
    "examples": [
     {
      "native": "मुझे मदद चाहिए",
-     "translation": "I need help"
+     "translation": "I need help",
+     "translit": "mujhe madad chahiye"
     }
    ]
   },
@@ -1371,7 +1442,8 @@
    "examples": [
     {
      "native": "यह कितने का है?",
-     "translation": "How much is this?"
+     "translation": "How much is this?",
+     "translit": "yeh kitane ka hai"
     }
    ]
   },
@@ -1387,7 +1459,8 @@
    "examples": [
     {
      "native": "आप कहाँ रहते हैं?",
-     "translation": "Where do you live?"
+     "translation": "Where do you live?",
+     "translit": "aap kahan rahate hain"
     }
    ]
   },
@@ -1403,7 +1476,8 @@
    "examples": [
     {
      "native": "यह क्या है?",
-     "translation": "What is this?"
+     "translation": "What is this?",
+     "translit": "yeh kya hai"
     }
    ]
   },
@@ -1419,7 +1493,8 @@
    "examples": [
     {
      "native": "थोड़ा ज़्यादा",
-     "translation": "A little more"
+     "translation": "A little more",
+     "translit": "thoda zyada"
     }
    ]
   },
@@ -1435,7 +1510,8 @@
    "examples": [
     {
      "native": "थोड़ा कम",
-     "translation": "A little less"
+     "translation": "A little less",
+     "translit": "thoda kam"
     }
    ]
   },
@@ -1451,7 +1527,8 @@
    "examples": [
     {
      "native": "थोड़ा पानी",
-     "translation": "A little water"
+     "translation": "A little water",
+     "translit": "thoda paani"
     }
    ]
   },
@@ -1467,7 +1544,8 @@
    "examples": [
     {
      "native": "अभी",
-     "translation": "Right now"
+     "translation": "Right now",
+     "translit": "abhi"
     }
    ]
   },
@@ -1483,7 +1561,8 @@
    "examples": [
     {
      "native": "सुबह मिलेंगे",
-     "translation": "See you in the morning"
+     "translation": "See you in the morning",
+     "translit": "subah milenge"
     }
    ]
   },
@@ -1499,7 +1578,8 @@
    "examples": [
     {
      "native": "शाम को",
-     "translation": "In the evening"
+     "translation": "In the evening",
+     "translit": "shaam ko"
     }
    ]
   },
@@ -1515,7 +1595,8 @@
    "examples": [
     {
      "native": "शुभ रात्रि",
-     "translation": "Good night"
+     "translation": "Good night",
+     "translit": "shubh raatri"
     }
    ]
   },
@@ -1531,7 +1612,8 @@
    "examples": [
     {
      "native": "मुझे चाय चाहिए",
-     "translation": "I want tea"
+     "translation": "I want tea",
+     "translit": "mujhe chai chahiye"
     }
    ]
   },
@@ -1547,7 +1629,8 @@
    "examples": [
     {
      "native": "मैं नहीं समझा",
-     "translation": "I don't understand"
+     "translation": "I don't understand",
+     "translit": "main nahin samajhaa"
     }
    ]
   },
@@ -1563,7 +1646,8 @@
    "examples": [
     {
      "native": "दोबारा बताइए",
-     "translation": "Please say it again"
+     "translation": "Please say it again",
+     "translit": "dobara bataaie"
     }
    ]
   },
@@ -1582,7 +1666,8 @@
    "examples": [
     {
      "native": "चाय और कॉफ़ी",
-     "translation": "Tea and coffee"
+     "translation": "Tea and coffee",
+     "translit": "chai aur kofee"
     }
    ],
    "frequencyRank": 119
@@ -1602,7 +1687,8 @@
    "examples": [
     {
      "native": "छोटा लेकिन सुंदर",
-     "translation": "Small but beautiful"
+     "translation": "Small but beautiful",
+     "translit": "chota lekin sundar"
     }
    ],
    "frequencyRank": 120
@@ -1622,7 +1708,8 @@
    "examples": [
     {
      "native": "थका हुआ क्योंकि काम बहुत है",
-     "translation": "Tired because there's a lot of work"
+     "translation": "Tired because there's a lot of work",
+     "translit": "thaka huaa kyonki kaam bahut hai"
     }
    ],
    "frequencyRank": 121
@@ -1642,7 +1729,8 @@
    "examples": [
     {
      "native": "चाय या कॉफ़ी",
-     "translation": "Tea or coffee"
+     "translation": "Tea or coffee",
+     "translit": "chai ya kofee"
     }
    ],
    "frequencyRank": 122
@@ -1662,7 +1750,8 @@
    "examples": [
     {
      "native": "मैं भी",
-     "translation": "Me too"
+     "translation": "Me too",
+     "translit": "main bhi"
     }
    ],
    "frequencyRank": 123
@@ -1682,7 +1771,8 @@
    "examples": [
     {
      "native": "अगर आप चाहें",
-     "translation": "If you want"
+     "translation": "If you want",
+     "translit": "agar aap chaahen"
     }
    ],
    "frequencyRank": 124
@@ -1702,7 +1792,8 @@
    "examples": [
     {
      "native": "मेरी गाड़ी",
-     "translation": "My car"
+     "translation": "My car",
+     "translit": "meree gaadi"
     }
    ],
    "frequencyRank": 127
@@ -1722,7 +1813,8 @@
    "examples": [
     {
      "native": "बस लो",
-     "translation": "Take the bus"
+     "translation": "Take the bus",
+     "translit": "bas lo"
     }
    ],
    "frequencyRank": 128
@@ -1742,7 +1834,8 @@
    "examples": [
     {
      "native": "ट्रेन तेज़ है",
-     "translation": "The train is fast"
+     "translation": "The train is fast",
+     "translit": "train tez hai"
     }
    ],
    "frequencyRank": 129
@@ -1762,7 +1855,8 @@
    "examples": [
     {
      "native": "टैक्सी बुलाओ",
-     "translation": "Call a taxi"
+     "translation": "Call a taxi",
+     "translit": "taxi bulaao"
     }
    ],
    "frequencyRank": 130
@@ -1782,7 +1876,8 @@
    "examples": [
     {
      "native": "हवाई अड्डे जाना",
-     "translation": "Going to the airport"
+     "translation": "Going to the airport",
+     "translit": "hawai adde jana"
     }
    ],
    "frequencyRank": 131
@@ -1802,7 +1897,8 @@
    "examples": [
     {
      "native": "दायें मुड़ो",
-     "translation": "Turn right"
+     "translation": "Turn right",
+     "translit": "daayen muro"
     }
    ],
    "frequencyRank": 132
@@ -1822,7 +1918,8 @@
    "examples": [
     {
      "native": "बायें मुड़ो",
-     "translation": "Turn left"
+     "translation": "Turn left",
+     "translit": "baayen muro"
     }
    ],
    "frequencyRank": 133
@@ -1842,7 +1939,8 @@
    "examples": [
     {
      "native": "अच्छा होटल",
-     "translation": "A good hotel"
+     "translation": "A good hotel",
+     "translit": "accha hotel"
     }
    ],
    "frequencyRank": 134
@@ -1862,7 +1960,8 @@
    "examples": [
     {
      "native": "एक टिकट कृपया",
-     "translation": "One ticket please"
+     "translation": "One ticket please",
+     "translit": "ek tikat kripya"
     }
    ],
    "frequencyRank": 135
@@ -1882,7 +1981,8 @@
    "examples": [
     {
      "native": "मेरा पासपोर्ट",
-     "translation": "My passport"
+     "translation": "My passport",
+     "translit": "meraa passport"
     }
    ],
    "frequencyRank": 136
@@ -1902,7 +2002,8 @@
    "examples": [
     {
      "native": "बस स्टेशन",
-     "translation": "The bus station"
+     "translation": "The bus station",
+     "translit": "bas station"
     }
    ],
    "frequencyRank": 137
@@ -1922,7 +2023,8 @@
    "examples": [
     {
      "native": "मुझे नक्शा दो",
-     "translation": "Give me a map"
+     "translation": "Give me a map",
+     "translit": "mujhe naksha do"
     }
    ],
    "frequencyRank": 138
@@ -1942,7 +2044,8 @@
    "examples": [
     {
      "native": "होटल के पास",
-     "translation": "Near the hotel"
+     "translation": "Near the hotel",
+     "translit": "hotel ke paas"
     }
    ],
    "frequencyRank": 139
@@ -1962,7 +2065,8 @@
    "examples": [
     {
      "native": "बहुत दूर",
-     "translation": "Very far"
+     "translation": "Very far",
+     "translit": "bahut door"
     }
    ],
    "frequencyRank": 140
@@ -1982,7 +2086,8 @@
    "examples": [
     {
      "native": "सीधे जाओ",
-     "translation": "Go straight ahead"
+     "translation": "Go straight ahead",
+     "translit": "seedhe jaao"
     }
    ],
    "frequencyRank": 141
@@ -2002,7 +2107,8 @@
    "examples": [
     {
      "native": "सूरज निकल आया।",
-     "translation": "The sun has come out."
+     "translation": "The sun has come out.",
+     "translit": "sooraj nikal aayaa"
     }
    ],
    "frequencyRank": 142
@@ -2022,7 +2128,8 @@
    "examples": [
     {
      "native": "आसमान नीला है।",
-     "translation": "The sky is blue."
+     "translation": "The sky is blue.",
+     "translit": "aasmaan neelaa hai"
     }
    ],
    "frequencyRank": 143
@@ -2042,7 +2149,8 @@
    "examples": [
     {
      "native": "यह पेड़ बहुत पुराना है।",
-     "translation": "This tree is very old."
+     "translation": "This tree is very old.",
+     "translit": "yeh ped bahut puraanaa hai"
     }
    ],
    "frequencyRank": 144
@@ -2062,7 +2170,8 @@
    "examples": [
     {
      "native": "फूल सुंदर है।",
-     "translation": "The flower is beautiful."
+     "translation": "The flower is beautiful.",
+     "translit": "phool sundar hai"
     }
    ],
    "frequencyRank": 145
@@ -2082,7 +2191,8 @@
    "examples": [
     {
      "native": "नदी का पानी ठंडा है।",
-     "translation": "The river water is cold."
+     "translation": "The river water is cold.",
+     "translit": "nadi ka paani thanda hai"
     }
    ],
    "frequencyRank": 146
@@ -2102,7 +2212,8 @@
    "examples": [
     {
      "native": "पहाड़ बहुत ऊँचा है।",
-     "translation": "The mountain is very high."
+     "translation": "The mountain is very high.",
+     "translit": "pahaad bahut oonchaa hai"
     }
    ],
    "frequencyRank": 147
@@ -2122,7 +2233,8 @@
    "examples": [
     {
      "native": "समुद्र यहाँ से दूर है।",
-     "translation": "The sea is far from here."
+     "translation": "The sea is far from here.",
+     "translit": "samudra yahan se door hai"
     }
    ],
    "frequencyRank": 148
@@ -2142,7 +2254,8 @@
    "examples": [
     {
      "native": "आज हवा ठंडी है।",
-     "translation": "The wind is cold today."
+     "translation": "The wind is cold today.",
+     "translit": "aaj hawa thandee hai"
     }
    ],
    "frequencyRank": 149
@@ -2162,7 +2275,8 @@
    "examples": [
     {
      "native": "चाय गरम है।",
-     "translation": "The tea is hot."
+     "translation": "The tea is hot.",
+     "translit": "chai garam hai"
     }
    ],
    "frequencyRank": 150
@@ -2182,7 +2296,8 @@
    "examples": [
     {
      "native": "पानी ठंडा है।",
-     "translation": "The water is cold."
+     "translation": "The water is cold.",
+     "translit": "paani thanda hai"
     }
    ],
    "frequencyRank": 151
@@ -2199,7 +2314,8 @@
    "examples": [
     {
      "native": "तुम कहाँ हो?",
-     "translation": "Where are you?"
+     "translation": "Where are you?",
+     "translit": "tum kahan ho"
     }
    ],
    "frequencyRank": 12
@@ -2216,7 +2332,8 @@
    "examples": [
     {
      "native": "मेरे पास समय है",
-     "translation": "I have time"
+     "translation": "I have time",
+     "translit": "mere paas samay hai"
     }
    ],
    "frequencyRank": 85
@@ -2233,7 +2350,8 @@
    "examples": [
     {
      "native": "मैं सीखना चाहता हूँ",
-     "translation": "I want to learn"
+     "translation": "I want to learn",
+     "translit": "main seekhanaa chaahataa hoon"
     }
    ],
    "frequencyRank": 86
@@ -2250,7 +2368,8 @@
    "examples": [
     {
      "native": "तुम क्या कर रहे हो?",
-     "translation": "What are you doing?"
+     "translation": "What are you doing?",
+     "translit": "tum kya kar rahe ho"
     }
    ],
    "frequencyRank": 35
@@ -2267,7 +2386,8 @@
    "examples": [
     {
      "native": "मैं चाय बनाता हूँ",
-     "translation": "I make tea"
+     "translation": "I make tea",
+     "translit": "main chai banaataa hoon"
     }
    ],
    "frequencyRank": 87
@@ -2284,7 +2404,8 @@
    "examples": [
     {
      "native": "क्या आप मदद कर सकते हैं?",
-     "translation": "Can you help?"
+     "translation": "Can you help?",
+     "translit": "kya aap madad kar sakate hain"
     }
    ],
    "frequencyRank": 88
@@ -2301,7 +2422,8 @@
    "examples": [
     {
      "native": "मुझे मदद की ज़रूरत है",
-     "translation": "I need help"
+     "translation": "I need help",
+     "translit": "mujhe madad ki zaroorat hai"
     }
    ],
    "frequencyRank": 89
@@ -2318,7 +2440,8 @@
    "examples": [
     {
      "native": "मेरे पास पैसे नहीं हैं",
-     "translation": "I don't have money"
+     "translation": "I don't have money",
+     "translit": "mere paas paise nahin hain"
     }
    ],
    "frequencyRank": 50
@@ -2335,7 +2458,8 @@
    "examples": [
     {
      "native": "समय नहीं है",
-     "translation": "There's no time"
+     "translation": "There's no time",
+     "translit": "samay nahin hai"
     }
    ],
    "frequencyRank": 42
@@ -2352,7 +2476,8 @@
    "examples": [
     {
      "native": "अच्छा दिन",
-     "translation": "A good day"
+     "translation": "A good day",
+     "translit": "accha din"
     }
    ],
    "frequencyRank": 43
@@ -2369,7 +2494,8 @@
    "examples": [
     {
      "native": "यह कैसे काम करता है?",
-     "translation": "How does this work?"
+     "translation": "How does this work?",
+     "translit": "yeh kaise kaam karataa hai"
     }
    ],
    "frequencyRank": 51
@@ -2386,7 +2512,8 @@
    "examples": [
     {
      "native": "वह आदमी मेरा भाई है",
-     "translation": "That man is my brother"
+     "translation": "That man is my brother",
+     "translit": "woh aadmi meraa bhai hai"
     }
    ],
    "frequencyRank": 13
@@ -2403,7 +2530,8 @@
    "examples": [
     {
      "native": "वह औरत डॉक्टर है",
-     "translation": "That woman is a doctor"
+     "translation": "That woman is a doctor",
+     "translit": "woh aurat doctor hai"
     }
    ],
    "frequencyRank": 14
@@ -2420,7 +2548,8 @@
    "examples": [
     {
      "native": "यह शहर बड़ा है",
-     "translation": "This city is big"
+     "translation": "This city is big",
+     "translit": "yeh shehar bara hai"
     }
    ],
    "frequencyRank": 38
@@ -2437,7 +2566,8 @@
    "examples": [
     {
      "native": "मेरा काम खत्म हुआ",
-     "translation": "My work is done"
+     "translation": "My work is done",
+     "translit": "meraa kaam khatm huaa"
     }
    ],
    "frequencyRank": 15
@@ -2454,7 +2584,8 @@
    "examples": [
     {
      "native": "मैं रोटी खरीदता हूँ",
-     "translation": "I buy bread"
+     "translation": "I buy bread",
+     "translit": "main roti khareedataa hoon"
     }
    ],
    "frequencyRank": 90
@@ -2471,7 +2602,8 @@
    "examples": [
     {
      "native": "इसकी कीमत क्या है?",
-     "translation": "What's the price of this?"
+     "translation": "What's the price of this?",
+     "translit": "isakee keemat kya hai"
     }
    ],
    "frequencyRank": 125
@@ -2488,7 +2620,8 @@
    "examples": [
     {
      "native": "दरवाज़ा खोलिए",
-     "translation": "Open the door"
+     "translation": "Open the door",
+     "translit": "daravaazaa kholie"
     }
    ],
    "frequencyRank": 91
@@ -2505,7 +2638,8 @@
    "examples": [
     {
      "native": "दूध के साथ चाय",
-     "translation": "Tea with milk"
+     "translation": "Tea with milk",
+     "translit": "doodh ke saath chai"
     }
    ],
    "frequencyRank": 52
@@ -2522,7 +2656,8 @@
    "examples": [
     {
      "native": "चीनी के बिना",
-     "translation": "Without sugar"
+     "translation": "Without sugar",
+     "translit": "cheenee ke bina"
     }
    ],
    "frequencyRank": 126
@@ -2539,7 +2674,8 @@
    "examples": [
     {
      "native": "सब ठीक है",
-     "translation": "Everything is fine"
+     "translation": "Everything is fine",
+     "translit": "sab theek hai"
     }
    ],
    "frequencyRank": 53
@@ -2556,7 +2692,8 @@
    "examples": [
     {
      "native": "बाएँ मुड़िए",
-     "translation": "Turn left"
+     "translation": "Turn left",
+     "translit": "baayen murie"
     }
    ],
    "frequencyRank": 57
@@ -2573,7 +2710,8 @@
    "examples": [
     {
      "native": "दाईं तरफ",
-     "translation": "On the right"
+     "translation": "On the right",
+     "translit": "daaeen taraph"
     }
    ],
    "frequencyRank": 58
@@ -2590,7 +2728,8 @@
    "examples": [
     {
      "native": "वह उदास लग रहा है",
-     "translation": "He looks sad"
+     "translation": "He looks sad",
+     "translit": "woh udaas lag rahaa hai"
     }
    ],
    "frequencyRank": 114
@@ -2607,7 +2746,8 @@
    "examples": [
     {
      "native": "मैं बीमार हूँ",
-     "translation": "I am sick"
+     "translation": "I am sick",
+     "translit": "main beemar hoon"
     }
    ],
    "frequencyRank": 46
@@ -2624,7 +2764,8 @@
    "examples": [
     {
      "native": "मुझे डॉक्टर चाहिए",
-     "translation": "I need a doctor"
+     "translation": "I need a doctor",
+     "translit": "mujhe doctor chahiye"
     }
    ],
    "frequencyRank": 39
@@ -2641,7 +2782,8 @@
    "examples": [
     {
      "native": "बाथरूम कहाँ है?",
-     "translation": "Where is the bathroom?"
+     "translation": "Where is the bathroom?",
+     "translit": "bathroom kahan hai"
     }
    ],
    "frequencyRank": 40
@@ -2658,7 +2800,8 @@
    "examples": [
     {
      "native": "मौसम बुरा है",
-     "translation": "The weather is bad"
+     "translation": "The weather is bad",
+     "translit": "mausam bura hai"
     }
    ],
    "frequencyRank": 54
@@ -2675,7 +2818,8 @@
    "examples": [
     {
      "native": "उसका बेटा सात साल का है",
-     "translation": "His son is seven"
+     "translation": "His son is seven",
+     "translit": "usakaa beta saat saal ka hai"
     }
    ],
    "frequencyRank": 18
@@ -2692,7 +2836,8 @@
    "examples": [
     {
      "native": "मेरी बेटी हिंदी सीखती है",
-     "translation": "My daughter learns Hindi"
+     "translation": "My daughter learns Hindi",
+     "translit": "meree beti hindee seekhatee hai"
     }
    ],
    "frequencyRank": 19
@@ -2709,7 +2854,8 @@
    "examples": [
     {
      "native": "उसका पति इंजीनियर है",
-     "translation": "Her husband is an engineer"
+     "translation": "Her husband is an engineer",
+     "translit": "usakaa pati injeeniyar hai"
     }
    ],
    "frequencyRank": 74
@@ -2726,7 +2872,8 @@
    "examples": [
     {
      "native": "उसकी पत्नी शिक्षिका है",
-     "translation": "His wife is a teacher"
+     "translation": "His wife is a teacher",
+     "translit": "usakee patni shikshikaa hai"
     }
    ],
    "frequencyRank": 75
@@ -2743,7 +2890,8 @@
    "examples": [
     {
      "native": "चावल और दाल",
-     "translation": "Rice and lentils"
+     "translation": "Rice and lentils",
+     "translit": "chawal aur daal"
     }
    ],
    "frequencyRank": 31
@@ -2760,7 +2908,8 @@
    "examples": [
     {
      "native": "ताज़ी सब्ज़ी",
-     "translation": "Fresh vegetables"
+     "translation": "Fresh vegetables",
+     "translit": "taazee sabzi"
     }
    ],
    "frequencyRank": 32
@@ -2777,7 +2926,8 @@
    "examples": [
     {
      "native": "यह बहुत मीठा है",
-     "translation": "This is very sweet"
+     "translation": "This is very sweet",
+     "translit": "yeh bahut meetha hai"
     }
    ],
    "frequencyRank": 33
@@ -2794,7 +2944,8 @@
    "examples": [
     {
      "native": "वह गुस्सा है",
-     "translation": "He is angry"
+     "translation": "He is angry",
+     "translit": "woh gussa hai"
     }
    ],
    "frequencyRank": 115
@@ -2811,7 +2962,8 @@
    "examples": [
     {
      "native": "मुझे डर लगता है",
-     "translation": "I'm afraid"
+     "translation": "I'm afraid",
+     "translit": "mujhe dar lagataa hai"
     }
    ],
    "frequencyRank": 116
@@ -2828,7 +2980,8 @@
    "examples": [
     {
      "native": "मुझे यह पसंद है",
-     "translation": "I love this"
+     "translation": "I love this",
+     "translit": "mujhe yeh pasand hai"
     }
    ],
    "frequencyRank": 47
@@ -2845,7 +2998,8 @@
    "examples": [
     {
      "native": "मेरे चाचा दिल्ली में रहते हैं",
-     "translation": "My uncle lives in Delhi"
+     "translation": "My uncle lives in Delhi",
+     "translit": "mere chacha dillee mein rahate hain"
     }
    ],
    "frequencyRank": 76
@@ -2862,7 +3016,8 @@
    "examples": [
     {
      "native": "दादी कहानियाँ सुनाती हैं",
-     "translation": "Grandma tells stories"
+     "translation": "Grandma tells stories",
+     "translit": "daadi kahaaniyaan sunaatee hain"
     }
    ],
    "frequencyRank": 20
@@ -2879,7 +3034,8 @@
    "examples": [
     {
      "native": "दादा जी बगीचे में हैं",
-     "translation": "Grandpa is in the garden"
+     "translation": "Grandpa is in the garden",
+     "translit": "daada jee bageeche mein hain"
     }
    ],
    "frequencyRank": 21
