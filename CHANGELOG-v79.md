@@ -310,6 +310,8 @@ npm run check && node scripts/verify-browser.mjs
   168 lines, 0 errors.
 - **`test-engine` — 197 assertions** (was 192), five of them new and guarding
   the never-stop-teaching rule directly.
+- **`verify-lessons-browser.mjs` — 112 lessons, 9,738 steps, 0 problems** across
+  all 14 languages at four progress levels.
 - `scripts/simulate-learner.mjs` — not in `npm run check` (slow, and its output
   is a judgement call rather than pass/fail), but it is how finding 5 was found
   and how the fix was measured.
