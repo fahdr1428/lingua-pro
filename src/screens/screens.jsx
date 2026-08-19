@@ -373,9 +373,9 @@ export function Vocab({ engine, pack, appState, onNavigate }) {
               key={c}
               onClick={() => setFilter(c)}
               style={{
-                background: filter === c ? "var(--ink)" : "var(--surface)",
-                color: filter === c ? "#fff" : "var(--text-dim)",
-                border: `1px solid ${filter === c ? "var(--ink)" : "var(--border)"}`,
+                background: filter === c ? "var(--ink-solid)" : "var(--surface)",
+                color: filter === c ? "var(--ink-on)" : "var(--text-dim)",
+                border: `1px solid ${filter === c ? "var(--ink-solid)" : "var(--border)"}`,
                 borderRadius: 999,
                 padding: "7px 15px",
                 fontSize: 12.5,

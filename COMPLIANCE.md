@@ -259,7 +259,7 @@ probably not enough: reviewers expect reports to reach the operator. See blocker
    commercial terms for your account and make sure the privacy policy matches.
 8. **Accessibility.** Not a legal blocker for most private operators today, but
    EN 301 549 / WCAG 2.2 AA is where public-sector and larger-operator obligations
-   are heading. **Partly addressed in v80**: `npm run audit-a11y` walks six
+   are heading. **Partly addressed in v80**: `npm run audit-a11y` walks sixteen
    screens in three themes and reports 0 issues for accessible names, AA text
    contrast, image alt text and input labels — down from 82, and it found that
    the Dark theme had been rendering near-black text on near-black at 1.2:1.

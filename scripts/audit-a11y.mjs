@@ -166,6 +166,38 @@ const SCREENS = [
     await p.waitForTimeout(400);
     await p.locator('button[aria-label="Settings"]').click();
   }],
+  ["flashcards", async (p) => {
+    await p.locator(".bottom-nav button", { hasText: "Practice" }).click();
+    await p.waitForTimeout(500);
+    await p.locator("button", { hasText: "Flashcards" }).first().click();
+  }],
+  ["grammar", async (p) => {
+    await p.locator(".bottom-nav button", { hasText: "Practice" }).click();
+    await p.waitForTimeout(500);
+    await p.locator("button", { hasText: "Grammar" }).first().click();
+  }],
+  ["alphabet", async (p) => {
+    await p.locator(".bottom-nav button", { hasText: "Practice" }).click();
+    await p.waitForTimeout(500);
+    await p.locator("button", { hasText: "Letters & sounds" }).first().click();
+  }],
+  ["my words", async (p) => {
+    await p.locator(".bottom-nav button", { hasText: "Practice" }).click();
+    await p.waitForTimeout(500);
+    await p.locator("button", { hasText: "My words" }).first().click();
+  }],
+  ["speak", async (p) => { await p.locator(".bottom-nav button", { hasText: "Speak" }).click(); }],
+  ["missions", async (p) => { await p.locator(".bottom-nav button", { hasText: "Missions" }).click(); }],
+  ["fluency", async (p) => { await p.locator(".home-strip .strip-card").first().click(); }],
+  ["decode", async (p) => { await p.locator(".skip-invite-lead").click(); }],
+  ["skip ahead", async (p) => { await p.locator(".skip-invite:not(.skip-invite-lead)").first().click(); }],
+  ["legal", async (p) => {
+    await p.locator(".bottom-nav button", { hasText: "Profile" }).click();
+    await p.waitForTimeout(400);
+    await p.locator('button[aria-label="Settings"]').click();
+    await p.waitForTimeout(700);
+    await p.locator(".chip", { hasText: "Privacy policy" }).click();
+  }],
   ["lesson", async (p) => {
     for (let h = 0; h < 6; h++) {
       await p.locator(".station-head").nth(h).click().catch(() => {});

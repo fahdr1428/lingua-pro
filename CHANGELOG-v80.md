@@ -12,7 +12,7 @@ Lighthouse scored the app **83** and named two failures, both fixed in v78. That
 score is one page load. It never opened a lesson, a settings screen or the
 reading library — where most of the controls actually are.
 
-`scripts/audit-a11y.mjs` walks six real screens **in all three themes** and
+`scripts/audit-a11y.mjs` walks **sixteen real screens in all three themes** and
 checks four things: controls with no accessible name, text below WCAG AA
 contrast, images with no `alt` attribute, and unlabelled inputs. Contrast is
 computed from what the browser actually paints, not from the palette, because a
@@ -77,6 +77,8 @@ same value once there's more than one theme. Split into paired tokens:
   `--ink` must be there
 - `--on-primary` — bright green needed dark text (white on it was **2.28:1**)
 - `--glass`, `--raised`, `--raised-soft` — the frosted and proud surfaces, themed
+- `--danger-text` — the same split again, for the "under pressure" labels, which
+  hardcoded a red that was unreadable on Dark and marginal on light
 
 The worst of these was **the transliteration**: amber at 2.98:1, which made the
 pronunciation guide the least readable text on the screen for the readers who
@@ -127,7 +129,7 @@ someone mid-lesson.
 npm run check && npm run audit-a11y && node scripts/verify-browser.mjs
 ```
 
-- **`audit-a11y` — 0 issues** across six screens × three themes (was 82).
+- **`audit-a11y` — 0 issues** across sixteen screens × three themes (was 82).
   Not in `npm run check`: contrast on a warm palette involves judgement, and a
   script that fails a build over a 4.4:1 hint gets switched off within a week.
 - **`verify-browser` — 227 assertions, 0 fail** (was 223), including four new
