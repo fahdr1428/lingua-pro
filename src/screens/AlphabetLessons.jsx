@@ -162,7 +162,7 @@ export function AlphabetLessons({ pack, appState, onNavigate }) {
           <ProgressBar value={letterIdx + 1} max={groupLetters.length} />
         </div>
 
-        <div style={{ fontSize: 11, color: "var(--accent)", fontWeight: 800, letterSpacing: 2, marginBottom: 8, textAlign: "center" }}>
+        <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 8, textAlign: "center" }}>
           ✨ {activeGroup.title.toUpperCase()}
         </div>
 
@@ -192,11 +192,11 @@ export function AlphabetLessons({ pack, appState, onNavigate }) {
             margin: "0 auto 16px",
             width: 60,
           }} />
-          <div style={{ fontSize: 26, fontWeight: 800, color: "var(--primary)", marginBottom: 8 }}>
+          <div style={{ fontSize: 26, fontWeight: 800, color: "var(--primary-text)", marginBottom: 8 }}>
             {letter.name}
           </div>
           <div style={{ fontSize: 14, color: "var(--text-dim)", fontStyle: "italic" }}>
-            sounds like: <span style={{ color: "var(--accent)", fontWeight: 700 }}>{letter.sound}</span>
+            sounds like: <span style={{ color: "var(--accent-text)", fontWeight: 700 }}>{letter.sound}</span>
           </div>
         </Card>
 
@@ -334,7 +334,7 @@ function AlphabetQuiz({ letters, lang, voiceAvailable, onComplete, onBack }) {
         <ProgressBar value={qIdx + (feedback ? 1 : 0)} max={questions.length} />
       </div>
 
-      <div style={{ fontSize: 11, color: "var(--accent)", fontWeight: 800, letterSpacing: 2, marginBottom: 8, textAlign: "center" }}>
+      <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 8, textAlign: "center" }}>
         ⚡ QUIZ
       </div>
 

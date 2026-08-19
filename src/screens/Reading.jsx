@@ -154,7 +154,7 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
                 {voiceAvailable && <span style={{ fontSize: 13, opacity: 0.5, marginLeft: 8 }}>🔊</span>}
               </div>
               {showRomanization && (
-                <div style={{ fontSize: 14, color: "var(--accent)", fontStyle: "italic", marginBottom: 2 }}>
+                <div style={{ fontSize: 14, color: "var(--accent-text)", fontStyle: "italic", marginBottom: 2 }}>
                   {line.translit}
                 </div>
               )}
@@ -277,7 +277,7 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
 function pillStyle(active) {
   return {
     background: active ? "var(--primary)" : "var(--surface)",
-    color: active ? "#fff" : "var(--text-dim)",
+    color: active ? "var(--on-primary)" : "var(--text-dim)",
     border: `1px solid ${active ? "var(--primary)" : "var(--border)"}`,
     borderRadius: 999,
     padding: "8px 14px",

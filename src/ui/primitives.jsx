@@ -26,8 +26,8 @@ export function Button({ children, variant = "primary", style, ...rest }) {
   };
   const variants = {
     primary: {
-      background: "var(--ink)",
-      color: "#fff",
+      background: "var(--ink-solid)",
+      color: "var(--ink-on)",
       boxShadow: "0 2px 0 #161d2c, 0 8px 20px rgba(35,43,61,0.22)",
     },
     secondary: {
@@ -137,11 +137,11 @@ export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, on
           </button>
         )}
         <Stat icon={ICONS.flame} value={streak} />
-        <Stat icon={ICONS.gem} value={gems} color="var(--accent)" />
+        <Stat icon={ICONS.gem} value={gems} color="var(--accent-text)" />
         <Stat icon={ICONS.heart} value={premium ? "∞" : hearts} color="var(--danger)" />
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
-        <Stat icon={ICONS.zap} value={totalXp} color="var(--accent)" />
+        <Stat icon={ICONS.zap} value={totalXp} color="var(--accent-text)" />
         {/* Zaban brand mark — present on every screen */}
         <img src="/mark-64.webp" alt="Zaban" width="24" height="24" style={{ height: 24, width: 24, objectFit: "contain", opacity: 0.95, flexShrink: 0 }} />
       </div>
@@ -300,7 +300,7 @@ export function BottomNav({ screen, onNavigate }) {
           style={{
             background: "transparent",
             border: "none",
-            color: screen === item.id ? "var(--primary)" : "var(--text-mute)",
+            color: screen === item.id ? "var(--primary-text)" : "var(--text-mute)",
             fontSize: 11,
             fontWeight: 700,
             cursor: "pointer",

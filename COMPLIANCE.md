@@ -250,14 +250,21 @@ probably not enough: reviewers expect reports to reach the operator. See blocker
    camera, geolocation and payment outright.
 5. **Serve the policies at stable public URLs** too, not only in-app — app stores
    and payment processors ask for a link, not a screenshot.
-6. **Re-ask for consent when the policies change.** `LAST_UPDATED` is stored in
-   `appState.consent.policyVersion`; nothing compares them yet. A few lines.
+6. ~~**Re-ask for consent when the policies change.**~~ **Done in v80** — when
+   the stored `appState.consent.policyVersion` differs from `LAST_UPDATED`, a bar
+   appears with a link to what changed and an acknowledgement that records the
+   new version and the time it was read. Deliberately not a modal.
 7. **Decide on retention for Anthropic's side.** The app stores nothing
    server-side, but Anthropic's own retention applies to what's sent. Check the
    commercial terms for your account and make sure the privacy policy matches.
 8. **Accessibility.** Not a legal blocker for most private operators today, but
    EN 301 549 / WCAG 2.2 AA is where public-sector and larger-operator obligations
-   are heading. The app has never been audited against it.
+   are heading. **Partly addressed in v80**: `npm run audit-a11y` walks six
+   screens in three themes and reports 0 issues for accessible names, AA text
+   contrast, image alt text and input labels — down from 82, and it found that
+   the Dark theme had been rendering near-black text on near-black at 1.2:1.
+   ⚠️ Still outstanding: keyboard-only and screen-reader journeys have not been
+   walked by a human, and that is where the rest of WCAG lives.
 
 ### 🟢 Already handled
 
@@ -291,4 +298,4 @@ scripts/fetch-fonts.mjs    regenerates the self-hosted fonts
 public/manifest.webmanifest
 ```
 
-Last reviewed against the code: **2026-08-16** (v78).
+Last reviewed against the code: **2026-08-19** (v80).

@@ -119,7 +119,7 @@ export function Conversations({ pack, appState, onNavigate }) {
                         {voiceAvailable && <span style={{ fontSize: 12, opacity: 0.45, marginLeft: 8 }}>🔊</span>}
                       </div>
                       {showRoman && (
-                        <div style={{ fontSize: 13, color: "var(--accent)", fontStyle: "italic", marginBottom: 2 }}>
+                        <div style={{ fontSize: 13, color: "var(--accent-text)", fontStyle: "italic", marginBottom: 2 }}>
                           {line.translit}
                         </div>
                       )}
@@ -165,7 +165,7 @@ export function Conversations({ pack, appState, onNavigate }) {
 function pill(active) {
   return {
     background: active ? "var(--primary)" : "var(--surface)",
-    color: active ? "#fff" : "var(--text-dim)",
+    color: active ? "var(--on-primary)" : "var(--text-dim)",
     border: `1px solid ${active ? "var(--primary)" : "var(--border)"}`,
     borderRadius: 999,
     padding: "8px 14px",

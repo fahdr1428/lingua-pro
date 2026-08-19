@@ -850,7 +850,7 @@ export function ReachPanel({ stops = [], reached = 0, chapterTitle, due = 0, onR
                   padding: i === 0 ? "0 0 9px" : (i === held.length - 1 ? "9px 0 0" : "9px 0"),
                   borderBottom: i < held.length - 1 ? "1px solid var(--surface-hi)" : "none",
                 }}>
-                  <span style={{ color: "var(--primary)", fontWeight: 900, fontSize: 12, lineHeight: "18px" }}>✓</span>
+                  <span style={{ color: "var(--primary-text)", fontWeight: 900, fontSize: 12, lineHeight: "18px" }}>✓</span>
                   <div style={{ minWidth: 0 }}>
                     <div style={{ fontSize: 12.5, color: "var(--text)" }}>{st.done}</div>
                     <div style={{ fontSize: 11.5, color: "var(--text-mute)", marginTop: 1 }}>{st.you.translit}</div>

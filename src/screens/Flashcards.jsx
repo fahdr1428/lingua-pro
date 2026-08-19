@@ -204,7 +204,7 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
                 </div>
                 {card.pronunciation && (
                   <div style={{ fontSize: 14, color: "var(--text-dim)", fontStyle: "italic", marginBottom: 12 }}>
-                    say it like: <span style={{ color: "var(--accent)", fontWeight: 700 }}>{card.pronunciation}</span>
+                    say it like: <span style={{ color: "var(--accent-text)", fontWeight: 700 }}>{card.pronunciation}</span>
                   </div>
                 )}
                 <div style={{
@@ -232,7 +232,7 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
             <div style={{ fontSize: 12, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
               Meaning
             </div>
-            <div style={{ fontSize: 28, fontWeight: 800, color: "var(--primary)", marginBottom: 16 }}>
+            <div style={{ fontSize: 28, fontWeight: 800, color: "var(--primary-text)", marginBottom: 16 }}>
               {card.translation}
             </div>
             {card.examples?.[0] && (

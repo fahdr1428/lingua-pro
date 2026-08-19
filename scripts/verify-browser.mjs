@@ -824,6 +824,30 @@ async function runDataRights() {
   const off = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app") || "{}"));
   check("withdrawing consent is recorded", off.aiConsent?.accepted === false, JSON.stringify(off.aiConsent));
 
+  // v80 — the policies-changed notice. COMPLIANCE.md listed this as outstanding:
+  // the version agreed to was recorded and never compared to the current one.
+  const stale = await page.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem("lingua:app"));
+    s.consent = { ...s.consent, policyVersion: "1999-01-01" };
+    localStorage.setItem("lingua:app", JSON.stringify(s));
+    return true;
+  });
+  await page.reload();
+  await page.waitForTimeout(1400);
+  check("an out-of-date consent raises a notice", await page.locator(".policy-update").isVisible());
+  check("the notice does not block the app", (await page.locator(".bottom-nav").count()) === 1);
+  await page.locator(".policy-update-ok").click();
+  await page.waitForTimeout(500);
+  check("acknowledging it records the new version",
+    (await page.locator(".policy-update").count()) === 0);
+  const ack = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua:app")).consent);
+  check("and stores when it was reviewed", !!ack.reviewedAt && ack.policyVersion !== "1999-01-01",
+    JSON.stringify(ack));
+
+  await page.locator(".bottom-nav button", { hasText: "Profile" }).click();
+  await page.waitForTimeout(400);
+  await page.locator('button[aria-label="Settings"]').click();
+  await page.waitForTimeout(700);
   await page.locator(".chip", { hasText: "About the AI" }).click();
   await page.waitForTimeout(500);
   check("the AI disclosure is reachable from settings",

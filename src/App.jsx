@@ -22,7 +22,7 @@ import {
   Upgrade,
 } from "./screens/screens.jsx";
 import { Lesson } from "./screens/Lesson.jsx";
-import { APP_MIN_AGE } from "./legal/policies.js";
+import { APP_MIN_AGE, LAST_UPDATED } from "./legal/policies.js";
 
 // v78 — CODE SPLITTING.
 //
@@ -276,6 +276,30 @@ export default function App() {
           totalXp={appState.totalXp || 0}
         />
       )}
+      {/* v80 — THE POLICIES CHANGED SINCE YOU AGREED.
+          COMPLIANCE.md listed this as outstanding: the version agreed to was
+          stored in appState.consent.policyVersion and nothing ever compared it
+          to the current one, so an update to what the app does with your data
+          would have gone by in silence. It's a bar, not a modal — nothing is
+          blocked, because nothing about the change requires blocking someone
+          mid-lesson — and dismissing it records the new version as read. */}
+      {appState.consent?.terms && appState.consent.policyVersion !== LAST_UPDATED && (
+        <div className="policy-update" role="status">
+          <span>
+            The privacy policy and terms changed on {LAST_UPDATED}.
+          </span>
+          <button className="policy-update-read" onClick={() => navigate("legal", { policy: "privacy" })}>
+            Read what changed
+          </button>
+          <button
+            className="policy-update-ok"
+            onClick={() => setAppState((st) => ({ ...st, consent: { ...st.consent, policyVersion: LAST_UPDATED, reviewedAt: Date.now() } }))}
+          >
+            Got it
+          </button>
+        </div>
+      )}
+
       {/* v78: <main> — screen readers navigate by landmark, and without one the
           only way to reach content is to walk the whole nav on every screen
           change. Suspense wraps it because the heavier screens are code-split;

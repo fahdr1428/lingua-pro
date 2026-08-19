@@ -114,7 +114,7 @@ export function SentenceLab({ pack, params, onNavigate, appState, setAppState })
         <div style={{ marginBottom: 8 }}>
           <ProgressBar value={(stepIdx / (steps.length - 1)) * 100} />
         </div>
-        <div style={{ textAlign: "center", fontSize: 12, fontWeight: 800, color: "var(--accent)", letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>
+        <div style={{ textAlign: "center", fontSize: 12, fontWeight: 800, color: "var(--accent-text)", letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>
           🧱 Sentence Lab · Drop {dropNumber}
         </div>
         <div style={{ textAlign: "center", fontSize: 14, color: "var(--text-dim)", marginBottom: 20 }}>
@@ -138,7 +138,7 @@ function SeeStep({ pattern, lang, isNonLatin, rtl, onNext, isExtend }) {
   const fullTranslit = pattern.chunks.map((c) => c.translit).join(" ");
   return (
     <Card style={{ textAlign: "center" }}>
-      <div style={{ fontSize: 13, fontWeight: 800, color: "var(--accent)", marginBottom: 12 }}>
+      <div style={{ fontSize: 13, fontWeight: 800, color: "var(--accent-text)", marginBottom: 12 }}>
         {isExtend ? "✨ Now let's make it longer" : "👀 Look how this sentence is built"}
       </div>
       {/* the chunks, in order, color-coded */}
@@ -202,7 +202,7 @@ function BuildStep({ pattern, lang, isNonLatin, rtl, scaffold, onNext }) {
 
   return (
     <Card style={{ textAlign: "center" }}>
-      <div style={{ fontSize: 13, fontWeight: 800, color: "var(--accent)", marginBottom: 6 }}>
+      <div style={{ fontSize: 13, fontWeight: 800, color: "var(--accent-text)", marginBottom: 6 }}>
         {scaffold ? "🪜 Build it — tap in order" : "💪 Now build it yourself"}
       </div>
       <div style={{ fontSize: 15, color: "var(--text-dim)", marginBottom: 16 }}>"{pattern.translation}"</div>
@@ -246,7 +246,7 @@ function BuildStep({ pattern, lang, isNonLatin, rtl, scaffold, onNext }) {
       {complete && (
         <div style={{ marginTop: 8 }}>
           <div style={{ fontSize: 32 }}>🎉</div>
-          <div style={{ fontWeight: 800, color: "var(--accent)", marginBottom: 12 }}>Perfect word order!</div>
+          <div style={{ fontWeight: 800, color: "var(--accent-text)", marginBottom: 12 }}>Perfect word order!</div>
           <Button onClick={onNext}>Continue →</Button>
         </div>
       )}
@@ -276,7 +276,7 @@ function TwistStep({ twist, lang, isNonLatin, rtl, onNext }) {
 
   return (
     <Card style={{ textAlign: "center" }}>
-      <div style={{ fontSize: 13, fontWeight: 800, color: "var(--accent)", marginBottom: 6 }}>🎯 Make it your own</div>
+      <div style={{ fontSize: 13, fontWeight: 800, color: "var(--accent-text)", marginBottom: 6 }}>🎯 Make it your own</div>
       <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 16, lineHeight: 1.5 }}>{twist.prompt}</div>
       <div style={{
         display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", minHeight: 56, alignItems: "center",
@@ -295,7 +295,7 @@ function TwistStep({ twist, lang, isNonLatin, rtl, onNext }) {
       {complete && (
         <div style={{ marginTop: 8 }}>
           <div style={{ fontSize: 32 }}>🌟</div>
-          <div style={{ fontWeight: 800, color: "var(--accent)", marginBottom: 4 }}>You built that yourself!</div>
+          <div style={{ fontWeight: 800, color: "var(--accent-text)", marginBottom: 4 }}>You built that yourself!</div>
           <div style={{ fontSize: 14, color: "var(--text-dim)", marginBottom: 12 }}>"{twist.translation}"</div>
           <Button onClick={onNext}>Finish →</Button>
         </div>

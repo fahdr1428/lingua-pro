@@ -656,7 +656,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             className="pop"
             key={streakInLesson}
             style={{
-              color: "var(--accent)",
+              color: "var(--accent-text)",
               fontWeight: 800,
               fontSize: 13,
               marginRight: 10,
@@ -695,7 +695,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               For non-Latin scripts, romanization is the HERO so beginners can read it. */}
           {exercise.type === EXERCISE.INTRODUCE && (
             <div className="pop" style={{ textAlign: "center", marginTop: 20 }}>
-              <div style={{ fontSize: 11, color: "var(--accent)", fontWeight: 800, letterSpacing: 2, marginBottom: 12 }}>
+              <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 12 }}>
                 ✨ NEW WORD
               </div>
 
@@ -708,11 +708,11 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   {/* Pronunciation hint */}
                   {exercise.item.pronunciation && (
                     <div style={{ fontSize: 15, color: "var(--text-dim)", marginTop: 4, fontStyle: "italic" }}>
-                      say it like: <span style={{ color: "var(--accent)", fontWeight: 700 }}>{exercise.item.pronunciation}</span>
+                      say it like: <span style={{ color: "var(--accent-text)", fontWeight: 700 }}>{exercise.item.pronunciation}</span>
                     </div>
                   )}
                   {/* Meaning */}
-                  <div style={{ fontSize: 22, fontWeight: 700, color: "var(--primary)", marginTop: 16, marginBottom: 8 }}>
+                  <div style={{ fontSize: 22, fontWeight: 700, color: "var(--primary-text)", marginTop: 16, marginBottom: 8 }}>
                     = {exercise.item.translation}
                   </div>
                   {/* Native script as REFERENCE, smaller */}
@@ -741,10 +741,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   </div>
                   {exercise.item.pronunciation && appState.showRomanization !== false && (
                     <div style={{ fontSize: 15, color: "var(--text-dim)", marginTop: 4, fontStyle: "italic" }}>
-                      say it like: <span style={{ color: "var(--accent)", fontWeight: 700 }}>{exercise.item.pronunciation}</span>
+                      say it like: <span style={{ color: "var(--accent-text)", fontWeight: 700 }}>{exercise.item.pronunciation}</span>
                     </div>
                   )}
-                  <div style={{ fontSize: 22, fontWeight: 700, color: "var(--primary)", marginTop: 12, marginBottom: 16 }}>
+                  <div style={{ fontSize: 22, fontWeight: 700, color: "var(--primary-text)", marginTop: 12, marginBottom: 16 }}>
                     = {exercise.item.translation}
                   </div>
                 </>
@@ -793,7 +793,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   {isNonLatin ? (
                     <>
                       {/* English meaning is the readable line, native script as reference */}
-                      <div style={{ fontSize: 19, fontWeight: 700, color: "var(--primary)", marginBottom: 8 }}>
+                      <div style={{ fontSize: 19, fontWeight: 700, color: "var(--primary-text)", marginBottom: 8 }}>
                         "{exercise.item.examples[0].translation}"
                       </div>
                       <div style={{
@@ -902,7 +902,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 // Only show if we actually have pronunciations (not just blanks)
                 if (pron.filter((x) => x !== "____").length === 0) return null;
                 return (
-                  <div style={{ fontSize: 14, color: "var(--accent)", fontStyle: "italic", marginTop: 8, direction: "ltr" }}>
+                  <div style={{ fontSize: 14, color: "var(--accent-text)", fontStyle: "italic", marginTop: 8, direction: "ltr" }}>
                     {pron.join(" ")}
                   </div>
                 );
@@ -1224,7 +1224,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                     {exercise.type === EXERCISE.LETTER_SCRAMBLE ? "Spell the word for" : "Translate this"}
                   </div>
-                  <div style={{ fontSize: 22, fontWeight: 800, color: "var(--primary)" }}>
+                  <div style={{ fontSize: 22, fontWeight: 800, color: "var(--primary-text)" }}>
                     "{exercise.translation}"
                   </div>
                 </Card>
@@ -1336,7 +1336,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                          point at it rather than to score them. */
                       : ["Not this one — here's why", "Have a look at this one", "This one's worth a second look"][idx % 3]}
                     {feedback === "correct" && combo >= 2 && (
-                      <span className="pop" style={{ marginLeft: 10, fontSize: 14, background: "var(--accent-soft)", color: "var(--accent)", borderRadius: 999, padding: "3px 10px", verticalAlign: "middle" }}>
+                      <span className="pop" style={{ marginLeft: 10, fontSize: 14, background: "var(--accent-soft)", color: "var(--accent-text)", borderRadius: 999, padding: "3px 10px", verticalAlign: "middle" }}>
                         🔥 {combo} in a row
                       </span>
                     )}
@@ -1494,7 +1494,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                       style={{
                         background: "transparent",
                         border: "none",
-                        color: "var(--accent)",
+                        color: "var(--accent-text)",
                         fontSize: 14,
                         fontWeight: 800,
                         cursor: "pointer",
@@ -1782,11 +1782,11 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 24 }}>
           <Card style={{ marginBottom: 0, background: "var(--surface)" }}>
             <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1 }}>XP</div>
-            <div style={{ fontSize: 32, fontWeight: 900, color: "var(--accent)" }}>+{data.xp}</div>
+            <div style={{ fontSize: 32, fontWeight: 900, color: "var(--accent-text)" }}>+{data.xp}</div>
           </Card>
           <Card style={{ marginBottom: 0, background: "var(--surface)" }}>
             <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1 }}>Accuracy</div>
-            <div style={{ fontSize: 32, fontWeight: 900, color: "var(--primary)" }}>{data.accuracy}%</div>
+            <div style={{ fontSize: 32, fontWeight: 900, color: "var(--primary-text)" }}>{data.accuracy}%</div>
           </Card>
           <Card style={{ marginBottom: 0, background: "var(--surface)" }}>
             <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1 }}>Streak</div>
@@ -1796,7 +1796,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
 
         {framework && (
           <Card style={{ textAlign: "left", background: "var(--surface-hi)", border: "2px dashed var(--accent)" }}>
-            <div style={{ fontSize: 11, color: "var(--accent)", fontWeight: 800, letterSpacing: 1, marginBottom: 6 }}>
+            <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 1, marginBottom: 6 }}>
               ⚡ FRAMEWORK INSIGHT
             </div>
             <div style={{ fontSize: 16, fontWeight: 800, marginBottom: 6 }}>{framework.title}</div>
@@ -1979,7 +1979,7 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
   return (
     <div className="slide-up" style={{ marginTop: 12 }}>
       <div style={{ textAlign: "center", marginBottom: 12 }}>
-        <div style={{ fontSize: 11, color: "var(--accent)", fontWeight: 800, letterSpacing: 2, marginBottom: 4 }}>
+        <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 4 }}>
           ✨ NEW WORDS — TAP TO FLIP
         </div>
         <div style={{ fontSize: 12, color: "var(--text-dim)" }}>
@@ -2018,7 +2018,7 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
                 </div>
                 {card.pronunciation && (
                   <div style={{ fontSize: 14, color: "var(--text-dim)", fontStyle: "italic", marginBottom: 12 }}>
-                    say it like: <span style={{ color: "var(--accent)", fontWeight: 700 }}>{card.pronunciation}</span>
+                    say it like: <span style={{ color: "var(--accent-text)", fontWeight: 700 }}>{card.pronunciation}</span>
                   </div>
                 )}
                 <div style={{
@@ -2046,7 +2046,7 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
             <div style={{ fontSize: 12, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
               Meaning
             </div>
-            <div style={{ fontSize: 28, fontWeight: 800, color: "var(--primary)", marginBottom: 16 }}>
+            <div style={{ fontSize: 28, fontWeight: 800, color: "var(--primary-text)", marginBottom: 16 }}>
               {card.translation}
             </div>
 
@@ -2126,7 +2126,7 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
   return (
     <Container style={{ paddingBottom: 140 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 8, marginBottom: 4 }}>
-        <span style={{ fontSize: 12, fontWeight: 800, color: "var(--accent)", textTransform: "uppercase", letterSpacing: 1 }}>
+        <span style={{ fontSize: 12, fontWeight: 800, color: "var(--accent-text)", textTransform: "uppercase", letterSpacing: 1 }}>
           Grammar moment
         </span>
       </div>
@@ -2160,7 +2160,7 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
               {ex.native}
               {voiceAvailable && <span style={{ fontSize: 12, opacity: 0.4, marginLeft: 8 }}>🔊</span>}
             </div>
-            <div style={{ fontSize: 13, color: "var(--accent)", fontStyle: "italic", marginTop: 3 }}>{ex.translit}</div>
+            <div style={{ fontSize: 13, color: "var(--accent-text)", fontStyle: "italic", marginTop: 3 }}>{ex.translit}</div>
             <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 2 }}>{ex.gloss}</div>
           </div>
         ))}
@@ -2294,7 +2294,7 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
   return (
     <Container style={{ maxWidth: 520, paddingTop: 28, paddingBottom: 60 }}>
       <div style={{ textAlign: "center" }}>
-        <div className="eyebrow" style={{ color: "var(--accent)" }}>Say it out loud</div>
+        <div className="eyebrow" style={{ color: "var(--accent-text)" }}>Say it out loud</div>
         <div style={{
           fontFamily: '"Fraunces", Georgia, serif',
           fontSize: 27, fontWeight: 600, color: "var(--ink)",

@@ -107,7 +107,7 @@ export function Onboarding({ onComplete }) {
                         padding: "3px 9px",
                         borderRadius: 999,
                         background: "var(--accent-soft)",
-                        color: "var(--accent)",
+                        color: "var(--accent-text)",
                         fontWeight: 800,
                       }}
                     >
@@ -649,7 +649,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
                   </div>
                 </>
               ) : (
-                <div style={{ fontSize: 13, color: "var(--accent)", fontWeight: 700 }}>
+                <div style={{ fontSize: 13, color: "var(--accent-text)", fontWeight: 700 }}>
                   Top level reached — remarkable dedication.
                 </div>
               )}
@@ -758,7 +758,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                       <span style={{ fontSize: 14, fontWeight: 800 }}>{m.label}</span>
                       {m.reached && (
-                        <span style={{ fontSize: 11, color: "var(--primary)", fontWeight: 700 }}>✓ reached</span>
+                        <span style={{ fontSize: 11, color: "var(--primary-text)", fontWeight: 700 }}>✓ reached</span>
                       )}
                     </div>
                     <div style={{ fontSize: 12, color: "var(--text-dim)", marginTop: 2, lineHeight: 1.4 }}>
@@ -776,13 +776,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
         </Button>
 
         {!appState.isPremium && (
-          <Card
-            style={{
-              marginTop: 16,
-              background: "linear-gradient(135deg, var(--accent), var(--pink))",
-              color: "#000",
-            }}
-          >
+          <Card className="glass-gradient" style={{ marginTop: 16, color: "#000" }}>
             {/* v79: this used to lead with "Unlimited hearts". Hearts are no
                 longer spent on wrong answers, so that was selling relief from a
                 penalty that doesn't exist — and it was never true even before,
@@ -799,6 +793,10 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
             <button
               style={{
                 background: "#000",
+                // --accent, not --accent-text: this one sits on BLACK, where the
+                // bright amber is the readable choice and the darkened text
+                // variant is the unreadable one. The v80 sweep swapped it
+                // blindly and made this button worse; the audit caught it.
                 color: "var(--accent)",
                 border: "none",
                 borderRadius: 10,
@@ -844,6 +842,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
             sub={`${appState.dailyGoalXp} XP per day`}
             control={
               <select
+                aria-label="Daily goal in XP"
                 value={appState.dailyGoalXp}
                 onChange={(e) => setAppState((s) => ({ ...s, dailyGoalXp: parseInt(e.target.value) }))}
                 style={{
@@ -866,6 +865,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
             sub={`${appState.sessionSize || 6} questions per lesson`}
             control={
               <select
+                aria-label="Questions per lesson"
                 value={appState.sessionSize || 6}
                 onChange={(e) => setAppState((s) => ({ ...s, sessionSize: parseInt(e.target.value) }))}
                 style={{
@@ -889,6 +889,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
             control={
               <input
                 type="checkbox"
+                aria-label="Show pronunciation hints"
                 checked={appState.showRomanization !== false}
                 onChange={(e) => setAppState((s) => ({ ...s, showRomanization: e.target.checked }))}
                 style={{ width: 20, height: 20 }}
@@ -901,6 +902,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
             control={
               <input
                 type="checkbox"
+                aria-label="Sound effects"
                 checked={appState.soundEffects !== false}
                 onChange={(e) => setAppState((s) => ({ ...s, soundEffects: e.target.checked }))}
                 style={{ width: 20, height: 20 }}

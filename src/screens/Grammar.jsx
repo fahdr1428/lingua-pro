@@ -110,7 +110,7 @@ export function Grammar({ pack, appState, onNavigate }) {
                           {ex.native}
                           {voiceAvailable && <span style={{ fontSize: 12, opacity: 0.4, marginLeft: 8 }}>🔊</span>}
                         </div>
-                        <div style={{ fontSize: 13, color: "var(--accent)", fontStyle: "italic", marginTop: 3 }}>{ex.translit}</div>
+                        <div style={{ fontSize: 13, color: "var(--accent-text)", fontStyle: "italic", marginTop: 3 }}>{ex.translit}</div>
                         <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 2 }}>{ex.gloss}</div>
                       </div>
                     ))}
