@@ -107,6 +107,19 @@ A checker that cries wolf gets switched off, so both were worth fixing:
   Fixing that immediately surfaced seven *real* failures on the Profile screen
   it had been hiding.
 
+### And a guard, so this class of bug can't come back
+
+`scripts/validate-themes.mjs`, now in `npm run check`, enforces the rule the
+whole failure came from: **if `:root` defines a colour, every theme must give it
+a value.** Theming by fallback fails silently — a missing override looks perfect
+in whichever theme it was authored against, which is exactly why `--ink` went 82
+usages and several releases without anyone noticing.
+
+It also flags colours hardcoded in the stylesheet, which no theme can reach at
+all. That found four more (a pale-green route line, an amber verdict, two white
+sub-labels) and correctly still warns about the "not ready to publish" banner,
+which is deliberately identical on every theme and now says so in a comment.
+
 ---
 
 ## Also closed: re-asking when the policies change
@@ -135,6 +148,8 @@ npm run check && npm run audit-a11y && node scripts/verify-browser.mjs
 - **`verify-browser` — 227 assertions, 0 fail** (was 223), including four new
   ones on the policy-change notice: it appears when the version is stale, does
   not block the app, and records both the new version and when it was read.
+- **`validate-themes`** — new, in `npm run check`. 3 themes · 21 colour tokens ·
+  0 errors.
 - `check` 58, `test-engine` 197, `validate-passages` 0 errors — unchanged.
 - Both themes were also looked at, not only measured. Measurement says a colour
   passes; it doesn't say the screen still looks like itself.
