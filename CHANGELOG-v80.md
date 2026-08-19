@@ -79,6 +79,8 @@ same value once there's more than one theme. Split into paired tokens:
 - `--glass`, `--raised`, `--raised-soft` — the frosted and proud surfaces, themed
 - `--danger-text` — the same split again, for the "under pressure" labels, which
   hardcoded a red that was unreadable on Dark and marginal on light
+- `--on-miss`, `--on-primary-dark` — the answer-feedback fills, found only once
+  the audit started playing a lesson rather than looking at one
 
 The worst of these was **the transliteration**: amber at 2.98:1, which made the
 pronunciation guide the least readable text on the screen for the readers who
@@ -94,6 +96,28 @@ Both caught by re-running the audit rather than by looking:
 - Inverting `--ink` for Dark fixed the text and broke every primary button —
   white text on a now-light fill, 1.26:1. That's what forced the `--ink-solid` /
   `--ink-on` split rather than a single value.
+
+### The states a screen walk never reaches
+
+The first pass audited screens as they load. The moment colour actually carries
+meaning is *after you answer*, and nothing was looking there. Adding a
+"lesson · answered wrong" step — which plays a real lesson and gets one wrong on
+purpose — found six more, including two of my own from the release before:
+
+- the v79 feedback banner painted **amber text on an amber-tinted ground**,
+  2.69:1, on the line that tells you what went wrong;
+- the wrongly-picked option was white on `--miss`, which is a bright amber on
+  Dark — **2.15:1 on the thing the learner most needs to read**;
+- the correct-answer option filled with `--primary-dark` but paired with the
+  token defined for `--primary`, so Dark put dark text on dark green (3.87:1);
+- the second line of an option was dimmed to `opacity: 0.7` even when
+  highlighted, so the answer being taught was the least readable thing on it;
+- the guide's seal had a hardcoded white centre and name pill, which `--ink`
+  then landed on at 1.25:1 once it was correctly light for Dark.
+
+The audit also now prints a **DOM path and the two colours** for every failure.
+"class = (none)" on an app styled inline tells you nothing about where to look,
+and I wasted three rounds guessing before fixing the tool instead.
 
 ### And two in the audit itself
 
@@ -142,7 +166,8 @@ someone mid-lesson.
 npm run check && npm run audit-a11y && node scripts/verify-browser.mjs
 ```
 
-- **`audit-a11y` — 0 issues** across sixteen screens × three themes (was 82).
+- **`audit-a11y` — 0 issues** across seventeen screens × three themes (was 82),
+  the seventeenth being a lesson mid-feedback after a deliberate wrong answer.
   Not in `npm run check`: contrast on a warm palette involves judgement, and a
   script that fails a build over a 4.4:1 hint gets switched off within a week.
 - **`verify-browser` — 227 assertions, 0 fail** (was 223), including four new
@@ -150,6 +175,8 @@ npm run check && npm run audit-a11y && node scripts/verify-browser.mjs
   not block the app, and records both the new version and when it was read.
 - **`validate-themes`** — new, in `npm run check`. 3 themes · 21 colour tokens ·
   0 errors.
+- **`verify-lessons-browser` — 112 lessons, 9,673 steps, 0 problems** across all
+  14 languages at four progress levels.
 - `check` 58, `test-engine` 197, `validate-passages` 0 errors — unchanged.
 - Both themes were also looked at, not only measured. Measurement says a colour
   passes; it doesn't say the screen still looks like itself.

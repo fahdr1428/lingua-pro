@@ -1566,8 +1566,8 @@ button:focus:not(:focus-visible) { outline: none; }
 .skip-option-sub { font-size: 12.5px; color: var(--text-dim); }
 .skip-right { background: var(--primary-dark); border-color: var(--primary); color: #fff; }
 .skip-right .skip-option-sub { color: var(--on-primary); opacity: 0.82; }
-.skip-wrong { background: var(--miss); border-color: var(--miss); color: #fff; }
-.skip-wrong .skip-option-sub { color: #fff; opacity: 0.82; }
+.skip-wrong { background: var(--miss); border-color: var(--miss); color: var(--on-miss); }
+.skip-wrong .skip-option-sub { color: var(--on-miss); opacity: 0.82; }
 .dialect-settings { margin-top: 4px; }
 
 /* --- v76 dialect forms --- */

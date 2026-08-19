@@ -143,9 +143,17 @@ const AUDIT = `(() => {
       const key = s.color + "|" + size + "|" + text.slice(0, 20);
       if (seen.has(key)) continue;
       seen.add(key);
+      // A DOM path, because "class = (none)" on an inline-styled app tells you
+      // nothing about where to go and look.
+      const path = [];
+      for (let n = el; n && n !== document.body && path.length < 5; n = n.parentElement) {
+        const c = String(n.className || "").trim().split(/\s+/).filter(Boolean)[0];
+        path.unshift(n.tagName.toLowerCase() + (c ? "." + c : ""));
+      }
       out.contrast.push({
         ratio: Math.round(ratio * 100) / 100, need, size: Math.round(size),
         text: text.slice(0, 42), cls: String(el.className).slice(0, 34),
+        where: path.join(" > "), fg: s.color, bgHex: "rgb(" + Math.round(bg.r) + "," + Math.round(bg.g) + "," + Math.round(bg.b) + ")",
       });
     }
   }
@@ -206,6 +214,34 @@ const SCREENS = [
     }
     await p.locator("button[data-unit]:not([disabled])").first().click();
   }],
+  // The feedback states, which are where colour actually carries meaning and
+  // which a static screen walk never reaches. Answer one wrong on purpose.
+  ["lesson · answered wrong", async (p) => {
+    for (let h = 0; h < 6; h++) {
+      await p.locator(".station-head").nth(h).click().catch(() => {});
+      await p.waitForTimeout(200);
+      if (await p.locator("button[data-unit]:not([disabled])").count()) break;
+    }
+    await p.locator("button[data-unit]:not([disabled])").first().click();
+    await p.waitForTimeout(1600);
+    for (let i = 0; i < 14; i++) {
+      if (await p.locator(".opt-btn").count() >= 2) {
+        await p.locator(".opt-btn").last().click();
+        await p.waitForTimeout(200);
+        await p.evaluate(() => {
+          const g = [...document.querySelectorAll("button")].find((b) => /^check/i.test((b.innerText || "").trim()) && !b.disabled);
+          if (g) g.click();
+        });
+        await p.waitForTimeout(700);
+        if (/here's what happened|here's the thing/i.test(await p.locator("body").innerText())) return;
+      }
+      await p.evaluate(() => {
+        const g = [...document.querySelectorAll("button")].find((b) => /^(continue|next|got it|i've got these|start practice|done)/i.test((b.innerText || "").trim()) && !b.disabled);
+        if (g) g.click();
+      });
+      await p.waitForTimeout(450);
+    }
+  }],
 ];
 
 const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
@@ -233,7 +269,8 @@ for (const theme of ["cream", "dark", "ocean"]) {
     console.log(`\n  ${label} — ${n === 0 ? "clean" : n + " issue(s)"}`);
     for (const u of r.unnamed.slice(0, 6)) console.log(`    NO NAME   ${u}`);
     for (const c of r.contrast.slice(0, 8)) {
-      console.log(`    CONTRAST  ${String(c.ratio).padStart(5)}:1 (needs ${c.need}) ${c.size}px  "${c.text}"  .${c.cls}`);
+      console.log(`    CONTRAST  ${String(c.ratio).padStart(5)}:1 (needs ${c.need}) ${c.size}px  "${c.text}"`);
+      console.log(`              ${c.fg} on ${c.bgHex}   at  ${c.where}`);
     }
     for (const i of r.images.slice(0, 4)) console.log(`    NO ALT    ${i}`);
     for (const i of r.inputs.slice(0, 4)) console.log(`    NO LABEL  ${i}`);

@@ -381,7 +381,7 @@ function AlphabetQuiz({ letters, lang, voiceAvailable, onComplete, onBack }) {
                 border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--miss)" : isPicked ? "var(--primary)" : "var(--border)"}`,
                 borderRadius: 12,
                 padding: 14,
-                color: isAnswer || isWrong ? "#fff" : "var(--text)",
+                color: isAnswer ? "var(--on-primary-dark)" : isWrong ? "var(--on-miss)" : "var(--text)",
                 fontSize: 16,
                 fontWeight: 700,
                 cursor: feedback ? "default" : "pointer",

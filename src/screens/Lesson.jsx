@@ -927,14 +927,14 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                       background: isAnswer ? "var(--primary-dark)" : isWrong ? "var(--miss)" : isPicked ? "var(--surface-hi)" : "var(--surface)",
                       border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--miss)" : isPicked ? "var(--primary)" : "var(--border)"}`,
                       borderRadius: 12, padding: 16,
-                      color: isAnswer || isWrong ? "#fff" : "var(--text)",
+                      color: isAnswer ? "var(--on-primary-dark)" : isWrong ? "var(--on-miss)" : "var(--text)",
                       cursor: feedback ? "default" : "pointer", textAlign: "center",
                     }}
                   >
                     {isNonLatin && opt.translit ? (
                       <>
                         <div style={{ fontSize: 20, fontWeight: 800 }}>{opt.translit}</div>
-                        <div style={{ fontSize: 16, opacity: 0.7, marginTop: 2,
+                        <div style={{ fontSize: 16, opacity: isAnswer || isWrong ? 0.95 : 0.7, marginTop: 2,
                           direction: lang.rtl ? "rtl" : "ltr",
                           fontFamily: lang.rtl ? '"Noto Nastaliq Urdu","Noto Naskh Arabic",serif' : "inherit" }}>
                           {opt.lemma}
@@ -943,7 +943,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     ) : (
                       <div style={{ fontSize: 18, fontWeight: 700 }}>{opt.lemma}</div>
                     )}
-                    <div style={{ fontSize: 12, opacity: 0.6, marginTop: 4 }}>{opt.meaning}</div>
+                    <div style={{ fontSize: 12, opacity: isAnswer || isWrong ? 0.95 : 0.7, marginTop: 4 }}>{opt.meaning}</div>
                   </button>
                 );
               })}
@@ -1064,7 +1064,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                         border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--miss)" : isPicked ? "var(--primary)" : "var(--border)"}`,
                         borderRadius: 12,
                         padding: 16,
-                        color: isAnswer || isWrong ? "#fff" : "var(--text)",
+                        color: isAnswer ? "var(--on-primary-dark)" : isWrong ? "var(--on-miss)" : "var(--text)",
                         cursor: feedback ? "default" : "pointer",
                         textAlign: "center",
                         transition: "all 0.15s",
@@ -1137,7 +1137,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                       border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--miss)" : isPicked ? "var(--primary)" : "var(--border)"}`,
                       borderRadius: 12,
                       padding: 16,
-                      color: isAnswer || isWrong ? "#fff" : "var(--text)",
+                      color: isAnswer ? "var(--on-primary-dark)" : isWrong ? "var(--on-miss)" : "var(--text)",
                       fontSize: showNative ? 18 : 16,
                       fontWeight: 700,
                       cursor: feedback || isHinted ? "default" : "pointer",
@@ -1317,11 +1317,11 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   // an error, and this isn't one. Amber says "look here", which
                   // is the actual instruction.
                   background: feedback === "correct" ? "rgba(34,197,94,0.15)" : "rgba(217,119,6,0.13)",
-                  border: `2px solid ${feedback === "correct" ? "var(--primary)" : "var(--accent, #d97706)"}`,
+                  border: `2px solid ${feedback === "correct" ? "var(--primary)" : "var(--miss)"}`,
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <div style={{ fontWeight: 800, fontSize: 18, color: feedback === "correct" ? "var(--primary)" : "var(--accent, #b45309)" }}>
+                  <div style={{ fontWeight: 800, fontSize: 18, color: feedback === "correct" ? "var(--primary-text)" : "var(--miss)" }}>
                     {/* v62: varied coach reactions (stable per exercise via idx) */}
                     {exercise?.pretest
                       ? (feedback === "correct"
@@ -1369,7 +1369,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     marginTop: 10,
                     fontSize: 14,
                     fontWeight: 700,
-                    color: character.accent,
+                    color: "var(--text)",
                   }}>
                     <GuideMark code={pack.code} size={22} />
                     <span style={{ fontStyle: "italic" }}>“{reaction}”</span>
@@ -1575,7 +1575,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 width: 60,
                 height: 60,
                 borderRadius: "50%",
-                background: `radial-gradient(circle at 35% 30%, #fff, ${character.accent || "var(--surface-hi)"})`,
+                background: `radial-gradient(circle at 35% 30%, var(--raised), ${character.accent || "var(--surface-hi)"})`,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -1591,7 +1591,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               fontWeight: 800,
               letterSpacing: 0.5,
               padding: "2px 8px",
-              background: "rgba(255,255,255,0.85)",
+              background: "var(--raised)",
               color: "var(--text)",
               borderRadius: 999,
               boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
@@ -1772,7 +1772,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
             }}>
               <GuideMark code={pack.code} size={46} />
               <div>
-                <div style={{ fontSize: 12, fontWeight: 800, color: character.accent }}>{character.name}</div>
+                <div style={{ fontSize: 12, fontWeight: 800, color: "var(--ink)" }}>{character.name}</div>
                 <div style={{ fontSize: 14, color: "var(--text)", marginTop: 2, lineHeight: 1.4 }}>{msg}</div>
               </div>
             </Card>
