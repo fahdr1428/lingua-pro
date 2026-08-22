@@ -181,8 +181,19 @@ async function navigate(event) {
   try {
     const preload = await event.preloadResponse;
     if (preload) {
-      const cache = await caches.open(SHELL);
-      cache.put("/", preload.clone());
+      // Only cache a GOOD response as the shell. A 404 or a 502 from a bad
+      // deploy would otherwise be written in as the offline app and stay there
+      // until the next successful navigation — the worst possible thing to
+      // persist, since the whole point is to survive not having a network to
+      // correct it with.
+      //
+      // `redirected` matters too: a redirected response cannot legally be
+      // returned from a service worker for a navigation, and replaying one from
+      // cache throws rather than degrading.
+      if (preload.ok && !preload.redirected) {
+        const cache = await caches.open(SHELL);
+        cache.put("/", preload.clone());
+      }
       return preload;
     }
     // Race the network against a timeout. On a patchy connection the failure
@@ -191,7 +202,7 @@ async function navigate(event) {
       fetch(event.request),
       new Promise((_, reject) => setTimeout(() => reject(new Error("slow")), NAV_TIMEOUT_MS)),
     ]);
-    if (response && response.ok) {
+    if (response && response.ok && !response.redirected) {
       const cache = await caches.open(SHELL);
       cache.put("/", response.clone());
     }
