@@ -44,6 +44,7 @@ import { speak } from "../audio/tts.js";
 import { cancelVoice, idle as voiceIdle } from "../audio/voice.js";
 
 export function Missions({ pack, appState, setAppState, params, onNavigate, profile, mutateProfile }) {
+  const offline = useOffline();
   const lang = LANGUAGES[pack.code];
   const guide = getCharacter(pack.code);
   const micSupported = isRecognitionSupported();
@@ -190,7 +191,15 @@ export function Missions({ pack, appState, setAppState, params, onNavigate, prof
         />
       )}
 
-      {phase === "pick" && !showGate && (
+      {/* v81: missions are live conversations with a language model — the one
+          part of this app that genuinely cannot work without a connection. Said
+          before the picker rather than after a request that was never going to
+          land. */}
+      {offline && (
+        <div className="speak-body"><NeedsConnection what="Missions" /></div>
+      )}
+
+      {phase === "pick" && !showGate && !offline && (
         <MissionPicker
           profile={profile}
           goalId={appState?.learningGoal?.[pack.code]}
