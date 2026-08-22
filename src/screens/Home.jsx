@@ -725,6 +725,12 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
     // is the best-evidenced way anyone learns a language; it shouldn't be the
     // hardest thing in the app to find.
     { icon: "📖", title: `Read some ${lang.name}`, sub: "Short pieces built only from words you've met", go: () => onNavigate("reading"), highlight: (stats.learned || 0) >= 10 },
+    // v83: those 41 passages are 623 words BETWEEN THEM — a minute of reading
+    // split fourteen ways, and four words of it is Korean. The sentence stream
+    // is several times that in every language, assembled from the example
+    // sentences the curriculum already carries, so it gets its own door rather
+    // than living behind the one that runs out fastest.
+    { icon: "📜", title: `${lang.name} you can read`, sub: "Real sentences, at exactly your level", go: () => onNavigate("stream"), highlight: (stats.learned || 0) >= 15 },
     { icon: "🎧", title: "Listen & follow", sub: "Scripted conversations, with subtitles", go: () => onNavigate("practice") },
     { icon: "📇", title: "Flashcards", sub: "Flip through your words at your own pace", go: () => onNavigate("flashcards") },
     { icon: "🧭", title: "Grammar", sub: `How ${lang.name} actually fits together`, go: () => onNavigate("grammar") },

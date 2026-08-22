@@ -56,6 +56,7 @@ const SkipAhead = named(() => import("./screens/SkipAhead.jsx"), "SkipAhead");
 const DialectDrill = named(() => import("./screens/DialectDrill.jsx"), "DialectDrill");
 const Legal = named(() => import("./screens/Legal.jsx"), "Legal");
 const Decode = named(() => import("./screens/Decode.jsx"), "Decode");
+const InputStream = named(() => import("./screens/InputStream.jsx"), "InputStream");
 
 // A lazily-imported screen that fails to load is almost never a bug in the
 // screen. It's a deploy: this app splits fifteen screens into content-hashed
@@ -377,6 +378,7 @@ export default function App() {
         {screen === "upgrade" && <Upgrade appState={appState} setAppState={setAppState} onNavigate={navigate} />}
         {screen === "legal" && <Legal {...screenProps} />}
         {screen === "decode" && <Decode {...screenProps} />}
+        {screen === "stream" && <InputStream {...screenProps} />}
         </Suspense>
       </main>
       </div>

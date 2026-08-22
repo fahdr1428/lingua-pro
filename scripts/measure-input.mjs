@@ -46,6 +46,9 @@ const words = (s) => String(s || "").split(/\s+/).filter(Boolean).length;
 // is the usual rule of thumb for modern Chinese, and Japanese is close enough
 // for a figure at this resolution.
 const DENSE = new Set(["zh", "ja"]);
+// Scripts a learner may not read yet, where a missing romanisation means a
+// sentence they can look at but cannot pronounce.
+const LATIN = new Set(["es", "fr", "de", "id", "pcm", "tr"]);
 const lengthOf = (s, code) =>
   DENSE.has(code) ? Math.round([...String(s || "").replace(/\s/g, "")].length / 1.6) : words(s);
 
@@ -62,6 +65,10 @@ for (const file of readdirSync(DIR).sort()) {
 
   const examples = vocab.flatMap((v) => v.examples || []);
   const sentenceInput = examples.reduce((n, e) => n + lengthOf(e.native, code), 0);
+  // A sentence in a script the learner can't read yet, with no romanisation, is
+  // a sentence they cannot say. Only meaningful for non-Latin scripts.
+  const needsTranslit = !LATIN.has(code);
+  const withTranslit = examples.filter((e) => (e.translit || "").trim()).length;
   const framesPerWord = vocab.length ? examples.length / vocab.length : 0;
   const oneFrameOnly = vocab.filter((v) => (v.examples || []).length <= 1).length;
 
@@ -74,6 +81,7 @@ for (const file of readdirSync(DIR).sort()) {
     sentenceInput,
     framesPerWord,
     oneFrameOnly,
+    translit: needsTranslit && examples.length ? withTranslit / examples.length : null,
     grammar: (GRAMMAR[code] || []).length,
   });
 }
@@ -82,11 +90,11 @@ const pad = (s, n) => String(s).padEnd(n);
 const num = (s, n) => String(s).padStart(n);
 
 console.log("\n  How much language does a learner actually meet?\n");
-console.log(`  ${pad("", 18)}${num("words", 7)}${num("passages", 10)}${num("connected", 11)}${num("in sentences", 14)}${num("frames/word", 13)}${num("grammar", 9)}`);
-console.log(`  ${"─".repeat(82)}`);
+console.log(`  ${pad("", 18)}${num("words", 7)}${num("passages", 10)}${num("connected", 11)}${num("in sentences", 14)}${num("frames/word", 13)}${num("say-able", 10)}${num("grammar", 9)}`);
+console.log(`  ${"─".repeat(92)}`);
 for (const r of rows.sort((a, b) => a.connected - b.connected)) {
   console.log(
-    `  ${pad(r.name, 18)}${num(r.vocab, 7)}${num(r.passages, 10)}${num(r.connected, 11)}${num(r.sentenceInput, 14)}${num(r.framesPerWord.toFixed(2), 13)}${num(r.grammar, 9)}`
+    `  ${pad(r.name, 18)}${num(r.vocab, 7)}${num(r.passages, 10)}${num(r.connected, 11)}${num(r.sentenceInput, 14)}${num(r.framesPerWord.toFixed(2), 13)}${num(r.translit === null ? "—" : Math.round(r.translit * 100) + "%", 10)}${num(r.grammar, 9)}`
   );
 }
 
@@ -99,6 +107,14 @@ console.log(`\n  Connected text across all ${rows.length} languages: ~${totalCon
 const secs = Math.max(1, Math.round((worst.connected / 200) * 60));
 console.log(`  Thinnest: ${worst.name}, ~${worst.connected} words — about ${secs} second${secs === 1 ? "" : "s"} of reading.`);
 console.log(`  Words met in only one sentence: ${oneFrame} of ${totalVocab} (${Math.round(oneFrame / totalVocab * 100)}%).\n`);
+const gaps = rows.filter((r) => r.translit !== null && r.translit < 0.9);
+if (gaps.length) {
+  console.log(`  Sentences with no romanisation, in scripts a learner may not read yet:`);
+  for (const r of gaps.sort((a, b) => a.translit - b.translit)) {
+    console.log(`    ${r.name}: ${Math.round((1 - r.translit) * 100)}% can be looked at but not said.`);
+  }
+  console.log("");
+}
 console.log(`  A word met in a single frame is known in that frame. Two or three`);
 console.log(`  different sentences is the difference between recognising it and`);
 console.log(`  being able to use it — and connected text is where that happens.\n`);

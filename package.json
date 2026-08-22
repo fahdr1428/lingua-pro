@@ -25,7 +25,8 @@
     "verify-offline": "node scripts/verify-offline.mjs",
     "verify-deploy-skew": "node scripts/verify-deploy-skew.mjs",
     "simulate-leech": "node scripts/simulate-leech.mjs",
-    "measure-input": "node scripts/measure-input.mjs"
+    "measure-input": "node scripts/measure-input.mjs",
+    "measure-stream": "node scripts/measure-stream.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",

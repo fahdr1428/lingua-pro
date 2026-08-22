@@ -51,9 +51,13 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
         <Card style={{ textAlign: "center", padding: 40 }}>
           <div style={{ fontSize: 50, marginBottom: 12 }}>📖</div>
           <div style={{ fontWeight: 800, marginBottom: 6 }}>No reading passages for {lang.name} yet</div>
-          <div style={{ fontSize: 13, color: "var(--text-dim)" }}>
-            We're adding short reading practice for every language. Keep learning vocabulary in the meantime!
+          <div style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>
+            We're adding written passages for every language. In the meantime there
+            are real {lang.name} sentences to read, built from the words you've met.
           </div>
+          <Button onClick={() => onNavigate("stream")} style={{ marginTop: 16 }}>
+            Read {lang.name} sentences
+          </Button>
         </Card>
       </Container>
     );
@@ -127,6 +131,12 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
           </button>
           <button onClick={() => setShowTranslation((v) => !v)} style={pillStyle(showTranslation)}>
             {showTranslation ? "✓ " : ""}Translation
+          </button>
+          {/* v83: there are only a handful of written passages per language —
+              623 words across all fourteen, measured. The sentence stream is
+              several times that, so it can't be buried. */}
+          <button onClick={() => onNavigate("stream")} style={pillStyle(false)}>
+            More to read →
           </button>
         </div>
 
