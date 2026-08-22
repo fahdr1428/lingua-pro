@@ -134,10 +134,14 @@ smuggle the fix into its own reply, which is a recast by another name.
 feedback is someone stuck and quietly giving up, which is worse than the failure
 mode it replaces.
 
-**Still true.** The coach is told to stay at the learner's level and never show
-off, which is the input side well handled and the *output* side unattended:
-nothing ever asks them to reach for something they haven't got. Swain's push is
-missing.
+**And Swain's half (v83.3).** "Stay at their level, never show off" is
+comprehensible input handled well, and it was the *only* side — a tutor who only
+asks questions the learner can already answer never creates the moment where
+someone notices a gap and reaches. About every third turn the coach now asks
+something that needs more than a word back, with the push in what the **question
+demands** rather than in vocabulary they haven't got; that distinction is the
+line between stretching someone and losing them. Running out of words mid-
+sentence is treated as the teachable moment rather than something to move past.
 
 ---
 
@@ -226,10 +230,8 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    never to be shown to a learner.
 3. **Two or three example sentences per word instead of one.** 94% of words are
    met in a single frame.
-4. **Push the learner's output.** The coach never asks for anything beyond what
-   they can already say. That's the input side handled and Swain's half missing.
-5. **A native speaker's eye on Punjabi and Nigerian Pidgin passages.**
-6. **Grammar beyond 4–6 lessons**, and none at all for Turkish, Punjabi,
+4. **A native speaker's eye on Punjabi and Nigerian Pidgin passages.**
+5. **Grammar beyond 4–6 lessons**, and none at all for Turkish, Punjabi,
    Indonesian or Nigerian Pidgin.
 
 ## What this app already does that the research supports
@@ -242,6 +244,7 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
 - Comprehensibility as the standard for speaking, not exactness — "would a
   native speaker understand this" rather than "was it perfect".
 - Explicit grammar available, never compulsory.
-- Prompts before recasts, since v83.
+- Prompts before recasts, since v83, and questions that ask the learner to
+  reach, since v83.3.
 - Difficulty that falls back when a word keeps being forgotten, since v82 —
   which is the closest thing here to respecting a developmental sequence.

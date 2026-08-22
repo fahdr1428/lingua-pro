@@ -42,6 +42,15 @@ into its own spoken reply, which is a recast wearing a hat.
 Four assertions in `test-coach-api.mjs` guard the field, the instruction, and
 the rule that the ask must never contain the answer.
 
+**And the other half of the same argument (v83.3).** Swain's Output Hypothesis
+is that needing to say something you can't quite say yet is itself what drives
+learning. "Stay at their level, never show off" is comprehensible input handled
+well and it was the only side present. About every third turn the coach now asks
+something that needs more than a word back — why, what happened, what would you
+do — with the push in what the **question** demands rather than in vocabulary
+they haven't got. Running out of words mid-sentence is the teachable moment, not
+a failure to move past.
+
 ---
 
 ## 2. 39% of grammar checks tested the paragraph, not the language
@@ -192,10 +201,7 @@ Ordered by how much they'd improve the app, from [RESEARCH.md](RESEARCH.md):
    is the finding that matters and everything else is second.
 2. **Pronunciation for the sentences that have none** — three languages at zero.
 3. **Two or three examples per word** instead of one. 94% are met in one frame.
-4. **Push the learner's output.** The coach is told to stay at their level and
-   never show off — the input side handled, and Swain's half of it missing.
-   Nothing ever asks them to reach for something they haven't got.
-5. No grammar at all for Turkish, Punjabi, Indonesian or Nigerian Pidgin.
-6. **`sessionSize` still doesn't mean what it says** — asking for 8 questions
+4. No grammar at all for Turkish, Punjabi, Indonesian or Nigerian Pidgin.
+5. **`sessionSize` still doesn't mean what it says** — asking for 8 questions
    produces about 16.
-7. Keyboard-only and screen-reader journeys have not been walked by a human.
+6. Keyboard-only and screen-reader journeys have not been walked by a human.
