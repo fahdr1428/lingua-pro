@@ -23,6 +23,7 @@ import {
 } from "./screens/screens.jsx";
 import { Lesson } from "./screens/Lesson.jsx";
 import { APP_MIN_AGE, LAST_UPDATED } from "./legal/policies.js";
+import { OfflineBar } from "./ui/Offline.jsx";
 
 // v78 — CODE SPLITTING.
 //
@@ -276,6 +277,8 @@ export default function App() {
           totalXp={appState.totalXp || 0}
         />
       )}
+      <OfflineBar />
+
       {/* v80 — THE POLICIES CHANGED SINCE YOU AGREED.
           COMPLIANCE.md listed this as outstanding: the version agreed to was
           stored in appState.consent.policyVersion and nothing ever compared it

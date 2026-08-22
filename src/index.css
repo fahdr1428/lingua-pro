@@ -1900,3 +1900,25 @@ button:focus:not(:focus-visible) { outline: none; }
   color: var(--accent-text); text-decoration: underline; text-underline-offset: 2px;
 }
 .policy-update-ok { margin-left: auto; text-decoration: none; }
+
+/* =============================================================================
+   v81 — offline
+   ============================================================================= */
+/* Shown only when the browser is certain there's no connection. It leads with
+   what still works, because almost everything does and a bare "you are offline"
+   invites someone to close an app that would have worked fine. */
+.offline-bar {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--surface-hi); border-bottom: 1px solid var(--border);
+  color: var(--text-dim); padding: 9px 14px; font-size: 12.5px; line-height: 1.5;
+}
+.offline-bar b { color: var(--text); }
+
+.dl-lang {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 14px 15px; margin-bottom: 12px;
+}
+.dl-lang-head { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.dl-lang-sub { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; margin-top: 3px; }
+.dl-lang-done { font-size: 13px; line-height: 1.55; color: var(--text); margin-bottom: 4px; }
+.dl-lang-note { color: var(--text-mute); }

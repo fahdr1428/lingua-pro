@@ -22,6 +22,7 @@ import { APP_MIN_AGE, AI_MIN_AGE, LAST_UPDATED, policiesIncomplete } from "../le
 import { Legal } from "./Legal.jsx";
 import { aiAccepted, aiDeclined } from "../ui/AiDisclosure.jsx";
 import { downloadExport } from "../legal/exportData.js";
+import { DownloadLanguage } from "../ui/Offline.jsx";
 
 // =============================================================================
 // ONBOARDING — language picker + daily goal
@@ -784,11 +785,15 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
                 mistake, and the pitch shouldn't imply otherwise. */}
             <div style={{ fontSize: 18, fontWeight: 900 }}>✨ Zaban Plus</div>
             <div style={{ fontSize: 14, marginTop: 4, marginBottom: 12 }}>
-              Offline mode • No ads • Support the languages nobody else builds for
+              No ads • Support the languages nobody else builds for
             </div>
+            {/* v81: "Offline mode" used to lead this list, and there was no
+                service worker — the app was entirely online-only. It works
+                offline for everyone now, which means it is not something to
+                sell; it has moved to the line below, as a fact. */}
             <div style={{ fontSize: 11.5, marginBottom: 12, opacity: 0.8 }}>
-              Every lesson, every word and every exercise stays free. We don't
-              charge you for getting something wrong.
+              Every lesson, every word and every exercise stays free — and works
+              offline. We don't charge you for getting something wrong.
             </div>
             <button
               style={{
@@ -981,6 +986,11 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
           🎯 Test out (skip ahead if you already know it)
         </Button>
 
+        {/* v81 — offline. The course is already local; this makes the audio local
+            too, for someone who knows they're about to lose signal. */}
+        <h3 className="eyebrow" style={{ marginTop: 26, marginBottom: 10 }}>Offline</h3>
+        <DownloadLanguage pack={pack} langName={LANGUAGES[pack?.code]?.name || "this language"} />
+
         {/* v77 — privacy, AI and the law, in the app rather than on a website
             nobody visits. Grouped together because that's how people look for
             them, and because a reviewer opening the app needs to find them
@@ -1153,7 +1163,10 @@ export function Upgrade({ appState, setAppState, onNavigate }) {
         <Card style={{ background: "linear-gradient(135deg, var(--purple), var(--surface))", marginTop: 24 }}>
           {[
             ["❤️", "Unlimited hearts", "Never get blocked mid-lesson"],
-            ["📴", "Offline mode", "Learn anywhere"],
+            // v81: offline is free for everyone, so it is no longer a premium
+            // line. It was listed here for releases while no service worker
+            // existed at all.
+            ["🎧", "Every recording, saved", "Download a language for a journey"],
             ["🚫", "No ads", "Pure focus"],
             ["📊", "Advanced stats", "See exactly where you're improving"],
             ["🎯", "Custom study lists", "Build vocab decks for trips, exams, work"],

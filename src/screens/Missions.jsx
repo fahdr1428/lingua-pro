@@ -37,6 +37,7 @@ import { PERSONAS, getPersona, regionsFor, getRegion } from "../data/personas.js
 import { recordTurn, recordMission, summariseForPrompt, difficultyFor, DIFFICULTY_LABEL } from "../engine/profile.js";
 import { probeCoach, levelFor, CoachError } from "../ai/coach.js";
 import { buildScenario } from "../ai/scenario.js";
+import { NeedsConnection, useOffline } from "../ui/Offline.jsx";
 import { AiGate, aiAccepted } from "../ui/AiDisclosure.jsx";
 import { isRecognitionSupported, startListening, judge, BAND } from "../audio/speech.js";
 import { speak } from "../audio/tts.js";

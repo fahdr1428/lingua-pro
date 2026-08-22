@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/build-sw.mjs",
     "preview": "vite preview",
     "audio": "node scripts/generate-audio.cjs",
     "import-vocab": "node scripts/import-vocab.mjs",
@@ -20,7 +20,8 @@
     "passages": "node scripts/validate-passages.mjs",
     "validate-passages": "node scripts/validate-passages.mjs",
     "audit-a11y": "node scripts/audit-a11y.mjs",
-    "validate-themes": "node scripts/validate-themes.mjs"
+    "validate-themes": "node scripts/validate-themes.mjs",
+    "verify-offline": "node scripts/verify-offline.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",

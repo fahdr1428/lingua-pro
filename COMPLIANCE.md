@@ -188,10 +188,20 @@ drift.
 
 ### What now works
 
-The web app is installable. `public/manifest.webmanifest` plus the manifest link
-and Apple meta tags in `index.html` mean **Add to Home Screen** on iOS and
-**Install app** on Android give a standalone, full-screen app with an icon and no
-browser chrome. Nothing to submit, nothing to review, updates ship instantly.
+The web app is installable **and works offline** (v81). `public/manifest.webmanifest`
+plus the manifest link and Apple meta tags in `index.html` mean **Add to Home
+Screen** on iOS and **Install app** on Android give a standalone, full-screen app
+with an icon and no browser chrome. `public/sw.js` then makes everything except
+the AI conversations work with no connection at all. Nothing to submit, nothing
+to review, updates ship instantly.
+
+⚠️ **Privacy note on the cache:** `/api/*` is network-only and is never written to
+any cache, deliberately — those requests carry AI conversations and text pasted
+into Decode, which is often a third party's private message. `scripts/verify-offline.mjs`
+asserts that nothing under `/api/` is ever found in cache storage. Everything the
+worker does cache (the app shell, hashed build assets, and audio recordings) is
+public course content, not personal data, and is cleared by the browser's normal
+"clear site data" alongside the localStorage that Delete already erases.
 
 **For most of your users this is enough**, and it's the fastest path to people
 actually using it.
@@ -298,4 +308,4 @@ scripts/fetch-fonts.mjs    regenerates the self-hosted fonts
 public/manifest.webmanifest
 ```
 
-Last reviewed against the code: **2026-08-19** (v80).
+Last reviewed against the code: **2026-08-21** (v81).

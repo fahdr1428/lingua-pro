@@ -40,6 +40,7 @@ import { guideVoice } from "../data/characters.js";
 import { decodeText, probeDecode, MAX_DECODE_CHARS } from "../ai/decode.js";
 import { CoachError } from "../ai/coach.js";
 import { getRegion } from "../data/personas.js";
+import { NeedsConnection, useOffline } from "../ui/Offline.jsx";
 import { AiGate, aiAccepted, AiBadge, ReportAi } from "../ui/AiDisclosure.jsx";
 import { masteryLevel } from "../engine/srs.js";
 
@@ -48,6 +49,7 @@ import { masteryLevel } from "../engine/srs.js";
 const NOT_WORTH_SAVING = new Set(["name"]);
 
 export function Decode({ engine, pack, appState, setAppState, profile, onNavigate }) {
+  const offline = useOffline();
   const lang = LANGUAGES[pack.code];
   const guide = getCharacter(pack.code);
   const voice = guideVoice(pack.code);
@@ -185,6 +187,15 @@ export function Decode({ engine, pack, appState, setAppState, profile, onNavigat
           onDecline={() => onNavigate("home")}
           onNavigate={onNavigate}
         />
+      </Shell>
+    );
+  }
+
+  // v81: said up front rather than after a request that was never going to work.
+  if (offline) {
+    return (
+      <Shell lang={lang} guide={guide} code={pack.code} onNavigate={onNavigate}>
+        <div className="speak-body"><NeedsConnection what="Decoding" /></div>
       </Shell>
     );
   }
