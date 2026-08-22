@@ -1381,6 +1381,23 @@ button:focus:not(:focus-visible) { outline: none; }
 .corr-arrow { color: var(--text-dim); font-size: 12px; }
 .corr-better { font-size: 14.5px; font-weight: 700; color: var(--text); }
 .corr-why { font-size: 12px; color: var(--text-dim); line-height: 1.5; margin-top: 5px; }
+/* v83: the question that comes BEFORE the answer. It carries the card at that
+   point, so it is body-sized and full-contrast rather than the dimmed footnote
+   `.corr-why` becomes once the answer is on screen. */
+.corr-ask {
+  font-size: 13.5px; color: var(--text); line-height: 1.55;
+  font-weight: 600; margin-top: 6px;
+}
+/* Until the answer is revealed we are asking them to think, not telling them
+   they failed — a line through their words says the second thing. */
+.corr-said-open { text-decoration: none; }
+.corr-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.corr-show {
+  margin-top: 8px; background: transparent; border: none;
+  padding: 6px 4px; min-height: 34px;
+  font-size: 12px; font-weight: 700; color: var(--text-dim);
+  text-decoration: underline; cursor: pointer;
+}
 .corr-retry {
   margin-top: 8px; background: transparent; border: 1px solid var(--border);
   border-radius: 999px; padding: 6px 12px; min-height: 34px;
@@ -1393,6 +1410,16 @@ button:focus:not(:focus-visible) { outline: none; }
 .corr-verdict-miss { color: var(--text-dim); }
 
 /* --- "a native would say" --- */
+/* v83: collapsed while a correction is still asking them to work something out.
+   Printing the whole rewritten sentence there answers every question on the
+   card at once. */
+.fluent-peek {
+  display: block; width: fit-content; max-width: 92%;
+  margin: 8px 0 0 auto; text-align: left;
+  background: transparent; border: 1px dashed var(--border);
+  border-radius: 12px; padding: 8px 12px; min-height: 34px;
+  font-size: 12px; font-weight: 700; color: var(--text-dim); cursor: pointer;
+}
 .fluent-line {
   display: block; width: fit-content; max-width: 92%;
   margin: 8px 0 0 auto; text-align: left;

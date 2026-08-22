@@ -255,16 +255,19 @@ export function LiveConversation({
                   ))}
                 </div>
               )}
+              {/* v83: this is the whole sentence, rewritten — which means that
+                  while there are corrections still asking the learner to work
+                  something out, printing it here hands them every answer at
+                  once and there is no point asking. It collapses to a button
+                  when there's an open ask, and shows outright when there isn't. */}
               {t.fluent?.native && (
-                <button
-                  className="fluent-line"
-                  onClick={() => speak(t.fluent.native, lang.ttsCode, { ...voice, translit: t.fluent.translit })}
-                  title="Hear it"
-                >
-                  <span className="fluent-tag">a native would say</span>
-                  <span className="fluent-native" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode}>{t.fluent.native}</span>
-                  {t.fluent.translit && <span className="fluent-tl">{t.fluent.translit}</span>}
-                </button>
+                <FluentLine
+                  fluent={t.fluent}
+                  gated={(t.corrections || []).some((c) => c.ask)}
+                  lang={lang}
+                  langCode={langCode}
+                  voice={voice}
+                />
               )}
             </div>
           )
@@ -327,6 +330,7 @@ export function LiveConversation({
 function FixChip({ c, lang, langCode, micSupported }) {
   const [state, setState] = useState("idle"); // idle | listening | done
   const [result, setResult] = useState(null);
+  const [shown, setShown] = useState(false);  // they asked to just be told
   const handle = useRef(null);
   const heardRef = useRef("");
 
@@ -357,28 +361,90 @@ function FixChip({ c, lang, langCode, micSupported }) {
     if (!handle.current) setState("idle");
   }
 
+  // v83 — ASK, THEN TELL.
+  //
+  // This card used to print `said → better` at the top, with the answer sitting
+  // on screen, and then offer "Say it the right way" underneath. That is a
+  // recast followed by a repeat-after-me: the learner reads the fix aloud and
+  // retrieves nothing. Classroom research is consistent that recasts are the
+  // feedback move learners act on least — there is nothing for them to do with
+  // one — while prompts that make them produce the form themselves are what
+  // actually shifts accuracy.
+  //
+  // So the answer is held back until they've had a go, or until they ask for it.
+  // "Show me" is always one tap away and never scolds: the failure mode of
+  // withheld feedback is someone stuck and quietly giving up, which is worse
+  // than the failure mode it replaces.
+  const revealed = shown || state === "done";
+
   return (
     <div className={`corr-card corr-${c.kind}`}>
       <div className="corr-row">
-        <span className="corr-said">{c.said}</span>
-        <span className="corr-arrow" aria-hidden="true">→</span>
-        <span className="corr-better" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode}>{c.better}</span>
-        <button className="xchg-play" onClick={() => speak(c.better, lang.ttsCode, guideVoice(langCode))} aria-label="Hear the fix">
-          <PlayIcon />
-        </button>
+        <span className={`corr-said${revealed ? "" : " corr-said-open"}`}>{c.said}</span>
+        {revealed && (
+          <>
+            <span className="corr-arrow" aria-hidden="true">→</span>
+            <span className="corr-better" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode}>{c.better}</span>
+            <button className="xchg-play" onClick={() => speak(c.better, lang.ttsCode, guideVoice(langCode))} aria-label="Hear the fix">
+              <PlayIcon />
+            </button>
+          </>
+        )}
       </div>
-      <div className="corr-why">{c.why}</div>
-      {micSupported && state !== "done" && (
-        <button className="corr-retry" onClick={tryAgain} disabled={state === "listening"}>
-          {state === "listening" ? "Listening…" : "Say it the right way"}
-        </button>
-      )}
-      {state === "done" && result && (
-        <div className={`corr-verdict corr-verdict-${result.band}`}>
-          {result.band === BAND.GOT ? "That's it." : result.band === BAND.CLOSE ? "Close enough — a native would follow that." : "Not quite, but it's in there. Try once more."}
+
+      {/* The ask is the whole point of the card before they've answered. Older
+          replies from before this field existed fall back to `why`, which at
+          least says what's going on. */}
+      <div className={revealed ? "corr-why" : "corr-ask"}>
+        {revealed ? c.why : (c.ask || c.why)}
+      </div>
+
+      {!revealed && (
+        <div className="corr-actions">
+          {micSupported && (
+            <button className="corr-retry" onClick={tryAgain} disabled={state === "listening"}>
+              {state === "listening" ? "Listening…" : "Have a go"}
+            </button>
+          )}
+          <button className="corr-show" onClick={() => setShown(true)}>
+            Show me
+          </button>
         </div>
       )}
+
+      {state === "done" && result && (
+        <div className={`corr-verdict corr-verdict-${result.band}`}>
+          {result.band === BAND.GOT ? "That's it — you had it." : result.band === BAND.CLOSE ? "Close enough — a native would follow that." : "Not quite, but it's in there."}
+        </div>
+      )}
+      {revealed && state !== "done" && micSupported && (
+        <button className="corr-retry" onClick={tryAgain} disabled={state === "listening"}>
+          {state === "listening" ? "Listening…" : "Say it now"}
+        </button>
+      )}
     </div>
+  );
+}
+
+function FluentLine({ fluent, gated, lang, langCode, voice }) {
+  const [open, setOpen] = useState(!gated);
+  if (!open) {
+    return (
+      <button className="fluent-peek" onClick={() => setOpen(true)}>
+        Show the whole sentence the way a native would say it
+      </button>
+    );
+  }
+  return (
+    <button
+      className="fluent-line"
+      onClick={() => speak(fluent.native, lang.ttsCode, { ...voice, translit: fluent.translit })}
+      title="Hear it"
+    >
+      <span className="fluent-tag">a native would say</span>
+      <span className="fluent-native" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode}>{fluent.native}</span>
+      {fluent.translit && <span className="fluent-tl">{fluent.translit}</span>}
+    </button>
   );
 }
 

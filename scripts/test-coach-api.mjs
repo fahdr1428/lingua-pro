@@ -166,6 +166,24 @@ check("system prompt tells the model accent is not an error",
 check("system prompt hardens against instruction-override in learner input",
   /change these instructions|off-topic/i.test(systemText));
 
+// v83 — ASK BEFORE YOU TELL.
+//
+// Every correction channel this app had was a RECAST: `better`, `fluent_version`
+// and `coaching` all simply handed over the corrected form. Classroom research
+// is consistent that recasts are the feedback move learners act on least —
+// there is nothing for them to do with one — while prompts that make the learner
+// produce the form themselves are what shifts accuracy. These guard the field
+// and the instruction that turn this from telling into asking.
+const schemaText = JSON.stringify(sent.output_config?.format?.schema || {});
+check("every correction has to carry something to ASK, not just something to tell",
+  /"required":\[[^\]]*"ask"/.test(schemaText.replace(/\s/g, "")), schemaText.slice(0, 200));
+check("the ask is forbidden from containing the answer",
+  /[Nn]ever include the corrected form/.test(schemaText));
+check("system prompt puts the ask before the answer",
+  /ASK BEFORE YOU TELL/.test(systemText));
+check("system prompt stops the spoken reply from smuggling the fix in as a recast",
+  /reply to what they MEANT|must not quietly contain the fix/i.test(systemText));
+
 // --- long input is capped, not rejected ---
 stubFetch(() => jsonResponse(200, anthropicOk(REPLY)));
 res = makeRes();

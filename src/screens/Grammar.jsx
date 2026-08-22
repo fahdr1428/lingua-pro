@@ -9,6 +9,7 @@ import { Button, Card, Container } from "../ui/primitives.jsx";
 import { LANGUAGES } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getGrammar } from "../data/grammar.js";
+import { checksFor } from "../engine/grammarChecks.js";
 
 const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
@@ -120,13 +121,28 @@ export function Grammar({ pack, appState, onNavigate }) {
                   <div style={{ fontSize: 11, fontWeight: 800, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                     Quick check
                   </div>
-                  {L.checks.map((c, ci) => {
+                  {checksFor(L, lessons).map((c, ci) => {
                     const key = `${L.id}:${ci}`;
                     const chosen = answers[key];
                     const answered = chosen != null;
                     return (
                       <div key={ci} style={{ marginBottom: 16 }}>
-                        <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 8 }}>{c.q}</div>
+                        {/* v83: the rule question tests whether they read the
+                            paragraph; this one tests whether they can use it.
+                            Labelled so the shift is visible rather than a
+                            question that arrives out of nowhere. */}
+                        {c.applied && (
+                          <div style={{
+                            fontSize: 10, fontWeight: 800, letterSpacing: 1,
+                            textTransform: "uppercase", color: "var(--accent-text)", marginBottom: 4,
+                          }}>
+                            Now use it
+                          </div>
+                        )}
+                        <div style={{
+                          fontSize: 14, fontWeight: 700, marginBottom: 8,
+                          direction: c.applied ? "ltr" : undefined,
+                        }}>{c.q}</div>
                         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                           {c.options.map((opt, oi) => {
                             const isChosen = chosen === opt;
@@ -146,7 +162,17 @@ export function Grammar({ pack, appState, onNavigate }) {
                                   fontWeight: 700, cursor: answered ? "default" : "pointer", textAlign: "left",
                                 }}
                               >
-                                {opt}{answered && isCorrect ? "  ✓" : ""}
+                                <span
+                                  dir={c.applied && lang.rtl ? "rtl" : "ltr"}
+                                  lang={c.applied ? pack.code : undefined}
+                                  style={c.applied ? {
+                                    fontSize: isNonLatin && lang.rtl ? 18 : 15,
+                                    fontFamily: lang.rtl ? '"Noto Nastaliq Urdu","Noto Naskh Arabic",serif' : "inherit",
+                                    display: "inline-block",
+                                  } : undefined}
+                                >
+                                  {opt}
+                                </span>{answered && isCorrect ? "  ✓" : ""}
                               </button>
                             );
                           })}

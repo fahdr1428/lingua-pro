@@ -84,7 +84,10 @@ const REPLY_SCHEMA = {
     },
     coaching: {
       type: "string",
-      description: "One or two warm English sentences spoken aloud to the learner about their attempt. Name at most one concrete thing to change. Never say 'wrong'.",
+      description:
+        "One or two warm English sentences spoken aloud to the learner about their attempt. Say what worked. If something " +
+        "needs changing, point at WHERE without supplying the corrected form — the correction's 'ask' is what invites them " +
+        "to fix it, and this line giving the answer away first would defeat it. Never say 'wrong'.",
     },
     suggestion: {
       type: "string",
@@ -109,8 +112,31 @@ const REPLY_SCHEMA = {
           said: { type: "string", description: "The exact fragment the learner said that was off." },
           better: { type: "string", description: "The same fragment as a native would say it." },
           why: { type: "string", description: "One short plain-English sentence. No grammar jargon unless it earns its place." },
+          // v83 — THE FIELD THAT MAKES THIS A PROMPT INSTEAD OF A RECAST.
+          //
+          // Handing someone the corrected form is a "recast", and it is the
+          // feedback move classroom research finds learners act on LEAST:
+          // Lyster & Ranta's classroom coding found recasts were both the most
+          // common teacher move and the one least likely to produce any repair
+          // by the learner, because there is nothing for them to do with it.
+          // What produces repair is a PROMPT — an elicitation, a clarification
+          // request, a metalinguistic clue — because the learner has to retrieve
+          // the form themselves, which is the act that makes it stick.
+          //
+          // Every correction channel in this app used to be a recast: `better`,
+          // `fluent_version`, and `coaching` all simply told them the answer.
+          // This is the one field that asks.
+          ask: {
+            type: "string",
+            description:
+              "A short English question that gets the learner to FIX IT THEMSELVES, without containing the answer. " +
+              "Point at what to change and let them retrieve it: \"You put that in the present — how would you say it " +
+              "about yesterday?\", \"That's the word for a man; she's a woman — what changes?\". " +
+              "Never include the corrected form, or any part of it, anywhere in this string. " +
+              "Be explicit about WHERE the problem is: a hint too subtle to notice is the same as no feedback at all.",
+          },
         },
-        required: ["id", "label", "kind", "said", "better", "why"],
+        required: ["id", "label", "kind", "said", "better", "why", "ask"],
         additionalProperties: false,
       },
     },
@@ -204,7 +230,9 @@ function buildSystem({
 - Praise a real attempt as a good attempt, and tell them in as many words that it does not have to be exact. Learners assume it does, and that assumption is what makes them stop speaking. The rest of this app says "it doesn't have to be exact" in exactly those words; match that voice so you don't sound like a different teacher.
 - Accent is never an error. Only correct something that would actually stop a native speaker from understanding.
 - corrections: leave it EMPTY unless something genuinely needs fixing. Reuse the same id for the same type of error every time — the app counts repeats across sessions to find their real weak spots, and inconsistent ids break that.
-- fluent_version: rewrite THEIR last sentence as a native would say the same thing. Same meaning, same intent, same personality — you are upgrading their sentence, not substituting your own.
+- ASK BEFORE YOU TELL. Every correction carries an "ask": a short question that gets them to fix it themselves without containing the answer. The learner sees the ask first and has a go before anything else is revealed. Point clearly at what needs changing — a hint too subtle to notice is the same as saying nothing — but never hand over the form, or any part of it, in the ask.
+- fluent_version: rewrite THEIR last sentence as a native would say the same thing. Same meaning, same intent, same personality — you are upgrading their sentence, not substituting your own. The app holds this back until they have had a go at the ask, so write it as the answer they arrive at, not as the first thing they read.
+- Your own spoken reply must not quietly contain the fix either. Repeating their sentence back to them correctly is the one kind of feedback learners reliably fail to notice — reply to what they MEANT, and leave the correcting to the ask.
 - If they replied in English because they were stuck, that's not a failure: give them the ${langName} for what they wanted to say, then ask your question again.
 - coaching is spoken aloud by a text-to-speech voice, so write it as plain speech: no markdown, no bullet points, no quotation marks around words, no emoji.`);
 
