@@ -289,15 +289,15 @@ export function explainAnswer(exercise, userAnswer, langCode, opts = {}) {
   //
   // The generator flags these (see markStruggling) and has already switched to
   // asking an easier question. This is the part that admits it, and it goes
-  // LAST — after the actual answer, which is still the useful content. On a
-  // correct answer it's a different sentence entirely, because getting a word
-  // you keep losing right is the single most encouraging thing that happens in
-  // a lesson and it should not pass without comment.
-  if (exercise.struggling) {
+  // LAST — after the actual answer, which is still the useful content.
+  //
+  // Only on a miss. The corresponding line for finally GETTING one of these
+  // right is in the feedback banner in Lesson.jsx rather than here, because this
+  // card opens by itself on a wrong answer and otherwise sits behind a "Why?"
+  // button that nobody presses when they've just got something right.
+  if (exercise.struggling && !correct) {
     parts.push(
-      correct
-        ? "And that's the one that keeps slipping away from you — nicely done."
-        : "This one keeps slipping. That happens with a few words in every language, and it isn't a verdict on you — we'll keep bringing it back gently until it sticks."
+      "This one keeps slipping. That happens with a few words in every language, and it isn't a verdict on you — we'll keep bringing it back gently until it sticks."
     );
   }
 

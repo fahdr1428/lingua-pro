@@ -1340,6 +1340,18 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                         🔥 {combo} in a row
                       </span>
                     )}
+                    {/* v82: reclaiming a word you keep losing is the best thing
+                        that happens in a lesson, and it was going unremarked.
+                        The generator flags these (see markStruggling); the
+                        matching line for getting one WRONG lives in the
+                        explanation card, which opens by itself on a miss. This
+                        one has to be here, because nobody taps "Why?" after
+                        getting something right. */}
+                    {feedback === "correct" && exercise?.struggling && (
+                      <div style={{ marginTop: 6, fontSize: 13, fontWeight: 600, color: "var(--text-dim)" }}>
+                        That's the one that keeps slipping away from you.
+                      </div>
+                    )}
                   </div>
                   {/* Why? button — only shown if not already expanded */}
                   {!showExplain && (

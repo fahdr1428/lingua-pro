@@ -108,7 +108,7 @@ class ErrorBoundary extends React.Component {
           </h2>
           <p style={{ color: "var(--text-dim)", marginBottom: 24, fontSize: 14 }}>
             {stale
-              ? "This tab is running the old version. Reload and you'll pick up where you left off — nothing is lost."
+              ? "This tab is running the old version, so that screen wouldn't load. Reload to get the new one — everything you've learned is saved."
               : String(this.state.error?.message || "Unknown error")}
           </p>
           <button
