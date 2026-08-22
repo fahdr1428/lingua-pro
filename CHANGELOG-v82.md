@@ -64,9 +64,14 @@ feedback card now ends with:
 > This one keeps slipping. That happens with a few words in every language, and
 > it isn't a verdict on you — we'll keep bringing it back gently until it sticks.
 
-and, when they finally get it:
+and, when they finally get it, in the feedback banner:
 
-> And that's the one that keeps slipping away from you — nicely done.
+> That's the one that keeps slipping away from you.
+
+That second line started out in the explanation card next to the first, which
+made it dead copy: the card opens by itself on a wrong answer, but otherwise
+sits behind a **Why?** button, and nobody presses "Why?" after getting something
+right. The one line worth reading was the only one nobody would see.
 
 ---
 
@@ -145,6 +150,21 @@ Also in the worker: a navigation response is only cached as the shell if it's
 `ok` and not `redirected`. A 404 from a half-finished deploy was previously
 written in as the offline app and kept — the worst possible thing to persist,
 given the entire point is surviving without a network to correct it with.
+
+`scripts/verify-deploy-skew.mjs` proves it the only way worth proving: it blocks
+a lazily-imported chunk at the network layer, which is exactly what a missing
+file looks like from inside the page, and checks the app reloads once, doesn't
+loop, says something a learner can act on, and never offers "Go back home". The
+service worker is deliberately blocked for that run — it has its own answer to
+this, and this is the second line of defence, which is the one that has to hold
+when the cache has been evicted.
+
+The first version of that test passed for the wrong reason. The app reloaded and
+landed on home, so the second failure never happened and the error screen was
+never reached — a green run proving only that a reload happened. It now asks
+again after the reload, which is the case that actually needs the screen. The
+same run caught a copy overpromise: "you'll pick up where you left off" says the
+screen comes back. It doesn't. The progress does, and that's what it says now.
 
 ---
 
