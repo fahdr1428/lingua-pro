@@ -184,6 +184,19 @@ check("system prompt puts the ask before the answer",
 check("system prompt stops the spoken reply from smuggling the fix in as a recast",
   /reply to what they MEANT|must not quietly contain the fix/i.test(systemText));
 
+// v83 — SWAIN'S HALF. "Stay at their level, never show off" is comprehensible
+// input handled well and it was the ONLY side. The Output Hypothesis is that
+// needing to say something you can't quite say yet is itself what drives
+// learning — so a tutor who only asks questions the learner can already answer
+// never creates that moment. The push has to be in what the QUESTION demands,
+// not in vocabulary they haven't got, or it stops being comprehensible at all.
+check("system prompt asks the learner to reach, not just to answer",
+  /MAKE THEM REACH/.test(systemText));
+check("...and keeps the coach's own language at their level while it does",
+  /stretch is in what the question asks of them/i.test(systemText));
+check("system prompt treats running out of words as the teachable moment",
+  /switch to English or trail off/i.test(systemText));
+
 // --- long input is capped, not rejected ---
 stubFetch(() => jsonResponse(200, anthropicOk(REPLY)));
 res = makeRes();

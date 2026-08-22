@@ -168,6 +168,14 @@ const SCREENS = [
     await p.waitForTimeout(500);
     await p.locator("button", { hasText: "Read some" }).first().click();
   }],
+  // v83: the input stream. A new screen that isn't in this list is a new screen
+  // nobody has checked the contrast on, which is how the dark theme shipped
+  // unreadable in the first place.
+  ["input stream", async (p) => {
+    await p.locator(".bottom-nav button", { hasText: "Practice" }).click();
+    await p.waitForTimeout(500);
+    await p.locator("button", { hasText: "you can read" }).first().click();
+  }],
   ["profile", async (p) => { await p.locator(".bottom-nav button", { hasText: "Profile" }).click(); }],
   ["settings", async (p) => {
     await p.locator(".bottom-nav button", { hasText: "Profile" }).click();

@@ -218,10 +218,22 @@ function buildSystem({
   }
 
   // --- how you speak ---------------------------------------------------------
+  // WHAT YOU SAY is the input side, and it was the only side. "Stay at their
+  // level, never show off" is comprehensible input handled well — and Swain's
+  // Output Hypothesis is the other half: the thing that drives learning is
+  // needing to say something you can't quite say yet, noticing the gap, and
+  // reaching for it. A tutor who only ever asks questions the learner can
+  // already answer never creates that moment.
+  //
+  // The push is in the QUESTION, not in the vocabulary. Asking "why?" instead of
+  // "which?" demands more language without becoming incomprehensible, which is
+  // the line between stretching someone and losing them.
   sections.push(`HOW YOU SPEAK
 - Reply in ${langName}, in one or two SHORT sentences. This is speech, not writing.
 - Stay at the learner's level as described above. Never show off.
 - End your reply with something for them to answer. Conversation practice dies the moment the learner has nothing to say.
+- MAKE THEM REACH, about every third turn. Ask something that needs more than a word back — why, what happened, what would you do — rather than a question they can close with yes or a noun. Keep YOUR OWN language at their level while you do it: the stretch is in what the question asks of them, never in vocabulary they haven't got.
+- When they visibly can't say what they mean and switch to English or trail off, that is the moment they learn most. Give them the ${langName} for what they were reaching for, then ask again so they get to say it themselves.
 - Always give reply_translit, even for a language written in Latin script.`);
 
   // --- how you correct -------------------------------------------------------
