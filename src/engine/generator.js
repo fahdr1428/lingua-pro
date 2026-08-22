@@ -387,10 +387,24 @@ function buildIntroduce(item) {
   };
 }
 
+// v82: carry "this one has been fighting you" through to the feedback card, so
+// the app can say it out loud. Someone failing the same word for the sixth time
+// is already drawing a conclusion about themselves; it costs nothing to tell
+// them it's a normal thing that happens to a few words in every language, and
+// silence on the subject is its own message.
+//
+// Set here rather than read from progress in the UI because the generator
+// already has the card, and the alternative is threading learner state into a
+// component that has managed without it.
+function markStruggling(exercise, card) {
+  if (exercise && (card?.lapses || 0) >= 3) exercise.struggling = true;
+  return exercise;
+}
+
 function buildExercise(item, pool, card, _depth = 0, progress = {}) {
   const reps = card?.reps || 0;
-  const type = chooseExerciseType(reps, item);
-  return buildExerciseOfType(item, type, pool, card, _depth, progress);
+  const type = chooseExerciseType(reps, item, card?.lapses || 0);
+  return markStruggling(buildExerciseOfType(item, type, pool, card, _depth, progress), card);
 }
 
 // v32: explicit-type variant — same renderer, takes the type as a parameter
@@ -893,6 +907,7 @@ function buildOddOneOut(item, pool) {
 
 function buildGraduatedSet(item, pool, card, progress = {}) {
   const reps = card?.reps || 0;
+  const lapses = card?.lapses || 0;
   const examples = item.examples || [];
   const hasShortSentence = examples.some((ex) => {
     const w = (ex?.native || "").split(/\s+/).filter(Boolean).length;
@@ -901,7 +916,22 @@ function buildGraduatedSet(item, pool, card, progress = {}) {
 
   // Decide which levels to include based on familiarity
   const levels = [];
-  if (reps === 0) {
+  // v82: a word someone keeps losing gets its own rung — see the leech note
+  // above chooseExerciseType.
+  //
+  // Deliberately ONE exercise, which took three tries to get right. Routing a
+  // struggling word through the "new word" ladder instead ran lessons 23%
+  // longer, and a two-rung version 13% longer; measured over twelve simulated
+  // learners those bought about one further word rescued, at the cost of two
+  // extra questions in every lesson every day for everyone. Longer sessions are
+  // their own way of losing people. Easier questions, not more of them.
+  if (lapses >= 3) {
+    levels.push(
+      hasShortSentence && Math.random() < 0.5
+        ? EXERCISE.COMPLETE_SENTENCE   // the word held up by its own sentence
+        : EXERCISE.PICK_MEANING        // a win to build from
+    );
+  } else if (reps === 0) {
     levels.push(EXERCISE.PICK_MEANING); // recognise
     // v59: sometimes swap plain recognition for a fast true/false judgement
     if (Math.random() < 0.3) levels.push(EXERCISE.TRUE_FALSE);
@@ -920,7 +950,9 @@ function buildGraduatedSet(item, pool, card, progress = {}) {
   }
 
   // Build the exercises
-  return levels.map((type) => buildExerciseOfType(item, type, pool, card, 0, progress));
+  return levels.map((type) =>
+    markStruggling(buildExerciseOfType(item, type, pool, card, 0, progress), card)
+  );
 }
 
 // v59: LETTER_SCRAMBLE eligibility — single word, Latin script (incl. Turkish
@@ -934,11 +966,62 @@ function canScramble(item) {
   return /^[a-zA-ZçğıöşüâîûÇĞİÖŞÜáéíóúñüàèìòùäëïöß']+$/.test(lemma);
 }
 
-function chooseExerciseType(reps, item) {
+// =============================================================================
+// v82 — THE LEECH SPIRAL, and why `reps` alone was the wrong question to ask.
+//
+// `reps` counts how many times a word has been PUT IN FRONT of someone. It only
+// ever goes up, and it goes up just as fast when they get it wrong. So a word
+// someone has failed six times has a high rep count, is treated as well known,
+// and is handed the hardest exercise in the set — type it cold, build a sentence
+// with it. They fail. Stability collapses. It comes back tomorrow. It gets asked
+// the same way. They fail again.
+//
+// In spaced repetition these are called LEECHES, and they are one of the main
+// reasons people quit: a handful of words dominate every session, and every
+// session ends in being wrong about the same things. Anki's answer is to suspend
+// the card, which for a language course means quietly deciding someone will
+// never learn "because". That isn't an answer, it's giving up on their behalf.
+//
+// The better answer is that the WORD isn't the problem, the QUESTION is. A
+// learner who cannot type a word from cold can very often pick it out of four,
+// or read it inside a sentence that carries its meaning. That isn't a
+// consolation prize — a successful retrieval is the thing that builds stability
+// in the first place, and an easy success does more for a fading memory than a
+// hard failure ever will. Get one win, and the word has somewhere to grow from.
+//
+// So difficulty is chosen from an EFFECTIVE rep count that lapses pull back
+// down, and past a certain point the word is deliberately met in context, where
+// there is something to hold on to.
+//
+// Measured with scripts/simulate-leech.mjs — a learner for whom some words are
+// genuinely hard, which is every learner.
+// =============================================================================
+function effectiveReps(reps, lapses) {
+  if (lapses >= 5) return 0;  // meet it as if new: recognition, and in a sentence
+  if (lapses >= 3) return 1;  // ease off production, keep the context work
+  if (lapses >= 2) return Math.min(reps, 2);
+  return reps;
+}
+
+function chooseExerciseType(reps, item, lapses = 0) {
   const ex0 = item.examples?.[0]?.native || "";
   const exWords = ex0.split(" ").filter(Boolean).length;
   const hasShortSentence = exWords >= 2;        // enough for TAP_WORDS / COMPLETE
   const hasRealSentence = exWords >= 3;         // enough for a meaningful BUILD
+
+  // A word that is genuinely fighting them. Show it inside its sentence where
+  // possible — a word that won't stick alone often sticks in context, which is
+  // the entire comprehensible-input argument — and otherwise ask the most
+  // winnable question there is. Never cold production: that is what has been
+  // failing.
+  if (lapses >= 5) {
+    const r = Math.random();
+    if (hasShortSentence && r < 0.45) return EXERCISE.COMPLETE_SENTENCE;
+    if (r < 0.7) return EXERCISE.PICK_MEANING;
+    return EXERCISE.LISTEN_PICK;
+  }
+
+  reps = effectiveReps(reps, lapses);
 
   // Brand new (reps 0): gentle — but if there's a sentence, occasionally show
   // it via COMPLETE_SENTENCE so learners see words IN CONTEXT from the start,

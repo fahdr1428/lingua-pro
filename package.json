@@ -21,7 +21,8 @@
     "validate-passages": "node scripts/validate-passages.mjs",
     "audit-a11y": "node scripts/audit-a11y.mjs",
     "validate-themes": "node scripts/validate-themes.mjs",
-    "verify-offline": "node scripts/verify-offline.mjs"
+    "verify-offline": "node scripts/verify-offline.mjs",
+    "simulate-leech": "node scripts/simulate-leech.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",

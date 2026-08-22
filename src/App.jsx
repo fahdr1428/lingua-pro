@@ -57,6 +57,23 @@ const DialectDrill = named(() => import("./screens/DialectDrill.jsx"), "DialectD
 const Legal = named(() => import("./screens/Legal.jsx"), "Legal");
 const Decode = named(() => import("./screens/Decode.jsx"), "Decode");
 
+// A lazily-imported screen that fails to load is almost never a bug in the
+// screen. It's a deploy: this app splits fifteen screens into content-hashed
+// chunks, and when we ship, the old names stop existing. Anyone with the tab
+// open is now running an app that asks for files the server has never heard of,
+// and the first screen they open dies.
+//
+// "Go back home" is the wrong offer there — home already works, and every other
+// screen will fail the same way. The only fix is to fetch the new index.html,
+// so we do that ourselves rather than making someone guess.
+//
+// Browsers word this differently, hence the alternatives.
+const CHUNK_ERROR =
+  /dynamically imported module|importing a module script failed|chunkloaderror|failed to fetch dynamically/i;
+const RELOADED_KEY = "lingua:chunk-reload";
+
+const isChunkError = (error) => CHUNK_ERROR.test(String(error?.message || ""));
+
 // Error boundary — catches crashes and shows a recovery button instead of a white screen
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -66,23 +83,46 @@ class ErrorBoundary extends React.Component {
   static getDerivedStateFromError(error) {
     return { hasError: true, error };
   }
+  componentDidCatch(error) {
+    if (!isChunkError(error)) return;
+    // Reload exactly once per session. If the reload didn't fix it — we're
+    // offline, or the chunk is genuinely gone — a second one won't either, and
+    // an app that reloads itself forever is worse than any error screen.
+    try {
+      if (sessionStorage.getItem(RELOADED_KEY) === "1") return;
+      sessionStorage.setItem(RELOADED_KEY, "1");
+    } catch {
+      // No way to remember we already tried, so don't risk the loop.
+      return;
+    }
+    window.location.reload();
+  }
   render() {
     if (this.state.hasError) {
+      const stale = isChunkError(this.state.error);
       return (
         <div style={{ padding: 40, textAlign: "center", color: "var(--text)" }}>
-          <div style={{ fontSize: 60, marginBottom: 16 }}>😵</div>
-          <h2 style={{ fontSize: 24, fontWeight: 800 }}>Something went wrong</h2>
+          <div style={{ fontSize: 60, marginBottom: 16 }}>{stale ? "🔄" : "😵"}</div>
+          <h2 style={{ fontSize: 24, fontWeight: 800 }}>
+            {stale ? "Zaban just updated" : "Something went wrong"}
+          </h2>
           <p style={{ color: "var(--text-dim)", marginBottom: 24, fontSize: 14 }}>
-            {String(this.state.error?.message || "Unknown error")}
+            {stale
+              ? "This tab is running the old version. Reload and you'll pick up where you left off — nothing is lost."
+              : String(this.state.error?.message || "Unknown error")}
           </p>
           <button
             onClick={() => {
+              if (stale) {
+                window.location.reload();
+                return;
+              }
               this.setState({ hasError: false, error: null });
               this.props.onRecover?.();
             }}
             style={{
               background: "var(--primary)",
-              color: "#fff",
+              color: "var(--on-primary)",
               border: "none",
               borderRadius: 12,
               padding: "14px 24px",
@@ -91,7 +131,7 @@ class ErrorBoundary extends React.Component {
               cursor: "pointer",
             }}
           >
-            Go back home
+            {stale ? "Reload" : "Go back home"}
           </button>
         </div>
       );

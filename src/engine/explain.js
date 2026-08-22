@@ -280,6 +280,27 @@ export function explainAnswer(exercise, userAnswer, langCode, opts = {}) {
       parts.push(`The answer is **${exercise.answer || item.translation}**.`);
   }
 
+  // v82 — SAY IT OUT LOUD WHEN A WORD IS FIGHTING THEM.
+  //
+  // Every language has a handful of words that refuse to stick for a particular
+  // person, for no reason either of you can name. Getting one wrong for the
+  // sixth time, with the app saying nothing about it, invites exactly one
+  // conclusion, and it's about the learner rather than the word.
+  //
+  // The generator flags these (see markStruggling) and has already switched to
+  // asking an easier question. This is the part that admits it, and it goes
+  // LAST — after the actual answer, which is still the useful content. On a
+  // correct answer it's a different sentence entirely, because getting a word
+  // you keep losing right is the single most encouraging thing that happens in
+  // a lesson and it should not pass without comment.
+  if (exercise.struggling) {
+    parts.push(
+      correct
+        ? "And that's the one that keeps slipping away from you — nicely done."
+        : "This one keeps slipping. That happens with a few words in every language, and it isn't a verdict on you — we'll keep bringing it back gently until it sticks."
+    );
+  }
+
   return {
     title: correct ? "Worth knowing" : "Here's what happened",
     body: parts.join(" "),

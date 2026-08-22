@@ -40,15 +40,42 @@
 //   promptly; the timeout is there because "slow" is the common failure on a
 //   patchy connection, not "absent", and a 30-second hang is worse than an
 //   instant offline render.
+//
+// THE STALE TAB PROBLEM (v82), which v81 made worse before it made it better.
+//
+// This app code-splits: fifteen screens arrive as lazily-imported chunks with
+// content-hashed names. Someone leaves a tab open, we deploy, and the chunk
+// names change. They tap "Reading" an hour later, the old chunk is requested,
+// and the host no longer has it — every static host serves the current
+// deployment, not the last four. React.lazy rejects, and the screen dies.
+//
+// A service worker with a VERSIONED asset cache makes that strictly worse: the
+// new worker activates, deletes the old cache as housekeeping, and destroys the
+// one copy of that chunk still in existence. The tab was previously only broken
+// if it was online and unlucky; now it's broken either way.
+//
+// So the asset cache is unversioned and capped instead. A fingerprinted name
+// means an old chunk is still exactly correct for the page that wants it, and
+// keeping it is the difference between an open tab surviving a deploy and an
+// open tab breaking. The app also handles the failure at the other end — see the
+// chunk-error reload in App.jsx — because the cache can still be evicted by the
+// browser, and belt-and-braces is the right amount of engineering for "the app
+// breaks for everyone who had it open when we shipped".
 // =============================================================================
 
 // Bumped on every release that changes the shell. Old caches are deleted on
 // activate, so this is also how a bad cache gets cleaned up in the field.
-const VERSION = "v81";
+const VERSION = "v82";
 const SHELL = `zaban-shell-${VERSION}`;
-const ASSETS = `zaban-assets-${VERSION}`;
-const AUDIO = "zaban-audio";        // deliberately unversioned: an mp3 of a word
-                                    // being said does not change between releases.
+
+// DELIBERATELY UNVERSIONED, and this is load-bearing — see "the stale tab
+// problem" below. Vite fingerprints every file in here, so a name uniquely
+// identifies its bytes: keeping an old build's chunks costs a little disk and
+// saves an open tab from breaking the moment we deploy. Capped, so it can't
+// grow across a year of releases.
+const ASSETS = "zaban-assets";
+const AUDIO = "zaban-audio";        // likewise: an mp3 of a word being said does
+                                    // not change between releases.
 
 // Kept small on purpose. Everything else arrives through cache-on-use, and a
 // long precache list is a long list of things that can 404 and abort the whole
@@ -75,6 +102,11 @@ const NAV_TIMEOUT_MS = 3500;
 // ~2000 words of audio. Comfortably more than anyone learns, far less than a
 // browser will evict without warning.
 const AUDIO_MAX_ENTRIES = 2400;
+// A build produces ~35 files under /assets. 400 is roughly ten releases' worth
+// of history, which is far more overlap than any tab stays open for, and still
+// a small number of small files. The oldest go first, so the build a tab is
+// actually running is never the one evicted.
+const ASSETS_MAX_ENTRIES = 400;
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -89,12 +121,16 @@ self.addEventListener("install", (event) => {
       );
       // The entry bundle and stylesheet, by their hashed names. These are what
       // make the FIRST offline load work rather than only the second.
+      // Re-adding a URL that's already cached re-inserts it, which moves it to
+      // the back of the eviction queue — so this build's files are the last
+      // things the cap would ever drop, and older builds' chunks age out first.
       const assets = await caches.open(ASSETS);
       await Promise.all(
         BUILD_ASSETS.map((url) =>
           assets.add(new Request(url, { cache: "reload" })).catch(() => {})
         )
       );
+      await trim(ASSETS, ASSETS_MAX_ENTRIES);
       // Take over as soon as this version is ready rather than waiting for every
       // tab to close — paired with clients.claim() below.
       await self.skipWaiting();
@@ -121,16 +157,20 @@ self.addEventListener("activate", (event) => {
 // A cache that forgets its oldest entries rather than growing without bound.
 // Cache Storage has no LRU of its own, and 8.5MB of audio plus a browser's own
 // eviction heuristics is not something to leave to chance.
+async function trim(cacheName, maxEntries) {
+  const cache = await caches.open(cacheName);
+  const keys = await cache.keys();
+  if (keys.length <= maxEntries) return;
+  // keys() returns insertion order, so the front is the oldest.
+  for (const stale of keys.slice(0, keys.length - maxEntries)) {
+    await cache.delete(stale);
+  }
+}
+
 async function putCapped(cacheName, request, response, maxEntries) {
   const cache = await caches.open(cacheName);
   await cache.put(request, response);
-  const keys = await cache.keys();
-  if (keys.length > maxEntries) {
-    // keys() returns insertion order, so the front is the oldest.
-    for (const stale of keys.slice(0, keys.length - maxEntries)) {
-      await cache.delete(stale);
-    }
-  }
+  await trim(cacheName, maxEntries);
 }
 
 // WHY EVERY LOOKUP PASSES ignoreVary.
@@ -154,15 +194,19 @@ async function putCapped(cacheName, request, response, maxEntries) {
 // content-hashed static files whose bytes do not depend on any request header.
 // It would not be safe for a content-negotiated response, and nothing like that
 // is ever cached.
-async function cacheFirst(request, cacheName) {
+async function cacheFirst(request, cacheName, maxEntries) {
   const cached = await caches.match(request, { ignoreVary: true });
   if (cached) return cached;
   const response = await fetch(request);
   // Opaque responses (no-cors) report status 0 and can silently fill the cache
   // with errors, so only store real successes.
   if (response && response.ok) {
-    const cache = await caches.open(cacheName);
-    cache.put(request, response.clone());
+    if (maxEntries) {
+      putCapped(cacheName, request, response.clone(), maxEntries).catch(() => {});
+    } else {
+      const cache = await caches.open(cacheName);
+      cache.put(request, response.clone());
+    }
   }
   return response;
 }
@@ -249,7 +293,7 @@ self.addEventListener("fetch", (event) => {
 
   // Fingerprinted by the build, so a cached copy is correct by construction.
   if (url.pathname.startsWith("/assets/") || url.pathname.startsWith("/fonts/")) {
-    event.respondWith(cacheFirst(request, ASSETS));
+    event.respondWith(cacheFirst(request, ASSETS, ASSETS_MAX_ENTRIES));
     return;
   }
 

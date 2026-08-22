@@ -678,6 +678,81 @@ check("every disabled type is genuinely absent, including the two built outside 
 }
 
 // =========================================================================
+// v82 — A WORD SOMEONE KEEPS FORGETTING MUST BE MET WITH AN EASIER QUESTION
+//
+// Exercise difficulty used to be chosen from `reps`, which counts how many times
+// a word has been PUT IN FRONT of someone and goes up just as fast when they get
+// it wrong. So a word failed six times looked well known and got the hardest
+// question in the set — type it cold — which is precisely the question that has
+// been failing. Fail, stability collapses, due tomorrow, asked the same way,
+// fail. Simulated over twelve learners, 15.5 words per learner were still being
+// got wrong at day 90; with lapses taken into account, 12.4.
+//
+// The second assertion guards the other half of it: struggling words have the
+// lowest retrievability by definition, so a pure lowest-first sort hands them
+// every slot and the whole session becomes the words you are worst at.
+// =========================================================================
+{
+  const { buildQueue } = await import("../src/engine/selector.js");
+  const pack = JSON.parse(readFileSync("src/data/languages/ur.json", "utf8"));
+  const now = Date.now();
+
+  const HARD = ["type_translation", "build_sentence", "letter_scramble", "tap_words"];
+
+  // Spanish rather than Urdu on purpose: LETTER_SCRAMBLE only fires on Latin
+  // script, so an Urdu leech can't reach the hardest branch at all and the
+  // assertion would pass without proving anything.
+  const es = JSON.parse(readFileSync("src/data/languages/es.json", "utf8"));
+
+  // One word, thoroughly lost: seen many times, forgotten most of them. It is
+  // deliberately NOT in the queue — that routes it through the reinforcement
+  // round, which is where exercise type is chosen per word, rather than through
+  // the graduated ladder.
+  const leech = es.vocab[0];
+  const progress = {
+    [leech.id]: {
+      difficulty: 9, stability: 0.4, lastReview: now - 3 * 864e5,
+      nextReview: now - 2 * 864e5, reps: 12, lapses: 7, lastRating: 1,
+    },
+  };
+  const queued = es.vocab.slice(1, 7);
+  for (const v of queued) {
+    progress[v.id] = {
+      difficulty: 5, stability: 6, lastReview: now - 864e5,
+      nextReview: now + 864e5, reps: 5, lapses: 0, lastRating: 3,
+    };
+  }
+
+  let hard = 0, total = 0;
+  for (let i = 0; i < 60; i++) {
+    for (const ex of generateLesson(queued, es.vocab, progress, "es")) {
+      if (ex.item?.id !== leech.id) continue;
+      total++;
+      if (HARD.includes(ex.type)) hard++;
+    }
+  }
+  check("a word forgotten seven times is not asked to be produced from cold",
+    total > 0 && hard === 0, `${hard} of ${total} exercises on it were production`);
+
+  // Forty words all overdue, thirty of them leeches. The session must not be
+  // made entirely of the thirty.
+  const mixed = {};
+  pack.vocab.slice(0, 40).forEach((v, i) => {
+    mixed[v.id] = {
+      difficulty: 6, stability: i < 30 ? 0.4 : 2, lastReview: now - 10 * 864e5,
+      nextReview: now - 864e5, reps: 6, lapses: i < 30 ? 6 : 0, lastRating: 1,
+    };
+  });
+  const q = buildQueue(pack.vocab, mixed, { sessionSize: 9, newPerSession: 0 });
+  const struggling = q.filter((v) => (mixed[v.id]?.lapses || 0) >= 4).length;
+  check("the words you are worst at don't take over the whole session",
+    struggling <= Math.max(2, Math.round(9 / 3)),
+    `${struggling} of ${q.length} queued words were leeches`);
+  check("...but they are still worked on, not quietly dropped",
+    struggling >= 1, `${struggling} leeches queued`);
+}
+
+// =========================================================================
 const failed = results.filter((r) => !r.ok);
 console.log(`\n  ${results.length - failed.length} pass, ${failed.length} fail\n`);
 process.exit(failed.length ? 1 : 0);

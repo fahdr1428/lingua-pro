@@ -30,11 +30,41 @@ export function buildQueue(vocab, progress, opts = {}) {
   const now = Date.now();
 
   // Bucket 1: studied cards that are due, sorted by retrievability (lowest first)
-  const due = vocab
+  const dueAll = vocab
     .filter((v) => progress[v.id])
     .map((v) => ({ item: v, r: retrievability(progress[v.id], now), card: progress[v.id] }))
     .filter(({ r }) => r < cfg.dueThreshold)
     .sort((a, b) => a.r - b.r);
+
+  // ---------------------------------------------------------------------------
+  // v82 — DON'T LET THE WORST WORDS EAT THE WHOLE SESSION.
+  //
+  // Sorting by retrievability, lowest first, is right: the word closest to being
+  // lost is the one most worth spending a repetition on. But taken literally it
+  // has an ugly consequence. The words someone keeps forgetting always have the
+  // lowest retrievability — that is what forgetting them means — so they win
+  // every slot, every day. Ten weeks in, a learner with thirty leeches opens the
+  // app and gets a session made entirely of the thirty words they are worst at.
+  //
+  // Every session ends in being wrong about the same things, nothing they DO
+  // know ever comes back, and there is no evidence of progress anywhere in the
+  // lesson. That is a quitting experience, and it's produced by a sort order
+  // that is individually correct at every step.
+  //
+  // So struggling words get a bounded share of the review slots — enough to
+  // work on properly, not enough to become the whole lesson. Three hard words
+  // met carefully beats twelve skimmed, and the rest of the session can then
+  // contain something the learner can feel themselves getting right.
+  // ---------------------------------------------------------------------------
+  const STRUGGLING_LAPSES = 4;
+  const struggling = dueAll.filter((d) => (d.card.lapses || 0) >= STRUGGLING_LAPSES);
+  const ordinary = dueAll.filter((d) => (d.card.lapses || 0) < STRUGGLING_LAPSES);
+  // A third of the session, and never fewer than two — if two words are all
+  // that's wrong, they should still be the first thing seen.
+  const strugglingCap = Math.max(2, Math.round(cfg.sessionSize / 3));
+  const due = struggling.length > strugglingCap
+    ? [...struggling.slice(0, strugglingCap), ...ordinary].sort((a, b) => a.r - b.r)
+    : dueAll;
 
   // ---------------------------------------------------------------------------
   // ADAPTIVE REVIEW — how many new words to introduce alongside the reviews.
@@ -81,7 +111,9 @@ export function buildQueue(vocab, progress, opts = {}) {
   // scales with session length on its own — someone doing 15-question sessions
   // clears more per sitting and should be allowed to move faster.
   const capacity = Math.max(4, cfg.sessionSize);
-  const sessionsBehind = due.length / capacity;
+  // Measured against everything genuinely outstanding, not the capped
+  // slice we're going to show — the backlog is the backlog either way.
+  const sessionsBehind = dueAll.length / capacity;
 
   let effectiveNewPerSession = cfg.newPerSession;
   if (sessionsBehind >= 6) {
@@ -119,7 +151,10 @@ export function buildQueue(vocab, progress, opts = {}) {
   // feeling like the app forgot them. Sample by lowest current retrievability
   // (still healthy, but closest to fading) — this is what real learning looks like.
   const mature = vocab
-    .filter((v) => progress[v.id] && !due.find((d) => d.item.id === v.id))
+    // dueAll, not due: a struggling word held back by the cap above is not
+    // "fresh enough to sprinkle in", and letting it return through this bucket
+    // would undo the cap entirely.
+    .filter((v) => progress[v.id] && !dueAll.find((d) => d.item.id === v.id))
     .map((v) => ({ item: v, r: retrievability(progress[v.id], now) }))
     .sort((a, b) => a.r - b.r);
 
