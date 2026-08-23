@@ -356,6 +356,8 @@ export function Vocab({ engine, pack, appState, onNavigate }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search…"
+          aria-label="Search your words"
+          type="search"
           style={{
             width: "100%",
             padding: 13,

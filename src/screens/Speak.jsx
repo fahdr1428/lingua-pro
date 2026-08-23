@@ -580,10 +580,10 @@ function MicPad({ target, lang, langCode, guide, micSupported, previousScore, on
           <input
             className="type-input"
             value={typed}
-            autoFocus
             onChange={(e) => setTyped(e.target.value)}
             onKeyDown={(e) => { if (e.key === "Enter" && typed.trim()) grade([typed]); }}
             placeholder="Type what you'd say…"
+            aria-label="Type what you would say"
             autoComplete="off" autoCorrect="off" spellCheck={false}
           />
           <button className="type-submit" disabled={!typed.trim()} onClick={() => grade([typed])}>

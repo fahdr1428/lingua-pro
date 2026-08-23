@@ -13,7 +13,7 @@
     "validate-journey": "node scripts/validate-journey.mjs",
     "test-speech": "node scripts/test-speech.mjs",
     "test-generator": "node scripts/test-generator.mjs",
-    "check": "npm run validate-vocab && npm run validate-journey && npm run validate-passages && npm run validate-themes && npm run validate-grammar-checks && npm run test-speech && npm run test-generator && npm run test-lessons && npm run test-engine && npm run test-coach && npm run build",
+    "check": "npm run validate-vocab && npm run validate-journey && npm run validate-passages && npm run validate-themes && npm run validate-grammar-checks && npm run test-speech && npm run test-generator && npm run test-lessons && npm run test-engine && npm run test-coach && npm run audit-interface && npm run build",
     "validate-grammar-checks": "node scripts/validate-grammar-checks.mjs",
     "test-coach": "node scripts/test-coach-api.mjs",
     "test-engine": "node scripts/test-engine.mjs",
@@ -26,7 +26,9 @@
     "verify-deploy-skew": "node scripts/verify-deploy-skew.mjs",
     "simulate-leech": "node scripts/simulate-leech.mjs",
     "measure-input": "node scripts/measure-input.mjs",
-    "measure-stream": "node scripts/measure-stream.mjs"
+    "measure-stream": "node scripts/measure-stream.mjs",
+    "audit-interface": "node scripts/audit-interface.mjs",
+    "design-md": "node scripts/build-design-md.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",

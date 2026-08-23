@@ -9,7 +9,11 @@
          problem is solved properly in CSS instead: inputs are 16px, which is the
          threshold iOS uses to decide whether to zoom. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0a0f1f" />
+    <!-- The default (cream) theme's own --bg. applyTheme rewrites this on every
+         theme change; this value is what the status bar shows for the moment
+         before the app has booted, so it has to be the colour the app starts
+         in rather than a hardcoded navy that matched none of the themes. -->
+    <meta name="theme-color" content="#fbf7f0" />
     <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
     <link rel="apple-touch-icon" href="/icon-180.png" />

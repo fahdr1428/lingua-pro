@@ -148,4 +148,18 @@ export function applyTheme(themeKey) {
     root.style.setProperty(key, value);
   }
   root.style.colorScheme = theme.colorScheme;
+
+  // v84 — THE STATUS BAR HAD ITS OWN OPINION.
+  //
+  // <meta name="theme-color"> is what a phone paints behind the status bar and
+  // address bar. It was a fixed #0a0f1f — a dark navy that matches none of the
+  // three themes, including the dark one — so a learner on the default cream
+  // theme got a band of near-black above a warm off-white app, and switching
+  // theme changed everything except that band.
+  //
+  // Set from the theme's own ground so the chrome and the app are the same
+  // colour by construction rather than by someone remembering to update a
+  // hardcoded hex in index.html.
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", theme.vars["--bg"]);
 }

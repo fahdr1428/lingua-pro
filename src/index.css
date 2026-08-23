@@ -296,7 +296,12 @@ button:active { transform: translateY(1px) scale(0.98); }
   font-size: 20px; margin-top: 6px;
   background: var(--surface);
   border: 2px solid var(--border);
-  transition: all 250ms var(--ease-smooth);
+  /* Listed rather than `all`: `all` also animates any layout property that
+     happens to differ between states, on the main thread, for no reason. */
+  transition: background-color 250ms var(--ease-smooth),
+              border-color 250ms var(--ease-smooth),
+              color 250ms var(--ease-smooth),
+              transform 250ms var(--ease-smooth);
 }
 .plan-node-active {
   border-color: var(--accent);
@@ -667,7 +672,14 @@ button:focus:not(:focus-visible) { outline: none; }
   margin-top: 4px;
   display: flex; align-items: center; justify-content: center;
   font-size: 8.5px; font-weight: 900; line-height: 1;
-  transition: all 220ms var(--ease-smooth);
+  /* width/height/margin are in the list deliberately — .dot-now really does
+     change size, and 13px→17px on a single dot is a cheap layout. Everything
+     else `all` was quietly animating is not. */
+  transition: background-color 220ms var(--ease-smooth),
+              color 220ms var(--ease-smooth),
+              width 220ms var(--ease-smooth),
+              height 220ms var(--ease-smooth),
+              margin-top 220ms var(--ease-smooth);
 }
 .dot-done   { background: var(--primary); color: var(--on-primary); }
 .dot-now    {
@@ -1145,7 +1157,17 @@ button:focus:not(:focus-visible) { outline: none; }
 .type-input {
   width: 100%; padding: 15px 16px; font-size: 16px;
   border: 1px solid var(--border); border-radius: 14px;
-  background: var(--surface); outline: none;
+  background: var(--surface);
+}
+/* v84: this used to be `outline: none` with only a border-colour change on
+   :focus. A recoloured 1px border is not a focus indicator — and because the
+   rule sat AFTER the global :focus-visible ring at the same specificity, it
+   won, so this input had no keyboard focus indicator at all. The contrast
+   audit never caught it: it checks colour and labels, not focus. */
+.type-input:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-color: var(--primary);
 }
 .type-input:focus { border-color: var(--ink); }
 .type-submit {

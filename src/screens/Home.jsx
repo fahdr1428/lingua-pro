@@ -686,6 +686,8 @@ function NameCapture({ onSave }) {
         onChange={(e) => setName(e.target.value)}
         onKeyDown={(e) => { if (e.key === "Enter" && name.trim()) onSave(name.trim()); }}
         placeholder="Your name"
+        aria-label="Your name"
+        autoComplete="given-name"
         style={{
           flex: 1, minWidth: 60, border: "none", background: "transparent",
           fontSize: 14, fontWeight: 600, outline: "none", padding: "6px 0",

@@ -311,6 +311,7 @@ export function LiveConversation({
           onChange={(e) => setTyped(e.target.value)}
           onKeyDown={(e) => { if (e.key === "Enter") submit(typed); }}
           placeholder={listening ? "Listening…" : "Say it, or type it…"}
+          aria-label={`Your reply in ${lang.name || "the language"}`}
           disabled={pending}
           autoComplete="off" autoCorrect="off" spellCheck={false}
         />

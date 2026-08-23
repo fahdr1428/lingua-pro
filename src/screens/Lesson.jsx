@@ -23,6 +23,19 @@ import { WORD_PRONUNCIATION } from "../data/wordPronunciation.js";
 // hero (so beginners can read it) and the native script is a smaller reference.
 const NON_LATIN_LANGUAGES = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
+// v84 — autoFocus, but only where a keyboard is already on screen.
+//
+// Focusing this input on a phone opens the software keyboard immediately, which
+// slides up over the question the learner is being asked to answer. On a desktop
+// it saves a click and costs nothing. The Web Interface Guidelines put it well:
+// autoFocus is a desktop affordance for a single primary input.
+//
+// Read once at module scope — it cannot change without a new device.
+const HAS_KEYBOARD =
+  typeof window !== "undefined" &&
+  typeof window.matchMedia === "function" &&
+  window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
 export function Lesson({ engine, pack, appState, setAppState, params, onNavigate, refreshStats, profile }) {
   const lang = LANGUAGES[pack.code];
   const isNonLatin = NON_LATIN_LANGUAGES.has(pack.code);
@@ -1201,7 +1214,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               onChange={(e) => !feedback && setTyped(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && canCheck && !feedback && check()}
               placeholder="Type your answer…"
-              autoFocus
+              aria-label="Type your answer"
+              autoFocus={HAS_KEYBOARD}
               style={{
                 width: "100%",
                 padding: 16,
@@ -1308,7 +1322,13 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           {/* Feedback */}
           {feedback && (
             <>
+              {/* v84: role="status" makes this a polite live region, so a screen
+                  reader announces whether the answer was right. Without it the
+                  single most important moment in a lesson happened silently —
+                  the card appeared, and someone not looking at the screen was
+                  told nothing at all. */}
               <Card
+                role="status"
                 style={{
                   marginTop: 24,
                   // v79: a missed answer is no longer alarm-red. The learner
@@ -2356,6 +2376,7 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
                 onChange={(e) => setTyped(e.target.value)}
                 onKeyDown={(e) => { if (e.key === "Enter" && typed.trim()) grade([typed]); }}
                 placeholder={isNonLatin ? "Type it in either script\u2026" : "Type the word\u2026"}
+                aria-label={isNonLatin ? "Type it in either script" : "Type the word"}
                 autoComplete="off" autoCorrect="off" spellCheck={false}
               />
               <button className="type-submit" disabled={!typed.trim()} onClick={() => grade([typed])}>
