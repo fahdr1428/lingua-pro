@@ -136,12 +136,20 @@ export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, on
             <span style={{ fontSize: 9, opacity: 0.6, flexShrink: 0 }}>▼</span>
           </button>
         )}
+        {/* v85: the four counters read as one group.
+            XP used to be pinned to the FAR RIGHT of the bar, separated from the
+            other three by the entire width of the screen — on a 1920px display
+            that is a metre of empty space between "hearts" and "XP", and it read
+            as an unrelated widget rather than as the fourth of four stats.
+            It sits with the others now, and last within them, because a
+            lifetime total is the least urgent thing on this bar. */}
         <Stat icon={ICONS.flame} value={streak} />
         <Stat icon={ICONS.gem} value={gems} color="var(--accent-text)" />
         <Stat icon={ICONS.heart} value={premium ? "∞" : hearts} color="var(--danger)" />
+        <span className="topbar-div" aria-hidden="true" />
+        <Stat icon={ICONS.zap} value={totalXp} color="var(--text-mute)" />
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
-        <Stat icon={ICONS.zap} value={totalXp} color="var(--accent-text)" />
         {/* Zaban brand mark — present on every screen */}
         <img src="/mark-64.webp" alt="Zaban" width="24" height="24" style={{ height: 24, width: 24, objectFit: "contain", opacity: 0.95, flexShrink: 0 }} />
       </div>
@@ -227,12 +235,29 @@ function Stat({ icon, value, color = "var(--text)" }) {
 // nav, which is a phone pattern. Uses the same item list as BottomNav so the
 // two can't drift apart.
 export function SideRail({ screen, onNavigate, streak = 0, totalXp = 0 }) {
-  const items = [
-    { id: "home", icon: ICONS.sprout, label: "Learn" },
-    { id: "hub", icon: ICONS.grid, label: "Practice" },
-    { id: "speak", icon: ICONS.mic, label: "Speak" },
-    { id: "missions", icon: ICONS.flag, label: "Missions" },
-    { id: "profile", icon: ICONS.user, label: "Profile" },
+  // v85: two groups rather than five flat items. The first three are places you
+  // go to DO something; the last two are places you go to SEE something. Five
+  // undifferentiated entries make you read all five labels every time, and the
+  // separation costs a hairline and one word.
+  //
+  // Kept to five. A navigation rail is one of the few places in an app where the
+  // right instinct is to resist adding to it.
+  const groups = [
+    {
+      label: "Learn",
+      items: [
+        { id: "home", icon: ICONS.sprout, label: "Learn" },
+        { id: "hub", icon: ICONS.grid, label: "Practice" },
+        { id: "speak", icon: ICONS.mic, label: "Speak" },
+      ],
+    },
+    {
+      label: "Progress",
+      items: [
+        { id: "missions", icon: ICONS.flag, label: "Missions" },
+        { id: "profile", icon: ICONS.user, label: "Profile" },
+      ],
+    },
   ];
   const active = screen === "home" ? "home" : screen;
   return (
@@ -241,16 +266,21 @@ export function SideRail({ screen, onNavigate, streak = 0, totalXp = 0 }) {
         <img src="/mark-64.webp" alt="" width="22" height="22" style={{ width: 22, height: 22, objectFit: "contain" }} />
         <span className="brand-serif" style={{ fontSize: 17, color: "var(--ink)" }}>zaban</span>
       </div>
-      {items.map((it) => (
-        <button
-          key={it.id}
-          className="side-rail-item"
-          aria-current={active === it.id ? "page" : undefined}
-          onClick={() => onNavigate(it.id)}
-        >
-          {it.icon}
-          {it.label}
-        </button>
+      {groups.map((g) => (
+        <div key={g.label} className="rail-group">
+          <div className="rail-group-head">{g.label}</div>
+          {g.items.map((it) => (
+            <button
+              key={it.id}
+              className="side-rail-item"
+              aria-current={active === it.id ? "page" : undefined}
+              onClick={() => onNavigate(it.id)}
+            >
+              {it.icon}
+              {it.label}
+            </button>
+          ))}
+        </div>
       ))}
       <div style={{ flex: 1 }} />
       <div style={{ borderTop: "1px solid var(--border)", paddingTop: 14, display: "flex", gap: 16, padding: "14px 12px 0" }}>
@@ -319,9 +349,19 @@ export function BottomNav({ screen, onNavigate }) {
   );
 }
 
+// v85: the width lives in CSS, not in an inline style.
+//
+// This used to set `maxWidth: 720` inline. An inline style beats any stylesheet
+// rule, so `.home-container { max-width: 1020px }` — written deliberately, with
+// a comment explaining the two-column desktop layout it was for — never once
+// applied. The desktop home had been silently capped at 720px since the rule
+// was added, and nothing looked broken enough to notice.
+//
+// The `style` prop still spreads last, so a caller that genuinely needs an
+// inline override keeps working.
 export function Container({ children, style, className = "" }) {
   return (
-    <div className={className} style={{ maxWidth: 720, margin: "0 auto", padding: "20px 16px", paddingBottom: 100, ...style }}>
+    <div className={`app-container ${className}`.trim()} style={style}>
       {children}
     </div>
   );

@@ -379,7 +379,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
                   {smartAction.sub}
                 </div>
               </div>
-              <DailyRing pct={dailyPct} met={goalMet} />
+              <DailyRing pct={dailyPct} met={goalMet} today={todayXp} goal={appState.dailyGoalXp || 35} />
             </div>
 
             {/* v66: the conversation this stop unlocks — shown on lesson steps */}
@@ -448,87 +448,15 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           </div>
         </div>
 
-        {/* ===== 3b · SPEAK IT — the app can finally listen (v70) ===== */}
-        {(stats.learned || 0) >= 3 && (
-          <button className="speak-invite" onClick={() => onNavigate("speak")}>
-            <span className="speak-invite-icon" aria-hidden="true">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                <line x1="12" x2="12" y1="19" y2="22" />
-              </svg>
-            </span>
-            <span style={{ flex: 1, minWidth: 0 }}>
-              <span className="speak-invite-title">Say it out loud</span>
-              <span className="speak-invite-sub">
-                {isRecognitionSupported()
-                  ? "I'll listen and tell you honestly — accents welcome"
-                  : "Practise producing it from memory"}
-              </span>
-            </span>
-            <span className="speak-invite-arrow" aria-hidden="true">→</span>
-          </button>
-        )}
-
-        {/* ===== 3c · WHERE YOU ACTUALLY ARE (v73) =====
-            The fluency number and the missions entry, side by side. This is the
-            answer to "no outcome": a figure that moves when you speak, and a list
-            of conversations you can now get through. Both show the truth when
-            there isn't one yet — a dash, not a flattering placeholder. */}
-        <FluencyStrip profile={profile} lang={lang} onNavigate={onNavigate} />
-
-        {/* ===== 4 · THE ROUTE — the journey as a map (v70) ===== */}
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", margin: "30px 0 14px" }}>
-          <h3 className="eyebrow" style={{ margin: 0 }}>Your route</h3>
-          <button className="quiet-link" style={{ margin: 0 }} onClick={() => onNavigate("hub")}>
-            All practice tools →
-          </button>
-        </div>
-
-        {/* v76 — the words that differ where they're going. Only shown when the
-            language actually has dialect data, so it never appears as an empty
-            promise. */}
-        {hasDialectData(pack.vocab) && (
-          <button className="skip-invite" onClick={() => onNavigate("dialect")}>
-            <span style={{ flex: 1, minWidth: 0 }}>
-              <span className="speak-invite-title">
-                {profile?.region
-                  ? `What they actually say in ${regionLabel(pack.code, profile.region)}`
-                  : `${lang.name} isn't one language`}
-              </span>
-              <span className="speak-invite-sub">
-                {profile?.region
-                  ? "Drill the words that change — the ones that'd leave you stuck"
-                  : "Pick the variety you're learning for and drill what differs"}
-              </span>
-            </span>
-            <span className="speak-invite-arrow" aria-hidden="true">→</span>
-          </button>
-        )}
-
-        {/* v78 — the door to real life. Placed above the route, because for the
-            audience this app is actually for, the message they can't read is a
-            more urgent problem than lesson four. */}
-        <button className="skip-invite skip-invite-lead" onClick={() => onNavigate("decode")}>
-          <span style={{ flex: 1, minWidth: 0 }}>
-            <span className="speak-invite-title">Got a message you can't read?</span>
-            <span className="speak-invite-sub">
-              Paste any real {lang.name} — a text from family, a sign, a song.
-              See what it says, and how much of it you already knew.
-            </span>
-          </span>
-          <span className="speak-invite-arrow" aria-hidden="true">→</span>
-        </button>
-
-        {/* v75 — for anyone who already knows a chunk of this. Grinding "hello"
-            when you grew up hearing the language is why people leave on day one. */}
-        <button className="skip-invite" onClick={() => onNavigate("skipahead")}>
-          <span style={{ flex: 1, minWidth: 0 }}>
-            <span className="speak-invite-title">Already know some {lang.name}?</span>
-            <span className="speak-invite-sub">Take a chapter test and skip straight past it</span>
-          </span>
-          <span className="speak-invite-arrow" aria-hidden="true">→</span>
-        </button>
+        {/* ===== LEVEL 2 · WHERE AM I GOING — the route, as a map (v70) =====
+            Moved directly under the hero in v85. It used to sit below the
+            practice doors and the progress numbers, so "where am I in this
+            language?" — the question a returning learner actually opens the app
+            with — was three scrolls down, under things they had not asked for
+            yet. The order of this page is now the order of the questions:
+            what do I do now → where am I → what else can I practise → how am I
+            doing overall. */}
+        <h3 className="home-section-head">Your route</h3>
 
         {loadingUnits ? (
           <div style={{ textAlign: "center", padding: 40, color: "var(--text-dim)" }}>Loading…</div>
@@ -585,6 +513,105 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             })}
           </div>
         )}
+
+        {/* ===== LEVEL 3 · WHAT ELSE CAN I PRACTISE =====
+            These were scattered: the speaking door sat above the fluency
+            numbers, the decode and skip-ahead doors were wedged between the
+            route heading and the route itself. Individually each is a good
+            card; at the same visual weight and in no particular order they
+            competed with the one action the page is actually recommending.
+            Grouped under a heading they read as a menu you consult when you
+            want something else, which is what they are. */}
+        <h3 className="home-section-head">Practise something real</h3>
+        <div className="practise-grid">
+        {/* v78 — the door to real life. Placed above the route, because for the
+            audience this app is actually for, the message they can't read is a
+            more urgent problem than lesson four. */}
+        <button className="skip-invite skip-invite-lead" onClick={() => onNavigate("decode")}>
+          <span style={{ flex: 1, minWidth: 0 }}>
+            <span className="speak-invite-title">Got a message you can't read?</span>
+            <span className="speak-invite-sub">
+              Paste any real {lang.name} — a text from family, a sign, a song.
+              See what it says, and how much of it you already knew.
+            </span>
+          </span>
+          <span className="speak-invite-arrow" aria-hidden="true">→</span>
+        </button>
+
+        {/* ===== 3b · SPEAK IT — the app can finally listen (v70) ===== */}
+        {(stats.learned || 0) >= 3 && (
+          <button className="speak-invite" onClick={() => onNavigate("speak")}>
+            <span className="speak-invite-icon" aria-hidden="true">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                <line x1="12" x2="12" y1="19" y2="22" />
+              </svg>
+            </span>
+            <span style={{ flex: 1, minWidth: 0 }}>
+              <span className="speak-invite-title">Say it out loud</span>
+              <span className="speak-invite-sub">
+                {isRecognitionSupported()
+                  ? "I'll listen and tell you honestly — accents welcome"
+                  : "Practise producing it from memory"}
+              </span>
+            </span>
+            <span className="speak-invite-arrow" aria-hidden="true">→</span>
+          </button>
+        )}
+
+        {/* v76 — the words that differ where they're going. Only shown when the
+            language actually has dialect data, so it never appears as an empty
+            promise. */}
+        {hasDialectData(pack.vocab) && (
+          <button className="skip-invite" onClick={() => onNavigate("dialect")}>
+            <span style={{ flex: 1, minWidth: 0 }}>
+              <span className="speak-invite-title">
+                {profile?.region
+                  ? `What they actually say in ${regionLabel(pack.code, profile.region)}`
+                  : `${lang.name} isn't one language`}
+              </span>
+              <span className="speak-invite-sub">
+                {profile?.region
+                  ? "Drill the words that change — the ones that'd leave you stuck"
+                  : "Pick the variety you're learning for and drill what differs"}
+              </span>
+            </span>
+            <span className="speak-invite-arrow" aria-hidden="true">→</span>
+          </button>
+        )}
+
+        {/* v75 — for anyone who already knows a chunk of this. Grinding "hello"
+            when you grew up hearing the language is why people leave on day one. */}
+        <button className="skip-invite" onClick={() => onNavigate("skipahead")}>
+          <span style={{ flex: 1, minWidth: 0 }}>
+            <span className="speak-invite-title">Already know some {lang.name}?</span>
+            <span className="speak-invite-sub">Take a chapter test and skip straight past it</span>
+          </span>
+          <span className="speak-invite-arrow" aria-hidden="true">→</span>
+        </button>
+
+          <button className="skip-invite" onClick={() => onNavigate("hub")}>
+            <span style={{ flex: 1, minWidth: 0 }}>
+              <span className="speak-invite-title">Everything else</span>
+              <span className="speak-invite-sub">Flashcards, reading, grammar, the alphabet course</span>
+            </span>
+            <span className="speak-invite-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        {/* ===== LEVEL 4 · HOW AM I DOING OVERALL =====
+            Last on purpose. Progress figures are what you check when you are
+            already here and already learning; leading with them answers a
+            question nobody arrived with. */}
+        <h3 className="home-section-head">How you're doing</h3>
+        {/* ===== 3c · WHERE YOU ACTUALLY ARE (v73) =====
+            The fluency number and the missions entry, side by side. This is the
+            answer to "no outcome": a figure that moves when you speak, and a list
+            of conversations you can now get through. Both show the truth when
+            there isn't one yet — a dash, not a flattering placeholder. */}
+        <FluencyStrip profile={profile} lang={lang} onNavigate={onNavigate} />
+
         </div>
 
         <aside className="reach-rail">
@@ -616,23 +643,41 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
 // =============================================================================
 // DAILY RING — the daily goal, drawn as a fine ring. Fills as XP comes in.
 // =============================================================================
-function DailyRing({ pct = 0, met = false }) {
+// v85 — "0% OF WHAT?"
+//
+// This showed a bare percentage in the corner of the hero card, next to a title
+// like "Build: Subject + Verb". Every reasonable reading of that is wrong: it
+// looks like 0% of the lesson, or 0% of the words remembered, or 0% of the
+// chapter. It is the share of today's XP goal, and nothing on screen said so.
+//
+// A number nobody can interpret is worse than no number, and on a first session
+// it is actively discouraging — a big fat 0% for someone who has done nothing
+// wrong. It now shows the XP itself with the goal spelled out underneath, which
+// is the same information and needs no decoding.
+function DailyRing({ pct = 0, met = false, today = 0, goal = 0 }) {
   const R = 24, C = 2 * Math.PI * R;
   return (
-    <svg width="60" height="60" viewBox="0 0 60 60" style={{ flexShrink: 0 }} aria-label={`Daily goal ${Math.round(pct * 100)}%`}>
-      <circle cx="30" cy="30" r={R} fill="none" stroke="var(--border)" strokeWidth="3.5" />
-      <circle
-        cx="30" cy="30" r={R} fill="none"
-        stroke={met ? "var(--primary)" : "var(--root)"} strokeWidth="3.5"
-        strokeLinecap="round" strokeDasharray={C}
-        strokeDashoffset={C * (1 - pct)}
-        transform="rotate(-90 30 30)"
-        style={{ transition: "stroke-dashoffset 700ms cubic-bezier(0.16,1,0.3,1)" }}
-      />
-      <text x="30" y="35" textAnchor="middle" fill="var(--ink)" fontSize="13" fontWeight="700">
-        {met ? "✓" : `${Math.round(pct * 100)}%`}
-      </text>
-    </svg>
+    <div className="daily-ring">
+      <svg
+        width="60" height="60" viewBox="0 0 60 60" style={{ flexShrink: 0 }}
+        role="img"
+        aria-label={met ? `Daily goal met — ${today} XP` : `${today} of ${goal} XP today`}
+      >
+        <circle cx="30" cy="30" r={R} fill="none" stroke="var(--border)" strokeWidth="3.5" />
+        <circle
+          cx="30" cy="30" r={R} fill="none"
+          stroke={met ? "var(--primary)" : "var(--root)"} strokeWidth="3.5"
+          strokeLinecap="round" strokeDasharray={C}
+          strokeDashoffset={C * (1 - pct)}
+          transform="rotate(-90 30 30)"
+          style={{ transition: "stroke-dashoffset 700ms cubic-bezier(0.16,1,0.3,1)" }}
+        />
+        <text x="30" y="36" textAnchor="middle" fill="var(--ink)" fontSize={met ? "17" : "16"} fontWeight="800">
+          {met ? "✓" : today}
+        </text>
+      </svg>
+      <span className="daily-ring-cap">{met ? "goal met" : `of ${goal} XP`}</span>
+    </div>
   );
 }
 
@@ -838,59 +883,84 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
 
 // v66 — "Your reach": the widening circle of conversations you can hold.
 // Reads from real unit progress, so it can never overstate what someone knows.
+// =============================================================================
+// THE TODAY PANEL (v85, was ReachPanel)
+//
+// The review that prompted this said the right-hand column "feels almost like
+// another website has been placed next to the dashboard", and that was fair.
+// It held three unrelated things in no particular order: a list of phrases you
+// can already say, a chapter counter, a review button, and — rendered
+// separately, outside this component entirely — a card about pronunciation.
+// Four pieces of information, no hierarchy, nothing tying them together.
+//
+// They are all about TODAY, so the panel now says so and orders them by what
+// the learner can act on:
+//
+//   1. what is waiting for you    — the only thing here with a button
+//   2. where you are              — one line, no ceremony
+//   3. what you can already say   — the reward, and it reads as a reward when
+//                                   it is not competing with the other two
+//
+// The pronunciation note stays outside the component (it rotates daily and has
+// nothing to do with progress) but now sits under the same heading, so the
+// column reads as one panel rather than as two.
+// =============================================================================
 export function ReachPanel({ stops = [], reached = 0, chapterTitle, due = 0, onReview }) {
   const held = stops.slice(0, reached);
   return (
     <div>
+      <h3 className="eyebrow" style={{ margin: "0 0 12px" }}>Today</h3>
+
+      {/* 1 — the one actionable thing in this column. */}
+      {due > 0 ? (
+        <button className="today-due" onClick={onReview}>
+          <span className="today-due-n">{due}</span>
+          <span style={{ minWidth: 0 }}>
+            <span className="today-due-title">
+              {due === 1 ? "word is ready to come back" : "words are ready to come back"}
+            </span>
+            <span className="today-due-sub">A few minutes keeps them yours</span>
+          </span>
+        </button>
+      ) : (
+        <div className="today-clear">
+          Nothing waiting to be reviewed — you're clear.
+        </div>
+      )}
+
+      {/* 2 — where you are, in one line. */}
+      {chapterTitle && stops.length > 0 && (
+        <div className="today-where">
+          <b>Chapter one · {chapterTitle}</b>
+          <span>{reached} of {stops.length} stops</span>
+        </div>
+      )}
+
+      {/* 3 — what that work has bought them so far. */}
       {stops.length > 0 && (
         <>
-          <h3 className="eyebrow" style={{ margin: "0 0 6px" }}>Your reach</h3>
-          <div style={{ fontSize: 12.5, color: "var(--text-dim)", lineHeight: 1.5, marginBottom: 12 }}>
-            {held.length === 0
-              ? "Nothing here yet — your first stop fills this in."
-              : "Things you can say without stopping to think."}
+          <div className="today-sub-head">
+            {held.length === 0 ? "What you'll be able to say" : "What you can already say"}
           </div>
-          {held.length > 0 && (
-            <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 12, padding: 14 }}>
+          {held.length === 0 ? (
+            <div className="today-empty">
+              Your first stop fills this in — it's the list you'll want to look at
+              on a hard day.
+            </div>
+          ) : (
+            <div className="today-held">
               {held.map((st, i) => (
-                <div key={st.id} style={{
-                  display: "flex", gap: 8, alignItems: "flex-start",
-                  padding: i === 0 ? "0 0 9px" : (i === held.length - 1 ? "9px 0 0" : "9px 0"),
-                  borderBottom: i < held.length - 1 ? "1px solid var(--surface-hi)" : "none",
-                }}>
-                  <span style={{ color: "var(--primary-text)", fontWeight: 900, fontSize: 12, lineHeight: "18px" }}>✓</span>
+                <div key={st.id} className="today-held-row">
+                  <span className="today-held-tick" aria-hidden="true">✓</span>
                   <div style={{ minWidth: 0 }}>
-                    <div style={{ fontSize: 12.5, color: "var(--text)" }}>{st.done}</div>
-                    <div style={{ fontSize: 11.5, color: "var(--text-mute)", marginTop: 1 }}>{st.you.translit}</div>
+                    <div className="today-held-what">{st.done}</div>
+                    <div className="today-held-say">{st.you.translit}</div>
                   </div>
                 </div>
               ))}
             </div>
           )}
-          {chapterTitle && (
-            <div style={{ fontSize: 11.5, color: "var(--text-mute)", marginTop: 10 }}>
-              Chapter one · {chapterTitle} — {reached} of {stops.length}
-            </div>
-          )}
         </>
-      )}
-
-      {due > 0 && (
-        <button
-          onClick={onReview}
-          style={{
-            width: "100%", textAlign: "left", cursor: "pointer",
-            background: "var(--accent-soft)", border: "1px solid var(--border)",
-            borderRadius: 12, padding: 14, marginTop: stops.length ? 20 : 0,
-          }}
-        >
-          <div style={{ fontSize: 12.5, color: "var(--text)", fontWeight: 700 }}>
-            {due} {due === 1 ? "word is" : "words are"} ready to come back
-          </div>
-          <div style={{ fontSize: 11.5, color: "var(--text-dim)", marginTop: 3 }}>
-            A few minutes keeps them yours
-          </div>
-        </button>
       )}
     </div>
   );

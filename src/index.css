@@ -575,6 +575,12 @@ button:focus:not(:focus-visible) { outline: none; }
   /* Bottom nav is a phone pattern — off on laptop, the rail replaces it. */
   .bottom-nav { display: none !important; }
 
+  /* v85: the single non-rail grid child. min-width: 0 so a wide table or a
+     long unbroken string inside a screen cannot blow the track out and push
+     the layout sideways — a grid item's default min-width is auto, which
+     silently refuses to shrink. */
+  .app-main { min-width: 0; }
+
   /* Home: centre journey + reach column. minmax(0,…) prevents overflow. */
   .home-cols {
     display: grid;
@@ -609,11 +615,39 @@ button:focus:not(:focus-visible) { outline: none; }
   .exchange > div { flex: 1; min-width: 0; }
 }
 
-/* Home container: comfortable measure on phone, room for two columns on laptop */
-.home-container { max-width: 560px; }
+/* The base container. Was an inline style on the Container primitive, which
+   meant no class could ever widen it — see primitives.jsx. */
+.app-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 16px 100px;
+}
+
+/* Home container: comfortable measure on phone, room to work on a desktop.
+   Compound selectors (.app-container.home-container) so these beat the base
+   rule on specificity rather than on source order, which is the kind of thing
+   that breaks silently the first time someone reorders this file. */
+.app-container.home-container { max-width: 560px; }
+
 @media (min-width: 1024px) {
-  .home-container { max-width: 1020px; padding-bottom: 40px; }
+  .app-container.home-container { max-width: 1040px; padding-bottom: 40px; }
   .desktop-hide { display: none !important; }
+}
+
+/* v85 — USE THE SCREEN.
+   Measured before this change: on a 1920px monitor the app used 932px and left
+   988px empty — 49%. A mobile-first layout scaled up is a narrow strip down the
+   middle of a large display, and the fix is a wider measure at wider
+   breakpoints rather than one cap chosen for a laptop.
+   The main column holds cards, not prose, so it does not suffer from the long-
+   line readability problem that caps an article at ~70 characters. */
+@media (min-width: 1440px) {
+  .app-container.home-container { max-width: 1280px; }
+  .home-cols { grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; }
+}
+@media (min-width: 1728px) {
+  .app-container.home-container { max-width: 1480px; }
+  .home-cols { grid-template-columns: minmax(0, 1fr) 360px; gap: 44px; }
 }
 
 /* v67 — full-width shell for focused screens (lesson) that hide the rail.
@@ -1971,3 +2005,98 @@ button:focus:not(:focus-visible) { outline: none; }
 .dl-lang-sub { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; margin-top: 3px; }
 .dl-lang-done { font-size: 13px; line-height: 1.55; color: var(--text); margin-bottom: 4px; }
 .dl-lang-note { color: var(--text-mute); }
+
+/* ============================================================
+   v85 — HOMEPAGE HIERARCHY
+   The review that prompted this was right about the diagnosis: the visual
+   language was fine, and the problem was that ten good cards all carried the
+   same weight, so nothing told you what to do first. Headings and three
+   distinct weights, rather than a restyle.
+   ============================================================ */
+
+/* Section headings. Quiet by design — they organise the page without
+   competing with the one action at the top of it. */
+.home-section-head {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  margin: 34px 0 13px;
+}
+
+/* Level 3 doors. On a wide screen these sit two-up: five stacked full-width
+   bars was a lot of vertical scrolling for what is really a short menu. */
+.practise-grid { display: grid; gap: 10px; }
+@media (min-width: 1440px) {
+  .practise-grid { grid-template-columns: 1fr 1fr; }
+  /* The decode door keeps the full width — for the audience this app is for,
+     "I can't read this message from my family" is the most urgent thing on
+     the page, and it should not look like one option of five. */
+  .practise-grid > .skip-invite-lead { grid-column: 1 / -1; }
+}
+
+/* The daily-goal ring, now with the units it is counting. */
+.daily-ring { display: flex; flex-direction: column; align-items: center; gap: 3px; flex-shrink: 0; }
+.daily-ring-cap {
+  font-size: 10.5px; font-weight: 700; color: var(--text-mute);
+  letter-spacing: 0.02em; white-space: nowrap;
+}
+
+/* --- The Today panel (right column on desktop, inline below on phone) --- */
+.today-due {
+  width: 100%; text-align: left; cursor: pointer;
+  display: flex; align-items: center; gap: 12px;
+  background: var(--accent-soft); border: 1px solid var(--accent);
+  border-radius: 14px; padding: 13px 15px; min-height: 44px;
+}
+.today-due:hover { background: var(--surface-hi); }
+.today-due-n {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 26px; font-weight: 600; color: var(--accent-text);
+  line-height: 1; flex-shrink: 0;
+}
+.today-due-title { display: block; font-size: 12.5px; font-weight: 700; color: var(--text); line-height: 1.35; }
+.today-due-sub { display: block; font-size: 11.5px; color: var(--text-dim); margin-top: 2px; }
+
+.today-clear {
+  font-size: 12.5px; color: var(--text-dim); line-height: 1.5;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 13px 15px;
+}
+
+.today-where {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+  font-size: 11.5px; color: var(--text-mute); margin-top: 14px;
+  padding-top: 12px; border-top: 1px solid var(--border);
+}
+.today-where b { color: var(--text); font-weight: 700; }
+
+.today-sub-head {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--text-mute); margin: 18px 0 8px;
+}
+.today-empty { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; }
+.today-held { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 4px 14px; }
+.today-held-row { display: flex; gap: 8px; align-items: flex-start; padding: 9px 0; }
+.today-held-row + .today-held-row { border-top: 1px solid var(--surface-hi); }
+.today-held-tick { color: var(--primary-text); font-weight: 900; font-size: 12px; line-height: 18px; }
+.today-held-what { font-size: 12.5px; color: var(--text); }
+.today-held-say { font-size: 11.5px; color: var(--text-mute); margin-top: 1px; }
+
+/* v85: hairline between the "live" counters (streak/gems/hearts, which change
+   during a session) and the lifetime XP total, which does not. Groups them as
+   one cluster while still saying they are two different kinds of number. */
+.topbar-div {
+  width: 1px; height: 16px; background: var(--border);
+  margin: 0 2px; flex-shrink: 0;
+}
+
+/* v85: rail groups. The heading is small and quiet — it labels the group
+   without becoming another thing to read. */
+.rail-group + .rail-group { margin-top: 18px; }
+.rail-group-head {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-mute);
+  padding: 0 12px 7px;
+}

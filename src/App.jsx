@@ -318,6 +318,17 @@ export default function App() {
           totalXp={appState.totalXp || 0}
         />
       )}
+      {/* v85 — EVERYTHING THAT IS NOT THE RAIL LIVES IN ONE COLUMN.
+          .app-shell is a two-track grid on desktop: 212px for the rail, the
+          rest for the app. Its children were the rail AND every banner AND the
+          <main>, so each extra banner consumed a grid cell and pushed the one
+          after it onto the next row. With the policy-change notice showing,
+          <main> landed in track ONE — 212px wide, below a 100vh sticky sidebar,
+          which reads as a completely blank app on a desktop screen.
+          It only bit when a banner was present, which is why every screenshot
+          taken with a clean seed looked fine.
+          One wrapper means no future banner can do this again. */}
+      <div className="app-main">
       <OfflineBar />
 
       {/* v80 — THE POLICIES CHANGED SINCE YOU AGREED.
@@ -381,6 +392,7 @@ export default function App() {
         {screen === "stream" && <InputStream {...screenProps} />}
         </Suspense>
       </main>
+      </div>
       </div>
       {!FOCUSED.has(screen) && <BottomNav screen={screen} onNavigate={navigate} />}
     </ErrorBoundary>

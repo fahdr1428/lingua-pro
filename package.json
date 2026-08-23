@@ -28,7 +28,8 @@
     "measure-input": "node scripts/measure-input.mjs",
     "measure-stream": "node scripts/measure-stream.mjs",
     "audit-interface": "node scripts/audit-interface.mjs",
-    "design-md": "node scripts/build-design-md.mjs"
+    "design-md": "node scripts/build-design-md.mjs",
+    "shot-home": "node scripts/shot-home.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",
