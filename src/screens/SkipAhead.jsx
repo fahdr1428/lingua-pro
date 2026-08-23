@@ -395,7 +395,7 @@ function SkipResult({ result, chapter, lang, langCode, guide, isNonLatin, onRetr
         <p className="result-sub">
           {result.passed
             ? chapter.kind === "unit"
-              ? `${result.correct} of ${result.total}. Those words are marked as known and the next stop is open. The chapter exam still stands — proving one unit isn't proving six.`
+              ? `${result.correct} of ${result.total}. Those words are marked as known and this stop is open. The stops after it still come in order, and the chapter exam still stands — proving one unit isn't proving six.`
               : `${result.correct} of ${result.total}. Everything up to chapter ${chapter.num} is open, and those words are marked as known — they'll come back for review, not as new words.`
             : `${result.correct} of ${result.total}. You need ${Math.round(PASS * 100)}% to skip ${chapter.kind === "unit" ? "a stop" : "a chapter"}, because everything after it builds on these words. The ones below are what let you down.`}
         </p>

@@ -753,6 +753,39 @@ check("every disabled type is genuinely absent, including the two built outside 
 }
 
 // =========================================================================
+// v85.1 — A UNIT YOU HAVE PASSED A TEST ON MUST NEVER BE LOCKED
+//
+// The route map offers "test out" on LOCKED stops — that is the point of it.
+// Passing needs 85%, higher than a chapter exam, and seeds every word in the
+// unit as known so it reads 100% complete. computeUnlocks then locked it
+// anyway, because the chapter gate ran first and a unit three chapters ahead
+// fell through to `unlocked = false`. You passed, the screen congratulated you,
+// and the stop was still shut — with no way for the learner to fix it, since
+// retaking produces the same result.
+// =========================================================================
+{
+  const { computeUnlocks, PROVEN_BAR } = await import("../src/data/chapters.js");
+
+  // Twelve units, nothing done, except one unit far ahead that was tested out.
+  const up = Array.from({ length: 12 }, (_, i) => ({ id: `u${i + 1}`, pct: 0 }));
+  const AHEAD = 6;              // u7 — chapter 3, while the learner is in chapter 1
+  up[AHEAD].pct = 1;
+  const unlocks = computeUnlocks(up, { chaptersPassed: {} }, "fr");
+
+  check("a unit tested out of, three chapters ahead, is actually unlocked",
+    unlocks[AHEAD] === true, `u${AHEAD + 1} unlocked=${unlocks[AHEAD]}`);
+  check("...and it does not cascade — the next unit stays gated",
+    unlocks[AHEAD + 1] === false, `u${AHEAD + 2} unlocked=${unlocks[AHEAD + 1]}`);
+
+  // The bar is the completion bar, not "any progress at all".
+  const partial = Array.from({ length: 12 }, (_, i) => ({ id: `u${i + 1}`, pct: 0 }));
+  partial[AHEAD].pct = PROVEN_BAR - 0.05;
+  const partialUnlocks = computeUnlocks(partial, { chaptersPassed: {} }, "fr");
+  check("a unit merely dabbled in is still gated",
+    partialUnlocks[AHEAD] === false, `unlocked=${partialUnlocks[AHEAD]} at pct ${partial[AHEAD].pct}`);
+}
+
+// =========================================================================
 const failed = results.filter((r) => !r.ok);
 console.log(`\n  ${results.length - failed.length} pass, ${failed.length} fail\n`);
 process.exit(failed.length ? 1 : 0);

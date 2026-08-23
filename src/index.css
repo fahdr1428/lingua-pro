@@ -641,13 +641,22 @@ button:focus:not(:focus-visible) { outline: none; }
    breakpoints rather than one cap chosen for a laptop.
    The main column holds cards, not prose, so it does not suffer from the long-
    line readability problem that caps an article at ~70 characters. */
+/* v85.1 — 75%, not 88%.
+   The first pass at this took the measured "49% of the screen used" and pushed
+   it as far as it would go, which overcorrects: content running almost to both
+   edges of a wide monitor is its own kind of uncomfortable, and the margin is
+   doing real work. Fluid rather than a fixed cap, because no single max-width
+   gives a steady proportion across 1440 and 1920 — one number is 75% at one
+   size and 100% at the other. The floor keeps a small laptop filling its
+   screen; the ceiling stops the layout sprawling on a 4K display. */
 @media (min-width: 1440px) {
-  .app-container.home-container { max-width: 1280px; }
-  .home-cols { grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; }
+  .app-container.home-container {
+    max-width: clamp(860px, calc(75vw - 212px), 1480px);
+  }
+  .home-cols { grid-template-columns: minmax(0, 1fr) 320px; gap: 38px; }
 }
 @media (min-width: 1728px) {
-  .app-container.home-container { max-width: 1480px; }
-  .home-cols { grid-template-columns: minmax(0, 1fr) 360px; gap: 44px; }
+  .home-cols { grid-template-columns: minmax(0, 1fr) 340px; gap: 42px; }
 }
 
 /* v67 — full-width shell for focused screens (lesson) that hide the rail.

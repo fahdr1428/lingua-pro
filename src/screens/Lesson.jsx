@@ -113,7 +113,17 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         // then one bite of grammar in context, then practice). Skipped for
         // review/mistake sessions — those aren't the place to teach new theory.
         try {
-          const isReviewish = params?.mode === "due" || params?.mode === "review" || params?.mode === "checkpoint" || params?.mode === "exam" || s.mode === "review";
+          // v85.1: "chapter_exam" was missing from this list, so a gated exam
+          // opened with a grammar LESSON in the middle of it — new theory
+          // taught during the test that decides whether you may move on.
+          // Every other guard in this file names chapter_exam explicitly (the
+          // mistake-recovery round at the end, the flawless-lesson bonus heart,
+          // the lesson counter); this one was written before chapter exams
+          // existed and never updated, and nothing failed loudly when they
+          // arrived. Listed from the mode constants rather than typed out again
+          // so the next mode that needs excluding is a one-line change.
+          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam"]);
+          const isReviewish = NO_TEACHING.has(params?.mode) || s.mode === "review";
           if (!isReviewish) {
             const allGrammar = getGrammar(pack.code);
             const seen = (appState?.grammarSeen?.[pack.code]) || [];
