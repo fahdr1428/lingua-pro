@@ -77,6 +77,21 @@ const strip = (s) =>
     .trim();
 
 /** Does the pack teach this token? Allows for light inflection at either end. */
+// v86 — Languages whose reading passages are knowingly not written yet, with
+// the reason. Adding a code here is a deliberate act; leaving one here for long
+// is a debt, and RESEARCH.md tracks it as one.
+//
+// A language with a Reading entry point and no passages shows an empty screen,
+// which is why the absence is normally an ERROR. But composing literary Tagalog
+// or Persian and presenting it as course material is the one thing this project
+// has said it will not do — the people reading it have family who speak it. So
+// the gap is declared here, in code, where it stays visible and has to be
+// justified, rather than by softening the rule for every language.
+const AWAITING_PASSAGES = {
+  tl: "added in v86; passages want a native speaker, not a generated approximation",
+  fa: "added in v86; passages want a native speaker, not a generated approximation",
+};
+
 function known(token, lemmas) {
   if (lemmas.has(token)) return true;
   // "hablas" against the lemma "hablar": share a long enough stem.
@@ -103,7 +118,12 @@ export function validatePassages({ quiet = false } = {}) {
     for (const code of allCodes) {
       const list = PASSAGES[code] || [];
       if (!list.length) {
-        errors.push(`${code}: no reading passages at all — the Reading screen has nothing to show`);
+        // A declared gap is not the same as an accident — see AWAITING_PASSAGES.
+        if (AWAITING_PASSAGES[code]) {
+          warnings.push(`${code}: no reading passages yet — ${AWAITING_PASSAGES[code]}`);
+        } else {
+          errors.push(`${code}: no reading passages at all — the Reading screen has nothing to show`);
+        }
         rows.push([code, 0, 0, "—"]);
         continue;
       }

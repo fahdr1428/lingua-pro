@@ -230,9 +230,17 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    never to be shown to a learner.
 3. **Two or three example sentences per word instead of one.** 94% of words are
    met in a single frame.
-4. **A native speaker's eye on Punjabi and Nigerian Pidgin passages.**
-5. **Grammar beyond 4–6 lessons**, and none at all for Turkish, Punjabi,
-   Indonesian or Nigerian Pidgin.
+4. **Tagalog and Persian have no reading passages, no recorded audio and no
+   journey stops** (v86). The packs, guides and example sentences are there and
+   the input stream works from them; the curated reading library does not exist
+   yet, and `validate-passages.mjs` names both languages and the reason rather
+   than letting the absence pass quietly. Writing literary Tagalog or Persian
+   and calling it course material is the thing this project has said it will not
+   do.
+5. **A native speaker's eye on Punjabi and Nigerian Pidgin passages** — and now
+   on the Tagalog and Persian packs too.
+6. **Grammar beyond 4–6 lessons**, and none at all for Turkish, Punjabi,
+   Indonesian, Nigerian Pidgin, Tagalog or Persian.
 
 ## What this app already does that the research supports
 

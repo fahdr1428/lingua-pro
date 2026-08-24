@@ -28,6 +28,67 @@
 // =============================================================================
 
 export const CHARACTERS = {
+  // v86 — guides for the two new languages. Every other language has one, and
+  // the test suite checks for it: a course with no voice behind it is the
+  // generic thing this app exists not to be.
+  tl: {
+    name: "Neneng",
+    role: "Your Tagalog guide",
+    initial: "N",
+    city: "Quezon City",
+    craft: "Runs a carinderia — feeds people all day, talks the whole time",
+    accent: "#0038a8",
+    voice: { rate: 0.95, pitch: 1.05 },
+    signature: { text: "Kain na tayo", translit: "kain na tayo", en: "Let's eat now" },
+    intro: "Kumusta! I'm Neneng, from Quezon City. I run a small carinderia, so I talk to two hundred people a day and I know exactly how much Tagalog you need to get by. First thing: say po. I'll explain. Tara na.",
+    greetings: [
+      "Kumusta! Handa ka na ba?",
+      "Balik ka ulit — mabuti!",
+      "Tara, konti lang ngayon.",
+      "May bago tayong salita ngayon.",
+    ],
+    celebrations: {
+      perfect: "Perpekto! Walang mali. Galing mo!",
+      great: "Ang galing! Mabilis ka matuto.",
+      good: "Mabuti. Unti-unti lang, tuloy lang.",
+      keep_going: "Okay lang. Normal 'yan. Ulitin natin.",
+    },
+    streakNote: "Unti-unti, basta't tuloy-tuloy — little by little, as long as you keep going.",
+    reactions: {
+      correct: ["Tama!", "Ayos!", "Galing!", "Oo, tama 'yan!", "Magaling!"],
+      wrong: ["Okay lang.", "Subukan mo ulit.", "Malapit na!", "Hindi pa — tingnan mo ulit."],
+      streak: ["Grabe, ang bilis mo!", "Tuloy lang!", "Ang galing talaga!"],
+    },
+  },
+  fa: {
+    name: "Roya",
+    role: "Your Persian guide",
+    initial: "R",
+    city: "Isfahan",
+    craft: "Bookseller — sells more poetry than anything else",
+    accent: "#239f40",
+    voice: { rate: 0.92, pitch: 1.0 },
+    signature: { text: "شروع کنیم", translit: "shoru' konim", en: "Let's begin" },
+    intro: "سلام! I'm Roya, from Isfahan. I sell books, mostly poetry, because that is what people here buy. Persian is gentler than it looks — no gendered nouns, no cases. The hard part is knowing when to be formal. I'll tell you. شروع کنیم.",
+    greetings: [
+      "سلام! آماده‌ای؟",
+      "برگشتی — خوبه!",
+      "بیا، امروز کمی تمرین کنیم.",
+      "چند تا کلمه‌ی تازه داریم.",
+    ],
+    celebrations: {
+      perfect: "عالی بود! بدون هیچ اشتباهی.",
+      great: "خیلی خوب! سریع یاد می‌گیری.",
+      good: "خوبه. کم‌کم — ادامه بده.",
+      keep_going: "اشکالی نداره. اشتباه هم بخشی از یادگیریه.",
+    },
+    streakNote: "قطره قطره جمع گردد وانگهی دریا شود — drop by drop it gathers, and then becomes a sea.",
+    reactions: {
+      correct: ["درسته!", "آفرین!", "دقیقا!", "بله، درست گفتی!", "عالیه!"],
+      wrong: ["اشکالی نداره.", "دوباره امتحان کن.", "نزدیک بود!", "هنوز نه — دوباره ببین."],
+      streak: ["فوق‌العاده‌ای!", "همینطور ادامه بده!", "چقدر سریع!"],
+    },
+  },
   ur: {
     name: "Amina",
     role: "Your Urdu guide",

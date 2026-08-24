@@ -1,3271 +1,3332 @@
 {
- "schemaVersion": 5,
- "code": "de",
- "categories": [
-  "Body",
-  "Common",
-  "Connectors",
-  "Family",
-  "Food",
-  "Greetings",
-  "Numbers",
-  "People",
-  "Places",
-  "Time",
-  "Travel",
-  "Verbs"
- ],
- "units": [
-  {
-   "id": "u1",
-   "title": "Greetings",
-   "emoji": "👋",
-   "description": "Hello, goodbye, please and thank you"
-  },
-  {
-   "id": "u2",
-   "title": "About You",
-   "emoji": "🙋",
-   "description": "Your name, where you're from, how you are"
-  },
-  {
-   "id": "u3",
-   "title": "Family",
-   "emoji": "👨‍👩‍👧",
-   "description": "The people closest to you"
-  },
-  {
-   "id": "u4",
-   "title": "Numbers 1-20",
-   "emoji": "🔢",
-   "description": "Counting, prices and quantities"
-  },
-  {
-   "id": "u5",
-   "title": "Food & Drink",
-   "emoji": "🍽️",
-   "description": "Ordering and eating"
-  },
-  {
-   "id": "u6",
-   "title": "Common Verbs",
-   "emoji": "🏃",
-   "description": "The verbs you'll use every day"
-  },
-  {
-   "id": "u7",
-   "title": "Places",
-   "emoji": "🏠",
-   "description": "Where things are and where you're going"
-  },
-  {
-   "id": "u8",
-   "title": "Time",
-   "emoji": "⏰",
-   "description": "Days, hours and when things happen"
-  },
-  {
-   "id": "u9",
-   "title": "Connecting Ideas",
-   "emoji": "🔗",
-   "description": "Joining sentences like a native"
-  },
-  {
-   "id": "u10",
-   "title": "Travel Phrases",
-   "emoji": "✈️",
-   "description": "Trains, tickets and getting around"
-  },
-  {
-   "id": "u11",
-   "title": "Body & Feelings",
-   "emoji": "💪",
-   "description": "Saying how you feel and what hurts"
-  },
-  {
-   "id": "u12",
-   "title": "Weather & Nature",
-   "emoji": "🌦️",
-   "description": "Small talk that always works"
-  },
-  {
-   "id": "u13",
-   "title": "Everyday Life",
-   "emoji": "🛒",
-   "description": "Shopping, home and admin"
-  }
- ],
- "alphabet": [
-  {
-   "char": "ä",
-   "name": "a-umlaut",
-   "sound": "eh, as in 'bed' — Bär sounds like 'bair'"
-  },
-  {
-   "char": "ö",
-   "name": "o-umlaut",
-   "sound": "like the 'i' in 'bird', lips rounded — schön"
-  },
-  {
-   "char": "ü",
-   "name": "u-umlaut",
-   "sound": "say 'ee' with rounded lips — für, über"
-  },
-  {
-   "char": "ß",
-   "name": "eszett",
-   "sound": "a sharp 's'. Never a 'b'. Straße = 'SHTRAH-suh'"
-  },
-  {
-   "char": "ei",
-   "name": "ei",
-   "sound": "rhymes with 'eye' — nein, drei"
-  },
-  {
-   "char": "ie",
-   "name": "ie",
-   "sound": "rhymes with 'see' — bier, vier. The opposite of ei."
-  },
-  {
-   "char": "eu",
-   "name": "eu",
-   "sound": "'oy' as in 'boy' — neun, Freund"
-  },
-  {
-   "char": "ch",
-   "name": "ch",
-   "sound": "after a/o/u it's throaty (Bach); after e/i it's soft (ich)"
-  },
-  {
-   "char": "sp",
-   "name": "sp-",
-   "sound": "at the start of a word it's 'shp' — sprechen"
-  },
-  {
-   "char": "st",
-   "name": "st-",
-   "sound": "at the start of a word it's 'sht' — Straße, Stadt"
-  },
-  {
-   "char": "v",
-   "name": "v",
-   "sound": "usually an 'f' — Vater = 'FAH-ter'"
-  },
-  {
-   "char": "w",
-   "name": "w",
-   "sound": "always a 'v' — Wasser = 'VAS-ser'"
-  },
-  {
-   "char": "z",
-   "name": "z",
-   "sound": "always 'ts' — zwei = 'tsvy'"
-  },
-  {
-   "char": "r",
-   "name": "r",
-   "sound": "in the throat, and at the end of a word it softens to 'uh'"
-  }
- ],
- "frameworks": [
-  {
-   "id": "der-die-das",
-   "title": "der, die, das — and why you can't skip it",
-   "body": "Every German noun is masculine (der), feminine (die) or neuter (das), and the article changes with the sentence's grammar. It is rarely guessable, so learn the article WITH the word — not 'Tisch' but 'der Tisch'. Getting it wrong is understood; getting it right is what makes you sound like you've lived there."
-  },
-  {
-   "id": "verb-second",
-   "title": "The verb is second. Always.",
-   "body": "In a main clause the conjugated verb sits in position two, whatever comes first. 'Ich gehe heute ins Kino.' Move 'heute' to the front and the verb still stays second: 'Heute gehe ich ins Kino.' Not 'Heute ich gehe'. This one rule fixes more sentences than any amount of vocabulary."
-  },
-  {
-   "id": "verb-to-the-end",
-   "title": "…except when it goes right to the end",
-   "body": "After weil, dass, wenn, obwohl, the verb jumps to the end of the clause: 'Ich bleibe zu Hause, weil es regnet.' Germans do this without thinking; learners hear the whole sentence before the verb arrives and panic. Expect the wait — it's the single biggest listening hurdle."
-  },
-  {
-   "id": "du-vs-sie",
-   "title": "du or Sie",
-   "body": "Sie is the default with strangers, officials, shopkeepers and anyone older you don't know. du is for friends, family, children, and — increasingly — colleagues under about forty. Being offered the du ('Wollen wir uns duzen?') is a small social moment; wait to be offered it rather than assuming."
-  },
-  {
-   "id": "separable-verbs",
-   "title": "Verbs that split in half",
-   "body": "anrufen means 'to call'. But you say 'Ich rufe dich an' — the prefix flies to the end of the sentence. aufstehen, einkaufen, mitkommen and dozens more do this. If a sentence seems to end in a stray little word, that's the other half of the verb catching up."
-  }
- ],
- "vocab": [
-  {
-   "id": "de_0001",
-   "unit": "u1",
-   "lemma": "Hallo",
-   "translit": "Hallo",
-   "pronunciation": "HAH-lo",
-   "translation": "hello",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 1,
-   "examples": [
+  "schemaVersion": 5,
+  "code": "de",
+  "categories": [
+    "Body",
+    "Common",
+    "Connectors",
+    "Family",
+    "Feelings",
+    "Food",
+    "Greetings",
+    "Numbers",
+    "People",
+    "Places",
+    "Time",
+    "Travel",
+    "Verbs"
+  ],
+  "units": [
     {
-     "native": "Hallo, wie geht's?",
-     "translation": "Hello, how are you?"
-    }
-   ]
-  },
-  {
-   "id": "de_0002",
-   "unit": "u1",
-   "lemma": "Guten Morgen",
-   "translit": "Guten Morgen",
-   "pronunciation": "GOO-ten MOR-gen",
-   "translation": "good morning",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 2,
-   "examples": [
-    {
-     "native": "Guten Morgen, Frau Weber.",
-     "translation": "Good morning, Mrs Weber."
-    }
-   ]
-  },
-  {
-   "id": "de_0003",
-   "unit": "u1",
-   "lemma": "Guten Tag",
-   "translit": "Guten Tag",
-   "pronunciation": "GOO-ten TAHK",
-   "translation": "good day, hello (formal)",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 3,
-   "examples": [
-    {
-     "native": "Guten Tag, ich hätte gern einen Kaffee.",
-     "translation": "Hello, I'd like a coffee."
-    }
-   ]
-  },
-  {
-   "id": "de_0004",
-   "unit": "u1",
-   "lemma": "Guten Abend",
-   "translit": "Guten Abend",
-   "pronunciation": "GOO-ten AH-bent",
-   "translation": "good evening",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 4,
-   "examples": [
-    {
-     "native": "Guten Abend, ein Tisch für zwei bitte.",
-     "translation": "Good evening, a table for two please."
-    }
-   ]
-  },
-  {
-   "id": "de_0005",
-   "unit": "u1",
-   "lemma": "Tschüss",
-   "translit": "Tschüss",
-   "pronunciation": "CHUESS",
-   "translation": "bye",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 5,
-   "examples": [
-    {
-     "native": "Tschüss, bis morgen!",
-     "translation": "Bye, see you tomorrow!"
-    }
-   ]
-  },
-  {
-   "id": "de_0006",
-   "unit": "u1",
-   "lemma": "Auf Wiedersehen",
-   "translit": "Auf Wiedersehen",
-   "pronunciation": "owf VEE-der-zayn",
-   "translation": "goodbye (formal)",
-   "category": "Greetings",
-   "difficulty": 2,
-   "frequencyRank": 109,
-   "examples": [
-    {
-     "native": "Auf Wiedersehen und danke.",
-     "translation": "Goodbye and thank you."
-    }
-   ]
-  },
-  {
-   "id": "de_0007",
-   "unit": "u1",
-   "lemma": "Bitte",
-   "translit": "Bitte",
-   "pronunciation": "BIT-uh",
-   "translation": "please, you're welcome",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 6,
-   "examples": [
-    {
-     "native": "Einen Kaffee, bitte.",
-     "translation": "A coffee, please."
-    }
-   ]
-  },
-  {
-   "id": "de_0008",
-   "unit": "u1",
-   "lemma": "Danke",
-   "translit": "Danke",
-   "pronunciation": "DAN-kuh",
-   "translation": "thank you",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 7,
-   "examples": [
-    {
-     "native": "Danke schön!",
-     "translation": "Thank you very much!"
-    }
-   ]
-  },
-  {
-   "id": "de_0009",
-   "unit": "u1",
-   "lemma": "Entschuldigung",
-   "translit": "Entschuldigung",
-   "pronunciation": "ent-SHOOL-di-goong",
-   "translation": "excuse me, sorry",
-   "category": "Greetings",
-   "difficulty": 2,
-   "frequencyRank": 110,
-   "examples": [
-    {
-     "native": "Entschuldigung, wo ist der Bahnhof?",
-     "translation": "Excuse me, where is the station?"
-    }
-   ]
-  },
-  {
-   "id": "de_0010",
-   "unit": "u1",
-   "lemma": "Ja",
-   "translit": "Ja",
-   "pronunciation": "YAH",
-   "translation": "yes",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 8,
-   "examples": [
-    {
-     "native": "Ja, gerne.",
-     "translation": "Yes, gladly."
-    }
-   ]
-  },
-  {
-   "id": "de_0011",
-   "unit": "u1",
-   "lemma": "Nein",
-   "translit": "Nein",
-   "pronunciation": "NINE",
-   "translation": "no",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 9,
-   "examples": [
-    {
-     "native": "Nein, danke.",
-     "translation": "No, thank you."
-    }
-   ]
-  },
-  {
-   "id": "de_0012",
-   "unit": "u1",
-   "lemma": "Servus",
-   "translit": "Servus",
-   "pronunciation": "ZER-voos",
-   "translation": "hi/bye (Bavaria & Austria)",
-   "category": "Greetings",
-   "difficulty": 2,
-   "frequencyRank": 111,
-   "examples": [
-    {
-     "native": "Servus, alles gut?",
-     "translation": "Hi, all good?"
-    }
-   ]
-  },
-  {
-   "id": "de_0013",
-   "unit": "u2",
-   "lemma": "ich",
-   "translit": "ich",
-   "pronunciation": "ikh",
-   "translation": "I",
-   "category": "People",
-   "difficulty": 1,
-   "frequencyRank": 10,
-   "examples": [
-    {
-     "native": "Ich bin müde.",
-     "translation": "I'm tired."
-    }
-   ]
-  },
-  {
-   "id": "de_0014",
-   "unit": "u2",
-   "lemma": "du",
-   "translit": "du",
-   "pronunciation": "doo",
-   "translation": "you (informal)",
-   "category": "People",
-   "difficulty": 1,
-   "frequencyRank": 11,
-   "examples": [
-    {
-     "native": "Woher kommst du?",
-     "translation": "Where are you from?"
-    }
-   ]
-  },
-  {
-   "id": "de_0015",
-   "unit": "u2",
-   "lemma": "Sie",
-   "translit": "Sie",
-   "pronunciation": "zee",
-   "translation": "you (formal)",
-   "category": "People",
-   "difficulty": 2,
-   "frequencyRank": 112,
-   "examples": [
-    {
-     "native": "Wie heißen Sie?",
-     "translation": "What's your name?"
-    }
-   ]
-  },
-  {
-   "id": "de_0016",
-   "unit": "u2",
-   "lemma": "heißen",
-   "translit": "heißen",
-   "pronunciation": "HY-sen",
-   "translation": "to be called",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 113,
-   "examples": [
-    {
-     "native": "Ich heiße Anna.",
-     "translation": "My name is Anna."
-    }
-   ]
-  },
-  {
-   "id": "de_0017",
-   "unit": "u2",
-   "lemma": "kommen",
-   "translit": "kommen",
-   "pronunciation": "KOM-en",
-   "translation": "to come",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 12,
-   "examples": [
-    {
-     "native": "Ich komme aus England.",
-     "translation": "I come from England."
-    }
-   ]
-  },
-  {
-   "id": "de_0018",
-   "unit": "u2",
-   "lemma": "wohnen",
-   "translit": "wohnen",
-   "pronunciation": "VOH-nen",
-   "translation": "to live, to reside",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 114,
-   "examples": [
-    {
-     "native": "Ich wohne in Berlin.",
-     "translation": "I live in Berlin."
-    }
-   ]
-  },
-  {
-   "id": "de_0019",
-   "unit": "u2",
-   "lemma": "gut",
-   "translit": "gut",
-   "pronunciation": "goot",
-   "translation": "good, well",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 13,
-   "examples": [
-    {
-     "native": "Mir geht es gut.",
-     "translation": "I'm doing well."
-    }
-   ]
-  },
-  {
-   "id": "de_0020",
-   "unit": "u2",
-   "lemma": "schlecht",
-   "translit": "schlecht",
-   "pronunciation": "shlekht",
-   "translation": "bad",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 115,
-   "examples": [
-    {
-     "native": "Das Wetter ist schlecht.",
-     "translation": "The weather is bad."
-    }
-   ]
-  },
-  {
-   "id": "de_0021",
-   "unit": "u2",
-   "lemma": "müde",
-   "translit": "müde",
-   "pronunciation": "MUE-duh",
-   "translation": "tired",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 116,
-   "examples": [
-    {
-     "native": "Ich bin sehr müde.",
-     "translation": "I'm very tired."
-    }
-   ]
-  },
-  {
-   "id": "de_0022",
-   "unit": "u2",
-   "lemma": "Name",
-   "translit": "Name",
-   "pronunciation": "NAH-muh",
-   "translation": "name",
-   "category": "People",
-   "difficulty": 1,
-   "frequencyRank": 14,
-   "examples": [
-    {
-     "native": "Mein Name ist Tom.",
-     "translation": "My name is Tom."
-    }
-   ]
-  },
-  {
-   "id": "de_0023",
-   "unit": "u2",
-   "lemma": "Freund",
-   "translit": "Freund",
-   "pronunciation": "froynt",
-   "translation": "friend",
-   "category": "People",
-   "difficulty": 2,
-   "frequencyRank": 117,
-   "examples": [
-    {
-     "native": "Er ist mein Freund.",
-     "translation": "He is my friend."
-    }
-   ]
-  },
-  {
-   "id": "de_0024",
-   "unit": "u2",
-   "lemma": "sehr",
-   "translit": "sehr",
-   "pronunciation": "zayr",
-   "translation": "very",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 15,
-   "examples": [
-    {
-     "native": "Sehr gut, danke.",
-     "translation": "Very good, thanks."
-    }
-   ]
-  },
-  {
-   "id": "de_0025",
-   "unit": "u3",
-   "lemma": "Familie",
-   "translit": "Familie",
-   "pronunciation": "fa-MEE-lee-uh",
-   "translation": "family",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 16,
-   "examples": [
-    {
-     "native": "Meine Familie wohnt in Köln.",
-     "translation": "My family lives in Cologne."
-    }
-   ]
-  },
-  {
-   "id": "de_0026",
-   "unit": "u3",
-   "lemma": "Mutter",
-   "translit": "Mutter",
-   "pronunciation": "MOO-ter",
-   "translation": "mother",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 17,
-   "examples": [
-    {
-     "native": "Meine Mutter kocht gern.",
-     "translation": "My mother likes cooking."
-    }
-   ]
-  },
-  {
-   "id": "de_0027",
-   "unit": "u3",
-   "lemma": "Vater",
-   "translit": "Vater",
-   "pronunciation": "FAH-ter",
-   "translation": "father",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 18,
-   "examples": [
-    {
-     "native": "Mein Vater arbeitet viel.",
-     "translation": "My father works a lot."
-    }
-   ]
-  },
-  {
-   "id": "de_0028",
-   "unit": "u3",
-   "lemma": "Bruder",
-   "translit": "Bruder",
-   "pronunciation": "BROO-der",
-   "translation": "brother",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 19,
-   "examples": [
-    {
-     "native": "Ich habe einen Bruder.",
-     "translation": "I have a brother."
-    }
-   ]
-  },
-  {
-   "id": "de_0029",
-   "unit": "u3",
-   "lemma": "Schwester",
-   "translit": "Schwester",
-   "pronunciation": "SHVES-ter",
-   "translation": "sister",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 20,
-   "examples": [
-    {
-     "native": "Meine Schwester ist Ärztin.",
-     "translation": "My sister is a doctor."
-    }
-   ]
-  },
-  {
-   "id": "de_0030",
-   "unit": "u3",
-   "lemma": "Kind",
-   "translit": "Kind",
-   "pronunciation": "kint",
-   "translation": "child",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 21,
-   "examples": [
-    {
-     "native": "Das Kind schläft.",
-     "translation": "The child is sleeping."
-    }
-   ]
-  },
-  {
-   "id": "de_0031",
-   "unit": "u3",
-   "lemma": "Sohn",
-   "translit": "Sohn",
-   "pronunciation": "zohn",
-   "translation": "son",
-   "category": "Family",
-   "difficulty": 2,
-   "frequencyRank": 118,
-   "examples": [
-    {
-     "native": "Ihr Sohn ist sieben.",
-     "translation": "Her son is seven."
-    }
-   ]
-  },
-  {
-   "id": "de_0032",
-   "unit": "u3",
-   "lemma": "Tochter",
-   "translit": "Tochter",
-   "pronunciation": "TOKH-ter",
-   "translation": "daughter",
-   "category": "Family",
-   "difficulty": 2,
-   "frequencyRank": 119,
-   "examples": [
-    {
-     "native": "Meine Tochter lernt Deutsch.",
-     "translation": "My daughter is learning German."
-    }
-   ]
-  },
-  {
-   "id": "de_0033",
-   "unit": "u3",
-   "lemma": "Eltern",
-   "translit": "Eltern",
-   "pronunciation": "EL-tern",
-   "translation": "parents",
-   "category": "Family",
-   "difficulty": 2,
-   "frequencyRank": 120,
-   "examples": [
-    {
-     "native": "Meine Eltern kommen morgen.",
-     "translation": "My parents are coming tomorrow."
-    }
-   ]
-  },
-  {
-   "id": "de_0034",
-   "unit": "u3",
-   "lemma": "Oma",
-   "translit": "Oma",
-   "pronunciation": "OH-mah",
-   "translation": "grandma",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 22,
-   "examples": [
-    {
-     "native": "Oma macht den besten Kuchen.",
-     "translation": "Grandma makes the best cake."
-    }
-   ]
-  },
-  {
-   "id": "de_0035",
-   "unit": "u3",
-   "lemma": "Opa",
-   "translit": "Opa",
-   "pronunciation": "OH-pah",
-   "translation": "grandpa",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 23,
-   "examples": [
-    {
-     "native": "Opa erzählt gern Geschichten.",
-     "translation": "Grandpa likes telling stories."
-    }
-   ]
-  },
-  {
-   "id": "de_0036",
-   "unit": "u3",
-   "lemma": "Mann",
-   "translit": "Mann",
-   "pronunciation": "mahn",
-   "translation": "man, husband",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 24,
-   "examples": [
-    {
-     "native": "Ihr Mann heißt Peter.",
-     "translation": "Her husband is called Peter."
-    }
-   ]
-  },
-  {
-   "id": "de_0037",
-   "unit": "u3",
-   "lemma": "Frau",
-   "translit": "Frau",
-   "pronunciation": "frow",
-   "translation": "woman, wife",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 25,
-   "examples": [
-    {
-     "native": "Die Frau dort ist Lehrerin.",
-     "translation": "The woman over there is a teacher."
-    }
-   ]
-  },
-  {
-   "id": "de_0038",
-   "unit": "u4",
-   "lemma": "eins",
-   "translit": "eins",
-   "pronunciation": "ines",
-   "translation": "one",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 26,
-   "examples": [
-    {
-     "native": "Nur eins, bitte.",
-     "translation": "Just one, please."
-    }
-   ]
-  },
-  {
-   "id": "de_0039",
-   "unit": "u4",
-   "lemma": "zwei",
-   "translit": "zwei",
-   "pronunciation": "tsvy",
-   "translation": "two",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 27,
-   "examples": [
-    {
-     "native": "Zwei Bier, bitte.",
-     "translation": "Two beers, please."
-    }
-   ]
-  },
-  {
-   "id": "de_0040",
-   "unit": "u4",
-   "lemma": "drei",
-   "translit": "drei",
-   "pronunciation": "dry",
-   "translation": "three",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 28,
-   "examples": [
-    {
-     "native": "Drei Tage in München.",
-     "translation": "Three days in Munich."
-    }
-   ]
-  },
-  {
-   "id": "de_0041",
-   "unit": "u4",
-   "lemma": "vier",
-   "translit": "vier",
-   "pronunciation": "feer",
-   "translation": "four",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 29,
-   "examples": [
-    {
-     "native": "Ein Tisch für vier.",
-     "translation": "A table for four."
-    }
-   ]
-  },
-  {
-   "id": "de_0042",
-   "unit": "u4",
-   "lemma": "fünf",
-   "translit": "fünf",
-   "pronunciation": "fuenf",
-   "translation": "five",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 30,
-   "examples": [
-    {
-     "native": "Fünf Euro, bitte.",
-     "translation": "Five euros, please."
-    }
-   ]
-  },
-  {
-   "id": "de_0043",
-   "unit": "u4",
-   "lemma": "sechs",
-   "translit": "sechs",
-   "pronunciation": "zeks",
-   "translation": "six",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 31,
-   "examples": [
-    {
-     "native": "Um sechs Uhr.",
-     "translation": "At six o'clock."
-    }
-   ]
-  },
-  {
-   "id": "de_0044",
-   "unit": "u4",
-   "lemma": "sieben",
-   "translit": "sieben",
-   "pronunciation": "ZEE-ben",
-   "translation": "seven",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 32,
-   "examples": [
-    {
-     "native": "Sieben Minuten.",
-     "translation": "Seven minutes."
-    }
-   ]
-  },
-  {
-   "id": "de_0045",
-   "unit": "u4",
-   "lemma": "acht",
-   "translit": "acht",
-   "pronunciation": "akht",
-   "translation": "eight",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 33,
-   "examples": [
-    {
-     "native": "Acht Personen.",
-     "translation": "Eight people."
-    }
-   ]
-  },
-  {
-   "id": "de_0046",
-   "unit": "u4",
-   "lemma": "neun",
-   "translit": "neun",
-   "pronunciation": "noyn",
-   "translation": "nine",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 34,
-   "examples": [
-    {
-     "native": "Neun Uhr abends.",
-     "translation": "Nine in the evening."
-    }
-   ]
-  },
-  {
-   "id": "de_0047",
-   "unit": "u4",
-   "lemma": "zehn",
-   "translit": "zehn",
-   "pronunciation": "tsayn",
-   "translation": "ten",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 35,
-   "examples": [
-    {
-     "native": "Zehn Kilometer.",
-     "translation": "Ten kilometres."
-    }
-   ]
-  },
-  {
-   "id": "de_0048",
-   "unit": "u4",
-   "lemma": "zwanzig",
-   "translit": "zwanzig",
-   "pronunciation": "TSVAN-tsikh",
-   "translation": "twenty",
-   "category": "Numbers",
-   "difficulty": 2,
-   "frequencyRank": 121,
-   "examples": [
-    {
-     "native": "Zwanzig Euro.",
-     "translation": "Twenty euros."
-    }
-   ]
-  },
-  {
-   "id": "de_0049",
-   "unit": "u4",
-   "lemma": "hundert",
-   "translit": "hundert",
-   "pronunciation": "HOON-dert",
-   "translation": "hundred",
-   "category": "Numbers",
-   "difficulty": 2,
-   "frequencyRank": 122,
-   "examples": [
-    {
-     "native": "Hundert Prozent.",
-     "translation": "A hundred percent."
-    }
-   ]
-  },
-  {
-   "id": "de_0050",
-   "unit": "u5",
-   "lemma": "Wasser",
-   "translit": "Wasser",
-   "pronunciation": "VAS-ser",
-   "translation": "water",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 36,
-   "examples": [
-    {
-     "native": "Ein Glas Wasser, bitte.",
-     "translation": "A glass of water, please."
-    }
-   ]
-  },
-  {
-   "id": "de_0051",
-   "unit": "u5",
-   "lemma": "Kaffee",
-   "translit": "Kaffee",
-   "pronunciation": "KA-fay",
-   "translation": "coffee",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 37,
-   "examples": [
-    {
-     "native": "Kaffee mit Milch.",
-     "translation": "Coffee with milk."
-    }
-   ]
-  },
-  {
-   "id": "de_0052",
-   "unit": "u5",
-   "lemma": "Bier",
-   "translit": "Bier",
-   "pronunciation": "beer",
-   "translation": "beer",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 38,
-   "examples": [
-    {
-     "native": "Ein großes Bier, bitte.",
-     "translation": "A large beer, please."
-    }
-   ]
-  },
-  {
-   "id": "de_0053",
-   "unit": "u5",
-   "lemma": "Brot",
-   "translit": "Brot",
-   "pronunciation": "broht",
-   "translation": "bread",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 39,
-   "examples": [
-    {
-     "native": "Frisches Brot vom Bäcker.",
-     "translation": "Fresh bread from the baker."
-    }
-   ]
-  },
-  {
-   "id": "de_0054",
-   "unit": "u5",
-   "lemma": "Käse",
-   "translit": "Käse",
-   "pronunciation": "KAY-zuh",
-   "translation": "cheese",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 40,
-   "examples": [
-    {
-     "native": "Brot mit Käse.",
-     "translation": "Bread with cheese."
-    }
-   ]
-  },
-  {
-   "id": "de_0055",
-   "unit": "u5",
-   "lemma": "Apfel",
-   "translit": "Apfel",
-   "pronunciation": "AP-fel",
-   "translation": "apple",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 41,
-   "examples": [
-    {
-     "native": "Ein Apfel am Tag.",
-     "translation": "An apple a day."
-    }
-   ]
-  },
-  {
-   "id": "de_0056",
-   "unit": "u5",
-   "lemma": "essen",
-   "translit": "essen",
-   "pronunciation": "ES-sen",
-   "translation": "to eat",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 42,
-   "examples": [
-    {
-     "native": "Wir essen um acht.",
-     "translation": "We eat at eight."
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Hello, goodbye, please and thank you"
     },
     {
-     "native": "Das Essen ist gut",
-     "translation": "The food is good"
-    }
-   ]
-  },
-  {
-   "id": "de_0057",
-   "unit": "u5",
-   "lemma": "trinken",
-   "translit": "trinken",
-   "pronunciation": "TRINK-en",
-   "translation": "to drink",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 43,
-   "examples": [
-    {
-     "native": "Was möchten Sie trinken?",
-     "translation": "What would you like to drink?"
-    }
-   ]
-  },
-  {
-   "id": "de_0058",
-   "unit": "u5",
-   "lemma": "Rechnung",
-   "translit": "Rechnung",
-   "pronunciation": "REKH-noong",
-   "translation": "bill, check",
-   "category": "Food",
-   "difficulty": 2,
-   "frequencyRank": 123,
-   "examples": [
-    {
-     "native": "Die Rechnung, bitte.",
-     "translation": "The bill, please."
-    }
-   ]
-  },
-  {
-   "id": "de_0059",
-   "unit": "u5",
-   "lemma": "lecker",
-   "translit": "lecker",
-   "pronunciation": "LEK-er",
-   "translation": "tasty",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 44,
-   "examples": [
-    {
-     "native": "Das war sehr lecker.",
-     "translation": "That was very tasty."
-    }
-   ]
-  },
-  {
-   "id": "de_0060",
-   "unit": "u5",
-   "lemma": "Frühstück",
-   "translit": "Frühstück",
-   "pronunciation": "FRUE-shtuek",
-   "translation": "breakfast",
-   "category": "Food",
-   "difficulty": 2,
-   "frequencyRank": 124,
-   "examples": [
-    {
-     "native": "Frühstück gibt es ab sieben.",
-     "translation": "Breakfast is from seven."
-    }
-   ]
-  },
-  {
-   "id": "de_0061",
-   "unit": "u5",
-   "lemma": "Kuchen",
-   "translit": "Kuchen",
-   "pronunciation": "KOO-khen",
-   "translation": "cake",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 45,
-   "examples": [
-    {
-     "native": "Kaffee und Kuchen.",
-     "translation": "Coffee and cake."
-    }
-   ]
-  },
-  {
-   "id": "de_0062",
-   "unit": "u6",
-   "lemma": "sein",
-   "translit": "sein",
-   "pronunciation": "zine",
-   "translation": "to be",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 46,
-   "examples": [
-    {
-     "native": "Ich bin hier.",
-     "translation": "I am here."
-    }
-   ]
-  },
-  {
-   "id": "de_0063",
-   "unit": "u6",
-   "lemma": "haben",
-   "translit": "haben",
-   "pronunciation": "HAH-ben",
-   "translation": "to have",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 47,
-   "examples": [
-    {
-     "native": "Ich habe Zeit.",
-     "translation": "I have time."
-    }
-   ]
-  },
-  {
-   "id": "de_0064",
-   "unit": "u6",
-   "lemma": "gehen",
-   "translit": "gehen",
-   "pronunciation": "GAY-en",
-   "translation": "to go, to walk",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 48,
-   "examples": [
-    {
-     "native": "Wir gehen nach Hause.",
-     "translation": "We're going home."
-    }
-   ]
-  },
-  {
-   "id": "de_0065",
-   "unit": "u6",
-   "lemma": "machen",
-   "translit": "machen",
-   "pronunciation": "MAKH-en",
-   "translation": "to do, to make",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 49,
-   "examples": [
-    {
-     "native": "Was machst du?",
-     "translation": "What are you doing?"
-    }
-   ]
-  },
-  {
-   "id": "de_0066",
-   "unit": "u6",
-   "lemma": "sehen",
-   "translit": "sehen",
-   "pronunciation": "ZAY-en",
-   "translation": "to see",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 50,
-   "examples": [
-    {
-     "native": "Ich sehe nichts.",
-     "translation": "I can't see anything."
-    }
-   ]
-  },
-  {
-   "id": "de_0067",
-   "unit": "u6",
-   "lemma": "sprechen",
-   "translit": "sprechen",
-   "pronunciation": "SHPREKH-en",
-   "translation": "to speak",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 125,
-   "examples": [
-    {
-     "native": "Sprechen Sie Englisch?",
-     "translation": "Do you speak English?"
-    }
-   ]
-  },
-  {
-   "id": "de_0068",
-   "unit": "u6",
-   "lemma": "verstehen",
-   "translit": "verstehen",
-   "pronunciation": "fer-SHTAY-en",
-   "translation": "to understand",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 126,
-   "examples": [
-    {
-     "native": "Ich verstehe nicht.",
-     "translation": "I don't understand."
-    }
-   ]
-  },
-  {
-   "id": "de_0069",
-   "unit": "u6",
-   "lemma": "wissen",
-   "translit": "wissen",
-   "pronunciation": "VIS-sen",
-   "translation": "to know (a fact)",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 127,
-   "examples": [
-    {
-     "native": "Ich weiß es nicht.",
-     "translation": "I don't know."
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Your name, where you're from, how you are"
     },
     {
-     "native": "Ich weiss es nicht",
-     "translation": "I don't know"
-    }
-   ]
-  },
-  {
-   "id": "de_0070",
-   "unit": "u6",
-   "lemma": "arbeiten",
-   "translit": "arbeiten",
-   "pronunciation": "AR-by-ten",
-   "translation": "to work",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 128,
-   "examples": [
-    {
-     "native": "Ich arbeite von zu Hause.",
-     "translation": "I work from home."
-    }
-   ]
-  },
-  {
-   "id": "de_0071",
-   "unit": "u6",
-   "lemma": "kaufen",
-   "translit": "kaufen",
-   "pronunciation": "COW-fen",
-   "translation": "to buy",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 51,
-   "examples": [
-    {
-     "native": "Ich kaufe Brot.",
-     "translation": "I'm buying bread."
-    }
-   ]
-  },
-  {
-   "id": "de_0072",
-   "unit": "u6",
-   "lemma": "helfen",
-   "translit": "helfen",
-   "pronunciation": "HEL-fen",
-   "translation": "to help",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 129,
-   "examples": [
-    {
-     "native": "Können Sie mir helfen?",
-     "translation": "Can you help me?"
-    }
-   ]
-  },
-  {
-   "id": "de_0073",
-   "unit": "u6",
-   "lemma": "möchten",
-   "translit": "möchten",
-   "pronunciation": "MERKH-ten",
-   "translation": "would like",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 130,
-   "examples": [
-    {
-     "native": "Ich möchte einen Tee.",
-     "translation": "I would like a tea."
-    }
-   ]
-  },
-  {
-   "id": "de_0074",
-   "unit": "u7",
-   "lemma": "Haus",
-   "translit": "Haus",
-   "pronunciation": "howss",
-   "translation": "house",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 53,
-   "examples": [
-    {
-     "native": "Das Haus ist alt.",
-     "translation": "The house is old."
-    }
-   ]
-  },
-  {
-   "id": "de_0075",
-   "unit": "u7",
-   "lemma": "Stadt",
-   "translit": "Stadt",
-   "pronunciation": "shtat",
-   "translation": "city, town",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 54,
-   "examples": [
-    {
-     "native": "Die Stadt ist schön.",
-     "translation": "The city is beautiful."
-    }
-   ]
-  },
-  {
-   "id": "de_0076",
-   "unit": "u7",
-   "lemma": "Bahnhof",
-   "translit": "Bahnhof",
-   "pronunciation": "BAHN-hohf",
-   "translation": "train station",
-   "category": "Places",
-   "difficulty": 2,
-   "frequencyRank": 137,
-   "examples": [
-    {
-     "native": "Der Bahnhof ist dort drüben.",
-     "translation": "The station is over there."
-    }
-   ]
-  },
-  {
-   "id": "de_0077",
-   "unit": "u7",
-   "lemma": "Straße",
-   "translit": "Straße",
-   "pronunciation": "SHTRAH-suh",
-   "translation": "street",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 55,
-   "examples": [
-    {
-     "native": "Diese Straße ist lang.",
-     "translation": "This street is long."
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "The people closest to you"
     },
     {
-     "native": "Die Straße ist gesperrt",
-     "translation": "The road is closed"
-    }
-   ]
-  },
-  {
-   "id": "de_0078",
-   "unit": "u7",
-   "lemma": "Geschäft",
-   "translit": "Geschäft",
-   "pronunciation": "guh-SHEFT",
-   "translation": "shop",
-   "category": "Places",
-   "difficulty": 2,
-   "frequencyRank": 138,
-   "examples": [
-    {
-     "native": "Das Geschäft macht um zehn auf.",
-     "translation": "The shop opens at ten."
-    }
-   ]
-  },
-  {
-   "id": "de_0079",
-   "unit": "u7",
-   "lemma": "Krankenhaus",
-   "translit": "Krankenhaus",
-   "pronunciation": "KRAN-ken-howss",
-   "translation": "hospital",
-   "category": "Places",
-   "difficulty": 2,
-   "frequencyRank": 139,
-   "examples": [
-    {
-     "native": "Wo ist das Krankenhaus?",
-     "translation": "Where is the hospital?"
-    }
-   ]
-  },
-  {
-   "id": "de_0080",
-   "unit": "u7",
-   "lemma": "Hotel",
-   "translit": "Hotel",
-   "pronunciation": "ho-TEL",
-   "translation": "hotel",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 56,
-   "examples": [
-    {
-     "native": "Das Hotel liegt zentral.",
-     "translation": "The hotel is central."
-    }
-   ]
-  },
-  {
-   "id": "de_0081",
-   "unit": "u7",
-   "lemma": "links",
-   "translit": "links",
-   "pronunciation": "links",
-   "translation": "left",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 57,
-   "examples": [
-    {
-     "native": "Dann links.",
-     "translation": "Then left."
-    }
-   ]
-  },
-  {
-   "id": "de_0082",
-   "unit": "u7",
-   "lemma": "rechts",
-   "translit": "rechts",
-   "pronunciation": "rekhts",
-   "translation": "right",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 58,
-   "examples": [
-    {
-     "native": "Die zweite Straße rechts.",
-     "translation": "The second street on the right."
-    }
-   ]
-  },
-  {
-   "id": "de_0083",
-   "unit": "u7",
-   "lemma": "geradeaus",
-   "translit": "geradeaus",
-   "pronunciation": "guh-RAH-duh-owss",
-   "translation": "straight ahead",
-   "category": "Places",
-   "difficulty": 2,
-   "frequencyRank": 140,
-   "examples": [
-    {
-     "native": "Immer geradeaus.",
-     "translation": "Straight ahead all the way."
-    }
-   ]
-  },
-  {
-   "id": "de_0084",
-   "unit": "u7",
-   "lemma": "hier",
-   "translit": "hier",
-   "pronunciation": "heer",
-   "translation": "here",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 59,
-   "examples": [
-    {
-     "native": "Ich bin hier.",
-     "translation": "I'm here."
-    }
-   ]
-  },
-  {
-   "id": "de_0085",
-   "unit": "u7",
-   "lemma": "dort",
-   "translit": "dort",
-   "pronunciation": "dort",
-   "translation": "there",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 60,
-   "examples": [
-    {
-     "native": "Dort ist die Apotheke.",
-     "translation": "The pharmacy is there."
-    }
-   ]
-  },
-  {
-   "id": "de_0086",
-   "unit": "u8",
-   "lemma": "heute",
-   "translit": "heute",
-   "pronunciation": "HOY-tuh",
-   "translation": "today",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 64,
-   "examples": [
-    {
-     "native": "Heute ist Montag.",
-     "translation": "Today is Monday."
-    }
-   ]
-  },
-  {
-   "id": "de_0087",
-   "unit": "u8",
-   "lemma": "morgen",
-   "translit": "morgen",
-   "pronunciation": "MOR-gen",
-   "translation": "tomorrow",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 65,
-   "examples": [
-    {
-     "native": "Bis morgen!",
-     "translation": "See you tomorrow!"
-    }
-   ]
-  },
-  {
-   "id": "de_0088",
-   "unit": "u8",
-   "lemma": "gestern",
-   "translit": "gestern",
-   "pronunciation": "GES-tern",
-   "translation": "yesterday",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 66,
-   "examples": [
-    {
-     "native": "Gestern war es kalt.",
-     "translation": "It was cold yesterday."
-    }
-   ]
-  },
-  {
-   "id": "de_0089",
-   "unit": "u8",
-   "lemma": "jetzt",
-   "translit": "jetzt",
-   "pronunciation": "yetst",
-   "translation": "now",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 67,
-   "examples": [
-    {
-     "native": "Nicht jetzt.",
-     "translation": "Not now."
-    }
-   ]
-  },
-  {
-   "id": "de_0090",
-   "unit": "u8",
-   "lemma": "später",
-   "translit": "später",
-   "pronunciation": "SHPAY-ter",
-   "translation": "later",
-   "category": "Time",
-   "difficulty": 2,
-   "frequencyRank": 141,
-   "examples": [
-    {
-     "native": "Bis später!",
-     "translation": "See you later!"
-    }
-   ]
-  },
-  {
-   "id": "de_0091",
-   "unit": "u8",
-   "lemma": "Uhr",
-   "translit": "Uhr",
-   "pronunciation": "oor",
-   "translation": "o'clock, clock",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 68,
-   "examples": [
-    {
-     "native": "Es ist drei Uhr.",
-     "translation": "It's three o'clock."
-    }
-   ]
-  },
-  {
-   "id": "de_0092",
-   "unit": "u8",
-   "lemma": "Woche",
-   "translit": "Woche",
-   "pronunciation": "VOKH-uh",
-   "translation": "week",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 69,
-   "examples": [
-    {
-     "native": "Nächste Woche.",
-     "translation": "Next week."
-    }
-   ]
-  },
-  {
-   "id": "de_0093",
-   "unit": "u8",
-   "lemma": "Monat",
-   "translit": "Monat",
-   "pronunciation": "MOH-naht",
-   "translation": "month",
-   "category": "Time",
-   "difficulty": 2,
-   "frequencyRank": 142,
-   "examples": [
-    {
-     "native": "Diesen Monat.",
-     "translation": "This month."
-    }
-   ]
-  },
-  {
-   "id": "de_0094",
-   "unit": "u8",
-   "lemma": "Jahr",
-   "translit": "Jahr",
-   "pronunciation": "yahr",
-   "translation": "year",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 70,
-   "examples": [
-    {
-     "native": "Ein gutes neues Jahr!",
-     "translation": "Happy new year!"
-    }
-   ]
-  },
-  {
-   "id": "de_0095",
-   "unit": "u8",
-   "lemma": "Montag",
-   "translit": "Montag",
-   "pronunciation": "MOHN-tahk",
-   "translation": "Monday",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 71,
-   "examples": [
-    {
-     "native": "Am Montag arbeite ich.",
-     "translation": "On Monday I work."
-    }
-   ]
-  },
-  {
-   "id": "de_0096",
-   "unit": "u8",
-   "lemma": "Wochenende",
-   "translit": "Wochenende",
-   "pronunciation": "VOKH-en-en-duh",
-   "translation": "weekend",
-   "category": "Time",
-   "difficulty": 2,
-   "frequencyRank": 143,
-   "examples": [
-    {
-     "native": "Schönes Wochenende!",
-     "translation": "Have a good weekend!"
-    }
-   ]
-  },
-  {
-   "id": "de_0097",
-   "unit": "u8",
-   "lemma": "immer",
-   "translit": "immer",
-   "pronunciation": "IM-mer",
-   "translation": "always",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 72,
-   "examples": [
-    {
-     "native": "Er kommt immer zu spät.",
-     "translation": "He's always late."
-    }
-   ]
-  },
-  {
-   "id": "de_0098",
-   "unit": "u9",
-   "lemma": "und",
-   "translit": "und",
-   "pronunciation": "oont",
-   "translation": "and",
-   "category": "Connectors",
-   "difficulty": 1,
-   "frequencyRank": 75,
-   "examples": [
-    {
-     "native": "Brot und Käse.",
-     "translation": "Bread and cheese."
-    }
-   ]
-  },
-  {
-   "id": "de_0099",
-   "unit": "u9",
-   "lemma": "aber",
-   "translit": "aber",
-   "pronunciation": "AH-ber",
-   "translation": "but",
-   "category": "Connectors",
-   "difficulty": 1,
-   "frequencyRank": 76,
-   "examples": [
-    {
-     "native": "Klein, aber gemütlich.",
-     "translation": "Small, but cosy."
-    }
-   ]
-  },
-  {
-   "id": "de_0100",
-   "unit": "u9",
-   "lemma": "oder",
-   "translit": "oder",
-   "pronunciation": "OH-der",
-   "translation": "or",
-   "category": "Connectors",
-   "difficulty": 1,
-   "frequencyRank": 77,
-   "examples": [
-    {
-     "native": "Tee oder Kaffee?",
-     "translation": "Tea or coffee?"
-    }
-   ]
-  },
-  {
-   "id": "de_0101",
-   "unit": "u9",
-   "lemma": "weil",
-   "translit": "weil",
-   "pronunciation": "vile",
-   "translation": "because",
-   "category": "Connectors",
-   "difficulty": 2,
-   "frequencyRank": 144,
-   "examples": [
-    {
-     "native": "Ich bleibe, weil es regnet.",
-     "translation": "I'm staying because it's raining."
-    }
-   ]
-  },
-  {
-   "id": "de_0102",
-   "unit": "u9",
-   "lemma": "wenn",
-   "translit": "wenn",
-   "pronunciation": "ven",
-   "translation": "if, when",
-   "category": "Connectors",
-   "difficulty": 2,
-   "frequencyRank": 145,
-   "examples": [
-    {
-     "native": "Wenn du willst.",
-     "translation": "If you want."
-    }
-   ]
-  },
-  {
-   "id": "de_0103",
-   "unit": "u9",
-   "lemma": "auch",
-   "translit": "auch",
-   "pronunciation": "owkh",
-   "translation": "also, too",
-   "category": "Connectors",
-   "difficulty": 1,
-   "frequencyRank": 78,
-   "examples": [
-    {
-     "native": "Ich auch.",
-     "translation": "Me too."
-    }
-   ]
-  },
-  {
-   "id": "de_0104",
-   "unit": "u9",
-   "lemma": "noch",
-   "translit": "noch",
-   "pronunciation": "nokh",
-   "translation": "still, yet",
-   "category": "Connectors",
-   "difficulty": 2,
-   "frequencyRank": 146,
-   "examples": [
-    {
-     "native": "Noch ein Bier, bitte.",
-     "translation": "Another beer, please."
-    }
-   ]
-  },
-  {
-   "id": "de_0105",
-   "unit": "u9",
-   "lemma": "schon",
-   "translit": "schon",
-   "pronunciation": "shohn",
-   "translation": "already",
-   "category": "Connectors",
-   "difficulty": 2,
-   "frequencyRank": 147,
-   "examples": [
-    {
-     "native": "Schon fertig?",
-     "translation": "Finished already?"
-    }
-   ]
-  },
-  {
-   "id": "de_0106",
-   "unit": "u9",
-   "lemma": "nicht",
-   "translit": "nicht",
-   "pronunciation": "nikht",
-   "translation": "not",
-   "category": "Connectors",
-   "difficulty": 1,
-   "frequencyRank": 79,
-   "examples": [
-    {
-     "native": "Das ist nicht richtig.",
-     "translation": "That's not right."
-    }
-   ]
-  },
-  {
-   "id": "de_0107",
-   "unit": "u9",
-   "lemma": "nur",
-   "translit": "nur",
-   "pronunciation": "noor",
-   "translation": "only",
-   "category": "Connectors",
-   "difficulty": 1,
-   "frequencyRank": 80,
-   "examples": [
-    {
-     "native": "Nur ein bisschen.",
-     "translation": "Only a little."
-    }
-   ]
-  },
-  {
-   "id": "de_0108",
-   "unit": "u9",
-   "lemma": "mit",
-   "translit": "mit",
-   "pronunciation": "mit",
-   "translation": "with",
-   "category": "Connectors",
-   "difficulty": 1,
-   "frequencyRank": 81,
-   "examples": [
-    {
-     "native": "Kaffee mit Zucker.",
-     "translation": "Coffee with sugar."
-    }
-   ]
-  },
-  {
-   "id": "de_0109",
-   "unit": "u9",
-   "lemma": "ohne",
-   "translit": "ohne",
-   "pronunciation": "OH-nuh",
-   "translation": "without",
-   "category": "Connectors",
-   "difficulty": 2,
-   "frequencyRank": 148,
-   "examples": [
-    {
-     "native": "Ohne Milch, bitte.",
-     "translation": "Without milk, please."
-    }
-   ]
-  },
-  {
-   "id": "de_0110",
-   "unit": "u10",
-   "lemma": "Zug",
-   "translit": "Zug",
-   "pronunciation": "tsook",
-   "translation": "train",
-   "category": "Travel",
-   "difficulty": 1,
-   "frequencyRank": 89,
-   "examples": [
-    {
-     "native": "Der Zug hat Verspätung.",
-     "translation": "The train is delayed."
-    }
-   ]
-  },
-  {
-   "id": "de_0111",
-   "unit": "u10",
-   "lemma": "Fahrkarte",
-   "translit": "Fahrkarte",
-   "pronunciation": "FAR-kar-tuh",
-   "translation": "ticket",
-   "category": "Travel",
-   "difficulty": 2,
-   "frequencyRank": 149,
-   "examples": [
-    {
-     "native": "Eine Fahrkarte nach Hamburg.",
-     "translation": "A ticket to Hamburg."
-    }
-   ]
-  },
-  {
-   "id": "de_0112",
-   "unit": "u10",
-   "lemma": "Gleis",
-   "translit": "Gleis",
-   "pronunciation": "glice",
-   "translation": "platform, track",
-   "category": "Travel",
-   "difficulty": 2,
-   "frequencyRank": 150,
-   "examples": [
-    {
-     "native": "Der Zug fährt von Gleis drei.",
-     "translation": "The train leaves from platform three."
-    }
-   ]
-  },
-  {
-   "id": "de_0113",
-   "unit": "u10",
-   "lemma": "Flughafen",
-   "translit": "Flughafen",
-   "pronunciation": "FLOOK-hah-fen",
-   "translation": "airport",
-   "category": "Travel",
-   "difficulty": 2,
-   "frequencyRank": 151,
-   "examples": [
-    {
-     "native": "Zum Flughafen, bitte.",
-     "translation": "To the airport, please."
-    }
-   ]
-  },
-  {
-   "id": "de_0114",
-   "unit": "u10",
-   "lemma": "Koffer",
-   "translit": "Koffer",
-   "pronunciation": "KOF-fer",
-   "translation": "suitcase",
-   "category": "Travel",
-   "difficulty": 2,
-   "frequencyRank": 152,
-   "examples": [
-    {
-     "native": "Mein Koffer ist weg.",
-     "translation": "My suitcase is gone."
-    }
-   ]
-  },
-  {
-   "id": "de_0115",
-   "unit": "u10",
-   "lemma": "Verspätung",
-   "translit": "Verspätung",
-   "pronunciation": "fer-SHPAY-toong",
-   "translation": "delay",
-   "category": "Travel",
-   "difficulty": 3,
-   "frequencyRank": 172,
-   "examples": [
-    {
-     "native": "Zwanzig Minuten Verspätung.",
-     "translation": "Twenty minutes' delay."
-    }
-   ]
-  },
-  {
-   "id": "de_0116",
-   "unit": "u10",
-   "lemma": "umsteigen",
-   "translit": "umsteigen",
-   "pronunciation": "OOM-shty-gen",
-   "translation": "to change (trains)",
-   "category": "Travel",
-   "difficulty": 3,
-   "frequencyRank": 173,
-   "examples": [
-    {
-     "native": "Sie müssen in Köln umsteigen.",
-     "translation": "You have to change in Cologne."
-    }
-   ]
-  },
-  {
-   "id": "de_0117",
-   "unit": "u10",
-   "lemma": "abfahren",
-   "translit": "abfahren",
-   "pronunciation": "AP-fah-ren",
-   "translation": "to depart",
-   "category": "Travel",
-   "difficulty": 3,
-   "frequencyRank": 174,
-   "examples": [
-    {
-     "native": "Wann fährt der Zug ab?",
-     "translation": "When does the train leave?"
-    }
-   ]
-  },
-  {
-   "id": "de_0118",
-   "unit": "u10",
-   "lemma": "Fahrplan",
-   "translit": "Fahrplan",
-   "pronunciation": "FAR-plahn",
-   "translation": "timetable",
-   "category": "Travel",
-   "difficulty": 2,
-   "frequencyRank": 153,
-   "examples": [
-    {
-     "native": "Steht das im Fahrplan?",
-     "translation": "Is that on the timetable?"
-    }
-   ]
-  },
-  {
-   "id": "de_0119",
-   "unit": "u10",
-   "lemma": "besetzt",
-   "translit": "besetzt",
-   "pronunciation": "buh-ZETST",
-   "translation": "occupied, taken",
-   "category": "Travel",
-   "difficulty": 2,
-   "frequencyRank": 154,
-   "examples": [
-    {
-     "native": "Ist der Platz besetzt?",
-     "translation": "Is this seat taken?"
-    }
-   ]
-  },
-  {
-   "id": "de_0120",
-   "unit": "u10",
-   "lemma": "Ausgang",
-   "translit": "Ausgang",
-   "pronunciation": "OWSS-gang",
-   "translation": "exit",
-   "category": "Travel",
-   "difficulty": 2,
-   "frequencyRank": 155,
-   "examples": [
-    {
-     "native": "Wo ist der Ausgang?",
-     "translation": "Where is the exit?"
-    }
-   ]
-  },
-  {
-   "id": "de_0121",
-   "unit": "u10",
-   "lemma": "Ankunft",
-   "translit": "Ankunft",
-   "pronunciation": "AN-koonft",
-   "translation": "arrival",
-   "category": "Travel",
-   "difficulty": 3,
-   "frequencyRank": 175,
-   "examples": [
-    {
-     "native": "Ankunft um halb sechs.",
-     "translation": "Arrival at half past five."
-    }
-   ]
-  },
-  {
-   "id": "de_0122",
-   "unit": "u11",
-   "lemma": "Kopf",
-   "translit": "Kopf",
-   "pronunciation": "kopf",
-   "translation": "head",
-   "category": "Body",
-   "difficulty": 1,
-   "frequencyRank": 91,
-   "examples": [
-    {
-     "native": "Mein Kopf tut weh.",
-     "translation": "My head hurts."
-    }
-   ]
-  },
-  {
-   "id": "de_0123",
-   "unit": "u11",
-   "lemma": "Hand",
-   "translit": "Hand",
-   "pronunciation": "hant",
-   "translation": "hand",
-   "category": "Body",
-   "difficulty": 1,
-   "frequencyRank": 92,
-   "examples": [
-    {
-     "native": "Gib mir deine Hand.",
-     "translation": "Give me your hand."
-    }
-   ]
-  },
-  {
-   "id": "de_0124",
-   "unit": "u11",
-   "lemma": "Bauch",
-   "translit": "Bauch",
-   "pronunciation": "bowkh",
-   "translation": "stomach, belly",
-   "category": "Body",
-   "difficulty": 2,
-   "frequencyRank": 156,
-   "examples": [
-    {
-     "native": "Mir tut der Bauch weh.",
-     "translation": "My stomach hurts."
-    }
-   ]
-  },
-  {
-   "id": "de_0125",
-   "unit": "u11",
-   "lemma": "Rücken",
-   "translit": "Rücken",
-   "pronunciation": "RUEK-en",
-   "translation": "back",
-   "category": "Body",
-   "difficulty": 2,
-   "frequencyRank": 157,
-   "examples": [
-    {
-     "native": "Mein Rücken ist steif.",
-     "translation": "My back is stiff."
-    }
-   ]
-  },
-  {
-   "id": "de_0126",
-   "unit": "u11",
-   "lemma": "krank",
-   "translit": "krank",
-   "pronunciation": "krank",
-   "translation": "ill, sick",
-   "category": "Body",
-   "difficulty": 1,
-   "frequencyRank": 93,
-   "examples": [
-    {
-     "native": "Ich bin krank.",
-     "translation": "I'm ill."
-    }
-   ]
-  },
-  {
-   "id": "de_0127",
-   "unit": "u11",
-   "lemma": "Schmerzen",
-   "translit": "Schmerzen",
-   "pronunciation": "SHMER-tsen",
-   "translation": "pain",
-   "category": "Body",
-   "difficulty": 3,
-   "frequencyRank": 176,
-   "examples": [
-    {
-     "native": "Ich habe Schmerzen hier.",
-     "translation": "I have pain here."
-    }
-   ]
-  },
-  {
-   "id": "de_0128",
-   "unit": "u11",
-   "lemma": "glücklich",
-   "translit": "glücklich",
-   "pronunciation": "GLUEK-likh",
-   "translation": "happy",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 158,
-   "examples": [
-    {
-     "native": "Ich bin sehr glücklich.",
-     "translation": "I'm very happy."
-    }
-   ]
-  },
-  {
-   "id": "de_0129",
-   "unit": "u11",
-   "lemma": "traurig",
-   "translit": "traurig",
-   "pronunciation": "TROW-rikh",
-   "translation": "sad",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 159,
-   "examples": [
-    {
-     "native": "Sie sieht traurig aus.",
-     "translation": "She looks sad."
-    }
-   ]
-  },
-  {
-   "id": "de_0130",
-   "unit": "u11",
-   "lemma": "Angst",
-   "translit": "Angst",
-   "pronunciation": "angst",
-   "translation": "fear, anxiety",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 160,
-   "examples": [
-    {
-     "native": "Ich habe Angst davor.",
-     "translation": "I'm afraid of it."
-    }
-   ]
-  },
-  {
-   "id": "de_0131",
-   "unit": "u11",
-   "lemma": "Hunger",
-   "translit": "Hunger",
-   "pronunciation": "HOONG-er",
-   "translation": "hunger",
-   "category": "Body",
-   "difficulty": 1,
-   "frequencyRank": 94,
-   "examples": [
-    {
-     "native": "Ich habe Hunger.",
-     "translation": "I'm hungry."
-    }
-   ]
-  },
-  {
-   "id": "de_0132",
-   "unit": "u11",
-   "lemma": "Durst",
-   "translit": "Durst",
-   "pronunciation": "doorst",
-   "translation": "thirst",
-   "category": "Body",
-   "difficulty": 1,
-   "frequencyRank": 95,
-   "examples": [
-    {
-     "native": "Hast du Durst?",
-     "translation": "Are you thirsty?"
-    }
-   ]
-  },
-  {
-   "id": "de_0133",
-   "unit": "u11",
-   "lemma": "Arzt",
-   "translit": "Arzt",
-   "pronunciation": "artst",
-   "translation": "doctor",
-   "category": "Body",
-   "difficulty": 2,
-   "frequencyRank": 161,
-   "examples": [
-    {
-     "native": "Ich brauche einen Arzt.",
-     "translation": "I need a doctor."
-    }
-   ]
-  },
-  {
-   "id": "de_0134",
-   "unit": "u12",
-   "lemma": "Wetter",
-   "translit": "Wetter",
-   "pronunciation": "VET-ter",
-   "translation": "weather",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 96,
-   "examples": [
-    {
-     "native": "Wie ist das Wetter?",
-     "translation": "What's the weather like?"
-    }
-   ]
-  },
-  {
-   "id": "de_0135",
-   "unit": "u12",
-   "lemma": "Sonne",
-   "translit": "Sonne",
-   "pronunciation": "ZON-nuh",
-   "translation": "sun",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 97,
-   "examples": [
-    {
-     "native": "Die Sonne scheint.",
-     "translation": "The sun is shining."
-    }
-   ]
-  },
-  {
-   "id": "de_0136",
-   "unit": "u12",
-   "lemma": "Regen",
-   "translit": "Regen",
-   "pronunciation": "RAY-gen",
-   "translation": "rain",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 98,
-   "examples": [
-    {
-     "native": "Der Regen hört nicht auf.",
-     "translation": "The rain won't stop."
-    }
-   ]
-  },
-  {
-   "id": "de_0137",
-   "unit": "u12",
-   "lemma": "Schnee",
-   "translit": "Schnee",
-   "pronunciation": "shnay",
-   "translation": "snow",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 99,
-   "examples": [
-    {
-     "native": "Es liegt Schnee.",
-     "translation": "There's snow on the ground."
-    }
-   ]
-  },
-  {
-   "id": "de_0138",
-   "unit": "u12",
-   "lemma": "kalt",
-   "translit": "kalt",
-   "pronunciation": "kalt",
-   "translation": "cold",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 100,
-   "examples": [
-    {
-     "native": "Heute ist es kalt.",
-     "translation": "It's cold today."
-    }
-   ]
-  },
-  {
-   "id": "de_0139",
-   "unit": "u12",
-   "lemma": "warm",
-   "translit": "warm",
-   "pronunciation": "varm",
-   "translation": "warm",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 101,
-   "examples": [
-    {
-     "native": "Es wird warm.",
-     "translation": "It's getting warm."
-    }
-   ]
-  },
-  {
-   "id": "de_0140",
-   "unit": "u12",
-   "lemma": "Wind",
-   "translit": "Wind",
-   "pronunciation": "vint",
-   "translation": "wind",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 102,
-   "examples": [
-    {
-     "native": "Der Wind ist stark.",
-     "translation": "The wind is strong."
-    }
-   ]
-  },
-  {
-   "id": "de_0141",
-   "unit": "u12",
-   "lemma": "Baum",
-   "translit": "Baum",
-   "pronunciation": "bowm",
-   "translation": "tree",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 103,
-   "examples": [
-    {
-     "native": "Ein alter Baum.",
-     "translation": "An old tree."
-    }
-   ]
-  },
-  {
-   "id": "de_0142",
-   "unit": "u12",
-   "lemma": "Berg",
-   "translit": "Berg",
-   "pronunciation": "berk",
-   "translation": "mountain",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 162,
-   "examples": [
-    {
-     "native": "Wir fahren in die Berge.",
-     "translation": "We're going to the mountains."
-    }
-   ]
-  },
-  {
-   "id": "de_0143",
-   "unit": "u12",
-   "lemma": "See",
-   "translit": "See",
-   "pronunciation": "zay",
-   "translation": "lake",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 163,
-   "examples": [
-    {
-     "native": "Der See ist ruhig.",
-     "translation": "The lake is calm."
-    }
-   ]
-  },
-  {
-   "id": "de_0144",
-   "unit": "u12",
-   "lemma": "Wald",
-   "translit": "Wald",
-   "pronunciation": "valt",
-   "translation": "forest",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 164,
-   "examples": [
-    {
-     "native": "Ein Spaziergang im Wald.",
-     "translation": "A walk in the forest."
-    }
-   ]
-  },
-  {
-   "id": "de_0145",
-   "unit": "u12",
-   "lemma": "schön",
-   "translit": "schön",
-   "pronunciation": "shern",
-   "translation": "beautiful, nice",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 104,
-   "examples": [
-    {
-     "native": "Ein schöner Tag.",
-     "translation": "A beautiful day."
-    }
-   ]
-  },
-  {
-   "id": "de_0146",
-   "unit": "u13",
-   "lemma": "Geld",
-   "translit": "Geld",
-   "pronunciation": "gelt",
-   "translation": "money",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 107,
-   "examples": [
-    {
-     "native": "Ich habe kein Geld dabei.",
-     "translation": "I don't have any money on me."
-    }
-   ]
-  },
-  {
-   "id": "de_0147",
-   "unit": "u13",
-   "lemma": "teuer",
-   "translit": "teuer",
-   "pronunciation": "TOY-er",
-   "translation": "expensive",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 165,
-   "examples": [
-    {
-     "native": "Das ist zu teuer.",
-     "translation": "That's too expensive."
-    }
-   ]
-  },
-  {
-   "id": "de_0148",
-   "unit": "u13",
-   "lemma": "billig",
-   "translit": "billig",
-   "pronunciation": "BIL-likh",
-   "translation": "cheap",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 166,
-   "examples": [
-    {
-     "native": "Billig, aber gut.",
-     "translation": "Cheap, but good."
-    }
-   ]
-  },
-  {
-   "id": "de_0149",
-   "unit": "u13",
-   "lemma": "Supermarkt",
-   "translit": "Supermarkt",
-   "pronunciation": "ZOO-per-markt",
-   "translation": "supermarket",
-   "category": "Places",
-   "difficulty": 2,
-   "frequencyRank": 167,
-   "examples": [
-    {
-     "native": "Ich gehe in den Supermarkt.",
-     "translation": "I'm going to the supermarket."
-    }
-   ]
-  },
-  {
-   "id": "de_0150",
-   "unit": "u13",
-   "lemma": "Termin",
-   "translit": "Termin",
-   "pronunciation": "ter-MEEN",
-   "translation": "appointment",
-   "category": "Common",
-   "difficulty": 3,
-   "frequencyRank": 177,
-   "examples": [
-    {
-     "native": "Ich habe einen Termin um drei.",
-     "translation": "I have an appointment at three."
-    }
-   ]
-  },
-  {
-   "id": "de_0151",
-   "unit": "u13",
-   "lemma": "Anmeldung",
-   "translit": "Anmeldung",
-   "pronunciation": "AN-mel-doong",
-   "translation": "registration",
-   "category": "Common",
-   "difficulty": 3,
-   "frequencyRank": 178,
-   "examples": [
-    {
-     "native": "Die Anmeldung dauert lange.",
-     "translation": "The registration takes a long time."
-    }
-   ]
-  },
-  {
-   "id": "de_0152",
-   "unit": "u13",
-   "lemma": "Schlüssel",
-   "translit": "Schlüssel",
-   "pronunciation": "SHLUES-sel",
-   "translation": "key",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 168,
-   "examples": [
-    {
-     "native": "Wo ist mein Schlüssel?",
-     "translation": "Where is my key?"
-    }
-   ]
-  },
-  {
-   "id": "de_0153",
-   "unit": "u13",
-   "lemma": "Wohnung",
-   "translit": "Wohnung",
-   "pronunciation": "VOH-noong",
-   "translation": "flat, apartment",
-   "category": "Places",
-   "difficulty": 2,
-   "frequencyRank": 169,
-   "examples": [
-    {
-     "native": "Die Wohnung ist klein.",
-     "translation": "The flat is small."
-    }
-   ]
-  },
-  {
-   "id": "de_0154",
-   "unit": "u13",
-   "lemma": "Miete",
-   "translit": "Miete",
-   "pronunciation": "MEE-tuh",
-   "translation": "rent",
-   "category": "Common",
-   "difficulty": 3,
-   "frequencyRank": 179,
-   "examples": [
-    {
-     "native": "Die Miete ist hoch.",
-     "translation": "The rent is high."
-    }
-   ]
-  },
-  {
-   "id": "de_0155",
-   "unit": "u13",
-   "lemma": "bezahlen",
-   "translit": "bezahlen",
-   "pronunciation": "buh-TSAH-len",
-   "translation": "to pay",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 170,
-   "examples": [
-    {
-     "native": "Ich möchte bezahlen.",
-     "translation": "I'd like to pay."
-    }
-   ]
-  },
-  {
-   "id": "de_0156",
-   "unit": "u13",
-   "lemma": "Handy",
-   "translit": "Handy",
-   "pronunciation": "HEN-dee",
-   "translation": "mobile phone",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 108,
-   "examples": [
-    {
-     "native": "Mein Handy ist leer.",
-     "translation": "My phone is dead."
-    }
-   ]
-  },
-  {
-   "id": "de_0157",
-   "unit": "u13",
-   "lemma": "Termin machen",
-   "translit": "Termin machen",
-   "pronunciation": "ter-MEEN MAKH-en",
-   "translation": "to make an appointment",
-   "category": "Common",
-   "difficulty": 3,
-   "frequencyRank": 180,
-   "examples": [
-    {
-     "native": "Ich möchte einen Termin machen.",
-     "translation": "I'd like to make an appointment."
-    }
-   ]
-  },
-  {
-   "id": "de_0158",
-   "lemma": "gross",
-   "translit": "gross",
-   "pronunciation": "GROHSS",
-   "translation": "big",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u12",
-   "examples": [
-    {
-     "native": "Ein grosses Haus",
-     "translation": "A big house"
-    }
-   ],
-   "frequencyRank": 105
-  },
-  {
-   "id": "de_0159",
-   "lemma": "klein",
-   "translit": "klein",
-   "pronunciation": "KLINE",
-   "translation": "small",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u12",
-   "examples": [
-    {
-     "native": "Ein kleines Zimmer",
-     "translation": "A small room"
-    }
-   ],
-   "frequencyRank": 106
-  },
-  {
-   "id": "de_0160",
-   "lemma": "wollen",
-   "translit": "wollen",
-   "pronunciation": "VOL-en",
-   "translation": "to want",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Ich will nach Hause",
-     "translation": "I want to go home"
-    }
-   ],
-   "frequencyRank": 131
-  },
-  {
-   "id": "de_0161",
-   "lemma": "sagen",
-   "translit": "sagen",
-   "pronunciation": "ZAH-gen",
-   "translation": "to say",
-   "category": "Verbs",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Was hast du gesagt?",
-     "translation": "What did you say?"
-    }
-   ],
-   "frequencyRank": 52
-  },
-  {
-   "id": "de_0162",
-   "lemma": "können",
-   "translit": "können",
-   "pronunciation": "KERN-en",
-   "translation": "to be able to, can",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Kannst du mir helfen?",
-     "translation": "Can you help me?"
-    }
-   ],
-   "frequencyRank": 132
-  },
-  {
-   "id": "de_0163",
-   "lemma": "brauchen",
-   "translit": "brauchen",
-   "pronunciation": "BROW-khen",
-   "translation": "to need",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Ich brauche Hilfe",
-     "translation": "I need help"
-    }
-   ],
-   "frequencyRank": 133
-  },
-  {
-   "id": "de_0164",
-   "lemma": "geben",
-   "translit": "geben",
-   "pronunciation": "GAY-ben",
-   "translation": "to give",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Gib mir bitte das Salz",
-     "translation": "Give me the salt please"
-    }
-   ],
-   "frequencyRank": 134
-  },
-  {
-   "id": "de_0165",
-   "lemma": "nehmen",
-   "translit": "nehmen",
-   "pronunciation": "NAY-men",
-   "translation": "to take",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Ich nehme den Zug",
-     "translation": "I'll take the train"
-    }
-   ],
-   "frequencyRank": 135
-  },
-  {
-   "id": "de_0166",
-   "lemma": "Zeit",
-   "translit": "Zeit",
-   "pronunciation": "TSITE",
-   "translation": "time",
-   "category": "Time",
-   "difficulty": 1,
-   "unit": "u8",
-   "examples": [
-    {
-     "native": "Ich habe keine Zeit",
-     "translation": "I don't have time"
-    }
-   ],
-   "frequencyRank": 73
-  },
-  {
-   "id": "de_0167",
-   "lemma": "Tag",
-   "translit": "Tag",
-   "pronunciation": "TAHK",
-   "translation": "day",
-   "category": "Time",
-   "difficulty": 1,
-   "unit": "u8",
-   "examples": [
-    {
-     "native": "Einen schönen Tag!",
-     "translation": "Have a nice day!"
-    }
-   ],
-   "frequencyRank": 74
-  },
-  {
-   "id": "de_0168",
-   "lemma": "was",
-   "translit": "was",
-   "pronunciation": "VAS",
-   "translation": "what",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u9",
-   "examples": [
-    {
-     "native": "Was ist das?",
-     "translation": "What is that?"
-    }
-   ],
-   "frequencyRank": 82
-  },
-  {
-   "id": "de_0169",
-   "lemma": "wo",
-   "translit": "wo",
-   "pronunciation": "VO",
-   "translation": "where",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u9",
-   "examples": [
-    {
-     "native": "Wo bist du?",
-     "translation": "Where are you?"
-    }
-   ],
-   "frequencyRank": 83
-  },
-  {
-   "id": "de_0170",
-   "lemma": "warum",
-   "translit": "warum",
-   "pronunciation": "va-ROOM",
-   "translation": "why",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u9",
-   "examples": [
-    {
-     "native": "Warum nicht?",
-     "translation": "Why not?"
-    }
-   ],
-   "frequencyRank": 84
-  },
-  {
-   "id": "de_0171",
-   "lemma": "wie",
-   "translit": "wie",
-   "pronunciation": "VEE",
-   "translation": "how",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u9",
-   "examples": [
-    {
-     "native": "Wie funktioniert das?",
-     "translation": "How does that work?"
-    }
-   ],
-   "frequencyRank": 85
-  },
-  {
-   "id": "de_0172",
-   "lemma": "wer",
-   "translit": "wer",
-   "pronunciation": "VAIR",
-   "translation": "who",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u9",
-   "examples": [
-    {
-     "native": "Wer ist das?",
-     "translation": "Who is that?"
-    }
-   ],
-   "frequencyRank": 86
-  },
-  {
-   "id": "de_0173",
-   "lemma": "Auto",
-   "translit": "Auto",
-   "pronunciation": "OW-to",
-   "translation": "car",
-   "category": "Travel",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Das Auto ist kaputt",
-     "translation": "The car is broken"
-    }
-   ],
-   "frequencyRank": 90
-  },
-  {
-   "id": "de_0174",
-   "lemma": "Preis",
-   "translit": "Preis",
-   "pronunciation": "PRICE",
-   "translation": "price",
-   "category": "Common",
-   "difficulty": 2,
-   "unit": "u13",
-   "examples": [
-    {
-     "native": "Wie hoch ist der Preis?",
-     "translation": "What's the price?"
-    }
-   ],
-   "frequencyRank": 171
-  },
-  {
-   "id": "de_0175",
-   "lemma": "öffnen",
-   "translit": "öffnen",
-   "pronunciation": "ERF-nen",
-   "translation": "to open",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Öffne bitte das Fenster",
-     "translation": "Open the window please"
-    }
-   ],
-   "frequencyRank": 136
-  },
-  {
-   "id": "de_0176",
-   "lemma": "mehr",
-   "translit": "mehr",
-   "pronunciation": "MAIR",
-   "translation": "more",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u9",
-   "examples": [
-    {
-     "native": "Ein bisschen mehr",
-     "translation": "A little more"
-    }
-   ],
-   "frequencyRank": 87
-  },
-  {
-   "id": "de_0177",
-   "lemma": "alles",
-   "translit": "alles",
-   "pronunciation": "AL-es",
-   "translation": "all, everything",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u9",
-   "examples": [
-    {
-     "native": "Alles ist gut",
-     "translation": "Everything is fine"
-    }
-   ],
-   "frequencyRank": 88
-  },
-  {
-   "id": "de_0178",
-   "lemma": "nah",
-   "translit": "nah",
-   "pronunciation": "NAH",
-   "translation": "near",
-   "category": "Places",
-   "difficulty": 1,
-   "unit": "u7",
-   "examples": [
-    {
-     "native": "Der Bahnhof ist nah",
-     "translation": "The station is near"
-    }
-   ],
-   "frequencyRank": 61
-  },
-  {
-   "id": "de_0179",
-   "lemma": "weit",
-   "translit": "weit",
-   "pronunciation": "VITE",
-   "translation": "far",
-   "category": "Places",
-   "difficulty": 1,
-   "unit": "u7",
-   "examples": [
-    {
-     "native": "Ist es weit?",
-     "translation": "Is it far?"
-    }
-   ],
-   "frequencyRank": 62
-  },
-  {
-   "id": "de_0180",
-   "lemma": "Toilette",
-   "translit": "Toilette",
-   "pronunciation": "twa-LET-uh",
-   "translation": "bathroom, toilet",
-   "category": "Places",
-   "difficulty": 1,
-   "unit": "u7",
-   "examples": [
-    {
-     "native": "Wo ist die Toilette?",
-     "translation": "Where is the toilet?"
-    }
-   ],
-   "frequencyRank": 63
-  }
- ]
+      "id": "u4",
+      "title": "Numbers 1-20",
+      "emoji": "🔢",
+      "description": "Counting, prices and quantities"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Ordering and eating"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "The verbs you'll use every day"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "🏠",
+      "description": "Where things are and where you're going"
+    },
+    {
+      "id": "u8",
+      "title": "Time",
+      "emoji": "⏰",
+      "description": "Days, hours and when things happen"
+    },
+    {
+      "id": "u9",
+      "title": "Connecting Ideas",
+      "emoji": "🔗",
+      "description": "Joining sentences like a native"
+    },
+    {
+      "id": "u10",
+      "title": "Travel Phrases",
+      "emoji": "✈️",
+      "description": "Trains, tickets and getting around"
+    },
+    {
+      "id": "u11",
+      "title": "Body & Feelings",
+      "emoji": "💪",
+      "description": "Saying how you feel and what hurts"
+    },
+    {
+      "id": "u12",
+      "title": "Weather & Nature",
+      "emoji": "🌦️",
+      "description": "Small talk that always works"
+    },
+    {
+      "id": "u13",
+      "title": "Everyday Life",
+      "emoji": "🛒",
+      "description": "Shopping, home and admin"
+    }
+  ],
+  "alphabet": [
+    {
+      "char": "ä",
+      "name": "a-umlaut",
+      "sound": "eh, as in 'bed' — Bär sounds like 'bair'"
+    },
+    {
+      "char": "ö",
+      "name": "o-umlaut",
+      "sound": "like the 'i' in 'bird', lips rounded — schön"
+    },
+    {
+      "char": "ü",
+      "name": "u-umlaut",
+      "sound": "say 'ee' with rounded lips — für, über"
+    },
+    {
+      "char": "ß",
+      "name": "eszett",
+      "sound": "a sharp 's'. Never a 'b'. Straße = 'SHTRAH-suh'"
+    },
+    {
+      "char": "ei",
+      "name": "ei",
+      "sound": "rhymes with 'eye' — nein, drei"
+    },
+    {
+      "char": "ie",
+      "name": "ie",
+      "sound": "rhymes with 'see' — bier, vier. The opposite of ei."
+    },
+    {
+      "char": "eu",
+      "name": "eu",
+      "sound": "'oy' as in 'boy' — neun, Freund"
+    },
+    {
+      "char": "ch",
+      "name": "ch",
+      "sound": "after a/o/u it's throaty (Bach); after e/i it's soft (ich)"
+    },
+    {
+      "char": "sp",
+      "name": "sp-",
+      "sound": "at the start of a word it's 'shp' — sprechen"
+    },
+    {
+      "char": "st",
+      "name": "st-",
+      "sound": "at the start of a word it's 'sht' — Straße, Stadt"
+    },
+    {
+      "char": "v",
+      "name": "v",
+      "sound": "usually an 'f' — Vater = 'FAH-ter'"
+    },
+    {
+      "char": "w",
+      "name": "w",
+      "sound": "always a 'v' — Wasser = 'VAS-ser'"
+    },
+    {
+      "char": "z",
+      "name": "z",
+      "sound": "always 'ts' — zwei = 'tsvy'"
+    },
+    {
+      "char": "r",
+      "name": "r",
+      "sound": "in the throat, and at the end of a word it softens to 'uh'"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "der-die-das",
+      "title": "der, die, das — and why you can't skip it",
+      "body": "Every German noun is masculine (der), feminine (die) or neuter (das), and the article changes with the sentence's grammar. It is rarely guessable, so learn the article WITH the word — not 'Tisch' but 'der Tisch'. Getting it wrong is understood; getting it right is what makes you sound like you've lived there."
+    },
+    {
+      "id": "verb-second",
+      "title": "The verb is second. Always.",
+      "body": "In a main clause the conjugated verb sits in position two, whatever comes first. 'Ich gehe heute ins Kino.' Move 'heute' to the front and the verb still stays second: 'Heute gehe ich ins Kino.' Not 'Heute ich gehe'. This one rule fixes more sentences than any amount of vocabulary."
+    },
+    {
+      "id": "verb-to-the-end",
+      "title": "…except when it goes right to the end",
+      "body": "After weil, dass, wenn, obwohl, the verb jumps to the end of the clause: 'Ich bleibe zu Hause, weil es regnet.' Germans do this without thinking; learners hear the whole sentence before the verb arrives and panic. Expect the wait — it's the single biggest listening hurdle."
+    },
+    {
+      "id": "du-vs-sie",
+      "title": "du or Sie",
+      "body": "Sie is the default with strangers, officials, shopkeepers and anyone older you don't know. du is for friends, family, children, and — increasingly — colleagues under about forty. Being offered the du ('Wollen wir uns duzen?') is a small social moment; wait to be offered it rather than assuming."
+    },
+    {
+      "id": "separable-verbs",
+      "title": "Verbs that split in half",
+      "body": "anrufen means 'to call'. But you say 'Ich rufe dich an' — the prefix flies to the end of the sentence. aufstehen, einkaufen, mitkommen and dozens more do this. If a sentence seems to end in a stray little word, that's the other half of the verb catching up."
+    }
+  ],
+  "vocab": [
+    {
+      "id": "de_0001",
+      "unit": "u1",
+      "lemma": "Hallo",
+      "translit": "Hallo",
+      "pronunciation": "HAH-lo",
+      "translation": "hello",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "Hallo, wie geht's?",
+          "translation": "Hello, how are you?"
+        }
+      ]
+    },
+    {
+      "id": "de_0002",
+      "unit": "u1",
+      "lemma": "Guten Morgen",
+      "translit": "Guten Morgen",
+      "pronunciation": "GOO-ten MOR-gen",
+      "translation": "good morning",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "Guten Morgen, Frau Weber.",
+          "translation": "Good morning, Mrs Weber."
+        }
+      ]
+    },
+    {
+      "id": "de_0003",
+      "unit": "u1",
+      "lemma": "Guten Tag",
+      "translit": "Guten Tag",
+      "pronunciation": "GOO-ten TAHK",
+      "translation": "good day, hello (formal)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "Guten Tag, ich hätte gern einen Kaffee.",
+          "translation": "Hello, I'd like a coffee."
+        }
+      ]
+    },
+    {
+      "id": "de_0004",
+      "unit": "u1",
+      "lemma": "Guten Abend",
+      "translit": "Guten Abend",
+      "pronunciation": "GOO-ten AH-bent",
+      "translation": "good evening",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "Guten Abend, ein Tisch für zwei bitte.",
+          "translation": "Good evening, a table for two please."
+        }
+      ]
+    },
+    {
+      "id": "de_0005",
+      "unit": "u1",
+      "lemma": "Tschüss",
+      "translit": "Tschüss",
+      "pronunciation": "CHUESS",
+      "translation": "bye",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "Tschüss, bis morgen!",
+          "translation": "Bye, see you tomorrow!"
+        }
+      ]
+    },
+    {
+      "id": "de_0006",
+      "unit": "u1",
+      "lemma": "Auf Wiedersehen",
+      "translit": "Auf Wiedersehen",
+      "pronunciation": "owf VEE-der-zayn",
+      "translation": "goodbye (formal)",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 109,
+      "examples": [
+        {
+          "native": "Auf Wiedersehen und danke.",
+          "translation": "Goodbye and thank you."
+        }
+      ]
+    },
+    {
+      "id": "de_0007",
+      "unit": "u1",
+      "lemma": "Bitte",
+      "translit": "Bitte",
+      "pronunciation": "BIT-uh",
+      "translation": "please, you're welcome",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "Einen Kaffee, bitte.",
+          "translation": "A coffee, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0008",
+      "unit": "u1",
+      "lemma": "Danke",
+      "translit": "Danke",
+      "pronunciation": "DAN-kuh",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "Danke schön!",
+          "translation": "Thank you very much!"
+        }
+      ]
+    },
+    {
+      "id": "de_0009",
+      "unit": "u1",
+      "lemma": "Entschuldigung",
+      "translit": "Entschuldigung",
+      "pronunciation": "ent-SHOOL-di-goong",
+      "translation": "excuse me, sorry",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 110,
+      "examples": [
+        {
+          "native": "Entschuldigung, wo ist der Bahnhof?",
+          "translation": "Excuse me, where is the station?"
+        }
+      ]
+    },
+    {
+      "id": "de_0010",
+      "unit": "u1",
+      "lemma": "Ja",
+      "translit": "Ja",
+      "pronunciation": "YAH",
+      "translation": "yes",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "Ja, gerne.",
+          "translation": "Yes, gladly."
+        }
+      ]
+    },
+    {
+      "id": "de_0011",
+      "unit": "u1",
+      "lemma": "Nein",
+      "translit": "Nein",
+      "pronunciation": "NINE",
+      "translation": "no",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "Nein, danke.",
+          "translation": "No, thank you."
+        }
+      ]
+    },
+    {
+      "id": "de_0012",
+      "unit": "u1",
+      "lemma": "Servus",
+      "translit": "Servus",
+      "pronunciation": "ZER-voos",
+      "translation": "hi/bye (Bavaria & Austria)",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 111,
+      "examples": [
+        {
+          "native": "Servus, alles gut?",
+          "translation": "Hi, all good?"
+        }
+      ]
+    },
+    {
+      "id": "de_0013",
+      "unit": "u2",
+      "lemma": "ich",
+      "translit": "ich",
+      "pronunciation": "ikh",
+      "translation": "I",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 10,
+      "examples": [
+        {
+          "native": "Ich bin müde.",
+          "translation": "I'm tired."
+        }
+      ]
+    },
+    {
+      "id": "de_0014",
+      "unit": "u2",
+      "lemma": "du",
+      "translit": "du",
+      "pronunciation": "doo",
+      "translation": "you (informal)",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "Woher kommst du?",
+          "translation": "Where are you from?"
+        }
+      ]
+    },
+    {
+      "id": "de_0015",
+      "unit": "u2",
+      "lemma": "Sie",
+      "translit": "Sie",
+      "pronunciation": "zee",
+      "translation": "you (formal)",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 112,
+      "examples": [
+        {
+          "native": "Wie heißen Sie?",
+          "translation": "What's your name?"
+        }
+      ]
+    },
+    {
+      "id": "de_0016",
+      "unit": "u2",
+      "lemma": "heißen",
+      "translit": "heißen",
+      "pronunciation": "HY-sen",
+      "translation": "to be called",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 113,
+      "examples": [
+        {
+          "native": "Ich heiße Anna.",
+          "translation": "My name is Anna."
+        }
+      ]
+    },
+    {
+      "id": "de_0017",
+      "unit": "u2",
+      "lemma": "kommen",
+      "translit": "kommen",
+      "pronunciation": "KOM-en",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "Ich komme aus England.",
+          "translation": "I come from England."
+        }
+      ]
+    },
+    {
+      "id": "de_0018",
+      "unit": "u2",
+      "lemma": "wohnen",
+      "translit": "wohnen",
+      "pronunciation": "VOH-nen",
+      "translation": "to live, to reside",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 114,
+      "examples": [
+        {
+          "native": "Ich wohne in Berlin.",
+          "translation": "I live in Berlin."
+        }
+      ]
+    },
+    {
+      "id": "de_0019",
+      "unit": "u2",
+      "lemma": "gut",
+      "translit": "gut",
+      "pronunciation": "goot",
+      "translation": "good, well",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "Mir geht es gut.",
+          "translation": "I'm doing well."
+        }
+      ]
+    },
+    {
+      "id": "de_0020",
+      "unit": "u2",
+      "lemma": "schlecht",
+      "translit": "schlecht",
+      "pronunciation": "shlekht",
+      "translation": "bad",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Das Wetter ist schlecht.",
+          "translation": "The weather is bad."
+        }
+      ]
+    },
+    {
+      "id": "de_0021",
+      "unit": "u2",
+      "lemma": "müde",
+      "translit": "müde",
+      "pronunciation": "MUE-duh",
+      "translation": "tired",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 116,
+      "examples": [
+        {
+          "native": "Ich bin sehr müde.",
+          "translation": "I'm very tired."
+        }
+      ]
+    },
+    {
+      "id": "de_0022",
+      "unit": "u2",
+      "lemma": "Name",
+      "translit": "Name",
+      "pronunciation": "NAH-muh",
+      "translation": "name",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "Mein Name ist Tom.",
+          "translation": "My name is Tom."
+        }
+      ]
+    },
+    {
+      "id": "de_0023",
+      "unit": "u2",
+      "lemma": "Freund",
+      "translit": "Freund",
+      "pronunciation": "froynt",
+      "translation": "friend",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 117,
+      "examples": [
+        {
+          "native": "Er ist mein Freund.",
+          "translation": "He is my friend."
+        }
+      ]
+    },
+    {
+      "id": "de_0024",
+      "unit": "u2",
+      "lemma": "sehr",
+      "translit": "sehr",
+      "pronunciation": "zayr",
+      "translation": "very",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "Sehr gut, danke.",
+          "translation": "Very good, thanks."
+        }
+      ]
+    },
+    {
+      "id": "de_0025",
+      "unit": "u3",
+      "lemma": "Familie",
+      "translit": "Familie",
+      "pronunciation": "fa-MEE-lee-uh",
+      "translation": "family",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 16,
+      "examples": [
+        {
+          "native": "Meine Familie wohnt in Köln.",
+          "translation": "My family lives in Cologne."
+        }
+      ]
+    },
+    {
+      "id": "de_0026",
+      "unit": "u3",
+      "lemma": "Mutter",
+      "translit": "Mutter",
+      "pronunciation": "MOO-ter",
+      "translation": "mother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "Meine Mutter kocht gern.",
+          "translation": "My mother likes cooking."
+        }
+      ]
+    },
+    {
+      "id": "de_0027",
+      "unit": "u3",
+      "lemma": "Vater",
+      "translit": "Vater",
+      "pronunciation": "FAH-ter",
+      "translation": "father",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "Mein Vater arbeitet viel.",
+          "translation": "My father works a lot."
+        }
+      ]
+    },
+    {
+      "id": "de_0028",
+      "unit": "u3",
+      "lemma": "Bruder",
+      "translit": "Bruder",
+      "pronunciation": "BROO-der",
+      "translation": "brother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 19,
+      "examples": [
+        {
+          "native": "Ich habe einen Bruder.",
+          "translation": "I have a brother."
+        }
+      ]
+    },
+    {
+      "id": "de_0029",
+      "unit": "u3",
+      "lemma": "Schwester",
+      "translit": "Schwester",
+      "pronunciation": "SHVES-ter",
+      "translation": "sister",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "examples": [
+        {
+          "native": "Meine Schwester ist Ärztin.",
+          "translation": "My sister is a doctor."
+        }
+      ]
+    },
+    {
+      "id": "de_0030",
+      "unit": "u3",
+      "lemma": "Kind",
+      "translit": "Kind",
+      "pronunciation": "kint",
+      "translation": "child",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "Das Kind schläft.",
+          "translation": "The child is sleeping."
+        }
+      ]
+    },
+    {
+      "id": "de_0031",
+      "unit": "u3",
+      "lemma": "Sohn",
+      "translit": "Sohn",
+      "pronunciation": "zohn",
+      "translation": "son",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 118,
+      "examples": [
+        {
+          "native": "Ihr Sohn ist sieben.",
+          "translation": "Her son is seven."
+        }
+      ]
+    },
+    {
+      "id": "de_0032",
+      "unit": "u3",
+      "lemma": "Tochter",
+      "translit": "Tochter",
+      "pronunciation": "TOKH-ter",
+      "translation": "daughter",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 119,
+      "examples": [
+        {
+          "native": "Meine Tochter lernt Deutsch.",
+          "translation": "My daughter is learning German."
+        }
+      ]
+    },
+    {
+      "id": "de_0033",
+      "unit": "u3",
+      "lemma": "Eltern",
+      "translit": "Eltern",
+      "pronunciation": "EL-tern",
+      "translation": "parents",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "Meine Eltern kommen morgen.",
+          "translation": "My parents are coming tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "de_0034",
+      "unit": "u3",
+      "lemma": "Oma",
+      "translit": "Oma",
+      "pronunciation": "OH-mah",
+      "translation": "grandma",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "Oma macht den besten Kuchen.",
+          "translation": "Grandma makes the best cake."
+        }
+      ]
+    },
+    {
+      "id": "de_0035",
+      "unit": "u3",
+      "lemma": "Opa",
+      "translit": "Opa",
+      "pronunciation": "OH-pah",
+      "translation": "grandpa",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 23,
+      "examples": [
+        {
+          "native": "Opa erzählt gern Geschichten.",
+          "translation": "Grandpa likes telling stories."
+        }
+      ]
+    },
+    {
+      "id": "de_0036",
+      "unit": "u3",
+      "lemma": "Mann",
+      "translit": "Mann",
+      "pronunciation": "mahn",
+      "translation": "man, husband",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "Ihr Mann heißt Peter.",
+          "translation": "Her husband is called Peter."
+        }
+      ]
+    },
+    {
+      "id": "de_0037",
+      "unit": "u3",
+      "lemma": "Frau",
+      "translit": "Frau",
+      "pronunciation": "frow",
+      "translation": "woman, wife",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Die Frau dort ist Lehrerin.",
+          "translation": "The woman over there is a teacher."
+        }
+      ]
+    },
+    {
+      "id": "de_0038",
+      "unit": "u4",
+      "lemma": "eins",
+      "translit": "eins",
+      "pronunciation": "ines",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "Nur eins, bitte.",
+          "translation": "Just one, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0039",
+      "unit": "u4",
+      "lemma": "zwei",
+      "translit": "zwei",
+      "pronunciation": "tsvy",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 27,
+      "examples": [
+        {
+          "native": "Zwei Bier, bitte.",
+          "translation": "Two beers, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0040",
+      "unit": "u4",
+      "lemma": "drei",
+      "translit": "drei",
+      "pronunciation": "dry",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "Drei Tage in München.",
+          "translation": "Three days in Munich."
+        }
+      ]
+    },
+    {
+      "id": "de_0041",
+      "unit": "u4",
+      "lemma": "vier",
+      "translit": "vier",
+      "pronunciation": "feer",
+      "translation": "four",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 29,
+      "examples": [
+        {
+          "native": "Ein Tisch für vier.",
+          "translation": "A table for four."
+        }
+      ]
+    },
+    {
+      "id": "de_0042",
+      "unit": "u4",
+      "lemma": "fünf",
+      "translit": "fünf",
+      "pronunciation": "fuenf",
+      "translation": "five",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "Fünf Euro, bitte.",
+          "translation": "Five euros, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0043",
+      "unit": "u4",
+      "lemma": "sechs",
+      "translit": "sechs",
+      "pronunciation": "zeks",
+      "translation": "six",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "Um sechs Uhr.",
+          "translation": "At six o'clock."
+        }
+      ]
+    },
+    {
+      "id": "de_0044",
+      "unit": "u4",
+      "lemma": "sieben",
+      "translit": "sieben",
+      "pronunciation": "ZEE-ben",
+      "translation": "seven",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "Sieben Minuten.",
+          "translation": "Seven minutes."
+        }
+      ]
+    },
+    {
+      "id": "de_0045",
+      "unit": "u4",
+      "lemma": "acht",
+      "translit": "acht",
+      "pronunciation": "akht",
+      "translation": "eight",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "Acht Personen.",
+          "translation": "Eight people."
+        }
+      ]
+    },
+    {
+      "id": "de_0046",
+      "unit": "u4",
+      "lemma": "neun",
+      "translit": "neun",
+      "pronunciation": "noyn",
+      "translation": "nine",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "Neun Uhr abends.",
+          "translation": "Nine in the evening."
+        }
+      ]
+    },
+    {
+      "id": "de_0047",
+      "unit": "u4",
+      "lemma": "zehn",
+      "translit": "zehn",
+      "pronunciation": "tsayn",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "Zehn Kilometer.",
+          "translation": "Ten kilometres."
+        }
+      ]
+    },
+    {
+      "id": "de_0048",
+      "unit": "u4",
+      "lemma": "zwanzig",
+      "translit": "zwanzig",
+      "pronunciation": "TSVAN-tsikh",
+      "translation": "twenty",
+      "category": "Numbers",
+      "difficulty": 2,
+      "frequencyRank": 121,
+      "examples": [
+        {
+          "native": "Zwanzig Euro.",
+          "translation": "Twenty euros."
+        }
+      ]
+    },
+    {
+      "id": "de_0049",
+      "unit": "u4",
+      "lemma": "hundert",
+      "translit": "hundert",
+      "pronunciation": "HOON-dert",
+      "translation": "hundred",
+      "category": "Numbers",
+      "difficulty": 2,
+      "frequencyRank": 122,
+      "examples": [
+        {
+          "native": "Hundert Prozent.",
+          "translation": "A hundred percent."
+        }
+      ]
+    },
+    {
+      "id": "de_0050",
+      "unit": "u5",
+      "lemma": "Wasser",
+      "translit": "Wasser",
+      "pronunciation": "VAS-ser",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "Ein Glas Wasser, bitte.",
+          "translation": "A glass of water, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0051",
+      "unit": "u5",
+      "lemma": "Kaffee",
+      "translit": "Kaffee",
+      "pronunciation": "KA-fay",
+      "translation": "coffee",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 37,
+      "examples": [
+        {
+          "native": "Kaffee mit Milch.",
+          "translation": "Coffee with milk."
+        }
+      ]
+    },
+    {
+      "id": "de_0052",
+      "unit": "u5",
+      "lemma": "Bier",
+      "translit": "Bier",
+      "pronunciation": "beer",
+      "translation": "beer",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "Ein großes Bier, bitte.",
+          "translation": "A large beer, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0053",
+      "unit": "u5",
+      "lemma": "Brot",
+      "translit": "Brot",
+      "pronunciation": "broht",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "Frisches Brot vom Bäcker.",
+          "translation": "Fresh bread from the baker."
+        }
+      ]
+    },
+    {
+      "id": "de_0054",
+      "unit": "u5",
+      "lemma": "Käse",
+      "translit": "Käse",
+      "pronunciation": "KAY-zuh",
+      "translation": "cheese",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "Brot mit Käse.",
+          "translation": "Bread with cheese."
+        }
+      ]
+    },
+    {
+      "id": "de_0055",
+      "unit": "u5",
+      "lemma": "Apfel",
+      "translit": "Apfel",
+      "pronunciation": "AP-fel",
+      "translation": "apple",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "Ein Apfel am Tag.",
+          "translation": "An apple a day."
+        }
+      ]
+    },
+    {
+      "id": "de_0056",
+      "unit": "u5",
+      "lemma": "essen",
+      "translit": "essen",
+      "pronunciation": "ES-sen",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "Wir essen um acht.",
+          "translation": "We eat at eight."
+        },
+        {
+          "native": "Das Essen ist gut",
+          "translation": "The food is good"
+        }
+      ]
+    },
+    {
+      "id": "de_0057",
+      "unit": "u5",
+      "lemma": "trinken",
+      "translit": "trinken",
+      "pronunciation": "TRINK-en",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "Was möchten Sie trinken?",
+          "translation": "What would you like to drink?"
+        }
+      ]
+    },
+    {
+      "id": "de_0058",
+      "unit": "u5",
+      "lemma": "Rechnung",
+      "translit": "Rechnung",
+      "pronunciation": "REKH-noong",
+      "translation": "bill, check",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 123,
+      "examples": [
+        {
+          "native": "Die Rechnung, bitte.",
+          "translation": "The bill, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0059",
+      "unit": "u5",
+      "lemma": "lecker",
+      "translit": "lecker",
+      "pronunciation": "LEK-er",
+      "translation": "tasty",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "Das war sehr lecker.",
+          "translation": "That was very tasty."
+        }
+      ]
+    },
+    {
+      "id": "de_0060",
+      "unit": "u5",
+      "lemma": "Frühstück",
+      "translit": "Frühstück",
+      "pronunciation": "FRUE-shtuek",
+      "translation": "breakfast",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 124,
+      "examples": [
+        {
+          "native": "Frühstück gibt es ab sieben.",
+          "translation": "Breakfast is from seven."
+        }
+      ]
+    },
+    {
+      "id": "de_0061",
+      "unit": "u5",
+      "lemma": "Kuchen",
+      "translit": "Kuchen",
+      "pronunciation": "KOO-khen",
+      "translation": "cake",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "Kaffee und Kuchen.",
+          "translation": "Coffee and cake."
+        }
+      ]
+    },
+    {
+      "id": "de_0062",
+      "unit": "u6",
+      "lemma": "sein",
+      "translit": "sein",
+      "pronunciation": "zine",
+      "translation": "to be",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "Ich bin hier.",
+          "translation": "I am here."
+        }
+      ]
+    },
+    {
+      "id": "de_0063",
+      "unit": "u6",
+      "lemma": "haben",
+      "translit": "haben",
+      "pronunciation": "HAH-ben",
+      "translation": "to have",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 47,
+      "examples": [
+        {
+          "native": "Ich habe Zeit.",
+          "translation": "I have time."
+        }
+      ]
+    },
+    {
+      "id": "de_0064",
+      "unit": "u6",
+      "lemma": "gehen",
+      "translit": "gehen",
+      "pronunciation": "GAY-en",
+      "translation": "to go, to walk",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Wir gehen nach Hause.",
+          "translation": "We're going home."
+        }
+      ]
+    },
+    {
+      "id": "de_0065",
+      "unit": "u6",
+      "lemma": "machen",
+      "translit": "machen",
+      "pronunciation": "MAKH-en",
+      "translation": "to do, to make",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 49,
+      "examples": [
+        {
+          "native": "Was machst du?",
+          "translation": "What are you doing?"
+        }
+      ]
+    },
+    {
+      "id": "de_0066",
+      "unit": "u6",
+      "lemma": "sehen",
+      "translit": "sehen",
+      "pronunciation": "ZAY-en",
+      "translation": "to see",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "Ich sehe nichts.",
+          "translation": "I can't see anything."
+        }
+      ]
+    },
+    {
+      "id": "de_0067",
+      "unit": "u6",
+      "lemma": "sprechen",
+      "translit": "sprechen",
+      "pronunciation": "SHPREKH-en",
+      "translation": "to speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 125,
+      "examples": [
+        {
+          "native": "Sprechen Sie Englisch?",
+          "translation": "Do you speak English?"
+        }
+      ]
+    },
+    {
+      "id": "de_0068",
+      "unit": "u6",
+      "lemma": "verstehen",
+      "translit": "verstehen",
+      "pronunciation": "fer-SHTAY-en",
+      "translation": "to understand",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 126,
+      "examples": [
+        {
+          "native": "Ich verstehe nicht.",
+          "translation": "I don't understand."
+        }
+      ]
+    },
+    {
+      "id": "de_0069",
+      "unit": "u6",
+      "lemma": "wissen",
+      "translit": "wissen",
+      "pronunciation": "VIS-sen",
+      "translation": "to know (a fact)",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 127,
+      "examples": [
+        {
+          "native": "Ich weiß es nicht.",
+          "translation": "I don't know."
+        },
+        {
+          "native": "Ich weiss es nicht",
+          "translation": "I don't know"
+        }
+      ]
+    },
+    {
+      "id": "de_0070",
+      "unit": "u6",
+      "lemma": "arbeiten",
+      "translit": "arbeiten",
+      "pronunciation": "AR-by-ten",
+      "translation": "to work",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 128,
+      "examples": [
+        {
+          "native": "Ich arbeite von zu Hause.",
+          "translation": "I work from home."
+        }
+      ]
+    },
+    {
+      "id": "de_0071",
+      "unit": "u6",
+      "lemma": "kaufen",
+      "translit": "kaufen",
+      "pronunciation": "COW-fen",
+      "translation": "to buy",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 51,
+      "examples": [
+        {
+          "native": "Ich kaufe Brot.",
+          "translation": "I'm buying bread."
+        }
+      ]
+    },
+    {
+      "id": "de_0072",
+      "unit": "u6",
+      "lemma": "helfen",
+      "translit": "helfen",
+      "pronunciation": "HEL-fen",
+      "translation": "to help",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 129,
+      "examples": [
+        {
+          "native": "Können Sie mir helfen?",
+          "translation": "Can you help me?"
+        }
+      ]
+    },
+    {
+      "id": "de_0073",
+      "unit": "u6",
+      "lemma": "möchten",
+      "translit": "möchten",
+      "pronunciation": "MERKH-ten",
+      "translation": "would like",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "Ich möchte einen Tee.",
+          "translation": "I would like a tea."
+        }
+      ]
+    },
+    {
+      "id": "de_0074",
+      "unit": "u7",
+      "lemma": "Haus",
+      "translit": "Haus",
+      "pronunciation": "howss",
+      "translation": "house",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 53,
+      "examples": [
+        {
+          "native": "Das Haus ist alt.",
+          "translation": "The house is old."
+        }
+      ]
+    },
+    {
+      "id": "de_0075",
+      "unit": "u7",
+      "lemma": "Stadt",
+      "translit": "Stadt",
+      "pronunciation": "shtat",
+      "translation": "city, town",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "Die Stadt ist schön.",
+          "translation": "The city is beautiful."
+        }
+      ]
+    },
+    {
+      "id": "de_0076",
+      "unit": "u7",
+      "lemma": "Bahnhof",
+      "translit": "Bahnhof",
+      "pronunciation": "BAHN-hohf",
+      "translation": "train station",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 137,
+      "examples": [
+        {
+          "native": "Der Bahnhof ist dort drüben.",
+          "translation": "The station is over there."
+        }
+      ]
+    },
+    {
+      "id": "de_0077",
+      "unit": "u7",
+      "lemma": "Straße",
+      "translit": "Straße",
+      "pronunciation": "SHTRAH-suh",
+      "translation": "street",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "Diese Straße ist lang.",
+          "translation": "This street is long."
+        },
+        {
+          "native": "Die Straße ist gesperrt",
+          "translation": "The road is closed"
+        }
+      ]
+    },
+    {
+      "id": "de_0078",
+      "unit": "u7",
+      "lemma": "Geschäft",
+      "translit": "Geschäft",
+      "pronunciation": "guh-SHEFT",
+      "translation": "shop",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "Das Geschäft macht um zehn auf.",
+          "translation": "The shop opens at ten."
+        }
+      ]
+    },
+    {
+      "id": "de_0079",
+      "unit": "u7",
+      "lemma": "Krankenhaus",
+      "translit": "Krankenhaus",
+      "pronunciation": "KRAN-ken-howss",
+      "translation": "hospital",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "Wo ist das Krankenhaus?",
+          "translation": "Where is the hospital?"
+        }
+      ]
+    },
+    {
+      "id": "de_0080",
+      "unit": "u7",
+      "lemma": "Hotel",
+      "translit": "Hotel",
+      "pronunciation": "ho-TEL",
+      "translation": "hotel",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "Das Hotel liegt zentral.",
+          "translation": "The hotel is central."
+        }
+      ]
+    },
+    {
+      "id": "de_0081",
+      "unit": "u7",
+      "lemma": "links",
+      "translit": "links",
+      "pronunciation": "links",
+      "translation": "left",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 57,
+      "examples": [
+        {
+          "native": "Dann links.",
+          "translation": "Then left."
+        }
+      ]
+    },
+    {
+      "id": "de_0082",
+      "unit": "u7",
+      "lemma": "rechts",
+      "translit": "rechts",
+      "pronunciation": "rekhts",
+      "translation": "right",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 58,
+      "examples": [
+        {
+          "native": "Die zweite Straße rechts.",
+          "translation": "The second street on the right."
+        }
+      ]
+    },
+    {
+      "id": "de_0083",
+      "unit": "u7",
+      "lemma": "geradeaus",
+      "translit": "geradeaus",
+      "pronunciation": "guh-RAH-duh-owss",
+      "translation": "straight ahead",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "Immer geradeaus.",
+          "translation": "Straight ahead all the way."
+        }
+      ]
+    },
+    {
+      "id": "de_0084",
+      "unit": "u7",
+      "lemma": "hier",
+      "translit": "hier",
+      "pronunciation": "heer",
+      "translation": "here",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "Ich bin hier.",
+          "translation": "I'm here."
+        }
+      ]
+    },
+    {
+      "id": "de_0085",
+      "unit": "u7",
+      "lemma": "dort",
+      "translit": "dort",
+      "pronunciation": "dort",
+      "translation": "there",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "Dort ist die Apotheke.",
+          "translation": "The pharmacy is there."
+        }
+      ]
+    },
+    {
+      "id": "de_0086",
+      "unit": "u8",
+      "lemma": "heute",
+      "translit": "heute",
+      "pronunciation": "HOY-tuh",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "Heute ist Montag.",
+          "translation": "Today is Monday."
+        }
+      ]
+    },
+    {
+      "id": "de_0087",
+      "unit": "u8",
+      "lemma": "morgen",
+      "translit": "morgen",
+      "pronunciation": "MOR-gen",
+      "translation": "tomorrow",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "Bis morgen!",
+          "translation": "See you tomorrow!"
+        }
+      ]
+    },
+    {
+      "id": "de_0088",
+      "unit": "u8",
+      "lemma": "gestern",
+      "translit": "gestern",
+      "pronunciation": "GES-tern",
+      "translation": "yesterday",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 66,
+      "examples": [
+        {
+          "native": "Gestern war es kalt.",
+          "translation": "It was cold yesterday."
+        }
+      ]
+    },
+    {
+      "id": "de_0089",
+      "unit": "u8",
+      "lemma": "jetzt",
+      "translit": "jetzt",
+      "pronunciation": "yetst",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 67,
+      "examples": [
+        {
+          "native": "Nicht jetzt.",
+          "translation": "Not now."
+        }
+      ]
+    },
+    {
+      "id": "de_0090",
+      "unit": "u8",
+      "lemma": "später",
+      "translit": "später",
+      "pronunciation": "SHPAY-ter",
+      "translation": "later",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "Bis später!",
+          "translation": "See you later!"
+        }
+      ]
+    },
+    {
+      "id": "de_0091",
+      "unit": "u8",
+      "lemma": "Uhr",
+      "translit": "Uhr",
+      "pronunciation": "oor",
+      "translation": "o'clock, clock",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 68,
+      "examples": [
+        {
+          "native": "Es ist drei Uhr.",
+          "translation": "It's three o'clock."
+        }
+      ]
+    },
+    {
+      "id": "de_0092",
+      "unit": "u8",
+      "lemma": "Woche",
+      "translit": "Woche",
+      "pronunciation": "VOKH-uh",
+      "translation": "week",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "Nächste Woche.",
+          "translation": "Next week."
+        }
+      ]
+    },
+    {
+      "id": "de_0093",
+      "unit": "u8",
+      "lemma": "Monat",
+      "translit": "Monat",
+      "pronunciation": "MOH-naht",
+      "translation": "month",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "Diesen Monat.",
+          "translation": "This month."
+        }
+      ]
+    },
+    {
+      "id": "de_0094",
+      "unit": "u8",
+      "lemma": "Jahr",
+      "translit": "Jahr",
+      "pronunciation": "yahr",
+      "translation": "year",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 70,
+      "examples": [
+        {
+          "native": "Ein gutes neues Jahr!",
+          "translation": "Happy new year!"
+        }
+      ]
+    },
+    {
+      "id": "de_0095",
+      "unit": "u8",
+      "lemma": "Montag",
+      "translit": "Montag",
+      "pronunciation": "MOHN-tahk",
+      "translation": "Monday",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "Am Montag arbeite ich.",
+          "translation": "On Monday I work."
+        }
+      ]
+    },
+    {
+      "id": "de_0096",
+      "unit": "u8",
+      "lemma": "Wochenende",
+      "translit": "Wochenende",
+      "pronunciation": "VOKH-en-en-duh",
+      "translation": "weekend",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "Schönes Wochenende!",
+          "translation": "Have a good weekend!"
+        }
+      ]
+    },
+    {
+      "id": "de_0097",
+      "unit": "u8",
+      "lemma": "immer",
+      "translit": "immer",
+      "pronunciation": "IM-mer",
+      "translation": "always",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 72,
+      "examples": [
+        {
+          "native": "Er kommt immer zu spät.",
+          "translation": "He's always late."
+        }
+      ]
+    },
+    {
+      "id": "de_0098",
+      "unit": "u9",
+      "lemma": "und",
+      "translit": "und",
+      "pronunciation": "oont",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "Brot und Käse.",
+          "translation": "Bread and cheese."
+        }
+      ]
+    },
+    {
+      "id": "de_0099",
+      "unit": "u9",
+      "lemma": "aber",
+      "translit": "aber",
+      "pronunciation": "AH-ber",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 76,
+      "examples": [
+        {
+          "native": "Klein, aber gemütlich.",
+          "translation": "Small, but cosy."
+        }
+      ]
+    },
+    {
+      "id": "de_0100",
+      "unit": "u9",
+      "lemma": "oder",
+      "translit": "oder",
+      "pronunciation": "OH-der",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 77,
+      "examples": [
+        {
+          "native": "Tee oder Kaffee?",
+          "translation": "Tea or coffee?"
+        }
+      ]
+    },
+    {
+      "id": "de_0101",
+      "unit": "u9",
+      "lemma": "weil",
+      "translit": "weil",
+      "pronunciation": "vile",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "Ich bleibe, weil es regnet.",
+          "translation": "I'm staying because it's raining."
+        }
+      ]
+    },
+    {
+      "id": "de_0102",
+      "unit": "u9",
+      "lemma": "wenn",
+      "translit": "wenn",
+      "pronunciation": "ven",
+      "translation": "if, when",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "Wenn du willst.",
+          "translation": "If you want."
+        }
+      ]
+    },
+    {
+      "id": "de_0103",
+      "unit": "u9",
+      "lemma": "auch",
+      "translit": "auch",
+      "pronunciation": "owkh",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Ich auch.",
+          "translation": "Me too."
+        }
+      ]
+    },
+    {
+      "id": "de_0104",
+      "unit": "u9",
+      "lemma": "noch",
+      "translit": "noch",
+      "pronunciation": "nokh",
+      "translation": "still, yet",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "Noch ein Bier, bitte.",
+          "translation": "Another beer, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0105",
+      "unit": "u9",
+      "lemma": "schon",
+      "translit": "schon",
+      "pronunciation": "shohn",
+      "translation": "already",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "Schon fertig?",
+          "translation": "Finished already?"
+        }
+      ]
+    },
+    {
+      "id": "de_0106",
+      "unit": "u9",
+      "lemma": "nicht",
+      "translit": "nicht",
+      "pronunciation": "nikht",
+      "translation": "not",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 79,
+      "examples": [
+        {
+          "native": "Das ist nicht richtig.",
+          "translation": "That's not right."
+        }
+      ]
+    },
+    {
+      "id": "de_0107",
+      "unit": "u9",
+      "lemma": "nur",
+      "translit": "nur",
+      "pronunciation": "noor",
+      "translation": "only",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "Nur ein bisschen.",
+          "translation": "Only a little."
+        }
+      ]
+    },
+    {
+      "id": "de_0108",
+      "unit": "u9",
+      "lemma": "mit",
+      "translit": "mit",
+      "pronunciation": "mit",
+      "translation": "with",
+      "category": "Connectors",
+      "difficulty": 1,
+      "frequencyRank": 81,
+      "examples": [
+        {
+          "native": "Kaffee mit Zucker.",
+          "translation": "Coffee with sugar."
+        }
+      ]
+    },
+    {
+      "id": "de_0109",
+      "unit": "u9",
+      "lemma": "ohne",
+      "translit": "ohne",
+      "pronunciation": "OH-nuh",
+      "translation": "without",
+      "category": "Connectors",
+      "difficulty": 2,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "Ohne Milch, bitte.",
+          "translation": "Without milk, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0110",
+      "unit": "u10",
+      "lemma": "Zug",
+      "translit": "Zug",
+      "pronunciation": "tsook",
+      "translation": "train",
+      "category": "Travel",
+      "difficulty": 1,
+      "frequencyRank": 89,
+      "examples": [
+        {
+          "native": "Der Zug hat Verspätung.",
+          "translation": "The train is delayed."
+        }
+      ]
+    },
+    {
+      "id": "de_0111",
+      "unit": "u10",
+      "lemma": "Fahrkarte",
+      "translit": "Fahrkarte",
+      "pronunciation": "FAR-kar-tuh",
+      "translation": "ticket",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "Eine Fahrkarte nach Hamburg.",
+          "translation": "A ticket to Hamburg."
+        }
+      ]
+    },
+    {
+      "id": "de_0112",
+      "unit": "u10",
+      "lemma": "Gleis",
+      "translit": "Gleis",
+      "pronunciation": "glice",
+      "translation": "platform, track",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "Der Zug fährt von Gleis drei.",
+          "translation": "The train leaves from platform three."
+        }
+      ]
+    },
+    {
+      "id": "de_0113",
+      "unit": "u10",
+      "lemma": "Flughafen",
+      "translit": "Flughafen",
+      "pronunciation": "FLOOK-hah-fen",
+      "translation": "airport",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "Zum Flughafen, bitte.",
+          "translation": "To the airport, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0114",
+      "unit": "u10",
+      "lemma": "Koffer",
+      "translit": "Koffer",
+      "pronunciation": "KOF-fer",
+      "translation": "suitcase",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "Mein Koffer ist weg.",
+          "translation": "My suitcase is gone."
+        }
+      ]
+    },
+    {
+      "id": "de_0115",
+      "unit": "u10",
+      "lemma": "Verspätung",
+      "translit": "Verspätung",
+      "pronunciation": "fer-SHPAY-toong",
+      "translation": "delay",
+      "category": "Travel",
+      "difficulty": 3,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "Zwanzig Minuten Verspätung.",
+          "translation": "Twenty minutes' delay."
+        }
+      ]
+    },
+    {
+      "id": "de_0116",
+      "unit": "u10",
+      "lemma": "umsteigen",
+      "translit": "umsteigen",
+      "pronunciation": "OOM-shty-gen",
+      "translation": "to change (trains)",
+      "category": "Travel",
+      "difficulty": 3,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "Sie müssen in Köln umsteigen.",
+          "translation": "You have to change in Cologne."
+        }
+      ]
+    },
+    {
+      "id": "de_0117",
+      "unit": "u10",
+      "lemma": "abfahren",
+      "translit": "abfahren",
+      "pronunciation": "AP-fah-ren",
+      "translation": "to depart",
+      "category": "Travel",
+      "difficulty": 3,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "Wann fährt der Zug ab?",
+          "translation": "When does the train leave?"
+        }
+      ]
+    },
+    {
+      "id": "de_0118",
+      "unit": "u10",
+      "lemma": "Fahrplan",
+      "translit": "Fahrplan",
+      "pronunciation": "FAR-plahn",
+      "translation": "timetable",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "Steht das im Fahrplan?",
+          "translation": "Is that on the timetable?"
+        }
+      ]
+    },
+    {
+      "id": "de_0119",
+      "unit": "u10",
+      "lemma": "besetzt",
+      "translit": "besetzt",
+      "pronunciation": "buh-ZETST",
+      "translation": "occupied, taken",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "Ist der Platz besetzt?",
+          "translation": "Is this seat taken?"
+        }
+      ]
+    },
+    {
+      "id": "de_0120",
+      "unit": "u10",
+      "lemma": "Ausgang",
+      "translit": "Ausgang",
+      "pronunciation": "OWSS-gang",
+      "translation": "exit",
+      "category": "Travel",
+      "difficulty": 2,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "Wo ist der Ausgang?",
+          "translation": "Where is the exit?"
+        }
+      ]
+    },
+    {
+      "id": "de_0121",
+      "unit": "u10",
+      "lemma": "Ankunft",
+      "translit": "Ankunft",
+      "pronunciation": "AN-koonft",
+      "translation": "arrival",
+      "category": "Travel",
+      "difficulty": 3,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "Ankunft um halb sechs.",
+          "translation": "Arrival at half past five."
+        }
+      ]
+    },
+    {
+      "id": "de_0122",
+      "unit": "u11",
+      "lemma": "Kopf",
+      "translit": "Kopf",
+      "pronunciation": "kopf",
+      "translation": "head",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 91,
+      "examples": [
+        {
+          "native": "Mein Kopf tut weh.",
+          "translation": "My head hurts."
+        }
+      ]
+    },
+    {
+      "id": "de_0123",
+      "unit": "u11",
+      "lemma": "Hand",
+      "translit": "Hand",
+      "pronunciation": "hant",
+      "translation": "hand",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 92,
+      "examples": [
+        {
+          "native": "Gib mir deine Hand.",
+          "translation": "Give me your hand."
+        }
+      ]
+    },
+    {
+      "id": "de_0124",
+      "unit": "u11",
+      "lemma": "Bauch",
+      "translit": "Bauch",
+      "pronunciation": "bowkh",
+      "translation": "stomach, belly",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "Mir tut der Bauch weh.",
+          "translation": "My stomach hurts."
+        }
+      ]
+    },
+    {
+      "id": "de_0125",
+      "unit": "u11",
+      "lemma": "Rücken",
+      "translit": "Rücken",
+      "pronunciation": "RUEK-en",
+      "translation": "back",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "Mein Rücken ist steif.",
+          "translation": "My back is stiff."
+        }
+      ]
+    },
+    {
+      "id": "de_0126",
+      "unit": "u11",
+      "lemma": "krank",
+      "translit": "krank",
+      "pronunciation": "krank",
+      "translation": "ill, sick",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 93,
+      "examples": [
+        {
+          "native": "Ich bin krank.",
+          "translation": "I'm ill."
+        }
+      ]
+    },
+    {
+      "id": "de_0127",
+      "unit": "u11",
+      "lemma": "Schmerzen",
+      "translit": "Schmerzen",
+      "pronunciation": "SHMER-tsen",
+      "translation": "pain",
+      "category": "Body",
+      "difficulty": 3,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "Ich habe Schmerzen hier.",
+          "translation": "I have pain here."
+        }
+      ]
+    },
+    {
+      "id": "de_0128",
+      "unit": "u11",
+      "lemma": "glücklich",
+      "translit": "glücklich",
+      "pronunciation": "GLUEK-likh",
+      "translation": "happy",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "Ich bin sehr glücklich.",
+          "translation": "I'm very happy."
+        }
+      ]
+    },
+    {
+      "id": "de_0129",
+      "unit": "u11",
+      "lemma": "traurig",
+      "translit": "traurig",
+      "pronunciation": "TROW-rikh",
+      "translation": "sad",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "Sie sieht traurig aus.",
+          "translation": "She looks sad."
+        }
+      ]
+    },
+    {
+      "id": "de_0130",
+      "unit": "u11",
+      "lemma": "Angst",
+      "translit": "Angst",
+      "pronunciation": "angst",
+      "translation": "fear, anxiety",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "Ich habe Angst davor.",
+          "translation": "I'm afraid of it."
+        }
+      ]
+    },
+    {
+      "id": "de_0131",
+      "unit": "u11",
+      "lemma": "Hunger",
+      "translit": "Hunger",
+      "pronunciation": "HOONG-er",
+      "translation": "hunger",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 94,
+      "examples": [
+        {
+          "native": "Ich habe Hunger.",
+          "translation": "I'm hungry."
+        }
+      ]
+    },
+    {
+      "id": "de_0132",
+      "unit": "u11",
+      "lemma": "Durst",
+      "translit": "Durst",
+      "pronunciation": "doorst",
+      "translation": "thirst",
+      "category": "Body",
+      "difficulty": 1,
+      "frequencyRank": 95,
+      "examples": [
+        {
+          "native": "Hast du Durst?",
+          "translation": "Are you thirsty?"
+        }
+      ]
+    },
+    {
+      "id": "de_0133",
+      "unit": "u11",
+      "lemma": "Arzt",
+      "translit": "Arzt",
+      "pronunciation": "artst",
+      "translation": "doctor",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "Ich brauche einen Arzt.",
+          "translation": "I need a doctor."
+        }
+      ]
+    },
+    {
+      "id": "de_0134",
+      "unit": "u12",
+      "lemma": "Wetter",
+      "translit": "Wetter",
+      "pronunciation": "VET-ter",
+      "translation": "weather",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 96,
+      "examples": [
+        {
+          "native": "Wie ist das Wetter?",
+          "translation": "What's the weather like?"
+        }
+      ]
+    },
+    {
+      "id": "de_0135",
+      "unit": "u12",
+      "lemma": "Sonne",
+      "translit": "Sonne",
+      "pronunciation": "ZON-nuh",
+      "translation": "sun",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 97,
+      "examples": [
+        {
+          "native": "Die Sonne scheint.",
+          "translation": "The sun is shining."
+        }
+      ]
+    },
+    {
+      "id": "de_0136",
+      "unit": "u12",
+      "lemma": "Regen",
+      "translit": "Regen",
+      "pronunciation": "RAY-gen",
+      "translation": "rain",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 98,
+      "examples": [
+        {
+          "native": "Der Regen hört nicht auf.",
+          "translation": "The rain won't stop."
+        }
+      ]
+    },
+    {
+      "id": "de_0137",
+      "unit": "u12",
+      "lemma": "Schnee",
+      "translit": "Schnee",
+      "pronunciation": "shnay",
+      "translation": "snow",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "Es liegt Schnee.",
+          "translation": "There's snow on the ground."
+        }
+      ]
+    },
+    {
+      "id": "de_0138",
+      "unit": "u12",
+      "lemma": "kalt",
+      "translit": "kalt",
+      "pronunciation": "kalt",
+      "translation": "cold",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 100,
+      "examples": [
+        {
+          "native": "Heute ist es kalt.",
+          "translation": "It's cold today."
+        }
+      ]
+    },
+    {
+      "id": "de_0139",
+      "unit": "u12",
+      "lemma": "warm",
+      "translit": "warm",
+      "pronunciation": "varm",
+      "translation": "warm",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 101,
+      "examples": [
+        {
+          "native": "Es wird warm.",
+          "translation": "It's getting warm."
+        }
+      ]
+    },
+    {
+      "id": "de_0140",
+      "unit": "u12",
+      "lemma": "Wind",
+      "translit": "Wind",
+      "pronunciation": "vint",
+      "translation": "wind",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 102,
+      "examples": [
+        {
+          "native": "Der Wind ist stark.",
+          "translation": "The wind is strong."
+        }
+      ]
+    },
+    {
+      "id": "de_0141",
+      "unit": "u12",
+      "lemma": "Baum",
+      "translit": "Baum",
+      "pronunciation": "bowm",
+      "translation": "tree",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 103,
+      "examples": [
+        {
+          "native": "Ein alter Baum.",
+          "translation": "An old tree."
+        }
+      ]
+    },
+    {
+      "id": "de_0142",
+      "unit": "u12",
+      "lemma": "Berg",
+      "translit": "Berg",
+      "pronunciation": "berk",
+      "translation": "mountain",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "Wir fahren in die Berge.",
+          "translation": "We're going to the mountains."
+        }
+      ]
+    },
+    {
+      "id": "de_0143",
+      "unit": "u12",
+      "lemma": "See",
+      "translit": "See",
+      "pronunciation": "zay",
+      "translation": "lake",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "Der See ist ruhig.",
+          "translation": "The lake is calm."
+        }
+      ]
+    },
+    {
+      "id": "de_0144",
+      "unit": "u12",
+      "lemma": "Wald",
+      "translit": "Wald",
+      "pronunciation": "valt",
+      "translation": "forest",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "Ein Spaziergang im Wald.",
+          "translation": "A walk in the forest."
+        }
+      ]
+    },
+    {
+      "id": "de_0145",
+      "unit": "u12",
+      "lemma": "schön",
+      "translit": "schön",
+      "pronunciation": "shern",
+      "translation": "beautiful, nice",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 104,
+      "examples": [
+        {
+          "native": "Ein schöner Tag.",
+          "translation": "A beautiful day."
+        }
+      ]
+    },
+    {
+      "id": "de_0146",
+      "unit": "u13",
+      "lemma": "Geld",
+      "translit": "Geld",
+      "pronunciation": "gelt",
+      "translation": "money",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 107,
+      "examples": [
+        {
+          "native": "Ich habe kein Geld dabei.",
+          "translation": "I don't have any money on me."
+        }
+      ]
+    },
+    {
+      "id": "de_0147",
+      "unit": "u13",
+      "lemma": "teuer",
+      "translit": "teuer",
+      "pronunciation": "TOY-er",
+      "translation": "expensive",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "Das ist zu teuer.",
+          "translation": "That's too expensive."
+        }
+      ]
+    },
+    {
+      "id": "de_0148",
+      "unit": "u13",
+      "lemma": "billig",
+      "translit": "billig",
+      "pronunciation": "BIL-likh",
+      "translation": "cheap",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "Billig, aber gut.",
+          "translation": "Cheap, but good."
+        }
+      ]
+    },
+    {
+      "id": "de_0149",
+      "unit": "u13",
+      "lemma": "Supermarkt",
+      "translit": "Supermarkt",
+      "pronunciation": "ZOO-per-markt",
+      "translation": "supermarket",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "Ich gehe in den Supermarkt.",
+          "translation": "I'm going to the supermarket."
+        }
+      ]
+    },
+    {
+      "id": "de_0150",
+      "unit": "u13",
+      "lemma": "Termin",
+      "translit": "Termin",
+      "pronunciation": "ter-MEEN",
+      "translation": "appointment",
+      "category": "Common",
+      "difficulty": 3,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "Ich habe einen Termin um drei.",
+          "translation": "I have an appointment at three."
+        }
+      ]
+    },
+    {
+      "id": "de_0151",
+      "unit": "u13",
+      "lemma": "Anmeldung",
+      "translit": "Anmeldung",
+      "pronunciation": "AN-mel-doong",
+      "translation": "registration",
+      "category": "Common",
+      "difficulty": 3,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "Die Anmeldung dauert lange.",
+          "translation": "The registration takes a long time."
+        }
+      ]
+    },
+    {
+      "id": "de_0152",
+      "unit": "u13",
+      "lemma": "Schlüssel",
+      "translit": "Schlüssel",
+      "pronunciation": "SHLUES-sel",
+      "translation": "key",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "Wo ist mein Schlüssel?",
+          "translation": "Where is my key?"
+        }
+      ]
+    },
+    {
+      "id": "de_0153",
+      "unit": "u13",
+      "lemma": "Wohnung",
+      "translit": "Wohnung",
+      "pronunciation": "VOH-noong",
+      "translation": "flat, apartment",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "Die Wohnung ist klein.",
+          "translation": "The flat is small."
+        }
+      ]
+    },
+    {
+      "id": "de_0154",
+      "unit": "u13",
+      "lemma": "Miete",
+      "translit": "Miete",
+      "pronunciation": "MEE-tuh",
+      "translation": "rent",
+      "category": "Common",
+      "difficulty": 3,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "Die Miete ist hoch.",
+          "translation": "The rent is high."
+        }
+      ]
+    },
+    {
+      "id": "de_0155",
+      "unit": "u13",
+      "lemma": "bezahlen",
+      "translit": "bezahlen",
+      "pronunciation": "buh-TSAH-len",
+      "translation": "to pay",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "Ich möchte bezahlen.",
+          "translation": "I'd like to pay."
+        }
+      ]
+    },
+    {
+      "id": "de_0156",
+      "unit": "u13",
+      "lemma": "Handy",
+      "translit": "Handy",
+      "pronunciation": "HEN-dee",
+      "translation": "mobile phone",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 108,
+      "examples": [
+        {
+          "native": "Mein Handy ist leer.",
+          "translation": "My phone is dead."
+        }
+      ]
+    },
+    {
+      "id": "de_0157",
+      "unit": "u13",
+      "lemma": "Termin machen",
+      "translit": "Termin machen",
+      "pronunciation": "ter-MEEN MAKH-en",
+      "translation": "to make an appointment",
+      "category": "Common",
+      "difficulty": 3,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "Ich möchte einen Termin machen.",
+          "translation": "I'd like to make an appointment."
+        }
+      ]
+    },
+    {
+      "id": "de_0158",
+      "lemma": "gross",
+      "translit": "gross",
+      "pronunciation": "GROHSS",
+      "translation": "big",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u12",
+      "examples": [
+        {
+          "native": "Ein grosses Haus",
+          "translation": "A big house"
+        }
+      ],
+      "frequencyRank": 105
+    },
+    {
+      "id": "de_0159",
+      "lemma": "klein",
+      "translit": "klein",
+      "pronunciation": "KLINE",
+      "translation": "small",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u12",
+      "examples": [
+        {
+          "native": "Ein kleines Zimmer",
+          "translation": "A small room"
+        }
+      ],
+      "frequencyRank": 106
+    },
+    {
+      "id": "de_0160",
+      "lemma": "wollen",
+      "translit": "wollen",
+      "pronunciation": "VOL-en",
+      "translation": "to want",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Ich will nach Hause",
+          "translation": "I want to go home"
+        }
+      ],
+      "frequencyRank": 131
+    },
+    {
+      "id": "de_0161",
+      "lemma": "sagen",
+      "translit": "sagen",
+      "pronunciation": "ZAH-gen",
+      "translation": "to say",
+      "category": "Verbs",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Was hast du gesagt?",
+          "translation": "What did you say?"
+        }
+      ],
+      "frequencyRank": 52
+    },
+    {
+      "id": "de_0162",
+      "lemma": "können",
+      "translit": "können",
+      "pronunciation": "KERN-en",
+      "translation": "to be able to, can",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Kannst du mir helfen?",
+          "translation": "Can you help me?"
+        }
+      ],
+      "frequencyRank": 132
+    },
+    {
+      "id": "de_0163",
+      "lemma": "brauchen",
+      "translit": "brauchen",
+      "pronunciation": "BROW-khen",
+      "translation": "to need",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Ich brauche Hilfe",
+          "translation": "I need help"
+        }
+      ],
+      "frequencyRank": 133
+    },
+    {
+      "id": "de_0164",
+      "lemma": "geben",
+      "translit": "geben",
+      "pronunciation": "GAY-ben",
+      "translation": "to give",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Gib mir bitte das Salz",
+          "translation": "Give me the salt please"
+        }
+      ],
+      "frequencyRank": 134
+    },
+    {
+      "id": "de_0165",
+      "lemma": "nehmen",
+      "translit": "nehmen",
+      "pronunciation": "NAY-men",
+      "translation": "to take",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Ich nehme den Zug",
+          "translation": "I'll take the train"
+        }
+      ],
+      "frequencyRank": 135
+    },
+    {
+      "id": "de_0166",
+      "lemma": "Zeit",
+      "translit": "Zeit",
+      "pronunciation": "TSITE",
+      "translation": "time",
+      "category": "Time",
+      "difficulty": 1,
+      "unit": "u8",
+      "examples": [
+        {
+          "native": "Ich habe keine Zeit",
+          "translation": "I don't have time"
+        }
+      ],
+      "frequencyRank": 73
+    },
+    {
+      "id": "de_0167",
+      "lemma": "Tag",
+      "translit": "Tag",
+      "pronunciation": "TAHK",
+      "translation": "day",
+      "category": "Time",
+      "difficulty": 1,
+      "unit": "u8",
+      "examples": [
+        {
+          "native": "Einen schönen Tag!",
+          "translation": "Have a nice day!"
+        }
+      ],
+      "frequencyRank": 74
+    },
+    {
+      "id": "de_0168",
+      "lemma": "was",
+      "translit": "was",
+      "pronunciation": "VAS",
+      "translation": "what",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u9",
+      "examples": [
+        {
+          "native": "Was ist das?",
+          "translation": "What is that?"
+        }
+      ],
+      "frequencyRank": 82
+    },
+    {
+      "id": "de_0169",
+      "lemma": "wo",
+      "translit": "wo",
+      "pronunciation": "VO",
+      "translation": "where",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u9",
+      "examples": [
+        {
+          "native": "Wo bist du?",
+          "translation": "Where are you?"
+        }
+      ],
+      "frequencyRank": 83
+    },
+    {
+      "id": "de_0170",
+      "lemma": "warum",
+      "translit": "warum",
+      "pronunciation": "va-ROOM",
+      "translation": "why",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u9",
+      "examples": [
+        {
+          "native": "Warum nicht?",
+          "translation": "Why not?"
+        }
+      ],
+      "frequencyRank": 84
+    },
+    {
+      "id": "de_0171",
+      "lemma": "wie",
+      "translit": "wie",
+      "pronunciation": "VEE",
+      "translation": "how",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u9",
+      "examples": [
+        {
+          "native": "Wie funktioniert das?",
+          "translation": "How does that work?"
+        }
+      ],
+      "frequencyRank": 85
+    },
+    {
+      "id": "de_0172",
+      "lemma": "wer",
+      "translit": "wer",
+      "pronunciation": "VAIR",
+      "translation": "who",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u9",
+      "examples": [
+        {
+          "native": "Wer ist das?",
+          "translation": "Who is that?"
+        }
+      ],
+      "frequencyRank": 86
+    },
+    {
+      "id": "de_0173",
+      "lemma": "Auto",
+      "translit": "Auto",
+      "pronunciation": "OW-to",
+      "translation": "car",
+      "category": "Travel",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Das Auto ist kaputt",
+          "translation": "The car is broken"
+        }
+      ],
+      "frequencyRank": 90
+    },
+    {
+      "id": "de_0174",
+      "lemma": "Preis",
+      "translit": "Preis",
+      "pronunciation": "PRICE",
+      "translation": "price",
+      "category": "Common",
+      "difficulty": 2,
+      "unit": "u13",
+      "examples": [
+        {
+          "native": "Wie hoch ist der Preis?",
+          "translation": "What's the price?"
+        }
+      ],
+      "frequencyRank": 171
+    },
+    {
+      "id": "de_0175",
+      "lemma": "öffnen",
+      "translit": "öffnen",
+      "pronunciation": "ERF-nen",
+      "translation": "to open",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Öffne bitte das Fenster",
+          "translation": "Open the window please"
+        }
+      ],
+      "frequencyRank": 136
+    },
+    {
+      "id": "de_0176",
+      "lemma": "mehr",
+      "translit": "mehr",
+      "pronunciation": "MAIR",
+      "translation": "more",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u9",
+      "examples": [
+        {
+          "native": "Ein bisschen mehr",
+          "translation": "A little more"
+        }
+      ],
+      "frequencyRank": 87
+    },
+    {
+      "id": "de_0177",
+      "lemma": "alles",
+      "translit": "alles",
+      "pronunciation": "AL-es",
+      "translation": "all, everything",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u9",
+      "examples": [
+        {
+          "native": "Alles ist gut",
+          "translation": "Everything is fine"
+        }
+      ],
+      "frequencyRank": 88
+    },
+    {
+      "id": "de_0178",
+      "lemma": "nah",
+      "translit": "nah",
+      "pronunciation": "NAH",
+      "translation": "near",
+      "category": "Places",
+      "difficulty": 1,
+      "unit": "u7",
+      "examples": [
+        {
+          "native": "Der Bahnhof ist nah",
+          "translation": "The station is near"
+        }
+      ],
+      "frequencyRank": 61
+    },
+    {
+      "id": "de_0179",
+      "lemma": "weit",
+      "translit": "weit",
+      "pronunciation": "VITE",
+      "translation": "far",
+      "category": "Places",
+      "difficulty": 1,
+      "unit": "u7",
+      "examples": [
+        {
+          "native": "Ist es weit?",
+          "translation": "Is it far?"
+        }
+      ],
+      "frequencyRank": 62
+    },
+    {
+      "id": "de_0180",
+      "lemma": "Toilette",
+      "translit": "Toilette",
+      "pronunciation": "twa-LET-uh",
+      "translation": "bathroom, toilet",
+      "category": "Places",
+      "difficulty": 1,
+      "unit": "u7",
+      "examples": [
+        {
+          "native": "Wo ist die Toilette?",
+          "translation": "Where is the toilet?"
+        }
+      ],
+      "frequencyRank": 63
+    },
+    {
+      "id": "de_0181",
+      "unit": "u5",
+      "lemma": "hungrig",
+      "translation": "hungry",
+      "category": "Feelings",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "Ich bin hungrig",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "de_0182",
+      "unit": "u5",
+      "lemma": "durstig",
+      "translation": "thirsty",
+      "category": "Feelings",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "Bist du durstig?",
+          "translation": "Are you thirsty?"
+        }
+      ]
+    },
+    {
+      "id": "de_0183",
+      "unit": "u4",
+      "lemma": "Onkel",
+      "translation": "uncle",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "Mein Onkel wohnt in Berlin",
+          "translation": "My uncle lives in Berlin"
+        }
+      ]
+    },
+    {
+      "id": "de_0184",
+      "unit": "u4",
+      "lemma": "Tante",
+      "translation": "aunt",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "Meine Tante kocht gut",
+          "translation": "My aunt cooks well"
+        }
+      ]
+    }
+  ]
 }

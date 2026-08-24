@@ -1,2433 +1,2508 @@
 {
- "schemaVersion": 5,
- "code": "id",
- "categories": [
-  "Body",
-  "Colors",
-  "Common",
-  "Connectors",
-  "Family",
-  "Feelings",
-  "Food",
-  "Greetings",
-  "Numbers",
-  "People",
-  "Time",
-  "Transport",
-  "Travel",
-  "Verbs",
-  "Weather"
- ],
- "alphabet": [
-  {
-   "char": "A",
-   "name": "A",
-   "sound": "ah"
-  },
-  {
-   "char": "E",
-   "name": "E",
-   "sound": "eh / uh"
-  },
-  {
-   "char": "I",
-   "name": "I",
-   "sound": "ee"
-  },
-  {
-   "char": "O",
-   "name": "O",
-   "sound": "oh"
-  },
-  {
-   "char": "U",
-   "name": "U",
-   "sound": "oo"
-  },
-  {
-   "char": "C",
-   "name": "Ce",
-   "sound": "ch (always)"
-  },
-  {
-   "char": "NG",
-   "name": "Eng",
-   "sound": "ng (singer)"
-  },
-  {
-   "char": "NY",
-   "name": "Enye",
-   "sound": "ny (canyon)"
-  }
- ],
- "frameworks": [
-  {
-   "id": "no-conjugation",
-   "title": "Verbs never conjugate",
-   "body": "Indonesian verbs stay the same regardless of who's doing the action. 'Saya makan' / 'Dia makan' — same verb."
-  },
-  {
-   "id": "no-tense",
-   "title": "No verb tenses",
-   "body": "There are no past, present, or future verb forms. Time is shown with words like 'kemarin' (yesterday) or 'besok' (tomorrow)."
-  },
-  {
-   "id": "no-gender",
-   "title": "No grammatical gender",
-   "body": "'Dia' covers both 'he' and 'she'. No masculine/feminine forms to learn."
-  },
-  {
-   "id": "latin-script",
-   "title": "Familiar alphabet",
-   "body": "Indonesian uses the Latin alphabet and is pronounced almost exactly as written — one of the most learner-friendly languages."
-  }
- ],
- "units": [
-  {
-   "id": "u1",
-   "title": "Greetings",
-   "emoji": "👋",
-   "description": "Hello, thank you, please"
-  },
-  {
-   "id": "u2",
-   "title": "About You",
-   "emoji": "🙋",
-   "description": "Pronouns and basics"
-  },
-  {
-   "id": "u3",
-   "title": "Family",
-   "emoji": "👨‍👩‍👧",
-   "description": "Mother, father, family"
-  },
-  {
-   "id": "u4",
-   "title": "Numbers",
-   "emoji": "🔢",
-   "description": "One to ten"
-  },
-  {
-   "id": "u5",
-   "title": "Food & Drink",
-   "emoji": "🍽️",
-   "description": "Water, food, eating"
-  },
-  {
-   "id": "u6",
-   "title": "Getting Around",
-   "emoji": "🧭",
-   "description": "Connectors, transport, and travel basics"
-  }
- ],
- "vocab": [
-  {
-   "id": "id_0001",
-   "unit": "u1",
-   "lemma": "Halo",
-   "translit": "HAH-loh",
-   "translation": "hello",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 1,
-   "examples": [
+  "schemaVersion": 5,
+  "code": "id",
+  "categories": [
+    "Body",
+    "Colors",
+    "Common",
+    "Connectors",
+    "Family",
+    "Feelings",
+    "Food",
+    "Greetings",
+    "Numbers",
+    "People",
+    "Time",
+    "Transport",
+    "Travel",
+    "Verbs",
+    "Weather"
+  ],
+  "alphabet": [
     {
-     "native": "Halo, apa kabar?",
-     "translation": "Hello, how are you?"
-    }
-   ]
-  },
-  {
-   "id": "id_0002",
-   "unit": "u1",
-   "lemma": "Selamat pagi",
-   "translit": "seh-LAH-mat PAH-gee",
-   "translation": "good morning",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 2,
-   "examples": [
-    {
-     "native": "Selamat pagi, ibu",
-     "translation": "Good morning, ma'am"
-    }
-   ]
-  },
-  {
-   "id": "id_0003",
-   "unit": "u1",
-   "lemma": "Selamat siang",
-   "translit": "seh-LAH-mat see-AHNG",
-   "translation": "good day (midday)",
-   "category": "Greetings",
-   "difficulty": 2,
-   "frequencyRank": 63,
-   "examples": [
-    {
-     "native": "Selamat siang, pak",
-     "translation": "Good day, sir"
-    }
-   ]
-  },
-  {
-   "id": "id_0004",
-   "unit": "u1",
-   "lemma": "Selamat malam",
-   "translit": "seh-LAH-mat MAH-lahm",
-   "translation": "good evening, good night",
-   "category": "Greetings",
-   "difficulty": 2,
-   "frequencyRank": 64,
-   "examples": [
-    {
-     "native": "Selamat malam, tidur yang nyenyak",
-     "translation": "Good night, sleep well"
-    }
-   ]
-  },
-  {
-   "id": "id_0005",
-   "unit": "u1",
-   "lemma": "Terima kasih",
-   "translit": "teh-REE-mah KAH-see",
-   "translation": "thank you",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 3,
-   "examples": [
-    {
-     "native": "Terima kasih banyak",
-     "translation": "Thank you very much"
-    }
-   ]
-  },
-  {
-   "id": "id_0006",
-   "unit": "u1",
-   "lemma": "Sama-sama",
-   "translit": "SAH-mah SAH-mah",
-   "translation": "you're welcome",
-   "category": "Greetings",
-   "difficulty": 2,
-   "frequencyRank": 65,
-   "examples": [
-    {
-     "native": "Sama-sama, teman",
-     "translation": "You're welcome, friend"
-    }
-   ]
-  },
-  {
-   "id": "id_0007",
-   "unit": "u1",
-   "lemma": "Tolong",
-   "translit": "TOH-long",
-   "translation": "please, help",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 4,
-   "examples": [
-    {
-     "native": "Tolong bantu saya",
-     "translation": "Please help me"
-    }
-   ]
-  },
-  {
-   "id": "id_0008",
-   "unit": "u1",
-   "lemma": "Maaf",
-   "translit": "MAH-aff",
-   "translation": "sorry, excuse me",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 5,
-   "examples": [
-    {
-     "native": "Maaf, saya terlambat",
-     "translation": "Sorry, I'm late"
-    }
-   ]
-  },
-  {
-   "id": "id_0009",
-   "unit": "u1",
-   "lemma": "Ya",
-   "translit": "yah",
-   "translation": "yes",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 6,
-   "examples": [
-    {
-     "native": "Ya, tentu",
-     "translation": "Yes, of course"
-    }
-   ]
-  },
-  {
-   "id": "id_0010",
-   "unit": "u1",
-   "lemma": "Tidak",
-   "translit": "TEE-dahk",
-   "translation": "no, not",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 7,
-   "examples": [
-    {
-     "native": "Tidak, terima kasih",
-     "translation": "No, thank you"
-    }
-   ]
-  },
-  {
-   "id": "id_0011",
-   "unit": "u1",
-   "lemma": "Selamat tinggal",
-   "translit": "seh-LAH-mat ting-GAHL",
-   "translation": "goodbye",
-   "category": "Greetings",
-   "difficulty": 2,
-   "frequencyRank": 66,
-   "examples": [
-    {
-     "native": "Selamat tinggal, teman",
-     "translation": "Goodbye, friend"
-    }
-   ]
-  },
-  {
-   "id": "id_0012",
-   "unit": "u2",
-   "lemma": "Saya",
-   "translit": "SAH-yah",
-   "translation": "I, me",
-   "category": "People",
-   "difficulty": 1,
-   "frequencyRank": 8,
-   "examples": [
-    {
-     "native": "Saya baik",
-     "translation": "I am fine"
-    }
-   ]
-  },
-  {
-   "id": "id_0013",
-   "unit": "u2",
-   "lemma": "Anda",
-   "translit": "AHN-dah",
-   "translation": "you (polite)",
-   "category": "People",
-   "difficulty": 1,
-   "frequencyRank": 9,
-   "examples": [
-    {
-     "native": "Apa kabar Anda?",
-     "translation": "How are you?"
-    }
-   ]
-  },
-  {
-   "id": "id_0014",
-   "unit": "u2",
-   "lemma": "Dia",
-   "translit": "DEE-ah",
-   "translation": "he, she",
-   "category": "People",
-   "difficulty": 1,
-   "frequencyRank": 10,
-   "examples": [
-    {
-     "native": "Dia teman saya",
-     "translation": "He/she is my friend"
-    }
-   ]
-  },
-  {
-   "id": "id_0015",
-   "unit": "u2",
-   "lemma": "Kami",
-   "translit": "KAH-mee",
-   "translation": "we (not including you)",
-   "category": "People",
-   "difficulty": 2,
-   "frequencyRank": 72,
-   "examples": [
-    {
-     "native": "Kami dari Jakarta",
-     "translation": "We are from Jakarta"
-    }
-   ]
-  },
-  {
-   "id": "id_0016",
-   "unit": "u2",
-   "lemma": "Mereka",
-   "translit": "meh-REH-kah",
-   "translation": "they",
-   "category": "People",
-   "difficulty": 2,
-   "frequencyRank": 73,
-   "examples": [
-    {
-     "native": "Mereka teman saya",
-     "translation": "They are my friends"
-    }
-   ]
-  },
-  {
-   "id": "id_0017",
-   "unit": "u2",
-   "lemma": "Apa kabar",
-   "translit": "AH-pah KAH-bar",
-   "translation": "how are you",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 11,
-   "examples": [
-    {
-     "native": "Apa kabar, teman?",
-     "translation": "How are you, friend?"
-    }
-   ]
-  },
-  {
-   "id": "id_0018",
-   "unit": "u2",
-   "lemma": "Baik",
-   "translit": "BAH-ik",
-   "translation": "good, fine",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 12,
-   "examples": [
-    {
-     "native": "Saya baik, terima kasih",
-     "translation": "I am fine, thank you"
-    }
-   ]
-  },
-  {
-   "id": "id_0019",
-   "unit": "u2",
-   "lemma": "Apa",
-   "translit": "AH-pah",
-   "translation": "what",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 13,
-   "examples": [
-    {
-     "native": "Apa ini?",
-     "translation": "What is this?"
-    }
-   ]
-  },
-  {
-   "id": "id_0020",
-   "unit": "u2",
-   "lemma": "Nama",
-   "translit": "NAH-mah",
-   "translation": "name",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 14,
-   "examples": [
-    {
-     "native": "Nama saya Ana",
-     "translation": "My name is Ana"
+      "char": "A",
+      "name": "A",
+      "sound": "ah"
     },
     {
-     "native": "Siapa nama Anda?",
-     "translation": "What's your name?"
-    }
-   ],
-   "pronunciation": "NAH-mah"
-  },
-  {
-   "id": "id_0021",
-   "unit": "u3",
-   "lemma": "Ibu",
-   "translit": "EE-boo",
-   "translation": "mother",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 24,
-   "examples": [
-    {
-     "native": "Ibu saya",
-     "translation": "My mother"
-    }
-   ]
-  },
-  {
-   "id": "id_0022",
-   "unit": "u3",
-   "lemma": "Ayah",
-   "translit": "AH-yah",
-   "translation": "father",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 25,
-   "examples": [
-    {
-     "native": "Ayah saya",
-     "translation": "My father"
-    }
-   ]
-  },
-  {
-   "id": "id_0023",
-   "unit": "u3",
-   "lemma": "Saudara",
-   "translit": "sow-DAH-rah",
-   "translation": "sibling",
-   "category": "Family",
-   "difficulty": 2,
-   "frequencyRank": 104,
-   "examples": [
-    {
-     "native": "Saudara saya",
-     "translation": "My sibling"
-    }
-   ]
-  },
-  {
-   "id": "id_0024",
-   "unit": "u3",
-   "lemma": "Anak",
-   "translit": "AH-nahk",
-   "translation": "child",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 26,
-   "examples": [
-    {
-     "native": "Anak kecil",
-     "translation": "Small child"
-    }
-   ]
-  },
-  {
-   "id": "id_0025",
-   "unit": "u3",
-   "lemma": "Teman",
-   "translit": "teh-MAHN",
-   "translation": "friend",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 27,
-   "examples": [
-    {
-     "native": "Teman saya",
-     "translation": "My friend"
-    }
-   ]
-  },
-  {
-   "id": "id_0026",
-   "unit": "u4",
-   "lemma": "Satu",
-   "translit": "SAH-too",
-   "translation": "one",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 30,
-   "examples": [
-    {
-     "native": "Satu cangkir kopi",
-     "translation": "One cup of coffee"
-    }
-   ]
-  },
-  {
-   "id": "id_0027",
-   "unit": "u4",
-   "lemma": "Dua",
-   "translit": "DOO-ah",
-   "translation": "two",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 31,
-   "examples": [
-    {
-     "native": "Dua orang",
-     "translation": "Two people"
-    }
-   ]
-  },
-  {
-   "id": "id_0028",
-   "unit": "u4",
-   "lemma": "Tiga",
-   "translit": "TEE-gah",
-   "translation": "three",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 32,
-   "examples": [
-    {
-     "native": "Tiga hari",
-     "translation": "Three days"
-    }
-   ]
-  },
-  {
-   "id": "id_0029",
-   "unit": "u4",
-   "lemma": "Empat",
-   "translit": "uhm-PAHT",
-   "translation": "four",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 33,
-   "examples": [
-    {
-     "native": "Empat jam",
-     "translation": "Four hours"
-    }
-   ]
-  },
-  {
-   "id": "id_0030",
-   "unit": "u4",
-   "lemma": "Lima",
-   "translit": "LEE-mah",
-   "translation": "five",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 34,
-   "examples": [
-    {
-     "native": "Lima ribu rupiah",
-     "translation": "Five thousand rupiah"
-    }
-   ]
-  },
-  {
-   "id": "id_0031",
-   "unit": "u5",
-   "lemma": "Air",
-   "translit": "ah-EER",
-   "translation": "water",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 38,
-   "examples": [
-    {
-     "native": "Air dingin",
-     "translation": "Cold water"
-    }
-   ]
-  },
-  {
-   "id": "id_0032",
-   "unit": "u5",
-   "lemma": "Makan",
-   "translit": "MAH-kahn",
-   "translation": "to eat, food",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 39,
-   "examples": [
-    {
-     "native": "Saya mau makan",
-     "translation": "I want to eat"
-    }
-   ]
-  },
-  {
-   "id": "id_0033",
-   "unit": "u5",
-   "lemma": "Minum",
-   "translit": "MEE-noom",
-   "translation": "to drink",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 40,
-   "examples": [
-    {
-     "native": "Minum air",
-     "translation": "Drink water"
-    }
-   ]
-  },
-  {
-   "id": "id_0034",
-   "unit": "u5",
-   "lemma": "Nasi",
-   "translit": "NAH-see",
-   "translation": "rice",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 41,
-   "examples": [
-    {
-     "native": "Nasi goreng",
-     "translation": "Fried rice"
-    }
-   ]
-  },
-  {
-   "id": "id_0035",
-   "unit": "u5",
-   "lemma": "Kopi",
-   "translit": "KOH-pee",
-   "translation": "coffee",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 42,
-   "examples": [
-    {
-     "native": "Kopi panas",
-     "translation": "Hot coffee"
-    }
-   ]
-  },
-  {
-   "id": "id_0036",
-   "unit": "u5",
-   "lemma": "Teh",
-   "translit": "teh",
-   "translation": "tea",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 43,
-   "examples": [
-    {
-     "native": "Teh manis",
-     "translation": "Sweet tea"
-    }
-   ]
-  },
-  {
-   "id": "id_0037",
-   "unit": "u5",
-   "lemma": "Roti",
-   "translit": "ROH-tee",
-   "translation": "bread",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 44,
-   "examples": [
-    {
-     "native": "Roti segar",
-     "translation": "Fresh bread"
-    }
-   ]
-  },
-  {
-   "id": "id_0038",
-   "unit": "u2",
-   "lemma": "Besar",
-   "translit": "buh-SAR",
-   "translation": "big",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 15,
-   "examples": [
-    {
-     "native": "Rumah besar",
-     "translation": "Big house"
-    }
-   ]
-  },
-  {
-   "id": "id_0039",
-   "unit": "u2",
-   "lemma": "Kecil",
-   "translit": "kuh-CHEEL",
-   "translation": "small",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 16,
-   "examples": [
-    {
-     "native": "Buku kecil",
-     "translation": "Small book"
-    }
-   ]
-  },
-  {
-   "id": "id_0040",
-   "unit": "u2",
-   "lemma": "Bagus",
-   "translit": "BAH-goos",
-   "translation": "good, nice",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 17,
-   "examples": [
-    {
-     "native": "Sangat bagus",
-     "translation": "Very good"
-    }
-   ]
-  },
-  {
-   "id": "id_0041",
-   "unit": "u5",
-   "lemma": "Rumah",
-   "translit": "ROO-mah",
-   "translation": "house, home",
-   "category": "Common",
-   "difficulty": 1,
-   "frequencyRank": 45,
-   "examples": [
-    {
-     "native": "Rumah saya",
-     "translation": "My house"
-    }
-   ]
-  },
-  {
-   "id": "id_0042",
-   "unit": "u5",
-   "lemma": "Pergi",
-   "translit": "PUR-gee",
-   "translation": "to go",
-   "category": "Verbs",
-   "difficulty": 1,
-   "frequencyRank": 46,
-   "examples": [
-    {
-     "native": "Saya pergi ke rumah",
-     "translation": "I'm going home"
-    }
-   ]
-  },
-  {
-   "id": "id_0043",
-   "unit": "u5",
-   "lemma": "Datang",
-   "translit": "DAH-tahng",
-   "translation": "to come",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 108,
-   "examples": [
-    {
-     "native": "Dia datang besok",
-     "translation": "He/she comes tomorrow"
-    }
-   ]
-  },
-  {
-   "id": "id_0044",
-   "unit": "u5",
-   "lemma": "Hari ini",
-   "translit": "HAH-ree EE-nee",
-   "translation": "today",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 47,
-   "examples": [
-    {
-     "native": "Hari ini hari Senin",
-     "translation": "Today is Monday"
-    }
-   ]
-  },
-  {
-   "id": "id_0045",
-   "unit": "u5",
-   "lemma": "Besok",
-   "translit": "BEH-sok",
-   "translation": "tomorrow",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 48,
-   "examples": [
-    {
-     "native": "Sampai besok",
-     "translation": "Until tomorrow"
-    }
-   ]
-  },
-  {
-   "id": "id_0046",
-   "unit": "u2",
-   "lemma": "Tahu",
-   "translit": "TAH-hoo",
-   "translation": "to know (a fact)",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 76,
-   "examples": [
-    {
-     "native": "Saya tahu",
-     "translation": "I know"
+      "char": "E",
+      "name": "E",
+      "sound": "eh / uh"
     },
     {
-     "native": "Saya tidak tahu",
-     "translation": "I don't know"
-    }
-   ],
-   "pronunciation": "TAH-hoo"
-  },
-  {
-   "id": "id_0047",
-   "unit": "u2",
-   "lemma": "Pikir",
-   "translit": "PEE-kir",
-   "translation": "to think",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 77,
-   "examples": [
-    {
-     "native": "Saya pikir begitu",
-     "translation": "I think so"
-    }
-   ]
-  },
-  {
-   "id": "id_0048",
-   "unit": "u2",
-   "lemma": "Bilang",
-   "translit": "BEE-lahng",
-   "translation": "to say",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 78,
-   "examples": [
-    {
-     "native": "Dia bilang",
-     "translation": "He says"
-    }
-   ]
-  },
-  {
-   "id": "id_0049",
-   "unit": "u2",
-   "lemma": "Beri",
-   "translit": "buh-REE",
-   "translation": "to give",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 79,
-   "examples": [
-    {
-     "native": "Beri saya",
-     "translation": "Give me"
-    }
-   ]
-  },
-  {
-   "id": "id_0050",
-   "unit": "u2",
-   "lemma": "Ambil",
-   "translit": "AHM-beel",
-   "translation": "to take",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 80,
-   "examples": [
-    {
-     "native": "Ambil ini",
-     "translation": "Take this"
-    }
-   ]
-  },
-  {
-   "id": "id_0051",
-   "unit": "u2",
-   "lemma": "Lihat",
-   "translit": "LEE-hat",
-   "translation": "to see, look",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 81,
-   "examples": [
-    {
-     "native": "Saya lihat",
-     "translation": "I see"
-    }
-   ]
-  },
-  {
-   "id": "id_0052",
-   "unit": "u2",
-   "lemma": "Dengar",
-   "translit": "duh-NGAR",
-   "translation": "to listen, hear",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 82,
-   "examples": [
-    {
-     "native": "Dengar musik",
-     "translation": "Listen to music"
-    }
-   ]
-  },
-  {
-   "id": "id_0053",
-   "unit": "u2",
-   "lemma": "Mau",
-   "translit": "mow",
-   "translation": "to want",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 83,
-   "examples": [
-    {
-     "native": "Saya mau air",
-     "translation": "I want water"
-    }
-   ]
-  },
-  {
-   "id": "id_0054",
-   "unit": "u2",
-   "lemma": "Suka",
-   "translit": "SOO-kah",
-   "translation": "to like",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 84,
-   "examples": [
-    {
-     "native": "Saya suka kopi",
-     "translation": "I like coffee"
-    }
-   ]
-  },
-  {
-   "id": "id_0055",
-   "unit": "u2",
-   "lemma": "Kepala",
-   "translit": "kuh-PAH-lah",
-   "translation": "head",
-   "category": "Body",
-   "difficulty": 2,
-   "frequencyRank": 85,
-   "examples": [
-    {
-     "native": "Kepala saya",
-     "translation": "My head"
-    }
-   ]
-  },
-  {
-   "id": "id_0056",
-   "unit": "u2",
-   "lemma": "Tangan",
-   "translit": "TAH-ngan",
-   "translation": "hand",
-   "category": "Body",
-   "difficulty": 2,
-   "frequencyRank": 86,
-   "examples": [
-    {
-     "native": "Tangan saya",
-     "translation": "My hand"
-    }
-   ]
-  },
-  {
-   "id": "id_0057",
-   "unit": "u2",
-   "lemma": "Hati",
-   "translit": "HAH-tee",
-   "translation": "heart, liver",
-   "category": "Body",
-   "difficulty": 2,
-   "frequencyRank": 87,
-   "examples": [
-    {
-     "native": "Hati saya",
-     "translation": "My heart"
-    }
-   ]
-  },
-  {
-   "id": "id_0058",
-   "unit": "u2",
-   "lemma": "Hitam",
-   "translit": "HEE-tahm",
-   "translation": "black",
-   "category": "Colors",
-   "difficulty": 2,
-   "frequencyRank": 88,
-   "examples": [
-    {
-     "native": "Kopi hitam",
-     "translation": "Black coffee"
-    }
-   ]
-  },
-  {
-   "id": "id_0059",
-   "unit": "u2",
-   "lemma": "Putih",
-   "translit": "POO-tih",
-   "translation": "white",
-   "category": "Colors",
-   "difficulty": 2,
-   "frequencyRank": 89,
-   "examples": [
-    {
-     "native": "Roti putih",
-     "translation": "White bread"
-    }
-   ]
-  },
-  {
-   "id": "id_0060",
-   "unit": "u2",
-   "lemma": "Kuning",
-   "translit": "KOO-ning",
-   "translation": "yellow",
-   "category": "Colors",
-   "difficulty": 2,
-   "frequencyRank": 90,
-   "examples": [
-    {
-     "native": "Bunga kuning",
-     "translation": "Yellow flower"
-    }
-   ]
-  },
-  {
-   "id": "id_0061",
-   "unit": "u2",
-   "lemma": "Matahari",
-   "translit": "ma-ta-HAH-ree",
-   "translation": "sun",
-   "category": "Weather",
-   "difficulty": 2,
-   "frequencyRank": 91,
-   "examples": [
-    {
-     "native": "Matahari panas",
-     "translation": "Hot sun"
-    }
-   ]
-  },
-  {
-   "id": "id_0062",
-   "unit": "u2",
-   "lemma": "Hujan",
-   "translit": "HOO-jan",
-   "translation": "rain",
-   "category": "Weather",
-   "difficulty": 2,
-   "frequencyRank": 92,
-   "examples": [
-    {
-     "native": "Banyak hujan",
-     "translation": "Lots of rain"
-    }
-   ]
-  },
-  {
-   "id": "id_0063",
-   "unit": "u2",
-   "lemma": "Tahun",
-   "translit": "TAH-hoon",
-   "translation": "year",
-   "category": "Time",
-   "difficulty": 2,
-   "frequencyRank": 93,
-   "examples": [
-    {
-     "native": "Tahun ini",
-     "translation": "This year"
-    }
-   ]
-  },
-  {
-   "id": "id_0064",
-   "unit": "u2",
-   "lemma": "Minggu",
-   "translit": "MING-goo",
-   "translation": "week",
-   "category": "Time",
-   "difficulty": 2,
-   "frequencyRank": 94,
-   "examples": [
-    {
-     "native": "Minggu ini",
-     "translation": "This week"
-    }
-   ]
-  },
-  {
-   "id": "id_0065",
-   "unit": "u2",
-   "lemma": "Jam",
-   "translit": "jahm",
-   "translation": "hour, clock",
-   "category": "Time",
-   "difficulty": 2,
-   "frequencyRank": 95,
-   "examples": [
-    {
-     "native": "Satu jam",
-     "translation": "One hour"
-    }
-   ]
-  },
-  {
-   "id": "id_0066",
-   "unit": "u2",
-   "lemma": "Kapan",
-   "translit": "KAH-pan",
-   "translation": "when",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 96,
-   "examples": [
-    {
-     "native": "Kapan datang?",
-     "translation": "When are you coming?"
-    }
-   ]
-  },
-  {
-   "id": "id_0067",
-   "unit": "u2",
-   "lemma": "Kenapa",
-   "translit": "kuh-NAH-pah",
-   "translation": "why",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 97,
-   "examples": [
-    {
-     "native": "Kenapa tidak?",
-     "translation": "Why not?"
-    }
-   ]
-  },
-  {
-   "id": "id_0068",
-   "unit": "u2",
-   "lemma": "Siapa",
-   "translit": "see-AH-pah",
-   "translation": "who",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 98,
-   "examples": [
-    {
-     "native": "Siapa ini?",
-     "translation": "Who is this?"
-    }
-   ]
-  },
-  {
-   "id": "id_0069",
-   "unit": "u2",
-   "lemma": "Tidur",
-   "translit": "TEE-door",
-   "translation": "to sleep",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 99,
-   "examples": [
-    {
-     "native": "Saya tidur",
-     "translation": "I sleep"
-    }
-   ]
-  },
-  {
-   "id": "id_0070",
-   "unit": "u1",
-   "lemma": "Permisi",
-   "translit": "per-MEE-see",
-   "translation": "excuse me",
-   "category": "Greetings",
-   "difficulty": 2,
-   "frequencyRank": 67,
-   "examples": [
-    {
-     "native": "Permisi, saya mau lewat",
-     "translation": "Excuse me, I want to pass"
-    }
-   ]
-  },
-  {
-   "id": "id_0071",
-   "unit": "u4",
-   "lemma": "Berapa",
-   "translit": "buh-RA-pa",
-   "translation": "how much / how many",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 106,
-   "examples": [
-    {
-     "native": "Berapa harganya?",
-     "translation": "How much does it cost?"
-    }
-   ]
-  },
-  {
-   "id": "id_0072",
-   "unit": "u1",
-   "lemma": "Di mana",
-   "translit": "dee MA-na",
-   "translation": "where",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 68,
-   "examples": [
-    {
-     "native": "Di mana toilet?",
-     "translation": "Where is the toilet?"
-    }
-   ]
-  },
-  {
-   "id": "id_0073",
-   "unit": "u5",
-   "lemma": "Mengerti",
-   "translit": "muh-NGER-tee",
-   "translation": "to understand",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 109,
-   "examples": [
-    {
-     "native": "Saya tidak mengerti",
-     "translation": "I don't understand"
-    }
-   ]
-  },
-  {
-   "id": "id_0074",
-   "unit": "u5",
-   "lemma": "Ulangi",
-   "translit": "oo-LA-ngee",
-   "translation": "to repeat",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 110,
-   "examples": [
-    {
-     "native": "Tolong ulangi",
-     "translation": "Please repeat"
-    }
-   ]
-  },
-  {
-   "id": "id_0075",
-   "unit": "u2",
-   "lemma": "Lapar",
-   "translit": "LA-par",
-   "translation": "hungry",
-   "category": "Feelings",
-   "difficulty": 2,
-   "frequencyRank": 74,
-   "examples": [
-    {
-     "native": "Saya lapar",
-     "translation": "I am hungry"
-    }
-   ]
-  },
-  {
-   "id": "id_0076",
-   "unit": "u2",
-   "lemma": "Haus",
-   "translit": "HOWS",
-   "translation": "thirsty",
-   "category": "Feelings",
-   "difficulty": 2,
-   "frequencyRank": 75,
-   "examples": [
-    {
-     "native": "Saya haus",
-     "translation": "I am thirsty"
-    }
-   ]
-  },
-  {
-   "id": "id_0077",
-   "unit": "u1",
-   "lemma": "Sampai jumpa",
-   "translit": "SAM-pai JOOM-pa",
-   "translation": "goodbye, see you",
-   "category": "Greetings",
-   "difficulty": 2,
-   "frequencyRank": 69,
-   "examples": [
-    {
-     "native": "Sampai jumpa lagi",
-     "translation": "See you again"
-    }
-   ]
-  },
-  {
-   "id": "id_0078",
-   "unit": "u1",
-   "lemma": "Tidak apa-apa",
-   "translit": "TEE-dak A-pa A-pa",
-   "translation": "it's okay, no problem",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 70,
-   "examples": [
-    {
-     "native": "Tidak apa-apa",
-     "translation": "It's okay"
-    }
-   ]
-  },
-  {
-   "id": "id_0079",
-   "unit": "u3",
-   "lemma": "Sekarang",
-   "translit": "suh-KA-rang",
-   "translation": "now",
-   "category": "Time",
-   "difficulty": 2,
-   "frequencyRank": 105,
-   "examples": [
-    {
-     "native": "Sekarang juga",
-     "translation": "Right now"
-    }
-   ]
-  },
-  {
-   "id": "id_0080",
-   "unit": "u1",
-   "lemma": "Lagi",
-   "translit": "LA-gee",
-   "translation": "again, more",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 71,
-   "examples": [
-    {
-     "native": "Sekali lagi",
-     "translation": "One more time"
-    }
-   ]
-  },
-  {
-   "id": "id_0081",
-   "unit": "u4",
-   "lemma": "Sedikit",
-   "translit": "suh-DEE-kit",
-   "translation": "a little",
-   "category": "Common",
-   "difficulty": 2,
-   "frequencyRank": 107,
-   "examples": [
-    {
-     "native": "Sedikit air",
-     "translation": "A little water"
-    }
-   ]
-  },
-  {
-   "id": "id_0082",
-   "unit": "u6",
-   "lemma": "Dan",
-   "translit": "dan",
-   "pronunciation": "DAHN",
-   "translation": "and",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Teh dan kopi",
-     "translation": "Tea and coffee"
-    }
-   ],
-   "frequencyRank": 114
-  },
-  {
-   "id": "id_0083",
-   "unit": "u6",
-   "lemma": "Tapi",
-   "translit": "tapi",
-   "pronunciation": "TAH-pee",
-   "translation": "but",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Kecil tapi bagus",
-     "translation": "Small but nice"
-    }
-   ],
-   "frequencyRank": 115
-  },
-  {
-   "id": "id_0084",
-   "unit": "u6",
-   "lemma": "Karena",
-   "translit": "karena",
-   "pronunciation": "kah-REH-nah",
-   "translation": "because",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Capek karena banyak kerja",
-     "translation": "Tired because there's a lot of work"
-    }
-   ],
-   "frequencyRank": 116
-  },
-  {
-   "id": "id_0085",
-   "unit": "u6",
-   "lemma": "Atau",
-   "translit": "atau",
-   "pronunciation": "AH-tow",
-   "translation": "or",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Teh atau kopi",
-     "translation": "Tea or coffee"
-    }
-   ],
-   "frequencyRank": 117
-  },
-  {
-   "id": "id_0086",
-   "unit": "u6",
-   "lemma": "Juga",
-   "translit": "juga",
-   "pronunciation": "JOO-gah",
-   "translation": "also, too",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Saya juga",
-     "translation": "Me too"
-    }
-   ],
-   "frequencyRank": 118
-  },
-  {
-   "id": "id_0087",
-   "unit": "u6",
-   "lemma": "Kalau",
-   "translit": "kalau",
-   "pronunciation": "KAH-low",
-   "translation": "if",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Kalau kamu mau",
-     "translation": "If you want"
-    }
-   ],
-   "frequencyRank": 119
-  },
-  {
-   "id": "id_0088",
-   "unit": "u6",
-   "lemma": "Mobil",
-   "translit": "mobil",
-   "pronunciation": "MOH-bil",
-   "translation": "car",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Mobil saya",
-     "translation": "My car"
-    }
-   ],
-   "frequencyRank": 120
-  },
-  {
-   "id": "id_0089",
-   "unit": "u6",
-   "lemma": "Bus",
-   "translit": "bus",
-   "pronunciation": "BOOS",
-   "translation": "bus",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Naik bus",
-     "translation": "Take the bus"
-    }
-   ],
-   "frequencyRank": 121
-  },
-  {
-   "id": "id_0090",
-   "unit": "u6",
-   "lemma": "Kereta",
-   "translit": "kereta",
-   "pronunciation": "keh-REH-tah",
-   "translation": "train",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Kereta cepat",
-     "translation": "The train is fast"
-    }
-   ],
-   "frequencyRank": 122
-  },
-  {
-   "id": "id_0091",
-   "unit": "u6",
-   "lemma": "Taksi",
-   "translit": "taksi",
-   "pronunciation": "TAHK-see",
-   "translation": "taxi",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Panggil taksi",
-     "translation": "Call a taxi"
-    }
-   ],
-   "frequencyRank": 123
-  },
-  {
-   "id": "id_0092",
-   "unit": "u6",
-   "lemma": "Bandara",
-   "translit": "bandara",
-   "pronunciation": "bahn-DAH-rah",
-   "translation": "airport",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Pergi ke bandara",
-     "translation": "Going to the airport"
-    }
-   ],
-   "frequencyRank": 124
-  },
-  {
-   "id": "id_0093",
-   "unit": "u6",
-   "lemma": "Kanan",
-   "translit": "kanan",
-   "pronunciation": "KAH-nahn",
-   "translation": "right (direction)",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Belok kanan",
-     "translation": "Turn right"
+      "char": "I",
+      "name": "I",
+      "sound": "ee"
     },
     {
-     "native": "Di sebelah kanan",
-     "translation": "On the right"
-    }
-   ],
-   "frequencyRank": 125
-  },
-  {
-   "id": "id_0094",
-   "unit": "u6",
-   "lemma": "Kiri",
-   "translit": "kiri",
-   "pronunciation": "KEE-ree",
-   "translation": "left (direction)",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
+      "char": "O",
+      "name": "O",
+      "sound": "oh"
+    },
     {
-     "native": "Belok kiri",
-     "translation": "Turn left"
-    }
-   ],
-   "frequencyRank": 126
-  },
-  {
-   "id": "id_0095",
-   "unit": "u6",
-   "lemma": "Hotel",
-   "translit": "hotel",
-   "pronunciation": "HO-tel",
-   "translation": "hotel",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
+      "char": "U",
+      "name": "U",
+      "sound": "oo"
+    },
     {
-     "native": "Hotel yang bagus",
-     "translation": "A good hotel"
-    }
-   ],
-   "frequencyRank": 127
-  },
-  {
-   "id": "id_0096",
-   "unit": "u6",
-   "lemma": "Tiket",
-   "translit": "tiket",
-   "pronunciation": "TEE-ket",
-   "translation": "ticket",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
+      "char": "C",
+      "name": "Ce",
+      "sound": "ch (always)"
+    },
     {
-     "native": "Satu tiket, tolong",
-     "translation": "One ticket please"
-    }
-   ],
-   "frequencyRank": 128
-  },
-  {
-   "id": "id_0097",
-   "unit": "u6",
-   "lemma": "Paspor",
-   "translit": "paspor",
-   "pronunciation": "PAHS-por",
-   "translation": "passport",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
+      "char": "NG",
+      "name": "Eng",
+      "sound": "ng (singer)"
+    },
     {
-     "native": "Paspor saya",
-     "translation": "My passport"
+      "char": "NY",
+      "name": "Enye",
+      "sound": "ny (canyon)"
     }
-   ],
-   "frequencyRank": 129
-  },
-  {
-   "id": "id_0098",
-   "unit": "u6",
-   "lemma": "Stasiun",
-   "translit": "stasiun",
-   "pronunciation": "stah-see-OON",
-   "translation": "station",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
+  ],
+  "frameworks": [
     {
-     "native": "Stasiun bus",
-     "translation": "The bus station"
-    }
-   ],
-   "frequencyRank": 130
-  },
-  {
-   "id": "id_0099",
-   "unit": "u6",
-   "lemma": "Peta",
-   "translit": "peta",
-   "pronunciation": "PEH-tah",
-   "translation": "map",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
+      "id": "no-conjugation",
+      "title": "Verbs never conjugate",
+      "body": "Indonesian verbs stay the same regardless of who's doing the action. 'Saya makan' / 'Dia makan' — same verb."
+    },
     {
-     "native": "Beri saya peta",
-     "translation": "Give me a map"
-    }
-   ],
-   "frequencyRank": 131
-  },
-  {
-   "id": "id_0100",
-   "unit": "u6",
-   "lemma": "Dekat",
-   "translit": "dekat",
-   "pronunciation": "DEH-kaht",
-   "translation": "near",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
+      "id": "no-tense",
+      "title": "No verb tenses",
+      "body": "There are no past, present, or future verb forms. Time is shown with words like 'kemarin' (yesterday) or 'besok' (tomorrow)."
+    },
     {
-     "native": "Dekat hotel",
-     "translation": "Near the hotel"
-    }
-   ],
-   "frequencyRank": 132
-  },
-  {
-   "id": "id_0101",
-   "unit": "u6",
-   "lemma": "Jauh",
-   "translit": "jauh",
-   "pronunciation": "JAH-oo",
-   "translation": "far",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
+      "id": "no-gender",
+      "title": "No grammatical gender",
+      "body": "'Dia' covers both 'he' and 'she'. No masculine/feminine forms to learn."
+    },
     {
-     "native": "Sangat jauh",
-     "translation": "Very far"
+      "id": "latin-script",
+      "title": "Familiar alphabet",
+      "body": "Indonesian uses the Latin alphabet and is pronounced almost exactly as written — one of the most learner-friendly languages."
     }
-   ],
-   "frequencyRank": 133
-  },
-  {
-   "id": "id_0102",
-   "unit": "u6",
-   "lemma": "Lurus",
-   "translit": "lurus",
-   "pronunciation": "LOO-roos",
-   "translation": "straight ahead",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
+  ],
+  "units": [
     {
-     "native": "Jalan terus lurus",
-     "translation": "Go straight ahead"
-    }
-   ],
-   "frequencyRank": 134
-  },
-  {
-   "id": "id_0103",
-   "lemma": "kamu",
-   "translit": "kamu",
-   "pronunciation": "KAH-moo",
-   "translation": "you (informal)",
-   "category": "People",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Hello, thank you, please"
+    },
     {
-     "native": "Kamu di mana?",
-     "translation": "Where are you?"
-    }
-   ],
-   "frequencyRank": 18
-  },
-  {
-   "id": "id_0104",
-   "lemma": "buruk",
-   "translit": "buruk",
-   "pronunciation": "BOO-rook",
-   "translation": "bad",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns and basics"
+    },
     {
-     "native": "Cuacanya buruk",
-     "translation": "The weather is bad"
-    }
-   ],
-   "frequencyRank": 49
-  },
-  {
-   "id": "id_0105",
-   "lemma": "punya",
-   "translit": "punya",
-   "pronunciation": "POO-nyah",
-   "translation": "to have",
-   "category": "Verbs",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, family"
+    },
     {
-     "native": "Saya tidak punya waktu",
-     "translation": "I don't have time"
-    }
-   ],
-   "frequencyRank": 19
-  },
-  {
-   "id": "id_0106",
-   "lemma": "melakukan",
-   "translit": "melakukan",
-   "pronunciation": "meh-lah-KOO-kan",
-   "translation": "to do",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u2",
-   "examples": [
+      "id": "u4",
+      "title": "Numbers",
+      "emoji": "🔢",
+      "description": "One to ten"
+    },
     {
-     "native": "Apa yang kamu lakukan?",
-     "translation": "What are you doing?"
-    }
-   ],
-   "frequencyRank": 100
-  },
-  {
-   "id": "id_0107",
-   "lemma": "membuat",
-   "translit": "membuat",
-   "pronunciation": "mem-BOO-at",
-   "translation": "to make",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u5",
-   "examples": [
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍽️",
+      "description": "Water, food, eating"
+    },
     {
-     "native": "Saya membuat teh",
-     "translation": "I make tea"
+      "id": "u6",
+      "title": "Getting Around",
+      "emoji": "🧭",
+      "description": "Connectors, transport, and travel basics"
     }
-   ],
-   "frequencyRank": 111
-  },
-  {
-   "id": "id_0108",
-   "lemma": "bisa",
-   "translit": "bisa",
-   "pronunciation": "BEE-sah",
-   "translation": "to be able to, can",
-   "category": "Verbs",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
+  ],
+  "vocab": [
     {
-     "native": "Bisa bantu saya?",
-     "translation": "Can you help me?"
-    }
-   ],
-   "frequencyRank": 20
-  },
-  {
-   "id": "id_0109",
-   "lemma": "perlu",
-   "translit": "perlu",
-   "pronunciation": "PER-loo",
-   "translation": "to need",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u2",
-   "examples": [
+      "id": "id_0001",
+      "unit": "u1",
+      "lemma": "Halo",
+      "translit": "HAH-loh",
+      "translation": "hello",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "Halo, apa kabar?",
+          "translation": "Hello, how are you?"
+        }
+      ]
+    },
     {
-     "native": "Saya perlu bantuan",
-     "translation": "I need help"
-    }
-   ],
-   "frequencyRank": 101
-  },
-  {
-   "id": "id_0110",
-   "lemma": "berbicara",
-   "translit": "berbicara",
-   "pronunciation": "ber-bee-CHA-rah",
-   "translation": "to speak",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u2",
-   "examples": [
+      "id": "id_0002",
+      "unit": "u1",
+      "lemma": "Selamat pagi",
+      "translit": "seh-LAH-mat PAH-gee",
+      "translation": "good morning",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "Selamat pagi, ibu",
+          "translation": "Good morning, ma'am"
+        }
+      ]
+    },
     {
-     "native": "Apakah Anda bicara Inggris?",
-     "translation": "Do you speak English?"
-    }
-   ],
-   "frequencyRank": 102
-  },
-  {
-   "id": "id_0111",
-   "lemma": "uang",
-   "translit": "uang",
-   "pronunciation": "OO-ang",
-   "translation": "money",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0003",
+      "unit": "u1",
+      "lemma": "Selamat siang",
+      "translit": "seh-LAH-mat see-AHNG",
+      "translation": "good day (midday)",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 63,
+      "examples": [
+        {
+          "native": "Selamat siang, pak",
+          "translation": "Good day, sir"
+        }
+      ]
+    },
     {
-     "native": "Saya tidak punya uang",
-     "translation": "I don't have money"
-    }
-   ],
-   "frequencyRank": 50
-  },
-  {
-   "id": "id_0112",
-   "lemma": "waktu",
-   "translit": "waktu",
-   "pronunciation": "WAK-too",
-   "translation": "time",
-   "category": "Time",
-   "difficulty": 1,
-   "unit": "u4",
-   "examples": [
+      "id": "id_0004",
+      "unit": "u1",
+      "lemma": "Selamat malam",
+      "translit": "seh-LAH-mat MAH-lahm",
+      "translation": "good evening, good night",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "Selamat malam, tidur yang nyenyak",
+          "translation": "Good night, sleep well"
+        }
+      ]
+    },
     {
-     "native": "Tidak ada waktu",
-     "translation": "There's no time"
-    }
-   ],
-   "frequencyRank": 35
-  },
-  {
-   "id": "id_0113",
-   "lemma": "hari",
-   "translit": "hari",
-   "pronunciation": "HAH-ree",
-   "translation": "day",
-   "category": "Time",
-   "difficulty": 1,
-   "unit": "u4",
-   "examples": [
+      "id": "id_0005",
+      "unit": "u1",
+      "lemma": "Terima kasih",
+      "translit": "teh-REE-mah KAH-see",
+      "translation": "thank you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "Terima kasih banyak",
+          "translation": "Thank you very much"
+        }
+      ]
+    },
     {
-     "native": "Selamat hari",
-     "translation": "Have a good day"
-    }
-   ],
-   "frequencyRank": 36
-  },
-  {
-   "id": "id_0114",
-   "lemma": "kemarin",
-   "translit": "kemarin",
-   "pronunciation": "kuh-MAH-rin",
-   "translation": "yesterday",
-   "category": "Time",
-   "difficulty": 1,
-   "unit": "u4",
-   "examples": [
+      "id": "id_0006",
+      "unit": "u1",
+      "lemma": "Sama-sama",
+      "translit": "SAH-mah SAH-mah",
+      "translation": "you're welcome",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "Sama-sama, teman",
+          "translation": "You're welcome, friend"
+        }
+      ]
+    },
     {
-     "native": "Kemarin dingin",
-     "translation": "Yesterday was cold"
-    }
-   ],
-   "frequencyRank": 37
-  },
-  {
-   "id": "id_0115",
-   "lemma": "di sini",
-   "translit": "di sini",
-   "pronunciation": "dee SEE-nee",
-   "translation": "here",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0007",
+      "unit": "u1",
+      "lemma": "Tolong",
+      "translit": "TOH-long",
+      "translation": "please, help",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "Tolong bantu saya",
+          "translation": "Please help me"
+        }
+      ]
+    },
     {
-     "native": "Saya di sini",
-     "translation": "I'm here"
-    }
-   ],
-   "frequencyRank": 51
-  },
-  {
-   "id": "id_0116",
-   "lemma": "di sana",
-   "translit": "di sana",
-   "pronunciation": "dee SAH-nah",
-   "translation": "there",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0008",
+      "unit": "u1",
+      "lemma": "Maaf",
+      "translit": "MAH-aff",
+      "translation": "sorry, excuse me",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "Maaf, saya terlambat",
+          "translation": "Sorry, I'm late"
+        }
+      ]
+    },
     {
-     "native": "Apoteknya di sana",
-     "translation": "The pharmacy is there"
-    }
-   ],
-   "frequencyRank": 52
-  },
-  {
-   "id": "id_0117",
-   "lemma": "bagaimana",
-   "translit": "bagaimana",
-   "pronunciation": "bah-guy-MAH-nah",
-   "translation": "how",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0009",
+      "unit": "u1",
+      "lemma": "Ya",
+      "translit": "yah",
+      "translation": "yes",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "Ya, tentu",
+          "translation": "Yes, of course"
+        }
+      ]
+    },
     {
-     "native": "Bagaimana caranya?",
-     "translation": "How do you do it?"
-    }
-   ],
-   "frequencyRank": 53
-  },
-  {
-   "id": "id_0118",
-   "lemma": "pria",
-   "translit": "pria",
-   "pronunciation": "PREE-ah",
-   "translation": "man",
-   "category": "People",
-   "difficulty": 1,
-   "unit": "u3",
-   "examples": [
+      "id": "id_0010",
+      "unit": "u1",
+      "lemma": "Tidak",
+      "translit": "TEE-dahk",
+      "translation": "no, not",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "Tidak, terima kasih",
+          "translation": "No, thank you"
+        }
+      ]
+    },
     {
-     "native": "Pria itu kakak saya",
-     "translation": "That man is my brother"
-    }
-   ],
-   "frequencyRank": 28
-  },
-  {
-   "id": "id_0119",
-   "lemma": "wanita",
-   "translit": "wanita",
-   "pronunciation": "wah-NEE-tah",
-   "translation": "woman",
-   "category": "People",
-   "difficulty": 1,
-   "unit": "u3",
-   "examples": [
+      "id": "id_0011",
+      "unit": "u1",
+      "lemma": "Selamat tinggal",
+      "translit": "seh-LAH-mat ting-GAHL",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 66,
+      "examples": [
+        {
+          "native": "Selamat tinggal, teman",
+          "translation": "Goodbye, friend"
+        }
+      ]
+    },
     {
-     "native": "Wanita itu dokter",
-     "translation": "That woman is a doctor"
-    }
-   ],
-   "frequencyRank": 29
-  },
-  {
-   "id": "id_0120",
-   "lemma": "kota",
-   "translit": "kota",
-   "pronunciation": "KOH-tah",
-   "translation": "city",
-   "category": "Travel",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0012",
+      "unit": "u2",
+      "lemma": "Saya",
+      "translit": "SAH-yah",
+      "translation": "I, me",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "Saya baik",
+          "translation": "I am fine"
+        }
+      ]
+    },
     {
-     "native": "Kotanya besar",
-     "translation": "The city is big"
-    }
-   ],
-   "frequencyRank": 54
-  },
-  {
-   "id": "id_0121",
-   "lemma": "jalan",
-   "translit": "jalan",
-   "pronunciation": "JAH-lan",
-   "translation": "road, street",
-   "category": "Travel",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0013",
+      "unit": "u2",
+      "lemma": "Anda",
+      "translit": "AHN-dah",
+      "translation": "you (polite)",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "Apa kabar Anda?",
+          "translation": "How are you?"
+        }
+      ]
+    },
     {
-     "native": "Jalannya panjang",
-     "translation": "The road is long"
-    }
-   ],
-   "frequencyRank": 55
-  },
-  {
-   "id": "id_0122",
-   "lemma": "kerja",
-   "translit": "kerja",
-   "pronunciation": "KER-jah",
-   "translation": "work",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
+      "id": "id_0014",
+      "unit": "u2",
+      "lemma": "Dia",
+      "translit": "DEE-ah",
+      "translation": "he, she",
+      "category": "People",
+      "difficulty": 1,
+      "frequencyRank": 10,
+      "examples": [
+        {
+          "native": "Dia teman saya",
+          "translation": "He/she is my friend"
+        }
+      ]
+    },
     {
-     "native": "Kerja saya selesai",
-     "translation": "My work is done"
-    }
-   ],
-   "frequencyRank": 21
-  },
-  {
-   "id": "id_0123",
-   "lemma": "membeli",
-   "translit": "membeli",
-   "pronunciation": "mem-BEH-lee",
-   "translation": "to buy",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u5",
-   "examples": [
+      "id": "id_0015",
+      "unit": "u2",
+      "lemma": "Kami",
+      "translit": "KAH-mee",
+      "translation": "we (not including you)",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 72,
+      "examples": [
+        {
+          "native": "Kami dari Jakarta",
+          "translation": "We are from Jakarta"
+        }
+      ]
+    },
     {
-     "native": "Saya membeli roti",
-     "translation": "I buy bread"
-    }
-   ],
-   "frequencyRank": 112
-  },
-  {
-   "id": "id_0124",
-   "lemma": "harga",
-   "translit": "harga",
-   "pronunciation": "HAR-gah",
-   "translation": "price",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0016",
+      "unit": "u2",
+      "lemma": "Mereka",
+      "translit": "meh-REH-kah",
+      "translation": "they",
+      "category": "People",
+      "difficulty": 2,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "Mereka teman saya",
+          "translation": "They are my friends"
+        }
+      ]
+    },
     {
-     "native": "Berapa harganya?",
-     "translation": "What's the price?"
-    }
-   ],
-   "frequencyRank": 56
-  },
-  {
-   "id": "id_0125",
-   "lemma": "membuka",
-   "translit": "membuka",
-   "pronunciation": "mem-BOO-kah",
-   "translation": "to open",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u5",
-   "examples": [
+      "id": "id_0017",
+      "unit": "u2",
+      "lemma": "Apa kabar",
+      "translit": "AH-pah KAH-bar",
+      "translation": "how are you",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "Apa kabar, teman?",
+          "translation": "How are you, friend?"
+        }
+      ]
+    },
     {
-     "native": "Buka pintunya",
-     "translation": "Open the door"
-    }
-   ],
-   "frequencyRank": 113
-  },
-  {
-   "id": "id_0126",
-   "lemma": "panas",
-   "translit": "panas",
-   "pronunciation": "PAH-nas",
-   "translation": "hot",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0018",
+      "unit": "u2",
+      "lemma": "Baik",
+      "translit": "BAH-ik",
+      "translation": "good, fine",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "Saya baik, terima kasih",
+          "translation": "I am fine, thank you"
+        }
+      ]
+    },
     {
-     "native": "Hari ini panas",
-     "translation": "It's hot today"
-    }
-   ],
-   "frequencyRank": 57
-  },
-  {
-   "id": "id_0127",
-   "lemma": "dingin",
-   "translit": "dingin",
-   "pronunciation": "DEE-ngin",
-   "translation": "cold",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0019",
+      "unit": "u2",
+      "lemma": "Apa",
+      "translit": "AH-pah",
+      "translation": "what",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "Apa ini?",
+          "translation": "What is this?"
+        }
+      ]
+    },
     {
-     "native": "Airnya dingin",
-     "translation": "The water is cold"
-    }
-   ],
-   "frequencyRank": 58
-  },
-  {
-   "id": "id_0128",
-   "lemma": "sangat",
-   "translit": "sangat",
-   "pronunciation": "SAH-ngat",
-   "translation": "very",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0020",
+      "unit": "u2",
+      "lemma": "Nama",
+      "translit": "NAH-mah",
+      "translation": "name",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "Nama saya Ana",
+          "translation": "My name is Ana"
+        },
+        {
+          "native": "Siapa nama Anda?",
+          "translation": "What's your name?"
+        }
+      ],
+      "pronunciation": "NAH-mah"
+    },
     {
-     "native": "Sangat bagus",
-     "translation": "Very good"
-    }
-   ],
-   "frequencyRank": 59
-  },
-  {
-   "id": "id_0129",
-   "lemma": "dengan",
-   "translit": "dengan",
-   "pronunciation": "DUH-ngan",
-   "translation": "with",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0021",
+      "unit": "u3",
+      "lemma": "Ibu",
+      "translit": "EE-boo",
+      "translation": "mother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "Ibu saya",
+          "translation": "My mother"
+        }
+      ]
+    },
     {
-     "native": "Kopi dengan susu",
-     "translation": "Coffee with milk"
-    }
-   ],
-   "frequencyRank": 60
-  },
-  {
-   "id": "id_0130",
-   "lemma": "tanpa",
-   "translit": "tanpa",
-   "pronunciation": "TAN-pah",
-   "translation": "without",
-   "category": "Connectors",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0022",
+      "unit": "u3",
+      "lemma": "Ayah",
+      "translit": "AH-yah",
+      "translation": "father",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Ayah saya",
+          "translation": "My father"
+        }
+      ]
+    },
     {
-     "native": "Tanpa gula",
-     "translation": "Without sugar"
-    }
-   ],
-   "frequencyRank": 135
-  },
-  {
-   "id": "id_0131",
-   "lemma": "semua",
-   "translit": "semua",
-   "pronunciation": "suh-MOO-ah",
-   "translation": "all, everything",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0023",
+      "unit": "u3",
+      "lemma": "Saudara",
+      "translit": "sow-DAH-rah",
+      "translation": "sibling",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 104,
+      "examples": [
+        {
+          "native": "Saudara saya",
+          "translation": "My sibling"
+        }
+      ]
+    },
     {
-     "native": "Semua baik",
-     "translation": "Everything is fine"
-    }
-   ],
-   "frequencyRank": 61
-  },
-  {
-   "id": "id_0132",
-   "lemma": "senang",
-   "translit": "senang",
-   "pronunciation": "suh-NANG",
-   "translation": "happy",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
+      "id": "id_0024",
+      "unit": "u3",
+      "lemma": "Anak",
+      "translit": "AH-nahk",
+      "translation": "child",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "Anak kecil",
+          "translation": "Small child"
+        }
+      ]
+    },
     {
-     "native": "Saya senang",
-     "translation": "I'm happy"
-    }
-   ],
-   "frequencyRank": 22
-  },
-  {
-   "id": "id_0133",
-   "lemma": "lelah",
-   "translit": "lelah",
-   "pronunciation": "luh-LAH",
-   "translation": "tired",
-   "category": "Common",
-   "difficulty": 2,
-   "unit": "u2",
-   "examples": [
+      "id": "id_0025",
+      "unit": "u3",
+      "lemma": "Teman",
+      "translit": "teh-MAHN",
+      "translation": "friend",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 27,
+      "examples": [
+        {
+          "native": "Teman saya",
+          "translation": "My friend"
+        }
+      ]
+    },
     {
-     "native": "Saya lelah",
-     "translation": "I'm tired"
-    }
-   ],
-   "frequencyRank": 103
-  },
-  {
-   "id": "id_0134",
-   "lemma": "sakit",
-   "translit": "sakit",
-   "pronunciation": "SAH-kit",
-   "translation": "sick, painful",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
+      "id": "id_0026",
+      "unit": "u4",
+      "lemma": "Satu",
+      "translit": "SAH-too",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "Satu cangkir kopi",
+          "translation": "One cup of coffee"
+        }
+      ]
+    },
     {
-     "native": "Saya sakit",
-     "translation": "I'm ill"
-    }
-   ],
-   "frequencyRank": 23
-  },
-  {
-   "id": "id_0135",
-   "lemma": "dokter",
-   "translit": "dokter",
-   "pronunciation": "DOK-ter",
-   "translation": "doctor",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0027",
+      "unit": "u4",
+      "lemma": "Dua",
+      "translit": "DOO-ah",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "Dua orang",
+          "translation": "Two people"
+        }
+      ]
+    },
     {
-     "native": "Saya perlu dokter",
-     "translation": "I need a doctor"
-    }
-   ],
-   "frequencyRank": 62
-  },
-  {
-   "id": "id_0136",
-   "lemma": "kamar kecil",
-   "translit": "kamar kecil",
-   "pronunciation": "KAH-mar kuh-CHEEL",
-   "translation": "bathroom, toilet",
-   "category": "Travel",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
+      "id": "id_0028",
+      "unit": "u4",
+      "lemma": "Tiga",
+      "translit": "TEE-gah",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "Tiga hari",
+          "translation": "Three days"
+        }
+      ]
+    },
     {
-     "native": "Di mana kamar kecil?",
-     "translation": "Where is the toilet?"
+      "id": "id_0029",
+      "unit": "u4",
+      "lemma": "Empat",
+      "translit": "uhm-PAHT",
+      "translation": "four",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "Empat jam",
+          "translation": "Four hours"
+        }
+      ]
+    },
+    {
+      "id": "id_0030",
+      "unit": "u4",
+      "lemma": "Lima",
+      "translit": "LEE-mah",
+      "translation": "five",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "Lima ribu rupiah",
+          "translation": "Five thousand rupiah"
+        }
+      ]
+    },
+    {
+      "id": "id_0031",
+      "unit": "u5",
+      "lemma": "Air",
+      "translit": "ah-EER",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "Air dingin",
+          "translation": "Cold water"
+        }
+      ]
+    },
+    {
+      "id": "id_0032",
+      "unit": "u5",
+      "lemma": "Makan",
+      "translit": "MAH-kahn",
+      "translation": "to eat, food",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "Saya mau makan",
+          "translation": "I want to eat"
+        }
+      ]
+    },
+    {
+      "id": "id_0033",
+      "unit": "u5",
+      "lemma": "Minum",
+      "translit": "MEE-noom",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "Minum air",
+          "translation": "Drink water"
+        }
+      ]
+    },
+    {
+      "id": "id_0034",
+      "unit": "u5",
+      "lemma": "Nasi",
+      "translit": "NAH-see",
+      "translation": "rice",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "Nasi goreng",
+          "translation": "Fried rice"
+        }
+      ]
+    },
+    {
+      "id": "id_0035",
+      "unit": "u5",
+      "lemma": "Kopi",
+      "translit": "KOH-pee",
+      "translation": "coffee",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "Kopi panas",
+          "translation": "Hot coffee"
+        }
+      ]
+    },
+    {
+      "id": "id_0036",
+      "unit": "u5",
+      "lemma": "Teh",
+      "translit": "teh",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "Teh manis",
+          "translation": "Sweet tea"
+        }
+      ]
+    },
+    {
+      "id": "id_0037",
+      "unit": "u5",
+      "lemma": "Roti",
+      "translit": "ROH-tee",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "Roti segar",
+          "translation": "Fresh bread"
+        }
+      ]
+    },
+    {
+      "id": "id_0038",
+      "unit": "u2",
+      "lemma": "Besar",
+      "translit": "buh-SAR",
+      "translation": "big",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "Rumah besar",
+          "translation": "Big house"
+        }
+      ]
+    },
+    {
+      "id": "id_0039",
+      "unit": "u2",
+      "lemma": "Kecil",
+      "translit": "kuh-CHEEL",
+      "translation": "small",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 16,
+      "examples": [
+        {
+          "native": "Buku kecil",
+          "translation": "Small book"
+        }
+      ]
+    },
+    {
+      "id": "id_0040",
+      "unit": "u2",
+      "lemma": "Bagus",
+      "translit": "BAH-goos",
+      "translation": "good, nice",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "Sangat bagus",
+          "translation": "Very good"
+        }
+      ]
+    },
+    {
+      "id": "id_0041",
+      "unit": "u5",
+      "lemma": "Rumah",
+      "translit": "ROO-mah",
+      "translation": "house, home",
+      "category": "Common",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "Rumah saya",
+          "translation": "My house"
+        }
+      ]
+    },
+    {
+      "id": "id_0042",
+      "unit": "u5",
+      "lemma": "Pergi",
+      "translit": "PUR-gee",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "Saya pergi ke rumah",
+          "translation": "I'm going home"
+        }
+      ]
+    },
+    {
+      "id": "id_0043",
+      "unit": "u5",
+      "lemma": "Datang",
+      "translit": "DAH-tahng",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 108,
+      "examples": [
+        {
+          "native": "Dia datang besok",
+          "translation": "He/she comes tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "id_0044",
+      "unit": "u5",
+      "lemma": "Hari ini",
+      "translit": "HAH-ree EE-nee",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 47,
+      "examples": [
+        {
+          "native": "Hari ini hari Senin",
+          "translation": "Today is Monday"
+        }
+      ]
+    },
+    {
+      "id": "id_0045",
+      "unit": "u5",
+      "lemma": "Besok",
+      "translit": "BEH-sok",
+      "translation": "tomorrow",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Sampai besok",
+          "translation": "Until tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "id_0046",
+      "unit": "u2",
+      "lemma": "Tahu",
+      "translit": "TAH-hoo",
+      "translation": "to know (a fact)",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 76,
+      "examples": [
+        {
+          "native": "Saya tahu",
+          "translation": "I know"
+        },
+        {
+          "native": "Saya tidak tahu",
+          "translation": "I don't know"
+        }
+      ],
+      "pronunciation": "TAH-hoo"
+    },
+    {
+      "id": "id_0047",
+      "unit": "u2",
+      "lemma": "Pikir",
+      "translit": "PEE-kir",
+      "translation": "to think",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 77,
+      "examples": [
+        {
+          "native": "Saya pikir begitu",
+          "translation": "I think so"
+        }
+      ]
+    },
+    {
+      "id": "id_0048",
+      "unit": "u2",
+      "lemma": "Bilang",
+      "translit": "BEE-lahng",
+      "translation": "to say",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Dia bilang",
+          "translation": "He says"
+        }
+      ]
+    },
+    {
+      "id": "id_0049",
+      "unit": "u2",
+      "lemma": "Beri",
+      "translit": "buh-REE",
+      "translation": "to give",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 79,
+      "examples": [
+        {
+          "native": "Beri saya",
+          "translation": "Give me"
+        }
+      ]
+    },
+    {
+      "id": "id_0050",
+      "unit": "u2",
+      "lemma": "Ambil",
+      "translit": "AHM-beel",
+      "translation": "to take",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "Ambil ini",
+          "translation": "Take this"
+        }
+      ]
+    },
+    {
+      "id": "id_0051",
+      "unit": "u2",
+      "lemma": "Lihat",
+      "translit": "LEE-hat",
+      "translation": "to see, look",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 81,
+      "examples": [
+        {
+          "native": "Saya lihat",
+          "translation": "I see"
+        }
+      ]
+    },
+    {
+      "id": "id_0052",
+      "unit": "u2",
+      "lemma": "Dengar",
+      "translit": "duh-NGAR",
+      "translation": "to listen, hear",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "Dengar musik",
+          "translation": "Listen to music"
+        }
+      ]
+    },
+    {
+      "id": "id_0053",
+      "unit": "u2",
+      "lemma": "Mau",
+      "translit": "mow",
+      "translation": "to want",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 83,
+      "examples": [
+        {
+          "native": "Saya mau air",
+          "translation": "I want water"
+        }
+      ]
+    },
+    {
+      "id": "id_0054",
+      "unit": "u2",
+      "lemma": "Suka",
+      "translit": "SOO-kah",
+      "translation": "to like",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 84,
+      "examples": [
+        {
+          "native": "Saya suka kopi",
+          "translation": "I like coffee"
+        }
+      ]
+    },
+    {
+      "id": "id_0055",
+      "unit": "u2",
+      "lemma": "Kepala",
+      "translit": "kuh-PAH-lah",
+      "translation": "head",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 85,
+      "examples": [
+        {
+          "native": "Kepala saya",
+          "translation": "My head"
+        }
+      ]
+    },
+    {
+      "id": "id_0056",
+      "unit": "u2",
+      "lemma": "Tangan",
+      "translit": "TAH-ngan",
+      "translation": "hand",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 86,
+      "examples": [
+        {
+          "native": "Tangan saya",
+          "translation": "My hand"
+        }
+      ]
+    },
+    {
+      "id": "id_0057",
+      "unit": "u2",
+      "lemma": "Hati",
+      "translit": "HAH-tee",
+      "translation": "heart, liver",
+      "category": "Body",
+      "difficulty": 2,
+      "frequencyRank": 87,
+      "examples": [
+        {
+          "native": "Hati saya",
+          "translation": "My heart"
+        }
+      ]
+    },
+    {
+      "id": "id_0058",
+      "unit": "u2",
+      "lemma": "Hitam",
+      "translit": "HEE-tahm",
+      "translation": "black",
+      "category": "Colors",
+      "difficulty": 2,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "Kopi hitam",
+          "translation": "Black coffee"
+        }
+      ]
+    },
+    {
+      "id": "id_0059",
+      "unit": "u2",
+      "lemma": "Putih",
+      "translit": "POO-tih",
+      "translation": "white",
+      "category": "Colors",
+      "difficulty": 2,
+      "frequencyRank": 89,
+      "examples": [
+        {
+          "native": "Roti putih",
+          "translation": "White bread"
+        }
+      ]
+    },
+    {
+      "id": "id_0060",
+      "unit": "u2",
+      "lemma": "Kuning",
+      "translit": "KOO-ning",
+      "translation": "yellow",
+      "category": "Colors",
+      "difficulty": 2,
+      "frequencyRank": 90,
+      "examples": [
+        {
+          "native": "Bunga kuning",
+          "translation": "Yellow flower"
+        }
+      ]
+    },
+    {
+      "id": "id_0061",
+      "unit": "u2",
+      "lemma": "Matahari",
+      "translit": "ma-ta-HAH-ree",
+      "translation": "sun",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 91,
+      "examples": [
+        {
+          "native": "Matahari panas",
+          "translation": "Hot sun"
+        }
+      ]
+    },
+    {
+      "id": "id_0062",
+      "unit": "u2",
+      "lemma": "Hujan",
+      "translit": "HOO-jan",
+      "translation": "rain",
+      "category": "Weather",
+      "difficulty": 2,
+      "frequencyRank": 92,
+      "examples": [
+        {
+          "native": "Banyak hujan",
+          "translation": "Lots of rain"
+        }
+      ]
+    },
+    {
+      "id": "id_0063",
+      "unit": "u2",
+      "lemma": "Tahun",
+      "translit": "TAH-hoon",
+      "translation": "year",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 93,
+      "examples": [
+        {
+          "native": "Tahun ini",
+          "translation": "This year"
+        }
+      ]
+    },
+    {
+      "id": "id_0064",
+      "unit": "u2",
+      "lemma": "Minggu",
+      "translit": "MING-goo",
+      "translation": "week",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 94,
+      "examples": [
+        {
+          "native": "Minggu ini",
+          "translation": "This week"
+        }
+      ]
+    },
+    {
+      "id": "id_0065",
+      "unit": "u2",
+      "lemma": "Jam",
+      "translit": "jahm",
+      "translation": "hour, clock",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 95,
+      "examples": [
+        {
+          "native": "Satu jam",
+          "translation": "One hour"
+        }
+      ]
+    },
+    {
+      "id": "id_0066",
+      "unit": "u2",
+      "lemma": "Kapan",
+      "translit": "KAH-pan",
+      "translation": "when",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 96,
+      "examples": [
+        {
+          "native": "Kapan datang?",
+          "translation": "When are you coming?"
+        }
+      ]
+    },
+    {
+      "id": "id_0067",
+      "unit": "u2",
+      "lemma": "Kenapa",
+      "translit": "kuh-NAH-pah",
+      "translation": "why",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 97,
+      "examples": [
+        {
+          "native": "Kenapa tidak?",
+          "translation": "Why not?"
+        }
+      ]
+    },
+    {
+      "id": "id_0068",
+      "unit": "u2",
+      "lemma": "Siapa",
+      "translit": "see-AH-pah",
+      "translation": "who",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 98,
+      "examples": [
+        {
+          "native": "Siapa ini?",
+          "translation": "Who is this?"
+        }
+      ]
+    },
+    {
+      "id": "id_0069",
+      "unit": "u2",
+      "lemma": "Tidur",
+      "translit": "TEE-door",
+      "translation": "to sleep",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "Saya tidur",
+          "translation": "I sleep"
+        }
+      ]
+    },
+    {
+      "id": "id_0070",
+      "unit": "u1",
+      "lemma": "Permisi",
+      "translit": "per-MEE-see",
+      "translation": "excuse me",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 67,
+      "examples": [
+        {
+          "native": "Permisi, saya mau lewat",
+          "translation": "Excuse me, I want to pass"
+        }
+      ]
+    },
+    {
+      "id": "id_0071",
+      "unit": "u4",
+      "lemma": "Berapa",
+      "translit": "buh-RA-pa",
+      "translation": "how much / how many",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 106,
+      "examples": [
+        {
+          "native": "Berapa harganya?",
+          "translation": "How much does it cost?"
+        }
+      ]
+    },
+    {
+      "id": "id_0072",
+      "unit": "u1",
+      "lemma": "Di mana",
+      "translit": "dee MA-na",
+      "translation": "where",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 68,
+      "examples": [
+        {
+          "native": "Di mana toilet?",
+          "translation": "Where is the toilet?"
+        }
+      ]
+    },
+    {
+      "id": "id_0073",
+      "unit": "u5",
+      "lemma": "Mengerti",
+      "translit": "muh-NGER-tee",
+      "translation": "to understand",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 109,
+      "examples": [
+        {
+          "native": "Saya tidak mengerti",
+          "translation": "I don't understand"
+        }
+      ]
+    },
+    {
+      "id": "id_0074",
+      "unit": "u5",
+      "lemma": "Ulangi",
+      "translit": "oo-LA-ngee",
+      "translation": "to repeat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 110,
+      "examples": [
+        {
+          "native": "Tolong ulangi",
+          "translation": "Please repeat"
+        }
+      ]
+    },
+    {
+      "id": "id_0075",
+      "unit": "u2",
+      "lemma": "Lapar",
+      "translit": "LA-par",
+      "translation": "hungry",
+      "category": "Feelings",
+      "difficulty": 2,
+      "frequencyRank": 74,
+      "examples": [
+        {
+          "native": "Saya lapar",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "id_0076",
+      "unit": "u2",
+      "lemma": "Haus",
+      "translit": "HOWS",
+      "translation": "thirsty",
+      "category": "Feelings",
+      "difficulty": 2,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "Saya haus",
+          "translation": "I am thirsty"
+        }
+      ]
+    },
+    {
+      "id": "id_0077",
+      "unit": "u1",
+      "lemma": "Sampai jumpa",
+      "translit": "SAM-pai JOOM-pa",
+      "translation": "goodbye, see you",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "Sampai jumpa lagi",
+          "translation": "See you again"
+        }
+      ]
+    },
+    {
+      "id": "id_0078",
+      "unit": "u1",
+      "lemma": "Tidak apa-apa",
+      "translit": "TEE-dak A-pa A-pa",
+      "translation": "it's okay, no problem",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 70,
+      "examples": [
+        {
+          "native": "Tidak apa-apa",
+          "translation": "It's okay"
+        }
+      ]
+    },
+    {
+      "id": "id_0079",
+      "unit": "u3",
+      "lemma": "Sekarang",
+      "translit": "suh-KA-rang",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 2,
+      "frequencyRank": 105,
+      "examples": [
+        {
+          "native": "Sekarang juga",
+          "translation": "Right now"
+        }
+      ]
+    },
+    {
+      "id": "id_0080",
+      "unit": "u1",
+      "lemma": "Lagi",
+      "translit": "LA-gee",
+      "translation": "again, more",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "Sekali lagi",
+          "translation": "One more time"
+        }
+      ]
+    },
+    {
+      "id": "id_0081",
+      "unit": "u4",
+      "lemma": "Sedikit",
+      "translit": "suh-DEE-kit",
+      "translation": "a little",
+      "category": "Common",
+      "difficulty": 2,
+      "frequencyRank": 107,
+      "examples": [
+        {
+          "native": "Sedikit air",
+          "translation": "A little water"
+        }
+      ]
+    },
+    {
+      "id": "id_0082",
+      "unit": "u6",
+      "lemma": "Dan",
+      "translit": "dan",
+      "pronunciation": "DAHN",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Teh dan kopi",
+          "translation": "Tea and coffee"
+        }
+      ],
+      "frequencyRank": 114
+    },
+    {
+      "id": "id_0083",
+      "unit": "u6",
+      "lemma": "Tapi",
+      "translit": "tapi",
+      "pronunciation": "TAH-pee",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Kecil tapi bagus",
+          "translation": "Small but nice"
+        }
+      ],
+      "frequencyRank": 115
+    },
+    {
+      "id": "id_0084",
+      "unit": "u6",
+      "lemma": "Karena",
+      "translit": "karena",
+      "pronunciation": "kah-REH-nah",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Capek karena banyak kerja",
+          "translation": "Tired because there's a lot of work"
+        }
+      ],
+      "frequencyRank": 116
+    },
+    {
+      "id": "id_0085",
+      "unit": "u6",
+      "lemma": "Atau",
+      "translit": "atau",
+      "pronunciation": "AH-tow",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Teh atau kopi",
+          "translation": "Tea or coffee"
+        }
+      ],
+      "frequencyRank": 117
+    },
+    {
+      "id": "id_0086",
+      "unit": "u6",
+      "lemma": "Juga",
+      "translit": "juga",
+      "pronunciation": "JOO-gah",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Saya juga",
+          "translation": "Me too"
+        }
+      ],
+      "frequencyRank": 118
+    },
+    {
+      "id": "id_0087",
+      "unit": "u6",
+      "lemma": "Kalau",
+      "translit": "kalau",
+      "pronunciation": "KAH-low",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Kalau kamu mau",
+          "translation": "If you want"
+        }
+      ],
+      "frequencyRank": 119
+    },
+    {
+      "id": "id_0088",
+      "unit": "u6",
+      "lemma": "Mobil",
+      "translit": "mobil",
+      "pronunciation": "MOH-bil",
+      "translation": "car",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Mobil saya",
+          "translation": "My car"
+        }
+      ],
+      "frequencyRank": 120
+    },
+    {
+      "id": "id_0089",
+      "unit": "u6",
+      "lemma": "Bus",
+      "translit": "bus",
+      "pronunciation": "BOOS",
+      "translation": "bus",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Naik bus",
+          "translation": "Take the bus"
+        }
+      ],
+      "frequencyRank": 121
+    },
+    {
+      "id": "id_0090",
+      "unit": "u6",
+      "lemma": "Kereta",
+      "translit": "kereta",
+      "pronunciation": "keh-REH-tah",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Kereta cepat",
+          "translation": "The train is fast"
+        }
+      ],
+      "frequencyRank": 122
+    },
+    {
+      "id": "id_0091",
+      "unit": "u6",
+      "lemma": "Taksi",
+      "translit": "taksi",
+      "pronunciation": "TAHK-see",
+      "translation": "taxi",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Panggil taksi",
+          "translation": "Call a taxi"
+        }
+      ],
+      "frequencyRank": 123
+    },
+    {
+      "id": "id_0092",
+      "unit": "u6",
+      "lemma": "Bandara",
+      "translit": "bandara",
+      "pronunciation": "bahn-DAH-rah",
+      "translation": "airport",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Pergi ke bandara",
+          "translation": "Going to the airport"
+        }
+      ],
+      "frequencyRank": 124
+    },
+    {
+      "id": "id_0093",
+      "unit": "u6",
+      "lemma": "Kanan",
+      "translit": "kanan",
+      "pronunciation": "KAH-nahn",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Belok kanan",
+          "translation": "Turn right"
+        },
+        {
+          "native": "Di sebelah kanan",
+          "translation": "On the right"
+        }
+      ],
+      "frequencyRank": 125
+    },
+    {
+      "id": "id_0094",
+      "unit": "u6",
+      "lemma": "Kiri",
+      "translit": "kiri",
+      "pronunciation": "KEE-ree",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Belok kiri",
+          "translation": "Turn left"
+        }
+      ],
+      "frequencyRank": 126
+    },
+    {
+      "id": "id_0095",
+      "unit": "u6",
+      "lemma": "Hotel",
+      "translit": "hotel",
+      "pronunciation": "HO-tel",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Hotel yang bagus",
+          "translation": "A good hotel"
+        }
+      ],
+      "frequencyRank": 127
+    },
+    {
+      "id": "id_0096",
+      "unit": "u6",
+      "lemma": "Tiket",
+      "translit": "tiket",
+      "pronunciation": "TEE-ket",
+      "translation": "ticket",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Satu tiket, tolong",
+          "translation": "One ticket please"
+        }
+      ],
+      "frequencyRank": 128
+    },
+    {
+      "id": "id_0097",
+      "unit": "u6",
+      "lemma": "Paspor",
+      "translit": "paspor",
+      "pronunciation": "PAHS-por",
+      "translation": "passport",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Paspor saya",
+          "translation": "My passport"
+        }
+      ],
+      "frequencyRank": 129
+    },
+    {
+      "id": "id_0098",
+      "unit": "u6",
+      "lemma": "Stasiun",
+      "translit": "stasiun",
+      "pronunciation": "stah-see-OON",
+      "translation": "station",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Stasiun bus",
+          "translation": "The bus station"
+        }
+      ],
+      "frequencyRank": 130
+    },
+    {
+      "id": "id_0099",
+      "unit": "u6",
+      "lemma": "Peta",
+      "translit": "peta",
+      "pronunciation": "PEH-tah",
+      "translation": "map",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Beri saya peta",
+          "translation": "Give me a map"
+        }
+      ],
+      "frequencyRank": 131
+    },
+    {
+      "id": "id_0100",
+      "unit": "u6",
+      "lemma": "Dekat",
+      "translit": "dekat",
+      "pronunciation": "DEH-kaht",
+      "translation": "near",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Dekat hotel",
+          "translation": "Near the hotel"
+        }
+      ],
+      "frequencyRank": 132
+    },
+    {
+      "id": "id_0101",
+      "unit": "u6",
+      "lemma": "Jauh",
+      "translit": "jauh",
+      "pronunciation": "JAH-oo",
+      "translation": "far",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Sangat jauh",
+          "translation": "Very far"
+        }
+      ],
+      "frequencyRank": 133
+    },
+    {
+      "id": "id_0102",
+      "unit": "u6",
+      "lemma": "Lurus",
+      "translit": "lurus",
+      "pronunciation": "LOO-roos",
+      "translation": "straight ahead",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Jalan terus lurus",
+          "translation": "Go straight ahead"
+        }
+      ],
+      "frequencyRank": 134
+    },
+    {
+      "id": "id_0103",
+      "lemma": "kamu",
+      "translit": "kamu",
+      "pronunciation": "KAH-moo",
+      "translation": "you (informal)",
+      "category": "People",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Kamu di mana?",
+          "translation": "Where are you?"
+        }
+      ],
+      "frequencyRank": 18
+    },
+    {
+      "id": "id_0104",
+      "lemma": "buruk",
+      "translit": "buruk",
+      "pronunciation": "BOO-rook",
+      "translation": "bad",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Cuacanya buruk",
+          "translation": "The weather is bad"
+        }
+      ],
+      "frequencyRank": 49
+    },
+    {
+      "id": "id_0105",
+      "lemma": "punya",
+      "translit": "punya",
+      "pronunciation": "POO-nyah",
+      "translation": "to have",
+      "category": "Verbs",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Saya tidak punya waktu",
+          "translation": "I don't have time"
+        }
+      ],
+      "frequencyRank": 19
+    },
+    {
+      "id": "id_0106",
+      "lemma": "melakukan",
+      "translit": "melakukan",
+      "pronunciation": "meh-lah-KOO-kan",
+      "translation": "to do",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Apa yang kamu lakukan?",
+          "translation": "What are you doing?"
+        }
+      ],
+      "frequencyRank": 100
+    },
+    {
+      "id": "id_0107",
+      "lemma": "membuat",
+      "translit": "membuat",
+      "pronunciation": "mem-BOO-at",
+      "translation": "to make",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u5",
+      "examples": [
+        {
+          "native": "Saya membuat teh",
+          "translation": "I make tea"
+        }
+      ],
+      "frequencyRank": 111
+    },
+    {
+      "id": "id_0108",
+      "lemma": "bisa",
+      "translit": "bisa",
+      "pronunciation": "BEE-sah",
+      "translation": "to be able to, can",
+      "category": "Verbs",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Bisa bantu saya?",
+          "translation": "Can you help me?"
+        }
+      ],
+      "frequencyRank": 20
+    },
+    {
+      "id": "id_0109",
+      "lemma": "perlu",
+      "translit": "perlu",
+      "pronunciation": "PER-loo",
+      "translation": "to need",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Saya perlu bantuan",
+          "translation": "I need help"
+        }
+      ],
+      "frequencyRank": 101
+    },
+    {
+      "id": "id_0110",
+      "lemma": "berbicara",
+      "translit": "berbicara",
+      "pronunciation": "ber-bee-CHA-rah",
+      "translation": "to speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Apakah Anda bicara Inggris?",
+          "translation": "Do you speak English?"
+        }
+      ],
+      "frequencyRank": 102
+    },
+    {
+      "id": "id_0111",
+      "lemma": "uang",
+      "translit": "uang",
+      "pronunciation": "OO-ang",
+      "translation": "money",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Saya tidak punya uang",
+          "translation": "I don't have money"
+        }
+      ],
+      "frequencyRank": 50
+    },
+    {
+      "id": "id_0112",
+      "lemma": "waktu",
+      "translit": "waktu",
+      "pronunciation": "WAK-too",
+      "translation": "time",
+      "category": "Time",
+      "difficulty": 1,
+      "unit": "u4",
+      "examples": [
+        {
+          "native": "Tidak ada waktu",
+          "translation": "There's no time"
+        }
+      ],
+      "frequencyRank": 35
+    },
+    {
+      "id": "id_0113",
+      "lemma": "hari",
+      "translit": "hari",
+      "pronunciation": "HAH-ree",
+      "translation": "day",
+      "category": "Time",
+      "difficulty": 1,
+      "unit": "u4",
+      "examples": [
+        {
+          "native": "Selamat hari",
+          "translation": "Have a good day"
+        }
+      ],
+      "frequencyRank": 36
+    },
+    {
+      "id": "id_0114",
+      "lemma": "kemarin",
+      "translit": "kemarin",
+      "pronunciation": "kuh-MAH-rin",
+      "translation": "yesterday",
+      "category": "Time",
+      "difficulty": 1,
+      "unit": "u4",
+      "examples": [
+        {
+          "native": "Kemarin dingin",
+          "translation": "Yesterday was cold"
+        }
+      ],
+      "frequencyRank": 37
+    },
+    {
+      "id": "id_0115",
+      "lemma": "di sini",
+      "translit": "di sini",
+      "pronunciation": "dee SEE-nee",
+      "translation": "here",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Saya di sini",
+          "translation": "I'm here"
+        }
+      ],
+      "frequencyRank": 51
+    },
+    {
+      "id": "id_0116",
+      "lemma": "di sana",
+      "translit": "di sana",
+      "pronunciation": "dee SAH-nah",
+      "translation": "there",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Apoteknya di sana",
+          "translation": "The pharmacy is there"
+        }
+      ],
+      "frequencyRank": 52
+    },
+    {
+      "id": "id_0117",
+      "lemma": "bagaimana",
+      "translit": "bagaimana",
+      "pronunciation": "bah-guy-MAH-nah",
+      "translation": "how",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Bagaimana caranya?",
+          "translation": "How do you do it?"
+        }
+      ],
+      "frequencyRank": 53
+    },
+    {
+      "id": "id_0118",
+      "lemma": "pria",
+      "translit": "pria",
+      "pronunciation": "PREE-ah",
+      "translation": "man",
+      "category": "People",
+      "difficulty": 1,
+      "unit": "u3",
+      "examples": [
+        {
+          "native": "Pria itu kakak saya",
+          "translation": "That man is my brother"
+        }
+      ],
+      "frequencyRank": 28
+    },
+    {
+      "id": "id_0119",
+      "lemma": "wanita",
+      "translit": "wanita",
+      "pronunciation": "wah-NEE-tah",
+      "translation": "woman",
+      "category": "People",
+      "difficulty": 1,
+      "unit": "u3",
+      "examples": [
+        {
+          "native": "Wanita itu dokter",
+          "translation": "That woman is a doctor"
+        }
+      ],
+      "frequencyRank": 29
+    },
+    {
+      "id": "id_0120",
+      "lemma": "kota",
+      "translit": "kota",
+      "pronunciation": "KOH-tah",
+      "translation": "city",
+      "category": "Travel",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Kotanya besar",
+          "translation": "The city is big"
+        }
+      ],
+      "frequencyRank": 54
+    },
+    {
+      "id": "id_0121",
+      "lemma": "jalan",
+      "translit": "jalan",
+      "pronunciation": "JAH-lan",
+      "translation": "road, street",
+      "category": "Travel",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Jalannya panjang",
+          "translation": "The road is long"
+        }
+      ],
+      "frequencyRank": 55
+    },
+    {
+      "id": "id_0122",
+      "lemma": "kerja",
+      "translit": "kerja",
+      "pronunciation": "KER-jah",
+      "translation": "work",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Kerja saya selesai",
+          "translation": "My work is done"
+        }
+      ],
+      "frequencyRank": 21
+    },
+    {
+      "id": "id_0123",
+      "lemma": "membeli",
+      "translit": "membeli",
+      "pronunciation": "mem-BEH-lee",
+      "translation": "to buy",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u5",
+      "examples": [
+        {
+          "native": "Saya membeli roti",
+          "translation": "I buy bread"
+        }
+      ],
+      "frequencyRank": 112
+    },
+    {
+      "id": "id_0124",
+      "lemma": "harga",
+      "translit": "harga",
+      "pronunciation": "HAR-gah",
+      "translation": "price",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Berapa harganya?",
+          "translation": "What's the price?"
+        }
+      ],
+      "frequencyRank": 56
+    },
+    {
+      "id": "id_0125",
+      "lemma": "membuka",
+      "translit": "membuka",
+      "pronunciation": "mem-BOO-kah",
+      "translation": "to open",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u5",
+      "examples": [
+        {
+          "native": "Buka pintunya",
+          "translation": "Open the door"
+        }
+      ],
+      "frequencyRank": 113
+    },
+    {
+      "id": "id_0126",
+      "lemma": "panas",
+      "translit": "panas",
+      "pronunciation": "PAH-nas",
+      "translation": "hot",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Hari ini panas",
+          "translation": "It's hot today"
+        }
+      ],
+      "frequencyRank": 57
+    },
+    {
+      "id": "id_0127",
+      "lemma": "dingin",
+      "translit": "dingin",
+      "pronunciation": "DEE-ngin",
+      "translation": "cold",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Airnya dingin",
+          "translation": "The water is cold"
+        }
+      ],
+      "frequencyRank": 58
+    },
+    {
+      "id": "id_0128",
+      "lemma": "sangat",
+      "translit": "sangat",
+      "pronunciation": "SAH-ngat",
+      "translation": "very",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Sangat bagus",
+          "translation": "Very good"
+        }
+      ],
+      "frequencyRank": 59
+    },
+    {
+      "id": "id_0129",
+      "lemma": "dengan",
+      "translit": "dengan",
+      "pronunciation": "DUH-ngan",
+      "translation": "with",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Kopi dengan susu",
+          "translation": "Coffee with milk"
+        }
+      ],
+      "frequencyRank": 60
+    },
+    {
+      "id": "id_0130",
+      "lemma": "tanpa",
+      "translit": "tanpa",
+      "pronunciation": "TAN-pah",
+      "translation": "without",
+      "category": "Connectors",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Tanpa gula",
+          "translation": "Without sugar"
+        }
+      ],
+      "frequencyRank": 135
+    },
+    {
+      "id": "id_0131",
+      "lemma": "semua",
+      "translit": "semua",
+      "pronunciation": "suh-MOO-ah",
+      "translation": "all, everything",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Semua baik",
+          "translation": "Everything is fine"
+        }
+      ],
+      "frequencyRank": 61
+    },
+    {
+      "id": "id_0132",
+      "lemma": "senang",
+      "translit": "senang",
+      "pronunciation": "suh-NANG",
+      "translation": "happy",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Saya senang",
+          "translation": "I'm happy"
+        }
+      ],
+      "frequencyRank": 22
+    },
+    {
+      "id": "id_0133",
+      "lemma": "lelah",
+      "translit": "lelah",
+      "pronunciation": "luh-LAH",
+      "translation": "tired",
+      "category": "Common",
+      "difficulty": 2,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Saya lelah",
+          "translation": "I'm tired"
+        }
+      ],
+      "frequencyRank": 103
+    },
+    {
+      "id": "id_0134",
+      "lemma": "sakit",
+      "translit": "sakit",
+      "pronunciation": "SAH-kit",
+      "translation": "sick, painful",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Saya sakit",
+          "translation": "I'm ill"
+        }
+      ],
+      "frequencyRank": 23
+    },
+    {
+      "id": "id_0135",
+      "lemma": "dokter",
+      "translit": "dokter",
+      "pronunciation": "DOK-ter",
+      "translation": "doctor",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Saya perlu dokter",
+          "translation": "I need a doctor"
+        }
+      ],
+      "frequencyRank": 62
+    },
+    {
+      "id": "id_0136",
+      "lemma": "kamar kecil",
+      "translit": "kamar kecil",
+      "pronunciation": "KAH-mar kuh-CHEEL",
+      "translation": "bathroom, toilet",
+      "category": "Travel",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Di mana kamar kecil?",
+          "translation": "Where is the toilet?"
+        }
+      ],
+      "frequencyRank": 136
+    },
+    {
+      "id": "id_0137",
+      "unit": "u3",
+      "lemma": "sedih",
+      "translation": "sad",
+      "category": "Feelings",
+      "difficulty": 1,
+      "frequencyRank": 137,
+      "examples": [
+        {
+          "native": "Dia sedih",
+          "translation": "He is sad"
+        }
+      ]
+    },
+    {
+      "id": "id_0138",
+      "unit": "u3",
+      "lemma": "paman",
+      "translation": "uncle",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "Paman saya tinggal di Jakarta",
+          "translation": "My uncle lives in Jakarta"
+        }
+      ]
+    },
+    {
+      "id": "id_0139",
+      "unit": "u3",
+      "lemma": "bibi",
+      "translation": "aunt",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "Bibi memasak nasi",
+          "translation": "Aunt is cooking rice"
+        }
+      ]
+    },
+    {
+      "id": "id_0140",
+      "unit": "u3",
+      "lemma": "kakek",
+      "translation": "grandfather",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "Kakek minum teh",
+          "translation": "Grandfather drinks tea"
+        }
+      ]
+    },
+    {
+      "id": "id_0141",
+      "unit": "u3",
+      "lemma": "nenek",
+      "translation": "grandmother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "Nenek sangat baik",
+          "translation": "Grandmother is very kind"
+        }
+      ]
     }
-   ],
-   "frequencyRank": 136
-  }
- ]
+  ]
 }

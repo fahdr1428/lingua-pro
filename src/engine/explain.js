@@ -280,6 +280,22 @@ export function explainAnswer(exercise, userAnswer, langCode, opts = {}) {
       parts.push(`The answer is **${exercise.answer || item.translation}**.`);
   }
 
+  // v86 — THE WORD'S OWN TEACHING NOTE.
+  //
+  // Some words carry a `note` in the pack: the thing a learner has to know that
+  // the translation alone cannot carry. "Urdu has four words where English has
+  // one, and which you use says which side of the family." "Korean picks the
+  // sibling word by who is SPEAKING." "Spanish says 'I have hunger'."
+  //
+  // Nothing rendered it. `exercise.note` existed but was only ever set by the
+  // conjugation builder, so a note written on a vocabulary word went into the
+  // JSON and was never seen by anyone — the exact content that makes this app
+  // worth using over one that flattens every uncle into "uncle".
+  //
+  // It goes before the struggling line and after the answer, because it is
+  // context rather than correction: useful whether they got it right or wrong.
+  if (item.note) parts.push(item.note);
+
   // v82 — SAY IT OUT LOUD WHEN A WORD IS FIGHTING THEM.
   //
   // Every language has a handful of words that refuse to stick for a particular

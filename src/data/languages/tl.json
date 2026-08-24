@@ -1,0 +1,1960 @@
+{
+  "schemaVersion": 1,
+  "code": "tl",
+  "categories": [
+    "Common",
+    "Family",
+    "Feelings",
+    "Food",
+    "Greetings",
+    "Numbers",
+    "People",
+    "Places",
+    "Politeness",
+    "Questions",
+    "Time",
+    "Verbs"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Hello, goodbye, and the word that makes it polite"
+    },
+    {
+      "id": "u2",
+      "title": "Politeness",
+      "emoji": "🙏",
+      "description": "po, opo, and why they matter more than anything else here"
+    },
+    {
+      "id": "u3",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns, names, where you're from"
+    },
+    {
+      "id": "u4",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Relatives — and the titles you give people who aren't"
+    },
+    {
+      "id": "u5",
+      "title": "Feelings",
+      "emoji": "💭",
+      "description": "Tired, hungry, happy, homesick"
+    },
+    {
+      "id": "u6",
+      "title": "Food",
+      "emoji": "🍚",
+      "description": "Rice, fish, and asking for more"
+    },
+    {
+      "id": "u7",
+      "title": "Everyday",
+      "emoji": "🏠",
+      "description": "Common verbs and the things around you"
+    },
+    {
+      "id": "u8",
+      "title": "Out & About",
+      "emoji": "🚌",
+      "description": "Numbers, time, getting somewhere"
+    }
+  ],
+  "alphabet": [],
+  "frameworks": [],
+  "vocab": [
+    {
+      "id": "tl_0001",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Kumusta",
+      "translation": "hello, how are you",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kumusta ka?",
+          "translation": "How are you?"
+        }
+      ],
+      "frequencyRank": 1
+    },
+    {
+      "id": "tl_0002",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Magandang umaga",
+      "translation": "good morning",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Magandang umaga po",
+          "translation": "Good morning (respectful)"
+        }
+      ],
+      "frequencyRank": 2
+    },
+    {
+      "id": "tl_0003",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Magandang hapon",
+      "translation": "good afternoon",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Magandang hapon sa inyo",
+          "translation": "Good afternoon to you"
+        }
+      ],
+      "frequencyRank": 3
+    },
+    {
+      "id": "tl_0004",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Magandang gabi",
+      "translation": "good evening",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Magandang gabi po",
+          "translation": "Good evening (respectful)"
+        }
+      ],
+      "frequencyRank": 4
+    },
+    {
+      "id": "tl_0005",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Paalam",
+      "translation": "goodbye",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Paalam, kita tayo bukas",
+          "translation": "Goodbye, see you tomorrow"
+        }
+      ],
+      "frequencyRank": 5
+    },
+    {
+      "id": "tl_0006",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Ingat",
+      "translation": "take care",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ingat ka sa daan",
+          "translation": "Take care on the road"
+        }
+      ],
+      "frequencyRank": 6
+    },
+    {
+      "id": "tl_0007",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Mabuti",
+      "translation": "fine, well, good",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Mabuti naman ako",
+          "translation": "I'm doing fine"
+        }
+      ],
+      "frequencyRank": 7
+    },
+    {
+      "id": "tl_0008",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Oo",
+      "translation": "yes",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Oo, tama ka",
+          "translation": "Yes, you're right"
+        }
+      ],
+      "frequencyRank": 8
+    },
+    {
+      "id": "tl_0009",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Hindi",
+      "translation": "no, not",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Hindi ako galit",
+          "translation": "I am not angry"
+        }
+      ],
+      "frequencyRank": 9
+    },
+    {
+      "id": "tl_0010",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "po",
+      "translation": "respect particle (no English equivalent)",
+      "difficulty": 1,
+      "note": "Tagalog's most important word and the hardest for a learner to remember, because English has nothing like it. Drop 'po' into any sentence and it becomes respectful. Leave it out with an elder, a stranger or anyone older than you and you sound rude without intending to — this is the single thing that marks someone who learned Tagalog from a book.",
+      "examples": [
+        {
+          "native": "Salamat po",
+          "translation": "Thank you (respectfully)"
+        },
+        {
+          "native": "Opo, kain na po tayo",
+          "translation": "Yes, let's eat now"
+        }
+      ],
+      "frequencyRank": 10
+    },
+    {
+      "id": "tl_0011",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "opo",
+      "translation": "yes (respectful)",
+      "difficulty": 1,
+      "note": "'Oo' is yes to a friend. 'Opo' is yes to your mother, your grandmother, your boss. Same word, different world.",
+      "examples": [
+        {
+          "native": "Opo, naiintindihan ko",
+          "translation": "Yes, I understand"
+        }
+      ],
+      "frequencyRank": 11
+    },
+    {
+      "id": "tl_0012",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Salamat",
+      "translation": "thank you",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Maraming salamat po",
+          "translation": "Thank you very much (respectful)"
+        }
+      ],
+      "frequencyRank": 12
+    },
+    {
+      "id": "tl_0013",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Walang anuman",
+      "translation": "you're welcome",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Walang anuman po",
+          "translation": "You're welcome"
+        }
+      ],
+      "frequencyRank": 13
+    },
+    {
+      "id": "tl_0014",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Pasensya na",
+      "translation": "sorry, excuse me",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Pasensya na po",
+          "translation": "I'm sorry (respectful)"
+        }
+      ],
+      "frequencyRank": 14
+    },
+    {
+      "id": "tl_0015",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Pakiusap",
+      "translation": "please",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Pakiusap, tulungan mo ako",
+          "translation": "Please, help me"
+        }
+      ],
+      "frequencyRank": 15
+    },
+    {
+      "id": "tl_0016",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Mano po",
+      "translation": "blessing greeting to an elder",
+      "difficulty": 2,
+      "note": "You take an elder's hand and touch it to your forehead. Said on arriving, to grandparents, aunts, uncles, godparents. Not a phrase you can work out from a dictionary.",
+      "examples": [
+        {
+          "native": "Mano po, Lola",
+          "translation": "Your blessing, Grandmother"
+        }
+      ],
+      "frequencyRank": 16
+    },
+    {
+      "id": "tl_0017",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "ako",
+      "translation": "I, me",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ako si Maria",
+          "translation": "I am Maria"
+        }
+      ],
+      "frequencyRank": 17
+    },
+    {
+      "id": "tl_0018",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "ikaw",
+      "translation": "you",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ikaw ba si Juan?",
+          "translation": "Are you Juan?"
+        }
+      ],
+      "frequencyRank": 18
+    },
+    {
+      "id": "tl_0019",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "siya",
+      "translation": "he, she",
+      "difficulty": 1,
+      "note": "Tagalog does not mark gender in pronouns. 'Siya' is he and she — which is why Filipino speakers of English sometimes mix up 'he' and 'she'.",
+      "examples": [
+        {
+          "native": "Siya ang kapatid ko",
+          "translation": "He is my sibling"
+        }
+      ],
+      "frequencyRank": 19
+    },
+    {
+      "id": "tl_0020",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "kami",
+      "translation": "we (not including you)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kami ay taga-Maynila",
+          "translation": "We are from Manila"
+        }
+      ],
+      "frequencyRank": 20
+    },
+    {
+      "id": "tl_0021",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "tayo",
+      "translation": "we (including you)",
+      "difficulty": 2,
+      "note": "Two words for 'we'. 'Kami' leaves the listener out; 'tayo' includes them. Saying 'kami' when you mean 'tayo' quietly excludes the person you're talking to.",
+      "examples": [
+        {
+          "native": "Tayo na",
+          "translation": "Let's go"
+        }
+      ],
+      "frequencyRank": 21
+    },
+    {
+      "id": "tl_0022",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "sila",
+      "translation": "they",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Sila ay masaya",
+          "translation": "They are happy"
+        }
+      ],
+      "frequencyRank": 22
+    },
+    {
+      "id": "tl_0023",
+      "unit": "u3",
+      "category": "About You",
+      "lemma": "pangalan",
+      "translation": "name",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ano ang pangalan mo?",
+          "translation": "What is your name?"
+        }
+      ],
+      "frequencyRank": 23
+    },
+    {
+      "id": "tl_0024",
+      "unit": "u3",
+      "category": "About You",
+      "lemma": "taga-saan",
+      "translation": "from where",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Taga-saan ka?",
+          "translation": "Where are you from?"
+        }
+      ],
+      "frequencyRank": 24
+    },
+    {
+      "id": "tl_0025",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "nanay",
+      "translation": "mother",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ang nanay ko ay nagluluto",
+          "translation": "My mother is cooking"
+        }
+      ],
+      "frequencyRank": 25
+    },
+    {
+      "id": "tl_0026",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "tatay",
+      "translation": "father",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Nasa trabaho ang tatay ko",
+          "translation": "My father is at work"
+        }
+      ],
+      "frequencyRank": 26
+    },
+    {
+      "id": "tl_0027",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "lola",
+      "translation": "grandmother",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Mano po, Lola",
+          "translation": "Your blessing, Grandmother"
+        }
+      ],
+      "frequencyRank": 27
+    },
+    {
+      "id": "tl_0028",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "lolo",
+      "translation": "grandfather",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ang lolo ko ay matanda na",
+          "translation": "My grandfather is old now"
+        }
+      ],
+      "frequencyRank": 28
+    },
+    {
+      "id": "tl_0029",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "kuya",
+      "translation": "older brother; any older man",
+      "difficulty": 1,
+      "note": "You call your older brother 'kuya' — and also the man selling you fruit, the driver, anyone slightly older. Using someone's first name where 'kuya' belongs sounds abrupt.",
+      "examples": [
+        {
+          "native": "Kuya, magkano po ito?",
+          "translation": "Kuya, how much is this?"
+        }
+      ],
+      "frequencyRank": 29
+    },
+    {
+      "id": "tl_0030",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "ate",
+      "translation": "older sister; any older woman",
+      "difficulty": 1,
+      "note": "The same as kuya, for women. A Filipino child addresses almost nobody older by name alone.",
+      "examples": [
+        {
+          "native": "Salamat, Ate",
+          "translation": "Thank you, Ate"
+        }
+      ],
+      "frequencyRank": 30
+    },
+    {
+      "id": "tl_0031",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "kapatid",
+      "translation": "sibling",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "May tatlong kapatid ako",
+          "translation": "I have three siblings"
+        }
+      ],
+      "frequencyRank": 31
+    },
+    {
+      "id": "tl_0032",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "anak",
+      "translation": "child, son, daughter",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Anak, kumain ka na",
+          "translation": "Child, eat now"
+        }
+      ],
+      "frequencyRank": 32
+    },
+    {
+      "id": "tl_0033",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "asawa",
+      "translation": "spouse (husband or wife)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ang asawa ko ay guro",
+          "translation": "My spouse is a teacher"
+        }
+      ],
+      "frequencyRank": 33
+    },
+    {
+      "id": "tl_0034",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "tita",
+      "translation": "aunt",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Dumating na si Tita",
+          "translation": "Aunt has arrived"
+        }
+      ],
+      "frequencyRank": 34
+    },
+    {
+      "id": "tl_0035",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "tito",
+      "translation": "uncle",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Si Tito ay nasa Amerika",
+          "translation": "Uncle is in America"
+        }
+      ],
+      "frequencyRank": 35
+    },
+    {
+      "id": "tl_0036",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "pamilya",
+      "translation": "family",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Mahal ko ang pamilya ko",
+          "translation": "I love my family"
+        }
+      ],
+      "frequencyRank": 36
+    },
+    {
+      "id": "tl_0037",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "pagod",
+      "translation": "tired",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Pagod na ako",
+          "translation": "I am tired now"
+        }
+      ],
+      "frequencyRank": 37
+    },
+    {
+      "id": "tl_0038",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "gutom",
+      "translation": "hungry",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Gutom na ako",
+          "translation": "I am hungry"
+        }
+      ],
+      "frequencyRank": 38
+    },
+    {
+      "id": "tl_0039",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "uhaw",
+      "translation": "thirsty",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Uhaw ka ba?",
+          "translation": "Are you thirsty?"
+        }
+      ],
+      "frequencyRank": 39
+    },
+    {
+      "id": "tl_0040",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "masaya",
+      "translation": "happy",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Masaya ako ngayon",
+          "translation": "I am happy today"
+        }
+      ],
+      "frequencyRank": 40
+    },
+    {
+      "id": "tl_0041",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "malungkot",
+      "translation": "sad",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Malungkot siya",
+          "translation": "She is sad"
+        }
+      ],
+      "frequencyRank": 41
+    },
+    {
+      "id": "tl_0042",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "may sakit",
+      "translation": "ill, sick",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "May sakit ang nanay ko",
+          "translation": "My mother is ill"
+        }
+      ],
+      "frequencyRank": 42
+    },
+    {
+      "id": "tl_0043",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "namimiss",
+      "translation": "missing (someone)",
+      "difficulty": 1,
+      "note": "Borrowed from English and completely ordinary in daily speech. Filipino mixes English and Tagalog constantly — that mixture is called Taglish and it is how most people actually talk.",
+      "examples": [
+        {
+          "native": "Namimiss kita",
+          "translation": "I miss you"
+        }
+      ],
+      "frequencyRank": 43
+    },
+    {
+      "id": "tl_0044",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "mahal",
+      "translation": "love; expensive",
+      "difficulty": 2,
+      "note": "The same word means 'expensive'. Context does all the work: 'Mahal kita' is I love you, 'Mahal ito' is this is expensive.",
+      "examples": [
+        {
+          "native": "Mahal kita",
+          "translation": "I love you"
+        }
+      ],
+      "frequencyRank": 44
+    },
+    {
+      "id": "tl_0045",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "kanin",
+      "translation": "cooked rice",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Gusto ko ng kanin",
+          "translation": "I want rice"
+        }
+      ],
+      "frequencyRank": 45
+    },
+    {
+      "id": "tl_0046",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "tubig",
+      "translation": "water",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Pahingi po ng tubig",
+          "translation": "May I have some water"
+        }
+      ],
+      "frequencyRank": 46
+    },
+    {
+      "id": "tl_0047",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "isda",
+      "translation": "fish",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Masarap ang isda",
+          "translation": "The fish is delicious"
+        }
+      ],
+      "frequencyRank": 47
+    },
+    {
+      "id": "tl_0048",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "manok",
+      "translation": "chicken",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kumain kami ng manok",
+          "translation": "We ate chicken"
+        }
+      ],
+      "frequencyRank": 48
+    },
+    {
+      "id": "tl_0049",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "gulay",
+      "translation": "vegetable",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kumain ka ng gulay",
+          "translation": "Eat vegetables"
+        }
+      ],
+      "frequencyRank": 49
+    },
+    {
+      "id": "tl_0050",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "masarap",
+      "translation": "delicious",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Masarap po ang luto ninyo",
+          "translation": "Your cooking is delicious"
+        }
+      ],
+      "frequencyRank": 50
+    },
+    {
+      "id": "tl_0051",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "kape",
+      "translation": "coffee",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Gusto ko ng kape",
+          "translation": "I want coffee"
+        }
+      ],
+      "frequencyRank": 51
+    },
+    {
+      "id": "tl_0052",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "pagkain",
+      "translation": "food",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Handa na ang pagkain",
+          "translation": "The food is ready"
+        }
+      ],
+      "frequencyRank": 52
+    },
+    {
+      "id": "tl_0053",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "kumain",
+      "translation": "to eat",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kumain na tayo",
+          "translation": "Let's eat now"
+        }
+      ],
+      "frequencyRank": 53
+    },
+    {
+      "id": "tl_0054",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "uminom",
+      "translation": "to drink",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Uminom ka ng tubig",
+          "translation": "Drink water"
+        }
+      ],
+      "frequencyRank": 54
+    },
+    {
+      "id": "tl_0055",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "matulog",
+      "translation": "to sleep",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Matulog ka na",
+          "translation": "Go to sleep now"
+        }
+      ],
+      "frequencyRank": 55
+    },
+    {
+      "id": "tl_0056",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "pumunta",
+      "translation": "to go",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Pupunta ako sa palengke",
+          "translation": "I will go to the market"
+        }
+      ],
+      "frequencyRank": 56
+    },
+    {
+      "id": "tl_0057",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magsalita",
+      "translation": "to speak",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Marunong ka bang magsalita ng Tagalog?",
+          "translation": "Do you know how to speak Tagalog?"
+        }
+      ],
+      "frequencyRank": 57
+    },
+    {
+      "id": "tl_0058",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "maintindihan",
+      "translation": "to understand",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Hindi ko maintindihan",
+          "translation": "I don't understand"
+        }
+      ],
+      "frequencyRank": 58
+    },
+    {
+      "id": "tl_0059",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "tumulong",
+      "translation": "to help",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Tulungan mo ako",
+          "translation": "Help me"
+        }
+      ],
+      "frequencyRank": 59
+    },
+    {
+      "id": "tl_0060",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magmahal",
+      "translation": "to love",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Magmahal ka nang totoo",
+          "translation": "Love truly"
+        }
+      ],
+      "frequencyRank": 60
+    },
+    {
+      "id": "tl_0061",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "bahay",
+      "translation": "house, home",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Nasa bahay ako",
+          "translation": "I am at home"
+        }
+      ],
+      "frequencyRank": 61
+    },
+    {
+      "id": "tl_0062",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "trabaho",
+      "translation": "work, job",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "May trabaho ako bukas",
+          "translation": "I have work tomorrow"
+        }
+      ],
+      "frequencyRank": 62
+    },
+    {
+      "id": "tl_0063",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "salita",
+      "translation": "word",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Isang salita lang",
+          "translation": "Just one word"
+        }
+      ],
+      "frequencyRank": 63
+    },
+    {
+      "id": "tl_0064",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "maganda",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Maganda ang umaga",
+          "translation": "The morning is beautiful"
+        }
+      ],
+      "frequencyRank": 64
+    },
+    {
+      "id": "tl_0065",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "malaki",
+      "translation": "big",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Malaki ang bahay nila",
+          "translation": "Their house is big"
+        }
+      ],
+      "frequencyRank": 65
+    },
+    {
+      "id": "tl_0066",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "maliit",
+      "translation": "small",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Maliit ang kwarto ko",
+          "translation": "My room is small"
+        }
+      ],
+      "frequencyRank": 66
+    },
+    {
+      "id": "tl_0067",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "isa",
+      "translation": "one",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Isa lang po",
+          "translation": "Just one, please"
+        }
+      ],
+      "frequencyRank": 67
+    },
+    {
+      "id": "tl_0068",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "dalawa",
+      "translation": "two",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Dalawang tao",
+          "translation": "Two people"
+        }
+      ],
+      "frequencyRank": 68
+    },
+    {
+      "id": "tl_0069",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "tatlo",
+      "translation": "three",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Tatlong araw",
+          "translation": "Three days"
+        }
+      ],
+      "frequencyRank": 69
+    },
+    {
+      "id": "tl_0070",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "apat",
+      "translation": "four",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Apat na taon",
+          "translation": "Four years"
+        }
+      ],
+      "frequencyRank": 70
+    },
+    {
+      "id": "tl_0071",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "lima",
+      "translation": "five",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Limang piso",
+          "translation": "Five pesos"
+        }
+      ],
+      "frequencyRank": 71
+    },
+    {
+      "id": "tl_0072",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ngayon",
+      "translation": "now, today",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ngayon na",
+          "translation": "Right now"
+        }
+      ],
+      "frequencyRank": 72
+    },
+    {
+      "id": "tl_0073",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "bukas",
+      "translation": "tomorrow",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kita tayo bukas",
+          "translation": "See you tomorrow"
+        }
+      ],
+      "frequencyRank": 73
+    },
+    {
+      "id": "tl_0074",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "kahapon",
+      "translation": "yesterday",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kahapon pa ako naghihintay",
+          "translation": "I've been waiting since yesterday"
+        }
+      ],
+      "frequencyRank": 74
+    },
+    {
+      "id": "tl_0075",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "araw",
+      "translation": "day; sun",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Magandang araw",
+          "translation": "Good day"
+        }
+      ],
+      "frequencyRank": 75
+    },
+    {
+      "id": "tl_0076",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "gabi",
+      "translation": "night",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Malamig ang gabi",
+          "translation": "The night is cold"
+        }
+      ],
+      "frequencyRank": 76
+    },
+    {
+      "id": "tl_0077",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "palengke",
+      "translation": "market",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Pupunta ako sa palengke",
+          "translation": "I'm going to the market"
+        }
+      ],
+      "frequencyRank": 77
+    },
+    {
+      "id": "tl_0078",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "paaralan",
+      "translation": "school",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Nasa paaralan ang anak ko",
+          "translation": "My child is at school"
+        }
+      ],
+      "frequencyRank": 78
+    },
+    {
+      "id": "tl_0079",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "simbahan",
+      "translation": "church",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Tuwing Linggo kami sa simbahan",
+          "translation": "Every Sunday we are at church"
+        }
+      ],
+      "frequencyRank": 79
+    },
+    {
+      "id": "tl_0080",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "ano",
+      "translation": "what",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ano ito?",
+          "translation": "What is this?"
+        }
+      ],
+      "frequencyRank": 80
+    },
+    {
+      "id": "tl_0081",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "saan",
+      "translation": "where",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Saan ka pupunta?",
+          "translation": "Where are you going?"
+        }
+      ],
+      "frequencyRank": 81
+    },
+    {
+      "id": "tl_0082",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "sino",
+      "translation": "who",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Sino siya?",
+          "translation": "Who is he?"
+        }
+      ],
+      "frequencyRank": 82
+    },
+    {
+      "id": "tl_0083",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "bakit",
+      "translation": "why",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Bakit ka malungkot?",
+          "translation": "Why are you sad?"
+        }
+      ],
+      "frequencyRank": 83
+    },
+    {
+      "id": "tl_0084",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "kailan",
+      "translation": "when",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kailan ka darating?",
+          "translation": "When will you arrive?"
+        }
+      ],
+      "frequencyRank": 84
+    },
+    {
+      "id": "tl_0085",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "magkano",
+      "translation": "how much",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Magkano po ito?",
+          "translation": "How much is this?"
+        }
+      ],
+      "frequencyRank": 85
+    },
+    {
+      "id": "tl_0086",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "dumating",
+      "translation": "to come",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Dumating na sila",
+          "translation": "They have arrived"
+        }
+      ],
+      "frequencyRank": 86
+    },
+    {
+      "id": "tl_0087",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magkaroon",
+      "translation": "to have",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Gusto kong magkaroon ng bahay",
+          "translation": "I want to have a house"
+        }
+      ],
+      "frequencyRank": 87
+    },
+    {
+      "id": "tl_0088",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "gusto",
+      "translation": "to want, to like",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Gusto ko ng tubig",
+          "translation": "I want water"
+        }
+      ],
+      "frequencyRank": 88
+    },
+    {
+      "id": "tl_0089",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "alam",
+      "translation": "to know",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Alam ko ang sagot",
+          "translation": "I know the answer"
+        }
+      ],
+      "frequencyRank": 89
+    },
+    {
+      "id": "tl_0090",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "makita",
+      "translation": "to see",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Nakita kita kahapon",
+          "translation": "I saw you yesterday"
+        }
+      ],
+      "frequencyRank": 90
+    },
+    {
+      "id": "tl_0091",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "sabihin",
+      "translation": "to say",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Sabihin mo sa akin",
+          "translation": "Tell me"
+        }
+      ],
+      "frequencyRank": 91
+    },
+    {
+      "id": "tl_0092",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "gawin",
+      "translation": "to do, to make",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ano ang gagawin natin?",
+          "translation": "What shall we do?"
+        }
+      ],
+      "frequencyRank": 92
+    },
+    {
+      "id": "tl_0093",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "kaya",
+      "translation": "can, able to",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kaya ko na",
+          "translation": "I can do it now"
+        }
+      ],
+      "frequencyRank": 93
+    },
+    {
+      "id": "tl_0094",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "kailangan",
+      "translation": "to need",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kailangan ko ng tulong",
+          "translation": "I need help"
+        }
+      ],
+      "frequencyRank": 94
+    },
+    {
+      "id": "tl_0095",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ibigay",
+      "translation": "to give",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ibigay mo sa kanya",
+          "translation": "Give it to him"
+        }
+      ],
+      "frequencyRank": 95
+    },
+    {
+      "id": "tl_0096",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "kunin",
+      "translation": "to take",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kunin mo ito",
+          "translation": "Take this"
+        }
+      ],
+      "frequencyRank": 96
+    },
+    {
+      "id": "tl_0097",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "bumili",
+      "translation": "to buy",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Bumili ako ng isda",
+          "translation": "I bought fish"
+        }
+      ],
+      "frequencyRank": 97
+    },
+    {
+      "id": "tl_0098",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "buksan",
+      "translation": "to open",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Buksan mo ang pinto",
+          "translation": "Open the door"
+        }
+      ],
+      "frequencyRank": 98
+    },
+    {
+      "id": "tl_0099",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "pera",
+      "translation": "money",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Wala akong pera",
+          "translation": "I have no money"
+        }
+      ],
+      "frequencyRank": 99
+    },
+    {
+      "id": "tl_0100",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "oras",
+      "translation": "time, hour",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Anong oras na?",
+          "translation": "What time is it?"
+        }
+      ],
+      "frequencyRank": 100
+    },
+    {
+      "id": "tl_0101",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "presyo",
+      "translation": "price",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ano ang presyo nito?",
+          "translation": "What is the price of this?"
+        }
+      ],
+      "frequencyRank": 101
+    },
+    {
+      "id": "tl_0102",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "dito",
+      "translation": "here",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Dito ka lang",
+          "translation": "Just stay here"
+        }
+      ],
+      "frequencyRank": 102
+    },
+    {
+      "id": "tl_0103",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "doon",
+      "translation": "there",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Nandoon sila",
+          "translation": "They are there"
+        }
+      ],
+      "frequencyRank": 103
+    },
+    {
+      "id": "tl_0104",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "paano",
+      "translation": "how",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Paano ito gumagana?",
+          "translation": "How does this work?"
+        }
+      ],
+      "frequencyRank": 104
+    },
+    {
+      "id": "tl_0105",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "lalaki",
+      "translation": "man, boy",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ang lalaki ay guro",
+          "translation": "The man is a teacher"
+        }
+      ],
+      "frequencyRank": 105
+    },
+    {
+      "id": "tl_0106",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "babae",
+      "translation": "woman, girl",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ang babae ay doktor",
+          "translation": "The woman is a doctor"
+        }
+      ],
+      "frequencyRank": 106
+    },
+    {
+      "id": "tl_0107",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "kaibigan",
+      "translation": "friend",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kaibigan ko siya",
+          "translation": "He is my friend"
+        }
+      ],
+      "frequencyRank": 107
+    },
+    {
+      "id": "tl_0108",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "doktor",
+      "translation": "doctor",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Pumunta ka sa doktor",
+          "translation": "Go to the doctor"
+        }
+      ],
+      "frequencyRank": 108
+    },
+    {
+      "id": "tl_0109",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "lungsod",
+      "translation": "city",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Malaki ang lungsod",
+          "translation": "The city is big"
+        }
+      ],
+      "frequencyRank": 109
+    },
+    {
+      "id": "tl_0110",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "mainit",
+      "translation": "hot",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Mainit ngayon",
+          "translation": "It is hot today"
+        }
+      ],
+      "frequencyRank": 110
+    },
+    {
+      "id": "tl_0111",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "malamig",
+      "translation": "cold",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Malamig ang tubig",
+          "translation": "The water is cold"
+        }
+      ],
+      "frequencyRank": 111
+    },
+    {
+      "id": "tl_0112",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "marami",
+      "translation": "many, more",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Marami pang pagkain",
+          "translation": "There is more food"
+        }
+      ],
+      "frequencyRank": 112
+    },
+    {
+      "id": "tl_0113",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "napaka",
+      "translation": "very",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Napakaganda niya",
+          "translation": "She is very beautiful"
+        }
+      ],
+      "frequencyRank": 113
+    },
+    {
+      "id": "tl_0114",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "at",
+      "translation": "and",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ako at siya",
+          "translation": "He and I"
+        }
+      ],
+      "frequencyRank": 114
+    },
+    {
+      "id": "tl_0115",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "o",
+      "translation": "or",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kape o tsaa?",
+          "translation": "Coffee or tea?"
+        }
+      ],
+      "frequencyRank": 115
+    },
+    {
+      "id": "tl_0116",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "pero",
+      "translation": "but",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Gusto ko, pero wala akong pera",
+          "translation": "I want to, but I have no money"
+        }
+      ],
+      "frequencyRank": 116
+    },
+    {
+      "id": "tl_0117",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "kasi",
+      "translation": "because",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Hindi ako pumunta kasi may sakit ako",
+          "translation": "I didn't go because I was ill"
+        }
+      ],
+      "frequencyRank": 117
+    },
+    {
+      "id": "tl_0118",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "kasama",
+      "translation": "with",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kasama ko ang pamilya ko",
+          "translation": "I am with my family"
+        }
+      ],
+      "frequencyRank": 118
+    },
+    {
+      "id": "tl_0119",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "wala",
+      "translation": "without, none",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Wala akong oras",
+          "translation": "I have no time"
+        }
+      ],
+      "frequencyRank": 119
+    },
+    {
+      "id": "tl_0120",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "lahat",
+      "translation": "all",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Lahat ay narito",
+          "translation": "Everyone is here"
+        }
+      ],
+      "frequencyRank": 120
+    },
+    {
+      "id": "tl_0121",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "kaliwa",
+      "translation": "left",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kumaliwa ka",
+          "translation": "Turn left"
+        }
+      ],
+      "frequencyRank": 121
+    },
+    {
+      "id": "tl_0122",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "kanan",
+      "translation": "right",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Nasa kanan ito",
+          "translation": "It is on the right"
+        }
+      ],
+      "frequencyRank": 122
+    },
+    {
+      "id": "tl_0123",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "malapit",
+      "translation": "near",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Malapit lang ang bahay",
+          "translation": "The house is near"
+        }
+      ],
+      "frequencyRank": 123
+    },
+    {
+      "id": "tl_0124",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "malayo",
+      "translation": "far",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Malayo ang paaralan",
+          "translation": "The school is far"
+        }
+      ],
+      "frequencyRank": 124
+    },
+    {
+      "id": "tl_0125",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "masama",
+      "translation": "bad",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Masama ang panahon",
+          "translation": "The weather is bad"
+        }
+      ],
+      "frequencyRank": 125
+    }
+  ]
+}

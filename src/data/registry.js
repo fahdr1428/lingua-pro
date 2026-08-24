@@ -16,6 +16,37 @@
 // =============================================================================
 
 export const LANGUAGES = {
+  // v86 — TWO LANGUAGES DUOLINGO DOES NOT TEACH AT ALL.
+  //
+  // The strongest form of "better than the big app" is "exists". Tagalog has
+  // ~45M speakers and one of the largest diasporas on earth; Persian has ~80M
+  // across Iran, Afghanistan and Tajikistan. Neither has a Duolingo course.
+  // Both are full of second-generation speakers who understand their parents
+  // and cannot answer them, which is exactly who this app is for.
+  tl: {
+    code: "tl",
+    name: "Tagalog",
+    nativeName: "Tagalog",
+    flag: "🇵🇭",
+    rtl: false,
+    ttsCode: "fil-PH",
+    color: "#0038a8",
+    tagline: "Filipino — and the word that makes it polite",
+    niche: true,
+    loader: () => import("./languages/tl.json"),
+  },
+  fa: {
+    code: "fa",
+    name: "Persian",
+    nativeName: "فارسی",
+    flag: "🇮🇷",
+    rtl: true,
+    ttsCode: "fa-IR",
+    color: "#239f40",
+    tagline: "Farsi — poetry, taarof, and eighty million speakers",
+    niche: true,
+    loader: () => import("./languages/fa.json"),
+  },
   ur: {
     code: "ur",
     name: "Urdu",

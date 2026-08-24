@@ -1,0 +1,2119 @@
+{
+  "schemaVersion": 1,
+  "code": "fa",
+  "categories": [
+    "Common",
+    "Family",
+    "Feelings",
+    "Food",
+    "Greetings",
+    "Numbers",
+    "People",
+    "Places",
+    "Politeness",
+    "Questions",
+    "Time",
+    "Verbs"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Hello, goodbye, and asking how someone is"
+    },
+    {
+      "id": "u2",
+      "title": "Politeness",
+      "emoji": "🙏",
+      "description": "Thank you, please, and the formal you"
+    },
+    {
+      "id": "u3",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns, names, where you're from"
+    },
+    {
+      "id": "u4",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Relatives — and which side of the family they're on"
+    },
+    {
+      "id": "u5",
+      "title": "Feelings",
+      "emoji": "💭",
+      "description": "Tired, hungry, happy, homesick"
+    },
+    {
+      "id": "u6",
+      "title": "Food",
+      "emoji": "🍚",
+      "description": "Bread, tea, rice, and the table"
+    },
+    {
+      "id": "u7",
+      "title": "Everyday",
+      "emoji": "🏠",
+      "description": "Common verbs and the things around you"
+    },
+    {
+      "id": "u8",
+      "title": "Out & About",
+      "emoji": "🚌",
+      "description": "Numbers, time, getting somewhere"
+    }
+  ],
+  "alphabet": [],
+  "frameworks": [],
+  "vocab": [
+    {
+      "id": "fa_0001",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "سلام",
+      "translit": "salâm",
+      "translation": "hello",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "سلام، حال شما چطوره؟",
+          "translit": "salâm, hâl-e shomâ chetore?",
+          "translation": "Hello, how are you?"
+        }
+      ],
+      "frequencyRank": 1
+    },
+    {
+      "id": "fa_0002",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "خداحافظ",
+      "translit": "khodâhâfez",
+      "translation": "goodbye",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خداحافظ، به امید دیدار",
+          "translit": "khodâhâfez, be omid-e didâr",
+          "translation": "Goodbye, hope to see you"
+        }
+      ],
+      "frequencyRank": 2
+    },
+    {
+      "id": "fa_0003",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "صبح بخیر",
+      "translit": "sobh bekheyr",
+      "translation": "good morning",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "صبح بخیر مامان",
+          "translit": "sobh bekheyr mâmân",
+          "translation": "Good morning, Mum"
+        }
+      ],
+      "frequencyRank": 3
+    },
+    {
+      "id": "fa_0004",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "شب بخیر",
+      "translit": "shab bekheyr",
+      "translation": "good night",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "شب بخیر، خوب بخواب",
+          "translit": "shab bekheyr, khub bekhâb",
+          "translation": "Good night, sleep well"
+        }
+      ],
+      "frequencyRank": 4
+    },
+    {
+      "id": "fa_0005",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "چطوری",
+      "translit": "chetori",
+      "translation": "how are you (informal)",
+      "difficulty": 1,
+      "note": "Persian has two 'how are you's. 'چطوری' is for friends and family. 'حال شما چطوره' is for elders, strangers and anyone you owe respect. Using the informal one with an older person is a real misstep.",
+      "examples": [
+        {
+          "native": "چطوری؟ خوبی؟",
+          "translit": "chetori? khubi?",
+          "translation": "How are you? Are you well?"
+        }
+      ],
+      "frequencyRank": 5
+    },
+    {
+      "id": "fa_0006",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "حال شما چطوره",
+      "translit": "hâl-e shomâ chetore",
+      "translation": "how are you (formal)",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "سلام آقا، حال شما چطوره؟",
+          "translit": "salâm âghâ, hâl-e shomâ chetore?",
+          "translation": "Hello sir, how are you?"
+        }
+      ],
+      "frequencyRank": 6
+    },
+    {
+      "id": "fa_0007",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "خوبم",
+      "translit": "khubam",
+      "translation": "I'm well",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خوبم، ممنون",
+          "translit": "khubam, mamnun",
+          "translation": "I'm well, thank you"
+        }
+      ],
+      "frequencyRank": 7
+    },
+    {
+      "id": "fa_0008",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "بله",
+      "translit": "bale",
+      "translation": "yes",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "بله، درسته",
+          "translit": "bale, doroste",
+          "translation": "Yes, that's right"
+        }
+      ],
+      "frequencyRank": 8
+    },
+    {
+      "id": "fa_0009",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "نه",
+      "translit": "na",
+      "translation": "no",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "نه، ممنون",
+          "translit": "na, mamnun",
+          "translation": "No, thank you"
+        }
+      ],
+      "frequencyRank": 9
+    },
+    {
+      "id": "fa_0010",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "ممنون",
+      "translit": "mamnun",
+      "translation": "thank you",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خیلی ممنون",
+          "translit": "kheyli mamnun",
+          "translation": "Thank you very much"
+        }
+      ],
+      "frequencyRank": 10
+    },
+    {
+      "id": "fa_0011",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "متشکرم",
+      "translit": "moteshakkeram",
+      "translation": "thank you (formal)",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "متشکرم از شما",
+          "translit": "moteshakkeram az shomâ",
+          "translation": "I thank you"
+        }
+      ],
+      "frequencyRank": 11
+    },
+    {
+      "id": "fa_0012",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "لطفا",
+      "translit": "lotfan",
+      "translation": "please",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "لطفا کمکم کنید",
+          "translit": "lotfan komakam konid",
+          "translation": "Please help me"
+        }
+      ],
+      "frequencyRank": 12
+    },
+    {
+      "id": "fa_0013",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "ببخشید",
+      "translit": "bebakhshid",
+      "translation": "excuse me, sorry",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ببخشید، دیر کردم",
+          "translit": "bebakhshid, dir kardam",
+          "translation": "Sorry, I'm late"
+        }
+      ],
+      "frequencyRank": 13
+    },
+    {
+      "id": "fa_0014",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "قربان شما",
+      "translit": "ghorbân-e shomâ",
+      "translation": "at your service (taarof)",
+      "difficulty": 2,
+      "note": "Persian has a whole system of ritual politeness called taarof — offering, refusing, insisting. Phrases like this one are not literal; nobody is offering their life. Answering taarof literally is the classic outsider's mistake.",
+      "examples": [
+        {
+          "native": "قربان شما، خواهش می‌کنم",
+          "translit": "ghorbân-e shomâ, khâhesh mikonam",
+          "translation": "You're too kind, not at all"
+        }
+      ],
+      "frequencyRank": 14
+    },
+    {
+      "id": "fa_0015",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "خواهش می‌کنم",
+      "translit": "khâhesh mikonam",
+      "translation": "you're welcome",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خواهش می‌کنم، کاری نکردم",
+          "translit": "khâhesh mikonam, kâri nakardam",
+          "translation": "You're welcome, I did nothing"
+        }
+      ],
+      "frequencyRank": 15
+    },
+    {
+      "id": "fa_0016",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "من",
+      "translit": "man",
+      "translation": "I, me",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "من اهل ایرانم",
+          "translit": "man ahl-e irânam",
+          "translation": "I am from Iran"
+        }
+      ],
+      "frequencyRank": 16
+    },
+    {
+      "id": "fa_0017",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "تو",
+      "translit": "to",
+      "translation": "you (informal)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "تو کجایی؟",
+          "translit": "to kojâyi?",
+          "translation": "Where are you?"
+        }
+      ],
+      "frequencyRank": 17
+    },
+    {
+      "id": "fa_0018",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "شما",
+      "translit": "shomâ",
+      "translation": "you (formal or plural)",
+      "difficulty": 1,
+      "note": "'تو' to a friend, 'شما' to everyone else. Persian marks respect in the pronoun itself, so the choice is unavoidable — there is no neutral 'you'.",
+      "examples": [
+        {
+          "native": "شما کجا زندگی می‌کنید؟",
+          "translit": "shomâ kojâ zendegi mikonid?",
+          "translation": "Where do you live?"
+        }
+      ],
+      "frequencyRank": 18
+    },
+    {
+      "id": "fa_0019",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "او",
+      "translit": "u",
+      "translation": "he, she",
+      "difficulty": 1,
+      "note": "Persian pronouns have no gender. 'او' is both he and she.",
+      "examples": [
+        {
+          "native": "او برادر منه",
+          "translit": "u barâdar-e mane",
+          "translation": "He is my brother"
+        }
+      ],
+      "frequencyRank": 19
+    },
+    {
+      "id": "fa_0020",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "ما",
+      "translit": "mâ",
+      "translation": "we",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ما اینجاییم",
+          "translit": "mâ injâyim",
+          "translation": "We are here"
+        }
+      ],
+      "frequencyRank": 20
+    },
+    {
+      "id": "fa_0021",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "آنها",
+      "translit": "ânhâ",
+      "translation": "they",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "آنها فردا می‌آیند",
+          "translit": "ânhâ fardâ miâyand",
+          "translation": "They will come tomorrow"
+        }
+      ],
+      "frequencyRank": 21
+    },
+    {
+      "id": "fa_0022",
+      "unit": "u3",
+      "category": "About You",
+      "lemma": "اسم",
+      "translit": "esm",
+      "translation": "name",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "اسم شما چیه؟",
+          "translit": "esm-e shomâ chie?",
+          "translation": "What is your name?"
+        }
+      ],
+      "frequencyRank": 22
+    },
+    {
+      "id": "fa_0023",
+      "unit": "u3",
+      "category": "About You",
+      "lemma": "اهل",
+      "translit": "ahl",
+      "translation": "from (a place)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "اهل کجایید؟",
+          "translit": "ahl-e kojâyid?",
+          "translation": "Where are you from?"
+        }
+      ],
+      "frequencyRank": 23
+    },
+    {
+      "id": "fa_0024",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "مادر",
+      "translit": "mâdar",
+      "translation": "mother",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "مادرم آشپزی می‌کنه",
+          "translit": "mâdaram âshpazi mikone",
+          "translation": "My mother cooks"
+        }
+      ],
+      "frequencyRank": 24
+    },
+    {
+      "id": "fa_0025",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "پدر",
+      "translit": "pedar",
+      "translation": "father",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "پدرم سر کاره",
+          "translit": "pedaram sar-e kâre",
+          "translation": "My father is at work"
+        }
+      ],
+      "frequencyRank": 25
+    },
+    {
+      "id": "fa_0026",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "مامان",
+      "translit": "mâmân",
+      "translation": "mum",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "مامان، کجایی؟",
+          "translit": "mâmân, kojâyi?",
+          "translation": "Mum, where are you?"
+        }
+      ],
+      "frequencyRank": 26
+    },
+    {
+      "id": "fa_0027",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "بابا",
+      "translit": "bâbâ",
+      "translation": "dad",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "بابا خونه‌ست",
+          "translit": "bâbâ khunast",
+          "translation": "Dad is home"
+        }
+      ],
+      "frequencyRank": 27
+    },
+    {
+      "id": "fa_0028",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "عمو",
+      "translit": "amu",
+      "translation": "uncle (father's brother)",
+      "difficulty": 2,
+      "note": "Persian names which side of the family every relative is on. عمو is your father's brother; دایی is your mother's. There is no general word for 'uncle'.",
+      "examples": [
+        {
+          "native": "عموم تهران زندگی می‌کنه",
+          "translit": "amum Tehrân zendegi mikone",
+          "translation": "My uncle lives in Tehran"
+        }
+      ],
+      "frequencyRank": 28
+    },
+    {
+      "id": "fa_0029",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "دایی",
+      "translit": "dâyi",
+      "translation": "uncle (mother's brother)",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "دایی من معلمه",
+          "translit": "dâyi-ye man moallem-e",
+          "translation": "My uncle is a teacher"
+        }
+      ],
+      "frequencyRank": 29
+    },
+    {
+      "id": "fa_0030",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "عمه",
+      "translit": "amme",
+      "translation": "aunt (father's sister)",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "عمه فردا می‌آد",
+          "translit": "amme fardâ miâd",
+          "translation": "Aunt comes tomorrow"
+        }
+      ],
+      "frequencyRank": 30
+    },
+    {
+      "id": "fa_0031",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "خاله",
+      "translit": "khâle",
+      "translation": "aunt (mother's sister)",
+      "difficulty": 2,
+      "examples": [
+        {
+          "native": "خاله غذا پخته",
+          "translit": "khâle ghazâ pokhte",
+          "translation": "Aunt has cooked food"
+        }
+      ],
+      "frequencyRank": 31
+    },
+    {
+      "id": "fa_0032",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "برادر",
+      "translit": "barâdar",
+      "translation": "brother",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "دو تا برادر دارم",
+          "translit": "do tâ barâdar dâram",
+          "translation": "I have two brothers"
+        }
+      ],
+      "frequencyRank": 32
+    },
+    {
+      "id": "fa_0033",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "خواهر",
+      "translit": "khâhar",
+      "translation": "sister",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خواهرم دانشجوئه",
+          "translit": "khâharam dâneshjuast",
+          "translation": "My sister is a student"
+        }
+      ],
+      "frequencyRank": 33
+    },
+    {
+      "id": "fa_0034",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "پسر",
+      "translit": "pesar",
+      "translation": "son, boy",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "پسرم مدرسه‌ست",
+          "translit": "pesaram madresast",
+          "translation": "My son is at school"
+        }
+      ],
+      "frequencyRank": 34
+    },
+    {
+      "id": "fa_0035",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "دختر",
+      "translit": "dokhtar",
+      "translation": "daughter, girl",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "دخترم کتاب می‌خونه",
+          "translit": "dokhtaram ketâb mikhune",
+          "translation": "My daughter reads books"
+        }
+      ],
+      "frequencyRank": 35
+    },
+    {
+      "id": "fa_0036",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "خانواده",
+      "translit": "khânevâde",
+      "translation": "family",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خانواده‌ام رو دوست دارم",
+          "translit": "khânevâdam ro dust dâram",
+          "translation": "I love my family"
+        }
+      ],
+      "frequencyRank": 36
+    },
+    {
+      "id": "fa_0037",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "خسته",
+      "translit": "khaste",
+      "translation": "tired",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خیلی خسته‌ام",
+          "translit": "kheyli khastam",
+          "translation": "I am very tired"
+        }
+      ],
+      "frequencyRank": 37
+    },
+    {
+      "id": "fa_0038",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "گرسنه",
+      "translit": "gorosne",
+      "translation": "hungry",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "گرسنه‌ام",
+          "translit": "gorosnam",
+          "translation": "I am hungry"
+        }
+      ],
+      "frequencyRank": 38
+    },
+    {
+      "id": "fa_0039",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "تشنه",
+      "translit": "teshne",
+      "translation": "thirsty",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "تشنه‌ای؟",
+          "translit": "teshneyi?",
+          "translation": "Are you thirsty?"
+        }
+      ],
+      "frequencyRank": 39
+    },
+    {
+      "id": "fa_0040",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "خوشحال",
+      "translit": "khoshhâl",
+      "translation": "happy",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خیلی خوشحالم",
+          "translit": "kheyli khoshhâlam",
+          "translation": "I am very happy"
+        }
+      ],
+      "frequencyRank": 40
+    },
+    {
+      "id": "fa_0041",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "ناراحت",
+      "translit": "nârâhat",
+      "translation": "sad, upset",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "چرا ناراحتی؟",
+          "translit": "cherâ nârâhati?",
+          "translation": "Why are you upset?"
+        }
+      ],
+      "frequencyRank": 41
+    },
+    {
+      "id": "fa_0042",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "مریض",
+      "translit": "mariz",
+      "translation": "ill, sick",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "مادرم مریضه",
+          "translit": "mâdaram marize",
+          "translation": "My mother is ill"
+        }
+      ],
+      "frequencyRank": 42
+    },
+    {
+      "id": "fa_0043",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "دلتنگ",
+      "translit": "deltang",
+      "translation": "missing someone, homesick",
+      "difficulty": 2,
+      "note": "Literally 'tight-hearted'. Persian is full of compounds built on دل (heart) — this one carries the ache of distance, and it is what a diaspora family says to each other on the phone.",
+      "examples": [
+        {
+          "native": "دلتنگت شدم",
+          "translit": "deltangat shodam",
+          "translation": "I miss you"
+        }
+      ],
+      "frequencyRank": 43
+    },
+    {
+      "id": "fa_0044",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "نان",
+      "translit": "nân",
+      "translation": "bread",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "نان تازه خریدم",
+          "translit": "nân-e tâze kharidam",
+          "translation": "I bought fresh bread"
+        }
+      ],
+      "frequencyRank": 44
+    },
+    {
+      "id": "fa_0045",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "آب",
+      "translit": "âb",
+      "translation": "water",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "یک لیوان آب لطفا",
+          "translit": "yek livân âb lotfan",
+          "translation": "A glass of water please"
+        }
+      ],
+      "frequencyRank": 45
+    },
+    {
+      "id": "fa_0046",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "چای",
+      "translit": "châi",
+      "translation": "tea",
+      "difficulty": 1,
+      "note": "Tea is offered to every guest, always. Refusing the first offer and accepting the second is normal taarof.",
+      "examples": [
+        {
+          "native": "چای می‌خوری؟",
+          "translit": "châi mikhori?",
+          "translation": "Would you like tea?"
+        }
+      ],
+      "frequencyRank": 46
+    },
+    {
+      "id": "fa_0047",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "برنج",
+      "translit": "berenj",
+      "translation": "rice",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "برنج با خورش",
+          "translit": "berenj bâ khoresh",
+          "translation": "Rice with stew"
+        }
+      ],
+      "frequencyRank": 47
+    },
+    {
+      "id": "fa_0048",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "غذا",
+      "translit": "ghazâ",
+      "translation": "food, meal",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "غذا حاضره",
+          "translit": "ghazâ hâzere",
+          "translation": "The food is ready"
+        }
+      ],
+      "frequencyRank": 48
+    },
+    {
+      "id": "fa_0049",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "خوشمزه",
+      "translit": "khoshmaze",
+      "translation": "delicious",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خیلی خوشمزه بود",
+          "translit": "kheyli khoshmaze bud",
+          "translation": "It was very delicious"
+        }
+      ],
+      "frequencyRank": 49
+    },
+    {
+      "id": "fa_0050",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "خوردن",
+      "translit": "khordan",
+      "translation": "to eat",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "غذا می‌خورم",
+          "translit": "ghazâ mikhoram",
+          "translation": "I am eating"
+        }
+      ],
+      "frequencyRank": 50
+    },
+    {
+      "id": "fa_0051",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "رفتن",
+      "translit": "raftan",
+      "translation": "to go",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "دارم می‌رم",
+          "translit": "dâram miram",
+          "translation": "I am going"
+        }
+      ],
+      "frequencyRank": 51
+    },
+    {
+      "id": "fa_0052",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "آمدن",
+      "translit": "âmadan",
+      "translation": "to come",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "فردا می‌آم",
+          "translit": "fardâ miâm",
+          "translation": "I will come tomorrow"
+        }
+      ],
+      "frequencyRank": 52
+    },
+    {
+      "id": "fa_0053",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "گفتن",
+      "translit": "goftan",
+      "translation": "to say",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "چی گفتی؟",
+          "translit": "chi gofti?",
+          "translation": "What did you say?"
+        }
+      ],
+      "frequencyRank": 53
+    },
+    {
+      "id": "fa_0054",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "دیدن",
+      "translit": "didan",
+      "translation": "to see",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "تو رو دیدم",
+          "translit": "to ro didam",
+          "translation": "I saw you"
+        }
+      ],
+      "frequencyRank": 54
+    },
+    {
+      "id": "fa_0055",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "دانستن",
+      "translit": "dânestan",
+      "translation": "to know",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "نمی‌دونم",
+          "translit": "nemidunam",
+          "translation": "I don't know"
+        }
+      ],
+      "frequencyRank": 55
+    },
+    {
+      "id": "fa_0056",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "خواستن",
+      "translit": "khâstan",
+      "translation": "to want",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "چای می‌خوام",
+          "translit": "châi mikhâm",
+          "translation": "I want tea"
+        }
+      ],
+      "frequencyRank": 56
+    },
+    {
+      "id": "fa_0057",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "خانه",
+      "translit": "khâne",
+      "translation": "house, home",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خانه‌ی ما نزدیکه",
+          "translit": "khâne-ye mâ nazdike",
+          "translation": "Our house is near"
+        }
+      ],
+      "frequencyRank": 57
+    },
+    {
+      "id": "fa_0058",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "کتاب",
+      "translit": "ketâb",
+      "translation": "book",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "این کتاب منه",
+          "translit": "in ketâb-e mane",
+          "translation": "This is my book"
+        }
+      ],
+      "frequencyRank": 58
+    },
+    {
+      "id": "fa_0059",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "خوب",
+      "translit": "khub",
+      "translation": "good",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خیلی خوبه",
+          "translit": "kheyli khube",
+          "translation": "It is very good"
+        }
+      ],
+      "frequencyRank": 59
+    },
+    {
+      "id": "fa_0060",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "بزرگ",
+      "translit": "bozorg",
+      "translation": "big",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "شهر بزرگیه",
+          "translit": "shahr-e bozorgie",
+          "translation": "It is a big city"
+        }
+      ],
+      "frequencyRank": 60
+    },
+    {
+      "id": "fa_0061",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "کوچک",
+      "translit": "kuchak",
+      "translation": "small",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "اتاق کوچکیه",
+          "translit": "otâgh-e kuchakie",
+          "translation": "It is a small room"
+        }
+      ],
+      "frequencyRank": 61
+    },
+    {
+      "id": "fa_0062",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "یک",
+      "translit": "yek",
+      "translation": "one",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "یک لحظه",
+          "translit": "yek lahze",
+          "translation": "One moment"
+        }
+      ],
+      "frequencyRank": 62
+    },
+    {
+      "id": "fa_0063",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "دو",
+      "translit": "do",
+      "translation": "two",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "دو تا برادر",
+          "translit": "do tâ barâdar",
+          "translation": "Two brothers"
+        }
+      ],
+      "frequencyRank": 63
+    },
+    {
+      "id": "fa_0064",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "سه",
+      "translit": "se",
+      "translation": "three",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "سه روز",
+          "translit": "se ruz",
+          "translation": "Three days"
+        }
+      ],
+      "frequencyRank": 64
+    },
+    {
+      "id": "fa_0065",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "چهار",
+      "translit": "chahâr",
+      "translation": "four",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "چهار سال",
+          "translit": "chahâr sâl",
+          "translation": "Four years"
+        }
+      ],
+      "frequencyRank": 65
+    },
+    {
+      "id": "fa_0066",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "پنج",
+      "translit": "panj",
+      "translation": "five",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "پنج نفر",
+          "translit": "panj nafar",
+          "translation": "Five people"
+        }
+      ],
+      "frequencyRank": 66
+    },
+    {
+      "id": "fa_0067",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "امروز",
+      "translit": "emruz",
+      "translation": "today",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "امروز تعطیله",
+          "translit": "emruz ta'tile",
+          "translation": "Today is a holiday"
+        }
+      ],
+      "frequencyRank": 67
+    },
+    {
+      "id": "fa_0068",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "فردا",
+      "translit": "fardâ",
+      "translation": "tomorrow",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "فردا می‌بینمت",
+          "translit": "fardâ mibinamet",
+          "translation": "I'll see you tomorrow"
+        }
+      ],
+      "frequencyRank": 68
+    },
+    {
+      "id": "fa_0069",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "دیروز",
+      "translit": "diruz",
+      "translation": "yesterday",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "دیروز اومدم",
+          "translit": "diruz umadam",
+          "translation": "I came yesterday"
+        }
+      ],
+      "frequencyRank": 69
+    },
+    {
+      "id": "fa_0070",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "الان",
+      "translit": "alân",
+      "translation": "now",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "الان می‌آم",
+          "translit": "alân miâm",
+          "translation": "I'm coming now"
+        }
+      ],
+      "frequencyRank": 70
+    },
+    {
+      "id": "fa_0071",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "بازار",
+      "translit": "bâzâr",
+      "translation": "market, bazaar",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "می‌رم بازار",
+          "translit": "miram bâzâr",
+          "translation": "I'm going to the market"
+        }
+      ],
+      "frequencyRank": 71
+    },
+    {
+      "id": "fa_0072",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "شهر",
+      "translit": "shahr",
+      "translation": "city",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "این شهر قشنگه",
+          "translit": "in shahr ghashange",
+          "translation": "This city is beautiful"
+        }
+      ],
+      "frequencyRank": 72
+    },
+    {
+      "id": "fa_0073",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "چی",
+      "translit": "chi",
+      "translation": "what",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "این چیه؟",
+          "translit": "in chie?",
+          "translation": "What is this?"
+        }
+      ],
+      "frequencyRank": 73
+    },
+    {
+      "id": "fa_0074",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "کجا",
+      "translit": "kojâ",
+      "translation": "where",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "کجا می‌ری؟",
+          "translit": "kojâ miri?",
+          "translation": "Where are you going?"
+        }
+      ],
+      "frequencyRank": 74
+    },
+    {
+      "id": "fa_0075",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "کی",
+      "translit": "ki",
+      "translation": "who; when",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "کی اومد؟",
+          "translit": "ki umad?",
+          "translation": "Who came?"
+        }
+      ],
+      "frequencyRank": 75
+    },
+    {
+      "id": "fa_0076",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "چرا",
+      "translit": "cherâ",
+      "translation": "why",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "چرا ناراحتی؟",
+          "translit": "cherâ nârâhati?",
+          "translation": "Why are you upset?"
+        }
+      ],
+      "frequencyRank": 76
+    },
+    {
+      "id": "fa_0077",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "چند",
+      "translit": "chand",
+      "translation": "how many, how much",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "چند تومنه؟",
+          "translit": "chand tomane?",
+          "translation": "How much is it?"
+        }
+      ],
+      "frequencyRank": 77
+    },
+    {
+      "id": "fa_0078",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "داشتن",
+      "translit": "dâshtan",
+      "translation": "to have",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "کتاب دارم",
+          "translit": "ketâb dâram",
+          "translation": "I have a book"
+        }
+      ],
+      "frequencyRank": 78
+    },
+    {
+      "id": "fa_0079",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "توانستن",
+      "translit": "tavânestan",
+      "translation": "can, to be able",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "می‌تونم کمک کنم",
+          "translit": "mitunam komak konam",
+          "translation": "I can help"
+        }
+      ],
+      "frequencyRank": 79
+    },
+    {
+      "id": "fa_0080",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "لازم داشتن",
+      "translit": "lâzem dâshtan",
+      "translation": "to need",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "کمک لازم دارم",
+          "translit": "komak lâzem dâram",
+          "translation": "I need help"
+        }
+      ],
+      "frequencyRank": 80
+    },
+    {
+      "id": "fa_0081",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "دادن",
+      "translit": "dâdan",
+      "translation": "to give",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "بهم بده",
+          "translit": "behem bede",
+          "translation": "Give it to me"
+        }
+      ],
+      "frequencyRank": 81
+    },
+    {
+      "id": "fa_0082",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "گرفتن",
+      "translit": "gereftan",
+      "translation": "to take",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "اینو بگیر",
+          "translit": "ino begir",
+          "translation": "Take this"
+        }
+      ],
+      "frequencyRank": 82
+    },
+    {
+      "id": "fa_0083",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "کمک کردن",
+      "translit": "komak kardan",
+      "translation": "to help",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "کمکم کن",
+          "translit": "komakam kon",
+          "translation": "Help me"
+        }
+      ],
+      "frequencyRank": 83
+    },
+    {
+      "id": "fa_0084",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "فهمیدن",
+      "translit": "fahmidan",
+      "translation": "to understand",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "نمی‌فهمم",
+          "translit": "nemifahmam",
+          "translation": "I don't understand"
+        }
+      ],
+      "frequencyRank": 84
+    },
+    {
+      "id": "fa_0085",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "حرف زدن",
+      "translit": "harf zadan",
+      "translation": "to speak",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "فارسی حرف می‌زنی؟",
+          "translit": "fârsi harf mizani?",
+          "translation": "Do you speak Persian?"
+        }
+      ],
+      "frequencyRank": 85
+    },
+    {
+      "id": "fa_0086",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "کردن",
+      "translit": "kardan",
+      "translation": "to do, to make",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "چیکار می‌کنی؟",
+          "translit": "chikâr mikoni?",
+          "translation": "What are you doing?"
+        }
+      ],
+      "frequencyRank": 86
+    },
+    {
+      "id": "fa_0087",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "خریدن",
+      "translit": "kharidan",
+      "translation": "to buy",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "نان خریدم",
+          "translit": "nân kharidam",
+          "translation": "I bought bread"
+        }
+      ],
+      "frequencyRank": 87
+    },
+    {
+      "id": "fa_0088",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "باز کردن",
+      "translit": "bâz kardan",
+      "translation": "to open",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "در رو باز کن",
+          "translit": "dar ro bâz kon",
+          "translation": "Open the door"
+        }
+      ],
+      "frequencyRank": 88
+    },
+    {
+      "id": "fa_0089",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "پول",
+      "translit": "pul",
+      "translation": "money",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "پول ندارم",
+          "translit": "pul nadâram",
+          "translation": "I have no money"
+        }
+      ],
+      "frequencyRank": 89
+    },
+    {
+      "id": "fa_0090",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "وقت",
+      "translit": "vaght",
+      "translation": "time",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "وقت ندارم",
+          "translit": "vaght nadâram",
+          "translation": "I have no time"
+        }
+      ],
+      "frequencyRank": 90
+    },
+    {
+      "id": "fa_0091",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "روز",
+      "translit": "ruz",
+      "translation": "day",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "روز خوبی بود",
+          "translit": "ruz-e khubi bud",
+          "translation": "It was a good day"
+        }
+      ],
+      "frequencyRank": 91
+    },
+    {
+      "id": "fa_0092",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "قیمت",
+      "translit": "gheymat",
+      "translation": "price",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "قیمتش چنده؟",
+          "translit": "gheymatesh chande?",
+          "translation": "What is its price?"
+        }
+      ],
+      "frequencyRank": 92
+    },
+    {
+      "id": "fa_0093",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "اینجا",
+      "translit": "injâ",
+      "translation": "here",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "بیا اینجا",
+          "translit": "biâ injâ",
+          "translation": "Come here"
+        }
+      ],
+      "frequencyRank": 93
+    },
+    {
+      "id": "fa_0094",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "آنجا",
+      "translit": "ânjâ",
+      "translation": "there",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "اونجا نشستن",
+          "translit": "unjâ neshastan",
+          "translation": "They sat there"
+        }
+      ],
+      "frequencyRank": 94
+    },
+    {
+      "id": "fa_0095",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "چطور",
+      "translit": "chetor",
+      "translation": "how",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "چطور می‌رسم؟",
+          "translit": "chetor miresam?",
+          "translation": "How do I get there?"
+        }
+      ],
+      "frequencyRank": 95
+    },
+    {
+      "id": "fa_0096",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "مرد",
+      "translit": "mard",
+      "translation": "man",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "اون مرد معلمه",
+          "translit": "un mard moallem-e",
+          "translation": "That man is a teacher"
+        }
+      ],
+      "frequencyRank": 96
+    },
+    {
+      "id": "fa_0097",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "زن",
+      "translit": "zan",
+      "translation": "woman",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "اون زن دکتره",
+          "translit": "un zan doktor-e",
+          "translation": "That woman is a doctor"
+        }
+      ],
+      "frequencyRank": 97
+    },
+    {
+      "id": "fa_0098",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "دوست",
+      "translit": "dust",
+      "translation": "friend",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "دوست منه",
+          "translit": "dust-e mane",
+          "translation": "He is my friend"
+        }
+      ],
+      "frequencyRank": 98
+    },
+    {
+      "id": "fa_0099",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "دکتر",
+      "translit": "doktor",
+      "translation": "doctor",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "برو پیش دکتر",
+          "translit": "boro pish-e doktor",
+          "translation": "Go to the doctor"
+        }
+      ],
+      "frequencyRank": 99
+    },
+    {
+      "id": "fa_0100",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "گرم",
+      "translit": "garm",
+      "translation": "hot, warm",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "هوا گرمه",
+          "translit": "havâ garme",
+          "translation": "The weather is hot"
+        }
+      ],
+      "frequencyRank": 100
+    },
+    {
+      "id": "fa_0101",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "سرد",
+      "translit": "sard",
+      "translation": "cold",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "آب سرده",
+          "translit": "âb sarde",
+          "translation": "The water is cold"
+        }
+      ],
+      "frequencyRank": 101
+    },
+    {
+      "id": "fa_0102",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "بیشتر",
+      "translit": "bishtar",
+      "translation": "more",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "بیشتر بخور",
+          "translit": "bishtar bokhor",
+          "translation": "Eat more"
+        }
+      ],
+      "frequencyRank": 102
+    },
+    {
+      "id": "fa_0103",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "خیلی",
+      "translit": "kheyli",
+      "translation": "very",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خیلی خوبه",
+          "translit": "kheyli khube",
+          "translation": "It is very good"
+        }
+      ],
+      "frequencyRank": 103
+    },
+    {
+      "id": "fa_0104",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "و",
+      "translit": "va",
+      "translation": "and",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "من و تو",
+          "translit": "man o to",
+          "translation": "You and I"
+        }
+      ],
+      "frequencyRank": 104
+    },
+    {
+      "id": "fa_0105",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "یا",
+      "translit": "yâ",
+      "translation": "or",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "چای یا قهوه؟",
+          "translit": "châi yâ ghahve?",
+          "translation": "Tea or coffee?"
+        }
+      ],
+      "frequencyRank": 105
+    },
+    {
+      "id": "fa_0106",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "اما",
+      "translit": "ammâ",
+      "translation": "but",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "می‌خوام اما نمی‌تونم",
+          "translit": "mikhâm ammâ nemitunam",
+          "translation": "I want to but I can't"
+        }
+      ],
+      "frequencyRank": 106
+    },
+    {
+      "id": "fa_0107",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "چون",
+      "translit": "chun",
+      "translation": "because",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "نیومدم چون مریض بودم",
+          "translit": "nayumadam chun mariz budam",
+          "translation": "I didn't come because I was ill"
+        }
+      ],
+      "frequencyRank": 107
+    },
+    {
+      "id": "fa_0108",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "با",
+      "translit": "bâ",
+      "translation": "with",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "با خانواده‌ام",
+          "translit": "bâ khânevâdam",
+          "translation": "With my family"
+        }
+      ],
+      "frequencyRank": 108
+    },
+    {
+      "id": "fa_0109",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "بدون",
+      "translit": "bedun",
+      "translation": "without",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "بدون تو",
+          "translit": "bedun-e to",
+          "translation": "Without you"
+        }
+      ],
+      "frequencyRank": 109
+    },
+    {
+      "id": "fa_0110",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "همه",
+      "translit": "hame",
+      "translation": "all, everyone",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "همه اینجان",
+          "translit": "hame injân",
+          "translation": "Everyone is here"
+        }
+      ],
+      "frequencyRank": 110
+    },
+    {
+      "id": "fa_0111",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "چپ",
+      "translit": "chap",
+      "translation": "left",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "سمت چپ",
+          "translit": "samt-e chap",
+          "translation": "On the left"
+        }
+      ],
+      "frequencyRank": 111
+    },
+    {
+      "id": "fa_0112",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "راست",
+      "translit": "râst",
+      "translation": "right",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "سمت راست",
+          "translit": "samt-e râst",
+          "translation": "On the right"
+        }
+      ],
+      "frequencyRank": 112
+    },
+    {
+      "id": "fa_0113",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "نزدیک",
+      "translit": "nazdik",
+      "translation": "near",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "خونه نزدیکه",
+          "translit": "khune nazdike",
+          "translation": "The house is near"
+        }
+      ],
+      "frequencyRank": 113
+    },
+    {
+      "id": "fa_0114",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "دور",
+      "translit": "dur",
+      "translation": "far",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "مدرسه دوره",
+          "translit": "madrese dure",
+          "translation": "The school is far"
+        }
+      ],
+      "frequencyRank": 114
+    },
+    {
+      "id": "fa_0115",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "بد",
+      "translit": "bad",
+      "translation": "bad",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "هوا بده",
+          "translit": "havâ bade",
+          "translation": "The weather is bad"
+        }
+      ],
+      "frequencyRank": 115
+    },
+    {
+      "id": "fa_0116",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "نیست",
+      "translit": "nist",
+      "translation": "is not",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "این درست نیست",
+          "translit": "in dorost nist",
+          "translation": "This is not right"
+        }
+      ],
+      "frequencyRank": 116
+    },
+    {
+      "id": "fa_0117",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "بله حتما",
+      "translit": "bale hatman",
+      "translation": "yes of course",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "بله حتما، بفرمایید",
+          "translit": "bale hatman, befarmâyid",
+          "translation": "Yes of course, please go ahead"
+        }
+      ],
+      "frequencyRank": 117
+    },
+    {
+      "id": "fa_0118",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "بفرمایید",
+      "translit": "befarmâyid",
+      "translation": "please, help yourself, go ahead",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "بفرمایید بنشینید",
+          "translit": "befarmâyid beneshinid",
+          "translation": "Please, sit down"
+        }
+      ],
+      "frequencyRank": 118
+    },
+    {
+      "id": "fa_0119",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "مثل",
+      "translit": "mesl",
+      "translation": "like, similar to",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "مثل مادرش است",
+          "translit": "mesl-e mâdarash ast",
+          "translation": "She is like her mother"
+        }
+      ],
+      "frequencyRank": 119
+    },
+    {
+      "id": "fa_0120",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "کم",
+      "translit": "kam",
+      "translation": "little, few",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "کم حرف می‌زنه",
+          "translit": "kam harf mizane",
+          "translation": "He speaks little"
+        }
+      ],
+      "frequencyRank": 120
+    }
+  ]
+}

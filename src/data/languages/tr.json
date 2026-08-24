@@ -1,3298 +1,3359 @@
 {
- "schemaVersion": 1,
- "code": "tr",
- "categories": [
-  "About You",
-  "Adjectives",
-  "Body",
-  "Common",
-  "Connectors",
-  "Family",
-  "Feelings",
-  "Food",
-  "Greetings",
-  "Nature",
-  "Numbers",
-  "People",
-  "Places",
-  "Politeness",
-  "Survival",
-  "Time",
-  "Transport",
-  "Travel",
-  "Verbs",
-  "Weather"
- ],
- "alphabet": [
-  {
-   "char": "C c",
-   "name": "Ce",
-   "sound": "j as in 'jam' — Turkish 'cami' sounds like 'jah-mee'"
-  },
-  {
-   "char": "Ç ç",
-   "name": "Çe",
-   "sound": "ch as in 'chair'"
-  },
-  {
-   "char": "Ğ ğ",
-   "name": "Yumuşak ge",
-   "sound": "soft g — silent, it just lengthens the vowel before it"
-  },
-  {
-   "char": "I ı",
-   "name": "I (undotted)",
-   "sound": "uh — a relaxed 'schwa' sound, like the a in 'about'"
-  },
-  {
-   "char": "İ i",
-   "name": "İ (dotted)",
-   "sound": "ee as in 'see'"
-  },
-  {
-   "char": "Ö ö",
-   "name": "Ö",
-   "sound": "like the 'u' in 'fur' with rounded lips"
-  },
-  {
-   "char": "Ş ş",
-   "name": "Şe",
-   "sound": "sh as in 'shoe'"
-  },
-  {
-   "char": "Ü ü",
-   "name": "Ü",
-   "sound": "say 'ee' with tightly rounded lips"
-  }
- ],
- "frameworks": [
-  {
-   "id": "sov",
-   "title": "The verb always comes last",
-   "body": "Turkish is Subject–Object–Verb: 'Ben kitap okuyorum' is literally 'I book am-reading'. Push the verb to the end of the sentence and you instantly sound Turkish."
-  },
-  {
-   "id": "vowel-harmony",
-   "title": "Vowels harmonise",
-   "body": "Suffixes change their vowel to match the word: ev → evler (houses), but kitap → kitaplar (books). Back vowels (a, ı, o, u) attract 'a' suffixes; front vowels (e, i, ö, ü) attract 'e' suffixes. It's one rule, applied everywhere."
-  },
-  {
-   "id": "suffixes",
-   "title": "Suffixes instead of little words",
-   "body": "Where English uses 'at', 'in', 'to', Turkish glues a suffix on: okul (school) → okulda (at school), ev → evde (at home). One word can carry a whole English phrase."
-  }
- ],
- "units": [
-  {
-   "id": "u1",
-   "title": "Greetings",
-   "emoji": "👋",
-   "description": "Hello, goodbye, how are you"
-  },
-  {
-   "id": "u2",
-   "title": "Being Polite",
-   "emoji": "🙏",
-   "description": "Please, thank you, yes and no"
-  },
-  {
-   "id": "u3",
-   "title": "Numbers 1-10",
-   "emoji": "🔢",
-   "description": "Count from bir to on"
-  },
-  {
-   "id": "u4",
-   "title": "Family & Friends",
-   "emoji": "👨‍👩‍👧",
-   "description": "Mother, father, siblings, friends"
-  },
-  {
-   "id": "u5",
-   "title": "Food & Drink",
-   "emoji": "🫖",
-   "description": "Tea, bread, water — order like a local"
-  },
-  {
-   "id": "u6",
-   "title": "Common Verbs",
-   "emoji": "🏃",
-   "description": "Go, come, eat, drink, want"
-  },
-  {
-   "id": "u7",
-   "title": "Around Town",
-   "emoji": "🏙️",
-   "description": "Home, school, the market, the bus"
-  },
-  {
-   "id": "u8",
-   "title": "Describe It",
-   "emoji": "🎨",
-   "description": "Big, small, hot, cold, beautiful"
-  },
-  {
-   "id": "u9",
-   "title": "Time & Days",
-   "emoji": "🕘",
-   "description": "Today, tomorrow, now, later"
-  },
-  {
-   "id": "u10",
-   "title": "Getting By",
-   "emoji": "🧳",
-   "description": "How much, the bill, I don't understand"
-  },
-  {
-   "id": "u11",
-   "title": "Body & Feelings",
-   "emoji": "🫀",
-   "description": "Head, hand, eye — and how you're feeling"
-  },
-  {
-   "id": "u12",
-   "title": "Weather & Nature",
-   "emoji": "🌦️",
-   "description": "Sun, rain, sea, mountain — the world outside"
-  }
- ],
- "vocab": [
-  {
-   "id": "tr_0001",
-   "unit": "u1",
-   "lemma": "Merhaba",
-   "translit": "mer-ha-BA",
-   "translation": "hello",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 1,
-   "examples": [
+  "schemaVersion": 1,
+  "code": "tr",
+  "categories": [
+    "About You",
+    "Adjectives",
+    "Body",
+    "Common",
+    "Connectors",
+    "Family",
+    "Feelings",
+    "Food",
+    "Greetings",
+    "Nature",
+    "Numbers",
+    "People",
+    "Places",
+    "Politeness",
+    "Survival",
+    "Time",
+    "Transport",
+    "Travel",
+    "Verbs",
+    "Weather"
+  ],
+  "alphabet": [
     {
-     "native": "Merhaba! Nasılsın?",
-     "translation": "Hello! How are you?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0002",
-   "unit": "u1",
-   "lemma": "Selam",
-   "translit": "seh-LAHM",
-   "translation": "hi (casual)",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 2,
-   "examples": [
-    {
-     "native": "Selam! Naber?",
-     "translation": "Hi! What's up?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0003",
-   "unit": "u1",
-   "lemma": "Günaydın",
-   "translit": "gew-nigh-DUHN",
-   "translation": "good morning",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 3,
-   "examples": [
-    {
-     "native": "Günaydın, anne!",
-     "translation": "Good morning, mum!"
-    }
-   ]
-  },
-  {
-   "id": "tr_0004",
-   "unit": "u1",
-   "lemma": "İyi akşamlar",
-   "translit": "ee-yee ak-sham-LAR",
-   "translation": "good evening",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 4,
-   "examples": [
-    {
-     "native": "İyi akşamlar!",
-     "translation": "Good evening!"
-    }
-   ]
-  },
-  {
-   "id": "tr_0005",
-   "unit": "u1",
-   "lemma": "İyi geceler",
-   "translit": "ee-yee geh-jeh-LEHR",
-   "translation": "good night",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 5,
-   "examples": [
-    {
-     "native": "İyi geceler!",
-     "translation": "Good night!"
-    }
-   ]
-  },
-  {
-   "id": "tr_0006",
-   "unit": "u1",
-   "lemma": "Hoşça kal",
-   "translit": "HOSH-cha kal",
-   "translation": "goodbye",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 6,
-   "examples": [
-    {
-     "native": "Hoşça kal! Görüşürüz.",
-     "translation": "Goodbye! See you."
-    }
-   ],
-   "note": "Said by the person LEAVING. The one staying replies 'Güle güle'."
-  },
-  {
-   "id": "tr_0007",
-   "unit": "u1",
-   "lemma": "Güle güle",
-   "translit": "gew-LEH gew-LEH",
-   "translation": "bye (to someone leaving)",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 7,
-   "examples": [
-    {
-     "native": "Güle güle! İyi günler!",
-     "translation": "Bye! Have a good day!"
-    }
-   ],
-   "note": "Literally 'go laughing' — said by the person who stays behind."
-  },
-  {
-   "id": "tr_0008",
-   "unit": "u1",
-   "lemma": "Görüşürüz",
-   "translit": "gur-rew-shew-REWZ",
-   "translation": "see you later",
-   "category": "Greetings",
-   "difficulty": 2,
-   "frequencyRank": 101,
-   "examples": [
-    {
-     "native": "Görüşürüz!",
-     "translation": "See you later!"
-    }
-   ]
-  },
-  {
-   "id": "tr_0009",
-   "unit": "u1",
-   "lemma": "Nasılsın?",
-   "translit": "NA-suhl-suhn",
-   "translation": "how are you?",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 8,
-   "examples": [
-    {
-     "native": "Merhaba, nasılsın?",
-     "translation": "Hello, how are you?"
-    }
-   ],
-   "note": "Formal / plural: Nasılsınız?"
-  },
-  {
-   "id": "tr_0010",
-   "unit": "u1",
-   "lemma": "İyiyim",
-   "translit": "ee-YEE-yim",
-   "translation": "I'm fine",
-   "category": "Greetings",
-   "difficulty": 1,
-   "frequencyRank": 9,
-   "examples": [
-    {
-     "native": "İyiyim, teşekkürler. Sen?",
-     "translation": "I'm fine, thanks. You?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0011",
-   "unit": "u2",
-   "lemma": "Teşekkür ederim",
-   "translit": "teh-shek-KEWR eh-deh-REEM",
-   "translation": "thank you",
-   "category": "Politeness",
-   "difficulty": 1,
-   "frequencyRank": 10,
-   "examples": [
-    {
-     "native": "Teşekkür ederim!",
-     "translation": "Thank you!"
-    }
-   ],
-   "note": "Literally 'I give my thanks'."
-  },
-  {
-   "id": "tr_0012",
-   "unit": "u2",
-   "lemma": "Teşekkürler",
-   "translit": "teh-shek-kewr-LEHR",
-   "translation": "thanks",
-   "category": "Politeness",
-   "difficulty": 1,
-   "frequencyRank": 11,
-   "examples": [
-    {
-     "native": "Çok teşekkürler!",
-     "translation": "Thanks very much!"
-    }
-   ]
-  },
-  {
-   "id": "tr_0013",
-   "unit": "u2",
-   "lemma": "Rica ederim",
-   "translit": "ree-JAH eh-deh-REEM",
-   "translation": "you're welcome",
-   "category": "Politeness",
-   "difficulty": 1,
-   "frequencyRank": 12,
-   "examples": [
-    {
-     "native": "— Teşekkürler! — Rica ederim.",
-     "translation": "— Thanks! — You're welcome."
-    }
-   ]
-  },
-  {
-   "id": "tr_0014",
-   "unit": "u2",
-   "lemma": "Lütfen",
-   "translit": "LEWT-fen",
-   "translation": "please",
-   "category": "Politeness",
-   "difficulty": 1,
-   "frequencyRank": 13,
-   "examples": [
-    {
-     "native": "Su, lütfen.",
-     "translation": "Water, please."
-    }
-   ]
-  },
-  {
-   "id": "tr_0015",
-   "unit": "u2",
-   "lemma": "Evet",
-   "translit": "eh-VET",
-   "translation": "yes",
-   "category": "Politeness",
-   "difficulty": 1,
-   "frequencyRank": 14,
-   "examples": [
-    {
-     "native": "Evet, tamam.",
-     "translation": "Yes, okay."
-    }
-   ]
-  },
-  {
-   "id": "tr_0016",
-   "unit": "u2",
-   "lemma": "Hayır",
-   "translit": "HAH-yuhr",
-   "translation": "no",
-   "category": "Politeness",
-   "difficulty": 1,
-   "frequencyRank": 15,
-   "examples": [
-    {
-     "native": "Hayır, teşekkür ederim.",
-     "translation": "No, thank you."
-    }
-   ]
-  },
-  {
-   "id": "tr_0017",
-   "unit": "u2",
-   "lemma": "Affedersiniz",
-   "translit": "af-feh-DEHR-see-neez",
-   "translation": "excuse me / sorry",
-   "category": "Politeness",
-   "difficulty": 2,
-   "frequencyRank": 102,
-   "examples": [
-    {
-     "native": "Affedersiniz, tuvalet nerede?",
-     "translation": "Excuse me, where is the bathroom?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0018",
-   "unit": "u2",
-   "lemma": "Tamam",
-   "translit": "tah-MAHM",
-   "translation": "okay",
-   "category": "Politeness",
-   "difficulty": 1,
-   "frequencyRank": 16,
-   "examples": [
-    {
-     "native": "Tamam, görüşürüz!",
-     "translation": "Okay, see you!"
-    }
-   ]
-  },
-  {
-   "id": "tr_0019",
-   "unit": "u2",
-   "lemma": "Hoş geldiniz",
-   "translit": "hosh gel-dee-NEEZ",
-   "translation": "welcome",
-   "category": "Politeness",
-   "difficulty": 2,
-   "frequencyRank": 103,
-   "examples": [
-    {
-     "native": "Hoş geldiniz!",
-     "translation": "Welcome!"
-    }
-   ],
-   "note": "The set reply is 'Hoş bulduk' — 'we found it well'."
-  },
-  {
-   "id": "tr_0020",
-   "unit": "u2",
-   "lemma": "Memnun oldum",
-   "translit": "mem-NOON ol-DOOM",
-   "translation": "nice to meet you",
-   "category": "Politeness",
-   "difficulty": 2,
-   "frequencyRank": 104,
-   "examples": [
-    {
-     "native": "Memnun oldum!",
-     "translation": "Nice to meet you!"
-    }
-   ]
-  },
-  {
-   "id": "tr_0021",
-   "unit": "u3",
-   "lemma": "bir",
-   "translit": "beer",
-   "translation": "one",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 22,
-   "examples": [
-    {
-     "native": "Bir kedim var.",
-     "translation": "I have one cat."
-    }
-   ]
-  },
-  {
-   "id": "tr_0022",
-   "unit": "u3",
-   "lemma": "iki",
-   "translit": "ee-KEE",
-   "translation": "two",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 23,
-   "examples": [
-    {
-     "native": "İki ekmek, lütfen.",
-     "translation": "Two breads, please."
-    }
-   ]
-  },
-  {
-   "id": "tr_0023",
-   "unit": "u3",
-   "lemma": "üç",
-   "translit": "ewch",
-   "translation": "three",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 24,
-   "examples": [
-    {
-     "native": "Üç kardeşim var.",
-     "translation": "I have three siblings."
-    }
-   ]
-  },
-  {
-   "id": "tr_0024",
-   "unit": "u3",
-   "lemma": "dört",
-   "translit": "durt",
-   "translation": "four",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 25,
-   "examples": [
-    {
-     "native": "Dört kişi var.",
-     "translation": "There are four people."
-    }
-   ]
-  },
-  {
-   "id": "tr_0025",
-   "unit": "u3",
-   "lemma": "beş",
-   "translit": "besh",
-   "translation": "five",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 26,
-   "examples": [
-    {
-     "native": "Beş yaşındayım.",
-     "translation": "I am five years old."
-    }
-   ]
-  },
-  {
-   "id": "tr_0026",
-   "unit": "u3",
-   "lemma": "altı",
-   "translit": "al-TUH",
-   "translation": "six",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 27,
-   "examples": [
-    {
-     "native": "Altı kişi var.",
-     "translation": "There are six people."
-    }
-   ]
-  },
-  {
-   "id": "tr_0027",
-   "unit": "u3",
-   "lemma": "yedi",
-   "translit": "yeh-DEE",
-   "translation": "seven",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 28,
-   "examples": [
-    {
-     "native": "Haftada yedi gün var.",
-     "translation": "There are seven days in a week."
-    }
-   ]
-  },
-  {
-   "id": "tr_0028",
-   "unit": "u3",
-   "lemma": "sekiz",
-   "translit": "seh-KEEZ",
-   "translation": "eight",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 29,
-   "examples": [
-    {
-     "native": "Sekiz öğrenci var.",
-     "translation": "There are eight students."
-    }
-   ]
-  },
-  {
-   "id": "tr_0029",
-   "unit": "u3",
-   "lemma": "dokuz",
-   "translit": "doh-KOOZ",
-   "translation": "nine",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 30,
-   "examples": [
-    {
-     "native": "Saat dokuz.",
-     "translation": "It is nine o'clock."
-    }
-   ]
-  },
-  {
-   "id": "tr_0030",
-   "unit": "u3",
-   "lemma": "on",
-   "translit": "ohn",
-   "translation": "ten",
-   "category": "Numbers",
-   "difficulty": 1,
-   "frequencyRank": 31,
-   "examples": [
-    {
-     "native": "On elma var.",
-     "translation": "There are ten apples."
-    }
-   ]
-  },
-  {
-   "id": "tr_0031",
-   "unit": "u4",
-   "lemma": "anne",
-   "translit": "AN-neh",
-   "translation": "mother",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 32,
-   "examples": [
-    {
-     "native": "Annem öğretmen.",
-     "translation": "My mother is a teacher."
-    }
-   ],
-   "note": "'Annem' = my mother — the -m suffix means 'my'."
-  },
-  {
-   "id": "tr_0032",
-   "unit": "u4",
-   "lemma": "baba",
-   "translit": "bah-BAH",
-   "translation": "father",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 33,
-   "examples": [
-    {
-     "native": "Babam doktor.",
-     "translation": "My father is a doctor."
-    }
-   ]
-  },
-  {
-   "id": "tr_0033",
-   "unit": "u4",
-   "lemma": "kardeş",
-   "translit": "kar-DESH",
-   "translation": "sibling",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 34,
-   "examples": [
-    {
-     "native": "Üç kardeşim var.",
-     "translation": "I have three siblings."
-    }
-   ],
-   "note": "Ask back: 'Kaç kardeşin var?' — how many siblings do you have?"
-  },
-  {
-   "id": "tr_0034",
-   "unit": "u4",
-   "lemma": "abi",
-   "translit": "ah-BEE",
-   "translation": "older brother",
-   "category": "Family",
-   "difficulty": 2,
-   "frequencyRank": 106,
-   "examples": [
-    {
-     "native": "Abi, merhaba!",
-     "translation": "Hello, big brother!"
-    }
-   ],
-   "note": "Also a warm, respectful way to address any slightly older man."
-  },
-  {
-   "id": "tr_0035",
-   "unit": "u4",
-   "lemma": "abla",
-   "translit": "ab-LAH",
-   "translation": "older sister",
-   "category": "Family",
-   "difficulty": 2,
-   "frequencyRank": 107,
-   "examples": [
-    {
-     "native": "Abla, teşekkürler!",
-     "translation": "Thanks, big sister!"
-    }
-   ],
-   "note": "Also used respectfully for any slightly older woman."
-  },
-  {
-   "id": "tr_0036",
-   "unit": "u4",
-   "lemma": "dede",
-   "translit": "deh-DEH",
-   "translation": "grandfather",
-   "category": "Family",
-   "difficulty": 2,
-   "frequencyRank": 108,
-   "examples": [
-    {
-     "native": "Dedem evde.",
-     "translation": "My grandfather is at home."
-    }
-   ]
-  },
-  {
-   "id": "tr_0037",
-   "unit": "u4",
-   "lemma": "aile",
-   "translit": "ah-ee-LEH",
-   "translation": "family",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 35,
-   "examples": [
-    {
-     "native": "Bu benim ailem.",
-     "translation": "This is my family."
-    }
-   ]
-  },
-  {
-   "id": "tr_0038",
-   "unit": "u4",
-   "lemma": "arkadaş",
-   "translit": "ar-kah-DASH",
-   "translation": "friend",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 36,
-   "examples": [
-    {
-     "native": "Arkadaşım ile geldim.",
-     "translation": "I came with my friend."
-    }
-   ]
-  },
-  {
-   "id": "tr_0039",
-   "unit": "u4",
-   "lemma": "çocuk",
-   "translit": "cho-JOOK",
-   "translation": "child",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 37,
-   "examples": [
-    {
-     "native": "Çocuk okulda.",
-     "translation": "The child is at school."
-    }
-   ]
-  },
-  {
-   "id": "tr_0040",
-   "unit": "u4",
-   "lemma": "kız",
-   "translit": "kuhz",
-   "translation": "girl / daughter",
-   "category": "Family",
-   "difficulty": 1,
-   "frequencyRank": 38,
-   "examples": [
-    {
-     "native": "Kızım beş yaşında.",
-     "translation": "My daughter is five years old."
-    }
-   ]
-  },
-  {
-   "id": "tr_0041",
-   "unit": "u5",
-   "lemma": "su",
-   "translit": "soo",
-   "translation": "water",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 41,
-   "examples": [
-    {
-     "native": "Su, lütfen.",
-     "translation": "Water, please."
-    }
-   ]
-  },
-  {
-   "id": "tr_0042",
-   "unit": "u5",
-   "lemma": "çay",
-   "translit": "chai",
-   "translation": "tea",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 42,
-   "examples": [
-    {
-     "native": "Çay, lütfen.",
-     "translation": "Tea, please."
-    }
-   ],
-   "note": "Tea is the heart of Turkish hospitality — expect to be offered it everywhere."
-  },
-  {
-   "id": "tr_0043",
-   "unit": "u5",
-   "lemma": "kahve",
-   "translit": "kah-VEH",
-   "translation": "coffee",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 43,
-   "examples": [
-    {
-     "native": "Kahve, lütfen.",
-     "translation": "Coffee, please."
-    }
-   ],
-   "note": "A Turkish saying: one cup of coffee is remembered for forty years."
-  },
-  {
-   "id": "tr_0044",
-   "unit": "u5",
-   "lemma": "ekmek",
-   "translit": "ek-MEK",
-   "translation": "bread",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 44,
-   "examples": [
-    {
-     "native": "İki ekmek, lütfen.",
-     "translation": "Two breads, please."
-    }
-   ]
-  },
-  {
-   "id": "tr_0045",
-   "unit": "u5",
-   "lemma": "süt",
-   "translit": "sewt",
-   "translation": "milk",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 45,
-   "examples": [
-    {
-     "native": "Süt, lütfen.",
-     "translation": "Milk, please."
-    }
-   ]
-  },
-  {
-   "id": "tr_0046",
-   "unit": "u5",
-   "lemma": "peynir",
-   "translit": "pay-NEER",
-   "translation": "cheese",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 46,
-   "examples": [
-    {
-     "native": "Peynir çok güzel.",
-     "translation": "The cheese is very good."
-    }
-   ]
-  },
-  {
-   "id": "tr_0047",
-   "unit": "u5",
-   "lemma": "elma",
-   "translit": "el-MAH",
-   "translation": "apple",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 47,
-   "examples": [
-    {
-     "native": "Ben bir elma yedim.",
-     "translation": "I ate an apple."
-    }
-   ]
-  },
-  {
-   "id": "tr_0048",
-   "unit": "u5",
-   "lemma": "et",
-   "translit": "et",
-   "translation": "meat",
-   "category": "Food",
-   "difficulty": 2,
-   "frequencyRank": 109,
-   "examples": [
-    {
-     "native": "Et, lütfen.",
-     "translation": "Meat, please."
-    }
-   ]
-  },
-  {
-   "id": "tr_0049",
-   "unit": "u5",
-   "lemma": "balık",
-   "translit": "bah-LUHK",
-   "translation": "fish",
-   "category": "Food",
-   "difficulty": 2,
-   "frequencyRank": 110,
-   "examples": [
-    {
-     "native": "Balık çok güzel.",
-     "translation": "The fish is very good."
-    }
-   ]
-  },
-  {
-   "id": "tr_0050",
-   "unit": "u5",
-   "lemma": "yemek",
-   "translit": "yeh-MEK",
-   "translation": "food / meal",
-   "category": "Food",
-   "difficulty": 1,
-   "frequencyRank": 48,
-   "examples": [
-    {
-     "native": "Yemek çok güzel!",
-     "translation": "The food is very good!"
+      "char": "C c",
+      "name": "Ce",
+      "sound": "j as in 'jam' — Turkish 'cami' sounds like 'jah-mee'"
     },
     {
-     "native": "Yemek çok güzel",
-     "translation": "The food is very good"
-    }
-   ],
-   "note": "Also the verb 'to eat' — context tells you which.",
-   "pronunciation": "yeh-MEK"
-  },
-  {
-   "id": "tr_0051",
-   "unit": "u6",
-   "lemma": "gitmek",
-   "translit": "git-MEK",
-   "translation": "to go",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 113,
-   "examples": [
-    {
-     "native": "Ali okula gidiyor.",
-     "translation": "Ali is going to school."
-    }
-   ]
-  },
-  {
-   "id": "tr_0052",
-   "unit": "u6",
-   "lemma": "gelmek",
-   "translit": "gel-MEK",
-   "translation": "to come",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 114,
-   "examples": [
-    {
-     "native": "Arkadaşım ile geldim.",
-     "translation": "I came with my friend."
-    }
-   ]
-  },
-  {
-   "id": "tr_0053",
-   "unit": "u6",
-   "lemma": "yapmak",
-   "translit": "yap-MAK",
-   "translation": "to do / make",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 115,
-   "examples": [
-    {
-     "native": "Yemek yapmak güzel.",
-     "translation": "Cooking food is nice."
+      "char": "Ç ç",
+      "name": "Çe",
+      "sound": "ch as in 'chair'"
     },
     {
-     "native": "Ne yapıyorsun?",
-     "translation": "What are you doing?"
-    }
-   ],
-   "pronunciation": "YAP-mak"
-  },
-  {
-   "id": "tr_0054",
-   "unit": "u6",
-   "lemma": "içmek",
-   "translit": "eech-MEK",
-   "translation": "to drink",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 116,
-   "examples": [
-    {
-     "native": "Çay içerim.",
-     "translation": "I drink tea."
-    }
-   ]
-  },
-  {
-   "id": "tr_0055",
-   "unit": "u6",
-   "lemma": "okumak",
-   "translit": "oh-koo-MAK",
-   "translation": "to read",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 117,
-   "examples": [
-    {
-     "native": "Ben kitap okuyorum.",
-     "translation": "I am reading a book."
-    }
-   ]
-  },
-  {
-   "id": "tr_0056",
-   "unit": "u6",
-   "lemma": "istemek",
-   "translit": "ees-teh-MEK",
-   "translation": "to want",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 118,
-   "examples": [
-    {
-     "native": "Gitmek istiyorum.",
-     "translation": "I want to go."
-    }
-   ]
-  },
-  {
-   "id": "tr_0057",
-   "unit": "u6",
-   "lemma": "almak",
-   "translit": "al-MAK",
-   "translation": "to take / buy",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 119,
-   "examples": [
-    {
-     "native": "Defteri aldım.",
-     "translation": "I took the notebook."
+      "char": "Ğ ğ",
+      "name": "Yumuşak ge",
+      "sound": "soft g — silent, it just lengthens the vowel before it"
     },
     {
-     "native": "Bir bilet aldım",
-     "translation": "I bought a ticket"
-    }
-   ],
-   "pronunciation": "AL-mak"
-  },
-  {
-   "id": "tr_0058",
-   "unit": "u6",
-   "lemma": "görmek",
-   "translit": "gur-MEK",
-   "translation": "to see",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 120,
-   "examples": [
-    {
-     "native": "Seni görüyorum.",
-     "translation": "I see you."
-    }
-   ],
-   "note": "'Görüşürüz' (see you later) comes from this verb."
-  },
-  {
-   "id": "tr_0059",
-   "unit": "u6",
-   "lemma": "sevmek",
-   "translit": "sev-MEK",
-   "translation": "to love / like",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 121,
-   "examples": [
-    {
-     "native": "Seni seviyorum.",
-     "translation": "I love you."
-    }
-   ]
-  },
-  {
-   "id": "tr_0060",
-   "unit": "u6",
-   "lemma": "konuşmak",
-   "translit": "koh-noosh-MAK",
-   "translation": "to speak",
-   "category": "Verbs",
-   "difficulty": 2,
-   "frequencyRank": 122,
-   "examples": [
-    {
-     "native": "Türkçe konuşuyorum.",
-     "translation": "I speak Turkish."
-    }
-   ]
-  },
-  {
-   "id": "tr_0061",
-   "unit": "u7",
-   "lemma": "ev",
-   "translit": "ev",
-   "translation": "house / home",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 49,
-   "examples": [
-    {
-     "native": "Kedi evde.",
-     "translation": "The cat is at home."
+      "char": "I ı",
+      "name": "I (undotted)",
+      "sound": "uh — a relaxed 'schwa' sound, like the a in 'about'"
     },
     {
-     "native": "Evdeyim",
-     "translation": "I'm at home"
-    }
-   ],
-   "note": "evde = at home. The -de suffix means 'at/in' — no preposition needed.",
-   "pronunciation": "EV"
-  },
-  {
-   "id": "tr_0062",
-   "unit": "u7",
-   "lemma": "okul",
-   "translit": "oh-KOOL",
-   "translation": "school",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 50,
-   "examples": [
-    {
-     "native": "Okul bugün başladı.",
-     "translation": "School started today."
-    }
-   ]
-  },
-  {
-   "id": "tr_0063",
-   "unit": "u7",
-   "lemma": "şehir",
-   "translit": "sheh-HEER",
-   "translation": "city",
-   "category": "Places",
-   "difficulty": 2,
-   "frequencyRank": 130,
-   "examples": [
-    {
-     "native": "Şehir çok büyük.",
-     "translation": "The city is very big."
-    }
-   ]
-  },
-  {
-   "id": "tr_0064",
-   "unit": "u7",
-   "lemma": "market",
-   "translit": "mar-KET",
-   "translation": "grocery store",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 51,
-   "examples": [
-    {
-     "native": "Market nerede?",
-     "translation": "Where is the grocery store?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0065",
-   "unit": "u7",
-   "lemma": "restoran",
-   "translit": "res-toh-RAHN",
-   "translation": "restaurant",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 52,
-   "examples": [
-    {
-     "native": "Restoran nerede?",
-     "translation": "Where is the restaurant?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0066",
-   "unit": "u7",
-   "lemma": "hastane",
-   "translit": "has-tah-NEH",
-   "translation": "hospital",
-   "category": "Places",
-   "difficulty": 2,
-   "frequencyRank": 131,
-   "examples": [
-    {
-     "native": "Hastane nerede?",
-     "translation": "Where is the hospital?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0067",
-   "unit": "u7",
-   "lemma": "otobüs",
-   "translit": "oh-toh-BEWS",
-   "translation": "bus",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 53,
-   "examples": [
-    {
-     "native": "Otobüs nerede?",
-     "translation": "Where is the bus?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0068",
-   "unit": "u7",
-   "lemma": "yol",
-   "translit": "yohl",
-   "translation": "road / way",
-   "category": "Places",
-   "difficulty": 2,
-   "frequencyRank": 132,
-   "examples": [
-    {
-     "native": "Yol çok eski.",
-     "translation": "The road is very old."
-    }
-   ]
-  },
-  {
-   "id": "tr_0069",
-   "unit": "u7",
-   "lemma": "iş",
-   "translit": "eesh",
-   "translation": "work / job",
-   "category": "Places",
-   "difficulty": 2,
-   "frequencyRank": 133,
-   "examples": [
-    {
-     "native": "İş bugün başladı.",
-     "translation": "Work started today."
+      "char": "İ i",
+      "name": "İ (dotted)",
+      "sound": "ee as in 'see'"
     },
     {
-     "native": "İşim bitti",
-     "translation": "My work is done"
-    }
-   ],
-   "pronunciation": "EESH"
-  },
-  {
-   "id": "tr_0070",
-   "unit": "u7",
-   "lemma": "kitap",
-   "translit": "kee-TAHP",
-   "translation": "book",
-   "category": "Places",
-   "difficulty": 1,
-   "frequencyRank": 54,
-   "examples": [
-    {
-     "native": "Ben kitap okuyorum.",
-     "translation": "I am reading a book."
-    }
-   ],
-   "note": "Plural: kitaplar — the suffix vowel matches the word (vowel harmony)."
-  },
-  {
-   "id": "tr_0071",
-   "unit": "u8",
-   "lemma": "güzel",
-   "translit": "gew-ZEL",
-   "translation": "beautiful / nice",
-   "category": "Adjectives",
-   "difficulty": 1,
-   "frequencyRank": 56,
-   "examples": [
-    {
-     "native": "Film güzel.",
-     "translation": "The film is nice."
-    }
-   ],
-   "note": "Turkish needs no 'is' here — 'Film güzel' is a complete sentence."
-  },
-  {
-   "id": "tr_0072",
-   "unit": "u8",
-   "lemma": "büyük",
-   "translit": "bew-YEWK",
-   "translation": "big",
-   "category": "Adjectives",
-   "difficulty": 1,
-   "frequencyRank": 57,
-   "examples": [
-    {
-     "native": "Büyük ev.",
-     "translation": "A big house."
-    }
-   ],
-   "note": "Adjectives come before the noun, like English."
-  },
-  {
-   "id": "tr_0073",
-   "unit": "u8",
-   "lemma": "küçük",
-   "translit": "kew-CHEWK",
-   "translation": "small",
-   "category": "Adjectives",
-   "difficulty": 1,
-   "frequencyRank": 58,
-   "examples": [
-    {
-     "native": "Küçük kedi.",
-     "translation": "A small cat."
-    }
-   ]
-  },
-  {
-   "id": "tr_0074",
-   "unit": "u8",
-   "lemma": "iyi",
-   "translit": "ee-YEE",
-   "translation": "good",
-   "category": "Adjectives",
-   "difficulty": 1,
-   "frequencyRank": 59,
-   "examples": [
-    {
-     "native": "Çok iyi!",
-     "translation": "Very good!"
-    }
-   ]
-  },
-  {
-   "id": "tr_0075",
-   "unit": "u8",
-   "lemma": "kötü",
-   "translit": "kur-TEW",
-   "translation": "bad",
-   "category": "Adjectives",
-   "difficulty": 1,
-   "frequencyRank": 60,
-   "examples": [
-    {
-     "native": "Film kötü.",
-     "translation": "The film is bad."
-    }
-   ]
-  },
-  {
-   "id": "tr_0076",
-   "unit": "u8",
-   "lemma": "yeni",
-   "translit": "yeh-NEE",
-   "translation": "new",
-   "category": "Adjectives",
-   "difficulty": 1,
-   "frequencyRank": 61,
-   "examples": [
-    {
-     "native": "Yeni ev çok güzel.",
-     "translation": "The new house is very nice."
-    }
-   ]
-  },
-  {
-   "id": "tr_0077",
-   "unit": "u8",
-   "lemma": "eski",
-   "translit": "es-KEE",
-   "translation": "old (things)",
-   "category": "Adjectives",
-   "difficulty": 1,
-   "frequencyRank": 62,
-   "examples": [
-    {
-     "native": "Eski kitap.",
-     "translation": "An old book."
-    }
-   ]
-  },
-  {
-   "id": "tr_0078",
-   "unit": "u8",
-   "lemma": "sıcak",
-   "translit": "suh-JAHK",
-   "translation": "hot",
-   "category": "Adjectives",
-   "difficulty": 1,
-   "frequencyRank": 63,
-   "examples": [
-    {
-     "native": "Çay sıcak.",
-     "translation": "The tea is hot."
-    }
-   ]
-  },
-  {
-   "id": "tr_0079",
-   "unit": "u8",
-   "lemma": "soğuk",
-   "translit": "soh-OOK",
-   "translation": "cold",
-   "category": "Adjectives",
-   "difficulty": 1,
-   "frequencyRank": 64,
-   "examples": [
-    {
-     "native": "Su soğuk.",
-     "translation": "The water is cold."
-    }
-   ]
-  },
-  {
-   "id": "tr_0080",
-   "unit": "u8",
-   "lemma": "çok",
-   "translit": "chok",
-   "translation": "very / much",
-   "category": "Adjectives",
-   "difficulty": 1,
-   "frequencyRank": 65,
-   "examples": [
-    {
-     "native": "Çok teşekkürler!",
-     "translation": "Thanks very much!"
+      "char": "Ö ö",
+      "name": "Ö",
+      "sound": "like the 'u' in 'fur' with rounded lips"
     },
     {
-     "native": "Çok iyi",
-     "translation": "Very good"
-    }
-   ],
-   "pronunciation": "CHOK"
-  },
-  {
-   "id": "tr_0081",
-   "unit": "u9",
-   "lemma": "bugün",
-   "translit": "boo-GEWN",
-   "translation": "today",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 67,
-   "examples": [
-    {
-     "native": "Okul bugün başladı.",
-     "translation": "School started today."
-    }
-   ]
-  },
-  {
-   "id": "tr_0082",
-   "unit": "u9",
-   "lemma": "yarın",
-   "translit": "YAH-ruhn",
-   "translation": "tomorrow",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 68,
-   "examples": [
-    {
-     "native": "Yarın görüşürüz!",
-     "translation": "See you tomorrow!"
-    }
-   ]
-  },
-  {
-   "id": "tr_0083",
-   "unit": "u9",
-   "lemma": "dün",
-   "translit": "dewn",
-   "translation": "yesterday",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 69,
-   "examples": [
-    {
-     "native": "Dün geldim.",
-     "translation": "I came yesterday."
-    }
-   ]
-  },
-  {
-   "id": "tr_0084",
-   "unit": "u9",
-   "lemma": "şimdi",
-   "translit": "SHIM-dee",
-   "translation": "now",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 70,
-   "examples": [
-    {
-     "native": "Şimdi gidiyorum.",
-     "translation": "I am going now."
-    }
-   ]
-  },
-  {
-   "id": "tr_0085",
-   "unit": "u9",
-   "lemma": "sonra",
-   "translit": "SOHN-rah",
-   "translation": "later / after",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 71,
-   "examples": [
-    {
-     "native": "Sonra görüşürüz.",
-     "translation": "See you later."
-    }
-   ]
-  },
-  {
-   "id": "tr_0086",
-   "unit": "u9",
-   "lemma": "gün",
-   "translit": "gewn",
-   "translation": "day",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 72,
-   "examples": [
-    {
-     "native": "Haftada yedi gün var.",
-     "translation": "There are seven days in a week."
-    }
-   ]
-  },
-  {
-   "id": "tr_0087",
-   "unit": "u9",
-   "lemma": "hafta",
-   "translit": "haf-TAH",
-   "translation": "week",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 73,
-   "examples": [
-    {
-     "native": "Haftada yedi gün var.",
-     "translation": "There are seven days in a week."
-    }
-   ]
-  },
-  {
-   "id": "tr_0088",
-   "unit": "u9",
-   "lemma": "saat",
-   "translit": "sah-AHT",
-   "translation": "hour / clock",
-   "category": "Time",
-   "difficulty": 1,
-   "frequencyRank": 74,
-   "examples": [
-    {
-     "native": "Saat dokuz.",
-     "translation": "It is nine o'clock."
-    }
-   ]
-  },
-  {
-   "id": "tr_0089",
-   "unit": "u10",
-   "lemma": "Ne kadar?",
-   "translit": "neh kah-DAR",
-   "translation": "how much?",
-   "category": "Survival",
-   "difficulty": 1,
-   "frequencyRank": 77,
-   "examples": [
-    {
-     "native": "Bu ne kadar?",
-     "translation": "How much is this?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0090",
-   "unit": "u10",
-   "lemma": "Hesap lütfen",
-   "translit": "heh-SAHP lewt-fen",
-   "translation": "the bill, please",
-   "category": "Survival",
-   "difficulty": 1,
-   "frequencyRank": 78,
-   "examples": [
-    {
-     "native": "Hesap lütfen!",
-     "translation": "The bill, please!"
-    }
-   ]
-  },
-  {
-   "id": "tr_0091",
-   "unit": "u10",
-   "lemma": "Afiyet olsun",
-   "translit": "ah-fee-YET ol-SOON",
-   "translation": "bon appétit",
-   "category": "Survival",
-   "difficulty": 1,
-   "frequencyRank": 79,
-   "examples": [
-    {
-     "native": "Afiyet olsun!",
-     "translation": "Enjoy your meal!"
-    }
-   ],
-   "note": "Said before, during, or after a meal — you'll hear it constantly."
-  },
-  {
-   "id": "tr_0092",
-   "unit": "u10",
-   "lemma": "Buyurun",
-   "translit": "BOO-yoo-roon",
-   "translation": "here you are / go ahead",
-   "category": "Survival",
-   "difficulty": 2,
-   "frequencyRank": 135,
-   "examples": [
-    {
-     "native": "Buyurun!",
-     "translation": "Here you are!"
-    }
-   ],
-   "note": "An all-purpose word: 'welcome in', 'here you go', 'after you'."
-  },
-  {
-   "id": "tr_0093",
-   "unit": "u10",
-   "lemma": "Anlamıyorum",
-   "translit": "an-LAH-muh-yoh-room",
-   "translation": "I don't understand",
-   "category": "Survival",
-   "difficulty": 1,
-   "frequencyRank": 80,
-   "examples": [
-    {
-     "native": "Anlamıyorum, affedersiniz.",
-     "translation": "I don't understand, sorry."
-    }
-   ]
-  },
-  {
-   "id": "tr_0094",
-   "unit": "u10",
-   "lemma": "Bilmiyorum",
-   "translit": "BIL-mee-yoh-room",
-   "translation": "I don't know",
-   "category": "Survival",
-   "difficulty": 1,
-   "frequencyRank": 81,
-   "examples": [
-    {
-     "native": "Bilmiyorum.",
-     "translation": "I don't know."
-    }
-   ]
-  },
-  {
-   "id": "tr_0095",
-   "unit": "u10",
-   "lemma": "Nerede?",
-   "translit": "NEH-reh-deh",
-   "translation": "where?",
-   "category": "Survival",
-   "difficulty": 1,
-   "frequencyRank": 82,
-   "examples": [
-    {
-     "native": "Tuvalet nerede?",
-     "translation": "Where is the bathroom?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0096",
-   "unit": "u10",
-   "lemma": "para",
-   "translit": "pah-RAH",
-   "translation": "money",
-   "category": "Survival",
-   "difficulty": 1,
-   "frequencyRank": 83,
-   "examples": [
-    {
-     "native": "Para nerede?",
-     "translation": "Where is the money?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0097",
-   "unit": "u10",
-   "lemma": "menü",
-   "translit": "meh-NEW",
-   "translation": "menu",
-   "category": "Survival",
-   "difficulty": 1,
-   "frequencyRank": 84,
-   "examples": [
-    {
-     "native": "Menü alabilir miyim lütfen?",
-     "translation": "Can I have a menu, please?"
-    }
-   ]
-  },
-  {
-   "id": "tr_0098",
-   "unit": "u10",
-   "lemma": "ve",
-   "translit": "ve",
-   "pronunciation": "VEH",
-   "translation": "and",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "çay ve kahve",
-     "translation": "Tea and coffee"
-    }
-   ],
-   "frequencyRank": 136
-  },
-  {
-   "id": "tr_0099",
-   "unit": "u10",
-   "lemma": "ama",
-   "translit": "ama",
-   "pronunciation": "ah-MAH",
-   "translation": "but",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "küçük ama güzel",
-     "translation": "Small but beautiful"
-    }
-   ],
-   "frequencyRank": 137
-  },
-  {
-   "id": "tr_0100",
-   "unit": "u10",
-   "lemma": "çünkü",
-   "translit": "cunku",
-   "pronunciation": "CHEWN-kew",
-   "translation": "because",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "yorgunum çünkü iş çok",
-     "translation": "I'm tired because there's a lot of work"
-    }
-   ],
-   "frequencyRank": 138
-  },
-  {
-   "id": "tr_0101",
-   "unit": "u10",
-   "lemma": "veya",
-   "translit": "veya",
-   "pronunciation": "veh-YAH",
-   "translation": "or",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "çay veya kahve",
-     "translation": "Tea or coffee"
-    }
-   ],
-   "frequencyRank": 139
-  },
-  {
-   "id": "tr_0102",
-   "unit": "u10",
-   "lemma": "ayrıca",
-   "translit": "ayrica",
-   "pronunciation": "eye-rih-JAH",
-   "translation": "also, too",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "ben de ayrıca",
-     "translation": "Me too"
-    }
-   ],
-   "frequencyRank": 140
-  },
-  {
-   "id": "tr_0103",
-   "unit": "u10",
-   "lemma": "eğer",
-   "translit": "eger",
-   "pronunciation": "eh-YEHR",
-   "translation": "if",
-   "category": "Connectors",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "eğer istersen",
-     "translation": "If you want"
-    }
-   ],
-   "frequencyRank": 141
-  },
-  {
-   "id": "tr_0104",
-   "unit": "u10",
-   "lemma": "araba",
-   "translit": "araba",
-   "pronunciation": "ah-rah-BAH",
-   "translation": "car",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "arabam",
-     "translation": "My car"
-    }
-   ],
-   "frequencyRank": 142
-  },
-  {
-   "id": "tr_0105",
-   "unit": "u10",
-   "lemma": "minibüs",
-   "translit": "minibus",
-   "pronunciation": "MEE-nee-bews",
-   "translation": "minibus, shared van",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "minibüse bin",
-     "translation": "Take the minibus"
-    }
-   ],
-   "frequencyRank": 143
-  },
-  {
-   "id": "tr_0106",
-   "unit": "u10",
-   "lemma": "tren",
-   "translit": "tren",
-   "pronunciation": "TREN",
-   "translation": "train",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "tren hızlı",
-     "translation": "The train is fast"
-    }
-   ],
-   "frequencyRank": 144
-  },
-  {
-   "id": "tr_0107",
-   "unit": "u10",
-   "lemma": "taksi",
-   "translit": "taksi",
-   "pronunciation": "tahk-SEE",
-   "translation": "taxi",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "taksi çağır",
-     "translation": "Call a taxi"
-    }
-   ],
-   "frequencyRank": 145
-  },
-  {
-   "id": "tr_0108",
-   "unit": "u10",
-   "lemma": "havalimanı",
-   "translit": "havalimani",
-   "pronunciation": "hah-vah-lee-mah-NUH",
-   "translation": "airport",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "havalimanına gitmek",
-     "translation": "Going to the airport"
-    }
-   ],
-   "frequencyRank": 146
-  },
-  {
-   "id": "tr_0109",
-   "unit": "u10",
-   "lemma": "sağ",
-   "translit": "sag",
-   "pronunciation": "SAH",
-   "translation": "right (direction)",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "sağa dön",
-     "translation": "Turn right"
+      "char": "Ş ş",
+      "name": "Şe",
+      "sound": "sh as in 'shoe'"
     },
     {
-     "native": "Sağ tarafta",
-     "translation": "On the right side"
+      "char": "Ü ü",
+      "name": "Ü",
+      "sound": "say 'ee' with tightly rounded lips"
     }
-   ],
-   "frequencyRank": 147
-  },
-  {
-   "id": "tr_0110",
-   "unit": "u10",
-   "lemma": "sol",
-   "translit": "sol",
-   "pronunciation": "SOL",
-   "translation": "left (direction)",
-   "category": "Transport",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
+  ],
+  "frameworks": [
     {
-     "native": "sola dön",
-     "translation": "Turn left"
+      "id": "sov",
+      "title": "The verb always comes last",
+      "body": "Turkish is Subject–Object–Verb: 'Ben kitap okuyorum' is literally 'I book am-reading'. Push the verb to the end of the sentence and you instantly sound Turkish."
     },
     {
-     "native": "Soldan dönün",
-     "translation": "Turn left"
-    }
-   ],
-   "frequencyRank": 148
-  },
-  {
-   "id": "tr_0111",
-   "unit": "u10",
-   "lemma": "otel",
-   "translit": "otel",
-   "pronunciation": "oh-TEL",
-   "translation": "hotel",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "iyi bir otel",
-     "translation": "A good hotel"
-    }
-   ],
-   "frequencyRank": 149
-  },
-  {
-   "id": "tr_0112",
-   "unit": "u10",
-   "lemma": "bilet",
-   "translit": "bilet",
-   "pronunciation": "bee-LET",
-   "translation": "ticket",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "bir bilet lütfen",
-     "translation": "One ticket please"
-    }
-   ],
-   "frequencyRank": 150
-  },
-  {
-   "id": "tr_0113",
-   "unit": "u10",
-   "lemma": "pasaport",
-   "translit": "pasaport",
-   "pronunciation": "pah-sah-PORT",
-   "translation": "passport",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "pasaportum",
-     "translation": "My passport"
-    }
-   ],
-   "frequencyRank": 151
-  },
-  {
-   "id": "tr_0114",
-   "unit": "u10",
-   "lemma": "istasyon",
-   "translit": "istasyon",
-   "pronunciation": "ees-tahs-YOHN",
-   "translation": "station",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "otobüs istasyonu",
-     "translation": "The bus station"
-    }
-   ],
-   "frequencyRank": 152
-  },
-  {
-   "id": "tr_0115",
-   "unit": "u10",
-   "lemma": "harita",
-   "translit": "harita",
-   "pronunciation": "hah-ree-TAH",
-   "translation": "map",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "bana harita ver",
-     "translation": "Give me a map"
-    }
-   ],
-   "frequencyRank": 153
-  },
-  {
-   "id": "tr_0116",
-   "unit": "u10",
-   "lemma": "yakın",
-   "translit": "yakin",
-   "pronunciation": "yah-KUHN",
-   "translation": "near",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "otele yakın",
-     "translation": "Near the hotel"
-    }
-   ],
-   "frequencyRank": 154
-  },
-  {
-   "id": "tr_0117",
-   "unit": "u10",
-   "lemma": "uzak",
-   "translit": "uzak",
-   "pronunciation": "oo-ZAHK",
-   "translation": "far",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "çok uzak",
-     "translation": "Very far"
-    }
-   ],
-   "frequencyRank": 155
-  },
-  {
-   "id": "tr_0118",
-   "unit": "u10",
-   "lemma": "dosdoğru",
-   "translit": "dosdogru",
-   "pronunciation": "dohs-doh-ROO",
-   "translation": "straight ahead",
-   "category": "Travel",
-   "difficulty": 2,
-   "tags": [
-    "travel-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "dosdoğru git",
-     "translation": "Go straight ahead"
-    }
-   ],
-   "frequencyRank": 156
-  },
-  {
-   "id": "tr_0119",
-   "unit": "u11",
-   "lemma": "baş",
-   "translit": "baş",
-   "pronunciation": "BAHSH",
-   "translation": "head",
-   "category": "Body",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Başım ağrıyor.",
-     "translation": "My head hurts."
-    }
-   ],
-   "frequencyRank": 160
-  },
-  {
-   "id": "tr_0120",
-   "unit": "u11",
-   "lemma": "el",
-   "translit": "el",
-   "pronunciation": "EL",
-   "translation": "hand",
-   "category": "Body",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Elini yıka.",
-     "translation": "Wash your hand."
-    }
-   ],
-   "frequencyRank": 161
-  },
-  {
-   "id": "tr_0121",
-   "unit": "u11",
-   "lemma": "göz",
-   "translit": "göz",
-   "pronunciation": "GOEZ",
-   "translation": "eye",
-   "category": "Body",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Gözlerim yorgun.",
-     "translation": "My eyes are tired."
-    }
-   ],
-   "frequencyRank": 162
-  },
-  {
-   "id": "tr_0122",
-   "unit": "u11",
-   "lemma": "kalp",
-   "translit": "kalp",
-   "pronunciation": "KALP",
-   "translation": "heart",
-   "category": "Body",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Kalbim hızlı atıyor.",
-     "translation": "My heart is beating fast."
-    }
-   ],
-   "frequencyRank": 163
-  },
-  {
-   "id": "tr_0123",
-   "unit": "u11",
-   "lemma": "ayak",
-   "translit": "ayak",
-   "pronunciation": "ah-YAHK",
-   "translation": "foot",
-   "category": "Body",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Ayağım soğuk.",
-     "translation": "My foot is cold."
-    }
-   ],
-   "frequencyRank": 164
-  },
-  {
-   "id": "tr_0124",
-   "unit": "u11",
-   "lemma": "mutlu",
-   "translit": "mutlu",
-   "pronunciation": "moot-LOO",
-   "translation": "happy",
-   "category": "Feelings",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Bugün çok mutluyum.",
-     "translation": "I'm very happy today."
-    }
-   ],
-   "frequencyRank": 165
-  },
-  {
-   "id": "tr_0125",
-   "unit": "u11",
-   "lemma": "yorgun",
-   "translit": "yorgun",
-   "pronunciation": "yor-GOON",
-   "translation": "tired",
-   "category": "Feelings",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Çok yorgunum.",
-     "translation": "I'm very tired."
-    }
-   ],
-   "frequencyRank": 166
-  },
-  {
-   "id": "tr_0126",
-   "unit": "u11",
-   "lemma": "üzgün",
-   "translit": "üzgün",
-   "pronunciation": "uez-GUEN",
-   "translation": "sad",
-   "category": "Feelings",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Üzgün görünüyorsun.",
-     "translation": "You look sad."
-    }
-   ],
-   "frequencyRank": 167
-  },
-  {
-   "id": "tr_0127",
-   "unit": "u11",
-   "lemma": "aç",
-   "translit": "aç",
-   "pronunciation": "AHCH",
-   "translation": "hungry",
-   "category": "Feelings",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Ben açım.",
-     "translation": "I'm hungry."
-    }
-   ],
-   "frequencyRank": 168
-  },
-  {
-   "id": "tr_0128",
-   "unit": "u11",
-   "lemma": "susuz",
-   "translit": "susuz",
-   "pronunciation": "soo-SOOZ",
-   "translation": "thirsty",
-   "category": "Feelings",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Susuzum, su lütfen.",
-     "translation": "I'm thirsty, water please."
-    }
-   ],
-   "frequencyRank": 169
-  },
-  {
-   "id": "tr_0129",
-   "unit": "u12",
-   "lemma": "güneş",
-   "translit": "güneş",
-   "pronunciation": "gue-NESH",
-   "translation": "sun",
-   "category": "Weather",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Bugün güneş var.",
-     "translation": "There's sun today."
-    }
-   ],
-   "frequencyRank": 170
-  },
-  {
-   "id": "tr_0130",
-   "unit": "u12",
-   "lemma": "yağmur",
-   "translit": "yağmur",
-   "pronunciation": "yah-MOOR",
-   "translation": "rain",
-   "category": "Weather",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Yağmur yağıyor.",
-     "translation": "It's raining."
-    }
-   ],
-   "frequencyRank": 171
-  },
-  {
-   "id": "tr_0131",
-   "unit": "u12",
-   "lemma": "kar",
-   "translit": "kar",
-   "pronunciation": "KAHR",
-   "translation": "snow",
-   "category": "Weather",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Kışın kar yağar.",
-     "translation": "It snows in winter."
-    }
-   ],
-   "frequencyRank": 172
-  },
-  {
-   "id": "tr_0132",
-   "unit": "u12",
-   "lemma": "rüzgar",
-   "translit": "rüzgar",
-   "pronunciation": "ruez-GAHR",
-   "translation": "wind",
-   "category": "Weather",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Rüzgar çok güçlü.",
-     "translation": "The wind is very strong."
-    }
-   ],
-   "frequencyRank": 173
-  },
-  {
-   "id": "tr_0133",
-   "unit": "u12",
-   "lemma": "gökyüzü",
-   "translit": "gökyüzü",
-   "pronunciation": "goek-yue-ZUE",
-   "translation": "sky",
-   "category": "Nature",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Gökyüzü mavi.",
-     "translation": "The sky is blue."
-    }
-   ],
-   "frequencyRank": 174
-  },
-  {
-   "id": "tr_0134",
-   "unit": "u12",
-   "lemma": "deniz",
-   "translit": "deniz",
-   "pronunciation": "de-NEEZ",
-   "translation": "sea",
-   "category": "Nature",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Deniz çok güzel.",
-     "translation": "The sea is very beautiful."
-    }
-   ],
-   "frequencyRank": 175
-  },
-  {
-   "id": "tr_0135",
-   "unit": "u12",
-   "lemma": "ağaç",
-   "translit": "ağaç",
-   "pronunciation": "ah-AHCH",
-   "translation": "tree",
-   "category": "Nature",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Bahçede bir ağaç var.",
-     "translation": "There is a tree in the garden."
-    }
-   ],
-   "frequencyRank": 176
-  },
-  {
-   "id": "tr_0136",
-   "unit": "u12",
-   "lemma": "dağ",
-   "translit": "dağ",
-   "pronunciation": "DAH",
-   "translation": "mountain",
-   "category": "Nature",
-   "difficulty": 2,
-   "tags": [
-    "nature-pack-v1"
-   ],
-   "examples": [
-    {
-     "native": "Dağ çok yüksek.",
-     "translation": "The mountain is very high."
-    }
-   ],
-   "frequencyRank": 177
-  },
-  {
-   "id": "tr_0137",
-   "lemma": "ben",
-   "translit": "ben",
-   "pronunciation": "BEN",
-   "translation": "I",
-   "category": "People",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
-    {
-     "native": "Ben hazırım",
-     "translation": "I'm ready"
-    }
-   ],
-   "frequencyRank": 17
-  },
-  {
-   "id": "tr_0138",
-   "lemma": "sen",
-   "translit": "sen",
-   "pronunciation": "SEN",
-   "translation": "you (informal)",
-   "category": "People",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
-    {
-     "native": "Sen nerelisin?",
-     "translation": "Where are you from?"
-    }
-   ],
-   "frequencyRank": 18
-  },
-  {
-   "id": "tr_0139",
-   "lemma": "özür dilerim",
-   "translit": "özür dilerim",
-   "pronunciation": "er-ZUER dee-LEH-rim",
-   "translation": "sorry",
-   "category": "Greetings",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
-    {
-     "native": "Özür dilerim, geç kaldım",
-     "translation": "Sorry, I'm late"
-    }
-   ],
-   "frequencyRank": 19
-  },
-  {
-   "id": "tr_0140",
-   "lemma": "bilmek",
-   "translit": "bilmek",
-   "pronunciation": "BEEL-mek",
-   "translation": "to know",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Bilmiyorum",
-     "translation": "I don't know"
-    }
-   ],
-   "frequencyRank": 123
-  },
-  {
-   "id": "tr_0141",
-   "lemma": "söylemek",
-   "translit": "söylemek",
-   "pronunciation": "SER-yle-mek",
-   "translation": "to say",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Ne söyledin?",
-     "translation": "What did you say?"
-    }
-   ],
-   "frequencyRank": 124
-  },
-  {
-   "id": "tr_0142",
-   "lemma": "vermek",
-   "translit": "vermek",
-   "pronunciation": "VER-mek",
-   "translation": "to give",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Bana ver",
-     "translation": "Give it to me"
-    }
-   ],
-   "frequencyRank": 125
-  },
-  {
-   "id": "tr_0143",
-   "lemma": "yardım",
-   "translit": "yardım",
-   "pronunciation": "YAR-duhm",
-   "translation": "help",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Yardım eder misiniz?",
-     "translation": "Could you help?"
-    }
-   ],
-   "frequencyRank": 85
-  },
-  {
-   "id": "tr_0144",
-   "lemma": "anlamak",
-   "translit": "anlamak",
-   "pronunciation": "AN-la-mak",
-   "translation": "to understand",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Anlamıyorum",
-     "translation": "I don't understand"
-    }
-   ],
-   "frequencyRank": 126
-  },
-  {
-   "id": "tr_0145",
-   "lemma": "zaman",
-   "translit": "zaman",
-   "pronunciation": "za-MAN",
-   "translation": "time",
-   "category": "Time",
-   "difficulty": 1,
-   "unit": "u9",
-   "examples": [
-    {
-     "native": "Zamanım yok",
-     "translation": "I don't have time"
-    }
-   ],
-   "frequencyRank": 75
-  },
-  {
-   "id": "tr_0146",
-   "lemma": "burada",
-   "translit": "burada",
-   "pronunciation": "BOO-ra-da",
-   "translation": "here",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Ben buradayım",
-     "translation": "I'm here"
-    }
-   ],
-   "frequencyRank": 86
-  },
-  {
-   "id": "tr_0147",
-   "lemma": "orada",
-   "translit": "orada",
-   "pronunciation": "O-ra-da",
-   "translation": "there",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Eczane orada",
-     "translation": "The pharmacy is there"
-    }
-   ],
-   "frequencyRank": 87
-  },
-  {
-   "id": "tr_0148",
-   "lemma": "ne",
-   "translit": "ne",
-   "pronunciation": "NEH",
-   "translation": "what",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Bu ne?",
-     "translation": "What is this?"
-    }
-   ],
-   "frequencyRank": 88
-  },
-  {
-   "id": "tr_0149",
-   "lemma": "nerede",
-   "translit": "nerede",
-   "pronunciation": "NEH-reh-deh",
-   "translation": "where",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Tuvalet nerede?",
-     "translation": "Where is the toilet?"
-    }
-   ],
-   "frequencyRank": 89
-  },
-  {
-   "id": "tr_0150",
-   "lemma": "ne zaman",
-   "translit": "ne zaman",
-   "pronunciation": "neh za-MAN",
-   "translation": "when",
-   "category": "Time",
-   "difficulty": 1,
-   "unit": "u9",
-   "examples": [
-    {
-     "native": "Ne zaman geliyorsun?",
-     "translation": "When are you coming?"
-    }
-   ],
-   "frequencyRank": 76
-  },
-  {
-   "id": "tr_0151",
-   "lemma": "neden",
-   "translit": "neden",
-   "pronunciation": "NEH-den",
-   "translation": "why",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Neden olmasın?",
-     "translation": "Why not?"
-    }
-   ],
-   "frequencyRank": 90
-  },
-  {
-   "id": "tr_0152",
-   "lemma": "nasıl",
-   "translit": "nasıl",
-   "pronunciation": "NA-suhl",
-   "translation": "how",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Nasıl çalışıyor?",
-     "translation": "How does it work?"
-    }
-   ],
-   "frequencyRank": 91
-  },
-  {
-   "id": "tr_0153",
-   "lemma": "kim",
-   "translit": "kim",
-   "pronunciation": "KEEM",
-   "translation": "who",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Bu kim?",
-     "translation": "Who is this?"
-    }
-   ],
-   "frequencyRank": 92
-  },
-  {
-   "id": "tr_0154",
-   "lemma": "adam",
-   "translit": "adam",
-   "pronunciation": "a-DAM",
-   "translation": "man",
-   "category": "People",
-   "difficulty": 1,
-   "unit": "u4",
-   "examples": [
-    {
-     "native": "O adam kardeşim",
-     "translation": "That man is my brother"
-    }
-   ],
-   "frequencyRank": 39
-  },
-  {
-   "id": "tr_0155",
-   "lemma": "kadın",
-   "translit": "kadın",
-   "pronunciation": "ka-DUHN",
-   "translation": "woman",
-   "category": "People",
-   "difficulty": 1,
-   "unit": "u4",
-   "examples": [
-    {
-     "native": "O kadın doktor",
-     "translation": "That woman is a doctor"
-    }
-   ],
-   "frequencyRank": 40
-  },
-  {
-   "id": "tr_0156",
-   "lemma": "fiyat",
-   "translit": "fiyat",
-   "pronunciation": "fee-YAT",
-   "translation": "price",
-   "category": "Common",
-   "difficulty": 2,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Fiyatı ne kadar?",
-     "translation": "What's the price?"
-    }
-   ],
-   "frequencyRank": 157
-  },
-  {
-   "id": "tr_0157",
-   "lemma": "açmak",
-   "translit": "açmak",
-   "pronunciation": "ACH-mak",
-   "translation": "to open",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Kapıyı aç",
-     "translation": "Open the door"
-    }
-   ],
-   "frequencyRank": 127
-  },
-  {
-   "id": "tr_0158",
-   "lemma": "ile",
-   "translit": "ile",
-   "pronunciation": "ee-LEH",
-   "translation": "with",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Sütlü kahve",
-     "translation": "Coffee with milk"
-    }
-   ],
-   "frequencyRank": 93
-  },
-  {
-   "id": "tr_0159",
-   "lemma": "isim",
-   "translit": "isim",
-   "pronunciation": "ee-SEEM",
-   "translation": "name",
-   "category": "About You",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
-    {
-     "native": "İsminiz ne?",
-     "translation": "What's your name?"
-    }
-   ],
-   "frequencyRank": 20
-  },
-  {
-   "id": "tr_0160",
-   "lemma": "hasta",
-   "translit": "hasta",
-   "pronunciation": "HAS-ta",
-   "translation": "sick, ill",
-   "category": "Body",
-   "difficulty": 1,
-   "unit": "u11",
-   "examples": [
-    {
-     "native": "Hastayım",
-     "translation": "I'm ill"
-    }
-   ],
-   "frequencyRank": 99
-  },
-  {
-   "id": "tr_0161",
-   "lemma": "doktor",
-   "translit": "doktor",
-   "pronunciation": "DOK-tor",
-   "translation": "doctor",
-   "category": "Body",
-   "difficulty": 1,
-   "unit": "u11",
-   "examples": [
-    {
-     "native": "Doktora ihtiyacım var",
-     "translation": "I need a doctor"
-    }
-   ],
-   "frequencyRank": 100
-  },
-  {
-   "id": "tr_0162",
-   "lemma": "tuvalet",
-   "translit": "tuvalet",
-   "pronunciation": "too-va-LET",
-   "translation": "bathroom, toilet",
-   "category": "Places",
-   "difficulty": 1,
-   "unit": "u7",
-   "examples": [
-    {
-     "native": "Tuvalet nerede?",
-     "translation": "Where is the toilet?"
-    }
-   ],
-   "frequencyRank": 55
-  },
-  {
-   "id": "tr_0163",
-   "lemma": "yiyecek",
-   "translit": "yiyecek",
-   "pronunciation": "yee-yeh-JEK",
-   "translation": "food",
-   "category": "Food",
-   "difficulty": 2,
-   "unit": "u5",
-   "examples": [
-    {
-     "native": "Yiyecek var mı?",
-     "translation": "Is there any food?"
-    }
-   ],
-   "frequencyRank": 111
-  },
-  {
-   "id": "tr_0164",
-   "lemma": "var",
-   "translit": "var",
-   "pronunciation": "VAR",
-   "translation": "to have, there is",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Zamanım var",
-     "translation": "I have time"
-    }
-   ],
-   "frequencyRank": 94
-  },
-  {
-   "id": "tr_0165",
-   "lemma": "ihtiyaç",
-   "translit": "ihtiyaç",
-   "pronunciation": "eeh-tee-YACH",
-   "translation": "need",
-   "category": "Common",
-   "difficulty": 2,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Yardıma ihtiyacım var",
-     "translation": "I need help"
-    }
-   ],
-   "frequencyRank": 158
-  },
-  {
-   "id": "tr_0166",
-   "lemma": "satın almak",
-   "translit": "satın almak",
-   "pronunciation": "sa-TUHN al-MAK",
-   "translation": "to buy",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Ekmek satın aldım",
-     "translation": "I bought bread"
-    }
-   ],
-   "frequencyRank": 128
-  },
-  {
-   "id": "tr_0167",
-   "lemma": "daha",
-   "translit": "daha",
-   "pronunciation": "da-HA",
-   "translation": "more",
-   "category": "Common",
-   "difficulty": 1,
-   "unit": "u8",
-   "examples": [
-    {
-     "native": "Biraz daha",
-     "translation": "A little more"
-    }
-   ],
-   "frequencyRank": 66
-  },
-  {
-   "id": "tr_0168",
-   "lemma": "olmadan",
-   "translit": "olmadan",
-   "pronunciation": "ol-ma-DAN",
-   "translation": "without",
-   "category": "Connectors",
-   "difficulty": 2,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Şekersiz, şeker olmadan",
-     "translation": "Without sugar"
-    }
-   ],
-   "frequencyRank": 159
-  },
-  {
-   "id": "tr_0169",
-   "lemma": "değil",
-   "translit": "değil",
-   "pronunciation": "deh-EEL",
-   "translation": "not",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Bu doğru değil",
-     "translation": "That's not right"
-    }
-   ],
-   "frequencyRank": 95
-  },
-  {
-   "id": "tr_0170",
-   "lemma": "hepsi",
-   "translit": "hepsi",
-   "pronunciation": "HEP-see",
-   "translation": "all, everything",
-   "category": "Connectors",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Hepsi iyi",
-     "translation": "Everything is fine"
-    }
-   ],
-   "frequencyRank": 96
-  },
-  {
-   "id": "tr_0171",
-   "lemma": "siz",
-   "translit": "siz",
-   "pronunciation": "SEEZ",
-   "translation": "you (formal/plural)",
-   "category": "People",
-   "difficulty": 1,
-   "unit": "u2",
-   "examples": [
-    {
-     "native": "Siz nerelisiniz?",
-     "translation": "Where are you from?"
-    }
-   ],
-   "frequencyRank": 21
-  },
-  {
-   "id": "tr_0172",
-   "lemma": "yemek yemek",
-   "translit": "yemek yemek",
-   "pronunciation": "yeh-MEK yeh-MEK",
-   "translation": "to eat",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u5",
-   "examples": [
-    {
-     "native": "Yemek yedin mi?",
-     "translation": "Have you eaten?"
-    }
-   ],
-   "frequencyRank": 112
-  },
-  {
-   "id": "tr_0173",
-   "lemma": "etmek",
-   "translit": "etmek",
-   "pronunciation": "ET-mek",
-   "translation": "to do",
-   "category": "Verbs",
-   "difficulty": 2,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Yardım eder misin?",
-     "translation": "Would you help?"
-    }
-   ],
-   "frequencyRank": 129
-  },
-  {
-   "id": "tr_0174",
-   "lemma": "oluşturmak",
-   "translit": "oluşturmak",
-   "pronunciation": "o-loosh-toor-MAK",
-   "translation": "to make, to create",
-   "category": "Verbs",
-   "difficulty": 3,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Bir plan oluşturalım",
-     "translation": "Let's make a plan"
-    }
-   ],
-   "frequencyRank": 178
-  },
-  {
-   "id": "tr_0175",
-   "lemma": "-abilmek",
-   "translit": "-abilmek",
-   "pronunciation": "a-BEEL-mek",
-   "translation": "to be able to, can",
-   "category": "Verbs",
-   "difficulty": 3,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Gidebilirim",
-     "translation": "I can go"
-    }
-   ],
-   "frequencyRank": 179
-  },
-  {
-   "id": "tr_0176",
-   "lemma": "götürmek",
-   "translit": "götürmek",
-   "pronunciation": "ger-tuer-MEK",
-   "translation": "to take (along)",
-   "category": "Verbs",
-   "difficulty": 3,
-   "unit": "u6",
-   "examples": [
-    {
-     "native": "Seni götürebilirim",
-     "translation": "I can take you"
-    }
-   ],
-   "frequencyRank": 180
-  },
-  {
-   "id": "tr_0177",
-   "lemma": "meslek",
-   "translit": "meslek",
-   "pronunciation": "mes-LEK",
-   "translation": "job, profession",
-   "category": "Common",
-   "difficulty": 2,
-   "unit": "u2",
-   "examples": [
-    {
-     "native": "Mesleğiniz ne?",
-     "translation": "What's your profession?"
-    }
-   ],
-   "frequencyRank": 105
-  },
-  {
-   "id": "tr_0178",
-   "lemma": "çok fazla",
-   "translit": "çok fazla",
-   "pronunciation": "CHOK faz-LA",
-   "translation": "very much, a lot",
-   "category": "Common",
-   "difficulty": 2,
-   "unit": "u8",
-   "examples": [
-    {
-     "native": "Çok fazla var",
-     "translation": "There's a lot"
-    }
-   ],
-   "frequencyRank": 134
-  },
-  {
-   "id": "tr_0179",
-   "lemma": "solda",
-   "translit": "solda",
-   "pronunciation": "sol-DA",
-   "translation": "on the left",
-   "category": "Travel",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Solda duruyor",
-     "translation": "It's on the left"
-    }
-   ],
-   "frequencyRank": 97
-  },
-  {
-   "id": "tr_0180",
-   "lemma": "sağda",
-   "translit": "sağda",
-   "pronunciation": "saa-DA",
-   "translation": "on the right",
-   "category": "Travel",
-   "difficulty": 1,
-   "unit": "u10",
-   "examples": [
-    {
-     "native": "Sağda göreceksin",
-     "translation": "You'll see it on the right"
-    }
-   ],
-   "frequencyRank": 98
-  }
- ]
+      "id": "vowel-harmony",
+      "title": "Vowels harmonise",
+      "body": "Suffixes change their vowel to match the word: ev → evler (houses), but kitap → kitaplar (books). Back vowels (a, ı, o, u) attract 'a' suffixes; front vowels (e, i, ö, ü) attract 'e' suffixes. It's one rule, applied everywhere."
+    },
+    {
+      "id": "suffixes",
+      "title": "Suffixes instead of little words",
+      "body": "Where English uses 'at', 'in', 'to', Turkish glues a suffix on: okul (school) → okulda (at school), ev → evde (at home). One word can carry a whole English phrase."
+    }
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Hello, goodbye, how are you"
+    },
+    {
+      "id": "u2",
+      "title": "Being Polite",
+      "emoji": "🙏",
+      "description": "Please, thank you, yes and no"
+    },
+    {
+      "id": "u3",
+      "title": "Numbers 1-10",
+      "emoji": "🔢",
+      "description": "Count from bir to on"
+    },
+    {
+      "id": "u4",
+      "title": "Family & Friends",
+      "emoji": "👨‍👩‍👧",
+      "description": "Mother, father, siblings, friends"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🫖",
+      "description": "Tea, bread, water — order like a local"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, come, eat, drink, want"
+    },
+    {
+      "id": "u7",
+      "title": "Around Town",
+      "emoji": "🏙️",
+      "description": "Home, school, the market, the bus"
+    },
+    {
+      "id": "u8",
+      "title": "Describe It",
+      "emoji": "🎨",
+      "description": "Big, small, hot, cold, beautiful"
+    },
+    {
+      "id": "u9",
+      "title": "Time & Days",
+      "emoji": "🕘",
+      "description": "Today, tomorrow, now, later"
+    },
+    {
+      "id": "u10",
+      "title": "Getting By",
+      "emoji": "🧳",
+      "description": "How much, the bill, I don't understand"
+    },
+    {
+      "id": "u11",
+      "title": "Body & Feelings",
+      "emoji": "🫀",
+      "description": "Head, hand, eye — and how you're feeling"
+    },
+    {
+      "id": "u12",
+      "title": "Weather & Nature",
+      "emoji": "🌦️",
+      "description": "Sun, rain, sea, mountain — the world outside"
+    }
+  ],
+  "vocab": [
+    {
+      "id": "tr_0001",
+      "unit": "u1",
+      "lemma": "Merhaba",
+      "translit": "mer-ha-BA",
+      "translation": "hello",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "Merhaba! Nasılsın?",
+          "translation": "Hello! How are you?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0002",
+      "unit": "u1",
+      "lemma": "Selam",
+      "translit": "seh-LAHM",
+      "translation": "hi (casual)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "Selam! Naber?",
+          "translation": "Hi! What's up?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0003",
+      "unit": "u1",
+      "lemma": "Günaydın",
+      "translit": "gew-nigh-DUHN",
+      "translation": "good morning",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "Günaydın, anne!",
+          "translation": "Good morning, mum!"
+        }
+      ]
+    },
+    {
+      "id": "tr_0004",
+      "unit": "u1",
+      "lemma": "İyi akşamlar",
+      "translit": "ee-yee ak-sham-LAR",
+      "translation": "good evening",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "İyi akşamlar!",
+          "translation": "Good evening!"
+        }
+      ]
+    },
+    {
+      "id": "tr_0005",
+      "unit": "u1",
+      "lemma": "İyi geceler",
+      "translit": "ee-yee geh-jeh-LEHR",
+      "translation": "good night",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "İyi geceler!",
+          "translation": "Good night!"
+        }
+      ]
+    },
+    {
+      "id": "tr_0006",
+      "unit": "u1",
+      "lemma": "Hoşça kal",
+      "translit": "HOSH-cha kal",
+      "translation": "goodbye",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "Hoşça kal! Görüşürüz.",
+          "translation": "Goodbye! See you."
+        }
+      ],
+      "note": "Said by the person LEAVING. The one staying replies 'Güle güle'."
+    },
+    {
+      "id": "tr_0007",
+      "unit": "u1",
+      "lemma": "Güle güle",
+      "translit": "gew-LEH gew-LEH",
+      "translation": "bye (to someone leaving)",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "Güle güle! İyi günler!",
+          "translation": "Bye! Have a good day!"
+        }
+      ],
+      "note": "Literally 'go laughing' — said by the person who stays behind."
+    },
+    {
+      "id": "tr_0008",
+      "unit": "u1",
+      "lemma": "Görüşürüz",
+      "translit": "gur-rew-shew-REWZ",
+      "translation": "see you later",
+      "category": "Greetings",
+      "difficulty": 2,
+      "frequencyRank": 101,
+      "examples": [
+        {
+          "native": "Görüşürüz!",
+          "translation": "See you later!"
+        }
+      ]
+    },
+    {
+      "id": "tr_0009",
+      "unit": "u1",
+      "lemma": "Nasılsın?",
+      "translit": "NA-suhl-suhn",
+      "translation": "how are you?",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "Merhaba, nasılsın?",
+          "translation": "Hello, how are you?"
+        }
+      ],
+      "note": "Formal / plural: Nasılsınız?"
+    },
+    {
+      "id": "tr_0010",
+      "unit": "u1",
+      "lemma": "İyiyim",
+      "translit": "ee-YEE-yim",
+      "translation": "I'm fine",
+      "category": "Greetings",
+      "difficulty": 1,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "İyiyim, teşekkürler. Sen?",
+          "translation": "I'm fine, thanks. You?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0011",
+      "unit": "u2",
+      "lemma": "Teşekkür ederim",
+      "translit": "teh-shek-KEWR eh-deh-REEM",
+      "translation": "thank you",
+      "category": "Politeness",
+      "difficulty": 1,
+      "frequencyRank": 10,
+      "examples": [
+        {
+          "native": "Teşekkür ederim!",
+          "translation": "Thank you!"
+        }
+      ],
+      "note": "Literally 'I give my thanks'."
+    },
+    {
+      "id": "tr_0012",
+      "unit": "u2",
+      "lemma": "Teşekkürler",
+      "translit": "teh-shek-kewr-LEHR",
+      "translation": "thanks",
+      "category": "Politeness",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "Çok teşekkürler!",
+          "translation": "Thanks very much!"
+        }
+      ]
+    },
+    {
+      "id": "tr_0013",
+      "unit": "u2",
+      "lemma": "Rica ederim",
+      "translit": "ree-JAH eh-deh-REEM",
+      "translation": "you're welcome",
+      "category": "Politeness",
+      "difficulty": 1,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "— Teşekkürler! — Rica ederim.",
+          "translation": "— Thanks! — You're welcome."
+        }
+      ]
+    },
+    {
+      "id": "tr_0014",
+      "unit": "u2",
+      "lemma": "Lütfen",
+      "translit": "LEWT-fen",
+      "translation": "please",
+      "category": "Politeness",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "Su, lütfen.",
+          "translation": "Water, please."
+        }
+      ]
+    },
+    {
+      "id": "tr_0015",
+      "unit": "u2",
+      "lemma": "Evet",
+      "translit": "eh-VET",
+      "translation": "yes",
+      "category": "Politeness",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "Evet, tamam.",
+          "translation": "Yes, okay."
+        }
+      ]
+    },
+    {
+      "id": "tr_0016",
+      "unit": "u2",
+      "lemma": "Hayır",
+      "translit": "HAH-yuhr",
+      "translation": "no",
+      "category": "Politeness",
+      "difficulty": 1,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "Hayır, teşekkür ederim.",
+          "translation": "No, thank you."
+        }
+      ]
+    },
+    {
+      "id": "tr_0017",
+      "unit": "u2",
+      "lemma": "Affedersiniz",
+      "translit": "af-feh-DEHR-see-neez",
+      "translation": "excuse me / sorry",
+      "category": "Politeness",
+      "difficulty": 2,
+      "frequencyRank": 102,
+      "examples": [
+        {
+          "native": "Affedersiniz, tuvalet nerede?",
+          "translation": "Excuse me, where is the bathroom?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0018",
+      "unit": "u2",
+      "lemma": "Tamam",
+      "translit": "tah-MAHM",
+      "translation": "okay",
+      "category": "Politeness",
+      "difficulty": 1,
+      "frequencyRank": 16,
+      "examples": [
+        {
+          "native": "Tamam, görüşürüz!",
+          "translation": "Okay, see you!"
+        }
+      ]
+    },
+    {
+      "id": "tr_0019",
+      "unit": "u2",
+      "lemma": "Hoş geldiniz",
+      "translit": "hosh gel-dee-NEEZ",
+      "translation": "welcome",
+      "category": "Politeness",
+      "difficulty": 2,
+      "frequencyRank": 103,
+      "examples": [
+        {
+          "native": "Hoş geldiniz!",
+          "translation": "Welcome!"
+        }
+      ],
+      "note": "The set reply is 'Hoş bulduk' — 'we found it well'."
+    },
+    {
+      "id": "tr_0020",
+      "unit": "u2",
+      "lemma": "Memnun oldum",
+      "translit": "mem-NOON ol-DOOM",
+      "translation": "nice to meet you",
+      "category": "Politeness",
+      "difficulty": 2,
+      "frequencyRank": 104,
+      "examples": [
+        {
+          "native": "Memnun oldum!",
+          "translation": "Nice to meet you!"
+        }
+      ]
+    },
+    {
+      "id": "tr_0021",
+      "unit": "u3",
+      "lemma": "bir",
+      "translit": "beer",
+      "translation": "one",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "Bir kedim var.",
+          "translation": "I have one cat."
+        }
+      ]
+    },
+    {
+      "id": "tr_0022",
+      "unit": "u3",
+      "lemma": "iki",
+      "translit": "ee-KEE",
+      "translation": "two",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 23,
+      "examples": [
+        {
+          "native": "İki ekmek, lütfen.",
+          "translation": "Two breads, please."
+        }
+      ]
+    },
+    {
+      "id": "tr_0023",
+      "unit": "u3",
+      "lemma": "üç",
+      "translit": "ewch",
+      "translation": "three",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "Üç kardeşim var.",
+          "translation": "I have three siblings."
+        }
+      ]
+    },
+    {
+      "id": "tr_0024",
+      "unit": "u3",
+      "lemma": "dört",
+      "translit": "durt",
+      "translation": "four",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Dört kişi var.",
+          "translation": "There are four people."
+        }
+      ]
+    },
+    {
+      "id": "tr_0025",
+      "unit": "u3",
+      "lemma": "beş",
+      "translit": "besh",
+      "translation": "five",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "Beş yaşındayım.",
+          "translation": "I am five years old."
+        }
+      ]
+    },
+    {
+      "id": "tr_0026",
+      "unit": "u3",
+      "lemma": "altı",
+      "translit": "al-TUH",
+      "translation": "six",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 27,
+      "examples": [
+        {
+          "native": "Altı kişi var.",
+          "translation": "There are six people."
+        }
+      ]
+    },
+    {
+      "id": "tr_0027",
+      "unit": "u3",
+      "lemma": "yedi",
+      "translit": "yeh-DEE",
+      "translation": "seven",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "Haftada yedi gün var.",
+          "translation": "There are seven days in a week."
+        }
+      ]
+    },
+    {
+      "id": "tr_0028",
+      "unit": "u3",
+      "lemma": "sekiz",
+      "translit": "seh-KEEZ",
+      "translation": "eight",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 29,
+      "examples": [
+        {
+          "native": "Sekiz öğrenci var.",
+          "translation": "There are eight students."
+        }
+      ]
+    },
+    {
+      "id": "tr_0029",
+      "unit": "u3",
+      "lemma": "dokuz",
+      "translit": "doh-KOOZ",
+      "translation": "nine",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "Saat dokuz.",
+          "translation": "It is nine o'clock."
+        }
+      ]
+    },
+    {
+      "id": "tr_0030",
+      "unit": "u3",
+      "lemma": "on",
+      "translit": "ohn",
+      "translation": "ten",
+      "category": "Numbers",
+      "difficulty": 1,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "On elma var.",
+          "translation": "There are ten apples."
+        }
+      ]
+    },
+    {
+      "id": "tr_0031",
+      "unit": "u4",
+      "lemma": "anne",
+      "translit": "AN-neh",
+      "translation": "mother",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "Annem öğretmen.",
+          "translation": "My mother is a teacher."
+        }
+      ],
+      "note": "'Annem' = my mother — the -m suffix means 'my'."
+    },
+    {
+      "id": "tr_0032",
+      "unit": "u4",
+      "lemma": "baba",
+      "translit": "bah-BAH",
+      "translation": "father",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "Babam doktor.",
+          "translation": "My father is a doctor."
+        }
+      ]
+    },
+    {
+      "id": "tr_0033",
+      "unit": "u4",
+      "lemma": "kardeş",
+      "translit": "kar-DESH",
+      "translation": "sibling",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "Üç kardeşim var.",
+          "translation": "I have three siblings."
+        }
+      ],
+      "note": "Ask back: 'Kaç kardeşin var?' — how many siblings do you have?"
+    },
+    {
+      "id": "tr_0034",
+      "unit": "u4",
+      "lemma": "abi",
+      "translit": "ah-BEE",
+      "translation": "older brother",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 106,
+      "examples": [
+        {
+          "native": "Abi, merhaba!",
+          "translation": "Hello, big brother!"
+        }
+      ],
+      "note": "Also a warm, respectful way to address any slightly older man."
+    },
+    {
+      "id": "tr_0035",
+      "unit": "u4",
+      "lemma": "abla",
+      "translit": "ab-LAH",
+      "translation": "older sister",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 107,
+      "examples": [
+        {
+          "native": "Abla, teşekkürler!",
+          "translation": "Thanks, big sister!"
+        }
+      ],
+      "note": "Also used respectfully for any slightly older woman."
+    },
+    {
+      "id": "tr_0036",
+      "unit": "u4",
+      "lemma": "dede",
+      "translit": "deh-DEH",
+      "translation": "grandfather",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 108,
+      "examples": [
+        {
+          "native": "Dedem evde.",
+          "translation": "My grandfather is at home."
+        }
+      ]
+    },
+    {
+      "id": "tr_0037",
+      "unit": "u4",
+      "lemma": "aile",
+      "translit": "ah-ee-LEH",
+      "translation": "family",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "Bu benim ailem.",
+          "translation": "This is my family."
+        }
+      ]
+    },
+    {
+      "id": "tr_0038",
+      "unit": "u4",
+      "lemma": "arkadaş",
+      "translit": "ar-kah-DASH",
+      "translation": "friend",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "Arkadaşım ile geldim.",
+          "translation": "I came with my friend."
+        }
+      ]
+    },
+    {
+      "id": "tr_0039",
+      "unit": "u4",
+      "lemma": "çocuk",
+      "translit": "cho-JOOK",
+      "translation": "child",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 37,
+      "examples": [
+        {
+          "native": "Çocuk okulda.",
+          "translation": "The child is at school."
+        }
+      ]
+    },
+    {
+      "id": "tr_0040",
+      "unit": "u4",
+      "lemma": "kız",
+      "translit": "kuhz",
+      "translation": "girl / daughter",
+      "category": "Family",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "Kızım beş yaşında.",
+          "translation": "My daughter is five years old."
+        }
+      ]
+    },
+    {
+      "id": "tr_0041",
+      "unit": "u5",
+      "lemma": "su",
+      "translit": "soo",
+      "translation": "water",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "Su, lütfen.",
+          "translation": "Water, please."
+        }
+      ]
+    },
+    {
+      "id": "tr_0042",
+      "unit": "u5",
+      "lemma": "çay",
+      "translit": "chai",
+      "translation": "tea",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "Çay, lütfen.",
+          "translation": "Tea, please."
+        }
+      ],
+      "note": "Tea is the heart of Turkish hospitality — expect to be offered it everywhere."
+    },
+    {
+      "id": "tr_0043",
+      "unit": "u5",
+      "lemma": "kahve",
+      "translit": "kah-VEH",
+      "translation": "coffee",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "Kahve, lütfen.",
+          "translation": "Coffee, please."
+        }
+      ],
+      "note": "A Turkish saying: one cup of coffee is remembered for forty years."
+    },
+    {
+      "id": "tr_0044",
+      "unit": "u5",
+      "lemma": "ekmek",
+      "translit": "ek-MEK",
+      "translation": "bread",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "İki ekmek, lütfen.",
+          "translation": "Two breads, please."
+        }
+      ]
+    },
+    {
+      "id": "tr_0045",
+      "unit": "u5",
+      "lemma": "süt",
+      "translit": "sewt",
+      "translation": "milk",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "Süt, lütfen.",
+          "translation": "Milk, please."
+        }
+      ]
+    },
+    {
+      "id": "tr_0046",
+      "unit": "u5",
+      "lemma": "peynir",
+      "translit": "pay-NEER",
+      "translation": "cheese",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "Peynir çok güzel.",
+          "translation": "The cheese is very good."
+        }
+      ]
+    },
+    {
+      "id": "tr_0047",
+      "unit": "u5",
+      "lemma": "elma",
+      "translit": "el-MAH",
+      "translation": "apple",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 47,
+      "examples": [
+        {
+          "native": "Ben bir elma yedim.",
+          "translation": "I ate an apple."
+        }
+      ]
+    },
+    {
+      "id": "tr_0048",
+      "unit": "u5",
+      "lemma": "et",
+      "translit": "et",
+      "translation": "meat",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 109,
+      "examples": [
+        {
+          "native": "Et, lütfen.",
+          "translation": "Meat, please."
+        }
+      ]
+    },
+    {
+      "id": "tr_0049",
+      "unit": "u5",
+      "lemma": "balık",
+      "translit": "bah-LUHK",
+      "translation": "fish",
+      "category": "Food",
+      "difficulty": 2,
+      "frequencyRank": 110,
+      "examples": [
+        {
+          "native": "Balık çok güzel.",
+          "translation": "The fish is very good."
+        }
+      ]
+    },
+    {
+      "id": "tr_0050",
+      "unit": "u5",
+      "lemma": "yemek",
+      "translit": "yeh-MEK",
+      "translation": "food / meal",
+      "category": "Food",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Yemek çok güzel!",
+          "translation": "The food is very good!"
+        },
+        {
+          "native": "Yemek çok güzel",
+          "translation": "The food is very good"
+        }
+      ],
+      "note": "Also the verb 'to eat' — context tells you which.",
+      "pronunciation": "yeh-MEK"
+    },
+    {
+      "id": "tr_0051",
+      "unit": "u6",
+      "lemma": "gitmek",
+      "translit": "git-MEK",
+      "translation": "to go",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 113,
+      "examples": [
+        {
+          "native": "Ali okula gidiyor.",
+          "translation": "Ali is going to school."
+        }
+      ]
+    },
+    {
+      "id": "tr_0052",
+      "unit": "u6",
+      "lemma": "gelmek",
+      "translit": "gel-MEK",
+      "translation": "to come",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 114,
+      "examples": [
+        {
+          "native": "Arkadaşım ile geldim.",
+          "translation": "I came with my friend."
+        }
+      ]
+    },
+    {
+      "id": "tr_0053",
+      "unit": "u6",
+      "lemma": "yapmak",
+      "translit": "yap-MAK",
+      "translation": "to do / make",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Yemek yapmak güzel.",
+          "translation": "Cooking food is nice."
+        },
+        {
+          "native": "Ne yapıyorsun?",
+          "translation": "What are you doing?"
+        }
+      ],
+      "pronunciation": "YAP-mak"
+    },
+    {
+      "id": "tr_0054",
+      "unit": "u6",
+      "lemma": "içmek",
+      "translit": "eech-MEK",
+      "translation": "to drink",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 116,
+      "examples": [
+        {
+          "native": "Çay içerim.",
+          "translation": "I drink tea."
+        }
+      ]
+    },
+    {
+      "id": "tr_0055",
+      "unit": "u6",
+      "lemma": "okumak",
+      "translit": "oh-koo-MAK",
+      "translation": "to read",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 117,
+      "examples": [
+        {
+          "native": "Ben kitap okuyorum.",
+          "translation": "I am reading a book."
+        }
+      ]
+    },
+    {
+      "id": "tr_0056",
+      "unit": "u6",
+      "lemma": "istemek",
+      "translit": "ees-teh-MEK",
+      "translation": "to want",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 118,
+      "examples": [
+        {
+          "native": "Gitmek istiyorum.",
+          "translation": "I want to go."
+        }
+      ]
+    },
+    {
+      "id": "tr_0057",
+      "unit": "u6",
+      "lemma": "almak",
+      "translit": "al-MAK",
+      "translation": "to take / buy",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 119,
+      "examples": [
+        {
+          "native": "Defteri aldım.",
+          "translation": "I took the notebook."
+        },
+        {
+          "native": "Bir bilet aldım",
+          "translation": "I bought a ticket"
+        }
+      ],
+      "pronunciation": "AL-mak"
+    },
+    {
+      "id": "tr_0058",
+      "unit": "u6",
+      "lemma": "görmek",
+      "translit": "gur-MEK",
+      "translation": "to see",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "Seni görüyorum.",
+          "translation": "I see you."
+        }
+      ],
+      "note": "'Görüşürüz' (see you later) comes from this verb."
+    },
+    {
+      "id": "tr_0059",
+      "unit": "u6",
+      "lemma": "sevmek",
+      "translit": "sev-MEK",
+      "translation": "to love / like",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 121,
+      "examples": [
+        {
+          "native": "Seni seviyorum.",
+          "translation": "I love you."
+        }
+      ]
+    },
+    {
+      "id": "tr_0060",
+      "unit": "u6",
+      "lemma": "konuşmak",
+      "translit": "koh-noosh-MAK",
+      "translation": "to speak",
+      "category": "Verbs",
+      "difficulty": 2,
+      "frequencyRank": 122,
+      "examples": [
+        {
+          "native": "Türkçe konuşuyorum.",
+          "translation": "I speak Turkish."
+        }
+      ]
+    },
+    {
+      "id": "tr_0061",
+      "unit": "u7",
+      "lemma": "ev",
+      "translit": "ev",
+      "translation": "house / home",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 49,
+      "examples": [
+        {
+          "native": "Kedi evde.",
+          "translation": "The cat is at home."
+        },
+        {
+          "native": "Evdeyim",
+          "translation": "I'm at home"
+        }
+      ],
+      "note": "evde = at home. The -de suffix means 'at/in' — no preposition needed.",
+      "pronunciation": "EV"
+    },
+    {
+      "id": "tr_0062",
+      "unit": "u7",
+      "lemma": "okul",
+      "translit": "oh-KOOL",
+      "translation": "school",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "Okul bugün başladı.",
+          "translation": "School started today."
+        }
+      ]
+    },
+    {
+      "id": "tr_0063",
+      "unit": "u7",
+      "lemma": "şehir",
+      "translit": "sheh-HEER",
+      "translation": "city",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "Şehir çok büyük.",
+          "translation": "The city is very big."
+        }
+      ]
+    },
+    {
+      "id": "tr_0064",
+      "unit": "u7",
+      "lemma": "market",
+      "translit": "mar-KET",
+      "translation": "grocery store",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 51,
+      "examples": [
+        {
+          "native": "Market nerede?",
+          "translation": "Where is the grocery store?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0065",
+      "unit": "u7",
+      "lemma": "restoran",
+      "translit": "res-toh-RAHN",
+      "translation": "restaurant",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 52,
+      "examples": [
+        {
+          "native": "Restoran nerede?",
+          "translation": "Where is the restaurant?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0066",
+      "unit": "u7",
+      "lemma": "hastane",
+      "translit": "has-tah-NEH",
+      "translation": "hospital",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 131,
+      "examples": [
+        {
+          "native": "Hastane nerede?",
+          "translation": "Where is the hospital?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0067",
+      "unit": "u7",
+      "lemma": "otobüs",
+      "translit": "oh-toh-BEWS",
+      "translation": "bus",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 53,
+      "examples": [
+        {
+          "native": "Otobüs nerede?",
+          "translation": "Where is the bus?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0068",
+      "unit": "u7",
+      "lemma": "yol",
+      "translit": "yohl",
+      "translation": "road / way",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 132,
+      "examples": [
+        {
+          "native": "Yol çok eski.",
+          "translation": "The road is very old."
+        }
+      ]
+    },
+    {
+      "id": "tr_0069",
+      "unit": "u7",
+      "lemma": "iş",
+      "translit": "eesh",
+      "translation": "work / job",
+      "category": "Places",
+      "difficulty": 2,
+      "frequencyRank": 133,
+      "examples": [
+        {
+          "native": "İş bugün başladı.",
+          "translation": "Work started today."
+        },
+        {
+          "native": "İşim bitti",
+          "translation": "My work is done"
+        }
+      ],
+      "pronunciation": "EESH"
+    },
+    {
+      "id": "tr_0070",
+      "unit": "u7",
+      "lemma": "kitap",
+      "translit": "kee-TAHP",
+      "translation": "book",
+      "category": "Places",
+      "difficulty": 1,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "Ben kitap okuyorum.",
+          "translation": "I am reading a book."
+        }
+      ],
+      "note": "Plural: kitaplar — the suffix vowel matches the word (vowel harmony)."
+    },
+    {
+      "id": "tr_0071",
+      "unit": "u8",
+      "lemma": "güzel",
+      "translit": "gew-ZEL",
+      "translation": "beautiful / nice",
+      "category": "Adjectives",
+      "difficulty": 1,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "Film güzel.",
+          "translation": "The film is nice."
+        }
+      ],
+      "note": "Turkish needs no 'is' here — 'Film güzel' is a complete sentence."
+    },
+    {
+      "id": "tr_0072",
+      "unit": "u8",
+      "lemma": "büyük",
+      "translit": "bew-YEWK",
+      "translation": "big",
+      "category": "Adjectives",
+      "difficulty": 1,
+      "frequencyRank": 57,
+      "examples": [
+        {
+          "native": "Büyük ev.",
+          "translation": "A big house."
+        }
+      ],
+      "note": "Adjectives come before the noun, like English."
+    },
+    {
+      "id": "tr_0073",
+      "unit": "u8",
+      "lemma": "küçük",
+      "translit": "kew-CHEWK",
+      "translation": "small",
+      "category": "Adjectives",
+      "difficulty": 1,
+      "frequencyRank": 58,
+      "examples": [
+        {
+          "native": "Küçük kedi.",
+          "translation": "A small cat."
+        }
+      ]
+    },
+    {
+      "id": "tr_0074",
+      "unit": "u8",
+      "lemma": "iyi",
+      "translit": "ee-YEE",
+      "translation": "good",
+      "category": "Adjectives",
+      "difficulty": 1,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "Çok iyi!",
+          "translation": "Very good!"
+        }
+      ]
+    },
+    {
+      "id": "tr_0075",
+      "unit": "u8",
+      "lemma": "kötü",
+      "translit": "kur-TEW",
+      "translation": "bad",
+      "category": "Adjectives",
+      "difficulty": 1,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "Film kötü.",
+          "translation": "The film is bad."
+        }
+      ]
+    },
+    {
+      "id": "tr_0076",
+      "unit": "u8",
+      "lemma": "yeni",
+      "translit": "yeh-NEE",
+      "translation": "new",
+      "category": "Adjectives",
+      "difficulty": 1,
+      "frequencyRank": 61,
+      "examples": [
+        {
+          "native": "Yeni ev çok güzel.",
+          "translation": "The new house is very nice."
+        }
+      ]
+    },
+    {
+      "id": "tr_0077",
+      "unit": "u8",
+      "lemma": "eski",
+      "translit": "es-KEE",
+      "translation": "old (things)",
+      "category": "Adjectives",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "Eski kitap.",
+          "translation": "An old book."
+        }
+      ]
+    },
+    {
+      "id": "tr_0078",
+      "unit": "u8",
+      "lemma": "sıcak",
+      "translit": "suh-JAHK",
+      "translation": "hot",
+      "category": "Adjectives",
+      "difficulty": 1,
+      "frequencyRank": 63,
+      "examples": [
+        {
+          "native": "Çay sıcak.",
+          "translation": "The tea is hot."
+        }
+      ]
+    },
+    {
+      "id": "tr_0079",
+      "unit": "u8",
+      "lemma": "soğuk",
+      "translit": "soh-OOK",
+      "translation": "cold",
+      "category": "Adjectives",
+      "difficulty": 1,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "Su soğuk.",
+          "translation": "The water is cold."
+        }
+      ]
+    },
+    {
+      "id": "tr_0080",
+      "unit": "u8",
+      "lemma": "çok",
+      "translit": "chok",
+      "translation": "very / much",
+      "category": "Adjectives",
+      "difficulty": 1,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "Çok teşekkürler!",
+          "translation": "Thanks very much!"
+        },
+        {
+          "native": "Çok iyi",
+          "translation": "Very good"
+        }
+      ],
+      "pronunciation": "CHOK"
+    },
+    {
+      "id": "tr_0081",
+      "unit": "u9",
+      "lemma": "bugün",
+      "translit": "boo-GEWN",
+      "translation": "today",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 67,
+      "examples": [
+        {
+          "native": "Okul bugün başladı.",
+          "translation": "School started today."
+        }
+      ]
+    },
+    {
+      "id": "tr_0082",
+      "unit": "u9",
+      "lemma": "yarın",
+      "translit": "YAH-ruhn",
+      "translation": "tomorrow",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 68,
+      "examples": [
+        {
+          "native": "Yarın görüşürüz!",
+          "translation": "See you tomorrow!"
+        }
+      ]
+    },
+    {
+      "id": "tr_0083",
+      "unit": "u9",
+      "lemma": "dün",
+      "translit": "dewn",
+      "translation": "yesterday",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "Dün geldim.",
+          "translation": "I came yesterday."
+        }
+      ]
+    },
+    {
+      "id": "tr_0084",
+      "unit": "u9",
+      "lemma": "şimdi",
+      "translit": "SHIM-dee",
+      "translation": "now",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 70,
+      "examples": [
+        {
+          "native": "Şimdi gidiyorum.",
+          "translation": "I am going now."
+        }
+      ]
+    },
+    {
+      "id": "tr_0085",
+      "unit": "u9",
+      "lemma": "sonra",
+      "translit": "SOHN-rah",
+      "translation": "later / after",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "Sonra görüşürüz.",
+          "translation": "See you later."
+        }
+      ]
+    },
+    {
+      "id": "tr_0086",
+      "unit": "u9",
+      "lemma": "gün",
+      "translit": "gewn",
+      "translation": "day",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 72,
+      "examples": [
+        {
+          "native": "Haftada yedi gün var.",
+          "translation": "There are seven days in a week."
+        }
+      ]
+    },
+    {
+      "id": "tr_0087",
+      "unit": "u9",
+      "lemma": "hafta",
+      "translit": "haf-TAH",
+      "translation": "week",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "Haftada yedi gün var.",
+          "translation": "There are seven days in a week."
+        }
+      ]
+    },
+    {
+      "id": "tr_0088",
+      "unit": "u9",
+      "lemma": "saat",
+      "translit": "sah-AHT",
+      "translation": "hour / clock",
+      "category": "Time",
+      "difficulty": 1,
+      "frequencyRank": 74,
+      "examples": [
+        {
+          "native": "Saat dokuz.",
+          "translation": "It is nine o'clock."
+        }
+      ]
+    },
+    {
+      "id": "tr_0089",
+      "unit": "u10",
+      "lemma": "Ne kadar?",
+      "translit": "neh kah-DAR",
+      "translation": "how much?",
+      "category": "Survival",
+      "difficulty": 1,
+      "frequencyRank": 77,
+      "examples": [
+        {
+          "native": "Bu ne kadar?",
+          "translation": "How much is this?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0090",
+      "unit": "u10",
+      "lemma": "Hesap lütfen",
+      "translit": "heh-SAHP lewt-fen",
+      "translation": "the bill, please",
+      "category": "Survival",
+      "difficulty": 1,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Hesap lütfen!",
+          "translation": "The bill, please!"
+        }
+      ]
+    },
+    {
+      "id": "tr_0091",
+      "unit": "u10",
+      "lemma": "Afiyet olsun",
+      "translit": "ah-fee-YET ol-SOON",
+      "translation": "bon appétit",
+      "category": "Survival",
+      "difficulty": 1,
+      "frequencyRank": 79,
+      "examples": [
+        {
+          "native": "Afiyet olsun!",
+          "translation": "Enjoy your meal!"
+        }
+      ],
+      "note": "Said before, during, or after a meal — you'll hear it constantly."
+    },
+    {
+      "id": "tr_0092",
+      "unit": "u10",
+      "lemma": "Buyurun",
+      "translit": "BOO-yoo-roon",
+      "translation": "here you are / go ahead",
+      "category": "Survival",
+      "difficulty": 2,
+      "frequencyRank": 135,
+      "examples": [
+        {
+          "native": "Buyurun!",
+          "translation": "Here you are!"
+        }
+      ],
+      "note": "An all-purpose word: 'welcome in', 'here you go', 'after you'."
+    },
+    {
+      "id": "tr_0093",
+      "unit": "u10",
+      "lemma": "Anlamıyorum",
+      "translit": "an-LAH-muh-yoh-room",
+      "translation": "I don't understand",
+      "category": "Survival",
+      "difficulty": 1,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "Anlamıyorum, affedersiniz.",
+          "translation": "I don't understand, sorry."
+        }
+      ]
+    },
+    {
+      "id": "tr_0094",
+      "unit": "u10",
+      "lemma": "Bilmiyorum",
+      "translit": "BIL-mee-yoh-room",
+      "translation": "I don't know",
+      "category": "Survival",
+      "difficulty": 1,
+      "frequencyRank": 81,
+      "examples": [
+        {
+          "native": "Bilmiyorum.",
+          "translation": "I don't know."
+        }
+      ]
+    },
+    {
+      "id": "tr_0095",
+      "unit": "u10",
+      "lemma": "Nerede?",
+      "translit": "NEH-reh-deh",
+      "translation": "where?",
+      "category": "Survival",
+      "difficulty": 1,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "Tuvalet nerede?",
+          "translation": "Where is the bathroom?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0096",
+      "unit": "u10",
+      "lemma": "para",
+      "translit": "pah-RAH",
+      "translation": "money",
+      "category": "Survival",
+      "difficulty": 1,
+      "frequencyRank": 83,
+      "examples": [
+        {
+          "native": "Para nerede?",
+          "translation": "Where is the money?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0097",
+      "unit": "u10",
+      "lemma": "menü",
+      "translit": "meh-NEW",
+      "translation": "menu",
+      "category": "Survival",
+      "difficulty": 1,
+      "frequencyRank": 84,
+      "examples": [
+        {
+          "native": "Menü alabilir miyim lütfen?",
+          "translation": "Can I have a menu, please?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0098",
+      "unit": "u10",
+      "lemma": "ve",
+      "translit": "ve",
+      "pronunciation": "VEH",
+      "translation": "and",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "çay ve kahve",
+          "translation": "Tea and coffee"
+        }
+      ],
+      "frequencyRank": 136
+    },
+    {
+      "id": "tr_0099",
+      "unit": "u10",
+      "lemma": "ama",
+      "translit": "ama",
+      "pronunciation": "ah-MAH",
+      "translation": "but",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "küçük ama güzel",
+          "translation": "Small but beautiful"
+        }
+      ],
+      "frequencyRank": 137
+    },
+    {
+      "id": "tr_0100",
+      "unit": "u10",
+      "lemma": "çünkü",
+      "translit": "cunku",
+      "pronunciation": "CHEWN-kew",
+      "translation": "because",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "yorgunum çünkü iş çok",
+          "translation": "I'm tired because there's a lot of work"
+        }
+      ],
+      "frequencyRank": 138
+    },
+    {
+      "id": "tr_0101",
+      "unit": "u10",
+      "lemma": "veya",
+      "translit": "veya",
+      "pronunciation": "veh-YAH",
+      "translation": "or",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "çay veya kahve",
+          "translation": "Tea or coffee"
+        }
+      ],
+      "frequencyRank": 139
+    },
+    {
+      "id": "tr_0102",
+      "unit": "u10",
+      "lemma": "ayrıca",
+      "translit": "ayrica",
+      "pronunciation": "eye-rih-JAH",
+      "translation": "also, too",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "ben de ayrıca",
+          "translation": "Me too"
+        }
+      ],
+      "frequencyRank": 140
+    },
+    {
+      "id": "tr_0103",
+      "unit": "u10",
+      "lemma": "eğer",
+      "translit": "eger",
+      "pronunciation": "eh-YEHR",
+      "translation": "if",
+      "category": "Connectors",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "eğer istersen",
+          "translation": "If you want"
+        }
+      ],
+      "frequencyRank": 141
+    },
+    {
+      "id": "tr_0104",
+      "unit": "u10",
+      "lemma": "araba",
+      "translit": "araba",
+      "pronunciation": "ah-rah-BAH",
+      "translation": "car",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "arabam",
+          "translation": "My car"
+        }
+      ],
+      "frequencyRank": 142
+    },
+    {
+      "id": "tr_0105",
+      "unit": "u10",
+      "lemma": "minibüs",
+      "translit": "minibus",
+      "pronunciation": "MEE-nee-bews",
+      "translation": "minibus, shared van",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "minibüse bin",
+          "translation": "Take the minibus"
+        }
+      ],
+      "frequencyRank": 143
+    },
+    {
+      "id": "tr_0106",
+      "unit": "u10",
+      "lemma": "tren",
+      "translit": "tren",
+      "pronunciation": "TREN",
+      "translation": "train",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "tren hızlı",
+          "translation": "The train is fast"
+        }
+      ],
+      "frequencyRank": 144
+    },
+    {
+      "id": "tr_0107",
+      "unit": "u10",
+      "lemma": "taksi",
+      "translit": "taksi",
+      "pronunciation": "tahk-SEE",
+      "translation": "taxi",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "taksi çağır",
+          "translation": "Call a taxi"
+        }
+      ],
+      "frequencyRank": 145
+    },
+    {
+      "id": "tr_0108",
+      "unit": "u10",
+      "lemma": "havalimanı",
+      "translit": "havalimani",
+      "pronunciation": "hah-vah-lee-mah-NUH",
+      "translation": "airport",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "havalimanına gitmek",
+          "translation": "Going to the airport"
+        }
+      ],
+      "frequencyRank": 146
+    },
+    {
+      "id": "tr_0109",
+      "unit": "u10",
+      "lemma": "sağ",
+      "translit": "sag",
+      "pronunciation": "SAH",
+      "translation": "right (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "sağa dön",
+          "translation": "Turn right"
+        },
+        {
+          "native": "Sağ tarafta",
+          "translation": "On the right side"
+        }
+      ],
+      "frequencyRank": 147
+    },
+    {
+      "id": "tr_0110",
+      "unit": "u10",
+      "lemma": "sol",
+      "translit": "sol",
+      "pronunciation": "SOL",
+      "translation": "left (direction)",
+      "category": "Transport",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "sola dön",
+          "translation": "Turn left"
+        },
+        {
+          "native": "Soldan dönün",
+          "translation": "Turn left"
+        }
+      ],
+      "frequencyRank": 148
+    },
+    {
+      "id": "tr_0111",
+      "unit": "u10",
+      "lemma": "otel",
+      "translit": "otel",
+      "pronunciation": "oh-TEL",
+      "translation": "hotel",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "iyi bir otel",
+          "translation": "A good hotel"
+        }
+      ],
+      "frequencyRank": 149
+    },
+    {
+      "id": "tr_0112",
+      "unit": "u10",
+      "lemma": "bilet",
+      "translit": "bilet",
+      "pronunciation": "bee-LET",
+      "translation": "ticket",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "bir bilet lütfen",
+          "translation": "One ticket please"
+        }
+      ],
+      "frequencyRank": 150
+    },
+    {
+      "id": "tr_0113",
+      "unit": "u10",
+      "lemma": "pasaport",
+      "translit": "pasaport",
+      "pronunciation": "pah-sah-PORT",
+      "translation": "passport",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "pasaportum",
+          "translation": "My passport"
+        }
+      ],
+      "frequencyRank": 151
+    },
+    {
+      "id": "tr_0114",
+      "unit": "u10",
+      "lemma": "istasyon",
+      "translit": "istasyon",
+      "pronunciation": "ees-tahs-YOHN",
+      "translation": "station",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "otobüs istasyonu",
+          "translation": "The bus station"
+        }
+      ],
+      "frequencyRank": 152
+    },
+    {
+      "id": "tr_0115",
+      "unit": "u10",
+      "lemma": "harita",
+      "translit": "harita",
+      "pronunciation": "hah-ree-TAH",
+      "translation": "map",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "bana harita ver",
+          "translation": "Give me a map"
+        }
+      ],
+      "frequencyRank": 153
+    },
+    {
+      "id": "tr_0116",
+      "unit": "u10",
+      "lemma": "yakın",
+      "translit": "yakin",
+      "pronunciation": "yah-KUHN",
+      "translation": "near",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "otele yakın",
+          "translation": "Near the hotel"
+        }
+      ],
+      "frequencyRank": 154
+    },
+    {
+      "id": "tr_0117",
+      "unit": "u10",
+      "lemma": "uzak",
+      "translit": "uzak",
+      "pronunciation": "oo-ZAHK",
+      "translation": "far",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "çok uzak",
+          "translation": "Very far"
+        }
+      ],
+      "frequencyRank": 155
+    },
+    {
+      "id": "tr_0118",
+      "unit": "u10",
+      "lemma": "dosdoğru",
+      "translit": "dosdogru",
+      "pronunciation": "dohs-doh-ROO",
+      "translation": "straight ahead",
+      "category": "Travel",
+      "difficulty": 2,
+      "tags": [
+        "travel-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "dosdoğru git",
+          "translation": "Go straight ahead"
+        }
+      ],
+      "frequencyRank": 156
+    },
+    {
+      "id": "tr_0119",
+      "unit": "u11",
+      "lemma": "baş",
+      "translit": "baş",
+      "pronunciation": "BAHSH",
+      "translation": "head",
+      "category": "Body",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Başım ağrıyor.",
+          "translation": "My head hurts."
+        }
+      ],
+      "frequencyRank": 160
+    },
+    {
+      "id": "tr_0120",
+      "unit": "u11",
+      "lemma": "el",
+      "translit": "el",
+      "pronunciation": "EL",
+      "translation": "hand",
+      "category": "Body",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Elini yıka.",
+          "translation": "Wash your hand."
+        }
+      ],
+      "frequencyRank": 161
+    },
+    {
+      "id": "tr_0121",
+      "unit": "u11",
+      "lemma": "göz",
+      "translit": "göz",
+      "pronunciation": "GOEZ",
+      "translation": "eye",
+      "category": "Body",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Gözlerim yorgun.",
+          "translation": "My eyes are tired."
+        }
+      ],
+      "frequencyRank": 162
+    },
+    {
+      "id": "tr_0122",
+      "unit": "u11",
+      "lemma": "kalp",
+      "translit": "kalp",
+      "pronunciation": "KALP",
+      "translation": "heart",
+      "category": "Body",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Kalbim hızlı atıyor.",
+          "translation": "My heart is beating fast."
+        }
+      ],
+      "frequencyRank": 163
+    },
+    {
+      "id": "tr_0123",
+      "unit": "u11",
+      "lemma": "ayak",
+      "translit": "ayak",
+      "pronunciation": "ah-YAHK",
+      "translation": "foot",
+      "category": "Body",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Ayağım soğuk.",
+          "translation": "My foot is cold."
+        }
+      ],
+      "frequencyRank": 164
+    },
+    {
+      "id": "tr_0124",
+      "unit": "u11",
+      "lemma": "mutlu",
+      "translit": "mutlu",
+      "pronunciation": "moot-LOO",
+      "translation": "happy",
+      "category": "Feelings",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Bugün çok mutluyum.",
+          "translation": "I'm very happy today."
+        }
+      ],
+      "frequencyRank": 165
+    },
+    {
+      "id": "tr_0125",
+      "unit": "u11",
+      "lemma": "yorgun",
+      "translit": "yorgun",
+      "pronunciation": "yor-GOON",
+      "translation": "tired",
+      "category": "Feelings",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Çok yorgunum.",
+          "translation": "I'm very tired."
+        }
+      ],
+      "frequencyRank": 166
+    },
+    {
+      "id": "tr_0126",
+      "unit": "u11",
+      "lemma": "üzgün",
+      "translit": "üzgün",
+      "pronunciation": "uez-GUEN",
+      "translation": "sad",
+      "category": "Feelings",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Üzgün görünüyorsun.",
+          "translation": "You look sad."
+        }
+      ],
+      "frequencyRank": 167
+    },
+    {
+      "id": "tr_0127",
+      "unit": "u11",
+      "lemma": "aç",
+      "translit": "aç",
+      "pronunciation": "AHCH",
+      "translation": "hungry",
+      "category": "Feelings",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Ben açım.",
+          "translation": "I'm hungry."
+        }
+      ],
+      "frequencyRank": 168
+    },
+    {
+      "id": "tr_0128",
+      "unit": "u11",
+      "lemma": "susuz",
+      "translit": "susuz",
+      "pronunciation": "soo-SOOZ",
+      "translation": "thirsty",
+      "category": "Feelings",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Susuzum, su lütfen.",
+          "translation": "I'm thirsty, water please."
+        }
+      ],
+      "frequencyRank": 169
+    },
+    {
+      "id": "tr_0129",
+      "unit": "u12",
+      "lemma": "güneş",
+      "translit": "güneş",
+      "pronunciation": "gue-NESH",
+      "translation": "sun",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Bugün güneş var.",
+          "translation": "There's sun today."
+        }
+      ],
+      "frequencyRank": 170
+    },
+    {
+      "id": "tr_0130",
+      "unit": "u12",
+      "lemma": "yağmur",
+      "translit": "yağmur",
+      "pronunciation": "yah-MOOR",
+      "translation": "rain",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Yağmur yağıyor.",
+          "translation": "It's raining."
+        }
+      ],
+      "frequencyRank": 171
+    },
+    {
+      "id": "tr_0131",
+      "unit": "u12",
+      "lemma": "kar",
+      "translit": "kar",
+      "pronunciation": "KAHR",
+      "translation": "snow",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Kışın kar yağar.",
+          "translation": "It snows in winter."
+        }
+      ],
+      "frequencyRank": 172
+    },
+    {
+      "id": "tr_0132",
+      "unit": "u12",
+      "lemma": "rüzgar",
+      "translit": "rüzgar",
+      "pronunciation": "ruez-GAHR",
+      "translation": "wind",
+      "category": "Weather",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Rüzgar çok güçlü.",
+          "translation": "The wind is very strong."
+        }
+      ],
+      "frequencyRank": 173
+    },
+    {
+      "id": "tr_0133",
+      "unit": "u12",
+      "lemma": "gökyüzü",
+      "translit": "gökyüzü",
+      "pronunciation": "goek-yue-ZUE",
+      "translation": "sky",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Gökyüzü mavi.",
+          "translation": "The sky is blue."
+        }
+      ],
+      "frequencyRank": 174
+    },
+    {
+      "id": "tr_0134",
+      "unit": "u12",
+      "lemma": "deniz",
+      "translit": "deniz",
+      "pronunciation": "de-NEEZ",
+      "translation": "sea",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Deniz çok güzel.",
+          "translation": "The sea is very beautiful."
+        }
+      ],
+      "frequencyRank": 175
+    },
+    {
+      "id": "tr_0135",
+      "unit": "u12",
+      "lemma": "ağaç",
+      "translit": "ağaç",
+      "pronunciation": "ah-AHCH",
+      "translation": "tree",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Bahçede bir ağaç var.",
+          "translation": "There is a tree in the garden."
+        }
+      ],
+      "frequencyRank": 176
+    },
+    {
+      "id": "tr_0136",
+      "unit": "u12",
+      "lemma": "dağ",
+      "translit": "dağ",
+      "pronunciation": "DAH",
+      "translation": "mountain",
+      "category": "Nature",
+      "difficulty": 2,
+      "tags": [
+        "nature-pack-v1"
+      ],
+      "examples": [
+        {
+          "native": "Dağ çok yüksek.",
+          "translation": "The mountain is very high."
+        }
+      ],
+      "frequencyRank": 177
+    },
+    {
+      "id": "tr_0137",
+      "lemma": "ben",
+      "translit": "ben",
+      "pronunciation": "BEN",
+      "translation": "I",
+      "category": "People",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Ben hazırım",
+          "translation": "I'm ready"
+        }
+      ],
+      "frequencyRank": 17
+    },
+    {
+      "id": "tr_0138",
+      "lemma": "sen",
+      "translit": "sen",
+      "pronunciation": "SEN",
+      "translation": "you (informal)",
+      "category": "People",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Sen nerelisin?",
+          "translation": "Where are you from?"
+        }
+      ],
+      "frequencyRank": 18
+    },
+    {
+      "id": "tr_0139",
+      "lemma": "özür dilerim",
+      "translit": "özür dilerim",
+      "pronunciation": "er-ZUER dee-LEH-rim",
+      "translation": "sorry",
+      "category": "Greetings",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Özür dilerim, geç kaldım",
+          "translation": "Sorry, I'm late"
+        }
+      ],
+      "frequencyRank": 19
+    },
+    {
+      "id": "tr_0140",
+      "lemma": "bilmek",
+      "translit": "bilmek",
+      "pronunciation": "BEEL-mek",
+      "translation": "to know",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Bilmiyorum",
+          "translation": "I don't know"
+        }
+      ],
+      "frequencyRank": 123
+    },
+    {
+      "id": "tr_0141",
+      "lemma": "söylemek",
+      "translit": "söylemek",
+      "pronunciation": "SER-yle-mek",
+      "translation": "to say",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Ne söyledin?",
+          "translation": "What did you say?"
+        }
+      ],
+      "frequencyRank": 124
+    },
+    {
+      "id": "tr_0142",
+      "lemma": "vermek",
+      "translit": "vermek",
+      "pronunciation": "VER-mek",
+      "translation": "to give",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Bana ver",
+          "translation": "Give it to me"
+        }
+      ],
+      "frequencyRank": 125
+    },
+    {
+      "id": "tr_0143",
+      "lemma": "yardım",
+      "translit": "yardım",
+      "pronunciation": "YAR-duhm",
+      "translation": "help",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Yardım eder misiniz?",
+          "translation": "Could you help?"
+        }
+      ],
+      "frequencyRank": 85
+    },
+    {
+      "id": "tr_0144",
+      "lemma": "anlamak",
+      "translit": "anlamak",
+      "pronunciation": "AN-la-mak",
+      "translation": "to understand",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Anlamıyorum",
+          "translation": "I don't understand"
+        }
+      ],
+      "frequencyRank": 126
+    },
+    {
+      "id": "tr_0145",
+      "lemma": "zaman",
+      "translit": "zaman",
+      "pronunciation": "za-MAN",
+      "translation": "time",
+      "category": "Time",
+      "difficulty": 1,
+      "unit": "u9",
+      "examples": [
+        {
+          "native": "Zamanım yok",
+          "translation": "I don't have time"
+        }
+      ],
+      "frequencyRank": 75
+    },
+    {
+      "id": "tr_0146",
+      "lemma": "burada",
+      "translit": "burada",
+      "pronunciation": "BOO-ra-da",
+      "translation": "here",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Ben buradayım",
+          "translation": "I'm here"
+        }
+      ],
+      "frequencyRank": 86
+    },
+    {
+      "id": "tr_0147",
+      "lemma": "orada",
+      "translit": "orada",
+      "pronunciation": "O-ra-da",
+      "translation": "there",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Eczane orada",
+          "translation": "The pharmacy is there"
+        }
+      ],
+      "frequencyRank": 87
+    },
+    {
+      "id": "tr_0148",
+      "lemma": "ne",
+      "translit": "ne",
+      "pronunciation": "NEH",
+      "translation": "what",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Bu ne?",
+          "translation": "What is this?"
+        }
+      ],
+      "frequencyRank": 88
+    },
+    {
+      "id": "tr_0149",
+      "lemma": "nerede",
+      "translit": "nerede",
+      "pronunciation": "NEH-reh-deh",
+      "translation": "where",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Tuvalet nerede?",
+          "translation": "Where is the toilet?"
+        }
+      ],
+      "frequencyRank": 89
+    },
+    {
+      "id": "tr_0150",
+      "lemma": "ne zaman",
+      "translit": "ne zaman",
+      "pronunciation": "neh za-MAN",
+      "translation": "when",
+      "category": "Time",
+      "difficulty": 1,
+      "unit": "u9",
+      "examples": [
+        {
+          "native": "Ne zaman geliyorsun?",
+          "translation": "When are you coming?"
+        }
+      ],
+      "frequencyRank": 76
+    },
+    {
+      "id": "tr_0151",
+      "lemma": "neden",
+      "translit": "neden",
+      "pronunciation": "NEH-den",
+      "translation": "why",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Neden olmasın?",
+          "translation": "Why not?"
+        }
+      ],
+      "frequencyRank": 90
+    },
+    {
+      "id": "tr_0152",
+      "lemma": "nasıl",
+      "translit": "nasıl",
+      "pronunciation": "NA-suhl",
+      "translation": "how",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Nasıl çalışıyor?",
+          "translation": "How does it work?"
+        }
+      ],
+      "frequencyRank": 91
+    },
+    {
+      "id": "tr_0153",
+      "lemma": "kim",
+      "translit": "kim",
+      "pronunciation": "KEEM",
+      "translation": "who",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Bu kim?",
+          "translation": "Who is this?"
+        }
+      ],
+      "frequencyRank": 92
+    },
+    {
+      "id": "tr_0154",
+      "lemma": "adam",
+      "translit": "adam",
+      "pronunciation": "a-DAM",
+      "translation": "man",
+      "category": "People",
+      "difficulty": 1,
+      "unit": "u4",
+      "examples": [
+        {
+          "native": "O adam kardeşim",
+          "translation": "That man is my brother"
+        }
+      ],
+      "frequencyRank": 39
+    },
+    {
+      "id": "tr_0155",
+      "lemma": "kadın",
+      "translit": "kadın",
+      "pronunciation": "ka-DUHN",
+      "translation": "woman",
+      "category": "People",
+      "difficulty": 1,
+      "unit": "u4",
+      "examples": [
+        {
+          "native": "O kadın doktor",
+          "translation": "That woman is a doctor"
+        }
+      ],
+      "frequencyRank": 40
+    },
+    {
+      "id": "tr_0156",
+      "lemma": "fiyat",
+      "translit": "fiyat",
+      "pronunciation": "fee-YAT",
+      "translation": "price",
+      "category": "Common",
+      "difficulty": 2,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Fiyatı ne kadar?",
+          "translation": "What's the price?"
+        }
+      ],
+      "frequencyRank": 157
+    },
+    {
+      "id": "tr_0157",
+      "lemma": "açmak",
+      "translit": "açmak",
+      "pronunciation": "ACH-mak",
+      "translation": "to open",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Kapıyı aç",
+          "translation": "Open the door"
+        }
+      ],
+      "frequencyRank": 127
+    },
+    {
+      "id": "tr_0158",
+      "lemma": "ile",
+      "translit": "ile",
+      "pronunciation": "ee-LEH",
+      "translation": "with",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Sütlü kahve",
+          "translation": "Coffee with milk"
+        }
+      ],
+      "frequencyRank": 93
+    },
+    {
+      "id": "tr_0159",
+      "lemma": "isim",
+      "translit": "isim",
+      "pronunciation": "ee-SEEM",
+      "translation": "name",
+      "category": "About You",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "İsminiz ne?",
+          "translation": "What's your name?"
+        }
+      ],
+      "frequencyRank": 20
+    },
+    {
+      "id": "tr_0160",
+      "lemma": "hasta",
+      "translit": "hasta",
+      "pronunciation": "HAS-ta",
+      "translation": "sick, ill",
+      "category": "Body",
+      "difficulty": 1,
+      "unit": "u11",
+      "examples": [
+        {
+          "native": "Hastayım",
+          "translation": "I'm ill"
+        }
+      ],
+      "frequencyRank": 99
+    },
+    {
+      "id": "tr_0161",
+      "lemma": "doktor",
+      "translit": "doktor",
+      "pronunciation": "DOK-tor",
+      "translation": "doctor",
+      "category": "Body",
+      "difficulty": 1,
+      "unit": "u11",
+      "examples": [
+        {
+          "native": "Doktora ihtiyacım var",
+          "translation": "I need a doctor"
+        }
+      ],
+      "frequencyRank": 100
+    },
+    {
+      "id": "tr_0162",
+      "lemma": "tuvalet",
+      "translit": "tuvalet",
+      "pronunciation": "too-va-LET",
+      "translation": "bathroom, toilet",
+      "category": "Places",
+      "difficulty": 1,
+      "unit": "u7",
+      "examples": [
+        {
+          "native": "Tuvalet nerede?",
+          "translation": "Where is the toilet?"
+        }
+      ],
+      "frequencyRank": 55
+    },
+    {
+      "id": "tr_0163",
+      "lemma": "yiyecek",
+      "translit": "yiyecek",
+      "pronunciation": "yee-yeh-JEK",
+      "translation": "food",
+      "category": "Food",
+      "difficulty": 2,
+      "unit": "u5",
+      "examples": [
+        {
+          "native": "Yiyecek var mı?",
+          "translation": "Is there any food?"
+        }
+      ],
+      "frequencyRank": 111
+    },
+    {
+      "id": "tr_0164",
+      "lemma": "var",
+      "translit": "var",
+      "pronunciation": "VAR",
+      "translation": "to have, there is",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Zamanım var",
+          "translation": "I have time"
+        }
+      ],
+      "frequencyRank": 94
+    },
+    {
+      "id": "tr_0165",
+      "lemma": "ihtiyaç",
+      "translit": "ihtiyaç",
+      "pronunciation": "eeh-tee-YACH",
+      "translation": "need",
+      "category": "Common",
+      "difficulty": 2,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Yardıma ihtiyacım var",
+          "translation": "I need help"
+        }
+      ],
+      "frequencyRank": 158
+    },
+    {
+      "id": "tr_0166",
+      "lemma": "satın almak",
+      "translit": "satın almak",
+      "pronunciation": "sa-TUHN al-MAK",
+      "translation": "to buy",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Ekmek satın aldım",
+          "translation": "I bought bread"
+        }
+      ],
+      "frequencyRank": 128
+    },
+    {
+      "id": "tr_0167",
+      "lemma": "daha",
+      "translit": "daha",
+      "pronunciation": "da-HA",
+      "translation": "more",
+      "category": "Common",
+      "difficulty": 1,
+      "unit": "u8",
+      "examples": [
+        {
+          "native": "Biraz daha",
+          "translation": "A little more"
+        }
+      ],
+      "frequencyRank": 66
+    },
+    {
+      "id": "tr_0168",
+      "lemma": "olmadan",
+      "translit": "olmadan",
+      "pronunciation": "ol-ma-DAN",
+      "translation": "without",
+      "category": "Connectors",
+      "difficulty": 2,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Şekersiz, şeker olmadan",
+          "translation": "Without sugar"
+        }
+      ],
+      "frequencyRank": 159
+    },
+    {
+      "id": "tr_0169",
+      "lemma": "değil",
+      "translit": "değil",
+      "pronunciation": "deh-EEL",
+      "translation": "not",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Bu doğru değil",
+          "translation": "That's not right"
+        }
+      ],
+      "frequencyRank": 95
+    },
+    {
+      "id": "tr_0170",
+      "lemma": "hepsi",
+      "translit": "hepsi",
+      "pronunciation": "HEP-see",
+      "translation": "all, everything",
+      "category": "Connectors",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Hepsi iyi",
+          "translation": "Everything is fine"
+        }
+      ],
+      "frequencyRank": 96
+    },
+    {
+      "id": "tr_0171",
+      "lemma": "siz",
+      "translit": "siz",
+      "pronunciation": "SEEZ",
+      "translation": "you (formal/plural)",
+      "category": "People",
+      "difficulty": 1,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Siz nerelisiniz?",
+          "translation": "Where are you from?"
+        }
+      ],
+      "frequencyRank": 21
+    },
+    {
+      "id": "tr_0172",
+      "lemma": "yemek yemek",
+      "translit": "yemek yemek",
+      "pronunciation": "yeh-MEK yeh-MEK",
+      "translation": "to eat",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u5",
+      "examples": [
+        {
+          "native": "Yemek yedin mi?",
+          "translation": "Have you eaten?"
+        }
+      ],
+      "frequencyRank": 112
+    },
+    {
+      "id": "tr_0173",
+      "lemma": "etmek",
+      "translit": "etmek",
+      "pronunciation": "ET-mek",
+      "translation": "to do",
+      "category": "Verbs",
+      "difficulty": 2,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Yardım eder misin?",
+          "translation": "Would you help?"
+        }
+      ],
+      "frequencyRank": 129
+    },
+    {
+      "id": "tr_0174",
+      "lemma": "oluşturmak",
+      "translit": "oluşturmak",
+      "pronunciation": "o-loosh-toor-MAK",
+      "translation": "to make, to create",
+      "category": "Verbs",
+      "difficulty": 3,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Bir plan oluşturalım",
+          "translation": "Let's make a plan"
+        }
+      ],
+      "frequencyRank": 178
+    },
+    {
+      "id": "tr_0175",
+      "lemma": "-abilmek",
+      "translit": "-abilmek",
+      "pronunciation": "a-BEEL-mek",
+      "translation": "to be able to, can",
+      "category": "Verbs",
+      "difficulty": 3,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Gidebilirim",
+          "translation": "I can go"
+        }
+      ],
+      "frequencyRank": 179
+    },
+    {
+      "id": "tr_0176",
+      "lemma": "götürmek",
+      "translit": "götürmek",
+      "pronunciation": "ger-tuer-MEK",
+      "translation": "to take (along)",
+      "category": "Verbs",
+      "difficulty": 3,
+      "unit": "u6",
+      "examples": [
+        {
+          "native": "Seni götürebilirim",
+          "translation": "I can take you"
+        }
+      ],
+      "frequencyRank": 180
+    },
+    {
+      "id": "tr_0177",
+      "lemma": "meslek",
+      "translit": "meslek",
+      "pronunciation": "mes-LEK",
+      "translation": "job, profession",
+      "category": "Common",
+      "difficulty": 2,
+      "unit": "u2",
+      "examples": [
+        {
+          "native": "Mesleğiniz ne?",
+          "translation": "What's your profession?"
+        }
+      ],
+      "frequencyRank": 105
+    },
+    {
+      "id": "tr_0178",
+      "lemma": "çok fazla",
+      "translit": "çok fazla",
+      "pronunciation": "CHOK faz-LA",
+      "translation": "very much, a lot",
+      "category": "Common",
+      "difficulty": 2,
+      "unit": "u8",
+      "examples": [
+        {
+          "native": "Çok fazla var",
+          "translation": "There's a lot"
+        }
+      ],
+      "frequencyRank": 134
+    },
+    {
+      "id": "tr_0179",
+      "lemma": "solda",
+      "translit": "solda",
+      "pronunciation": "sol-DA",
+      "translation": "on the left",
+      "category": "Travel",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Solda duruyor",
+          "translation": "It's on the left"
+        }
+      ],
+      "frequencyRank": 97
+    },
+    {
+      "id": "tr_0180",
+      "lemma": "sağda",
+      "translit": "sağda",
+      "pronunciation": "saa-DA",
+      "translation": "on the right",
+      "category": "Travel",
+      "difficulty": 1,
+      "unit": "u10",
+      "examples": [
+        {
+          "native": "Sağda göreceksin",
+          "translation": "You'll see it on the right"
+        }
+      ],
+      "frequencyRank": 98
+    },
+    {
+      "id": "tr_0181",
+      "unit": "u4",
+      "lemma": "amca",
+      "translation": "uncle (father's brother)",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "Amcam İstanbul'da yaşıyor",
+          "translation": "My uncle lives in Istanbul"
+        }
+      ],
+      "note": "Turkish also marks the side of the family: amca is your father's brother, dayı your mother's."
+    },
+    {
+      "id": "tr_0182",
+      "unit": "u4",
+      "lemma": "dayı",
+      "translation": "uncle (mother's brother)",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "Dayım geldi",
+          "translation": "My uncle (mother's brother) has come"
+        }
+      ]
+    },
+    {
+      "id": "tr_0183",
+      "unit": "u4",
+      "lemma": "teyze",
+      "translation": "aunt (mother's sister)",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "Teyzem çok iyi",
+          "translation": "My aunt is very kind"
+        }
+      ]
+    },
+    {
+      "id": "tr_0184",
+      "unit": "u4",
+      "lemma": "hala",
+      "translation": "aunt (father's sister)",
+      "category": "Family",
+      "difficulty": 2,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "Halam yarın gelecek",
+          "translation": "My aunt will come tomorrow"
+        }
+      ]
+    }
+  ]
 }
