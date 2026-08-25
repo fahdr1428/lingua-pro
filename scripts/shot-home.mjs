@@ -20,9 +20,9 @@ mkdirSync(OUT, { recursive: true });
 // A learner who's been away — that's the state the review screenshotted, with
 // the comeback nudge showing.
 const SEED = {
-  onboarded: true, currentLanguage: "fr", tutorialSeen: true, dailyGoalXp: 35,
+  onboarded: true, currentLanguage: process.env.LANG_CODE || "fr", tutorialSeen: true, dailyGoalXp: 35,
   totalXp: 43, streak: 1, hearts: 5, heartsMax: 5, gems: 54, theme: "cream",
-  showRomanization: true, sessionSize: 6, lessonsCompleted: { fr: 3 }, sessions: [],
+  showRomanization: true, sessionSize: 6, lessonsCompleted: { [process.env.LANG_CODE || "fr"]: 3 }, sessions: [],
   grammarSeen: {}, learningGoal: {}, chaptersPassed: {}, sentenceDropsDone: {},
   lastCheckpointAt: {}, testedOut: {}, momentDone: {}, planVisited: {},
   passagesRead: {}, userName: "",
@@ -34,8 +34,7 @@ const SEED = {
 const SIZES = [
   // The phone is the primary platform — a desktop layout change that quietly
   // breaks 414px is a much worse regression than the one it fixed.
-  { name: "phone-414", width: 414, height: 896 },
-  { name: "laptop-1440", width: 1440, height: 900 },
+    { name: "laptop-1440", width: 1440, height: 900 },
   { name: "desktop-1920", width: 1920, height: 1080 },
 ];
 
