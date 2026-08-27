@@ -104,52 +104,62 @@
     {
       "char": "A",
       "name": "A",
-      "sound": "ah"
+      "sound": "ah",
+      "group": "accents"
     },
     {
       "char": "É",
       "name": "E aigu",
-      "sound": "ay"
+      "sound": "ay",
+      "group": "accents"
     },
     {
       "char": "È",
       "name": "E grave",
-      "sound": "eh"
+      "sound": "eh",
+      "group": "accents"
     },
     {
       "char": "Ç",
       "name": "C cédille",
-      "sound": "s"
+      "sound": "s",
+      "group": "accents"
     },
     {
       "char": "OU",
       "name": "OU",
-      "sound": "oo"
+      "sound": "oo",
+      "group": "combos"
     },
     {
       "char": "EU",
       "name": "EU",
-      "sound": "uh (rounded)"
+      "sound": "uh (rounded)",
+      "group": "combos"
     },
     {
       "char": "AN",
       "name": "AN",
-      "sound": "ahn (nasal)"
+      "sound": "ahn (nasal)",
+      "group": "nasal"
     },
     {
       "char": "ON",
       "name": "ON",
-      "sound": "ohn (nasal)"
+      "sound": "ohn (nasal)",
+      "group": "nasal"
     },
     {
       "char": "IN",
       "name": "IN",
-      "sound": "ahn (nasal)"
+      "sound": "ahn (nasal)",
+      "group": "nasal"
     },
     {
       "char": "R",
       "name": "R",
-      "sound": "guttural"
+      "sound": "guttural",
+      "group": "nasal"
     }
   ],
   "frameworks": [
@@ -3108,6 +3118,26 @@
           "translation": "My cousin arrives tomorrow"
         }
       ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "accents",
+      "title": "Accented letters",
+      "emoji": "🅰️",
+      "description": "A, É, È, Ç — what the marks change"
+    },
+    {
+      "id": "combos",
+      "title": "Letter pairs",
+      "emoji": "🔠",
+      "description": "OU, EU — two letters, one sound"
+    },
+    {
+      "id": "nasal",
+      "title": "Nasal vowels",
+      "emoji": "👃",
+      "description": "AN, ON, IN — and the French R"
     }
   ]
 }

@@ -14,6 +14,11 @@ const NON_LATIN_LANGUAGES = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "
 // localStorage key for tracking which groups are completed (per language)
 const STORAGE_KEY = "alphabet_progress";
 
+// Languages genuinely written in the Latin alphabet. Used only to decide which
+// honest message to show when a pack has no alphabet data — never to decide
+// whether to teach one.
+const LATIN_SCRIPT = new Set(["es", "fr", "de", "id", "tr", "pcm", "tl", "so"]);
+
 function loadProgress() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch { return {}; }
 }
@@ -60,12 +65,33 @@ export function AlphabetLessons({ pack, appState, onNavigate }) {
         </p>
 
         {groups.length === 0 ? (
+          /* v90 — THIS USED TO LIE.
+             The message was hardcoded to "{lang.name} uses the Latin alphabet,
+             so you're already set!" and shown for ANY language with no alphabet
+             data. Malayalam, Tamil and Persian all shipped without it, so a
+             learner who came specifically to learn to read the script their
+             family writes in was told there was nothing to learn and sent away.
+             It now checks whether the language is actually Latin-script, and
+             says the honest thing when it isn't. */
           <Card style={{ textAlign: "center", padding: 30 }}>
             <div style={{ fontSize: 50, marginBottom: 12 }}>📚</div>
-            <div style={{ fontWeight: 800, marginBottom: 6 }}>No alphabet lessons for {lang.name} yet</div>
-            <div style={{ fontSize: 13, color: "var(--text-dim)" }}>
-              {lang.name} uses the Latin alphabet, so you're already set! Head back to start learning vocabulary.
-            </div>
+            {LATIN_SCRIPT.has(pack.code) ? (
+              <>
+                <div style={{ fontWeight: 800, marginBottom: 6 }}>{lang.name} uses letters you already read</div>
+                <div style={{ fontSize: 13, color: "var(--text-dim)" }}>
+                  Nothing new to decode here — head back and start on the words.
+                </div>
+              </>
+            ) : (
+              <>
+                <div style={{ fontWeight: 800, marginBottom: 6 }}>The {lang.name} script isn't written up yet</div>
+                <div style={{ fontSize: 13, color: "var(--text-dim)" }}>
+                  {lang.name} doesn't use the Latin alphabet, so this is a real gap
+                  rather than nothing to teach. Every word in the course carries a
+                  romanisation, so you can keep learning while this is written.
+                </div>
+              </>
+            )}
           </Card>
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>

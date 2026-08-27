@@ -23,27 +23,32 @@
     {
       "char": "A",
       "name": "A",
-      "sound": "ah"
+      "sound": "ah",
+      "group": "vowels"
     },
     {
       "char": "E",
       "name": "E",
-      "sound": "eh"
+      "sound": "eh",
+      "group": "vowels"
     },
     {
       "char": "I",
       "name": "I",
-      "sound": "ee"
+      "sound": "ee",
+      "group": "vowels"
     },
     {
       "char": "O",
       "name": "O",
-      "sound": "oh"
+      "sound": "oh",
+      "group": "vowels"
     },
     {
       "char": "U",
       "name": "U",
-      "sound": "oo"
+      "sound": "oo",
+      "group": "vowels"
     }
   ],
   "frameworks": [
@@ -2582,6 +2587,14 @@
           "translation": "Grandmother knows plenty of stories"
         }
       ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "vowels",
+      "title": "Five vowels",
+      "emoji": "🅰️",
+      "description": "A, E, I, O, U — pure, never gliding"
     }
   ]
 }

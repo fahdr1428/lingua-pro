@@ -65,7 +65,60 @@
       "description": "Numbers, time, getting somewhere"
     }
   ],
-  "alphabet": [],
+  "alphabet": [
+    {
+      "char": "ng",
+      "name": "ng",
+      "sound": "ng as in 'singer' — and it can START a word",
+      "group": "surprises",
+      "note": "Tagalog treats ng as a single letter, and unlike English it can begin a word: 'ngayon' (now), 'ngiti' (smile). English speakers find a word-initial ng almost impossible at first; practise by saying 'singing' and then dropping the 'si'."
+    },
+    {
+      "char": "ng (the word)",
+      "name": "nang",
+      "sound": "the marker word, said 'nang'",
+      "group": "surprises",
+      "note": "Confusingly, 'ng' is also a grammatical word — and it is pronounced 'nang', not spelled that way. It marks the non-focus participant in a sentence."
+    },
+    {
+      "char": "'",
+      "name": "glottal stop",
+      "sound": "a catch in the throat, usually not written",
+      "group": "surprises",
+      "note": "Many Tagalog words end in a catch that the spelling does not show. 'Bata' (child) ends with one; 'bata' (bathrobe) does not. Native speakers hear the difference immediately."
+    },
+    {
+      "char": "a",
+      "name": "a",
+      "sound": "ah as in 'father' — never the a of 'cat'",
+      "group": "vowels"
+    },
+    {
+      "char": "e",
+      "name": "e",
+      "sound": "eh as in 'bed'",
+      "group": "vowels"
+    },
+    {
+      "char": "i",
+      "name": "i",
+      "sound": "ee as in 'see' — never the i of 'sit'",
+      "group": "vowels"
+    },
+    {
+      "char": "o",
+      "name": "o",
+      "sound": "oh as in 'go'",
+      "group": "vowels"
+    },
+    {
+      "char": "u",
+      "name": "u",
+      "sound": "oo as in 'moon'",
+      "group": "vowels",
+      "note": "Tagalog vowels are pure and never glide. English 'go' slides from o toward u; Tagalog 'o' holds one sound the whole way through."
+    }
+  ],
   "frameworks": [],
   "vocab": [
     {
@@ -1955,6 +2008,20 @@
         }
       ],
       "frequencyRank": 125
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "surprises",
+      "title": "What's different",
+      "emoji": "⚠️",
+      "description": "ng as one letter, and the glottal stop nobody writes"
+    },
+    {
+      "id": "vowels",
+      "title": "Five clean vowels",
+      "emoji": "🅰️",
+      "description": "a, e, i, o, u — each one sound, always"
     }
   ]
 }

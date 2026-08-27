@@ -27,42 +27,50 @@
     {
       "char": "C c",
       "name": "Ce",
-      "sound": "j as in 'jam' — Turkish 'cami' sounds like 'jah-mee'"
+      "sound": "j as in 'jam' — Turkish 'cami' sounds like 'jah-mee'",
+      "group": "special"
     },
     {
       "char": "Ç ç",
       "name": "Çe",
-      "sound": "ch as in 'chair'"
+      "sound": "ch as in 'chair'",
+      "group": "special"
     },
     {
       "char": "Ğ ğ",
       "name": "Yumuşak ge",
-      "sound": "soft g — silent, it just lengthens the vowel before it"
+      "sound": "soft g — silent, it just lengthens the vowel before it",
+      "group": "special"
     },
     {
       "char": "I ı",
       "name": "I (undotted)",
-      "sound": "uh — a relaxed 'schwa' sound, like the a in 'about'"
+      "sound": "uh — a relaxed 'schwa' sound, like the a in 'about'",
+      "group": "dotted"
     },
     {
       "char": "İ i",
       "name": "İ (dotted)",
-      "sound": "ee as in 'see'"
+      "sound": "ee as in 'see'",
+      "group": "dotted"
     },
     {
       "char": "Ö ö",
       "name": "Ö",
-      "sound": "like the 'u' in 'fur' with rounded lips"
+      "sound": "like the 'u' in 'fur' with rounded lips",
+      "group": "special"
     },
     {
       "char": "Ş ş",
       "name": "Şe",
-      "sound": "sh as in 'shoe'"
+      "sound": "sh as in 'shoe'",
+      "group": "special"
     },
     {
       "char": "Ü ü",
       "name": "Ü",
-      "sound": "say 'ee' with tightly rounded lips"
+      "sound": "say 'ee' with tightly rounded lips",
+      "group": "special"
     }
   ],
   "frameworks": [
@@ -3354,6 +3362,20 @@
           "translation": "My aunt will come tomorrow"
         }
       ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "dotted",
+      "title": "The two i's",
+      "emoji": "⚠️",
+      "description": "I, ı, İ, i — Turkish has a dotted and an undotted i, and they are different letters"
+    },
+    {
+      "id": "special",
+      "title": "Turkish letters",
+      "emoji": "🔤",
+      "description": "Ç, Ğ, Ö, Ş, Ü — the ones not in English"
     }
   ]
 }

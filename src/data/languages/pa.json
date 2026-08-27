@@ -23,72 +23,86 @@
     {
       "char": "ا",
       "name": "Alif",
-      "sound": "a (long)"
+      "sound": "a (long)",
+      "group": "basics"
     },
     {
       "char": "ب",
       "name": "Be",
-      "sound": "b"
+      "sound": "b",
+      "group": "basics"
     },
     {
       "char": "پ",
       "name": "Pe",
-      "sound": "p"
+      "sound": "p",
+      "group": "basics"
     },
     {
       "char": "ت",
       "name": "Te",
-      "sound": "t (dental)"
+      "sound": "t (dental)",
+      "group": "basics"
     },
     {
       "char": "ٹ",
       "name": "Tte",
-      "sound": "t (retroflex)"
+      "sound": "t (retroflex)",
+      "group": "tricky"
     },
     {
       "char": "س",
       "name": "Sin",
-      "sound": "s"
+      "sound": "s",
+      "group": "basics"
     },
     {
       "char": "ش",
       "name": "Shin",
-      "sound": "sh"
+      "sound": "sh",
+      "group": "tricky"
     },
     {
       "char": "ک",
       "name": "Kaf",
-      "sound": "k"
+      "sound": "k",
+      "group": "common"
     },
     {
       "char": "گ",
       "name": "Gaf",
-      "sound": "g"
+      "sound": "g",
+      "group": "common"
     },
     {
       "char": "ل",
       "name": "Lam",
-      "sound": "l"
+      "sound": "l",
+      "group": "common"
     },
     {
       "char": "م",
       "name": "Mim",
-      "sound": "m"
+      "sound": "m",
+      "group": "common"
     },
     {
       "char": "ن",
       "name": "Nun",
-      "sound": "n"
+      "sound": "n",
+      "group": "common"
     },
     {
       "char": "ہ",
       "name": "He",
-      "sound": "h"
+      "sound": "h",
+      "group": "tricky"
     },
     {
       "char": "ی",
       "name": "Ye",
-      "sound": "y / ee"
+      "sound": "y / ee",
+      "group": "common"
     }
   ],
   "frameworks": [
@@ -2705,6 +2719,26 @@
           "translation": "I am hungry"
         }
       ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "basics",
+      "title": "The first letters",
+      "emoji": "🔤",
+      "description": "ا, ب, ت, س — start here, right to left"
+    },
+    {
+      "id": "common",
+      "title": "Everyday letters",
+      "emoji": "🔠",
+      "description": "ک, گ, ل, م, ن — the workhorses"
+    },
+    {
+      "id": "tricky",
+      "title": "The retroflex ones",
+      "emoji": "🎯",
+      "description": "ٹ, ش, ہ — sounds English doesn't have"
     }
   ]
 }

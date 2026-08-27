@@ -104,52 +104,62 @@
     {
       "char": "A",
       "name": "A",
-      "sound": "ah (always)"
+      "sound": "ah (always)",
+      "group": "vowels"
     },
     {
       "char": "E",
       "name": "E",
-      "sound": "eh"
+      "sound": "eh",
+      "group": "vowels"
     },
     {
       "char": "I",
       "name": "I",
-      "sound": "ee"
+      "sound": "ee",
+      "group": "vowels"
     },
     {
       "char": "O",
       "name": "O",
-      "sound": "oh"
+      "sound": "oh",
+      "group": "vowels"
     },
     {
       "char": "U",
       "name": "U",
-      "sound": "oo"
+      "sound": "oo",
+      "group": "vowels"
     },
     {
       "char": "Ñ",
       "name": "Eñe",
-      "sound": "ny (canyon)"
+      "sound": "ny (canyon)",
+      "group": "tricky"
     },
     {
       "char": "LL",
       "name": "Doble L",
-      "sound": "y"
+      "sound": "y",
+      "group": "tricky"
     },
     {
       "char": "RR",
       "name": "Doble R",
-      "sound": "rolled r"
+      "sound": "rolled r",
+      "group": "tricky"
     },
     {
       "char": "J",
       "name": "Jota",
-      "sound": "h (guttural)"
+      "sound": "h (guttural)",
+      "group": "tricky"
     },
     {
       "char": "H",
       "name": "Hache",
-      "sound": "silent"
+      "sound": "silent",
+      "group": "tricky"
     }
   ],
   "frameworks": [
@@ -3316,6 +3326,20 @@
           "translation": "My cousin is ten years old"
         }
       ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "vowels",
+      "title": "The five vowels",
+      "emoji": "🅰️",
+      "description": "A, E, I, O, U — each one sound, always"
+    },
+    {
+      "id": "tricky",
+      "title": "Sounds to watch",
+      "emoji": "🎯",
+      "description": "Ñ, LL, RR, J, H — where English speakers slip"
     }
   ]
 }

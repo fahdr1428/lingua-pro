@@ -100,72 +100,86 @@
     {
       "char": "ä",
       "name": "a-umlaut",
-      "sound": "eh, as in 'bed' — Bär sounds like 'bair'"
+      "sound": "eh, as in 'bed' — Bär sounds like 'bair'",
+      "group": "umlauts"
     },
     {
       "char": "ö",
       "name": "o-umlaut",
-      "sound": "like the 'i' in 'bird', lips rounded — schön"
+      "sound": "like the 'i' in 'bird', lips rounded — schön",
+      "group": "umlauts"
     },
     {
       "char": "ü",
       "name": "u-umlaut",
-      "sound": "say 'ee' with rounded lips — für, über"
+      "sound": "say 'ee' with rounded lips — für, über",
+      "group": "umlauts"
     },
     {
       "char": "ß",
       "name": "eszett",
-      "sound": "a sharp 's'. Never a 'b'. Straße = 'SHTRAH-suh'"
+      "sound": "a sharp 's'. Never a 'b'. Straße = 'SHTRAH-suh'",
+      "group": "umlauts"
     },
     {
       "char": "ei",
       "name": "ei",
-      "sound": "rhymes with 'eye' — nein, drei"
+      "sound": "rhymes with 'eye' — nein, drei",
+      "group": "combos"
     },
     {
       "char": "ie",
       "name": "ie",
-      "sound": "rhymes with 'see' — bier, vier. The opposite of ei."
+      "sound": "rhymes with 'see' — bier, vier. The opposite of ei.",
+      "group": "combos"
     },
     {
       "char": "eu",
       "name": "eu",
-      "sound": "'oy' as in 'boy' — neun, Freund"
+      "sound": "'oy' as in 'boy' — neun, Freund",
+      "group": "combos"
     },
     {
       "char": "ch",
       "name": "ch",
-      "sound": "after a/o/u it's throaty (Bach); after e/i it's soft (ich)"
+      "sound": "after a/o/u it's throaty (Bach); after e/i it's soft (ich)",
+      "group": "combos"
     },
     {
       "char": "sp",
       "name": "sp-",
-      "sound": "at the start of a word it's 'shp' — sprechen"
+      "sound": "at the start of a word it's 'shp' — sprechen",
+      "group": "combos"
     },
     {
       "char": "st",
       "name": "st-",
-      "sound": "at the start of a word it's 'sht' — Straße, Stadt"
+      "sound": "at the start of a word it's 'sht' — Straße, Stadt",
+      "group": "combos"
     },
     {
       "char": "v",
       "name": "v",
-      "sound": "usually an 'f' — Vater = 'FAH-ter'"
+      "sound": "usually an 'f' — Vater = 'FAH-ter'",
+      "group": "consonants"
     },
     {
       "char": "w",
       "name": "w",
-      "sound": "always a 'v' — Wasser = 'VAS-ser'"
+      "sound": "always a 'v' — Wasser = 'VAS-ser'",
+      "group": "consonants"
     },
     {
       "char": "z",
       "name": "z",
-      "sound": "always 'ts' — zwei = 'tsvy'"
+      "sound": "always 'ts' — zwei = 'tsvy'",
+      "group": "consonants"
     },
     {
       "char": "r",
       "name": "r",
-      "sound": "in the throat, and at the end of a word it softens to 'uh'"
+      "sound": "in the throat, and at the end of a word it softens to 'uh'",
+      "group": "consonants"
     }
   ],
   "frameworks": [
@@ -3327,6 +3341,26 @@
           "translation": "My aunt cooks well"
         }
       ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "umlauts",
+      "title": "Umlauts and ß",
+      "emoji": "🔤",
+      "description": "ä, ö, ü, ß — the four extra letters"
+    },
+    {
+      "id": "combos",
+      "title": "Letter pairs",
+      "emoji": "🔠",
+      "description": "ei, ie, eu, ch, sp, st — pairs that don't read as you'd guess"
+    },
+    {
+      "id": "consonants",
+      "title": "Consonants that shift",
+      "emoji": "🎯",
+      "description": "v, w, z, r — where German and English disagree"
     }
   ]
 }

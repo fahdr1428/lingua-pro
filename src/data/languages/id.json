@@ -22,42 +22,50 @@
     {
       "char": "A",
       "name": "A",
-      "sound": "ah"
+      "sound": "ah",
+      "group": "vowels"
     },
     {
       "char": "E",
       "name": "E",
-      "sound": "eh / uh"
+      "sound": "eh / uh",
+      "group": "vowels"
     },
     {
       "char": "I",
       "name": "I",
-      "sound": "ee"
+      "sound": "ee",
+      "group": "vowels"
     },
     {
       "char": "O",
       "name": "O",
-      "sound": "oh"
+      "sound": "oh",
+      "group": "vowels"
     },
     {
       "char": "U",
       "name": "U",
-      "sound": "oo"
+      "sound": "oo",
+      "group": "vowels"
     },
     {
       "char": "C",
       "name": "Ce",
-      "sound": "ch (always)"
+      "sound": "ch (always)",
+      "group": "tricky"
     },
     {
       "char": "NG",
       "name": "Eng",
-      "sound": "ng (singer)"
+      "sound": "ng (singer)",
+      "group": "tricky"
     },
     {
       "char": "NY",
       "name": "Enye",
-      "sound": "ny (canyon)"
+      "sound": "ny (canyon)",
+      "group": "tricky"
     }
   ],
   "frameworks": [
@@ -2503,6 +2511,20 @@
           "translation": "Grandmother is very kind"
         }
       ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "vowels",
+      "title": "Five clean vowels",
+      "emoji": "🅰️",
+      "description": "A, E, I, O, U — each one sound"
+    },
+    {
+      "id": "tricky",
+      "title": "Sounds to watch",
+      "emoji": "🎯",
+      "description": "C, NG, NY — not what English suggests"
     }
   ]
 }

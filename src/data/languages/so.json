@@ -66,7 +66,127 @@
       "description": "Numbers, time, getting somewhere"
     }
   ],
-  "alphabet": [],
+  "alphabet": [
+    {
+      "char": "c",
+      "name": "c",
+      "sound": "a tightening deep in the throat — NOT an English c",
+      "group": "surprises",
+      "note": "Somali's most misread letter. It is the Arabic ayn: a constriction at the base of the throat. 'Caano' (milk) does not start with a k or an s sound. Reading Somali as if it were English produces something no Somali speaker will follow."
+    },
+    {
+      "char": "x",
+      "name": "x",
+      "sound": "a hard h from deep in the throat",
+      "group": "surprises",
+      "note": "Not 'ks'. Push air from the very back of the throat with the mouth open. 'Xasan' is the name English writes as Hassan."
+    },
+    {
+      "char": "q",
+      "name": "q",
+      "sound": "a k made much further back, near the uvula",
+      "group": "surprises",
+      "note": "Deeper than an English k, almost swallowed. 'Qoys' (family) starts here."
+    },
+    {
+      "char": "dh",
+      "name": "dh",
+      "sound": "d with the tongue curled back",
+      "group": "surprises",
+      "note": "A single letter written with two characters. The tongue tip curls up and back, like the d in Indian-English 'doctor'."
+    },
+    {
+      "char": "kh",
+      "name": "kh",
+      "sound": "a rasp from the back of the throat, like Scottish 'loch'",
+      "group": "surprises"
+    },
+    {
+      "char": "sh",
+      "name": "sh",
+      "sound": "sh as in 'ship'",
+      "group": "surprises"
+    },
+    {
+      "char": "'",
+      "name": "hamza",
+      "sound": "a catch in the throat, as in 'uh-oh'",
+      "group": "surprises"
+    },
+    {
+      "char": "a / aa",
+      "name": "a, aa",
+      "sound": "short a, and a held-long aa",
+      "group": "vowels",
+      "note": "Somali vowel LENGTH changes meaning, and it is written by doubling the letter. Getting the length wrong doesn't give you an accent, it gives you a different word."
+    },
+    {
+      "char": "e / ee",
+      "name": "e, ee",
+      "sound": "short e, and a held-long ee",
+      "group": "vowels"
+    },
+    {
+      "char": "i / ii",
+      "name": "i, ii",
+      "sound": "short i, and a held-long ii",
+      "group": "vowels"
+    },
+    {
+      "char": "o / oo",
+      "name": "o, oo",
+      "sound": "short o, and a held-long oo",
+      "group": "vowels"
+    },
+    {
+      "char": "u / uu",
+      "name": "u, uu",
+      "sound": "short u, and a held-long uu",
+      "group": "vowels"
+    },
+    {
+      "char": "b",
+      "name": "b",
+      "sound": "b",
+      "group": "familiar"
+    },
+    {
+      "char": "d",
+      "name": "d",
+      "sound": "d with the tongue on the teeth",
+      "group": "familiar"
+    },
+    {
+      "char": "g",
+      "name": "g",
+      "sound": "g as in 'go'",
+      "group": "familiar"
+    },
+    {
+      "char": "j",
+      "name": "j",
+      "sound": "j as in 'jam'",
+      "group": "familiar"
+    },
+    {
+      "char": "r",
+      "name": "r",
+      "sound": "a rolled r",
+      "group": "familiar"
+    },
+    {
+      "char": "w",
+      "name": "w",
+      "sound": "w as in 'water'",
+      "group": "familiar"
+    },
+    {
+      "char": "y",
+      "name": "y",
+      "sound": "y as in 'yes'",
+      "group": "familiar"
+    }
+  ],
   "frameworks": [],
   "vocab": [
     {
@@ -1948,6 +2068,26 @@
         }
       ],
       "frequencyRank": 125
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "surprises",
+      "title": "Letters that lie",
+      "emoji": "⚠️",
+      "description": "c, x, q, dh — the ones that don't sound like English at all"
+    },
+    {
+      "id": "vowels",
+      "title": "Vowels, short and long",
+      "emoji": "🅰️",
+      "description": "a/aa, e/ee, i/ii, o/oo, u/uu — length changes the word"
+    },
+    {
+      "id": "familiar",
+      "title": "The ones you already know",
+      "emoji": "✅",
+      "description": "b, d, f, g, h, j, k, l, m, n, r, s, t, w, y"
     }
   ]
 }

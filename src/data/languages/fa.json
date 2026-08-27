@@ -65,7 +65,179 @@
       "description": "Numbers, time, getting somewhere"
     }
   ],
-  "alphabet": [],
+  "alphabet": [
+    {
+      "char": "ا",
+      "name": "alef",
+      "sound": "a, or a long aa",
+      "group": "basics",
+      "note": "Persian is written RIGHT TO LEFT, and most letters change shape depending on whether they sit at the start, middle or end of a word. Alef is one of the few that barely changes."
+    },
+    {
+      "char": "ب",
+      "name": "be",
+      "sound": "b",
+      "group": "basics"
+    },
+    {
+      "char": "ت",
+      "name": "te",
+      "sound": "t",
+      "group": "basics"
+    },
+    {
+      "char": "س",
+      "name": "sin",
+      "sound": "s",
+      "group": "basics"
+    },
+    {
+      "char": "ش",
+      "name": "shin",
+      "sound": "sh as in 'ship'",
+      "group": "basics"
+    },
+    {
+      "char": "ی",
+      "name": "ye",
+      "sound": "y, or a long ee",
+      "group": "basics"
+    },
+    {
+      "char": "و",
+      "name": "vav",
+      "sound": "v, or a long oo",
+      "group": "basics"
+    },
+    {
+      "char": "پ",
+      "name": "pe",
+      "sound": "p",
+      "group": "persian_only",
+      "note": "One of four letters Persian added to the Arabic alphabet for sounds Arabic doesn't have. If you already read Arabic, these four are the new ones."
+    },
+    {
+      "char": "چ",
+      "name": "che",
+      "sound": "ch as in 'chair'",
+      "group": "persian_only"
+    },
+    {
+      "char": "ژ",
+      "name": "zhe",
+      "sound": "zh — the s in 'measure'",
+      "group": "persian_only"
+    },
+    {
+      "char": "گ",
+      "name": "gaf",
+      "sound": "g as in 'go'",
+      "group": "persian_only"
+    },
+    {
+      "char": "د",
+      "name": "dal",
+      "sound": "d",
+      "group": "common"
+    },
+    {
+      "char": "ر",
+      "name": "re",
+      "sound": "a tapped r",
+      "group": "common"
+    },
+    {
+      "char": "ز",
+      "name": "ze",
+      "sound": "z",
+      "group": "common"
+    },
+    {
+      "char": "ف",
+      "name": "fe",
+      "sound": "f",
+      "group": "common"
+    },
+    {
+      "char": "ک",
+      "name": "kaf",
+      "sound": "k",
+      "group": "common"
+    },
+    {
+      "char": "ل",
+      "name": "lam",
+      "sound": "l",
+      "group": "common"
+    },
+    {
+      "char": "م",
+      "name": "mim",
+      "sound": "m",
+      "group": "common"
+    },
+    {
+      "char": "ن",
+      "name": "nun",
+      "sound": "n",
+      "group": "common"
+    },
+    {
+      "char": "ه",
+      "name": "he",
+      "sound": "h",
+      "group": "common"
+    },
+    {
+      "char": "ج",
+      "name": "jim",
+      "sound": "j as in 'jam'",
+      "group": "common"
+    },
+    {
+      "char": "خ",
+      "name": "khe",
+      "sound": "kh — a rasp from the back of the throat, like Scottish 'loch'",
+      "group": "tricky"
+    },
+    {
+      "char": "ح",
+      "name": "he jimi",
+      "sound": "h — in Persian, said the same as ه",
+      "group": "tricky",
+      "note": "Persian keeps several letters from Arabic that it pronounces identically. ح and ه are both just h; ز، ذ، ض، ظ are all z; س، ص، ث are all s. You have to learn which words use which — the sound won't tell you."
+    },
+    {
+      "char": "ع",
+      "name": "eyn",
+      "sound": "a catch in the throat, or silent",
+      "group": "tricky"
+    },
+    {
+      "char": "غ",
+      "name": "gheyn",
+      "sound": "a gargled g from the back of the throat",
+      "group": "tricky"
+    },
+    {
+      "char": "ق",
+      "name": "qaf",
+      "sound": "in Persian, the same as غ",
+      "group": "tricky"
+    },
+    {
+      "char": "ص",
+      "name": "sad",
+      "sound": "s",
+      "group": "tricky"
+    },
+    {
+      "char": "ط",
+      "name": "ta",
+      "sound": "t",
+      "group": "tricky"
+    }
+  ],
   "frameworks": [],
   "vocab": [
     {
@@ -2114,6 +2286,32 @@
         }
       ],
       "frequencyRank": 120
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "basics",
+      "title": "The first letters",
+      "emoji": "🔤",
+      "description": "ا, ب, ت, س — start here, and read right to left"
+    },
+    {
+      "id": "persian_only",
+      "title": "The Persian four",
+      "emoji": "⭐",
+      "description": "پ, چ, ژ, گ — letters Arabic does not have"
+    },
+    {
+      "id": "common",
+      "title": "Everyday letters",
+      "emoji": "🔠",
+      "description": "د, ر, ز, ف, ک, ل, م, ن — the workhorses"
+    },
+    {
+      "id": "tricky",
+      "title": "The hard ones",
+      "emoji": "🎯",
+      "description": "ع, غ, ق, ح — throat sounds, and letters that share a sound"
     }
   ]
 }

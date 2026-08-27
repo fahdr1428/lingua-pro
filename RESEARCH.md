@@ -230,16 +230,22 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    never to be shown to a learner.
 3. **Two or three example sentences per word instead of one.** 94% of words are
    met in a single frame.
-4. **Five languages have no reading passages and no recorded audio** — Tagalog
+4. **Every language now teaches its own script** (v90). Malayalam, Tamil,
+   Persian, Tagalog and Somali shipped with no alphabet at all, and seven older
+   packs had letters with no lesson group to reach them through — Punjabi's
+   fourteen Shahmukhi letters among them. `validate-alphabets.mjs` now fails the
+   build if a non-Latin language has no script course.
+
+5. **Five languages have no reading passages and no recorded audio** — Tagalog
    and Persian (v86), Malayalam, Tamil and Somali (v89). The packs, guides and example sentences are there and
    the input stream works from them; the curated reading library does not exist
    yet, and `validate-passages.mjs` names both languages and the reason rather
    than letting the absence pass quietly. Writing literary Tagalog or Persian
    and calling it course material is the thing this project has said it will not
    do.
-5. **A native speaker's eye on Punjabi and Nigerian Pidgin passages** — and now
+6. **A native speaker's eye on Punjabi and Nigerian Pidgin passages** — and now
    on the Tagalog and Persian packs too.
-6. **Grammar beyond 4–6 lessons**, and none at all for Turkish, Punjabi,
+7. **Grammar beyond 4–6 lessons**, and none at all for Turkish, Punjabi,
    Indonesian, Nigerian Pidgin, Tagalog or Persian.
 
 ## What this app already does that the research supports

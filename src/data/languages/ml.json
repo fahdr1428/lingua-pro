@@ -66,7 +66,240 @@
       "description": "Numbers, time, getting somewhere"
     }
   ],
-  "alphabet": [],
+  "alphabet": [
+    {
+      "char": "അ",
+      "name": "a",
+      "sound": "a as in 'about' — short",
+      "group": "vowels"
+    },
+    {
+      "char": "ആ",
+      "name": "aa",
+      "sound": "aa as in 'father' — long",
+      "group": "vowels"
+    },
+    {
+      "char": "ഇ",
+      "name": "i",
+      "sound": "i as in 'sit'",
+      "group": "vowels"
+    },
+    {
+      "char": "ഈ",
+      "name": "ee",
+      "sound": "ee as in 'see'",
+      "group": "vowels"
+    },
+    {
+      "char": "ഉ",
+      "name": "u",
+      "sound": "u as in 'put'",
+      "group": "vowels"
+    },
+    {
+      "char": "ഊ",
+      "name": "oo",
+      "sound": "oo as in 'moon'",
+      "group": "vowels"
+    },
+    {
+      "char": "എ",
+      "name": "e",
+      "sound": "e as in 'bed'",
+      "group": "vowels"
+    },
+    {
+      "char": "ഏ",
+      "name": "ae",
+      "sound": "ay as in 'say' — long",
+      "group": "vowels"
+    },
+    {
+      "char": "ഒ",
+      "name": "o",
+      "sound": "o as in 'hot'",
+      "group": "vowels"
+    },
+    {
+      "char": "ഓ",
+      "name": "oo",
+      "sound": "o as in 'go' — long",
+      "group": "vowels"
+    },
+    {
+      "char": "ഐ",
+      "name": "ai",
+      "sound": "i as in 'kite'",
+      "group": "vowels"
+    },
+    {
+      "char": "ഔ",
+      "name": "au",
+      "sound": "ow as in 'cow'",
+      "group": "vowels"
+    },
+    {
+      "char": "ക",
+      "name": "ka",
+      "sound": "k",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ഖ",
+      "name": "kha",
+      "sound": "k with a puff of air after it",
+      "group": "consonants_1",
+      "note": "Malayalam pairs almost every consonant with an 'aspirated' twin — same sound, plus a breath. Hold your palm in front of your mouth: ഖ moves it, ക doesn't."
+    },
+    {
+      "char": "ഗ",
+      "name": "ga",
+      "sound": "g as in 'go'",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ച",
+      "name": "cha",
+      "sound": "ch as in 'chair'",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ജ",
+      "name": "ja",
+      "sound": "j as in 'jam'",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ത",
+      "name": "tha",
+      "sound": "th with the tongue on the teeth, not the roof",
+      "group": "consonants_1",
+      "note": "Not the 'th' of 'think'. The tongue touches the back of the upper teeth and the sound is a clean t."
+    },
+    {
+      "char": "ദ",
+      "name": "da",
+      "sound": "d with the tongue on the teeth",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ട",
+      "name": "ta",
+      "sound": "t with the tongue curled back",
+      "group": "consonants_1",
+      "note": "A 'retroflex' — curl the tongue tip back to the roof of the mouth. English has nothing like it, and mixing it with ത changes words."
+    },
+    {
+      "char": "ഡ",
+      "name": "da",
+      "sound": "d with the tongue curled back",
+      "group": "consonants_1"
+    },
+    {
+      "char": "ന",
+      "name": "na",
+      "sound": "n",
+      "group": "consonants_2"
+    },
+    {
+      "char": "പ",
+      "name": "pa",
+      "sound": "p",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ബ",
+      "name": "ba",
+      "sound": "b",
+      "group": "consonants_2"
+    },
+    {
+      "char": "മ",
+      "name": "ma",
+      "sound": "m",
+      "group": "consonants_2"
+    },
+    {
+      "char": "യ",
+      "name": "ya",
+      "sound": "y as in 'yes'",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ര",
+      "name": "ra",
+      "sound": "a light tapped r",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ല",
+      "name": "la",
+      "sound": "l",
+      "group": "consonants_2"
+    },
+    {
+      "char": "വ",
+      "name": "va",
+      "sound": "v, softer than English — closer to w",
+      "group": "consonants_2"
+    },
+    {
+      "char": "സ",
+      "name": "sa",
+      "sound": "s",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ഹ",
+      "name": "ha",
+      "sound": "h",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ശ",
+      "name": "sha",
+      "sound": "sh as in 'ship'",
+      "group": "consonants_2"
+    },
+    {
+      "char": "ഴ",
+      "name": "zha",
+      "sound": "no English equivalent — tongue curled far back, close to an American r",
+      "group": "tricky",
+      "note": "The famous one. It appears in the name of the language itself (മലയാളം) and in Kozhikode. If you get ഴ right you sound like you grew up with it."
+    },
+    {
+      "char": "ണ",
+      "name": "na",
+      "sound": "n with the tongue curled back",
+      "group": "tricky"
+    },
+    {
+      "char": "ള",
+      "name": "la",
+      "sound": "l with the tongue curled back",
+      "group": "tricky"
+    },
+    {
+      "char": "റ",
+      "name": "ra",
+      "sound": "a harder, trilled r",
+      "group": "tricky"
+    },
+    {
+      "char": "ങ",
+      "name": "nga",
+      "sound": "ng as in 'sing'",
+      "group": "tricky"
+    },
+    {
+      "char": "ഞ",
+      "name": "nya",
+      "sound": "ny as in 'canyon'",
+      "group": "tricky"
+    }
+  ],
   "frameworks": [],
   "vocab": [
     {
@@ -2197,6 +2430,32 @@
         }
       ],
       "frequencyRank": 125
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "vowels",
+      "title": "Vowels",
+      "emoji": "🅰️",
+      "description": "അ, ആ, ഇ, ഈ — the sounds everything else hangs off"
+    },
+    {
+      "id": "consonants_1",
+      "title": "First consonants",
+      "emoji": "🔤",
+      "description": "ക, ഗ, ച, ജ, ത, ദ — the ones you'll meet first"
+    },
+    {
+      "id": "consonants_2",
+      "title": "More consonants",
+      "emoji": "🔠",
+      "description": "ന, പ, ബ, മ, യ, ര, ല, വ — filling out the set"
+    },
+    {
+      "id": "tricky",
+      "title": "The hard ones",
+      "emoji": "🎯",
+      "description": "ഴ, ണ, ള, റ — sounds English simply does not have"
     }
   ]
 }
