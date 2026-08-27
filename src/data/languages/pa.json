@@ -774,7 +774,8 @@
       "examples": [
         {
           "native": "اج پیر اے",
-          "translation": "Today is Monday"
+          "translation": "Today is Monday",
+          "translit": "aj peer ae"
         }
       ]
     },
@@ -1000,7 +1001,8 @@
       "examples": [
         {
           "native": "سن",
-          "translation": "Listen"
+          "translation": "Listen",
+          "translit": "sun"
         }
       ]
     },
@@ -1101,7 +1103,8 @@
       "examples": [
         {
           "native": "پیلا پھل",
-          "translation": "Yellow fruit"
+          "translation": "Yellow fruit",
+          "translit": "peela phal"
         }
       ]
     },
@@ -1491,7 +1494,8 @@
       "examples": [
         {
           "native": "شب بخیر، رات",
-          "translation": "Good night"
+          "translation": "Good night",
+          "translit": "shab bakhair, raat"
         }
       ]
     },
@@ -2262,7 +2266,8 @@
       "examples": [
         {
           "native": "میرا کم مُک گیا",
-          "translation": "My work is done"
+          "translation": "My work is done",
+          "translit": "mera kam muk gaya"
         }
       ],
       "frequencyRank": 13
@@ -2315,7 +2320,8 @@
       "examples": [
         {
           "native": "دُدھ نال چاء",
-          "translation": "Tea with milk"
+          "translation": "Tea with milk",
+          "translit": "duddh naal chah"
         }
       ],
       "frequencyRank": 15
@@ -2332,7 +2338,8 @@
       "examples": [
         {
           "native": "کھنڈ توں بغیر",
-          "translation": "Without sugar"
+          "translation": "Without sugar",
+          "translit": "khand ton baghair"
         }
       ],
       "frequencyRank": 92
@@ -2349,7 +2356,8 @@
       "examples": [
         {
           "native": "سارے ٹھیک نیں",
-          "translation": "Everyone is fine"
+          "translation": "Everyone is fine",
+          "translit": "saare theek nein"
         }
       ],
       "frequencyRank": 16
@@ -2456,7 +2464,8 @@
       "examples": [
         {
           "native": "مینوں مدد دی لوڑ اے",
-          "translation": "I need help"
+          "translation": "I need help",
+          "translit": "mainu madad di lorr ae"
         }
       ],
       "frequencyRank": 94
@@ -2509,7 +2518,8 @@
       "examples": [
         {
           "native": "اَج گرمی اے",
-          "translation": "It's hot today"
+          "translation": "It's hot today",
+          "translit": "aj garmi ae"
         }
       ],
       "frequencyRank": 43

@@ -25,7 +25,7 @@
 // =============================================================================
 
 import React, { useState, useMemo, useCallback, useEffect } from "react";
-import { LANGUAGES } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { getCharacter } from "../data/characters.js";
 import { GuideMark } from "../ui/GuideMark.jsx";
 import { speak } from "../audio/tts.js";
@@ -37,12 +37,11 @@ import {
 // Higher than the 70% a normal chapter exam needs. See the header.
 const PASS = 0.85;
 const QUESTIONS = 14;
-const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 export function SkipAhead({ engine, pack, appState, setAppState, params, onNavigate, refreshStats }) {
   const lang = LANGUAGES[pack.code];
   const guide = getCharacter(pack.code);
-  const isNonLatin = NON_LATIN.has(pack.code);
+  const isNonLatin = isNonLatinScript(pack.code);
 
   const [phase, setPhase] = useState("pick");   // pick | quiz | result
   const [chapter, setChapter] = useState(null); // the target: a chapter OR a unit

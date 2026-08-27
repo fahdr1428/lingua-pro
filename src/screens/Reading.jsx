@@ -7,15 +7,14 @@
 
 import React, { useState, useMemo } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
-import { LANGUAGES } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getPassage, PASSAGES } from "../data/passages.js";
 
-const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 export function Reading({ pack, appState, setAppState, onNavigate }) {
   const lang = LANGUAGES[pack.code];
-  const isNonLatin = NON_LATIN.has(pack.code);
+  const isNonLatin = isNonLatinScript(pack.code);
   const voiceAvailable = hasVoiceFor(lang.ttsCode);
   const hasPassages = !!(PASSAGES[pack.code] && PASSAGES[pack.code].length);
 

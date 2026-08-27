@@ -5,14 +5,13 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
-import { LANGUAGES } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 
-const NON_LATIN_LANGUAGES = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 export function Flashcards({ pack, appState, onNavigate, params }) {
   const lang = LANGUAGES[pack.code];
-  const isNonLatin = NON_LATIN_LANGUAGES.has(pack.code);
+  const isNonLatin = isNonLatinScript(pack.code);
   const voiceAvailable = hasVoiceFor(lang.ttsCode);
 
   // If no unit param, show unit picker

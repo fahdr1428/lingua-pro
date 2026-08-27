@@ -28,15 +28,14 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
-import { LANGUAGES } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { readableSentences } from "../engine/inputStream.js";
 
-const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 export function InputStream({ pack, engine, appState, onNavigate }) {
   const lang = LANGUAGES[pack.code];
-  const isNonLatin = NON_LATIN.has(pack.code);
+  const isNonLatin = isNonLatinScript(pack.code);
   const voiceAvailable = hasVoiceFor(lang.ttsCode);
   const showRoman = appState?.showRomanization !== false;
 

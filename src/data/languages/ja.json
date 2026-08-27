@@ -166,7 +166,8 @@
       "examples": [
         {
           "native": "こんにちは 田中さん",
-          "translation": "Hello Mr Tanaka"
+          "translation": "Hello Mr Tanaka",
+          "translit": "konnichiwa Tanaka-san"
         }
       ],
       "unit": "u1",
@@ -186,7 +187,8 @@
       "examples": [
         {
           "native": "ありがとう ございます",
-          "translation": "Thank you very much"
+          "translation": "Thank you very much",
+          "translit": "arigatō gozaimasu"
         }
       ],
       "unit": "u1",
@@ -206,7 +208,8 @@
       "examples": [
         {
           "native": "はい そうです",
-          "translation": "Yes that's right"
+          "translation": "Yes that's right",
+          "translit": "hai sō desu"
         }
       ],
       "unit": "u1",
@@ -226,7 +229,8 @@
       "examples": [
         {
           "native": "いいえ 違います",
-          "translation": "No that's wrong"
+          "translation": "No that's wrong",
+          "translit": "iie chigaimasu"
         }
       ],
       "unit": "u1",
@@ -246,7 +250,8 @@
       "examples": [
         {
           "native": "さようなら また明日",
-          "translation": "Goodbye see you tomorrow"
+          "translation": "Goodbye see you tomorrow",
+          "translit": "sayōnara mata ashita"
         }
       ],
       "unit": "u1",
@@ -266,7 +271,8 @@
       "examples": [
         {
           "native": "おはよう ございます",
-          "translation": "Good morning (formal)"
+          "translation": "Good morning (formal)",
+          "translit": "ohayō gozaimasu"
         }
       ],
       "unit": "u1",
@@ -286,7 +292,8 @@
       "examples": [
         {
           "native": "すみません 駅は どこですか",
-          "translation": "Excuse me where is the station"
+          "translation": "Excuse me where is the station",
+          "translit": "sumimasen eki wa doko desu ka"
         }
       ],
       "unit": "u1",
@@ -306,7 +313,8 @@
       "examples": [
         {
           "native": "私は 学生です",
-          "translation": "I am a student"
+          "translation": "I am a student",
+          "translit": "watashi wa gakusei desu"
         }
       ],
       "unit": "u2",
@@ -326,7 +334,8 @@
       "examples": [
         {
           "native": "あなたは",
-          "translation": "And you"
+          "translation": "And you",
+          "translit": "anata wa"
         }
       ],
       "unit": "u2",
@@ -346,11 +355,13 @@
       "examples": [
         {
           "native": "私の 母",
-          "translation": "My mother"
+          "translation": "My mother",
+          "translit": "watashi no haha"
         },
         {
           "native": "母は料理が上手です",
-          "translation": "My mother cooks well"
+          "translation": "My mother cooks well",
+          "translit": "haha wa ryōri ga jōzu desu"
         }
       ],
       "unit": "u2",
@@ -370,11 +381,13 @@
       "examples": [
         {
           "native": "私の 父",
-          "translation": "My father"
+          "translation": "My father",
+          "translit": "watashi no chichi"
         },
         {
           "native": "父は毎日働きます",
-          "translation": "My father works every day"
+          "translation": "My father works every day",
+          "translit": "chichi wa mainichi hatarakimasu"
         }
       ],
       "unit": "u2",
@@ -394,11 +407,13 @@
       "examples": [
         {
           "native": "私の 兄",
-          "translation": "My older brother"
+          "translation": "My older brother",
+          "translit": "watashi no ani"
         },
         {
           "native": "兄は東京にいます",
-          "translation": "My older brother is in Tokyo"
+          "translation": "My older brother is in Tokyo",
+          "translit": "ani wa Tōkyō ni imasu"
         }
       ],
       "unit": "u2",
@@ -418,11 +433,13 @@
       "examples": [
         {
           "native": "私の 姉",
-          "translation": "My older sister"
+          "translation": "My older sister",
+          "translit": "watashi no ane"
         },
         {
           "native": "姉は医者です",
-          "translation": "My older sister is a doctor"
+          "translation": "My older sister is a doctor",
+          "translit": "ane wa isha desu"
         }
       ],
       "unit": "u2",
@@ -442,11 +459,13 @@
       "examples": [
         {
           "native": "私の 友達",
-          "translation": "My friend"
+          "translation": "My friend",
+          "translit": "watashi no tomodachi"
         },
         {
           "native": "彼は友達です",
-          "translation": "He is my friend"
+          "translation": "He is my friend",
+          "translit": "kare wa tomodachi desu"
         }
       ],
       "unit": "u2",
@@ -466,7 +485,8 @@
       "examples": [
         {
           "native": "水を ください",
-          "translation": "Water please"
+          "translation": "Water please",
+          "translit": "mizu o kudasai"
         }
       ],
       "unit": "u5",
@@ -486,7 +506,8 @@
       "examples": [
         {
           "native": "ご飯を 食べる",
-          "translation": "To eat a meal"
+          "translation": "To eat a meal",
+          "translit": "gohan o taberu"
         }
       ],
       "unit": "u5",
@@ -506,7 +527,8 @@
       "examples": [
         {
           "native": "お茶を どうぞ",
-          "translation": "Have some tea"
+          "translation": "Have some tea",
+          "translit": "ocha o dōzo"
         }
       ],
       "unit": "u5",
@@ -526,7 +548,8 @@
       "examples": [
         {
           "native": "新鮮な 魚",
-          "translation": "Fresh fish"
+          "translation": "Fresh fish",
+          "translit": "shinsen na sakana"
         }
       ],
       "unit": "u5",
@@ -546,7 +569,8 @@
       "examples": [
         {
           "native": "肉が 好き",
-          "translation": "I like meat"
+          "translation": "I like meat",
+          "translit": "niku ga suki"
         }
       ],
       "unit": "u5",
@@ -566,7 +590,8 @@
       "examples": [
         {
           "native": "パンを 食べる",
-          "translation": "To eat bread"
+          "translation": "To eat bread",
+          "translit": "pan o taberu"
         }
       ],
       "unit": "u5",
@@ -586,7 +611,8 @@
       "examples": [
         {
           "native": "一つ",
-          "translation": "One thing"
+          "translation": "One thing",
+          "translit": "hitotsu"
         }
       ],
       "unit": "u4",
@@ -606,7 +632,8 @@
       "examples": [
         {
           "native": "二人",
-          "translation": "Two people"
+          "translation": "Two people",
+          "translit": "futari"
         }
       ],
       "unit": "u4",
@@ -626,7 +653,8 @@
       "examples": [
         {
           "native": "三日",
-          "translation": "Three days"
+          "translation": "Three days",
+          "translit": "mikka"
         }
       ],
       "unit": "u4",
@@ -646,11 +674,13 @@
       "examples": [
         {
           "native": "十円",
-          "translation": "Ten yen"
+          "translation": "Ten yen",
+          "translit": "jūen"
         },
         {
           "native": "十分",
-          "translation": "Ten minutes"
+          "translation": "Ten minutes",
+          "translit": "juppun"
         }
       ],
       "unit": "u4",
@@ -670,7 +700,8 @@
       "examples": [
         {
           "native": "百円",
-          "translation": "Hundred yen"
+          "translation": "Hundred yen",
+          "translit": "hyakuen"
         }
       ],
       "unit": "u4",
@@ -691,7 +722,8 @@
       "examples": [
         {
           "native": "学校に 行く",
-          "translation": "To go to school"
+          "translation": "To go to school",
+          "translit": "gakkō ni iku"
         }
       ],
       "unit": "u6",
@@ -711,7 +743,8 @@
       "examples": [
         {
           "native": "明日 来る",
-          "translation": "To come tomorrow"
+          "translation": "To come tomorrow",
+          "translit": "ashita kuru"
         }
       ],
       "unit": "u6",
@@ -731,7 +764,8 @@
       "examples": [
         {
           "native": "ご飯を 食べる",
-          "translation": "To eat rice"
+          "translation": "To eat rice",
+          "translit": "gohan o taberu"
         }
       ],
       "unit": "u6",
@@ -751,7 +785,8 @@
       "examples": [
         {
           "native": "水を 飲む",
-          "translation": "To drink water"
+          "translation": "To drink water",
+          "translit": "mizu o nomu"
         }
       ],
       "unit": "u6",
@@ -771,7 +806,8 @@
       "examples": [
         {
           "native": "日本語を 話す",
-          "translation": "To speak Japanese"
+          "translation": "To speak Japanese",
+          "translit": "nihongo o hanasu"
         }
       ],
       "unit": "u6",
@@ -791,7 +827,8 @@
       "examples": [
         {
           "native": "映画を 見る",
-          "translation": "To watch a film"
+          "translation": "To watch a film",
+          "translit": "eiga o miru"
         }
       ],
       "unit": "u6",
@@ -812,7 +849,8 @@
       "examples": [
         {
           "native": "勉強を する",
-          "translation": "To study"
+          "translation": "To study",
+          "translit": "benkyō o suru"
         }
       ],
       "unit": "u6",
@@ -832,7 +870,8 @@
       "examples": [
         {
           "native": "私の 家",
-          "translation": "My house"
+          "translation": "My house",
+          "translit": "watashi no ie"
         }
       ],
       "unit": "u7",
@@ -852,7 +891,8 @@
       "examples": [
         {
           "native": "学校へ 行く",
-          "translation": "To go to school"
+          "translation": "To go to school",
+          "translit": "gakkō e iku"
         }
       ],
       "unit": "u7",
@@ -872,11 +912,13 @@
       "examples": [
         {
           "native": "駅で 待つ",
-          "translation": "To wait at the station"
+          "translation": "To wait at the station",
+          "translit": "eki de matsu"
         },
         {
           "native": "駅はどこですか",
-          "translation": "Where is the station?"
+          "translation": "Where is the station?",
+          "translit": "eki wa doko desu ka"
         }
       ],
       "unit": "u7",
@@ -896,7 +938,8 @@
       "examples": [
         {
           "native": "今日は 月曜日",
-          "translation": "Today is Monday"
+          "translation": "Today is Monday",
+          "translit": "kyō wa getsuyōbi"
         }
       ],
       "unit": "u8",
@@ -916,7 +959,8 @@
       "examples": [
         {
           "native": "また 明日",
-          "translation": "See you tomorrow"
+          "translation": "See you tomorrow",
+          "translit": "mata ashita"
         }
       ],
       "unit": "u8",
@@ -936,7 +980,8 @@
       "examples": [
         {
           "native": "今 すぐ",
-          "translation": "Right now"
+          "translation": "Right now",
+          "translit": "ima sugu"
         }
       ],
       "unit": "u8",
@@ -954,7 +999,8 @@
       "examples": [
         {
           "native": "私の母",
-          "translation": "My mother"
+          "translation": "My mother",
+          "translit": "watashi no haha"
         }
       ],
       "frequencyRank": 87
@@ -971,7 +1017,8 @@
       "examples": [
         {
           "native": "私の父",
-          "translation": "My father"
+          "translation": "My father",
+          "translit": "watashi no chichi"
         }
       ],
       "frequencyRank": 88
@@ -988,7 +1035,8 @@
       "examples": [
         {
           "native": "私の姉",
-          "translation": "My older sister"
+          "translation": "My older sister",
+          "translit": "watashi no ane"
         }
       ],
       "frequencyRank": 89
@@ -1005,7 +1053,8 @@
       "examples": [
         {
           "native": "私の兄",
-          "translation": "My older brother"
+          "translation": "My older brother",
+          "translit": "watashi no ani"
         }
       ],
       "frequencyRank": 90
@@ -1022,7 +1071,8 @@
       "examples": [
         {
           "native": "とても嬉しい",
-          "translation": "Very happy"
+          "translation": "Very happy",
+          "translit": "totemo ureshii"
         }
       ],
       "frequencyRank": 132
@@ -1039,7 +1089,8 @@
       "examples": [
         {
           "native": "疲れた",
-          "translation": "I'm tired"
+          "translation": "I'm tired",
+          "translit": "tsukareta"
         }
       ],
       "frequencyRank": 133
@@ -1056,7 +1107,8 @@
       "examples": [
         {
           "native": "とてもいい",
-          "translation": "Very good"
+          "translation": "Very good",
+          "translit": "totemo ii"
         }
       ],
       "frequencyRank": 39
@@ -1073,7 +1125,8 @@
       "examples": [
         {
           "native": "水をください",
-          "translation": "Water please"
+          "translation": "Water please",
+          "translit": "mizu o kudasai"
         }
       ],
       "frequencyRank": 135
@@ -1090,7 +1143,8 @@
       "examples": [
         {
           "native": "ごめんなさい",
-          "translation": "I'm sorry"
+          "translation": "I'm sorry",
+          "translit": "gomen nasai"
         }
       ],
       "frequencyRank": 136
@@ -1107,7 +1161,8 @@
       "examples": [
         {
           "native": "大きい家",
-          "translation": "Big house"
+          "translation": "Big house",
+          "translit": "ōkii ie"
         }
       ],
       "frequencyRank": 41
@@ -1124,7 +1179,8 @@
       "examples": [
         {
           "native": "小さい猫",
-          "translation": "Small cat"
+          "translation": "Small cat",
+          "translit": "chiisai neko"
         }
       ],
       "frequencyRank": 42
@@ -1141,7 +1197,8 @@
       "examples": [
         {
           "native": "ここに来て",
-          "translation": "Come here"
+          "translation": "Come here",
+          "translit": "koko ni kite"
         }
       ],
       "frequencyRank": 54
@@ -1158,7 +1215,8 @@
       "examples": [
         {
           "native": "そこに行く",
-          "translation": "Go there"
+          "translation": "Go there",
+          "translit": "soko ni iku"
         }
       ],
       "frequencyRank": 55
@@ -1175,7 +1233,8 @@
       "examples": [
         {
           "native": "冷たい水",
-          "translation": "Cold water"
+          "translation": "Cold water",
+          "translit": "tsumetai mizu"
         }
       ],
       "frequencyRank": 56
@@ -1192,7 +1251,8 @@
       "examples": [
         {
           "native": "緑茶",
-          "translation": "Green tea"
+          "translation": "Green tea",
+          "translit": "ryokucha"
         }
       ],
       "frequencyRank": 25
@@ -1209,7 +1269,8 @@
       "examples": [
         {
           "native": "牛乳をください",
-          "translation": "Milk please"
+          "translation": "Milk please",
+          "translit": "gyūnyū o kudasai"
         }
       ],
       "frequencyRank": 97
@@ -1226,7 +1287,8 @@
       "examples": [
         {
           "native": "家に行く",
-          "translation": "To go home"
+          "translation": "To go home",
+          "translit": "ie ni iku"
         }
       ],
       "frequencyRank": 27
@@ -1243,7 +1305,8 @@
       "examples": [
         {
           "native": "ここに来る",
-          "translation": "To come here"
+          "translation": "To come here",
+          "translit": "koko ni kuru"
         }
       ],
       "frequencyRank": 28
@@ -1260,7 +1323,8 @@
       "examples": [
         {
           "native": "今日は月曜日",
-          "translation": "Today is Monday"
+          "translation": "Today is Monday",
+          "translit": "kyō wa getsuyōbi"
         }
       ],
       "frequencyRank": 36
@@ -1277,7 +1341,8 @@
       "examples": [
         {
           "native": "知っています",
-          "translation": "I know"
+          "translation": "I know",
+          "translit": "shitte imasu"
         }
       ]
     },
@@ -1293,7 +1358,8 @@
       "examples": [
         {
           "native": "そう思います",
-          "translation": "I think so"
+          "translation": "I think so",
+          "translit": "sō omoimasu"
         }
       ]
     },
@@ -1309,7 +1375,8 @@
       "examples": [
         {
           "native": "彼が言います",
-          "translation": "He says"
+          "translation": "He says",
+          "translit": "kare ga iimasu"
         }
       ]
     },
@@ -1325,7 +1392,8 @@
       "examples": [
         {
           "native": "あげます",
-          "translation": "I give"
+          "translation": "I give",
+          "translit": "agemasu"
         }
       ]
     },
@@ -1341,7 +1409,8 @@
       "examples": [
         {
           "native": "音楽を聞きます",
-          "translation": "I listen to music"
+          "translation": "I listen to music",
+          "translit": "ongaku o kikimasu"
         }
       ]
     },
@@ -1357,7 +1426,8 @@
       "examples": [
         {
           "native": "私の頭",
-          "translation": "My head"
+          "translation": "My head",
+          "translit": "watashi no atama"
         }
       ]
     },
@@ -1373,7 +1443,8 @@
       "examples": [
         {
           "native": "私の手",
-          "translation": "My hand"
+          "translation": "My hand",
+          "translit": "watashi no te"
         }
       ]
     },
@@ -1389,7 +1460,8 @@
       "examples": [
         {
           "native": "私の心",
-          "translation": "My heart"
+          "translation": "My heart",
+          "translit": "watashi no kokoro"
         }
       ]
     },
@@ -1405,7 +1477,8 @@
       "examples": [
         {
           "native": "黒いコーヒー",
-          "translation": "Black coffee"
+          "translation": "Black coffee",
+          "translit": "kuroi kōhī"
         }
       ]
     },
@@ -1421,7 +1494,8 @@
       "examples": [
         {
           "native": "白いパン",
-          "translation": "White bread"
+          "translation": "White bread",
+          "translit": "shiroi pan"
         }
       ]
     },
@@ -1437,7 +1511,8 @@
       "examples": [
         {
           "native": "黄色い花",
-          "translation": "Yellow flower"
+          "translation": "Yellow flower",
+          "translit": "kiiroi hana"
         }
       ]
     },
@@ -1453,7 +1528,8 @@
       "examples": [
         {
           "native": "明るい太陽",
-          "translation": "Bright sun"
+          "translation": "Bright sun",
+          "translit": "akarui taiyō"
         }
       ]
     },
@@ -1469,7 +1545,8 @@
       "examples": [
         {
           "native": "雨が降ります",
-          "translation": "It's raining"
+          "translation": "It's raining",
+          "translit": "ame ga furimasu"
         }
       ]
     },
@@ -1485,7 +1562,8 @@
       "examples": [
         {
           "native": "今年",
-          "translation": "This year"
+          "translation": "This year",
+          "translit": "kotoshi"
         }
       ]
     },
@@ -1501,7 +1579,8 @@
       "examples": [
         {
           "native": "今週",
-          "translation": "This week"
+          "translation": "This week",
+          "translit": "konshū"
         }
       ]
     },
@@ -1517,7 +1596,8 @@
       "examples": [
         {
           "native": "一時間",
-          "translation": "One hour"
+          "translation": "One hour",
+          "translit": "ichijikan"
         }
       ]
     },
@@ -1533,7 +1613,8 @@
       "examples": [
         {
           "native": "いつ来ますか",
-          "translation": "When are you coming?"
+          "translation": "When are you coming?",
+          "translit": "itsu kimasu ka"
         }
       ]
     },
@@ -1549,7 +1630,8 @@
       "examples": [
         {
           "native": "なぜですか",
-          "translation": "Why?"
+          "translation": "Why?",
+          "translit": "naze desu ka"
         }
       ]
     },
@@ -1565,7 +1647,8 @@
       "examples": [
         {
           "native": "誰ですか",
-          "translation": "Who is it?"
+          "translation": "Who is it?",
+          "translit": "dare desu ka"
         }
       ]
     },
@@ -1581,7 +1664,8 @@
       "examples": [
         {
           "native": "どこですか",
-          "translation": "Where is it?"
+          "translation": "Where is it?",
+          "translit": "doko desu ka"
         }
       ]
     },
@@ -1597,7 +1681,8 @@
       "examples": [
         {
           "native": "寝ます",
-          "translation": "I sleep"
+          "translation": "I sleep",
+          "translit": "nemasu"
         }
       ]
     },
@@ -1613,7 +1698,8 @@
       "examples": [
         {
           "native": "起きます",
-          "translation": "I wake up"
+          "translation": "I wake up",
+          "translit": "okimasu"
         }
       ]
     },
@@ -1629,7 +1715,8 @@
       "examples": [
         {
           "native": "本を買います",
-          "translation": "I buy a book"
+          "translation": "I buy a book",
+          "translit": "hon o kaimasu"
         }
       ]
     },
@@ -1645,7 +1732,8 @@
       "examples": [
         {
           "native": "水をお願いします",
-          "translation": "Water, please"
+          "translation": "Water, please",
+          "translit": "mizu o onegai shimasu"
         }
       ]
     },
@@ -1661,7 +1749,8 @@
       "examples": [
         {
           "native": "すみません、わかりません",
-          "translation": "Sorry, I don't understand"
+          "translation": "Sorry, I don't understand",
+          "translit": "sumimasen, wakarimasen"
         }
       ]
     },
@@ -1677,7 +1766,8 @@
       "examples": [
         {
           "native": "はい、わかりました",
-          "translation": "Yes, understood"
+          "translation": "Yes, understood",
+          "translit": "hai, wakarimashita"
         }
       ]
     },
@@ -1693,7 +1783,8 @@
       "examples": [
         {
           "native": "もう一度お願いします",
-          "translation": "Please say it one more time"
+          "translation": "Please say it one more time",
+          "translit": "mō ichido onegai shimasu"
         }
       ]
     },
@@ -1709,7 +1800,8 @@
       "examples": [
         {
           "native": "これはいくらですか",
-          "translation": "How much is this?"
+          "translation": "How much is this?",
+          "translit": "kore wa ikura desu ka"
         }
       ]
     },
@@ -1725,7 +1817,8 @@
       "examples": [
         {
           "native": "すみません、トイレはどこですか",
-          "translation": "Excuse me, where is the bathroom?"
+          "translation": "Excuse me, where is the bathroom?",
+          "translit": "sumimasen, toire wa doko desu ka"
         }
       ]
     },
@@ -1741,7 +1834,8 @@
       "examples": [
         {
           "native": "これは何ですか",
-          "translation": "What is this?"
+          "translation": "What is this?",
+          "translit": "kore wa nan desu ka"
         }
       ]
     },
@@ -1757,7 +1851,8 @@
       "examples": [
         {
           "native": "これをください",
-          "translation": "I'll take this one, please"
+          "translation": "I'll take this one, please",
+          "translit": "kore o kudasai"
         }
       ]
     },
@@ -1773,7 +1868,8 @@
       "examples": [
         {
           "native": "ちょっと待ってください",
-          "translation": "One moment, please"
+          "translation": "One moment, please",
+          "translit": "chotto matte kudasai"
         }
       ]
     },
@@ -1789,7 +1885,8 @@
       "examples": [
         {
           "native": "大丈夫です、ありがとう",
-          "translation": "I'm fine, thanks"
+          "translation": "I'm fine, thanks",
+          "translit": "daijōbu desu, arigatō"
         }
       ]
     },
@@ -1805,7 +1902,8 @@
       "examples": [
         {
           "native": "英語を話せますか",
-          "translation": "Can you speak English?"
+          "translation": "Can you speak English?",
+          "translit": "eigo o hanasemasu ka"
         }
       ]
     },
@@ -1821,7 +1919,8 @@
       "examples": [
         {
           "native": "ゆっくり話してください",
-          "translation": "Please speak slowly"
+          "translation": "Please speak slowly",
+          "translit": "yukkuri hanashite kudasai"
         }
       ]
     },
@@ -1837,7 +1936,8 @@
       "examples": [
         {
           "native": "助けてください",
-          "translation": "Please help me"
+          "translation": "Please help me",
+          "translit": "tasukete kudasai"
         }
       ]
     },
@@ -1853,7 +1953,8 @@
       "examples": [
         {
           "native": "元気ですか — 元気です",
-          "translation": "How are you? — I'm fine"
+          "translation": "How are you? — I'm fine",
+          "translit": "genki desu ka — genki desu"
         }
       ]
     },
@@ -1869,7 +1970,8 @@
       "examples": [
         {
           "native": "天気が悪いです",
-          "translation": "The weather is bad"
+          "translation": "The weather is bad",
+          "translit": "tenki ga warui desu"
         }
       ],
       "frequencyRank": 43
@@ -1886,7 +1988,8 @@
       "examples": [
         {
           "native": "食べ物がおいしいです",
-          "translation": "The food is delicious"
+          "translation": "The food is delicious",
+          "translit": "tabemono ga oishii desu"
         }
       ],
       "frequencyRank": 26
@@ -1903,7 +2006,8 @@
       "examples": [
         {
           "native": "時間がありません",
-          "translation": "I don't have time"
+          "translation": "I don't have time",
+          "translit": "jikan ga arimasen"
         }
       ],
       "frequencyRank": 29
@@ -1920,7 +2024,8 @@
       "examples": [
         {
           "native": "水がほしいです",
-          "translation": "I want water"
+          "translation": "I want water",
+          "translit": "mizu ga hoshii desu"
         }
       ],
       "frequencyRank": 105
@@ -1937,7 +2042,8 @@
       "examples": [
         {
           "native": "お茶を作ります",
-          "translation": "I'll make tea"
+          "translation": "I'll make tea",
+          "translit": "ocha o tsukurimasu"
         }
       ],
       "frequencyRank": 106
@@ -1954,7 +2060,8 @@
       "examples": [
         {
           "native": "手伝えますか",
-          "translation": "Can you help?"
+          "translation": "Can you help?",
+          "translit": "tetsudaemasu ka"
         }
       ],
       "frequencyRank": 107
@@ -1971,7 +2078,8 @@
       "examples": [
         {
           "native": "助けが必要です",
-          "translation": "I need help"
+          "translation": "I need help",
+          "translit": "tasuke ga hitsuyō desu"
         }
       ],
       "frequencyRank": 137
@@ -1988,7 +2096,8 @@
       "examples": [
         {
           "native": "電車を取ります",
-          "translation": "I'll take the train"
+          "translation": "I'll take the train",
+          "translit": "densha o torimasu"
         }
       ],
       "frequencyRank": 108
@@ -2005,7 +2114,8 @@
       "examples": [
         {
           "native": "手伝ってください",
-          "translation": "Please help me"
+          "translation": "Please help me",
+          "translit": "tetsudatte kudasai"
         }
       ],
       "frequencyRank": 109
@@ -2022,7 +2132,8 @@
       "examples": [
         {
           "native": "わかりません",
-          "translation": "I don't understand"
+          "translation": "I don't understand",
+          "translit": "wakarimasen"
         }
       ],
       "frequencyRank": 30
@@ -2039,7 +2150,8 @@
       "examples": [
         {
           "native": "お金がありません",
-          "translation": "I don't have money"
+          "translation": "I don't have money",
+          "translit": "okane ga arimasen"
         }
       ],
       "frequencyRank": 44
@@ -2056,7 +2168,8 @@
       "examples": [
         {
           "native": "いい日ですね",
-          "translation": "It's a nice day"
+          "translation": "It's a nice day",
+          "translit": "ii hi desu ne"
         }
       ],
       "frequencyRank": 37
@@ -2073,7 +2186,8 @@
       "examples": [
         {
           "native": "昨日は寒かったです",
-          "translation": "Yesterday was cold"
+          "translation": "Yesterday was cold",
+          "translit": "kinō wa samukatta desu"
         }
       ],
       "frequencyRank": 38
@@ -2090,7 +2204,8 @@
       "examples": [
         {
           "native": "これは何ですか",
-          "translation": "What is this?"
+          "translation": "What is this?",
+          "translit": "kore wa nan desu ka"
         }
       ],
       "frequencyRank": 45
@@ -2107,7 +2222,8 @@
       "examples": [
         {
           "native": "どうやって使いますか",
-          "translation": "How do you use it?"
+          "translation": "How do you use it?",
+          "translit": "dōyatte tsukaimasu ka"
         }
       ],
       "frequencyRank": 46
@@ -2124,7 +2240,8 @@
       "examples": [
         {
           "native": "あの男の人は兄です",
-          "translation": "That man is my brother"
+          "translation": "That man is my brother",
+          "translit": "ano otoko no hito wa ani desu"
         }
       ],
       "frequencyRank": 11
@@ -2141,7 +2258,8 @@
       "examples": [
         {
           "native": "あの女の人は医者です",
-          "translation": "That woman is a doctor"
+          "translation": "That woman is a doctor",
+          "translit": "ano onna no hito wa isha desu"
         }
       ],
       "frequencyRank": 12
@@ -2158,7 +2276,8 @@
       "examples": [
         {
           "native": "この町は静かです",
-          "translation": "This town is quiet"
+          "translation": "This town is quiet",
+          "translit": "kono machi wa shizuka desu"
         }
       ],
       "frequencyRank": 32
@@ -2175,7 +2294,8 @@
       "examples": [
         {
           "native": "車で行きます",
-          "translation": "I'll go by car"
+          "translation": "I'll go by car",
+          "translit": "kuruma de ikimasu"
         }
       ],
       "frequencyRank": 57
@@ -2192,7 +2312,8 @@
       "examples": [
         {
           "native": "道が長いです",
-          "translation": "The road is long"
+          "translation": "The road is long",
+          "translit": "michi ga nagai desu"
         }
       ],
       "frequencyRank": 58
@@ -2209,7 +2330,8 @@
       "examples": [
         {
           "native": "仕事が忙しいです",
-          "translation": "Work is busy"
+          "translation": "Work is busy",
+          "translit": "shigoto ga isogashii desu"
         }
       ],
       "frequencyRank": 13
@@ -2226,7 +2348,8 @@
       "examples": [
         {
           "native": "ドアを開けてください",
-          "translation": "Please open the door"
+          "translation": "Please open the door",
+          "translit": "doa o akete kudasai"
         }
       ],
       "frequencyRank": 110
@@ -2243,7 +2366,8 @@
       "examples": [
         {
           "native": "今日は暑いです",
-          "translation": "It's hot today"
+          "translation": "It's hot today",
+          "translit": "kyō wa atsui desu"
         }
       ],
       "frequencyRank": 47
@@ -2260,7 +2384,8 @@
       "examples": [
         {
           "native": "今日は寒いです",
-          "translation": "It's cold today"
+          "translation": "It's cold today",
+          "translit": "kyō wa samui desu"
         }
       ],
       "frequencyRank": 48
@@ -2277,7 +2402,8 @@
       "examples": [
         {
           "native": "とてもいいです",
-          "translation": "Very good"
+          "translation": "Very good",
+          "translit": "totemo ii desu"
         }
       ],
       "frequencyRank": 49
@@ -2294,7 +2420,8 @@
       "examples": [
         {
           "native": "小さいでもきれいです",
-          "translation": "Small but pretty"
+          "translation": "Small but pretty",
+          "translit": "chiisai demo kirei desu"
         }
       ],
       "frequencyRank": 50
@@ -2311,7 +2438,8 @@
       "examples": [
         {
           "native": "雨だから行きません",
-          "translation": "I won't go because it's raining"
+          "translation": "I won't go because it's raining",
+          "translit": "ame dakara ikimasen"
         }
       ],
       "frequencyRank": 138
@@ -2328,7 +2456,8 @@
       "examples": [
         {
           "native": "左に曲がります",
-          "translation": "Turn left"
+          "translation": "Turn left",
+          "translit": "hidari ni magarimasu"
         }
       ],
       "frequencyRank": 59
@@ -2345,7 +2474,8 @@
       "examples": [
         {
           "native": "右にあります",
-          "translation": "It's on the right"
+          "translation": "It's on the right",
+          "translit": "migi ni arimasu"
         }
       ],
       "frequencyRank": 60
@@ -2362,7 +2492,8 @@
       "examples": [
         {
           "native": "お名前は何ですか",
-          "translation": "What's your name?"
+          "translation": "What's your name?",
+          "translit": "onamae wa nan desu ka"
         }
       ],
       "frequencyRank": 14
@@ -2379,7 +2510,8 @@
       "examples": [
         {
           "native": "病気です",
-          "translation": "I'm ill"
+          "translation": "I'm ill",
+          "translit": "byōki desu"
         }
       ],
       "frequencyRank": 40
@@ -2396,7 +2528,8 @@
       "examples": [
         {
           "native": "医者が必要です",
-          "translation": "I need a doctor"
+          "translation": "I need a doctor",
+          "translit": "isha ga hitsuyō desu"
         }
       ],
       "frequencyRank": 33
@@ -2413,7 +2546,8 @@
       "examples": [
         {
           "native": "トイレはどこですか",
-          "translation": "Where is the toilet?"
+          "translation": "Where is the toilet?",
+          "translit": "toire wa doko desu ka"
         }
       ],
       "frequencyRank": 34
@@ -2430,7 +2564,8 @@
       "examples": [
         {
           "native": "息子は七歳です",
-          "translation": "My son is seven"
+          "translation": "My son is seven",
+          "translit": "musuko wa nanasai desu"
         }
       ],
       "frequencyRank": 91
@@ -2447,7 +2582,8 @@
       "examples": [
         {
           "native": "娘は学校に行きます",
-          "translation": "My daughter goes to school"
+          "translation": "My daughter goes to school",
+          "translit": "musume wa gakkō ni ikimasu"
         }
       ],
       "frequencyRank": 92
@@ -2464,7 +2600,8 @@
       "examples": [
         {
           "native": "八人です",
-          "translation": "Eight people"
+          "translation": "Eight people",
+          "translit": "hachinin desu"
         }
       ],
       "frequencyRank": 19
@@ -2481,7 +2618,8 @@
       "examples": [
         {
           "native": "九時です",
-          "translation": "It's nine o'clock"
+          "translation": "It's nine o'clock",
+          "translit": "kuji desu"
         }
       ],
       "frequencyRank": 20
@@ -2498,7 +2636,8 @@
       "examples": [
         {
           "native": "駅は近いです",
-          "translation": "The station is near"
+          "translation": "The station is near",
+          "translit": "eki wa chikai desu"
         }
       ],
       "frequencyRank": 61
@@ -2515,7 +2654,8 @@
       "examples": [
         {
           "native": "七時に会いましょう",
-          "translation": "Let's meet at seven"
+          "translation": "Let's meet at seven",
+          "translit": "shichiji ni aimashō"
         }
       ],
       "frequencyRank": 21
@@ -2532,7 +2672,8 @@
       "examples": [
         {
           "native": "値段はいくらですか",
-          "translation": "What's the price?"
+          "translation": "What's the price?",
+          "translit": "nedan wa ikura desu ka"
         }
       ],
       "frequencyRank": 139
@@ -2549,7 +2690,8 @@
       "examples": [
         {
           "native": "もっとください",
-          "translation": "More please"
+          "translation": "More please",
+          "translit": "motto kudasai"
         }
       ],
       "frequencyRank": 51
@@ -2566,7 +2708,8 @@
       "examples": [
         {
           "native": "パンとコーヒー",
-          "translation": "Bread and coffee"
+          "translation": "Bread and coffee",
+          "translit": "pan to kōhī"
         }
       ],
       "frequencyRank": 52
@@ -2583,7 +2726,8 @@
       "examples": [
         {
           "native": "砂糖なしで",
-          "translation": "Without sugar"
+          "translation": "Without sugar",
+          "translit": "satō nashi de"
         }
       ],
       "frequencyRank": 140
@@ -2600,7 +2744,8 @@
       "examples": [
         {
           "native": "お茶かコーヒー",
-          "translation": "Tea or coffee"
+          "translation": "Tea or coffee",
+          "translit": "ocha ka kōhī"
         }
       ],
       "frequencyRank": 141
@@ -2617,7 +2762,8 @@
       "examples": [
         {
           "native": "時間がない",
-          "translation": "There's no time"
+          "translation": "There's no time",
+          "translit": "jikan ga nai"
         }
       ],
       "frequencyRank": 53
@@ -2634,7 +2780,8 @@
       "examples": [
         {
           "native": "全部ください",
-          "translation": "All of it please"
+          "translation": "All of it please",
+          "translit": "zenbu kudasai"
         }
       ],
       "frequencyRank": 142
@@ -2651,7 +2798,8 @@
       "examples": [
         {
           "native": "駅は遠いですか",
-          "translation": "Is the station far?"
+          "translation": "Is the station far?",
+          "translit": "eki wa tōi desu ka"
         }
       ],
       "frequencyRank": 62
@@ -2668,7 +2816,8 @@
       "examples": [
         {
           "native": "悲しそうです",
-          "translation": "He looks sad"
+          "translation": "He looks sad",
+          "translit": "kanashisō desu"
         }
       ],
       "frequencyRank": 134

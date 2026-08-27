@@ -179,15 +179,22 @@ export function readableSentences(pack, progress = {}, { maxUnknown = 1, preferT
   // Everything you can read outright, then everything with a single gap.
   //
   // Within a band: sentences someone can SAY come first, then shorter before
-  // longer. The transliteration gap is real and visible here — Urdu example
-  // romanisation is around 55%, Arabic 38% — and a learner who can't yet read
-  // Nastaliq meets a line they cannot pronounce at all. The honest response is
-  // to put the sayable ones first, not to generate a romanisation: the
-  // romaniser in audio/romanise.js is a rough phonetic skeleton built for
-  // scoring speech, it is documented as never to be shown to a learner, and
-  // handing someone an approximation of how their grandmother's language sounds
-  // is exactly the wrong thing for this app to do. Filling those in properly is
-  // an authoring job.
+  // longer.
+  //
+  // This tiebreaker used to do real work. Urdu example romanisation was around
+  // 55% and Arabic 38%, so a learner who couldn't yet read Nastaliq met lines
+  // they could not pronounce at all, and the honest response was to sort those
+  // to the back rather than generate a romanisation — the romaniser in
+  // audio/romanise.js is a rough phonetic skeleton built for scoring speech,
+  // documented as never to be shown to a learner, and handing someone an
+  // approximation of how their grandmother's language sounds is exactly the
+  // wrong thing for this app to do.
+  //
+  // v92 did that authoring job: all eleven non-Latin languages are now at 100%,
+  // enforced by validate-translit.mjs. So this comparator is a no-op today. It
+  // stays because it is the guard that keeps it that way — if a sentence ever
+  // lands without a romanisation, it sorts to the back instead of ambushing
+  // someone mid-read.
   //
   // Shorter before longer, because a short sentence read fluently is worth more
   // than a long one decoded.

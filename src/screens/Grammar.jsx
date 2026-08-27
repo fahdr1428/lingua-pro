@@ -6,16 +6,15 @@
 
 import React, { useState } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
-import { LANGUAGES } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getGrammar } from "../data/grammar.js";
 import { checksFor } from "../engine/grammarChecks.js";
 
-const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 export function Grammar({ pack, appState, onNavigate }) {
   const lang = LANGUAGES[pack.code];
-  const isNonLatin = NON_LATIN.has(pack.code);
+  const isNonLatin = isNonLatinScript(pack.code);
   const voiceAvailable = hasVoiceFor(lang.ttsCode);
   const lessons = getGrammar(pack.code);
 

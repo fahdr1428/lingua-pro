@@ -301,7 +301,8 @@
       "examples": [
         {
           "native": "你好朋友",
-          "translation": "Hello friend"
+          "translation": "Hello friend",
+          "translit": "nǐ hǎo péngyǒu"
         }
       ],
       "pronunciation": "nee how"
@@ -318,7 +319,8 @@
       "examples": [
         {
           "native": "非常谢谢",
-          "translation": "Thank you very much"
+          "translation": "Thank you very much",
+          "translit": "fēicháng xièxie"
         }
       ],
       "pronunciation": "shyeh-shyeh"
@@ -335,7 +337,8 @@
       "examples": [
         {
           "native": "是的",
-          "translation": "Yes"
+          "translation": "Yes",
+          "translit": "shì de"
         }
       ],
       "pronunciation": "sher (4th tone, falling)"
@@ -352,7 +355,8 @@
       "examples": [
         {
           "native": "不是",
-          "translation": "No, it's not"
+          "translation": "No, it's not",
+          "translit": "bú shì"
         }
       ],
       "pronunciation": "boo (4th tone)"
@@ -369,7 +373,8 @@
       "examples": [
         {
           "native": "明天再见",
-          "translation": "See you tomorrow"
+          "translation": "See you tomorrow",
+          "translit": "míngtiān zàijiàn"
         }
       ],
       "pronunciation": "dzai-jyen"
@@ -386,7 +391,8 @@
       "examples": [
         {
           "native": "对不起，我迟到了",
-          "translation": "Sorry, I'm late"
+          "translation": "Sorry, I'm late",
+          "translit": "duìbùqǐ, wǒ chídào le"
         }
       ],
       "pronunciation": "dway-boo-chee"
@@ -403,7 +409,8 @@
       "examples": [
         {
           "native": "请坐",
-          "translation": "Please sit"
+          "translation": "Please sit",
+          "translit": "qǐng zuò"
         }
       ],
       "pronunciation": "ching (3rd tone, dipping)"
@@ -420,7 +427,8 @@
       "examples": [
         {
           "native": "早安朋友",
-          "translation": "Good morning friend"
+          "translation": "Good morning friend",
+          "translit": "zǎo'ān péngyǒu"
         }
       ],
       "pronunciation": "dzow-an"
@@ -437,7 +445,8 @@
       "examples": [
         {
           "native": "我是学生",
-          "translation": "I am a student"
+          "translation": "I am a student",
+          "translit": "wǒ shì xuéshēng"
         }
       ],
       "pronunciation": "wor (3rd tone)"
@@ -454,7 +463,8 @@
       "examples": [
         {
           "native": "你好吗",
-          "translation": "How are you"
+          "translation": "How are you",
+          "translit": "nǐ hǎo ma"
         }
       ],
       "pronunciation": "nee (3rd tone)"
@@ -471,7 +481,8 @@
       "examples": [
         {
           "native": "他是医生",
-          "translation": "He is a doctor"
+          "translation": "He is a doctor",
+          "translit": "tā shì yīshēng"
         }
       ],
       "pronunciation": "tah (1st tone, flat)"
@@ -488,7 +499,8 @@
       "examples": [
         {
           "native": "她是老师",
-          "translation": "She is a teacher"
+          "translation": "She is a teacher",
+          "translit": "tā shì lǎoshī"
         }
       ],
       "pronunciation": "tah (1st tone, flat)"
@@ -505,7 +517,8 @@
       "examples": [
         {
           "native": "我们是朋友",
-          "translation": "We are friends"
+          "translation": "We are friends",
+          "translit": "wǒmen shì péngyǒu"
         }
       ],
       "pronunciation": "wor-men"
@@ -522,7 +535,8 @@
       "examples": [
         {
           "native": "这是什么",
-          "translation": "What is this"
+          "translation": "What is this",
+          "translit": "zhè shì shénme"
         }
       ],
       "pronunciation": "shen-muh"
@@ -539,7 +553,8 @@
       "examples": [
         {
           "native": "他是谁",
-          "translation": "Who is he"
+          "translation": "Who is he",
+          "translit": "tā shì shéi"
         }
       ],
       "pronunciation": "shay"
@@ -556,11 +571,13 @@
       "examples": [
         {
           "native": "我的妈妈",
-          "translation": "My mother"
+          "translation": "My mother",
+          "translit": "wǒ de māma"
         },
         {
           "native": "我妈妈做饭很好",
-          "translation": "My mum cooks well"
+          "translation": "My mum cooks well",
+          "translit": "wǒ māma zuò fàn hěn hǎo"
         }
       ],
       "pronunciation": "mah-mah"
@@ -577,11 +594,13 @@
       "examples": [
         {
           "native": "我的爸爸",
-          "translation": "My father"
+          "translation": "My father",
+          "translit": "wǒ de bàba"
         },
         {
           "native": "我爸爸工作很忙",
-          "translation": "My dad's work is busy"
+          "translation": "My dad's work is busy",
+          "translit": "wǒ bàba gōngzuò hěn máng"
         }
       ],
       "pronunciation": "bah-bah"
@@ -598,7 +617,8 @@
       "examples": [
         {
           "native": "我的哥哥",
-          "translation": "My older brother"
+          "translation": "My older brother",
+          "translit": "wǒ de gēge"
         }
       ],
       "pronunciation": "guh-guh"
@@ -615,7 +635,8 @@
       "examples": [
         {
           "native": "我的姐姐",
-          "translation": "My older sister"
+          "translation": "My older sister",
+          "translit": "wǒ de jiějie"
         }
       ],
       "pronunciation": "jyeh-jyeh"
@@ -632,7 +653,8 @@
       "examples": [
         {
           "native": "好朋友",
-          "translation": "Good friend"
+          "translation": "Good friend",
+          "translit": "hǎo péngyǒu"
         }
       ],
       "pronunciation": "pung-yoh"
@@ -649,7 +671,8 @@
       "examples": [
         {
           "native": "小孩子",
-          "translation": "Small child"
+          "translation": "Small child",
+          "translit": "xiǎo háizi"
         }
       ],
       "pronunciation": "hai-dzuh"
@@ -666,7 +689,8 @@
       "examples": [
         {
           "native": "一个人",
-          "translation": "One person"
+          "translation": "One person",
+          "translit": "yí ge rén"
         }
       ],
       "pronunciation": "ee (1st tone, flat)"
@@ -683,7 +707,8 @@
       "examples": [
         {
           "native": "二月",
-          "translation": "February"
+          "translation": "February",
+          "translit": "èr yuè"
         }
       ],
       "pronunciation": "ar (4th tone)"
@@ -700,7 +725,8 @@
       "examples": [
         {
           "native": "三天",
-          "translation": "Three days"
+          "translation": "Three days",
+          "translit": "sān tiān"
         }
       ],
       "pronunciation": "san (1st tone)"
@@ -717,7 +743,8 @@
       "examples": [
         {
           "native": "四小时",
-          "translation": "Four hours"
+          "translation": "Four hours",
+          "translit": "sì xiǎoshí"
         }
       ],
       "pronunciation": "suh (4th tone)"
@@ -734,7 +761,8 @@
       "examples": [
         {
           "native": "五分钟",
-          "translation": "Five minutes"
+          "translation": "Five minutes",
+          "translit": "wǔ fēnzhōng"
         }
       ],
       "pronunciation": "woo (3rd tone)"
@@ -751,7 +779,8 @@
       "examples": [
         {
           "native": "十块钱",
-          "translation": "Ten yuan"
+          "translation": "Ten yuan",
+          "translit": "shí kuài qián"
         }
       ],
       "pronunciation": "shir (2nd tone, rising)"
@@ -768,11 +797,13 @@
       "examples": [
         {
           "native": "一百",
-          "translation": "One hundred"
+          "translation": "One hundred",
+          "translit": "yìbǎi"
         },
         {
           "native": "一百块",
-          "translation": "A hundred yuan"
+          "translation": "A hundred yuan",
+          "translit": "yìbǎi kuài"
         }
       ],
       "pronunciation": "bai (3rd tone)"
@@ -789,7 +820,8 @@
       "examples": [
         {
           "native": "一杯水",
-          "translation": "A glass of water"
+          "translation": "A glass of water",
+          "translit": "yì bēi shuǐ"
         }
       ],
       "pronunciation": "shway (3rd tone)"
@@ -806,7 +838,8 @@
       "examples": [
         {
           "native": "中国茶",
-          "translation": "Chinese tea"
+          "translation": "Chinese tea",
+          "translit": "Zhōngguó chá"
         }
       ],
       "pronunciation": "chah (2nd tone)"
@@ -823,7 +856,8 @@
       "examples": [
         {
           "native": "吃米饭",
-          "translation": "To eat rice"
+          "translation": "To eat rice",
+          "translit": "chī mǐfàn"
         }
       ],
       "pronunciation": "mee-fan"
@@ -840,7 +874,8 @@
       "examples": [
         {
           "native": "牛肉面条",
-          "translation": "Beef noodles"
+          "translation": "Beef noodles",
+          "translit": "niúròu miàntiáo"
         }
       ],
       "pronunciation": "myen-tyow"
@@ -857,7 +892,8 @@
       "examples": [
         {
           "native": "热牛奶",
-          "translation": "Hot milk"
+          "translation": "Hot milk",
+          "translit": "rè niúnǎi"
         }
       ],
       "pronunciation": "nyoh-nai"
@@ -874,7 +910,8 @@
       "examples": [
         {
           "native": "一杯咖啡",
-          "translation": "A cup of coffee"
+          "translation": "A cup of coffee",
+          "translit": "yì bēi kāfēi"
         }
       ],
       "pronunciation": "kah-fay"
@@ -891,7 +928,8 @@
       "examples": [
         {
           "native": "煮鸡蛋",
-          "translation": "Boiled egg"
+          "translation": "Boiled egg",
+          "translit": "zhǔ jīdàn"
         }
       ],
       "pronunciation": "jee-dan"
@@ -908,7 +946,8 @@
       "examples": [
         {
           "native": "鸡肉",
-          "translation": "Chicken meat"
+          "translation": "Chicken meat",
+          "translit": "jīròu"
         }
       ],
       "pronunciation": "roh (4th tone)"
@@ -925,7 +964,8 @@
       "examples": [
         {
           "native": "我去家",
-          "translation": "I go home"
+          "translation": "I go home",
+          "translit": "wǒ qù jiā"
         }
       ],
       "pronunciation": "chew (4th tone)"
@@ -942,7 +982,8 @@
       "examples": [
         {
           "native": "明天来",
-          "translation": "Come tomorrow"
+          "translation": "Come tomorrow",
+          "translit": "míngtiān lái"
         }
       ],
       "pronunciation": "lai (2nd tone)"
@@ -959,7 +1000,8 @@
       "examples": [
         {
           "native": "吃饭",
-          "translation": "To eat a meal"
+          "translation": "To eat a meal",
+          "translit": "chī fàn"
         }
       ],
       "pronunciation": "chir (1st tone)"
@@ -976,7 +1018,8 @@
       "examples": [
         {
           "native": "喝水",
-          "translation": "To drink water"
+          "translation": "To drink water",
+          "translit": "hē shuǐ"
         }
       ],
       "pronunciation": "huh (1st tone)"
@@ -993,7 +1036,8 @@
       "examples": [
         {
           "native": "说中文",
-          "translation": "To speak Chinese"
+          "translation": "To speak Chinese",
+          "translit": "shuō Zhōngwén"
         }
       ],
       "pronunciation": "shwor (1st tone)"
@@ -1010,7 +1054,8 @@
       "examples": [
         {
           "native": "看电影",
-          "translation": "To watch a movie"
+          "translation": "To watch a movie",
+          "translit": "kàn diànyǐng"
         }
       ],
       "pronunciation": "kahn (4th tone)"
@@ -1027,7 +1072,8 @@
       "examples": [
         {
           "native": "做饭",
-          "translation": "To cook"
+          "translation": "To cook",
+          "translit": "zuò fàn"
         }
       ],
       "pronunciation": "dzwor (4th tone)"
@@ -1044,7 +1090,8 @@
       "examples": [
         {
           "native": "我有一本书",
-          "translation": "I have a book"
+          "translation": "I have a book",
+          "translit": "wǒ yǒu yì běn shū"
         }
       ],
       "pronunciation": "yoh (3rd tone)"
@@ -1061,7 +1108,8 @@
       "examples": [
         {
           "native": "我在家",
-          "translation": "I am at home"
+          "translation": "I am at home",
+          "translit": "wǒ zài jiā"
         }
       ],
       "pronunciation": "dzai (4th tone)"
@@ -1078,7 +1126,8 @@
       "examples": [
         {
           "native": "我的家",
-          "translation": "My home"
+          "translation": "My home",
+          "translit": "wǒ de jiā"
         }
       ],
       "pronunciation": "jya (1st tone)"
@@ -1095,7 +1144,8 @@
       "examples": [
         {
           "native": "去学校",
-          "translation": "To go to school"
+          "translation": "To go to school",
+          "translit": "qù xuéxiào"
         }
       ],
       "pronunciation": "shweh-shyow"
@@ -1112,7 +1162,8 @@
       "examples": [
         {
           "native": "大城市",
-          "translation": "Big city"
+          "translation": "Big city",
+          "translit": "dà chéngshì"
         }
       ],
       "pronunciation": "chung-shir"
@@ -1129,7 +1180,8 @@
       "examples": [
         {
           "native": "小商店",
-          "translation": "Small shop"
+          "translation": "Small shop",
+          "translit": "xiǎo shāngdiàn"
         }
       ],
       "pronunciation": "shahng-dyen"
@@ -1146,7 +1198,8 @@
       "examples": [
         {
           "native": "中国饭店",
-          "translation": "Chinese restaurant"
+          "translation": "Chinese restaurant",
+          "translit": "Zhōngguó fàndiàn"
         }
       ],
       "pronunciation": "fan-dyen"
@@ -1163,7 +1216,8 @@
       "examples": [
         {
           "native": "今天星期一",
-          "translation": "Today is Monday"
+          "translation": "Today is Monday",
+          "translit": "jīntiān xīngqīyī"
         }
       ],
       "pronunciation": "jin-tyen"
@@ -1180,7 +1234,8 @@
       "examples": [
         {
           "native": "明天见",
-          "translation": "See you tomorrow"
+          "translation": "See you tomorrow",
+          "translit": "míngtiān jiàn"
         }
       ],
       "pronunciation": "ming-tyen"
@@ -1197,7 +1252,8 @@
       "examples": [
         {
           "native": "现在几点",
-          "translation": "What time now"
+          "translation": "What time now",
+          "translit": "xiànzài jǐ diǎn"
         }
       ],
       "pronunciation": "shyen-dzai"
@@ -1214,7 +1270,8 @@
       "examples": [
         {
           "native": "早上好",
-          "translation": "Good morning"
+          "translation": "Good morning",
+          "translit": "zǎoshang hǎo"
         }
       ],
       "pronunciation": "dzow-shahng"
@@ -1231,7 +1288,8 @@
       "examples": [
         {
           "native": "晚上好",
-          "translation": "Good evening"
+          "translation": "Good evening",
+          "translit": "wǎnshang hǎo"
         }
       ],
       "pronunciation": "wahn-shahng"
@@ -1248,7 +1306,8 @@
       "examples": [
         {
           "native": "今年",
-          "translation": "This year"
+          "translation": "This year",
+          "translit": "jīnnián"
         }
       ],
       "pronunciation": "nyen (2nd tone)"
@@ -1265,7 +1324,8 @@
       "examples": [
         {
           "native": "这个月",
-          "translation": "This month"
+          "translation": "This month",
+          "translit": "zhège yuè"
         }
       ],
       "pronunciation": "yweh (4th tone)"
@@ -1282,7 +1342,8 @@
       "examples": [
         {
           "native": "你和我",
-          "translation": "You and me"
+          "translation": "You and me",
+          "translit": "nǐ hé wǒ"
         }
       ],
       "pronunciation": "huh (2nd tone)"
@@ -1299,7 +1360,8 @@
       "examples": [
         {
           "native": "但是很难",
-          "translation": "But it's hard"
+          "translation": "But it's hard",
+          "translit": "dànshì hěn nán"
         }
       ],
       "pronunciation": "dan-shir"
@@ -1316,7 +1378,8 @@
       "examples": [
         {
           "native": "因为我累了",
-          "translation": "Because I'm tired"
+          "translation": "Because I'm tired",
+          "translit": "yīnwèi wǒ lèi le"
         }
       ],
       "pronunciation": "yin-way"
@@ -1333,7 +1396,8 @@
       "examples": [
         {
           "native": "茶或者咖啡",
-          "translation": "Tea or coffee"
+          "translation": "Tea or coffee",
+          "translit": "chá huòzhě kāfēi"
         }
       ],
       "pronunciation": "hwor-juh"
@@ -1350,7 +1414,8 @@
       "examples": [
         {
           "native": "我也是",
-          "translation": "Me too"
+          "translation": "Me too",
+          "translit": "wǒ yě shì"
         }
       ],
       "pronunciation": "yeh (3rd tone)"
@@ -1367,7 +1432,8 @@
       "examples": [
         {
           "native": "你在哪里",
-          "translation": "Where are you"
+          "translation": "Where are you",
+          "translit": "nǐ zài nǎlǐ"
         }
       ],
       "pronunciation": "nah-lee"
@@ -1384,7 +1450,8 @@
       "examples": [
         {
           "native": "多少钱",
-          "translation": "How much money"
+          "translation": "How much money",
+          "translit": "duōshao qián"
         }
       ],
       "pronunciation": "dwor-show"
@@ -1401,7 +1468,8 @@
       "examples": [
         {
           "native": "我需要帮助",
-          "translation": "I need help"
+          "translation": "I need help",
+          "translit": "wǒ xūyào bāngzhù"
         }
       ],
       "pronunciation": "bahng-joo"
@@ -1418,7 +1486,8 @@
       "examples": [
         {
           "native": "好酒店",
-          "translation": "Good hotel"
+          "translation": "Good hotel",
+          "translit": "hǎo jiǔdiàn"
         }
       ],
       "pronunciation": "jyoh-dyen"
@@ -1435,7 +1504,8 @@
       "examples": [
         {
           "native": "很好",
-          "translation": "Very good"
+          "translation": "Very good",
+          "translit": "hěn hǎo"
         }
       ],
       "pronunciation": "how (3rd tone)"
@@ -1452,7 +1522,8 @@
       "examples": [
         {
           "native": "很多",
-          "translation": "A lot"
+          "translation": "A lot",
+          "translit": "hěn duō"
         }
       ],
       "pronunciation": "dwor (1st tone)"
@@ -1469,7 +1540,8 @@
       "examples": [
         {
           "native": "大房子",
-          "translation": "Big house"
+          "translation": "Big house",
+          "translit": "dà fángzi"
         }
       ],
       "pronunciation": "dah (4th tone)"
@@ -1486,7 +1558,8 @@
       "examples": [
         {
           "native": "小狗",
-          "translation": "Small dog"
+          "translation": "Small dog",
+          "translit": "xiǎo gǒu"
         }
       ],
       "pronunciation": "shyow (3rd tone)"
@@ -1504,7 +1577,8 @@
       "examples": [
         {
           "native": "我的头",
-          "translation": "My head"
+          "translation": "My head",
+          "translit": "wǒ de tóu"
         }
       ]
     },
@@ -1521,7 +1595,8 @@
       "examples": [
         {
           "native": "右手",
-          "translation": "Right hand"
+          "translation": "Right hand",
+          "translit": "yòushǒu"
         }
       ]
     },
@@ -1538,7 +1613,8 @@
       "examples": [
         {
           "native": "大眼睛",
-          "translation": "Big eyes"
+          "translation": "Big eyes",
+          "translit": "dà yǎnjīng"
         }
       ]
     },
@@ -1555,7 +1631,8 @@
       "examples": [
         {
           "native": "我饿了",
-          "translation": "I am hungry"
+          "translation": "I am hungry",
+          "translit": "wǒ è le"
         }
       ]
     },
@@ -1572,7 +1649,8 @@
       "examples": [
         {
           "native": "我很累",
-          "translation": "I am very tired"
+          "translation": "I am very tired",
+          "translit": "wǒ hěn lèi"
         }
       ]
     },
@@ -1589,7 +1667,8 @@
       "examples": [
         {
           "native": "很高兴",
-          "translation": "Very happy"
+          "translation": "Very happy",
+          "translit": "hěn gāoxìng"
         }
       ]
     },
@@ -1606,7 +1685,8 @@
       "examples": [
         {
           "native": "别难过",
-          "translation": "Don't be sad"
+          "translation": "Don't be sad",
+          "translit": "bié nánguò"
         }
       ]
     },
@@ -1623,7 +1703,8 @@
       "examples": [
         {
           "native": "大太阳",
-          "translation": "Bright sun"
+          "translation": "Bright sun",
+          "translit": "dà tàiyáng"
         }
       ]
     },
@@ -1640,7 +1721,8 @@
       "examples": [
         {
           "native": "下雨了",
-          "translation": "It's raining"
+          "translation": "It's raining",
+          "translit": "xià yǔ le"
         }
       ]
     },
@@ -1657,7 +1739,8 @@
       "examples": [
         {
           "native": "黑云",
-          "translation": "Black clouds"
+          "translation": "Black clouds",
+          "translit": "hēi yún"
         }
       ]
     },
@@ -1674,11 +1757,13 @@
       "examples": [
         {
           "native": "凉风",
-          "translation": "Cool wind"
+          "translation": "Cool wind",
+          "translit": "liáng fēng"
         },
         {
           "native": "风很大",
-          "translation": "The wind is strong"
+          "translation": "The wind is strong",
+          "translit": "fēng hěn dà"
         }
       ]
     },
@@ -1695,7 +1780,8 @@
       "examples": [
         {
           "native": "蓝天空",
-          "translation": "Blue sky"
+          "translation": "Blue sky",
+          "translit": "lán tiānkōng"
         }
       ]
     },
@@ -1712,7 +1798,8 @@
       "examples": [
         {
           "native": "快车",
-          "translation": "Fast car"
+          "translation": "Fast car",
+          "translit": "kuài chē"
         }
       ]
     },
@@ -1729,7 +1816,8 @@
       "examples": [
         {
           "native": "公共汽车来了",
-          "translation": "The bus is coming"
+          "translation": "The bus is coming",
+          "translit": "gōnggòng qìchē lái le"
         }
       ]
     },
@@ -1746,7 +1834,8 @@
       "examples": [
         {
           "native": "快火车",
-          "translation": "Fast train"
+          "translation": "Fast train",
+          "translit": "kuài huǒchē"
         }
       ]
     },
@@ -1763,11 +1852,13 @@
       "examples": [
         {
           "native": "向右",
-          "translation": "To the right"
+          "translation": "To the right",
+          "translit": "xiàng yòu"
         },
         {
           "native": "在右边",
-          "translation": "On the right"
+          "translation": "On the right",
+          "translit": "zài yòubiān"
         }
       ]
     },
@@ -1784,11 +1875,13 @@
       "examples": [
         {
           "native": "向左",
-          "translation": "To the left"
+          "translation": "To the left",
+          "translit": "xiàng zuǒ"
         },
         {
           "native": "往左转",
-          "translation": "Turn left"
+          "translation": "Turn left",
+          "translit": "wǎng zuǒ zhuǎn"
         }
       ]
     },
@@ -1805,7 +1898,8 @@
       "examples": [
         {
           "native": "来这里",
-          "translation": "Come here"
+          "translation": "Come here",
+          "translit": "lái zhèlǐ"
         }
       ]
     },
@@ -1822,7 +1916,8 @@
       "examples": [
         {
           "native": "去那里",
-          "translation": "Go there"
+          "translation": "Go there",
+          "translit": "qù nàlǐ"
         }
       ]
     },
@@ -1839,7 +1934,8 @@
       "examples": [
         {
           "native": "买衣服",
-          "translation": "To buy clothes"
+          "translation": "To buy clothes",
+          "translit": "mǎi yīfu"
         }
       ]
     },
@@ -1856,7 +1952,8 @@
       "examples": [
         {
           "native": "卖房子",
-          "translation": "To sell a house"
+          "translation": "To sell a house",
+          "translit": "mài fángzi"
         }
       ]
     },
@@ -1873,7 +1970,8 @@
       "examples": [
         {
           "native": "少盐",
-          "translation": "A little salt"
+          "translation": "A little salt",
+          "translit": "shǎo yán"
         }
       ]
     },
@@ -1890,7 +1988,8 @@
       "examples": [
         {
           "native": "加糖",
-          "translation": "Add sugar"
+          "translation": "Add sugar",
+          "translit": "jiā táng"
         }
       ]
     },
@@ -1907,7 +2006,8 @@
       "examples": [
         {
           "native": "快来",
-          "translation": "Come quickly"
+          "translation": "Come quickly",
+          "translit": "kuài lái"
         }
       ]
     },
@@ -1923,11 +2023,13 @@
       "examples": [
         {
           "native": "我知道",
-          "translation": "I know"
+          "translation": "I know",
+          "translit": "wǒ zhīdào"
         },
         {
           "native": "我不知道",
-          "translation": "I don't know"
+          "translation": "I don't know",
+          "translit": "wǒ bù zhīdào"
         }
       ],
       "pronunciation": "jr-dow"
@@ -1944,7 +2046,8 @@
       "examples": [
         {
           "native": "我想你",
-          "translation": "I miss/think of you"
+          "translation": "I miss/think of you",
+          "translit": "wǒ xiǎng nǐ"
         }
       ]
     },
@@ -1960,7 +2063,8 @@
       "examples": [
         {
           "native": "给我",
-          "translation": "Give me"
+          "translation": "Give me",
+          "translit": "gěi wǒ"
         }
       ]
     },
@@ -1976,7 +2080,8 @@
       "examples": [
         {
           "native": "拿这个",
-          "translation": "Take this"
+          "translation": "Take this",
+          "translit": "ná zhège"
         }
       ]
     },
@@ -1992,7 +2097,8 @@
       "examples": [
         {
           "native": "听音乐",
-          "translation": "Listen to music"
+          "translation": "Listen to music",
+          "translit": "tīng yīnyuè"
         }
       ]
     },
@@ -2008,7 +2114,8 @@
       "examples": [
         {
           "native": "我需要水",
-          "translation": "I need water"
+          "translation": "I need water",
+          "translit": "wǒ xūyào shuǐ"
         }
       ]
     },
@@ -2024,7 +2131,8 @@
       "examples": [
         {
           "native": "我喜欢咖啡",
-          "translation": "I like coffee"
+          "translation": "I like coffee",
+          "translit": "wǒ xǐhuan kāfēi"
         }
       ]
     },
@@ -2040,7 +2148,8 @@
       "examples": [
         {
           "native": "我的心",
-          "translation": "My heart"
+          "translation": "My heart",
+          "translit": "wǒ de xīn"
         }
       ]
     },
@@ -2056,7 +2165,8 @@
       "examples": [
         {
           "native": "黑咖啡",
-          "translation": "Black coffee"
+          "translation": "Black coffee",
+          "translit": "hēi kāfēi"
         }
       ]
     },
@@ -2072,7 +2182,8 @@
       "examples": [
         {
           "native": "白米饭",
-          "translation": "White rice"
+          "translation": "White rice",
+          "translit": "bái mǐfàn"
         }
       ]
     },
@@ -2088,7 +2199,8 @@
       "examples": [
         {
           "native": "黄色的太阳",
-          "translation": "The yellow sun"
+          "translation": "The yellow sun",
+          "translit": "huángsè de tàiyáng"
         }
       ]
     },
@@ -2104,7 +2216,8 @@
       "examples": [
         {
           "native": "这个星期",
-          "translation": "This week"
+          "translation": "This week",
+          "translit": "zhège xīngqī"
         }
       ]
     },
@@ -2120,7 +2233,8 @@
       "examples": [
         {
           "native": "一个小时",
-          "translation": "One hour"
+          "translation": "One hour",
+          "translit": "yí ge xiǎoshí"
         }
       ]
     },
@@ -2136,7 +2250,8 @@
       "examples": [
         {
           "native": "什么时候来？",
-          "translation": "When are you coming?"
+          "translation": "When are you coming?",
+          "translit": "shénme shíhou lái?"
         }
       ]
     },
@@ -2152,7 +2267,8 @@
       "examples": [
         {
           "native": "为什么不？",
-          "translation": "Why not?"
+          "translation": "Why not?",
+          "translit": "wèishénme bù?"
         }
       ]
     },
@@ -2168,7 +2284,8 @@
       "examples": [
         {
           "native": "我要睡觉",
-          "translation": "I want to sleep"
+          "translation": "I want to sleep",
+          "translit": "wǒ yào shuìjiào"
         }
       ]
     },
@@ -2184,7 +2301,8 @@
       "examples": [
         {
           "native": "请问，洗手间在哪里？",
-          "translation": "Excuse me, where is the bathroom?"
+          "translation": "Excuse me, where is the bathroom?",
+          "translit": "qǐngwèn, xǐshǒujiān zài nǎlǐ?"
         }
       ]
     },
@@ -2200,7 +2318,8 @@
       "examples": [
         {
           "native": "这个多少钱？",
-          "translation": "How much is this?"
+          "translation": "How much is this?",
+          "translit": "zhège duōshao qián?"
         }
       ]
     },
@@ -2216,7 +2335,8 @@
       "examples": [
         {
           "native": "车站在哪里？",
-          "translation": "Where is the station?"
+          "translation": "Where is the station?",
+          "translit": "chēzhàn zài nǎlǐ?"
         }
       ]
     },
@@ -2232,7 +2352,8 @@
       "examples": [
         {
           "native": "洗手间在哪里？",
-          "translation": "Where is the bathroom?"
+          "translation": "Where is the bathroom?",
+          "translit": "xǐshǒujiān zài nǎlǐ?"
         }
       ]
     },
@@ -2248,7 +2369,8 @@
       "examples": [
         {
           "native": "对不起，我听不懂",
-          "translation": "Sorry, I don't understand"
+          "translation": "Sorry, I don't understand",
+          "translit": "duìbùqǐ, wǒ tīng bu dǒng"
         }
       ]
     },
@@ -2264,7 +2386,8 @@
       "examples": [
         {
           "native": "没关系",
-          "translation": "It's okay"
+          "translation": "It's okay",
+          "translit": "méi guānxi"
         }
       ]
     },
@@ -2280,7 +2403,8 @@
       "examples": [
         {
           "native": "请再说一遍",
-          "translation": "Please say it again"
+          "translation": "Please say it again",
+          "translit": "qǐng zài shuō yí biàn"
         }
       ]
     },
@@ -2296,7 +2420,8 @@
       "examples": [
         {
           "native": "请慢点儿说",
-          "translation": "Please speak a bit more slowly"
+          "translation": "Please speak a bit more slowly",
+          "translit": "qǐng màn diǎnr shuō"
         }
       ]
     },
@@ -2312,7 +2437,8 @@
       "examples": [
         {
           "native": "可以便宜一点吗？",
-          "translation": "Can you make it cheaper?"
+          "translation": "Can you make it cheaper?",
+          "translit": "kěyǐ piányi yìdiǎn ma?"
         }
       ]
     },
@@ -2328,7 +2454,8 @@
       "examples": [
         {
           "native": "我要这个，谢谢",
-          "translation": "I'll take this one, thanks"
+          "translation": "I'll take this one, thanks",
+          "translit": "wǒ yào zhège, xièxie"
         }
       ]
     },
@@ -2344,7 +2471,8 @@
       "examples": [
         {
           "native": "你会说英文吗？",
-          "translation": "Do you speak English?"
+          "translation": "Do you speak English?",
+          "translit": "nǐ huì shuō Yīngwén ma?"
         }
       ]
     },
@@ -2360,7 +2488,8 @@
       "examples": [
         {
           "native": "请帮我一下",
-          "translation": "Please help me a moment"
+          "translation": "Please help me a moment",
+          "translit": "qǐng bāng wǒ yíxià"
         }
       ]
     },
@@ -2376,7 +2505,8 @@
       "examples": [
         {
           "native": "这是什么？",
-          "translation": "What is this?"
+          "translation": "What is this?",
+          "translit": "zhè shì shénme?"
         }
       ]
     },
@@ -2392,7 +2522,8 @@
       "examples": [
         {
           "native": "天气很坏",
-          "translation": "The weather is bad"
+          "translation": "The weather is bad",
+          "translit": "tiānqì hěn huài"
         }
       ],
       "frequencyRank": 61
@@ -2409,7 +2540,8 @@
       "examples": [
         {
           "native": "食物很好吃",
-          "translation": "The food is delicious"
+          "translation": "The food is delicious",
+          "translit": "shíwù hěn hǎochī"
         }
       ],
       "frequencyRank": 113
@@ -2426,7 +2558,8 @@
       "examples": [
         {
           "native": "你能帮我吗？",
-          "translation": "Can you help me?"
+          "translation": "Can you help me?",
+          "translit": "nǐ néng bāng wǒ ma?"
         }
       ],
       "frequencyRank": 48
@@ -2443,7 +2576,8 @@
       "examples": [
         {
           "native": "我不明白",
-          "translation": "I don't understand"
+          "translation": "I don't understand",
+          "translit": "wǒ bù míngbai"
         }
       ],
       "frequencyRank": 115
@@ -2460,7 +2594,8 @@
       "examples": [
         {
           "native": "我没有钱",
-          "translation": "I don't have money"
+          "translation": "I don't have money",
+          "translit": "wǒ méiyǒu qián"
         }
       ],
       "frequencyRank": 71
@@ -2477,7 +2612,8 @@
       "examples": [
         {
           "native": "我没有时间",
-          "translation": "I don't have time"
+          "translation": "I don't have time",
+          "translit": "wǒ méiyǒu shíjiān"
         }
       ],
       "frequencyRank": 56
@@ -2494,7 +2630,8 @@
       "examples": [
         {
           "native": "今天是好天",
-          "translation": "Today is a good day"
+          "translation": "Today is a good day",
+          "translit": "jīntiān shì hǎo tiān"
         }
       ],
       "frequencyRank": 57
@@ -2511,7 +2648,8 @@
       "examples": [
         {
           "native": "昨天很冷",
-          "translation": "Yesterday was cold"
+          "translation": "Yesterday was cold",
+          "translit": "zuótiān hěn lěng"
         }
       ],
       "frequencyRank": 58
@@ -2528,7 +2666,8 @@
       "examples": [
         {
           "native": "这个怎么用？",
-          "translation": "How do you use this?"
+          "translation": "How do you use this?",
+          "translit": "zhège zěnme yòng?"
         }
       ],
       "frequencyRank": 62
@@ -2545,7 +2684,8 @@
       "examples": [
         {
           "native": "那个男人是我哥哥",
-          "translation": "That man is my brother"
+          "translation": "That man is my brother",
+          "translit": "nàge nánrén shì wǒ gēge"
         }
       ],
       "frequencyRank": 13
@@ -2562,7 +2702,8 @@
       "examples": [
         {
           "native": "那个女人是医生",
-          "translation": "That woman is a doctor"
+          "translation": "That woman is a doctor",
+          "translit": "nàge nǚrén shì yīshēng"
         }
       ],
       "frequencyRank": 14
@@ -2579,7 +2720,8 @@
       "examples": [
         {
           "native": "房子很大",
-          "translation": "The house is big"
+          "translation": "The house is big",
+          "translit": "fángzi hěn dà"
         }
       ],
       "frequencyRank": 51
@@ -2596,7 +2738,8 @@
       "examples": [
         {
           "native": "这条路很长",
-          "translation": "This road is long"
+          "translation": "This road is long",
+          "translit": "zhè tiáo lù hěn cháng"
         }
       ],
       "frequencyRank": 88
@@ -2613,7 +2756,8 @@
       "examples": [
         {
           "native": "我的工作很忙",
-          "translation": "My work is busy"
+          "translation": "My work is busy",
+          "translit": "wǒ de gōngzuò hěn máng"
         }
       ],
       "frequencyRank": 15
@@ -2630,7 +2774,8 @@
       "examples": [
         {
           "native": "价格是多少？",
-          "translation": "What's the price?"
+          "translation": "What's the price?",
+          "translit": "jiàgé shì duōshao?"
         }
       ],
       "frequencyRank": 146
@@ -2647,7 +2792,8 @@
       "examples": [
         {
           "native": "请开门",
-          "translation": "Please open the door"
+          "translation": "Please open the door",
+          "translit": "qǐng kāi mén"
         }
       ],
       "frequencyRank": 49
@@ -2664,7 +2810,8 @@
       "examples": [
         {
           "native": "今天很热",
-          "translation": "It's hot today"
+          "translation": "It's hot today",
+          "translit": "jīntiān hěn rè"
         }
       ],
       "frequencyRank": 79
@@ -2681,7 +2828,8 @@
       "examples": [
         {
           "native": "水很冷",
-          "translation": "The water is cold"
+          "translation": "The water is cold",
+          "translit": "shuǐ hěn lěng"
         }
       ],
       "frequencyRank": 80
@@ -2698,7 +2846,8 @@
       "examples": [
         {
           "native": "更好一点",
-          "translation": "A little better"
+          "translation": "A little better",
+          "translit": "gèng hǎo yìdiǎn"
         }
       ],
       "frequencyRank": 141
@@ -2715,7 +2864,8 @@
       "examples": [
         {
           "native": "很好",
-          "translation": "Very good"
+          "translation": "Very good",
+          "translit": "hěn hǎo"
         }
       ],
       "frequencyRank": 63
@@ -2732,7 +2882,8 @@
       "examples": [
         {
           "native": "没有糖",
-          "translation": "Without sugar"
+          "translation": "Without sugar",
+          "translit": "méiyǒu táng"
         }
       ],
       "frequencyRank": 64
@@ -2749,7 +2900,8 @@
       "examples": [
         {
           "native": "都很好",
-          "translation": "All is well"
+          "translation": "All is well",
+          "translit": "dōu hěn hǎo"
         }
       ],
       "frequencyRank": 65
@@ -2766,7 +2918,8 @@
       "examples": [
         {
           "native": "很近",
-          "translation": "Very near"
+          "translation": "Very near",
+          "translit": "hěn jìn"
         }
       ],
       "frequencyRank": 89
@@ -2783,7 +2936,8 @@
       "examples": [
         {
           "native": "太远了",
-          "translation": "Too far"
+          "translation": "Too far",
+          "translit": "tài yuǎn le"
         }
       ],
       "frequencyRank": 90
@@ -2800,7 +2954,8 @@
       "examples": [
         {
           "native": "你叫什么名字？",
-          "translation": "What's your name?"
+          "translation": "What's your name?",
+          "translit": "nǐ jiào shénme míngzi?"
         }
       ],
       "frequencyRank": 16
@@ -2817,7 +2972,8 @@
       "examples": [
         {
           "native": "我病了",
-          "translation": "I'm ill"
+          "translation": "I'm ill",
+          "translit": "wǒ bìng le"
         }
       ],
       "frequencyRank": 76
@@ -2834,7 +2990,8 @@
       "examples": [
         {
           "native": "我需要医生",
-          "translation": "I need a doctor"
+          "translation": "I need a doctor",
+          "translit": "wǒ xūyào yīshēng"
         }
       ],
       "frequencyRank": 77
@@ -2851,7 +3008,8 @@
       "examples": [
         {
           "native": "他儿子七岁",
-          "translation": "His son is seven"
+          "translation": "His son is seven",
+          "translit": "tā érzi qī suì"
         }
       ],
       "frequencyRank": 22
@@ -2868,7 +3026,8 @@
       "examples": [
         {
           "native": "我女儿在上学",
-          "translation": "My daughter is at school"
+          "translation": "My daughter is at school",
+          "translit": "wǒ nǚ'ér zài shàngxué"
         }
       ],
       "frequencyRank": 23
@@ -2885,7 +3044,8 @@
       "examples": [
         {
           "native": "八个人",
-          "translation": "Eight people"
+          "translation": "Eight people",
+          "translit": "bā ge rén"
         }
       ],
       "frequencyRank": 30
@@ -2902,7 +3062,8 @@
       "examples": [
         {
           "native": "九点",
-          "translation": "Nine o'clock"
+          "translation": "Nine o'clock",
+          "translit": "jiǔ diǎn"
         }
       ],
       "frequencyRank": 31
@@ -2919,7 +3080,8 @@
       "examples": [
         {
           "native": "下雪了",
-          "translation": "It's snowing"
+          "translation": "It's snowing",
+          "translit": "xià xuě le"
         }
       ],
       "frequencyRank": 81
@@ -2936,7 +3098,8 @@
       "examples": [
         {
           "native": "我们去爬山",
-          "translation": "We're going to climb the mountain"
+          "translation": "We're going to climb the mountain",
+          "translit": "wǒmen qù pá shān"
         }
       ],
       "frequencyRank": 82

@@ -22,16 +22,16 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
-import { LANGUAGES } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 
 // localStorage key for tracking which groups are completed (per language)
 const STORAGE_KEY = "alphabet_progress";
 
-// Languages genuinely written in the Latin alphabet. Used only to decide which
-// honest message to show when a pack has no alphabet data — never to decide
-// whether to teach one.
-const LATIN_SCRIPT = new Set(["es", "fr", "de", "id", "tr", "pcm", "tl", "so"]);
+// Which honest message to show when a pack has no alphabet data. Never used to
+// decide whether to TEACH one — that is validate-alphabets.mjs's job.
+// v92: this was a tenth hand-typed copy of the script list. It happened to be
+// correct, which is exactly how the other nine started.
 
 // Synthetic lesson ids, kept out of the way of real group ids.
 const PRIMER = "__primer";
@@ -185,7 +185,7 @@ export function AlphabetLessons({ pack, appState, onNavigate }) {
              says the honest thing when it isn't. */
           <Card style={{ textAlign: "center", padding: 30 }}>
             <div style={{ fontSize: 50, marginBottom: 12 }}>📚</div>
-            {LATIN_SCRIPT.has(pack.code) ? (
+            {!isNonLatinScript(pack.code) ? (
               <>
                 <div style={{ fontWeight: 800, marginBottom: 6 }}>{lang.name} uses letters you already read</div>
                 <div style={{ fontSize: 13, color: "var(--text-dim)" }}>

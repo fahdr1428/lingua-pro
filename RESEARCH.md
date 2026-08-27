@@ -222,12 +222,29 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    languages is the finding that matters, and everything else is second. The
    input stream multiplies what's available several times over but it is a run
    of sentences, not connected text.
-2. **Pronunciation for the sentences that have none.** Japanese, Korean and
-   Mandarin example sentences carry **no romanisation field at all** — every one
-   of them can be looked at and not said by a learner who can't read the script.
-   Arabic is at 38%, Urdu 55%. The app's own romaniser could fill these and must
-   not: it's a rough phonetic skeleton built for scoring speech and documented as
-   never to be shown to a learner.
+2. ~~**Pronunciation for the sentences that have none.**~~ **Done in v92.**
+   Japanese, Korean and Mandarin example sentences carried **no romanisation
+   field at all**; Arabic was at 41%, Urdu 59%. 724 sentences across six
+   languages could be looked at and not said by the exact learner this app is
+   for. They are now written — by hand, because the app's own romaniser is a
+   rough phonetic skeleton built for scoring speech and documented as never to
+   be shown to a learner, and an approximation of how someone's grandmother's
+   language sounds is the wrong thing to hand them.
+
+   All eleven non-Latin languages are at 100%, and `validate-translit.mjs` fails
+   the build if that slips. It also runs three checks that catch what hand-written
+   romanisation actually gets wrong at volume: a pinyin syllable count that
+   doesn't match the character count, a word count that doesn't match for the
+   spaced scripts, and the same sentence romanised two different ways in two
+   places.
+
+   Two bugs surfaced while verifying it reached the screen. The recovery round's
+   re-teach card never rendered the romanisation at all. And eight screens each
+   kept a private copy of the non-Latin language list, none of which had learned
+   about Malayalam or Tamil — so both were presented as though the learner could
+   already read the script, and every Malayalam and Tamil romanisation was
+   hidden. There is one list now, in `src/data/registry.js`, and
+   `validate-script-flags.mjs` fails the build if a second copy appears.
 3. **Two or three example sentences per word instead of one.** 94% of words are
    met in a single frame.
 4. **Every language now teaches its own script — and how that script works**

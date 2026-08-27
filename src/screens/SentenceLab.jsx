@@ -14,11 +14,10 @@
 
 import React, { useState, useMemo } from "react";
 import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
-import { LANGUAGES } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { ROLE_COLORS } from "../data/sentencePatterns.js";
 import { speak } from "../audio/tts.js";
 
-const NON_LATIN = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
 
 // A single color-coded chunk "tile"
 function ChunkTile({ chunk, isNonLatin, rtl, onClick, faded, small }) {
@@ -67,7 +66,7 @@ function RoleLegend({ roles }) {
 
 export function SentenceLab({ pack, params, onNavigate, appState, setAppState }) {
   const lang = LANGUAGES[pack.code];
-  const isNonLatin = NON_LATIN.has(pack.code);
+  const isNonLatin = isNonLatinScript(pack.code);
   const rtl = lang?.rtl;
   const pattern = params?.pattern;
   const dropNumber = params?.dropNumber || 1;

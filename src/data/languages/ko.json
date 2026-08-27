@@ -277,11 +277,13 @@
       "examples": [
         {
           "native": "안녕하세요 친구",
-          "translation": "Hello friend"
+          "translation": "Hello friend",
+          "translit": "annyeonghaseyo chingu"
         },
         {
           "native": "안녕하세요, 반갑습니다",
-          "translation": "Hello, nice to meet you"
+          "translation": "Hello, nice to meet you",
+          "translit": "annyeonghaseyo, bangapseumnida"
         }
       ],
       "pronunciation": "an-NYUNG-hah-SAY-yoh"
@@ -298,7 +300,8 @@
       "examples": [
         {
           "native": "안녕 친구",
-          "translation": "Hi friend"
+          "translation": "Hi friend",
+          "translit": "annyeong chingu"
         }
       ],
       "pronunciation": "an-NYUNG"
@@ -315,7 +318,8 @@
       "examples": [
         {
           "native": "정말 감사합니다",
-          "translation": "Thank you very much"
+          "translation": "Thank you very much",
+          "translit": "jeongmal gamsahamnida"
         }
       ],
       "pronunciation": "gahm-sah-HAHM-nee-dah"
@@ -332,7 +336,8 @@
       "examples": [
         {
           "native": "네 맞아요",
-          "translation": "Yes that's right"
+          "translation": "Yes that's right",
+          "translit": "ne majayo"
         }
       ],
       "pronunciation": "NEH"
@@ -349,7 +354,8 @@
       "examples": [
         {
           "native": "아니요 괜찮아요",
-          "translation": "No it's fine"
+          "translation": "No it's fine",
+          "translit": "aniyo gwaenchanayo"
         }
       ],
       "pronunciation": "ah-NEE-yoh"
@@ -366,7 +372,8 @@
       "examples": [
         {
           "native": "안녕히 가세요",
-          "translation": "Goodbye"
+          "translation": "Goodbye",
+          "translit": "annyeonghi gaseyo"
         }
       ],
       "pronunciation": "an-NYUNG-hee gah-SAY-yoh"
@@ -383,11 +390,13 @@
       "examples": [
         {
           "native": "정말 죄송합니다",
-          "translation": "I'm really sorry"
+          "translation": "I'm really sorry",
+          "translit": "jeongmal joesonghamnida"
         },
         {
           "native": "죄송합니다, 늦었어요",
-          "translation": "Sorry, I'm late"
+          "translation": "Sorry, I'm late",
+          "translit": "joesonghamnida, neujeosseoyo"
         }
       ],
       "pronunciation": "JWAY-song-HAHM-nee-dah"
@@ -404,7 +413,8 @@
       "examples": [
         {
           "native": "실례합니다 어디예요",
-          "translation": "Excuse me where is it"
+          "translation": "Excuse me where is it",
+          "translit": "sillyehamnida eodi-yeyo"
         }
       ],
       "pronunciation": "shil-LYAY-hahm-nee-dah"
@@ -421,7 +431,8 @@
       "examples": [
         {
           "native": "저는 학생이에요",
-          "translation": "I am a student"
+          "translation": "I am a student",
+          "translit": "jeo-neun haksaeng-ieyo"
         }
       ],
       "pronunciation": "JUH"
@@ -438,11 +449,13 @@
       "examples": [
         {
           "native": "나도",
-          "translation": "Me too"
+          "translation": "Me too",
+          "translit": "na-do"
         },
         {
           "native": "나도 가요",
-          "translation": "I'm going too"
+          "translation": "I'm going too",
+          "translit": "na-do gayo"
         }
       ],
       "pronunciation": "NAH"
@@ -459,11 +472,13 @@
       "examples": [
         {
           "native": "당신은 누구예요",
-          "translation": "Who are you"
+          "translation": "Who are you",
+          "translit": "dangsin-eun nugu-yeyo"
         },
         {
           "native": "당신은 어디에서 왔어요?",
-          "translation": "Where are you from?"
+          "translation": "Where are you from?",
+          "translit": "dangsin-eun eodi-eseo wasseoyo?"
         }
       ],
       "pronunciation": "DANG-shin"
@@ -480,7 +495,8 @@
       "examples": [
         {
           "native": "우리 친구",
-          "translation": "Our friend"
+          "translation": "Our friend",
+          "translit": "uri chingu"
         }
       ],
       "pronunciation": "OO-ree"
@@ -497,7 +513,8 @@
       "examples": [
         {
           "native": "이것은 책이에요",
-          "translation": "This is a book"
+          "translation": "This is a book",
+          "translit": "igeos-eun chaeg-ieyo"
         }
       ],
       "pronunciation": "EE-got"
@@ -514,7 +531,8 @@
       "examples": [
         {
           "native": "이것은 무엇이에요",
-          "translation": "What is this"
+          "translation": "What is this",
+          "translit": "igeos-eun mueos-ieyo"
         }
       ],
       "pronunciation": "MWOH"
@@ -531,7 +549,8 @@
       "examples": [
         {
           "native": "저 사람은 누구예요",
-          "translation": "Who is that person"
+          "translation": "Who is that person",
+          "translit": "jeo saram-eun nugu-yeyo"
         }
       ],
       "pronunciation": "NOO-goo"
@@ -548,11 +567,13 @@
       "examples": [
         {
           "native": "우리 어머니",
-          "translation": "My mother"
+          "translation": "My mother",
+          "translit": "uri eomeoni"
         },
         {
           "native": "어머니는 요리를 잘해요",
-          "translation": "My mother cooks well"
+          "translation": "My mother cooks well",
+          "translit": "eomeoni-neun yori-reul jalhaeyo"
         }
       ],
       "pronunciation": "uh-MUH-nee"
@@ -569,11 +590,13 @@
       "examples": [
         {
           "native": "우리 아버지",
-          "translation": "My father"
+          "translation": "My father",
+          "translit": "uri abeoji"
         },
         {
           "native": "아버지는 일해요",
-          "translation": "My father works"
+          "translation": "My father works",
+          "translit": "abeoji-neun ilhaeyo"
         }
       ],
       "pronunciation": "ah-BUH-jee"
@@ -590,7 +613,8 @@
       "examples": [
         {
           "native": "우리 형",
-          "translation": "My older brother"
+          "translation": "My older brother",
+          "translit": "uri hyeong"
         }
       ],
       "pronunciation": "HYUNG"
@@ -607,7 +631,8 @@
       "examples": [
         {
           "native": "우리 누나",
-          "translation": "My older sister"
+          "translation": "My older sister",
+          "translit": "uri nuna"
         }
       ],
       "pronunciation": "NOO-nah"
@@ -624,7 +649,8 @@
       "examples": [
         {
           "native": "제 친구",
-          "translation": "My friend"
+          "translation": "My friend",
+          "translit": "je chingu"
         }
       ],
       "pronunciation": "CHIN-goo"
@@ -641,7 +667,8 @@
       "examples": [
         {
           "native": "작은 아이",
-          "translation": "Small child"
+          "translation": "Small child",
+          "translit": "jageun ai"
         }
       ],
       "pronunciation": "AH-ee"
@@ -658,7 +685,8 @@
       "examples": [
         {
           "native": "하나 둘 셋",
-          "translation": "One two three"
+          "translation": "One two three",
+          "translit": "hana dul set"
         }
       ],
       "pronunciation": "HAH-nah"
@@ -675,7 +703,8 @@
       "examples": [
         {
           "native": "두 사람",
-          "translation": "Two people"
+          "translation": "Two people",
+          "translit": "du saram"
         }
       ],
       "pronunciation": "DOOL"
@@ -692,7 +721,8 @@
       "examples": [
         {
           "native": "셋 중에",
-          "translation": "Among three"
+          "translation": "Among three",
+          "translit": "set jung-e"
         }
       ],
       "pronunciation": "SET"
@@ -709,7 +739,8 @@
       "examples": [
         {
           "native": "네 시간",
-          "translation": "Four hours"
+          "translation": "Four hours",
+          "translit": "ne sigan"
         }
       ],
       "pronunciation": "NET"
@@ -726,7 +757,8 @@
       "examples": [
         {
           "native": "다섯 명",
-          "translation": "Five people"
+          "translation": "Five people",
+          "translit": "daseot myeong"
         }
       ],
       "pronunciation": "DAH-sot"
@@ -743,7 +775,8 @@
       "examples": [
         {
           "native": "열 시",
-          "translation": "Ten o'clock"
+          "translation": "Ten o'clock",
+          "translit": "yeol si"
         }
       ],
       "pronunciation": "YUL"
@@ -760,11 +793,13 @@
       "examples": [
         {
           "native": "백 명",
-          "translation": "A hundred people"
+          "translation": "A hundred people",
+          "translit": "baek myeong"
         },
         {
           "native": "백 원",
-          "translation": "A hundred won"
+          "translation": "A hundred won",
+          "translit": "baek won"
         }
       ],
       "pronunciation": "BAEK"
@@ -781,7 +816,8 @@
       "examples": [
         {
           "native": "물 한 잔",
-          "translation": "A glass of water"
+          "translation": "A glass of water",
+          "translit": "mul han jan"
         }
       ],
       "pronunciation": "MOOL"
@@ -798,7 +834,8 @@
       "examples": [
         {
           "native": "밥 먹어요",
-          "translation": "I eat a meal"
+          "translation": "I eat a meal",
+          "translit": "bap meogeoyo"
         }
       ],
       "pronunciation": "BAHP"
@@ -815,7 +852,8 @@
       "examples": [
         {
           "native": "신선한 빵",
-          "translation": "Fresh bread"
+          "translation": "Fresh bread",
+          "translit": "sinseonhan ppang"
         }
       ],
       "pronunciation": "PPANG"
@@ -832,7 +870,8 @@
       "examples": [
         {
           "native": "커피 한 잔",
-          "translation": "A cup of coffee"
+          "translation": "A cup of coffee",
+          "translit": "keopi han jan"
         }
       ],
       "pronunciation": "KO-pee"
@@ -849,7 +888,8 @@
       "examples": [
         {
           "native": "따뜻한 우유",
-          "translation": "Warm milk"
+          "translation": "Warm milk",
+          "translit": "ttatteutan uyu"
         }
       ],
       "pronunciation": "OO-yoo"
@@ -866,7 +906,8 @@
       "examples": [
         {
           "native": "신선한 고기",
-          "translation": "Fresh meat"
+          "translation": "Fresh meat",
+          "translit": "sinseonhan gogi"
         }
       ],
       "pronunciation": "GOH-gee"
@@ -883,7 +924,8 @@
       "examples": [
         {
           "native": "맛있는 김치",
-          "translation": "Delicious kimchi"
+          "translation": "Delicious kimchi",
+          "translit": "masinneun gimchi"
         }
       ],
       "pronunciation": "KIM-chee"
@@ -900,11 +942,13 @@
       "examples": [
         {
           "native": "녹차",
-          "translation": "Green tea"
+          "translation": "Green tea",
+          "translit": "nokcha"
         },
         {
           "native": "차로 가요",
-          "translation": "I'll go by car"
+          "translation": "I'll go by car",
+          "translit": "cha-ro gayo"
         }
       ],
       "pronunciation": "CHAH"
@@ -921,7 +965,8 @@
       "examples": [
         {
           "native": "학교에 가다",
-          "translation": "To go to school"
+          "translation": "To go to school",
+          "translit": "hakgyo-e gada"
         }
       ],
       "pronunciation": "GAH-dah"
@@ -938,7 +983,8 @@
       "examples": [
         {
           "native": "내일 오다",
-          "translation": "To come tomorrow"
+          "translation": "To come tomorrow",
+          "translit": "naeil oda"
         }
       ],
       "pronunciation": "OH-dah"
@@ -955,7 +1001,8 @@
       "examples": [
         {
           "native": "밥을 먹다",
-          "translation": "To eat rice"
+          "translation": "To eat rice",
+          "translit": "bab-eul meokda"
         }
       ],
       "pronunciation": "MOK-dah"
@@ -972,7 +1019,8 @@
       "examples": [
         {
           "native": "물을 마시다",
-          "translation": "To drink water"
+          "translation": "To drink water",
+          "translit": "mul-eul masida"
         }
       ],
       "pronunciation": "MAH-shee-dah"
@@ -989,7 +1037,8 @@
       "examples": [
         {
           "native": "영화를 보다",
-          "translation": "To watch a movie"
+          "translation": "To watch a movie",
+          "translit": "yeonghwa-reul boda"
         }
       ],
       "pronunciation": "BOH-dah"
@@ -1006,11 +1055,13 @@
       "examples": [
         {
           "native": "한국어를 말하다",
-          "translation": "To speak Korean"
+          "translation": "To speak Korean",
+          "translit": "hangug-eo-reul malhada"
         },
         {
           "native": "뭐라고 말했어요?",
-          "translation": "What did you say?"
+          "translation": "What did you say?",
+          "translit": "mworago malhaesseoyo?"
         }
       ],
       "pronunciation": "MAL-hah-dah"
@@ -1027,7 +1078,8 @@
       "examples": [
         {
           "native": "공부를 하다",
-          "translation": "To study"
+          "translation": "To study",
+          "translit": "gongbu-reul hada"
         }
       ],
       "pronunciation": "HAH-dah"
@@ -1044,7 +1096,8 @@
       "examples": [
         {
           "native": "책을 읽다",
-          "translation": "To read a book"
+          "translation": "To read a book",
+          "translit": "chaeg-eul ikda"
         }
       ],
       "pronunciation": "IK-dah"
@@ -1061,7 +1114,8 @@
       "examples": [
         {
           "native": "우리 집",
-          "translation": "Our home"
+          "translation": "Our home",
+          "translit": "uri jip"
         }
       ],
       "pronunciation": "JIP"
@@ -1078,7 +1132,8 @@
       "examples": [
         {
           "native": "학교에 가요",
-          "translation": "I go to school"
+          "translation": "I go to school",
+          "translit": "hakgyo-e gayo"
         }
       ],
       "pronunciation": "HAHK-gyoh"
@@ -1095,7 +1150,8 @@
       "examples": [
         {
           "native": "큰 도시",
-          "translation": "Big city"
+          "translation": "Big city",
+          "translit": "keun dosi"
         }
       ],
       "pronunciation": "DOH-shee"
@@ -1112,7 +1168,8 @@
       "examples": [
         {
           "native": "작은 가게",
-          "translation": "Small shop"
+          "translation": "Small shop",
+          "translit": "jageun gage"
         }
       ],
       "pronunciation": "GAH-geh"
@@ -1129,7 +1186,8 @@
       "examples": [
         {
           "native": "좋은 식당",
-          "translation": "Good restaurant"
+          "translation": "Good restaurant",
+          "translit": "joeun sikdang"
         }
       ],
       "pronunciation": "SHIK-dahng"
@@ -1146,7 +1204,8 @@
       "examples": [
         {
           "native": "오늘은 월요일",
-          "translation": "Today is Monday"
+          "translation": "Today is Monday",
+          "translit": "oneur-eun woryoil"
         }
       ],
       "pronunciation": "OH-nool"
@@ -1163,7 +1222,8 @@
       "examples": [
         {
           "native": "내일 봐요",
-          "translation": "See you tomorrow"
+          "translation": "See you tomorrow",
+          "translit": "naeil bwayo"
         }
       ],
       "pronunciation": "NAH-eel"
@@ -1180,7 +1240,8 @@
       "examples": [
         {
           "native": "지금 가요",
-          "translation": "I'm going now"
+          "translation": "I'm going now",
+          "translit": "jigeum gayo"
         }
       ],
       "pronunciation": "JEE-goom"
@@ -1197,7 +1258,8 @@
       "examples": [
         {
           "native": "하루 종일",
-          "translation": "All day"
+          "translation": "All day",
+          "translit": "haru jong-il"
         }
       ],
       "pronunciation": "HAH-roo"
@@ -1214,7 +1276,8 @@
       "examples": [
         {
           "native": "늦은 밤",
-          "translation": "Late night"
+          "translation": "Late night",
+          "translit": "neujeun bam"
         }
       ],
       "pronunciation": "BAHM"
@@ -1231,7 +1294,8 @@
       "examples": [
         {
           "native": "좋은 아침",
-          "translation": "Good morning"
+          "translation": "Good morning",
+          "translit": "joeun achim"
         }
       ],
       "pronunciation": "AH-chim"
@@ -1248,7 +1312,8 @@
       "examples": [
         {
           "native": "너 그리고 나",
-          "translation": "You and me"
+          "translation": "You and me",
+          "translit": "neo geurigo na"
         }
       ]
     },
@@ -1264,7 +1329,8 @@
       "examples": [
         {
           "native": "하지만 어려워요",
-          "translation": "But it's hard"
+          "translation": "But it's hard",
+          "translit": "hajiman eoryeowoyo"
         }
       ]
     },
@@ -1280,7 +1346,8 @@
       "examples": [
         {
           "native": "왜냐하면 바빠요",
-          "translation": "Because I'm busy"
+          "translation": "Because I'm busy",
+          "translit": "waenyahamyeon bappayo"
         }
       ]
     },
@@ -1296,7 +1363,8 @@
       "examples": [
         {
           "native": "커피 또는 차",
-          "translation": "Coffee or tea"
+          "translation": "Coffee or tea",
+          "translit": "keopi ttoneun cha"
         }
       ]
     },
@@ -1312,7 +1380,8 @@
       "examples": [
         {
           "native": "나도 또",
-          "translation": "Me too"
+          "translation": "Me too",
+          "translit": "na-do tto"
         }
       ]
     },
@@ -1328,7 +1397,8 @@
       "examples": [
         {
           "native": "어디예요",
-          "translation": "Where is it"
+          "translation": "Where is it",
+          "translit": "eodi-yeyo"
         }
       ]
     },
@@ -1344,7 +1414,8 @@
       "examples": [
         {
           "native": "얼마예요",
-          "translation": "How much is it"
+          "translation": "How much is it",
+          "translit": "eolma-yeyo"
         }
       ]
     },
@@ -1360,7 +1431,8 @@
       "examples": [
         {
           "native": "도와주세요",
-          "translation": "Please help me"
+          "translation": "Please help me",
+          "translit": "dowajuseyo"
         }
       ]
     },
@@ -1376,7 +1448,8 @@
       "examples": [
         {
           "native": "좋은 호텔",
-          "translation": "Good hotel"
+          "translation": "Good hotel",
+          "translit": "joeun hotel"
         }
       ]
     },
@@ -1392,7 +1465,8 @@
       "examples": [
         {
           "native": "정말 좋아요",
-          "translation": "I really like it"
+          "translation": "I really like it",
+          "translit": "jeongmal joayo"
         }
       ]
     },
@@ -1408,7 +1482,8 @@
       "examples": [
         {
           "native": "많이 감사해요",
-          "translation": "Thank you very much"
+          "translation": "Thank you very much",
+          "translit": "mani gamsahaeyo"
         }
       ]
     },
@@ -1424,7 +1499,8 @@
       "examples": [
         {
           "native": "큰 집",
-          "translation": "Big house"
+          "translation": "Big house",
+          "translit": "keun jip"
         }
       ]
     },
@@ -1440,7 +1516,8 @@
       "examples": [
         {
           "native": "작은 강아지",
-          "translation": "Small puppy"
+          "translation": "Small puppy",
+          "translit": "jageun gang-aji"
         }
       ]
     },
@@ -1457,7 +1534,8 @@
       "examples": [
         {
           "native": "내 머리",
-          "translation": "My head"
+          "translation": "My head",
+          "translit": "nae meori"
         }
       ]
     },
@@ -1474,7 +1552,8 @@
       "examples": [
         {
           "native": "오른손",
-          "translation": "Right hand"
+          "translation": "Right hand",
+          "translit": "oreunson"
         }
       ]
     },
@@ -1491,11 +1570,13 @@
       "examples": [
         {
           "native": "큰 눈",
-          "translation": "Big eyes"
+          "translation": "Big eyes",
+          "translit": "keun nun"
         },
         {
           "native": "눈이 와요",
-          "translation": "It's snowing"
+          "translation": "It's snowing",
+          "translit": "nun-i wayo"
         }
       ]
     },
@@ -1512,7 +1593,8 @@
       "examples": [
         {
           "native": "배고파요",
-          "translation": "I am hungry"
+          "translation": "I am hungry",
+          "translit": "baegopayo"
         }
       ]
     },
@@ -1529,11 +1611,13 @@
       "examples": [
         {
           "native": "피곤해요",
-          "translation": "I am tired"
+          "translation": "I am tired",
+          "translit": "pigonhaeyo"
         },
         {
           "native": "오늘 피곤해요",
-          "translation": "I'm tired today"
+          "translation": "I'm tired today",
+          "translit": "oneul pigonhaeyo"
         }
       ]
     },
@@ -1550,7 +1634,8 @@
       "examples": [
         {
           "native": "매우 행복해요",
-          "translation": "Very happy"
+          "translation": "Very happy",
+          "translit": "maeu haengbokhaeyo"
         }
       ]
     },
@@ -1567,7 +1652,8 @@
       "examples": [
         {
           "native": "밝은 해",
-          "translation": "Bright sun"
+          "translation": "Bright sun",
+          "translit": "balgeun hae"
         }
       ]
     },
@@ -1584,7 +1670,8 @@
       "examples": [
         {
           "native": "비가 와요",
-          "translation": "It's raining"
+          "translation": "It's raining",
+          "translit": "bi-ga wayo"
         }
       ]
     },
@@ -1601,7 +1688,8 @@
       "examples": [
         {
           "native": "검은 구름",
-          "translation": "Black clouds"
+          "translation": "Black clouds",
+          "translit": "geomeun gureum"
         }
       ]
     },
@@ -1618,11 +1706,13 @@
       "examples": [
         {
           "native": "시원한 바람",
-          "translation": "Cool wind"
+          "translation": "Cool wind",
+          "translit": "siwonhan baram"
         },
         {
           "native": "바람이 강해요",
-          "translation": "The wind is strong"
+          "translation": "The wind is strong",
+          "translit": "baram-i ganghaeyo"
         }
       ]
     },
@@ -1639,7 +1729,8 @@
       "examples": [
         {
           "native": "파란 하늘",
-          "translation": "Blue sky"
+          "translation": "Blue sky",
+          "translit": "paran haneul"
         }
       ]
     },
@@ -1656,7 +1747,8 @@
       "examples": [
         {
           "native": "버스가 와요",
-          "translation": "The bus is coming"
+          "translation": "The bus is coming",
+          "translit": "beoseu-ga wayo"
         }
       ]
     },
@@ -1673,7 +1765,8 @@
       "examples": [
         {
           "native": "빠른 기차",
-          "translation": "Fast train"
+          "translation": "Fast train",
+          "translit": "ppareun gicha"
         }
       ]
     },
@@ -1690,11 +1783,13 @@
       "examples": [
         {
           "native": "오른쪽으로",
-          "translation": "To the right"
+          "translation": "To the right",
+          "translit": "oreunjjog-euro"
         },
         {
           "native": "오른쪽에 있어요",
-          "translation": "It's on the right"
+          "translation": "It's on the right",
+          "translit": "oreunjjog-e isseoyo"
         }
       ]
     },
@@ -1711,11 +1806,13 @@
       "examples": [
         {
           "native": "왼쪽으로",
-          "translation": "To the left"
+          "translation": "To the left",
+          "translit": "oenjjog-euro"
         },
         {
           "native": "왼쪽으로 가세요",
-          "translation": "Go left"
+          "translation": "Go left",
+          "translit": "oenjjog-euro gaseyo"
         }
       ]
     },
@@ -1732,7 +1829,8 @@
       "examples": [
         {
           "native": "여기로 와요",
-          "translation": "Come here"
+          "translation": "Come here",
+          "translit": "yeogi-ro wayo"
         }
       ]
     },
@@ -1749,7 +1847,8 @@
       "examples": [
         {
           "native": "거기로 가요",
-          "translation": "Go there"
+          "translation": "Go there",
+          "translit": "geogi-ro gayo"
         }
       ]
     },
@@ -1766,7 +1865,8 @@
       "examples": [
         {
           "native": "옷을 사다",
-          "translation": "To buy clothes"
+          "translation": "To buy clothes",
+          "translit": "os-eul sada"
         }
       ]
     },
@@ -1783,7 +1883,8 @@
       "examples": [
         {
           "native": "집을 팔다",
-          "translation": "To sell a house"
+          "translation": "To sell a house",
+          "translit": "jib-eul palda"
         }
       ]
     },
@@ -1800,7 +1901,8 @@
       "examples": [
         {
           "native": "소금 조금",
-          "translation": "A little salt"
+          "translation": "A little salt",
+          "translit": "sogeum jogeum"
         }
       ]
     },
@@ -1817,7 +1919,8 @@
       "examples": [
         {
           "native": "설탕 커피",
-          "translation": "Sugar coffee"
+          "translation": "Sugar coffee",
+          "translit": "seoltang keopi"
         }
       ]
     },
@@ -1834,7 +1937,8 @@
       "examples": [
         {
           "native": "빨리 와요",
-          "translation": "Come quickly"
+          "translation": "Come quickly",
+          "translit": "ppalli wayo"
         }
       ]
     },
@@ -1850,7 +1954,8 @@
       "examples": [
         {
           "native": "저는 알아요",
-          "translation": "I know"
+          "translation": "I know",
+          "translit": "jeo-neun arayo"
         }
       ]
     },
@@ -1866,7 +1971,8 @@
       "examples": [
         {
           "native": "저는 생각해요",
-          "translation": "I think"
+          "translation": "I think",
+          "translit": "jeo-neun saenggakhaeyo"
         }
       ]
     },
@@ -1882,7 +1988,8 @@
       "examples": [
         {
           "native": "주세요",
-          "translation": "Please give (me)"
+          "translation": "Please give (me)",
+          "translit": "juseyo"
         }
       ]
     },
@@ -1898,7 +2005,8 @@
       "examples": [
         {
           "native": "이것을 받아요",
-          "translation": "I take this"
+          "translation": "I take this",
+          "translit": "igeos-eul badayo"
         }
       ]
     },
@@ -1914,7 +2022,8 @@
       "examples": [
         {
           "native": "음악을 들어요",
-          "translation": "I listen to music"
+          "translation": "I listen to music",
+          "translit": "eumag-eul deureoyo"
         }
       ]
     },
@@ -1930,7 +2039,8 @@
       "examples": [
         {
           "native": "물이 필요해요",
-          "translation": "I need water"
+          "translation": "I need water",
+          "translit": "mul-i piryohaeyo"
         }
       ]
     },
@@ -1946,7 +2056,8 @@
       "examples": [
         {
           "native": "제 마음",
-          "translation": "My heart"
+          "translation": "My heart",
+          "translit": "je maeum"
         }
       ]
     },
@@ -1962,7 +2073,8 @@
       "examples": [
         {
           "native": "검정 커피",
-          "translation": "Black coffee"
+          "translation": "Black coffee",
+          "translit": "geomjeong keopi"
         }
       ]
     },
@@ -1978,7 +2090,8 @@
       "examples": [
         {
           "native": "하양 빵",
-          "translation": "White bread"
+          "translation": "White bread",
+          "translit": "hayang ppang"
         }
       ]
     },
@@ -1994,7 +2107,8 @@
       "examples": [
         {
           "native": "노랑 꽃",
-          "translation": "Yellow flower"
+          "translation": "Yellow flower",
+          "translit": "norang kkot"
         }
       ]
     },
@@ -2010,7 +2124,8 @@
       "examples": [
         {
           "native": "올해",
-          "translation": "This year"
+          "translation": "This year",
+          "translit": "olhae"
         }
       ]
     },
@@ -2026,7 +2141,8 @@
       "examples": [
         {
           "native": "이번 주",
-          "translation": "This week"
+          "translation": "This week",
+          "translit": "ibeon ju"
         }
       ]
     },
@@ -2042,7 +2158,8 @@
       "examples": [
         {
           "native": "언제 와요?",
-          "translation": "When are you coming?"
+          "translation": "When are you coming?",
+          "translit": "eonje wayo?"
         }
       ]
     },
@@ -2058,7 +2175,8 @@
       "examples": [
         {
           "native": "왜 안 와요?",
-          "translation": "Why aren't you coming?"
+          "translation": "Why aren't you coming?",
+          "translit": "wae an wayo?"
         }
       ]
     },
@@ -2074,7 +2192,8 @@
       "examples": [
         {
           "native": "저는 자요",
-          "translation": "I sleep"
+          "translation": "I sleep",
+          "translit": "jeo-neun jayo"
         }
       ]
     },
@@ -2090,7 +2209,8 @@
       "examples": [
         {
           "native": "물 주세요",
-          "translation": "Water, please"
+          "translation": "Water, please",
+          "translit": "mul juseyo"
         }
       ]
     },
@@ -2106,11 +2226,13 @@
       "examples": [
         {
           "native": "늦어서 미안해요",
-          "translation": "Sorry I'm late"
+          "translation": "Sorry I'm late",
+          "translit": "neujeoseo mianhaeyo"
         },
         {
           "native": "미안해요, 몰랐어요",
-          "translation": "Sorry, I didn't know"
+          "translation": "Sorry, I didn't know",
+          "translit": "mianhaeyo, mollasseoyo"
         }
       ],
       "pronunciation": "mee-an-heh-yo"
@@ -2127,7 +2249,8 @@
       "examples": [
         {
           "native": "저는 몰라요",
-          "translation": "I don't know"
+          "translation": "I don't know",
+          "translit": "jeo-neun mollayo"
         }
       ]
     },
@@ -2143,7 +2266,8 @@
       "examples": [
         {
           "native": "네, 알아요",
-          "translation": "Yes, I know"
+          "translation": "Yes, I know",
+          "translit": "ne, arayo"
         }
       ]
     },
@@ -2159,7 +2283,8 @@
       "examples": [
         {
           "native": "이거 얼마예요?",
-          "translation": "How much is this?"
+          "translation": "How much is this?",
+          "translit": "igeo eolma-yeyo?"
         }
       ]
     },
@@ -2175,7 +2300,8 @@
       "examples": [
         {
           "native": "화장실 어디예요?",
-          "translation": "Where is the bathroom?"
+          "translation": "Where is the bathroom?",
+          "translit": "hwajangsil eodi-yeyo?"
         }
       ]
     },
@@ -2191,7 +2317,8 @@
       "examples": [
         {
           "native": "저기요, 메뉴 주세요",
-          "translation": "Excuse me, menu please"
+          "translation": "Excuse me, menu please",
+          "translit": "jeogiyo, menyu juseyo"
         }
       ]
     },
@@ -2207,7 +2334,8 @@
       "examples": [
         {
           "native": "괜찮아요, 감사합니다",
-          "translation": "I'm fine, thank you"
+          "translation": "I'm fine, thank you",
+          "translit": "gwaenchanayo, gamsahamnida"
         }
       ]
     },
@@ -2223,7 +2351,8 @@
       "examples": [
         {
           "native": "이거 주세요",
-          "translation": "I'll take this one, please"
+          "translation": "I'll take this one, please",
+          "translit": "igeo juseyo"
         }
       ]
     },
@@ -2239,7 +2368,8 @@
       "examples": [
         {
           "native": "— 감사합니다. — 천만에요",
-          "translation": "— Thank you. — You're welcome"
+          "translation": "— Thank you. — You're welcome",
+          "translit": "— gamsahamnida. — cheonman-eyo"
         }
       ]
     },
@@ -2255,7 +2385,8 @@
       "examples": [
         {
           "native": "이게 뭐예요?",
-          "translation": "What is this?"
+          "translation": "What is this?",
+          "translit": "ige mwo-yeyo?"
         }
       ]
     },
@@ -2271,7 +2402,8 @@
       "examples": [
         {
           "native": "영어 할 수 있어요?",
-          "translation": "Can you speak English?"
+          "translation": "Can you speak English?",
+          "translit": "yeong-eo hal su isseoyo?"
         }
       ]
     },
@@ -2287,7 +2419,8 @@
       "examples": [
         {
           "native": "잠깐만요",
-          "translation": "One moment, please"
+          "translation": "One moment, please",
+          "translit": "jamkkanmanyo"
         }
       ]
     },
@@ -2303,7 +2436,8 @@
       "examples": [
         {
           "native": "날씨가 나빠요",
-          "translation": "The weather is bad"
+          "translation": "The weather is bad",
+          "translit": "nalssi-ga nappayo"
         }
       ],
       "frequencyRank": 63
@@ -2320,7 +2454,8 @@
       "examples": [
         {
           "native": "음식이 맛있어요",
-          "translation": "The food is delicious"
+          "translation": "The food is delicious",
+          "translit": "eumsig-i masisseoyo"
         }
       ],
       "frequencyRank": 37
@@ -2337,7 +2472,8 @@
       "examples": [
         {
           "native": "시간이 없어요",
-          "translation": "I don't have time"
+          "translation": "I don't have time",
+          "translit": "sigan-i eopseoyo"
         }
       ],
       "frequencyRank": 39
@@ -2354,7 +2490,8 @@
       "examples": [
         {
           "native": "물을 원해요",
-          "translation": "I want water"
+          "translation": "I want water",
+          "translit": "mul-eul wonhaeyo"
         }
       ],
       "frequencyRank": 118
@@ -2371,7 +2508,8 @@
       "examples": [
         {
           "native": "차를 만들어요",
-          "translation": "I make tea"
+          "translation": "I make tea",
+          "translit": "cha-reul mandeureoyo"
         }
       ],
       "frequencyRank": 119
@@ -2388,7 +2526,8 @@
       "examples": [
         {
           "native": "도와줄 수 있어요?",
-          "translation": "Can you help?"
+          "translation": "Can you help?",
+          "translit": "dowajul su isseoyo?"
         }
       ],
       "frequencyRank": 120
@@ -2405,7 +2544,8 @@
       "examples": [
         {
           "native": "도와주세요",
-          "translation": "Please help me"
+          "translation": "Please help me",
+          "translit": "dowajuseyo"
         }
       ],
       "frequencyRank": 121
@@ -2422,7 +2562,8 @@
       "examples": [
         {
           "native": "이해 못 했어요",
-          "translation": "I didn't understand"
+          "translation": "I didn't understand",
+          "translit": "ihae mot haesseoyo"
         }
       ],
       "frequencyRank": 122
@@ -2439,7 +2580,8 @@
       "examples": [
         {
           "native": "돈이 없어요",
-          "translation": "I don't have money"
+          "translation": "I don't have money",
+          "translit": "don-i eopseoyo"
         }
       ],
       "frequencyRank": 64
@@ -2456,7 +2598,8 @@
       "examples": [
         {
           "native": "시간이 있어요?",
-          "translation": "Do you have time?"
+          "translation": "Do you have time?",
+          "translit": "sigan-i isseoyo?"
         }
       ],
       "frequencyRank": 48
@@ -2473,7 +2616,8 @@
       "examples": [
         {
           "native": "어제 추웠어요",
-          "translation": "Yesterday was cold"
+          "translation": "Yesterday was cold",
+          "translit": "eoje chuwosseoyo"
         }
       ],
       "frequencyRank": 49
@@ -2490,7 +2634,8 @@
       "examples": [
         {
           "native": "어떻게 가요?",
-          "translation": "How do I get there?"
+          "translation": "How do I get there?",
+          "translit": "eotteoke gayo?"
         }
       ],
       "frequencyRank": 52
@@ -2507,7 +2652,8 @@
       "examples": [
         {
           "native": "저 남자는 제 형이에요",
-          "translation": "That man is my brother"
+          "translation": "That man is my brother",
+          "translit": "jeo namja-neun je hyeong-ieyo"
         }
       ],
       "frequencyRank": 10
@@ -2524,7 +2670,8 @@
       "examples": [
         {
           "native": "저 여자는 의사예요",
-          "translation": "That woman is a doctor"
+          "translation": "That woman is a doctor",
+          "translit": "jeo yeoja-neun uisa-yeyo"
         }
       ],
       "frequencyRank": 11
@@ -2541,7 +2688,8 @@
       "examples": [
         {
           "native": "이 길은 길어요",
-          "translation": "This road is long"
+          "translation": "This road is long",
+          "translit": "i gir-eun gireoyo"
         }
       ],
       "frequencyRank": 79
@@ -2558,7 +2706,8 @@
       "examples": [
         {
           "native": "일이 많아요",
-          "translation": "I have a lot of work"
+          "translation": "I have a lot of work",
+          "translit": "il-i manayo"
         }
       ],
       "frequencyRank": 12
@@ -2575,7 +2724,8 @@
       "examples": [
         {
           "native": "가격이 얼마예요?",
-          "translation": "What's the price?"
+          "translation": "What's the price?",
+          "translit": "gagyeog-i eolma-yeyo?"
         }
       ],
       "frequencyRank": 148
@@ -2592,7 +2742,8 @@
       "examples": [
         {
           "native": "문을 열어 주세요",
-          "translation": "Please open the door"
+          "translation": "Please open the door",
+          "translit": "mun-eul yeoreo juseyo"
         }
       ],
       "frequencyRank": 123
@@ -2609,7 +2760,8 @@
       "examples": [
         {
           "native": "오늘 더워요",
-          "translation": "It's hot today"
+          "translation": "It's hot today",
+          "translit": "oneul deowoyo"
         }
       ],
       "frequencyRank": 73
@@ -2626,7 +2778,8 @@
       "examples": [
         {
           "native": "오늘 추워요",
-          "translation": "It's cold today"
+          "translation": "It's cold today",
+          "translit": "oneul chuwoyo"
         }
       ],
       "frequencyRank": 74
@@ -2643,7 +2796,8 @@
       "examples": [
         {
           "native": "조금 더",
-          "translation": "A little more"
+          "translation": "A little more",
+          "translit": "jogeum deo"
         }
       ],
       "frequencyRank": 53
@@ -2660,7 +2814,8 @@
       "examples": [
         {
           "native": "아주 좋아요",
-          "translation": "Very good"
+          "translation": "Very good",
+          "translit": "aju joayo"
         }
       ],
       "frequencyRank": 54
@@ -2677,7 +2832,8 @@
       "examples": [
         {
           "native": "같이 가요",
-          "translation": "Let's go together"
+          "translation": "Let's go together",
+          "translit": "gachi gayo"
         }
       ],
       "frequencyRank": 55
@@ -2694,7 +2850,8 @@
       "examples": [
         {
           "native": "설탕 없이",
-          "translation": "Without sugar"
+          "translation": "Without sugar",
+          "translit": "seoltang eopsi"
         }
       ],
       "frequencyRank": 143
@@ -2711,7 +2868,8 @@
       "examples": [
         {
           "native": "모두 좋아요",
-          "translation": "All is well"
+          "translation": "All is well",
+          "translit": "modu joayo"
         }
       ],
       "frequencyRank": 56
@@ -2728,7 +2886,8 @@
       "examples": [
         {
           "native": "여기서 가까워요",
-          "translation": "It's near here"
+          "translation": "It's near here",
+          "translit": "yeogiseo gakkawoyo"
         }
       ],
       "frequencyRank": 159
@@ -2745,7 +2904,8 @@
       "examples": [
         {
           "native": "너무 멀어요",
-          "translation": "It's too far"
+          "translation": "It's too far",
+          "translit": "neomu meoreoyo"
         }
       ],
       "frequencyRank": 160
@@ -2762,7 +2922,8 @@
       "examples": [
         {
           "native": "이름이 뭐예요?",
-          "translation": "What's your name?"
+          "translation": "What's your name?",
+          "translit": "ireum-i mwo-yeyo?"
         }
       ],
       "frequencyRank": 13
@@ -2779,7 +2940,8 @@
       "examples": [
         {
           "native": "아파요",
-          "translation": "I'm ill"
+          "translation": "I'm ill",
+          "translit": "apayo"
         }
       ],
       "frequencyRank": 68
@@ -2796,7 +2958,8 @@
       "examples": [
         {
           "native": "의사가 필요해요",
-          "translation": "I need a doctor"
+          "translation": "I need a doctor",
+          "translit": "uisa-ga piryohaeyo"
         }
       ],
       "frequencyRank": 69
@@ -2813,7 +2976,8 @@
       "examples": [
         {
           "native": "화장실이 어디예요?",
-          "translation": "Where is the toilet?"
+          "translation": "Where is the toilet?",
+          "translit": "hwajangsir-i eodi-yeyo?"
         }
       ],
       "frequencyRank": 42
@@ -2830,7 +2994,8 @@
       "examples": [
         {
           "native": "그의 아들은 일곱 살이에요",
-          "translation": "His son is seven"
+          "translation": "His son is seven",
+          "translit": "geu-ui adeur-eun ilgop sar-ieyo"
         }
       ],
       "frequencyRank": 19
@@ -2847,7 +3012,8 @@
       "examples": [
         {
           "native": "제 딸은 학교에 가요",
-          "translation": "My daughter goes to school"
+          "translation": "My daughter goes to school",
+          "translit": "je ttal-eun hakgyo-e gayo"
         }
       ],
       "frequencyRank": 20
@@ -2864,7 +3030,8 @@
       "examples": [
         {
           "native": "여덟 명",
-          "translation": "Eight people"
+          "translation": "Eight people",
+          "translit": "yeodeol myeong"
         }
       ],
       "frequencyRank": 27
@@ -2881,7 +3048,8 @@
       "examples": [
         {
           "native": "아홉 시",
-          "translation": "Nine o'clock"
+          "translation": "Nine o'clock",
+          "translit": "ahop si"
         }
       ],
       "frequencyRank": 28
@@ -2898,7 +3066,8 @@
       "examples": [
         {
           "native": "산에 가요",
-          "translation": "We're going to the mountain"
+          "translation": "We're going to the mountain",
+          "translit": "san-e gayo"
         }
       ],
       "frequencyRank": 75
@@ -2915,7 +3084,8 @@
       "examples": [
         {
           "native": "안 가요",
-          "translation": "I'm not going"
+          "translation": "I'm not going",
+          "translit": "an gayo"
         }
       ],
       "frequencyRank": 57
@@ -2932,7 +3102,8 @@
       "examples": [
         {
           "native": "아주 기뻐요",
-          "translation": "I'm very happy"
+          "translation": "I'm very happy",
+          "translit": "aju gippeoyo"
         }
       ],
       "frequencyRank": 152
@@ -2949,7 +3120,8 @@
       "examples": [
         {
           "native": "슬퍼 보여요",
-          "translation": "You look sad"
+          "translation": "You look sad",
+          "translit": "seulpeo boyeoyo"
         }
       ],
       "frequencyRank": 153
@@ -2966,7 +3138,8 @@
       "examples": [
         {
           "native": "너 어디야?",
-          "translation": "Where are you?"
+          "translation": "Where are you?",
+          "translit": "neo eodiya?"
         }
       ],
       "frequencyRank": 14
@@ -2983,7 +3156,8 @@
       "examples": [
         {
           "native": "여보세요, 누구세요?",
-          "translation": "Hello, who's calling?"
+          "translation": "Hello, who's calling?",
+          "translit": "yeoboseyo, nuguseyo?"
         }
       ],
       "frequencyRank": 5
@@ -3000,7 +3174,8 @@
       "examples": [
         {
           "native": "왼쪽으로 도세요",
-          "translation": "Turn to the left"
+          "translation": "Turn to the left",
+          "translit": "oenjjog-euro doseyo"
         }
       ],
       "frequencyRank": 161
@@ -3017,7 +3192,8 @@
       "examples": [
         {
           "native": "오른쪽으로 가세요",
-          "translation": "Go to the right"
+          "translation": "Go to the right",
+          "translit": "oreunjjog-euro gaseyo"
         }
       ],
       "frequencyRank": 162
@@ -3034,7 +3210,8 @@
       "examples": [
         {
           "native": "커피가 뜨거워요",
-          "translation": "The coffee is hot"
+          "translation": "The coffee is hot",
+          "translit": "keopi-ga tteugeowoyo"
         }
       ],
       "frequencyRank": 107
@@ -3051,7 +3228,8 @@
       "examples": [
         {
           "native": "물이 차가워요",
-          "translation": "The water is cold"
+          "translation": "The water is cold",
+          "translit": "mul-i chagawoyo"
         }
       ],
       "frequencyRank": 108

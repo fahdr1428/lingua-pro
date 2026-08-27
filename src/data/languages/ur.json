@@ -287,7 +287,8 @@
       "examples": [
         {
           "native": "السلام علیکم",
-          "translation": "Peace be upon you"
+          "translation": "Peace be upon you",
+          "translit": "assalam alaikum"
         }
       ],
       "pronunciation": "sah-LAAM"
@@ -322,7 +323,8 @@
       "examples": [
         {
           "native": "ہاں بالکل",
-          "translation": "Yes, of course"
+          "translation": "Yes, of course",
+          "translit": "haan bilkul"
         }
       ],
       "pronunciation": "HAHN"
@@ -375,7 +377,8 @@
       "examples": [
         {
           "native": "معاف کریں جناب",
-          "translation": "Excuse me sir"
+          "translation": "Excuse me sir",
+          "translit": "maaf karein janab"
         }
       ],
       "pronunciation": "MAAF kah-rain"
@@ -392,7 +395,8 @@
       "examples": [
         {
           "native": "براہ کرم بیٹھیں",
-          "translation": "Please sit"
+          "translation": "Please sit",
+          "translit": "barah-e-karam baithein"
         }
       ],
       "pronunciation": "bah-RAH kah-RAM"
@@ -427,7 +431,8 @@
       "examples": [
         {
           "native": "میں طالب علم ہوں",
-          "translation": "I am a student"
+          "translation": "I am a student",
+          "translit": "main talib-e-ilm hoon"
         }
       ],
       "pronunciation": "mein (rhymes with 'main')"
@@ -462,7 +467,8 @@
       "examples": [
         {
           "native": "تم کیا کرتے ہو",
-          "translation": "What do you do"
+          "translation": "What do you do",
+          "translit": "tum kya karte ho"
         },
         {
           "native": "تم کہاں ہو؟",
@@ -754,7 +760,8 @@
       "examples": [
         {
           "native": "چار گھنٹے",
-          "translation": "Four hours"
+          "translation": "Four hours",
+          "translit": "chaar ghante"
         }
       ],
       "pronunciation": "CHAAR"
@@ -771,7 +778,8 @@
       "examples": [
         {
           "native": "پانچ بجے",
-          "translation": "Five o'clock"
+          "translation": "Five o'clock",
+          "translit": "paanch baje"
         }
       ],
       "pronunciation": "PAANCH"
@@ -788,7 +796,8 @@
       "examples": [
         {
           "native": "دس روپے",
-          "translation": "Ten rupees"
+          "translation": "Ten rupees",
+          "translit": "das rupaye"
         }
       ],
       "pronunciation": "DUSS"
@@ -823,7 +832,8 @@
       "examples": [
         {
           "native": "ایک گلاس پانی",
-          "translation": "A glass of water"
+          "translation": "A glass of water",
+          "translit": "ek glass paani"
         }
       ],
       "pronunciation": "PAH-nee"
@@ -858,7 +868,8 @@
       "examples": [
         {
           "native": "چاول اور دال",
-          "translation": "Rice and lentils"
+          "translation": "Rice and lentils",
+          "translit": "chawal aur daal"
         }
       ],
       "pronunciation": "CHAH-wal"
@@ -875,7 +886,8 @@
       "examples": [
         {
           "native": "ایک کپ چائے",
-          "translation": "A cup of tea"
+          "translation": "A cup of tea",
+          "translit": "ek cup chai"
         }
       ],
       "pronunciation": "CHAI (rhymes with 'eye')"
@@ -910,7 +922,8 @@
       "examples": [
         {
           "native": "مرغی کا گوشت",
-          "translation": "Chicken meat"
+          "translation": "Chicken meat",
+          "translit": "murghi ka gosht"
         }
       ],
       "pronunciation": "GOASHT"
@@ -927,7 +940,8 @@
       "examples": [
         {
           "native": "تازی سبزی",
-          "translation": "Fresh vegetable"
+          "translation": "Fresh vegetable",
+          "translit": "taazi sabzi"
         }
       ],
       "pronunciation": "SUB-zee"
@@ -944,7 +958,8 @@
       "examples": [
         {
           "native": "میٹھا پھل",
-          "translation": "Sweet fruit"
+          "translation": "Sweet fruit",
+          "translit": "meetha phal"
         }
       ],
       "pronunciation": "FUHL"
@@ -997,7 +1012,8 @@
       "examples": [
         {
           "native": "میں گھر جا رہا ہوں",
-          "translation": "I am going home"
+          "translation": "I am going home",
+          "translit": "main ghar ja raha hoon"
         }
       ],
       "pronunciation": "JAH-nah"
@@ -1014,7 +1030,8 @@
       "examples": [
         {
           "native": "وہ کل آئے گا",
-          "translation": "He will come tomorrow"
+          "translation": "He will come tomorrow",
+          "translit": "woh kal aayega"
         }
       ],
       "pronunciation": "AH-nah"
@@ -1031,7 +1048,8 @@
       "examples": [
         {
           "native": "میں کھانا کھاتا ہوں",
-          "translation": "I eat food"
+          "translation": "I eat food",
+          "translit": "main khana khata hoon"
         }
       ],
       "pronunciation": "KHAH-nah"
@@ -1066,7 +1084,8 @@
       "examples": [
         {
           "native": "فلم دیکھنا",
-          "translation": "To watch a film"
+          "translation": "To watch a film",
+          "translit": "film dekhna"
         }
       ],
       "pronunciation": "DAYKH-nah"
@@ -1083,7 +1102,8 @@
       "examples": [
         {
           "native": "موسیقی سننا",
-          "translation": "To listen to music"
+          "translation": "To listen to music",
+          "translit": "moseeqi sunna"
         }
       ],
       "pronunciation": "SOON-nah"
@@ -1100,7 +1120,8 @@
       "examples": [
         {
           "native": "اردو بولنا",
-          "translation": "To speak Urdu"
+          "translation": "To speak Urdu",
+          "translit": "Urdu bolna"
         }
       ],
       "pronunciation": "BOAL-nah"
@@ -1135,7 +1156,8 @@
       "examples": [
         {
           "native": "خط لکھنا",
-          "translation": "To write a letter"
+          "translation": "To write a letter",
+          "translit": "khat likhna"
         }
       ],
       "pronunciation": "LIKH-nah"
@@ -1188,7 +1210,8 @@
       "examples": [
         {
           "native": "بچے اسکول جاتے ہیں",
-          "translation": "Children go to school"
+          "translation": "Children go to school",
+          "translit": "bachche school jaate hain"
         }
       ]
     },
@@ -1275,7 +1298,8 @@
       "examples": [
         {
           "native": "بڑی سڑک",
-          "translation": "Big road"
+          "translation": "Big road",
+          "translit": "badi sarak"
         }
       ],
       "pronunciation": "suh-RUCK"
@@ -1328,7 +1352,8 @@
       "examples": [
         {
           "native": "کل ملیں گے",
-          "translation": "See you tomorrow"
+          "translation": "See you tomorrow",
+          "translit": "kal milenge"
         }
       ],
       "pronunciation": "KUL"
@@ -1399,7 +1424,8 @@
       "examples": [
         {
           "native": "اچھی رات",
-          "translation": "Good night"
+          "translation": "Good night",
+          "translit": "achchi raat"
         }
       ],
       "pronunciation": "RAAT"
@@ -1416,7 +1442,8 @@
       "examples": [
         {
           "native": "اچھی صبح",
-          "translation": "Good morning"
+          "translation": "Good morning",
+          "translit": "achchi subah"
         }
       ],
       "pronunciation": "SOO-bah"
@@ -1433,7 +1460,8 @@
       "examples": [
         {
           "native": "اچھی شام",
-          "translation": "Good evening"
+          "translation": "Good evening",
+          "translit": "achchi shaam"
         }
       ],
       "pronunciation": "SHAAM"
@@ -1468,7 +1496,8 @@
       "examples": [
         {
           "native": "میں جاؤں گا لیکن دیر سے",
-          "translation": "I will go but late"
+          "translation": "I will go but late",
+          "translit": "main jaunga lekin der se"
         }
       ],
       "pronunciation": "LAY-kin"
@@ -1485,7 +1514,8 @@
       "examples": [
         {
           "native": "کیونکہ میں مصروف ہوں",
-          "translation": "Because I am busy"
+          "translation": "Because I am busy",
+          "translit": "kyunki main masroof hoon"
         }
       ],
       "pronunciation": "kyOON-keh"
@@ -1502,7 +1532,8 @@
       "examples": [
         {
           "native": "اگر آپ آئیں",
-          "translation": "If you come"
+          "translation": "If you come",
+          "translit": "agar aap aayein"
         }
       ],
       "pronunciation": "uh-GAR"
@@ -1519,7 +1550,8 @@
       "examples": [
         {
           "native": "چائے یا کافی",
-          "translation": "Tea or coffee"
+          "translation": "Tea or coffee",
+          "translit": "chai ya coffee"
         }
       ],
       "pronunciation": "YAH"
@@ -1554,7 +1586,8 @@
       "examples": [
         {
           "native": "آپ کہاں جا رہے ہیں",
-          "translation": "Where are you going"
+          "translation": "Where are you going",
+          "translit": "aap kahan ja rahe hain"
         }
       ],
       "pronunciation": "kuh-HAAN"
@@ -1749,7 +1782,8 @@
       "examples": [
         {
           "native": "چھ بجے",
-          "translation": "Six o'clock"
+          "translation": "Six o'clock",
+          "translit": "chhe baje"
         }
       ],
       "pronunciation": "CHHEH"
@@ -1784,7 +1818,8 @@
       "examples": [
         {
           "native": "آٹھ گھنٹے",
-          "translation": "Eight hours"
+          "translation": "Eight hours",
+          "translit": "aath ghante"
         }
       ],
       "pronunciation": "AAT-h"
@@ -1801,7 +1836,8 @@
       "examples": [
         {
           "native": "نو بجے",
-          "translation": "Nine o'clock"
+          "translation": "Nine o'clock",
+          "translit": "nau baje"
         }
       ],
       "pronunciation": "NOW (rhymes with 'now')"
@@ -1818,7 +1854,8 @@
       "examples": [
         {
           "native": "ابلا ہوا انڈا",
-          "translation": "Boiled egg"
+          "translation": "Boiled egg",
+          "translit": "ubla hua anda"
         }
       ],
       "pronunciation": "UN-dah"
@@ -1835,7 +1872,8 @@
       "examples": [
         {
           "native": "تازی مچھلی",
-          "translation": "Fresh fish"
+          "translation": "Fresh fish",
+          "translit": "taazi machhli"
         }
       ],
       "pronunciation": "much-LEE"
@@ -1852,7 +1890,8 @@
       "examples": [
         {
           "native": "کالی چاکلیٹ",
-          "translation": "Dark chocolate"
+          "translation": "Dark chocolate",
+          "translit": "kaali chocolate"
         }
       ]
     },
@@ -1868,7 +1907,8 @@
       "examples": [
         {
           "native": "میٹھا کیک",
-          "translation": "Sweet cake"
+          "translation": "Sweet cake",
+          "translit": "meetha cake"
         }
       ]
     },
@@ -1938,7 +1978,8 @@
       "examples": [
         {
           "native": "کھڑے ہو جاؤ",
-          "translation": "Stand up"
+          "translation": "Stand up",
+          "translit": "kharay ho jao"
         }
       ],
       "pronunciation": "KUH-rah HOH-nah"
@@ -1973,7 +2014,8 @@
       "examples": [
         {
           "native": "بڑی مسجد",
-          "translation": "Big mosque"
+          "translation": "Big mosque",
+          "translit": "badi masjid"
         }
       ],
       "pronunciation": "MUS-jid"
@@ -2007,7 +2049,8 @@
       "examples": [
         {
           "native": "ہوائی اڈے پر",
-          "translation": "At the airport"
+          "translation": "At the airport",
+          "translit": "hawai adde par"
         }
       ],
       "pronunciation": "huh-WAI ud-DAH"
@@ -2042,7 +2085,8 @@
       "examples": [
         {
           "native": "اس ہفتے",
-          "translation": "This week"
+          "translation": "This week",
+          "translit": "is hafte"
         }
       ],
       "pronunciation": "HUF-tah"
@@ -2059,7 +2103,8 @@
       "examples": [
         {
           "native": "اگلے مہینے",
-          "translation": "Next month"
+          "translation": "Next month",
+          "translit": "agle maheene"
         }
       ],
       "pronunciation": "muh-HEE-nah"
@@ -2202,7 +2247,8 @@
       "examples": [
         {
           "native": "پرانی کتاب",
-          "translation": "Old book"
+          "translation": "Old book",
+          "translit": "purani kitaab"
         }
       ],
       "pronunciation": "poo-RAH-nah"
@@ -2256,7 +2302,8 @@
       "examples": [
         {
           "native": "بڑی آنکھیں",
-          "translation": "Big eyes"
+          "translation": "Big eyes",
+          "translit": "badi aankhein"
         }
       ]
     },
@@ -2327,7 +2374,8 @@
       "examples": [
         {
           "native": "اداس مت ہو",
-          "translation": "Don't be sad"
+          "translation": "Don't be sad",
+          "translit": "udaas mat ho"
         }
       ]
     },
@@ -2380,7 +2428,8 @@
       "examples": [
         {
           "native": "کالے بادل",
-          "translation": "Black clouds"
+          "translation": "Black clouds",
+          "translit": "kaale badal"
         },
         {
           "native": "آسمان پر بادل ہیں",
@@ -2402,7 +2451,8 @@
       "examples": [
         {
           "native": "ٹھنڈی ہوا",
-          "translation": "Cool wind"
+          "translation": "Cool wind",
+          "translit": "thandi hawa"
         },
         {
           "native": "ہوا تیز ہے",
@@ -2424,7 +2474,8 @@
       "examples": [
         {
           "native": "نیلا آسمان",
-          "translation": "Blue sky"
+          "translation": "Blue sky",
+          "translit": "neela aasman"
         }
       ]
     },
@@ -2459,7 +2510,8 @@
       "examples": [
         {
           "native": "بس آ گئی",
-          "translation": "The bus has come"
+          "translation": "The bus has come",
+          "translit": "bus aa gayi"
         }
       ]
     },
@@ -2494,7 +2546,8 @@
       "examples": [
         {
           "native": "دائیں مڑو",
-          "translation": "Turn right"
+          "translation": "Turn right",
+          "translit": "daayein murro"
         }
       ]
     },
@@ -2511,7 +2564,8 @@
       "examples": [
         {
           "native": "بائیں طرف",
-          "translation": "To the left"
+          "translation": "To the left",
+          "translit": "baayein taraf"
         }
       ]
     },
@@ -2546,7 +2600,8 @@
       "examples": [
         {
           "native": "وہاں جاؤ",
-          "translation": "Go there"
+          "translation": "Go there",
+          "translit": "wahan jao"
         }
       ]
     },
@@ -2563,11 +2618,13 @@
       "examples": [
         {
           "native": "کپڑے خریدنا",
-          "translation": "To buy clothes"
+          "translation": "To buy clothes",
+          "translit": "kapde khareedna"
         },
         {
           "native": "میں روٹی خریدتا ہوں",
-          "translation": "I buy bread"
+          "translation": "I buy bread",
+          "translit": "main roti khareedta hoon"
         }
       ]
     },
@@ -2602,7 +2659,8 @@
       "examples": [
         {
           "native": "تھوڑا نمک",
-          "translation": "A little salt"
+          "translation": "A little salt",
+          "translit": "thoda namak"
         }
       ]
     },
@@ -2654,7 +2712,8 @@
       "examples": [
         {
           "native": "میں جانتا ہوں",
-          "translation": "I know"
+          "translation": "I know",
+          "translit": "main jaanta hoon"
         }
       ]
     },
@@ -2670,7 +2729,8 @@
       "examples": [
         {
           "native": "میں سوچتا ہوں",
-          "translation": "I think"
+          "translation": "I think",
+          "translit": "main sochta hoon"
         }
       ]
     },
@@ -2686,7 +2746,8 @@
       "examples": [
         {
           "native": "وہ کہتا ہے",
-          "translation": "He says"
+          "translation": "He says",
+          "translit": "woh kehta hai"
         }
       ]
     },
@@ -2720,11 +2781,13 @@
       "examples": [
         {
           "native": "یہ لو",
-          "translation": "Take this"
+          "translation": "Take this",
+          "translit": "yeh lo"
         },
         {
           "native": "یہ لے لو",
-          "translation": "Take this"
+          "translation": "Take this",
+          "translit": "yeh le lo"
         }
       ],
       "pronunciation": "LAY-na"
@@ -2775,7 +2838,8 @@
       "examples": [
         {
           "native": "سفید کاغذ",
-          "translation": "White paper"
+          "translation": "White paper",
+          "translit": "safed kaghaz"
         }
       ]
     },
@@ -2791,7 +2855,8 @@
       "examples": [
         {
           "native": "پیلا پھول",
-          "translation": "Yellow flower"
+          "translation": "Yellow flower",
+          "translit": "peela phool"
         }
       ]
     },
@@ -2841,7 +2906,8 @@
       "examples": [
         {
           "native": "کب آؤ گے؟",
-          "translation": "When will you come?"
+          "translation": "When will you come?",
+          "translit": "kab aao ge?"
         }
       ]
     },
@@ -2874,7 +2940,8 @@
       "examples": [
         {
           "native": "میرے پاس وقت ہے",
-          "translation": "I have time"
+          "translation": "I have time",
+          "translit": "mere paas waqt hai"
         }
       ],
       "frequencyRank": 122
@@ -2891,7 +2958,8 @@
       "examples": [
         {
           "native": "میں چائے بناتا ہوں",
-          "translation": "I make tea"
+          "translation": "I make tea",
+          "translit": "main chai banata hoon"
         }
       ],
       "frequencyRank": 123
@@ -2908,7 +2976,8 @@
       "examples": [
         {
           "native": "کیا آپ مدد کر سکتے ہیں؟",
-          "translation": "Can you help?"
+          "translation": "Can you help?",
+          "translit": "kya aap madad kar sakte hain?"
         }
       ],
       "frequencyRank": 124
@@ -2943,7 +3012,8 @@
       "examples": [
         {
           "native": "میں نہیں سمجھا",
-          "translation": "I didn't understand"
+          "translation": "I didn't understand",
+          "translit": "main nahin samjha"
         }
       ],
       "frequencyRank": 126
@@ -2960,7 +3030,8 @@
       "examples": [
         {
           "native": "میرے پاس پیسے نہیں ہیں",
-          "translation": "I don't have money"
+          "translation": "I don't have money",
+          "translit": "mere paas paise nahin hain"
         }
       ],
       "frequencyRank": 62
@@ -3031,7 +3102,8 @@
       "examples": [
         {
           "native": "میرا کام ختم ہوا",
-          "translation": "My work is done"
+          "translation": "My work is done",
+          "translit": "mera kaam khatam hua"
         }
       ],
       "frequencyRank": 12
@@ -3066,7 +3138,8 @@
       "examples": [
         {
           "native": "دروازہ کھولیں",
-          "translation": "Open the door"
+          "translation": "Open the door",
+          "translit": "darwaza kholein"
         }
       ],
       "frequencyRank": 127
@@ -3083,7 +3156,8 @@
       "examples": [
         {
           "native": "تھوڑا زیادہ",
-          "translation": "A little more"
+          "translation": "A little more",
+          "translit": "thoda zyada"
         }
       ],
       "frequencyRank": 49
@@ -3172,7 +3246,8 @@
       "examples": [
         {
           "native": "بائیں مڑیں",
-          "translation": "Turn left"
+          "translation": "Turn left",
+          "translit": "baayein murein"
         }
       ],
       "frequencyRank": 76
@@ -3189,7 +3264,8 @@
       "examples": [
         {
           "native": "دائیں طرف",
-          "translation": "On the right"
+          "translation": "On the right",
+          "translit": "daayein taraf"
         }
       ],
       "frequencyRank": 77
@@ -3296,7 +3372,8 @@
       "examples": [
         {
           "native": "باتھ روم کہاں ہے؟",
-          "translation": "Where is the bathroom?"
+          "translation": "Where is the bathroom?",
+          "translit": "bathroom kahan hai?"
         }
       ],
       "frequencyRank": 40
@@ -3313,7 +3390,8 @@
       "examples": [
         {
           "native": "موسم برا ہے",
-          "translation": "The weather is bad"
+          "translation": "The weather is bad",
+          "translit": "mausam bura hai"
         }
       ],
       "frequencyRank": 53
@@ -3330,7 +3408,8 @@
       "examples": [
         {
           "native": "پہاڑوں پر برف ہے",
-          "translation": "There's snow on the mountains"
+          "translation": "There's snow on the mountains",
+          "translit": "pahadon par barf hai"
         }
       ],
       "frequencyRank": 71
@@ -3365,7 +3444,8 @@
       "examples": [
         {
           "native": "ہم پہاڑ جا رہے ہیں",
-          "translation": "We're going to the mountains"
+          "translation": "We're going to the mountains",
+          "translit": "hum pahad ja rahe hain"
         }
       ],
       "frequencyRank": 167
@@ -3382,7 +3462,8 @@
       "examples": [
         {
           "native": "دریا کے پاس",
-          "translation": "Near the river"
+          "translation": "Near the river",
+          "translit": "darya ke paas"
         }
       ],
       "frequencyRank": 168

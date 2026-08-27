@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Button, Card, ProgressBar, Container } from "../ui/primitives.jsx";
-import { LANGUAGES } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor, stopSpeaking } from "../audio/tts.js";
 import { playCorrect, playWrong, playLessonComplete } from "../audio/sfx.js";
 import { EXERCISE, generateLesson } from "../engine/generator.js";
@@ -21,7 +21,8 @@ import { WORD_PRONUNCIATION } from "../data/wordPronunciation.js";
 
 // Languages that don't use the Latin alphabet — for these, romanization is the
 // hero (so beginners can read it) and the native script is a smaller reference.
-const NON_LATIN_LANGUAGES = new Set(["ur", "ar", "hi", "ja", "ko", "zh", "fa", "bn", "pa"]);
+// v92: this was a hand-typed set here and a second copy in Flashcards.jsx, and
+// neither learned about Malayalam or Tamil when they shipped. One source now.
 
 // v84 — autoFocus, but only where a keyboard is already on screen.
 //
@@ -38,7 +39,7 @@ const HAS_KEYBOARD =
 
 export function Lesson({ engine, pack, appState, setAppState, params, onNavigate, refreshStats, profile }) {
   const lang = LANGUAGES[pack.code];
-  const isNonLatin = NON_LATIN_LANGUAGES.has(pack.code);
+  const isNonLatin = isNonLatinScript(pack.code);
   const character = getCharacter(pack.code);
 
   // Map each individual native word → its romanization, so word-bank tiles
@@ -827,6 +828,24 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                       }}>
                         {exercise.item.examples[0].native}
                       </div>
+                      {/* v92 — THIS LINE WAS MISSING ENTIRELY.
+                          The card showed a sentence in a script the learner is
+                          here precisely because they cannot read, and gave them
+                          no way to say it. The romanisation was already in the
+                          data for 587 of these sentences and was rendered by
+                          Reading and by the explanations, but never here — on
+                          the surface a learner sees most often. */}
+                      {exercise.item.examples[0].translit && appState.showRomanization !== false && (
+                        <div style={{
+                          fontSize: 14,
+                          color: "var(--accent-text)",
+                          fontStyle: "italic",
+                          marginTop: 6,
+                          direction: "ltr",
+                        }}>
+                          {exercise.item.examples[0].translit}
+                        </div>
+                      )}
                     </>
                   ) : (
                     <>

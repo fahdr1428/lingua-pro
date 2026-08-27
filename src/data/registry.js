@@ -270,3 +270,28 @@ export async function loadLanguagePack(code) {
 export function listLanguages() {
   return Object.values(LANGUAGES);
 }
+
+// =============================================================================
+// WHICH LANGUAGES ARE WRITTEN IN LETTERS THE LEARNER ALREADY READS
+//
+// v92 — this used to be a hand-typed set called NON_LATIN_LANGUAGES, copied into
+// Lesson.jsx and Flashcards.jsx. It listed nine languages and was never updated
+// when Malayalam and Tamil arrived in v89, so both were treated as Latin-script:
+// the lesson made the Malayalam script the hero line instead of the English, and
+// InContext gates the romanisation on this flag, so all 249 Malayalam and Tamil
+// example romanisations were hidden from the people who needed them most.
+//
+// It is stated ONCE, here, as the small list rather than the long one — adding a
+// language now defaults to "needs help reading it", which is the safe direction
+// to be wrong in. Getting it wrong the other way is what v90 and this bug both
+// were: telling a heritage learner their script needs no explanation.
+//
+// Keep in step with LATIN in scripts/validate-alphabets.mjs.
+export const LATIN_SCRIPT_LANGUAGES = new Set([
+  "es", "fr", "de", "id", "tr", "pcm", "tl", "so",
+]);
+
+/** True when the learner cannot be assumed to read this language's script. */
+export function isNonLatinScript(code) {
+  return !LATIN_SCRIPT_LANGUAGES.has(code);
+}
