@@ -6,8 +6,9 @@
 
 import { GRAMMAR_PART1 } from "./grammar_part1.js";
 import { GRAMMAR_PART2 } from "./grammar_part2.js";
+import { GRAMMAR_PART3 } from "./grammar_part3.js";
 
-export const GRAMMAR = { ...GRAMMAR_PART1, ...GRAMMAR_PART2 };
+export const GRAMMAR = { ...GRAMMAR_PART1, ...GRAMMAR_PART2, ...GRAMMAR_PART3 };
 
 /** All grammar lessons for a language, or [] if none. */
 export function getGrammar(langCode) {
