@@ -28,6 +28,67 @@
 // =============================================================================
 
 export const CHARACTERS = {
+  // v89 guides.
+  ml: {
+    name: "Sreeja", role: "Your Malayalam guide", initial: "S", city: "Kochi",
+    craft: "Runs a tea shop by the ferry jetty", accent: "#c8501e",
+    voice: { rate: 0.92, pitch: 1.05 },
+    signature: { text: "വാ, തുടങ്ങാം", translit: "vaa, thudangaam", en: "Come, let's begin" },
+    intro: "നമസ്കാരം! I'm Sreeja, from Kochi. I run a tea shop by the jetty, so I meet everyone who passes through — half of them home from the Gulf for a month. Malayalam looks like a lot of letters. It's more regular than it looks. വാ, തുടങ്ങാം.",
+    greetings: ["നമസ്കാരം! തയ്യാറാണോ?", "വീണ്ടും വന്നല്ലോ — സന്തോഷം.", "വാ, ഇന്ന് കുറച്ച് മാത്രം.", "പുതിയ വാക്കുകൾ കാത്തിരിക്കുന്നു."],
+    celebrations: {
+      perfect: "കൊള്ളാം! ഒരു തെറ്റുപോലുമില്ല.",
+      great: "വളരെ നല്ലത്! വേഗം പഠിക്കുന്നു.",
+      good: "നന്നായി. പതുക്കെ പതുക്കെ.",
+      keep_going: "സാരമില്ല. തെറ്റുകൾ പഠിക്കാനുള്ളതാണ്.",
+    },
+    streakNote: "പതുക്കെ പതുക്കെ — slowly, slowly, and then all at once.",
+    reactions: {
+      correct: ["ശരി!", "കൊള്ളാം!", "മിടുക്കൻ!", "അതെ, ശരിയാണ്!"],
+      wrong: ["സാരമില്ല.", "വീണ്ടും നോക്കൂ.", "അടുത്തെത്തി!", "ഇല്ല — ഒന്നുകൂടി."],
+      streak: ["അതിശയം!", "ഇങ്ങനെ തുടരൂ!", "വേഗം തന്നെ!"],
+    },
+  },
+  ta: {
+    name: "Meena", role: "Your Tamil guide", initial: "M", city: "Madurai",
+    craft: "Sells jasmine at the temple gate", accent: "#7a1f3d",
+    voice: { rate: 0.92, pitch: 1.05 },
+    signature: { text: "வா, ஆரம்பிக்கலாம்", translit: "vaa, aarambikkalaam", en: "Come, let's begin" },
+    intro: "வணக்கம்! I'm Meena, from Madurai. I sell jasmine outside the temple, so I talk to a few hundred people a day and I know which words you actually need. Tamil is old — but the Tamil people speak isn't. வா, ஆரம்பிக்கலாம்.",
+    greetings: ["வணக்கம்! தயாரா?", "மறுபடியும் வந்துட்டீங்க — நல்லது.", "வாங்க, இன்னைக்கு கொஞ்சம்.", "புதுசா சில வார்த்தை இருக்கு."],
+    celebrations: {
+      perfect: "அருமை! ஒரு தப்பு கூட இல்லை.",
+      great: "ரொம்ப நல்லா! சீக்கிரம் கத்துக்கறீங்க.",
+      good: "நல்லது. கொஞ்சம் கொஞ்சமா.",
+      keep_going: "பரவாயில்லை. தப்பு பண்ணித்தான் கத்துக்குவோம்.",
+    },
+    streakNote: "சொட்டு சொட்டா நிரம்பும் — drop by drop it fills.",
+    reactions: {
+      correct: ["சரி!", "அருமை!", "கரெக்ட்!", "ஆமாம், சரிதான்!"],
+      wrong: ["பரவாயில்லை.", "இன்னொரு தடவை.", "கிட்ட வந்துட்டீங்க!", "இல்லை — மறுபடி பாருங்க."],
+      streak: ["அபாரம்!", "இப்படியே போங்க!", "ரொம்ப வேகம்!"],
+    },
+  },
+  so: {
+    name: "Hodan", role: "Your Somali guide", initial: "H", city: "Hargeisa",
+    craft: "Poet — Somali argues in verse and always has", accent: "#4189dd",
+    voice: { rate: 0.95, pitch: 1.0 },
+    signature: { text: "Kaalay, aan bilowno", translit: "kaalay, aan bilowno", en: "Come, let's begin" },
+    intro: "Salaan! I'm Hodan, from Hargeisa. I write poetry, which in Somali is not a hobby — it's how people argue, court and remember. Somali is written in Latin letters, so you can read it from day one. Kaalay, aan bilowno.",
+    greetings: ["Salaan! Ma diyaar tahay?", "Waad soo laabatay — fiican.", "Kaalay, maanta wax yar.", "Erayo cusub ayaa ku sugaya."],
+    celebrations: {
+      perfect: "Aad iyo aad u fiican! Khalad ma jiro.",
+      great: "Aad u wanaagsan! Si dhaqso ah ayaad wax u baranaysaa.",
+      good: "Fiican. Tartiib tartiib.",
+      keep_going: "Waxba kama jiraan. Khaladku waa qayb ka mid ah barashada.",
+    },
+    streakNote: "Tartiib tartiib ayaa geela loo raraa — slowly, slowly the camel is loaded.",
+    reactions: {
+      correct: ["Sax!", "Aad u fiican!", "Waa run!", "Haa, saxan!"],
+      wrong: ["Waxba kama jiraan.", "Mar kale isku day.", "Ku dhowaatay!", "Weli maya — mar kale eeg."],
+      streak: ["Cajiib!", "Sii wad!", "Aad u dhaqso!"],
+    },
+  },
   // v86 — guides for the two new languages. Every other language has one, and
   // the test suite checks for it: a course with no voice behind it is the
   // generic thing this app exists not to be.

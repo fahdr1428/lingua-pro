@@ -230,8 +230,8 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    never to be shown to a learner.
 3. **Two or three example sentences per word instead of one.** 94% of words are
    met in a single frame.
-4. **Tagalog and Persian have no reading passages, no recorded audio and no
-   journey stops** (v86). The packs, guides and example sentences are there and
+4. **Five languages have no reading passages and no recorded audio** — Tagalog
+   and Persian (v86), Malayalam, Tamil and Somali (v89). The packs, guides and example sentences are there and
    the input stream works from them; the curated reading library does not exist
    yet, and `validate-passages.mjs` names both languages and the reason rather
    than letting the absence pass quietly. Writing literary Tagalog or Persian

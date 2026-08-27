@@ -90,6 +90,9 @@ const strip = (s) =>
 const AWAITING_PASSAGES = {
   tl: "added in v86; passages want a native speaker, not a generated approximation",
   fa: "added in v86; passages want a native speaker, not a generated approximation",
+  ml: "added in v89; passages want a native speaker, not a generated approximation",
+  ta: "added in v89; passages want a native speaker, not a generated approximation",
+  so: "added in v89; passages want a native speaker, not a generated approximation",
 };
 
 function known(token, lemmas) {

@@ -16,6 +16,27 @@
 // =============================================================================
 
 export const LANGUAGES = {
+  // v89 — three more nobody teaches. Malayalam was asked for by name; Tamil and
+  // Somali are the same case: tens of millions of speakers, a diaspora that
+  // lives away from where the language is spoken, and no course anywhere.
+  ml: {
+    code: "ml", name: "Malayalam", nativeName: "മലയാളം", flag: "🇮🇳", rtl: false,
+    ttsCode: "ml-IN", color: "#c8501e",
+    tagline: "Kerala, and every Gulf city its children grew up in",
+    niche: true, loader: () => import("./languages/ml.json"),
+  },
+  ta: {
+    code: "ta", name: "Tamil", nativeName: "தமிழ்", flag: "🇮🇳", rtl: false,
+    ttsCode: "ta-IN", color: "#7a1f3d",
+    tagline: "One of the oldest living languages, still spoken on four continents",
+    niche: true, loader: () => import("./languages/ta.json"),
+  },
+  so: {
+    code: "so", name: "Somali", nativeName: "Soomaali", flag: "🇸🇴", rtl: false,
+    ttsCode: "so-SO", color: "#4189dd",
+    tagline: "Minneapolis, Birmingham, Oslo — and the Horn of Africa",
+    niche: true, loader: () => import("./languages/so.json"),
+  },
   // v86 — TWO LANGUAGES DUOLINGO DOES NOT TEACH AT ALL.
   //
   // The strongest form of "better than the big app" is "exists". Tagalog has

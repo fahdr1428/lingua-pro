@@ -25,6 +25,144 @@
 // =============================================================================
 
 export const GRAMMAR_PART3 = {
+
+  // ===========================================================================
+  // MALAYALAM
+  // ===========================================================================
+  ml: [
+    {
+      id: "ml_g1", title: "The verb comes last", emoji: "🔚",
+      concept: "Malayalam is **Subject–Object–Verb**. *ഞാൻ ചോറ് കഴിക്കുന്നു* is literally 'I rice eat'. The action closes the sentence, so you hold the thought until the end — which is also why interrupting a Malayalam speaker mid-sentence loses the whole meaning.",
+      examples: [
+        { native: "ഞാൻ ചോറ് കഴിക്കുന്നു", translit: "njaan choru kazhikkunnu", gloss: "I eat rice (I rice eat)" },
+        { native: "അവൻ പുസ്തകം വായിക്കുന്നു", translit: "avan pusthakam vaayikkunnu", gloss: "he reads a book" },
+        { native: "ഞങ്ങൾ വീട്ടിൽ പോകുന്നു", translit: "njangal veettil pokunnu", gloss: "we go home" },
+      ],
+      checks: [{ q: "Where does the verb go?", options: ["At the end", "Second", "First", "Before the object"], answer: "At the end", explain: "Subject, object, then verb." }],
+    },
+    {
+      id: "ml_g2", title: "Respect is the plural", emoji: "🙏",
+      concept: "Malayalam shows respect by using the **plural form for one person**. *നീ* to a friend, *നിങ്ങൾ* to anyone older or unfamiliar, with plural verb endings to match. Using the singular with an elder isn't casual — it's rude, and it is the clearest sign of someone who learned the language from a book.",
+      examples: [
+        { native: "നീ എവിടെയാണ്?", translit: "nee evideyaanu?", gloss: "where are you? (to a friend)" },
+        { native: "നിങ്ങൾ എവിടെയാണ്?", translit: "ningal evideyaanu?", gloss: "where are you? (respectful)" },
+        { native: "അച്ഛൻ വന്നു", translit: "achchan vannu", gloss: "father has come" },
+      ],
+      checks: [{ q: "How do you address one older person respectfully?", options: ["With the plural form", "With the singular form", "By adding a suffix to their name", "By changing word order"], answer: "With the plural form", explain: "നിങ്ങൾ and plural endings, even for one person." }],
+    },
+    {
+      id: "ml_g3", title: "'And' attaches to the end", emoji: "🔗",
+      concept: "Malayalam doesn't put a word between two things. It attaches **-ഉം** to the end of *each* of them: *ചോറും മീനും*, rice-and fish-and. Both items get it, which feels like saying 'and' twice and is simply how the language joins things.",
+      examples: [
+        { native: "ചോറും മീനും", translit: "chorum meenum", gloss: "rice and fish" },
+        { native: "ഞാനും അവനും", translit: "njaanum avanum", gloss: "he and I" },
+        { native: "ചായയും പാലും", translit: "chaayayum paalum", gloss: "tea and milk" },
+      ],
+      checks: [{ q: "How does Malayalam join two nouns?", options: ["Adds -um to the end of both", "Puts a word between them", "Repeats the noun", "Uses word order alone"], answer: "Adds -um to the end of both", explain: "chor-um meen-um. Each item carries the ending." }],
+    },
+    {
+      id: "ml_g4", title: "Chettan and chechi — titles for strangers", emoji: "👥",
+      concept: "**ചേട്ടൻ** (older brother) and **ചേച്ചി** (older sister) are used for people who are not your siblings at all — the shopkeeper, the auto driver, a colleague a few years older. Addressing an older person by their bare name sounds abrupt to the point of rudeness. Malayalis abroad keep this habit long after they've dropped others.",
+      examples: [
+        { native: "ചേട്ടാ, ഇത് എത്രയാണ്?", translit: "chettaa, ithu ethrayaanu?", gloss: "chettan, how much is this?" },
+        { native: "ചേച്ചി, സഹായിക്കാമോ?", translit: "chechi, sahaayikkaamo?", gloss: "chechi, could you help?" },
+        { native: "എന്റെ ചേട്ടൻ ദുബായിലാണ്", translit: "ente chettan Dubaiyilaanu", gloss: "my older brother is in Dubai" },
+      ],
+      checks: [{ q: "Who do you call 'chettan'?", options: ["Your older brother and any man a bit older", "Only your brother", "Only family", "Anyone younger"], answer: "Your older brother and any man a bit older", explain: "The title extends well past the family." }],
+    },
+  ],
+
+  // ===========================================================================
+  // TAMIL
+  // ===========================================================================
+  ta: [
+    {
+      id: "ta_g1", title: "The verb comes last", emoji: "🔚",
+      concept: "Tamil is **Subject–Object–Verb**. *நான் சாதம் சாப்பிடறேன்* is 'I rice eat'. Like Malayalam, Urdu and Turkish, the action arrives at the end and everything before it is setup.",
+      examples: [
+        { native: "நான் சாதம் சாப்பிடறேன்", translit: "naan saadham saappidaren", gloss: "I eat rice (I rice eat)" },
+        { native: "அவன் புத்தகம் படிக்கிறான்", translit: "avan putthagam padikkiraan", gloss: "he reads a book" },
+        { native: "நாங்க வீட்டுக்கு போறோம்", translit: "naanga veettukku poroom", gloss: "we go home" },
+      ],
+      checks: [{ q: "Where does the verb go?", options: ["At the end", "Second", "First", "Before the object"], answer: "At the end", explain: "Subject, object, then verb." }],
+    },
+    {
+      id: "ta_g2", title: "Respect is the plural", emoji: "🙏",
+      concept: "Tamil marks respect with the **plural for one person**: *நீ* to a friend, *நீங்க* to anyone older, and the verb takes a plural ending to match. This is not optional politeness — the wrong form is heard immediately.",
+      examples: [
+        { native: "நீ எங்கே?", translit: "nee enge?", gloss: "where are you? (to a friend)" },
+        { native: "நீங்க எங்கே?", translit: "neenga enge?", gloss: "where are you? (respectful)" },
+        { native: "அப்பா வந்தார்", translit: "appa vandhaar", gloss: "father has come (respectful ending)" },
+      ],
+      checks: [{ q: "Which do you use with an older stranger?", options: ["நீங்க", "நீ", "either", "neither — drop the pronoun"], answer: "நீங்க", explain: "The plural carries the respect." }],
+    },
+    {
+      id: "ta_g3", title: "Two Tamils: written and spoken", emoji: "🗣️",
+      concept: "Tamil has a formal written form and a spoken one, and they differ enough that a learner who studies only the written language cannot follow a conversation. *நான் போகிறேன்* is written; people say *நான் போறேன்*. This course teaches the spoken form, because that is what your family speaks.",
+      examples: [
+        { native: "நான் போறேன்", translit: "naan poren", gloss: "I'm going (spoken)" },
+        { native: "என்ன பண்றீங்க?", translit: "enna panreenga?", gloss: "what are you doing? (spoken)" },
+        { native: "தெரியலை", translit: "theriyalai", gloss: "I don't know (spoken)" },
+      ],
+      checks: [{ q: "Why does this course teach the spoken form?", options: ["Because it is what people actually say", "Because it is easier", "Because it is more formal", "Because it is older"], answer: "Because it is what people actually say", explain: "The written form won't get you through a phone call home." }],
+    },
+    {
+      id: "ta_g4", title: "Anna and akka — titles for strangers", emoji: "👥",
+      concept: "**அண்ணா** (older brother) and **அக்கா** (older sister) are used for anyone slightly older, related or not. The shopkeeper is anna. The woman at the counter is akka. Using a bare first name where a title belongs marks you instantly as an outsider — or as rude.",
+      examples: [
+        { native: "அண்ணா, இது எவ்வளவு?", translit: "annaa, idhu evvalavu?", gloss: "anna, how much is this?" },
+        { native: "அக்கா, உதவி செய்யுங்க", translit: "akkaa, udhavi seyyunga", gloss: "akka, please help" },
+        { native: "என் அண்ணா லண்டன்ல", translit: "en annaa Londonla", gloss: "my older brother is in London" },
+      ],
+      checks: [{ q: "Who do you call 'anna'?", options: ["Your older brother and any man a bit older", "Only your brother", "Only relatives", "Anyone younger"], answer: "Your older brother and any man a bit older", explain: "The title goes well beyond the family." }],
+    },
+  ],
+
+  // ===========================================================================
+  // SOMALI
+  // ===========================================================================
+  so: [
+    {
+      id: "so_g1", title: "'waa' marks a statement", emoji: "📌",
+      concept: "Somali puts **waa** in front of what it's asserting: *waa run*, it is true. It isn't a translation of 'is' so much as a marker that says 'this is a statement of fact'. Sentences that leave it out are doing something else — asking, or emphasising a different part.",
+      examples: [
+        { native: "Waa run", gloss: "it is true" },
+        { native: "Magacaygu waa Hodan", gloss: "my name is Hodan" },
+        { native: "Guriga waa weyn yahay", gloss: "the house is big" },
+      ],
+      checks: [{ q: "What does 'waa' do?", options: ["Marks the sentence as a statement of fact", "Makes it a question", "Marks the past", "Marks the plural"], answer: "Marks the sentence as a statement of fact", explain: "Waa run, magacaygu waa Hodan." }],
+    },
+    {
+      id: "so_g2", title: "The article sticks to the end", emoji: "📎",
+      concept: "Where English puts 'the' in front, Somali attaches it to the **end** of the noun — and the form depends on gender. *Guri* is a house; *guriga* is the house. *Naag* is a woman; *naagta* is the woman. Masculine takes -ka/-ga, feminine takes -ta/-da.",
+      examples: [
+        { native: "guri → guriga", gloss: "a house → the house (masculine)" },
+        { native: "naag → naagta", gloss: "a woman → the woman (feminine)" },
+        { native: "buug → buugga", gloss: "a book → the book" },
+      ],
+      checks: [{ q: "Where does 'the' go in Somali?", options: ["Attached to the end of the noun", "Before the noun", "At the end of the sentence", "It doesn't exist"], answer: "Attached to the end of the noun", explain: "guri-ga, naag-ta. Gender picks the form." }],
+    },
+    {
+      id: "so_g3", title: "Greeting is a sequence, not a word", emoji: "🤝",
+      concept: "A Somali greeting runs several exchanges — peace, health, family, then the actual business. Cutting to the point immediately reads as cold. *Nabad* (peace) runs through the whole thing: you ask about peace, you answer with peace.",
+      examples: [
+        { native: "Iska warran?", gloss: "how are you?" },
+        { native: "Nabad baan ahay", gloss: "I am well (I am at peace)" },
+        { native: "Nabad gelyo", gloss: "goodbye (go in peace)" },
+      ],
+      checks: [{ q: "What does Somali answer 'how are you' with?", options: ["Peace — nabad", "A mood", "A number", "Nothing"], answer: "Peace — nabad", explain: "Nabad baan ahay. Peace runs through the whole greeting." }],
+    },
+    {
+      id: "so_g4", title: "'walaal' — everyone is a sibling", emoji: "👥",
+      concept: "**Walaal** means brother or sister, and Somalis use it for each other regardless of relation. It carries an assumption of belonging that survives the diaspora: two Somalis meeting in Minneapolis or Birmingham will use it in the first sentence. Learning to use it naturally does more for you than twenty more nouns.",
+      examples: [
+        { native: "Walaal, i caawi", gloss: "brother/sister, help me" },
+        { native: "Nabad gelyo, walaal", gloss: "goodbye, brother/sister" },
+        { native: "Walaalkay London buu joogaa", gloss: "my brother lives in London" },
+      ],
+      checks: [{ q: "Who can you call 'walaal'?", options: ["Any Somali you meet, related or not", "Only your actual siblings", "Only elders", "Only children"], answer: "Any Somali you meet, related or not", explain: "It assumes belonging, which is exactly why it's used." }],
+    },
+  ],
   // ===========================================================================
   // GERMAN — cases are the thing. Everything else is negotiable.
   // ===========================================================================

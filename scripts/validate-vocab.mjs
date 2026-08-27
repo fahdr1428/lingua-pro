@@ -29,8 +29,10 @@ const SCRIPTS = {
   ko: { name: "Korean (Hangul)", re: /[\uAC00-\uD7AF\u1100-\u11FF]/ },
   zh: { name: "Chinese", re: /[\u4E00-\u9FFF]/ },
   fa: { name: "Persian (Arabic script)", re: /[\u0600-\u06FF\u0750-\u077F]/ },
+  ml: { name: "Malayalam", re: /[\u0D00-\u0D7F]/ },
+  ta: { name: "Tamil", re: /[\u0B80-\u0BFF]/ },
 };
-const LATIN = new Set(["es", "fr", "id", "pcm", "tr", "de", "tl"]);
+const LATIN = new Set(["es", "fr", "id", "pcm", "tr", "de", "tl", "so"]);
 
 function checkLanguage(code) {
   const file = path.join(LANG_DIR, `${code}.json`);

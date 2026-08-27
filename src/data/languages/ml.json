@@ -1,0 +1,2202 @@
+{
+  "schemaVersion": 1,
+  "code": "ml",
+  "categories": [
+    "Common",
+    "Connectors",
+    "Family",
+    "Feelings",
+    "Food",
+    "Greetings",
+    "Numbers",
+    "People",
+    "Places",
+    "Politeness",
+    "Questions",
+    "Time",
+    "Verbs"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Hello, goodbye, and asking how someone is"
+    },
+    {
+      "id": "u2",
+      "title": "Politeness",
+      "emoji": "🙏",
+      "description": "Thank you, please, and speaking to an elder"
+    },
+    {
+      "id": "u3",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns, names, where you're from"
+    },
+    {
+      "id": "u4",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Relatives — and the titles you give people who aren't"
+    },
+    {
+      "id": "u5",
+      "title": "Feelings",
+      "emoji": "💭",
+      "description": "Tired, hungry, happy, far from home"
+    },
+    {
+      "id": "u6",
+      "title": "Food",
+      "emoji": "🍚",
+      "description": "Rice, water, tea, and the table"
+    },
+    {
+      "id": "u7",
+      "title": "Everyday",
+      "emoji": "🏠",
+      "description": "Common verbs and the things around you"
+    },
+    {
+      "id": "u8",
+      "title": "Out & About",
+      "emoji": "🚌",
+      "description": "Numbers, time, getting somewhere"
+    }
+  ],
+  "alphabet": [],
+  "frameworks": [],
+  "vocab": [
+    {
+      "id": "ml_0001",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "നമസ്കാരം",
+      "translit": "namaskaaram",
+      "translation": "hello, greetings",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നമസ്കാരം, സുഖമാണോ?",
+          "translit": "namaskaaram, sukhamaano?",
+          "translation": "Hello, are you well?"
+        }
+      ],
+      "frequencyRank": 1
+    },
+    {
+      "id": "ml_0002",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "സുഖമാണോ",
+      "translit": "sukhamaano",
+      "translation": "are you well?",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നിങ്ങൾക്ക് സുഖമാണോ?",
+          "translit": "ningalkku sukhamaano?",
+          "translation": "Are you well?"
+        }
+      ],
+      "frequencyRank": 2
+    },
+    {
+      "id": "ml_0003",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "സുഖമാണ്",
+      "translit": "sukhamaanu",
+      "translation": "I'm well",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് സുഖമാണ്",
+          "translit": "enikku sukhamaanu",
+          "translation": "I am well"
+        }
+      ],
+      "frequencyRank": 3
+    },
+    {
+      "id": "ml_0004",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "അതെ",
+      "translit": "athe",
+      "translation": "yes",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അതെ, ശരിയാണ്",
+          "translit": "athe, shariyaanu",
+          "translation": "Yes, that's right"
+        }
+      ],
+      "frequencyRank": 4
+    },
+    {
+      "id": "ml_0005",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "അല്ല",
+      "translit": "alla",
+      "translation": "no",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അല്ല, വേണ്ട",
+          "translit": "alla, venda",
+          "translation": "No, I don't want it"
+        }
+      ],
+      "frequencyRank": 5
+    },
+    {
+      "id": "ml_0006",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "ശരി",
+      "translit": "shari",
+      "translation": "okay, correct",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ശരി, പോകാം",
+          "translit": "shari, pokaam",
+          "translation": "Okay, let's go"
+        }
+      ],
+      "frequencyRank": 6
+    },
+    {
+      "id": "ml_0007",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "പോയിവരാം",
+      "translit": "poyivaraam",
+      "translation": "goodbye (I'll go and come back)",
+      "difficulty": 1,
+      "note": "Malayalam has no plain 'goodbye'. You say 'I'll go and come back' — leaving for good is not what you wish on someone.",
+      "examples": [
+        {
+          "native": "ഞാൻ പോയിവരാം",
+          "translit": "njaan poyivaraam",
+          "translation": "Goodbye"
+        }
+      ],
+      "frequencyRank": 7
+    },
+    {
+      "id": "ml_0008",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "നന്ദി",
+      "translit": "nandi",
+      "translation": "thank you",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വളരെ നന്ദി",
+          "translit": "valare nandi",
+          "translation": "Thank you very much"
+        }
+      ],
+      "frequencyRank": 8
+    },
+    {
+      "id": "ml_0009",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "ദയവായി",
+      "translit": "dayavaayi",
+      "translation": "please",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ദയവായി സഹായിക്കൂ",
+          "translit": "dayavaayi sahaayikkoo",
+          "translation": "Please help"
+        }
+      ],
+      "frequencyRank": 9
+    },
+    {
+      "id": "ml_0010",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "ക്ഷമിക്കണം",
+      "translit": "kshamikkanam",
+      "translation": "sorry, excuse me",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ക്ഷമിക്കണം, വൈകി",
+          "translit": "kshamikkanam, vaiki",
+          "translation": "Sorry, I'm late"
+        }
+      ],
+      "frequencyRank": 10
+    },
+    {
+      "id": "ml_0011",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "വേണ്ട",
+      "translit": "venda",
+      "translation": "no thank you, don't want",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് വേണ്ട",
+          "translit": "enikku venda",
+          "translation": "I don't want it"
+        }
+      ],
+      "frequencyRank": 11
+    },
+    {
+      "id": "ml_0012",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "ഞാൻ",
+      "translit": "njaan",
+      "translation": "I",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഞാൻ കേരളത്തിൽ നിന്നാണ്",
+          "translit": "njaan Keralathil ninnaanu",
+          "translation": "I am from Kerala"
+        }
+      ],
+      "frequencyRank": 12
+    },
+    {
+      "id": "ml_0013",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "നീ",
+      "translit": "nee",
+      "translation": "you (to a friend)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നീ എവിടെയാണ്?",
+          "translit": "nee evideyaanu?",
+          "translation": "Where are you?"
+        }
+      ],
+      "frequencyRank": 13
+    },
+    {
+      "id": "ml_0014",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "നിങ്ങൾ",
+      "translit": "ningal",
+      "translation": "you (respectful or plural)",
+      "difficulty": 1,
+      "note": "Malayalam marks respect by using the plural for one person. 'Nee' to a friend, 'ningal' to anyone older or unfamiliar.",
+      "examples": [
+        {
+          "native": "നിങ്ങൾ എവിടെ പോകുന്നു?",
+          "translit": "ningal evide pokunnu?",
+          "translation": "Where are you going?"
+        }
+      ],
+      "frequencyRank": 14
+    },
+    {
+      "id": "ml_0015",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "അവൻ",
+      "translit": "avan",
+      "translation": "he",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അവൻ എന്റെ സുഹൃത്താണ്",
+          "translit": "avan ente suhruthaanu",
+          "translation": "He is my friend"
+        }
+      ],
+      "frequencyRank": 15
+    },
+    {
+      "id": "ml_0016",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "അവൾ",
+      "translit": "aval",
+      "translation": "she",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അവൾ ഡോക്ടറാണ്",
+          "translit": "aval doctaraanu",
+          "translation": "She is a doctor"
+        }
+      ],
+      "frequencyRank": 16
+    },
+    {
+      "id": "ml_0017",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "ഞങ്ങൾ",
+      "translit": "njangal",
+      "translation": "we",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഞങ്ങൾ ഇവിടെയുണ്ട്",
+          "translit": "njangal ivideyundu",
+          "translation": "We are here"
+        }
+      ],
+      "frequencyRank": 17
+    },
+    {
+      "id": "ml_0018",
+      "unit": "u3",
+      "category": "Common",
+      "lemma": "പേര്",
+      "translit": "peru",
+      "translation": "name",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നിങ്ങളുടെ പേര് എന്താണ്?",
+          "translit": "ningalude peru enthaanu?",
+          "translation": "What is your name?"
+        }
+      ],
+      "frequencyRank": 18
+    },
+    {
+      "id": "ml_0019",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "അമ്മ",
+      "translit": "amma",
+      "translation": "mother",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അമ്മ ഭക്ഷണം ഉണ്ടാക്കുന്നു",
+          "translit": "amma bhakshanam undaakkunnu",
+          "translation": "Mother is making food"
+        }
+      ],
+      "frequencyRank": 19
+    },
+    {
+      "id": "ml_0020",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "അച്ഛൻ",
+      "translit": "achchan",
+      "translation": "father",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അച്ഛൻ ജോലിക്ക് പോയി",
+          "translit": "achchan jolikku poyi",
+          "translation": "Father went to work"
+        }
+      ],
+      "frequencyRank": 20
+    },
+    {
+      "id": "ml_0021",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "ചേട്ടൻ",
+      "translit": "chettan",
+      "translation": "elder brother; any older man",
+      "difficulty": 1,
+      "note": "You call your older brother chettan — and also the shopkeeper, the driver, any man a few years older. Using a name alone where chettan belongs sounds abrupt.",
+      "examples": [
+        {
+          "native": "ചേട്ടാ, ഇത് എത്രയാണ്?",
+          "translit": "chettaa, ithu ethrayaanu?",
+          "translation": "Chettan, how much is this?"
+        }
+      ],
+      "frequencyRank": 21
+    },
+    {
+      "id": "ml_0022",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "ചേച്ചി",
+      "translit": "chechi",
+      "translation": "elder sister; any older woman",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ചേച്ചി, സഹായിക്കാമോ?",
+          "translit": "chechi, sahaayikkaamo?",
+          "translation": "Chechi, could you help?"
+        }
+      ],
+      "frequencyRank": 22
+    },
+    {
+      "id": "ml_0023",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "അനിയൻ",
+      "translit": "aniyan",
+      "translation": "younger brother",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എന്റെ അനിയൻ സ്കൂളിലാണ്",
+          "translit": "ente aniyan schoolilaanu",
+          "translation": "My younger brother is at school"
+        }
+      ],
+      "frequencyRank": 23
+    },
+    {
+      "id": "ml_0024",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "അനിയത്തി",
+      "translit": "aniyathi",
+      "translation": "younger sister",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അനിയത്തി പഠിക്കുന്നു",
+          "translit": "aniyathi padhikkunnu",
+          "translation": "My younger sister is studying"
+        }
+      ],
+      "frequencyRank": 24
+    },
+    {
+      "id": "ml_0025",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "അമ്മാവൻ",
+      "translit": "ammaavan",
+      "translation": "uncle (mother's brother)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അമ്മാവൻ ദുബായിലാണ്",
+          "translit": "ammaavan Dubaiyilaanu",
+          "translation": "Uncle is in Dubai"
+        }
+      ],
+      "frequencyRank": 25
+    },
+    {
+      "id": "ml_0026",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "അമ്മായി",
+      "translit": "ammaayi",
+      "translation": "aunt",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അമ്മായി വന്നു",
+          "translit": "ammaayi vannu",
+          "translation": "Aunt has come"
+        }
+      ],
+      "frequencyRank": 26
+    },
+    {
+      "id": "ml_0027",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "മുത്തച്ഛൻ",
+      "translit": "muthachchan",
+      "translation": "grandfather",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "മുത്തച്ഛൻ കഥ പറയുന്നു",
+          "translit": "muthachchan katha parayunnu",
+          "translation": "Grandfather tells stories"
+        }
+      ],
+      "frequencyRank": 27
+    },
+    {
+      "id": "ml_0028",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "മുത്തശ്ശി",
+      "translit": "muthashshi",
+      "translation": "grandmother",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "മുത്തശ്ശി ചായ കുടിക്കുന്നു",
+          "translit": "muthashshi chaaya kudikkunnu",
+          "translation": "Grandmother drinks tea"
+        }
+      ],
+      "frequencyRank": 28
+    },
+    {
+      "id": "ml_0029",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "കുടുംബം",
+      "translit": "kudumbam",
+      "translation": "family",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എന്റെ കുടുംബം കേരളത്തിലാണ്",
+          "translit": "ente kudumbam Keralathilaanu",
+          "translation": "My family is in Kerala"
+        }
+      ],
+      "frequencyRank": 29
+    },
+    {
+      "id": "ml_0030",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "മകൻ",
+      "translit": "makan",
+      "translation": "son",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എന്റെ മകൻ ചെറുതാണ്",
+          "translit": "ente makan cheruthaanu",
+          "translation": "My son is small"
+        }
+      ],
+      "frequencyRank": 30
+    },
+    {
+      "id": "ml_0031",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "മകൾ",
+      "translit": "makal",
+      "translation": "daughter",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "മകൾ പഠിക്കുന്നു",
+          "translit": "makal padhikkunnu",
+          "translation": "My daughter is studying"
+        }
+      ],
+      "frequencyRank": 31
+    },
+    {
+      "id": "ml_0032",
+      "unit": "u4",
+      "category": "People",
+      "lemma": "സുഹൃത്ത്",
+      "translit": "suhruthu",
+      "translation": "friend",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അവൻ എന്റെ സുഹൃത്താണ്",
+          "translit": "avan ente suhruthaanu",
+          "translation": "He is my friend"
+        }
+      ],
+      "frequencyRank": 32
+    },
+    {
+      "id": "ml_0033",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "ക്ഷീണം",
+      "translit": "ksheenam",
+      "translation": "tiredness",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് ക്ഷീണമുണ്ട്",
+          "translit": "enikku ksheenamundu",
+          "translation": "I am tired"
+        }
+      ],
+      "frequencyRank": 33
+    },
+    {
+      "id": "ml_0034",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "വിശക്കുന്നു",
+      "translit": "vishakkunnu",
+      "translation": "hungry",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് വിശക്കുന്നു",
+          "translit": "enikku vishakkunnu",
+          "translation": "I am hungry"
+        }
+      ],
+      "frequencyRank": 34
+    },
+    {
+      "id": "ml_0035",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "ദാഹിക്കുന്നു",
+      "translit": "daahikkunnu",
+      "translation": "thirsty",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് ദാഹിക്കുന്നു",
+          "translit": "enikku daahikkunnu",
+          "translation": "I am thirsty"
+        }
+      ],
+      "frequencyRank": 35
+    },
+    {
+      "id": "ml_0036",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "സന്തോഷം",
+      "translit": "santhosham",
+      "translation": "happiness",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് വലിയ സന്തോഷം",
+          "translit": "enikku valiya santhosham",
+          "translation": "I am very happy"
+        }
+      ],
+      "frequencyRank": 36
+    },
+    {
+      "id": "ml_0037",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "സങ്കടം",
+      "translit": "sankadam",
+      "translation": "sadness",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അവൾക്ക് സങ്കടമുണ്ട്",
+          "translit": "avalkku sankadamundu",
+          "translation": "She is sad"
+        }
+      ],
+      "frequencyRank": 37
+    },
+    {
+      "id": "ml_0038",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "അസുഖം",
+      "translit": "asukham",
+      "translation": "illness",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അമ്മയ്ക്ക് അസുഖമാണ്",
+          "translit": "ammaykku asukhamaanu",
+          "translation": "Mother is ill"
+        }
+      ],
+      "frequencyRank": 38
+    },
+    {
+      "id": "ml_0039",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "വെള്ളം",
+      "translit": "vellam",
+      "translation": "water",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഒരു ഗ്ലാസ് വെള്ളം തരൂ",
+          "translit": "oru glass vellam tharoo",
+          "translation": "Give me a glass of water"
+        }
+      ],
+      "frequencyRank": 39
+    },
+    {
+      "id": "ml_0040",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "ഭക്ഷണം",
+      "translit": "bhakshanam",
+      "translation": "food",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഭക്ഷണം തയ്യാറാണ്",
+          "translit": "bhakshanam thayyaaraanu",
+          "translation": "The food is ready"
+        }
+      ],
+      "frequencyRank": 40
+    },
+    {
+      "id": "ml_0041",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "ചോറ്",
+      "translit": "choru",
+      "translation": "cooked rice",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ചോറും മീനും",
+          "translit": "chorum meenum",
+          "translation": "Rice and fish"
+        }
+      ],
+      "frequencyRank": 41
+    },
+    {
+      "id": "ml_0042",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "ചായ",
+      "translit": "chaaya",
+      "translation": "tea",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഒരു ചായ വേണം",
+          "translit": "oru chaaya venam",
+          "translation": "I want a tea"
+        }
+      ],
+      "frequencyRank": 42
+    },
+    {
+      "id": "ml_0043",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "മീൻ",
+      "translit": "meen",
+      "translation": "fish",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "മീൻ കറി നല്ലതാണ്",
+          "translit": "meen kari nallathaanu",
+          "translation": "The fish curry is good"
+        }
+      ],
+      "frequencyRank": 43
+    },
+    {
+      "id": "ml_0044",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "രുചി",
+      "translit": "ruchi",
+      "translation": "taste, delicious",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വളരെ രുചിയുണ്ട്",
+          "translit": "valare ruchiyundu",
+          "translation": "It is very tasty"
+        }
+      ],
+      "frequencyRank": 44
+    },
+    {
+      "id": "ml_0045",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "പോകുക",
+      "translit": "pokuka",
+      "translation": "to go",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഞാൻ പോകുന്നു",
+          "translit": "njaan pokunnu",
+          "translation": "I am going"
+        }
+      ],
+      "frequencyRank": 45
+    },
+    {
+      "id": "ml_0046",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "വരുക",
+      "translit": "varuka",
+      "translation": "to come",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നാളെ വരാം",
+          "translit": "naale varaam",
+          "translation": "I'll come tomorrow"
+        }
+      ],
+      "frequencyRank": 46
+    },
+    {
+      "id": "ml_0047",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "കഴിക്കുക",
+      "translit": "kazhikkuka",
+      "translation": "to eat",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഭക്ഷണം കഴിച്ചോ?",
+          "translit": "bhakshanam kazhicho?",
+          "translation": "Have you eaten?"
+        }
+      ],
+      "frequencyRank": 47
+    },
+    {
+      "id": "ml_0048",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "കുടിക്കുക",
+      "translit": "kudikkuka",
+      "translation": "to drink",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വെള്ളം കുടിക്കൂ",
+          "translit": "vellam kudikkoo",
+          "translation": "Drink water"
+        }
+      ],
+      "frequencyRank": 48
+    },
+    {
+      "id": "ml_0049",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "പറയുക",
+      "translit": "parayuka",
+      "translation": "to say",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എന്താണ് പറഞ്ഞത്?",
+          "translit": "enthaanu paranjathu?",
+          "translation": "What did you say?"
+        }
+      ],
+      "frequencyRank": 49
+    },
+    {
+      "id": "ml_0050",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "കാണുക",
+      "translit": "kaanuka",
+      "translation": "to see",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഞാൻ നിന്നെ കണ്ടു",
+          "translit": "njaan ninne kandu",
+          "translation": "I saw you"
+        }
+      ],
+      "frequencyRank": 50
+    },
+    {
+      "id": "ml_0051",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "അറിയുക",
+      "translit": "ariyuka",
+      "translation": "to know",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് അറിയില്ല",
+          "translit": "enikku ariyilla",
+          "translation": "I don't know"
+        }
+      ],
+      "frequencyRank": 51
+    },
+    {
+      "id": "ml_0052",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "വേണം",
+      "translit": "venam",
+      "translation": "to want, need",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് ചായ വേണം",
+          "translit": "enikku chaaya venam",
+          "translation": "I want tea"
+        }
+      ],
+      "frequencyRank": 52
+    },
+    {
+      "id": "ml_0053",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ഉണ്ട്",
+      "translit": "undu",
+      "translation": "to have, there is",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് സമയമുണ്ട്",
+          "translit": "enikku samayamundu",
+          "translation": "I have time"
+        }
+      ],
+      "frequencyRank": 53
+    },
+    {
+      "id": "ml_0054",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ചെയ്യുക",
+      "translit": "cheyyuka",
+      "translation": "to do, make",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എന്ത് ചെയ്യുന്നു?",
+          "translit": "enthu cheyyunnu?",
+          "translation": "What are you doing?"
+        }
+      ],
+      "frequencyRank": 54
+    },
+    {
+      "id": "ml_0055",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "സഹായിക്കുക",
+      "translit": "sahaayikkuka",
+      "translation": "to help",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എന്നെ സഹായിക്കൂ",
+          "translit": "enne sahaayikkoo",
+          "translation": "Help me"
+        }
+      ],
+      "frequencyRank": 55
+    },
+    {
+      "id": "ml_0056",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "മനസ്സിലാകുക",
+      "translit": "manassilaakuka",
+      "translation": "to understand",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "മനസ്സിലായില്ല",
+          "translit": "manassilaayilla",
+          "translation": "I didn't understand"
+        }
+      ],
+      "frequencyRank": 56
+    },
+    {
+      "id": "ml_0057",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "പറ്റും",
+      "translit": "pattum",
+      "translation": "can, is possible",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് പറ്റും",
+          "translit": "enikku pattum",
+          "translation": "I can"
+        }
+      ],
+      "frequencyRank": 57
+    },
+    {
+      "id": "ml_0058",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "തരുക",
+      "translit": "tharuka",
+      "translation": "to give",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അത് തരൂ",
+          "translit": "athu tharoo",
+          "translation": "Give that"
+        }
+      ],
+      "frequencyRank": 58
+    },
+    {
+      "id": "ml_0059",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "എടുക്കുക",
+      "translit": "edukkuka",
+      "translation": "to take",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇത് എടുക്കൂ",
+          "translit": "ithu edukkoo",
+          "translation": "Take this"
+        }
+      ],
+      "frequencyRank": 59
+    },
+    {
+      "id": "ml_0060",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "വാങ്ങുക",
+      "translit": "vaanguka",
+      "translation": "to buy",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഞാൻ മീൻ വാങ്ങി",
+          "translit": "njaan meen vaangi",
+          "translation": "I bought fish"
+        }
+      ],
+      "frequencyRank": 60
+    },
+    {
+      "id": "ml_0061",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "തുറക്കുക",
+      "translit": "thurakkuka",
+      "translation": "to open",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വാതിൽ തുറക്കൂ",
+          "translit": "vaathil thurakkoo",
+          "translation": "Open the door"
+        }
+      ],
+      "frequencyRank": 61
+    },
+    {
+      "id": "ml_0062",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "സംസാരിക്കുക",
+      "translit": "samsaarikkuka",
+      "translation": "to speak",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "മലയാളം സംസാരിക്കുമോ?",
+          "translit": "Malayalam samsaarikkumo?",
+          "translation": "Do you speak Malayalam?"
+        }
+      ],
+      "frequencyRank": 62
+    },
+    {
+      "id": "ml_0063",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "വീട്",
+      "translit": "veedu",
+      "translation": "house, home",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഞാൻ വീട്ടിലാണ്",
+          "translit": "njaan veettilaanu",
+          "translation": "I am at home"
+        }
+      ],
+      "frequencyRank": 63
+    },
+    {
+      "id": "ml_0064",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ജോലി",
+      "translit": "joli",
+      "translation": "work, job",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് ജോലിയുണ്ട്",
+          "translit": "enikku joliyundu",
+          "translation": "I have work"
+        }
+      ],
+      "frequencyRank": 64
+    },
+    {
+      "id": "ml_0065",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "നല്ല",
+      "translit": "nalla",
+      "translation": "good",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വളരെ നല്ലതാണ്",
+          "translit": "valare nallathaanu",
+          "translation": "It is very good"
+        }
+      ],
+      "frequencyRank": 65
+    },
+    {
+      "id": "ml_0066",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "മോശം",
+      "translit": "mosham",
+      "translation": "bad",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "കാലാവസ്ഥ മോശമാണ്",
+          "translit": "kaalaavastha moshamaanu",
+          "translation": "The weather is bad"
+        }
+      ],
+      "frequencyRank": 66
+    },
+    {
+      "id": "ml_0067",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "വലിയ",
+      "translit": "valiya",
+      "translation": "big",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വലിയ വീട്",
+          "translit": "valiya veedu",
+          "translation": "A big house"
+        }
+      ],
+      "frequencyRank": 67
+    },
+    {
+      "id": "ml_0068",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ചെറിയ",
+      "translit": "cheriya",
+      "translation": "small",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ചെറിയ മുറി",
+          "translit": "cheriya muri",
+          "translation": "A small room"
+        }
+      ],
+      "frequencyRank": 68
+    },
+    {
+      "id": "ml_0069",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "ഒന്ന്",
+      "translit": "onnu",
+      "translation": "one",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഒരു നിമിഷം",
+          "translit": "oru nimisham",
+          "translation": "One moment"
+        }
+      ],
+      "frequencyRank": 69
+    },
+    {
+      "id": "ml_0070",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "രണ്ട്",
+      "translit": "randu",
+      "translation": "two",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "രണ്ട് ചായ",
+          "translit": "randu chaaya",
+          "translation": "Two teas"
+        }
+      ],
+      "frequencyRank": 70
+    },
+    {
+      "id": "ml_0071",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "മൂന്ന്",
+      "translit": "moonnu",
+      "translation": "three",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "മൂന്ന് ദിവസം",
+          "translit": "moonnu divasam",
+          "translation": "Three days"
+        }
+      ],
+      "frequencyRank": 71
+    },
+    {
+      "id": "ml_0072",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "നാല്",
+      "translit": "naalu",
+      "translation": "four",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നാല് പേർ",
+          "translit": "naalu per",
+          "translation": "Four people"
+        }
+      ],
+      "frequencyRank": 72
+    },
+    {
+      "id": "ml_0073",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "അഞ്ച്",
+      "translit": "anchu",
+      "translation": "five",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അഞ്ച് രൂപ",
+          "translit": "anchu roopa",
+          "translation": "Five rupees"
+        }
+      ],
+      "frequencyRank": 73
+    },
+    {
+      "id": "ml_0074",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "സമയം",
+      "translit": "samayam",
+      "translation": "time",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "സമയം എത്രയായി?",
+          "translit": "samayam ethrayaayi?",
+          "translation": "What time is it?"
+        }
+      ],
+      "frequencyRank": 74
+    },
+    {
+      "id": "ml_0075",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ദിവസം",
+      "translit": "divasam",
+      "translation": "day",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നല്ല ദിവസം",
+          "translit": "nalla divasam",
+          "translation": "A good day"
+        }
+      ],
+      "frequencyRank": 75
+    },
+    {
+      "id": "ml_0076",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ഇന്ന്",
+      "translit": "innu",
+      "translation": "today",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇന്ന് അവധിയാണ്",
+          "translit": "innu avadhiyaanu",
+          "translation": "Today is a holiday"
+        }
+      ],
+      "frequencyRank": 76
+    },
+    {
+      "id": "ml_0077",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "നാളെ",
+      "translit": "naale",
+      "translation": "tomorrow",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നാളെ കാണാം",
+          "translit": "naale kaanaam",
+          "translation": "See you tomorrow"
+        }
+      ],
+      "frequencyRank": 77
+    },
+    {
+      "id": "ml_0078",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ഇന്നലെ",
+      "translit": "innale",
+      "translation": "yesterday",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇന്നലെ വന്നു",
+          "translit": "innale vannu",
+          "translation": "I came yesterday"
+        }
+      ],
+      "frequencyRank": 78
+    },
+    {
+      "id": "ml_0079",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ഇപ്പോൾ",
+      "translit": "ippol",
+      "translation": "now",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇപ്പോൾ വരാം",
+          "translit": "ippol varaam",
+          "translation": "I'll come now"
+        }
+      ],
+      "frequencyRank": 79
+    },
+    {
+      "id": "ml_0080",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "പണം",
+      "translit": "panam",
+      "translation": "money",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് പണമില്ല",
+          "translit": "enikku panamilla",
+          "translation": "I have no money"
+        }
+      ],
+      "frequencyRank": 80
+    },
+    {
+      "id": "ml_0081",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "വില",
+      "translit": "vila",
+      "translation": "price",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇതിന്റെ വില എത്ര?",
+          "translit": "ithinte vila ethra?",
+          "translation": "What is the price of this?"
+        }
+      ],
+      "frequencyRank": 81
+    },
+    {
+      "id": "ml_0082",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ഇവിടെ",
+      "translit": "ivide",
+      "translation": "here",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇവിടെ വരൂ",
+          "translit": "ivide varoo",
+          "translation": "Come here"
+        }
+      ],
+      "frequencyRank": 82
+    },
+    {
+      "id": "ml_0083",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "അവിടെ",
+      "translit": "avide",
+      "translation": "there",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അവിടെ ഇരിക്കൂ",
+          "translit": "avide irikkoo",
+          "translation": "Sit there"
+        }
+      ],
+      "frequencyRank": 83
+    },
+    {
+      "id": "ml_0084",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "അടുത്ത്",
+      "translit": "aduthu",
+      "translation": "near",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വീട് അടുത്താണ്",
+          "translit": "veedu aduthaanu",
+          "translation": "The house is near"
+        }
+      ],
+      "frequencyRank": 84
+    },
+    {
+      "id": "ml_0085",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ദൂരെ",
+      "translit": "doore",
+      "translation": "far",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "സ്കൂൾ ദൂരെയാണ്",
+          "translit": "school dooreyaanu",
+          "translation": "The school is far"
+        }
+      ],
+      "frequencyRank": 85
+    },
+    {
+      "id": "ml_0086",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ഇടത്",
+      "translit": "idathu",
+      "translation": "left",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇടത്തോട്ട് പോകൂ",
+          "translit": "idathottu pokoo",
+          "translation": "Go to the left"
+        }
+      ],
+      "frequencyRank": 86
+    },
+    {
+      "id": "ml_0087",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "വലത്",
+      "translit": "valathu",
+      "translation": "right",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വലത്തോട്ട് തിരിയൂ",
+          "translit": "valathottu thiriyoo",
+          "translation": "Turn right"
+        }
+      ],
+      "frequencyRank": 87
+    },
+    {
+      "id": "ml_0088",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ചൂട്",
+      "translit": "choodu",
+      "translation": "hot, heat",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇന്ന് ചൂടാണ്",
+          "translit": "innu choodaanu",
+          "translation": "It is hot today"
+        }
+      ],
+      "frequencyRank": 88
+    },
+    {
+      "id": "ml_0089",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "തണുപ്പ്",
+      "translit": "thanuppu",
+      "translation": "cold",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വെള്ളം തണുത്തതാണ്",
+          "translit": "vellam thanuthathaanu",
+          "translation": "The water is cold"
+        }
+      ],
+      "frequencyRank": 89
+    },
+    {
+      "id": "ml_0090",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "കൂടുതൽ",
+      "translit": "kooduthal",
+      "translation": "more",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "കൂടുതൽ വേണം",
+          "translit": "kooduthal venam",
+          "translation": "I want more"
+        }
+      ],
+      "frequencyRank": 90
+    },
+    {
+      "id": "ml_0091",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "വളരെ",
+      "translit": "valare",
+      "translation": "very",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വളരെ നന്ദി",
+          "translit": "valare nandi",
+          "translation": "Thank you very much"
+        }
+      ],
+      "frequencyRank": 91
+    },
+    {
+      "id": "ml_0092",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "എല്ലാം",
+      "translit": "ellaam",
+      "translation": "all, everything",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എല്ലാം ശരിയാണ്",
+          "translit": "ellaam shariyaanu",
+          "translation": "Everything is fine"
+        }
+      ],
+      "frequencyRank": 92
+    },
+    {
+      "id": "ml_0093",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "നഗരം",
+      "translit": "nagaram",
+      "translation": "city",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നഗരം വലുതാണ്",
+          "translit": "nagaram valuthaanu",
+          "translation": "The city is big"
+        }
+      ],
+      "frequencyRank": 93
+    },
+    {
+      "id": "ml_0094",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "കട",
+      "translit": "kada",
+      "translation": "shop",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഞാൻ കടയിൽ പോകുന്നു",
+          "translit": "njaan kadayil pokunnu",
+          "translation": "I'm going to the shop"
+        }
+      ],
+      "frequencyRank": 94
+    },
+    {
+      "id": "ml_0095",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "ഡോക്ടർ",
+      "translit": "doctor",
+      "translation": "doctor",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഡോക്ടറെ കാണണം",
+          "translit": "doctare kaananam",
+          "translation": "I need to see a doctor"
+        }
+      ],
+      "frequencyRank": 95
+    },
+    {
+      "id": "ml_0096",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "പുരുഷൻ",
+      "translit": "purushan",
+      "translation": "man",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ആ പുരുഷൻ അധ്യാപകനാണ്",
+          "translit": "aa purushan adhyaapakanaanu",
+          "translation": "That man is a teacher"
+        }
+      ],
+      "frequencyRank": 96
+    },
+    {
+      "id": "ml_0097",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "സ്ത്രീ",
+      "translit": "sthree",
+      "translation": "woman",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ആ സ്ത്രീ ഡോക്ടറാണ്",
+          "translit": "aa sthree doctaraanu",
+          "translation": "That woman is a doctor"
+        }
+      ],
+      "frequencyRank": 97
+    },
+    {
+      "id": "ml_0098",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "എന്ത്",
+      "translit": "enthu",
+      "translation": "what",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇത് എന്താണ്?",
+          "translit": "ithu enthaanu?",
+          "translation": "What is this?"
+        }
+      ],
+      "frequencyRank": 98
+    },
+    {
+      "id": "ml_0099",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "എവിടെ",
+      "translit": "evide",
+      "translation": "where",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നീ എവിടെ പോകുന്നു?",
+          "translit": "nee evide pokunnu?",
+          "translation": "Where are you going?"
+        }
+      ],
+      "frequencyRank": 99
+    },
+    {
+      "id": "ml_0100",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "എപ്പോൾ",
+      "translit": "eppol",
+      "translation": "when",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എപ്പോൾ വരും?",
+          "translit": "eppol varum?",
+          "translation": "When will you come?"
+        }
+      ],
+      "frequencyRank": 100
+    },
+    {
+      "id": "ml_0101",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "എന്തുകൊണ്ട്",
+      "translit": "enthukondu",
+      "translation": "why",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എന്തുകൊണ്ട് വന്നില്ല?",
+          "translit": "enthukondu vannilla?",
+          "translation": "Why didn't you come?"
+        }
+      ],
+      "frequencyRank": 101
+    },
+    {
+      "id": "ml_0102",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "ആര്",
+      "translit": "aaru",
+      "translation": "who",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അത് ആരാണ്?",
+          "translit": "athu aaraanu?",
+          "translation": "Who is that?"
+        }
+      ],
+      "frequencyRank": 102
+    },
+    {
+      "id": "ml_0103",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "എങ്ങനെ",
+      "translit": "engane",
+      "translation": "how",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എങ്ങനെ പോകും?",
+          "translit": "engane pokum?",
+          "translation": "How do I get there?"
+        }
+      ],
+      "frequencyRank": 103
+    },
+    {
+      "id": "ml_0104",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "ഉം",
+      "translit": "um",
+      "translation": "and",
+      "difficulty": 1,
+      "note": "Malayalam's 'and' attaches to the END of both words rather than sitting between them: chor-um meen-um.",
+      "examples": [
+        {
+          "native": "ചോറും മീനും",
+          "translit": "chorum meenum",
+          "translation": "Rice and fish"
+        }
+      ],
+      "frequencyRank": 104
+    },
+    {
+      "id": "ml_0105",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "അല്ലെങ്കിൽ",
+      "translit": "allenkil",
+      "translation": "or",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ചായ അല്ലെങ്കിൽ കാപ്പി",
+          "translit": "chaaya allenkil kaappi",
+          "translation": "Tea or coffee"
+        }
+      ],
+      "frequencyRank": 105
+    },
+    {
+      "id": "ml_0106",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "പക്ഷേ",
+      "translit": "pakshe",
+      "translation": "but",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വേണം, പക്ഷേ പണമില്ല",
+          "translit": "venam, pakshe panamilla",
+          "translation": "I want to, but I have no money"
+        }
+      ],
+      "frequencyRank": 106
+    },
+    {
+      "id": "ml_0107",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "കാരണം",
+      "translit": "kaaranam",
+      "translation": "because",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വന്നില്ല, കാരണം അസുഖമായിരുന്നു",
+          "translit": "vannilla, kaaranam asukhamaayirunnu",
+          "translation": "I didn't come because I was ill"
+        }
+      ],
+      "frequencyRank": 107
+    },
+    {
+      "id": "ml_0108",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "കൂടെ",
+      "translit": "koode",
+      "translation": "with",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എന്റെ കൂടെ വരൂ",
+          "translit": "ente koode varoo",
+          "translation": "Come with me"
+        }
+      ],
+      "frequencyRank": 108
+    },
+    {
+      "id": "ml_0109",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "ഇല്ലാതെ",
+      "translit": "illaathe",
+      "translation": "without",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നിന്നെ ഇല്ലാതെ",
+          "translit": "ninne illaathe",
+          "translation": "Without you"
+        }
+      ],
+      "frequencyRank": 109
+    },
+    {
+      "id": "ml_0110",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "ഇല്ല",
+      "translit": "illa",
+      "translation": "not, there isn't",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "സമയം ഇല്ല",
+          "translit": "samayam illa",
+          "translation": "There is no time"
+        }
+      ],
+      "frequencyRank": 110
+    },
+    {
+      "id": "ml_0111",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "സന്തോഷമുള്ള",
+      "translit": "santhoshamulla",
+      "translation": "happy",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അവൻ സന്തോഷമുള്ളവനാണ്",
+          "translit": "avan santhoshamullavanaanu",
+          "translation": "He is happy"
+        }
+      ],
+      "frequencyRank": 111
+    },
+    {
+      "id": "ml_0112",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "സങ്കടമുള്ള",
+      "translit": "sankadamulla",
+      "translation": "sad",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അവൾ സങ്കടമുള്ളവളാണ്",
+          "translit": "aval sankadamullavalaanu",
+          "translation": "She is sad"
+        }
+      ],
+      "frequencyRank": 112
+    },
+    {
+      "id": "ml_0113",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "ക്ഷീണിച്ച",
+      "translit": "ksheenicha",
+      "translation": "tired",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഞാൻ ക്ഷീണിച്ചു",
+          "translit": "njaan ksheenichu",
+          "translation": "I am tired"
+        }
+      ],
+      "frequencyRank": 113
+    },
+    {
+      "id": "ml_0114",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "രോഗി",
+      "translit": "rogi",
+      "translation": "sick person, patient",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അവൻ രോഗിയാണ്",
+          "translit": "avan rogiyaanu",
+          "translation": "He is sick"
+        }
+      ],
+      "frequencyRank": 114
+    },
+    {
+      "id": "ml_0115",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "പേടി",
+      "translit": "pedi",
+      "translation": "fear",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് പേടിയുണ്ട്",
+          "translit": "enikku pediyundu",
+          "translation": "I am afraid"
+        }
+      ],
+      "frequencyRank": 115
+    },
+    {
+      "id": "ml_0116",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "സ്വാഗതം",
+      "translit": "svaagatham",
+      "translation": "welcome",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "നിങ്ങൾക്ക് സ്വാഗതം",
+          "translit": "ningalkku svaagatham",
+          "translation": "You are welcome"
+        }
+      ],
+      "frequencyRank": 116
+    },
+    {
+      "id": "ml_0117",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "പറ്റില്ല",
+      "translit": "pattilla",
+      "translation": "cannot, not possible",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "എനിക്ക് പറ്റില്ല",
+          "translit": "enikku pattilla",
+          "translation": "I can't"
+        }
+      ],
+      "frequencyRank": 117
+    },
+    {
+      "id": "ml_0118",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "പാൽ",
+      "translit": "paal",
+      "translation": "milk",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "പാൽ വേണോ?",
+          "translit": "paal veno?",
+          "translation": "Do you want milk?"
+        }
+      ],
+      "frequencyRank": 118
+    },
+    {
+      "id": "ml_0119",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "പഴം",
+      "translit": "pazham",
+      "translation": "banana, fruit",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഒരു പഴം തരൂ",
+          "translit": "oru pazham tharoo",
+          "translation": "Give me a banana"
+        }
+      ],
+      "frequencyRank": 119
+    },
+    {
+      "id": "ml_0120",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "ഉപ്പ്",
+      "translit": "uppu",
+      "translation": "salt",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഉപ്പ് കുറവാണ്",
+          "translit": "uppu kuravaanu",
+          "translation": "There is not enough salt"
+        }
+      ],
+      "frequencyRank": 120
+    },
+    {
+      "id": "ml_0121",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "പുസ്തകം",
+      "translit": "pusthakam",
+      "translation": "book",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇത് എന്റെ പുസ്തകമാണ്",
+          "translit": "ithu ente pusthakamaanu",
+          "translation": "This is my book"
+        }
+      ],
+      "frequencyRank": 121
+    },
+    {
+      "id": "ml_0122",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "വാതിൽ",
+      "translit": "vaathil",
+      "translation": "door",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "വാതിൽ അടയ്ക്കൂ",
+          "translit": "vaathil adaykkoo",
+          "translation": "Close the door"
+        }
+      ],
+      "frequencyRank": 122
+    },
+    {
+      "id": "ml_0123",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ഇരിക്കുക",
+      "translit": "irikkuka",
+      "translation": "to sit",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഇവിടെ ഇരിക്കൂ",
+          "translit": "ivide irikkoo",
+          "translation": "Sit here"
+        }
+      ],
+      "frequencyRank": 123
+    },
+    {
+      "id": "ml_0124",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "പഠിക്കുക",
+      "translit": "padhikkuka",
+      "translation": "to study, learn",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "ഞാൻ മലയാളം പഠിക്കുന്നു",
+          "translit": "njaan Malayalam padhikkunnu",
+          "translation": "I am learning Malayalam"
+        }
+      ],
+      "frequencyRank": 124
+    },
+    {
+      "id": "ml_0125",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ആഴ്ച",
+      "translit": "aazhcha",
+      "translation": "week",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "അടുത്ത ആഴ്ച",
+          "translit": "aduttha aazhcha",
+          "translation": "Next week"
+        }
+      ],
+      "frequencyRank": 125
+    }
+  ]
+}

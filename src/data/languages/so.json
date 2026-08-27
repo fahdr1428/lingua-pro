@@ -1,0 +1,1953 @@
+{
+  "schemaVersion": 1,
+  "code": "so",
+  "categories": [
+    "Common",
+    "Connectors",
+    "Family",
+    "Feelings",
+    "Food",
+    "Greetings",
+    "Numbers",
+    "People",
+    "Places",
+    "Politeness",
+    "Questions",
+    "Time",
+    "Verbs"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Hello, goodbye, and asking how someone is"
+    },
+    {
+      "id": "u2",
+      "title": "Politeness",
+      "emoji": "🙏",
+      "description": "Thank you, please, and speaking to an elder"
+    },
+    {
+      "id": "u3",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns, names, where you're from"
+    },
+    {
+      "id": "u4",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "Relatives — and the titles you give people who aren't"
+    },
+    {
+      "id": "u5",
+      "title": "Feelings",
+      "emoji": "💭",
+      "description": "Tired, hungry, happy, far from home"
+    },
+    {
+      "id": "u6",
+      "title": "Food",
+      "emoji": "🍚",
+      "description": "Rice, water, tea, and the table"
+    },
+    {
+      "id": "u7",
+      "title": "Everyday",
+      "emoji": "🏠",
+      "description": "Common verbs and the things around you"
+    },
+    {
+      "id": "u8",
+      "title": "Out & About",
+      "emoji": "🚌",
+      "description": "Numbers, time, getting somewhere"
+    }
+  ],
+  "alphabet": [],
+  "frameworks": [],
+  "vocab": [
+    {
+      "id": "so_0001",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Salaan",
+      "translation": "greeting",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Salaan diirran",
+          "translation": "A warm greeting"
+        }
+      ],
+      "frequencyRank": 1
+    },
+    {
+      "id": "so_0002",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Iska warran",
+      "translation": "how are you? (to a man)",
+      "difficulty": 1,
+      "note": "Somali greetings change with who you're addressing: 'iska warran' to a man, 'iska warran' shortened to 'warran'; to a woman you say 'is ka warran' or 'nabad miyaa'. Greetings often run several exchanges long before anyone gets to the point.",
+      "examples": [
+        {
+          "native": "Iska warran, saaxiib?",
+          "translation": "How are you, friend?"
+        }
+      ],
+      "frequencyRank": 2
+    },
+    {
+      "id": "so_0003",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Nabad",
+      "translation": "peace; fine",
+      "difficulty": 1,
+      "note": "Somali answers 'how are you' with peace rather than with a state of mind. Nabad runs through the whole greeting sequence.",
+      "examples": [
+        {
+          "native": "Nabad baan ahay",
+          "translation": "I am well (I am at peace)"
+        }
+      ],
+      "frequencyRank": 3
+    },
+    {
+      "id": "so_0004",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Nabad gelyo",
+      "translation": "goodbye (go in peace)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Nabad gelyo, walaal",
+          "translation": "Goodbye, brother/sister"
+        }
+      ],
+      "frequencyRank": 4
+    },
+    {
+      "id": "so_0005",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Haa",
+      "translation": "yes",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Haa, waa sax",
+          "translation": "Yes, that's right"
+        }
+      ],
+      "frequencyRank": 5
+    },
+    {
+      "id": "so_0006",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Maya",
+      "translation": "no",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Maya, mahadsanid",
+          "translation": "No, thank you"
+        }
+      ],
+      "frequencyRank": 6
+    },
+    {
+      "id": "so_0007",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Subax wanaagsan",
+      "translation": "good morning",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Subax wanaagsan, hooyo",
+          "translation": "Good morning, mother"
+        }
+      ],
+      "frequencyRank": 7
+    },
+    {
+      "id": "so_0008",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Habeen wanaagsan",
+      "translation": "good night",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Habeen wanaagsan",
+          "translation": "Good night"
+        }
+      ],
+      "frequencyRank": 8
+    },
+    {
+      "id": "so_0009",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Mahadsanid",
+      "translation": "thank you",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Aad iyo aad ayaad u mahadsantahay",
+          "translation": "Thank you very much"
+        }
+      ],
+      "frequencyRank": 9
+    },
+    {
+      "id": "so_0010",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Fadlan",
+      "translation": "please",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Fadlan i caawi",
+          "translation": "Please help me"
+        }
+      ],
+      "frequencyRank": 10
+    },
+    {
+      "id": "so_0011",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Waan ka xumahay",
+      "translation": "I'm sorry",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Waan ka xumahay, waan daahay",
+          "translation": "I'm sorry, I'm late"
+        }
+      ],
+      "frequencyRank": 11
+    },
+    {
+      "id": "so_0012",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Adaa mudan",
+      "translation": "you're welcome",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Adaa mudan, walaal",
+          "translation": "You're welcome, brother"
+        }
+      ],
+      "frequencyRank": 12
+    },
+    {
+      "id": "so_0013",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "aniga",
+      "translation": "I, me",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Aniga waxaan ka imid Muqdisho",
+          "translation": "I come from Mogadishu"
+        }
+      ],
+      "frequencyRank": 13
+    },
+    {
+      "id": "so_0014",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "adiga",
+      "translation": "you",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Adiga xaggee baad tagaysaa?",
+          "translation": "Where are you going?"
+        }
+      ],
+      "frequencyRank": 14
+    },
+    {
+      "id": "so_0015",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "isaga",
+      "translation": "he",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Isaga waa saaxiibkay",
+          "translation": "He is my friend"
+        }
+      ],
+      "frequencyRank": 15
+    },
+    {
+      "id": "so_0016",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "iyada",
+      "translation": "she",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Iyada waa dhakhtar",
+          "translation": "She is a doctor"
+        }
+      ],
+      "frequencyRank": 16
+    },
+    {
+      "id": "so_0017",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "annaga",
+      "translation": "we",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Annaga halkan ayaan joognaa",
+          "translation": "We are here"
+        }
+      ],
+      "frequencyRank": 17
+    },
+    {
+      "id": "so_0018",
+      "unit": "u3",
+      "category": "Common",
+      "lemma": "magac",
+      "translation": "name",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Magacaa?",
+          "translation": "What is your name?"
+        }
+      ],
+      "frequencyRank": 18
+    },
+    {
+      "id": "so_0019",
+      "unit": "u3",
+      "category": "Common",
+      "lemma": "waa",
+      "translation": "is, are (identifying)",
+      "difficulty": 1,
+      "note": "Somali marks a statement with 'waa' where English uses 'is'. It is doing grammatical work, not just filling space.",
+      "examples": [
+        {
+          "native": "Waa run",
+          "translation": "It is true"
+        }
+      ],
+      "frequencyRank": 19
+    },
+    {
+      "id": "so_0020",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "hooyo",
+      "translation": "mother",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Hooyaday cunto ayay kariyeysaa",
+          "translation": "My mother is cooking food"
+        }
+      ],
+      "frequencyRank": 20
+    },
+    {
+      "id": "so_0021",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "aabbe",
+      "translation": "father",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Aabbahay shaqo ayuu tagay",
+          "translation": "My father went to work"
+        }
+      ],
+      "frequencyRank": 21
+    },
+    {
+      "id": "so_0022",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "walaal",
+      "translation": "sibling; brother/sister (also to a stranger)",
+      "difficulty": 1,
+      "note": "Used for actual siblings and for any Somali you meet. It carries the assumption that you belong to each other, which is why it opens so many conversations in the diaspora.",
+      "examples": [
+        {
+          "native": "Walaal, i caawi",
+          "translation": "Brother/sister, help me"
+        }
+      ],
+      "frequencyRank": 22
+    },
+    {
+      "id": "so_0023",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "abti",
+      "translation": "uncle (mother's brother)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Abtigay London buu joogaa",
+          "translation": "My uncle lives in London"
+        }
+      ],
+      "frequencyRank": 23
+    },
+    {
+      "id": "so_0024",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "adeer",
+      "translation": "uncle (father's brother)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Adeerkay waa macallin",
+          "translation": "My uncle is a teacher"
+        }
+      ],
+      "frequencyRank": 24
+    },
+    {
+      "id": "so_0025",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "eeddo",
+      "translation": "aunt (father's sister)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Eeddaday way timid",
+          "translation": "My aunt has come"
+        }
+      ],
+      "frequencyRank": 25
+    },
+    {
+      "id": "so_0026",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "habaryar",
+      "translation": "aunt (mother's sister)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Habaryartay cunto way kariyeysaa",
+          "translation": "My aunt is cooking"
+        }
+      ],
+      "frequencyRank": 26
+    },
+    {
+      "id": "so_0027",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "awoowe",
+      "translation": "grandfather",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Awoowahay sheeko buu sheegaa",
+          "translation": "My grandfather tells stories"
+        }
+      ],
+      "frequencyRank": 27
+    },
+    {
+      "id": "so_0028",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "ayeeyo",
+      "translation": "grandmother",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ayeeyaday shaah way cabtaa",
+          "translation": "My grandmother drinks tea"
+        }
+      ],
+      "frequencyRank": 28
+    },
+    {
+      "id": "so_0029",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "qoys",
+      "translation": "family",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Qoyskaygu waa weyn yahay",
+          "translation": "My family is big"
+        }
+      ],
+      "frequencyRank": 29
+    },
+    {
+      "id": "so_0030",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "wiil",
+      "translation": "boy, son",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Wiilkaygu waa yar yahay",
+          "translation": "My son is small"
+        }
+      ],
+      "frequencyRank": 30
+    },
+    {
+      "id": "so_0031",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "gabadh",
+      "translation": "girl, daughter",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Gabadhaydu way wax barataa",
+          "translation": "My daughter studies"
+        }
+      ],
+      "frequencyRank": 31
+    },
+    {
+      "id": "so_0032",
+      "unit": "u4",
+      "category": "People",
+      "lemma": "saaxiib",
+      "translation": "friend",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Isagu waa saaxiibkay",
+          "translation": "He is my friend"
+        }
+      ],
+      "frequencyRank": 32
+    },
+    {
+      "id": "so_0033",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "daallan",
+      "translation": "tired",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Waan daallanahay",
+          "translation": "I am tired"
+        }
+      ],
+      "frequencyRank": 33
+    },
+    {
+      "id": "so_0034",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "gaajo",
+      "translation": "hunger",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Gaajo ayaan qabaa",
+          "translation": "I am hungry"
+        }
+      ],
+      "frequencyRank": 34
+    },
+    {
+      "id": "so_0035",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "harraad",
+      "translation": "thirst",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Harraad ayaan qabaa",
+          "translation": "I am thirsty"
+        }
+      ],
+      "frequencyRank": 35
+    },
+    {
+      "id": "so_0036",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "faraxsan",
+      "translation": "happy",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Aad baan u faraxsanahay",
+          "translation": "I am very happy"
+        }
+      ],
+      "frequencyRank": 36
+    },
+    {
+      "id": "so_0037",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "murugo",
+      "translation": "sadness",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Murugo ayay qabtaa",
+          "translation": "She is sad"
+        }
+      ],
+      "frequencyRank": 37
+    },
+    {
+      "id": "so_0038",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "buka",
+      "translation": "ill, sick",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Hooyaday way bukootaa",
+          "translation": "My mother is ill"
+        }
+      ],
+      "frequencyRank": 38
+    },
+    {
+      "id": "so_0039",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "biyo",
+      "translation": "water",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Biyo i sii, fadlan",
+          "translation": "Give me water, please"
+        }
+      ],
+      "frequencyRank": 39
+    },
+    {
+      "id": "so_0040",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "cunto",
+      "translation": "food",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Cuntadu way diyaar tahay",
+          "translation": "The food is ready"
+        }
+      ],
+      "frequencyRank": 40
+    },
+    {
+      "id": "so_0041",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "bariis",
+      "translation": "rice",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Bariis iyo hilib",
+          "translation": "Rice and meat"
+        }
+      ],
+      "frequencyRank": 41
+    },
+    {
+      "id": "so_0042",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "shaah",
+      "translation": "tea",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Shaah ma doonaysaa?",
+          "translation": "Would you like tea?"
+        }
+      ],
+      "frequencyRank": 42
+    },
+    {
+      "id": "so_0043",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "canjeero",
+      "translation": "Somali flatbread",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Subaxdii canjeero ayaan cunaa",
+          "translation": "In the morning I eat canjeero"
+        }
+      ],
+      "frequencyRank": 43
+    },
+    {
+      "id": "so_0044",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "macaan",
+      "translation": "sweet, delicious",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Aad bay u macaan tahay",
+          "translation": "It is very delicious"
+        }
+      ],
+      "frequencyRank": 44
+    },
+    {
+      "id": "so_0045",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "tag",
+      "translation": "to go",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Waan tagayaa",
+          "translation": "I am going"
+        }
+      ],
+      "frequencyRank": 45
+    },
+    {
+      "id": "so_0046",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "imow",
+      "translation": "to come",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Berri waan imanayaa",
+          "translation": "I will come tomorrow"
+        }
+      ],
+      "frequencyRank": 46
+    },
+    {
+      "id": "so_0047",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "cun",
+      "translation": "to eat",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ma cuntay?",
+          "translation": "Have you eaten?"
+        }
+      ],
+      "frequencyRank": 47
+    },
+    {
+      "id": "so_0048",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "cab",
+      "translation": "to drink",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Biyo cab",
+          "translation": "Drink water"
+        }
+      ],
+      "frequencyRank": 48
+    },
+    {
+      "id": "so_0049",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "dheh",
+      "translation": "to say",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Maxaad tidhi?",
+          "translation": "What did you say?"
+        }
+      ],
+      "frequencyRank": 49
+    },
+    {
+      "id": "so_0050",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "arag",
+      "translation": "to see",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Waan ku arkay",
+          "translation": "I saw you"
+        }
+      ],
+      "frequencyRank": 50
+    },
+    {
+      "id": "so_0051",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "garo",
+      "translation": "to know, understand",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ma garanayo",
+          "translation": "I don't know"
+        }
+      ],
+      "frequencyRank": 51
+    },
+    {
+      "id": "so_0052",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "rab",
+      "translation": "to want",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Shaah baan rabaa",
+          "translation": "I want tea"
+        }
+      ],
+      "frequencyRank": 52
+    },
+    {
+      "id": "so_0053",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "leeyahay",
+      "translation": "to have",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Waqti ma hayo",
+          "translation": "I have no time"
+        }
+      ],
+      "frequencyRank": 53
+    },
+    {
+      "id": "so_0054",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "samee",
+      "translation": "to do, make",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Maxaad samaynaysaa?",
+          "translation": "What are you doing?"
+        }
+      ],
+      "frequencyRank": 54
+    },
+    {
+      "id": "so_0055",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "caawi",
+      "translation": "to help",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "I caawi, fadlan",
+          "translation": "Help me, please"
+        }
+      ],
+      "frequencyRank": 55
+    },
+    {
+      "id": "so_0056",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "fahan",
+      "translation": "to understand",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ma fahmin",
+          "translation": "I didn't understand"
+        }
+      ],
+      "frequencyRank": 56
+    },
+    {
+      "id": "so_0057",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "kari",
+      "translation": "can, be able",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Waan karaa",
+          "translation": "I can"
+        }
+      ],
+      "frequencyRank": 57
+    },
+    {
+      "id": "so_0058",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "sii",
+      "translation": "to give",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Taas i sii",
+          "translation": "Give me that"
+        }
+      ],
+      "frequencyRank": 58
+    },
+    {
+      "id": "so_0059",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "qaado",
+      "translation": "to take",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kan qaado",
+          "translation": "Take this"
+        }
+      ],
+      "frequencyRank": 59
+    },
+    {
+      "id": "so_0060",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "iibso",
+      "translation": "to buy",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Bariis baan iibsaday",
+          "translation": "I bought rice"
+        }
+      ],
+      "frequencyRank": 60
+    },
+    {
+      "id": "so_0061",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "fur",
+      "translation": "to open",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Albaabka fur",
+          "translation": "Open the door"
+        }
+      ],
+      "frequencyRank": 61
+    },
+    {
+      "id": "so_0062",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "hadal",
+      "translation": "to speak",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Soomaali ma ku hadashaa?",
+          "translation": "Do you speak Somali?"
+        }
+      ],
+      "frequencyRank": 62
+    },
+    {
+      "id": "so_0063",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "guri",
+      "translation": "house, home",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Guriga ayaan joogaa",
+          "translation": "I am at home"
+        }
+      ],
+      "frequencyRank": 63
+    },
+    {
+      "id": "so_0064",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "shaqo",
+      "translation": "work, job",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Shaqo ayaan hayaa",
+          "translation": "I have work"
+        }
+      ],
+      "frequencyRank": 64
+    },
+    {
+      "id": "so_0065",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "wanaagsan",
+      "translation": "good",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Aad bay u wanaagsan tahay",
+          "translation": "It is very good"
+        }
+      ],
+      "frequencyRank": 65
+    },
+    {
+      "id": "so_0066",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "xun",
+      "translation": "bad",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Cimiladu waa xun tahay",
+          "translation": "The weather is bad"
+        }
+      ],
+      "frequencyRank": 66
+    },
+    {
+      "id": "so_0067",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "weyn",
+      "translation": "big",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Guri weyn",
+          "translation": "A big house"
+        }
+      ],
+      "frequencyRank": 67
+    },
+    {
+      "id": "so_0068",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "yar",
+      "translation": "small",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Qol yar",
+          "translation": "A small room"
+        }
+      ],
+      "frequencyRank": 68
+    },
+    {
+      "id": "so_0069",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "kow",
+      "translation": "one",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kow daqiiqo",
+          "translation": "One minute"
+        }
+      ],
+      "frequencyRank": 69
+    },
+    {
+      "id": "so_0070",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "laba",
+      "translation": "two",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Laba shaah",
+          "translation": "Two teas"
+        }
+      ],
+      "frequencyRank": 70
+    },
+    {
+      "id": "so_0071",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "saddex",
+      "translation": "three",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Saddex maalmood",
+          "translation": "Three days"
+        }
+      ],
+      "frequencyRank": 71
+    },
+    {
+      "id": "so_0072",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "afar",
+      "translation": "four",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Afar qof",
+          "translation": "Four people"
+        }
+      ],
+      "frequencyRank": 72
+    },
+    {
+      "id": "so_0073",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "shan",
+      "translation": "five",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Shan doolar",
+          "translation": "Five dollars"
+        }
+      ],
+      "frequencyRank": 73
+    },
+    {
+      "id": "so_0074",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "waqti",
+      "translation": "time",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Waa imisa saac?",
+          "translation": "What time is it?"
+        }
+      ],
+      "frequencyRank": 74
+    },
+    {
+      "id": "so_0075",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "maalin",
+      "translation": "day",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Maalin wanaagsan",
+          "translation": "A good day"
+        }
+      ],
+      "frequencyRank": 75
+    },
+    {
+      "id": "so_0076",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "maanta",
+      "translation": "today",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Maanta waa fasax",
+          "translation": "Today is a holiday"
+        }
+      ],
+      "frequencyRank": 76
+    },
+    {
+      "id": "so_0077",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "berri",
+      "translation": "tomorrow",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Berri waan ku arki doonaa",
+          "translation": "I'll see you tomorrow"
+        }
+      ],
+      "frequencyRank": 77
+    },
+    {
+      "id": "so_0078",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "shalay",
+      "translation": "yesterday",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Shalay ayaan imid",
+          "translation": "I came yesterday"
+        }
+      ],
+      "frequencyRank": 78
+    },
+    {
+      "id": "so_0079",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "hadda",
+      "translation": "now",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Hadda waan imanayaa",
+          "translation": "I'm coming now"
+        }
+      ],
+      "frequencyRank": 79
+    },
+    {
+      "id": "so_0080",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "lacag",
+      "translation": "money",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Lacag ma hayo",
+          "translation": "I have no money"
+        }
+      ],
+      "frequencyRank": 80
+    },
+    {
+      "id": "so_0081",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "qiimo",
+      "translation": "price",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Qiimuhu waa imisa?",
+          "translation": "What is the price?"
+        }
+      ],
+      "frequencyRank": 81
+    },
+    {
+      "id": "so_0082",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "halkan",
+      "translation": "here",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Halkan kaalay",
+          "translation": "Come here"
+        }
+      ],
+      "frequencyRank": 82
+    },
+    {
+      "id": "so_0083",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "halkaas",
+      "translation": "there",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Halkaas fadhiiso",
+          "translation": "Sit there"
+        }
+      ],
+      "frequencyRank": 83
+    },
+    {
+      "id": "so_0084",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "dhow",
+      "translation": "near",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Guriga waa dhow yahay",
+          "translation": "The house is near"
+        }
+      ],
+      "frequencyRank": 84
+    },
+    {
+      "id": "so_0085",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "fog",
+      "translation": "far",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Dugsigu waa fog yahay",
+          "translation": "The school is far"
+        }
+      ],
+      "frequencyRank": 85
+    },
+    {
+      "id": "so_0086",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "bidix",
+      "translation": "left",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Dhinaca bidix",
+          "translation": "On the left"
+        }
+      ],
+      "frequencyRank": 86
+    },
+    {
+      "id": "so_0087",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "midig",
+      "translation": "right",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Dhinaca midig",
+          "translation": "On the right"
+        }
+      ],
+      "frequencyRank": 87
+    },
+    {
+      "id": "so_0088",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "kulul",
+      "translation": "hot",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Maanta way kululdahay",
+          "translation": "It is hot today"
+        }
+      ],
+      "frequencyRank": 88
+    },
+    {
+      "id": "so_0089",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "qabow",
+      "translation": "cold",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Biyuhu way qabow yihiin",
+          "translation": "The water is cold"
+        }
+      ],
+      "frequencyRank": 89
+    },
+    {
+      "id": "so_0090",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "badan",
+      "translation": "more, much",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Wax badan baan rabaa",
+          "translation": "I want more"
+        }
+      ],
+      "frequencyRank": 90
+    },
+    {
+      "id": "so_0091",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "aad",
+      "translation": "very",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Aad baan u faraxsanahay",
+          "translation": "I am very happy"
+        }
+      ],
+      "frequencyRank": 91
+    },
+    {
+      "id": "so_0092",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "dhammaan",
+      "translation": "all",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Dhammaan way wanaagsan yihiin",
+          "translation": "All of them are good"
+        }
+      ],
+      "frequencyRank": 92
+    },
+    {
+      "id": "so_0093",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "magaalo",
+      "translation": "city, town",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Magaaladu waa weyn tahay",
+          "translation": "The city is big"
+        }
+      ],
+      "frequencyRank": 93
+    },
+    {
+      "id": "so_0094",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "suuq",
+      "translation": "market",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Suuqa ayaan tagayaa",
+          "translation": "I'm going to the market"
+        }
+      ],
+      "frequencyRank": 94
+    },
+    {
+      "id": "so_0095",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "dhakhtar",
+      "translation": "doctor",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Dhakhtar baan u baahanahay",
+          "translation": "I need a doctor"
+        }
+      ],
+      "frequencyRank": 95
+    },
+    {
+      "id": "so_0096",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "nin",
+      "translation": "man",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ninkaasi waa macallin",
+          "translation": "That man is a teacher"
+        }
+      ],
+      "frequencyRank": 96
+    },
+    {
+      "id": "so_0097",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "naag",
+      "translation": "woman",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Naagtaasi waa dhakhtar",
+          "translation": "That woman is a doctor"
+        }
+      ],
+      "frequencyRank": 97
+    },
+    {
+      "id": "so_0098",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "maxay",
+      "translation": "what",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kani waa maxay?",
+          "translation": "What is this?"
+        }
+      ],
+      "frequencyRank": 98
+    },
+    {
+      "id": "so_0099",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "xaggee",
+      "translation": "where",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Xaggee baad tagaysaa?",
+          "translation": "Where are you going?"
+        }
+      ],
+      "frequencyRank": 99
+    },
+    {
+      "id": "so_0100",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "goorma",
+      "translation": "when",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Goorma ayaad imanaysaa?",
+          "translation": "When are you coming?"
+        }
+      ],
+      "frequencyRank": 100
+    },
+    {
+      "id": "so_0101",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "maxaad",
+      "translation": "why",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Maxaad u iman weyday?",
+          "translation": "Why didn't you come?"
+        }
+      ],
+      "frequencyRank": 101
+    },
+    {
+      "id": "so_0102",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "yaa",
+      "translation": "who",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Yaa yimid?",
+          "translation": "Who came?"
+        }
+      ],
+      "frequencyRank": 102
+    },
+    {
+      "id": "so_0103",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "sidee",
+      "translation": "how",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Sidee baan u tagaa?",
+          "translation": "How do I get there?"
+        }
+      ],
+      "frequencyRank": 103
+    },
+    {
+      "id": "so_0104",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "iyo",
+      "translation": "and",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Bariis iyo hilib",
+          "translation": "Rice and meat"
+        }
+      ],
+      "frequencyRank": 104
+    },
+    {
+      "id": "so_0105",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "ama",
+      "translation": "or",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Shaah ama qaxwo",
+          "translation": "Tea or coffee"
+        }
+      ],
+      "frequencyRank": 105
+    },
+    {
+      "id": "so_0106",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "laakiin",
+      "translation": "but",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Waan rabaa, laakiin lacag ma hayo",
+          "translation": "I want to, but I have no money"
+        }
+      ],
+      "frequencyRank": 106
+    },
+    {
+      "id": "so_0107",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "sababtoo ah",
+      "translation": "because",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ma imanin sababtoo ah waan bukay",
+          "translation": "I didn't come because I was ill"
+        }
+      ],
+      "frequencyRank": 107
+    },
+    {
+      "id": "so_0108",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "la",
+      "translation": "with",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ila kaalay",
+          "translation": "Come with me"
+        }
+      ],
+      "frequencyRank": 108
+    },
+    {
+      "id": "so_0109",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "la'aan",
+      "translation": "without",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Adiga la'aantaa",
+          "translation": "Without you"
+        }
+      ],
+      "frequencyRank": 109
+    },
+    {
+      "id": "so_0110",
+      "unit": "u8",
+      "category": "Connectors",
+      "lemma": "ma",
+      "translation": "not (negator)",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Ma garanayo",
+          "translation": "I don't know"
+        }
+      ],
+      "frequencyRank": 110
+    },
+    {
+      "id": "so_0111",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "Hello",
+      "translation": "hello",
+      "difficulty": 1,
+      "note": "Borrowed straight from English and completely ordinary in Somali speech, especially in the diaspora. The full traditional greeting sequence is longer and warmer, but this is what you'll actually hear on the phone.",
+      "examples": [
+        {
+          "native": "Hello, sidee tahay?",
+          "translation": "Hello, how are you?"
+        }
+      ],
+      "frequencyRank": 111
+    },
+    {
+      "id": "so_0112",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Raali ahow",
+      "translation": "sorry, forgive me",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Raali ahow, waan daahay",
+          "translation": "Sorry, I'm late"
+        }
+      ],
+      "frequencyRank": 112
+    },
+    {
+      "id": "so_0113",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "u baahan",
+      "translation": "to need",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Caawimaad baan u baahanahay",
+          "translation": "I need help"
+        }
+      ],
+      "frequencyRank": 113
+    },
+    {
+      "id": "so_0114",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "murugaysan",
+      "translation": "sad",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Wuu murugaysan yahay",
+          "translation": "He is sad"
+        }
+      ],
+      "frequencyRank": 114
+    },
+    {
+      "id": "so_0115",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "cabsi",
+      "translation": "fear",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Cabsi ayaan qabaa",
+          "translation": "I am afraid"
+        }
+      ],
+      "frequencyRank": 115
+    },
+    {
+      "id": "so_0116",
+      "unit": "u2",
+      "category": "Politeness",
+      "lemma": "Soo dhawow",
+      "translation": "welcome",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Soo dhawow, walaal",
+          "translation": "Welcome, brother"
+        }
+      ],
+      "frequencyRank": 116
+    },
+    {
+      "id": "so_0117",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "caano",
+      "translation": "milk",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Caano ma rabtaa?",
+          "translation": "Do you want milk?"
+        }
+      ],
+      "frequencyRank": 117
+    },
+    {
+      "id": "so_0118",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "hilib",
+      "translation": "meat",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Hilib iyo bariis",
+          "translation": "Meat and rice"
+        }
+      ],
+      "frequencyRank": 118
+    },
+    {
+      "id": "so_0119",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "cusbo",
+      "translation": "salt",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Cusbo ma jirto",
+          "translation": "There is no salt"
+        }
+      ],
+      "frequencyRank": 119
+    },
+    {
+      "id": "so_0120",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "buug",
+      "translation": "book",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Kani waa buuggayga",
+          "translation": "This is my book"
+        }
+      ],
+      "frequencyRank": 120
+    },
+    {
+      "id": "so_0121",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "albaab",
+      "translation": "door",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Albaabka xir",
+          "translation": "Close the door"
+        }
+      ],
+      "frequencyRank": 121
+    },
+    {
+      "id": "so_0122",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "fadhiiso",
+      "translation": "to sit",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Halkan fadhiiso",
+          "translation": "Sit here"
+        }
+      ],
+      "frequencyRank": 122
+    },
+    {
+      "id": "so_0123",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "baro",
+      "translation": "to learn, teach",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Soomaali baan baranayaa",
+          "translation": "I am learning Somali"
+        }
+      ],
+      "frequencyRank": 123
+    },
+    {
+      "id": "so_0124",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "toddobaad",
+      "translation": "week",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Toddobaadka soo socda",
+          "translation": "Next week"
+        }
+      ],
+      "frequencyRank": 124
+    },
+    {
+      "id": "so_0125",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "wax",
+      "translation": "thing, something",
+      "difficulty": 1,
+      "examples": [
+        {
+          "native": "Wax baan rabaa",
+          "translation": "I want something"
+        }
+      ],
+      "frequencyRank": 125
+    }
+  ]
+}
