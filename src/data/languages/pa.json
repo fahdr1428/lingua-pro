@@ -2740,5 +2740,59 @@
       "emoji": "🎯",
       "description": "ٹ, ش, ہ — sounds English doesn't have"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Punjabi is written",
+      "tagline": "Shahmukhi — the Perso-Arabic script used in Pakistan.",
+      "facts": [
+        {
+          "icon": "←",
+          "label": "Direction",
+          "text": "Right to left. This is Shahmukhi, which is how Punjabi is written in Pakistan and by most of the British Punjabi diaspora."
+        },
+        {
+          "icon": "🔗",
+          "label": "Letters join",
+          "text": "Letters connect and change shape by position, exactly as in Urdu."
+        },
+        {
+          "icon": "👥",
+          "label": "Two scripts",
+          "text": "Punjabi is also written in Gurmukhi (ਪੰਜਾਬੀ) in Indian Punjab. Same language, different alphabet — this course teaches Shahmukhi."
+        },
+        {
+          "icon": "🎵",
+          "label": "Tone",
+          "text": "Punjabi is tonal, and the tones are not written. Words that look identical on the page can differ in pitch, so listen as much as you read."
+        }
+      ],
+      "hardest": "Nothing on the page tells you the tone. It comes from the audio, which is why every word in this course has it.",
+      "firstWin": "If you read Urdu, you can already read most Shahmukhi. The letters are the same family and the joining rules are identical."
+    },
+    "joining": {
+      "nonConnectors": [
+        "ا"
+      ],
+      "note": "Alif never connects to the letter after it. Everything else here connects on both sides."
+    },
+    "confusables": [
+      {
+        "chars": [
+          "ب",
+          "پ",
+          "ت",
+          "ٹ"
+        ],
+        "tell": "Same body. One dot below, three below, two above, and a small ط for the retroflex."
+      },
+      {
+        "chars": [
+          "ک",
+          "گ"
+        ],
+        "tell": "The extra stroke on top makes it Gaf."
+      }
+    ]
+  }
 }

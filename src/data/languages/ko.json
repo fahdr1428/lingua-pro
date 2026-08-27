@@ -3276,5 +3276,128 @@
       "emoji": "💨",
       "description": "ch, k, t, p"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Korean is written",
+      "tagline": "Invented on purpose, in 1443, to be learnable in a morning.",
+      "facts": [
+        {
+          "icon": "→",
+          "label": "Direction",
+          "text": "Left to right. Hangul was designed from scratch by King Sejong so that ordinary people could become literate quickly — and it works."
+        },
+        {
+          "icon": "🧱",
+          "label": "Letters STACK",
+          "text": "Hangul letters are never written in a row. They group into square syllable blocks: ㅎ + ㅏ + ㄴ is not ㅎㅏㄴ, it is 한."
+        },
+        {
+          "icon": "👄",
+          "label": "Shapes show the mouth",
+          "text": "The consonant shapes are diagrams of what your mouth does. ㄱ is the back of the tongue raised; ㅁ is closed lips. No other alphabet does this."
+        },
+        {
+          "icon": "➕",
+          "label": "Aspiration is a stroke",
+          "text": "Add a line to a consonant and it gains a puff of air: ㄱ→ㅋ, ㄷ→ㅌ, ㅂ→ㅍ, ㅈ→ㅊ. The alphabet is built from a handful of shapes."
+        }
+      ],
+      "hardest": "Block assembly, not the letters. Where a jamo lands inside the square depends on whether the vowel is vertical (ㅏ ㅣ) or horizontal (ㅗ ㅜ ㅡ), and whether there is a final consonant.",
+      "firstWin": "Genuinely learnable in a day. Of every writing system in this app, Hangul gives the most reading ability for the least effort — you will be sounding out shop signs by tonight."
+    },
+    "blocks": {
+      "note": "Every Korean syllable is a square. Where the pieces go depends on the shape of the vowel.",
+      "patterns": [
+        {
+          "shape": "Vertical vowel — side by side",
+          "parts": [
+            "ㅎ",
+            "ㅏ"
+          ],
+          "result": "하",
+          "reads": "ha",
+          "why": "Vowels with a long vertical line (ㅏ ㅓ ㅑ ㅕ ㅣ) sit to the RIGHT of the consonant."
+        },
+        {
+          "shape": "Horizontal vowel — stacked",
+          "parts": [
+            "ㄱ",
+            "ㅗ"
+          ],
+          "result": "고",
+          "reads": "go",
+          "why": "Vowels with a long horizontal line (ㅗ ㅜ ㅡ ㅛ ㅠ) sit UNDERNEATH the consonant."
+        },
+        {
+          "shape": "With a final consonant",
+          "parts": [
+            "ㅎ",
+            "ㅏ",
+            "ㄴ"
+          ],
+          "result": "한",
+          "reads": "han",
+          "why": "A closing consonant — the batchim — goes along the bottom of the whole block."
+        },
+        {
+          "shape": "Silent placeholder",
+          "parts": [
+            "ㅇ",
+            "ㅏ"
+          ],
+          "result": "아",
+          "reads": "a",
+          "why": "A syllable can't start with a bare vowel, so ㅇ fills the slot and says nothing. At the BOTTOM of a block the same letter says 'ng'."
+        },
+        {
+          "shape": "Putting it together",
+          "parts": [
+            "한",
+            "국"
+          ],
+          "result": "한국",
+          "reads": "Hanguk — 'Korea'",
+          "why": "Two blocks, six letters. You can already read the name of the country."
+        }
+      ]
+    },
+    "confusables": [
+      {
+        "chars": [
+          "ㅏ",
+          "ㅑ"
+        ],
+        "tell": "One tick or two. Two ticks adds a y: a → ya."
+      },
+      {
+        "chars": [
+          "ㅗ",
+          "ㅛ"
+        ],
+        "tell": "Same rule stacked the other way: o → yo."
+      },
+      {
+        "chars": [
+          "ㄱ",
+          "ㅋ"
+        ],
+        "tell": "The extra stroke adds the puff of air: g → k."
+      },
+      {
+        "chars": [
+          "ㄷ",
+          "ㅌ"
+        ],
+        "tell": "Same again: d → t."
+      },
+      {
+        "chars": [
+          "ㅁ",
+          "ㅂ"
+        ],
+        "tell": "ㅁ is a closed box (m). ㅂ has the top open (b)."
+      }
+    ]
+  }
 }

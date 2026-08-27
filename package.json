@@ -30,7 +30,9 @@
     "audit-interface": "node scripts/audit-interface.mjs",
     "design-md": "node scripts/build-design-md.mjs",
     "shot-home": "node scripts/shot-home.mjs",
-    "validate-alphabets": "node scripts/validate-alphabets.mjs"
+    "validate-alphabets": "node scripts/validate-alphabets.mjs",
+    "merge-script-systems": "node scripts/merge-script-systems.mjs",
+    "shot-script-course": "node scripts/shot-script-course.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",

@@ -3653,5 +3653,79 @@
       "emoji": "🔠",
       "description": "Fay, Kaaf, Gaaf, Laam, Meem, Noon, Wao, Hay, Yay"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Urdu is written",
+      "tagline": "Persian script in nastaliq — the one that slopes.",
+      "facts": [
+        {
+          "icon": "←",
+          "label": "Direction",
+          "text": "Right to left. Urdu uses the Persian alphabet with extra letters for sounds from Sanskrit."
+        },
+        {
+          "icon": "🔗",
+          "label": "Letters join",
+          "text": "Letters connect and change shape. In nastaliq they also cascade DOWNWARD as they join, so a word hangs like a slope rather than sitting on a line."
+        },
+        {
+          "icon": "🌀",
+          "label": "Retroflex letters",
+          "text": "ٹ, ڈ, ڑ are made with the tongue curled back. They are written as their plain cousins with a small ط above, and they are real, meaning-changing sounds."
+        },
+        {
+          "icon": "💨",
+          "label": "Aspirated pairs",
+          "text": "Many consonants have a breathy twin written with ھ after them — کھ, پھ, تھ. The puff of air changes the word."
+        }
+      ],
+      "hardest": "Nastaliq. The same letters you learned sitting flat suddenly stack diagonally, and word shapes stop looking like the sum of their letters. It is a matter of hours of exposure, not a different alphabet.",
+      "firstWin": "If you read any Arabic or Persian you already have most of the letters. And Urdu spelling maps to speech far more honestly than English does."
+    },
+    "joining": {
+      "nonConnectors": [
+        "ا",
+        "د",
+        "ر",
+        "و"
+      ],
+      "note": "These never connect to the letter AFTER them. Everything else connects on both sides."
+    },
+    "confusables": [
+      {
+        "chars": [
+          "ب",
+          "پ",
+          "ت",
+          "ٹ",
+          "ث"
+        ],
+        "tell": "One body, five letters. Dots below, dots above, and a small ط for the retroflex. This family is where most early reading errors live."
+      },
+      {
+        "chars": [
+          "ج",
+          "چ",
+          "ح",
+          "خ"
+        ],
+        "tell": "One hook. Dot inside, three dots inside, nothing, dot above."
+      },
+      {
+        "chars": [
+          "ت",
+          "ٹ"
+        ],
+        "tell": "The small ط above makes it retroflex — tongue curled back against the roof of the mouth. Urdu does this to د and ر too."
+      },
+      {
+        "chars": [
+          "ک",
+          "گ"
+        ],
+        "tell": "The second stroke on top turns Kaaf into Gaaf."
+      }
+    ]
+  }
 }

@@ -2390,5 +2390,137 @@
       "emoji": "🎯",
       "description": "ழ, ள, ற, ண — the sounds that mark a Tamil speaker"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Tamil is written",
+      "tagline": "One of the oldest scripts still in daily use — and a small one.",
+      "facts": [
+        {
+          "icon": "→",
+          "label": "Direction",
+          "text": "Left to right. Tamil has been written continuously for more than two thousand years."
+        },
+        {
+          "icon": "🅰️",
+          "label": "Built-in vowel",
+          "text": "க is 'ka'. Every consonant carries a short 'a' unless a mark changes it."
+        },
+        {
+          "icon": "🎯",
+          "label": "Only 18 consonants",
+          "text": "Tamil has far fewer consonants than its neighbours — no separate letters for aspirated or voiced sounds. Fewer letters to learn, but the same letter is pronounced differently depending on where it sits in the word."
+        },
+        {
+          "icon": "✏️",
+          "label": "Vowel signs",
+          "text": "12 vowels × 18 consonants gives 216 combinations, all built from the same small set of marks."
+        }
+      ],
+      "hardest": "Three letters for 'n' (ந ன ண) and three for 'l' (ல ள ழ), and the differences are real. ழ in particular exists in almost no other language — it is in the word 'Tamil' itself (தமிழ்).",
+      "firstWin": "The same letter க sounds like k at the start of a word and like g between vowels. Nobody writes this down — it is a rule you absorb, and once you have it, Tamil spelling becomes predictable."
+    },
+    "vowelSigns": {
+      "demo": "க",
+      "demoName": "ka",
+      "note": "These marks work the same way on all 18 consonants.",
+      "signs": [
+        {
+          "sign": "ா",
+          "combined": "கா",
+          "reads": "kaa",
+          "where": "after",
+          "hint": "long a"
+        },
+        {
+          "sign": "ி",
+          "combined": "கி",
+          "reads": "ki",
+          "where": "above",
+          "hint": "short i"
+        },
+        {
+          "sign": "ீ",
+          "combined": "கீ",
+          "reads": "kee",
+          "where": "above",
+          "hint": "long ee"
+        },
+        {
+          "sign": "ு",
+          "combined": "கு",
+          "reads": "ku",
+          "where": "attached",
+          "hint": "FUSES — the letter changes shape"
+        },
+        {
+          "sign": "ூ",
+          "combined": "கூ",
+          "reads": "koo",
+          "where": "attached",
+          "hint": "also fuses"
+        },
+        {
+          "sign": "ெ",
+          "combined": "கெ",
+          "reads": "ke",
+          "where": "before",
+          "hint": "WRITTEN BEFORE, READ AFTER"
+        },
+        {
+          "sign": "ே",
+          "combined": "கே",
+          "reads": "kae",
+          "where": "before",
+          "hint": "long e, written before"
+        },
+        {
+          "sign": "ொ",
+          "combined": "கொ",
+          "reads": "ko",
+          "where": "around",
+          "hint": "WRAPS AROUND BOTH SIDES"
+        },
+        {
+          "sign": "ை",
+          "combined": "கை",
+          "reads": "kai",
+          "where": "before",
+          "hint": "the word for 'hand'"
+        },
+        {
+          "sign": "்",
+          "combined": "க்",
+          "reads": "k",
+          "where": "above",
+          "hint": "pulli — kills the vowel"
+        }
+      ]
+    },
+    "confusables": [
+      {
+        "chars": [
+          "ந",
+          "ன",
+          "ண"
+        ],
+        "tell": "Three n's. Dental, alveolar and retroflex — where your tongue sits decides which word you said."
+      },
+      {
+        "chars": [
+          "ல",
+          "ள",
+          "ழ"
+        ],
+        "tell": "Three l's. The last one, ழ, is the famous Tamil sound in தமிழ் and has no English equivalent."
+      },
+      {
+        "chars": [
+          "ர",
+          "ற"
+        ],
+        "tell": "Soft r and hard r. ற is trilled harder and further back."
+      }
+    ]
+  }
 }

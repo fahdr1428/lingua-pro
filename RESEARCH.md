@@ -230,11 +230,35 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    never to be shown to a learner.
 3. **Two or three example sentences per word instead of one.** 94% of words are
    met in a single frame.
-4. **Every language now teaches its own script** (v90). Malayalam, Tamil,
-   Persian, Tagalog and Somali shipped with no alphabet at all, and seven older
-   packs had letters with no lesson group to reach them through — Punjabi's
-   fourteen Shahmukhi letters among them. `validate-alphabets.mjs` now fails the
-   build if a non-Latin language has no script course.
+4. **Every language now teaches its own script — and how that script works**
+   (v90, v91). v90 closed the first hole: Malayalam, Tamil, Persian, Tagalog and
+   Somali shipped with no alphabet at all, and seven older packs had letters with
+   no lesson group to reach them through — Punjabi's fourteen Shahmukhi letters
+   among them.
+
+   v91 closed the larger one. A list of letters had been standing in for a
+   writing system, and for the hard scripts it was not half of one:
+
+   - **Arabic script (ar, fa, ur, pa)** taught only ISOLATED forms. No word in
+     any of those languages is written that way, so a learner could finish the
+     whole Urdu alphabet and not read one Urdu word. Every letter now also shows
+     its initial, medial and final forms, built with ZWJ so the reader's own font
+     does the shaping, and the non-connectors are named as the rule they are.
+   - **Abugidas (hi, bn, ml, ta)** taught consonants bare. ക is "ka"; there is no
+     bare "k" in the chart and no way to write "ki" without a mark nobody had
+     shown. A vowel-sign lesson now teaches the full matra set on a demo
+     consonant, including the three things that catch everyone: signs written
+     before the letter they follow, signs that wrap around both sides, and signs
+     that fuse into the consonant's shape.
+   - **Hangul (ko)** taught all 24 jamo and never said they stack. ㅎ + ㅏ + ㄴ is
+     한, not ㅎㅏㄴ. A block-assembly lesson now teaches the square.
+
+   Plus a primer for all eleven non-Latin languages — how the system works, what
+   is hardest, and what the first win is — read before letter one, and confusable
+   sets with the tell that separates them (ب/ت/ث, ന/ണ, ண/ன/ந, ㄱ/ㅋ).
+   `validate-alphabets.mjs` now fails the build if a non-Latin language has no
+   primer, an Arabic-script language has no joining rules, an abugida has no
+   vowel signs, or Hangul has no block lesson.
 
 5. **Five languages have no reading passages and no recorded audio** — Tagalog
    and Persian (v86), Malayalam, Tamil and Somali (v89). The packs, guides and example sentences are there and
@@ -245,8 +269,11 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    do.
 6. **A native speaker's eye on Punjabi and Nigerian Pidgin passages** — and now
    on the Tagalog and Persian packs too.
-7. **Grammar beyond 4–6 lessons**, and none at all for Turkish, Punjabi,
-   Indonesian, Nigerian Pidgin, Tagalog or Persian.
+7. **Grammar beyond 4–6 lessons per language.** The "none at all for Turkish,
+   Punjabi, Indonesian, Nigerian Pidgin, Tagalog or Persian" that stood here was
+   closed by v88, and v89 covered Malayalam, Tamil and Somali. All nineteen
+   languages now have a grammar curriculum — 90 lessons, 990 generated checks —
+   so what remains is depth rather than absence.
 
 ## What this app already does that the research supports
 

@@ -4686,5 +4686,74 @@
       "emoji": "👄",
       "description": "Ha, Ayn, Qaf, Kaf — uniquely Arabic"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Arabic is written",
+      "tagline": "28 letters, right to left, and they hold hands.",
+      "facts": [
+        {
+          "icon": "←",
+          "label": "Direction",
+          "text": "Right to left. Numbers stay left to right, so a phone number reads the way you expect."
+        },
+        {
+          "icon": "🔗",
+          "label": "Letters join",
+          "text": "Letters connect to their neighbours inside a word and change shape depending on where they sit. This is the single biggest hurdle, and it is mechanical — the same letter, four positions."
+        },
+        {
+          "icon": "🅰️",
+          "label": "Short vowels",
+          "text": "Usually not written. Native readers supply them from context, the way you read 'bk' as 'book' in a shopping list. Learners' texts add them as small marks above and below."
+        },
+        {
+          "icon": "🔤",
+          "label": "No capitals",
+          "text": "There is no upper and lower case. One shape per position, and that is all."
+        }
+      ],
+      "hardest": "Six letters refuse to connect to whatever follows them. After one of those, the next letter starts fresh — which is why Arabic words look like they have gaps in them.",
+      "firstWin": "Once you can spot ا, ل and م you can already read الم and the word الله. Recognition comes faster than you expect."
+    },
+    "joining": {
+      "nonConnectors": [
+        "ا",
+        "د",
+        "ر"
+      ],
+      "note": "These never connect to the letter AFTER them. Everything else connects on both sides."
+    },
+    "confusables": [
+      {
+        "chars": [
+          "ب",
+          "ت",
+          "ث"
+        ],
+        "tell": "Identical body. One dot below, two dots above, three dots above — the dots are the entire difference between b, t and th."
+      },
+      {
+        "chars": [
+          "ج",
+          "ح"
+        ],
+        "tell": "Same hook. The dot inside makes it Jeem; bare, it is the deep-throat Ha."
+      },
+      {
+        "chars": [
+          "د",
+          "ر"
+        ],
+        "tell": "Dal sits on the line, Ra dips below it. Both refuse to join forwards."
+      },
+      {
+        "chars": [
+          "س",
+          "ش"
+        ],
+        "tell": "Three teeth. Three dots above turns Seen into Sheen."
+      }
+    ]
+  }
 }

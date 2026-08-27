@@ -2457,5 +2457,142 @@
       "emoji": "🎯",
       "description": "ഴ, ണ, ള, റ — sounds English simply does not have"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Malayalam is written",
+      "tagline": "Round, dense, and far more regular than it looks.",
+      "facts": [
+        {
+          "icon": "→",
+          "label": "Direction",
+          "text": "Left to right. The curves come from writing on palm leaves — straight strokes would have split the leaf."
+        },
+        {
+          "icon": "🅰️",
+          "label": "Built-in vowel",
+          "text": "ക is 'ka', not 'k'. Every consonant arrives with a short 'a' attached."
+        },
+        {
+          "icon": "✏️",
+          "label": "Vowel signs",
+          "text": "Marks go before, after, above or below the consonant to change that vowel. Same set on every letter."
+        },
+        {
+          "icon": "🔗",
+          "label": "Conjuncts",
+          "text": "Consonant clusters fuse into single shapes, and Malayalam has a lot of them. Reading teaches these far better than memorising does."
+        }
+      ],
+      "hardest": "The retroflex/dental pairs — ത vs ട, ന vs ണ, ല vs ള, ര vs റ. To English ears each pair sounds like one sound. They are different letters and different words, and getting them wrong is the thing that marks out a heritage speaker who never learned to read.",
+      "firstWin": "ഴ, the sound in the middle of 'Malayalam' itself, exists in almost no other language on earth. When you can make it, you have something most learners never get."
+    },
+    "vowelSigns": {
+      "demo": "ക",
+      "demoName": "ka",
+      "note": "Learn these ten on ക and you can read them on all 36 consonants.",
+      "signs": [
+        {
+          "sign": "ാ",
+          "combined": "കാ",
+          "reads": "kaa",
+          "where": "after",
+          "hint": "long a"
+        },
+        {
+          "sign": "ി",
+          "combined": "കി",
+          "reads": "ki",
+          "where": "after",
+          "hint": "short i"
+        },
+        {
+          "sign": "ീ",
+          "combined": "കീ",
+          "reads": "kee",
+          "where": "after",
+          "hint": "long ee"
+        },
+        {
+          "sign": "ു",
+          "combined": "കു",
+          "reads": "ku",
+          "where": "attached",
+          "hint": "fuses onto the letter"
+        },
+        {
+          "sign": "ൂ",
+          "combined": "കൂ",
+          "reads": "koo",
+          "where": "attached",
+          "hint": "long oo"
+        },
+        {
+          "sign": "െ",
+          "combined": "കെ",
+          "reads": "ke",
+          "where": "before",
+          "hint": "WRITTEN BEFORE, READ AFTER"
+        },
+        {
+          "sign": "േ",
+          "combined": "കേ",
+          "reads": "kae",
+          "where": "before",
+          "hint": "also written before"
+        },
+        {
+          "sign": "ൊ",
+          "combined": "കൊ",
+          "reads": "ko",
+          "where": "around",
+          "hint": "WRAPS AROUND BOTH SIDES"
+        },
+        {
+          "sign": "ൈ",
+          "combined": "കൈ",
+          "reads": "kai",
+          "where": "before",
+          "hint": "the word for 'hand'"
+        },
+        {
+          "sign": "്",
+          "combined": "ക്",
+          "reads": "k",
+          "where": "after",
+          "hint": "chandrakkala — kills the vowel"
+        }
+      ]
+    },
+    "confusables": [
+      {
+        "chars": [
+          "ന",
+          "ണ"
+        ],
+        "tell": "Dental n and retroflex n. Tongue at the teeth vs tongue curled back — different letters, different words."
+      },
+      {
+        "chars": [
+          "ത",
+          "ട"
+        ],
+        "tell": "Dental t and retroflex t. The most common mistake English speakers make in Malayalam."
+      },
+      {
+        "chars": [
+          "ല",
+          "ള"
+        ],
+        "tell": "Plain l and retroflex l. Both are common; they are not interchangeable."
+      },
+      {
+        "chars": [
+          "ര",
+          "റ"
+        ],
+        "tell": "Soft r and hard r. റ is tapped harder and further back."
+      }
+    ]
+  }
 }

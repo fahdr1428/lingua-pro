@@ -2313,5 +2313,83 @@
       "emoji": "🎯",
       "description": "ع, غ, ق, ح — throat sounds, and letters that share a sound"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Persian is written",
+      "tagline": "The Arabic script, plus four letters Arabic doesn't have.",
+      "facts": [
+        {
+          "icon": "←",
+          "label": "Direction",
+          "text": "Right to left, like Arabic — and if you read any Arabic or Urdu, most of this is already yours."
+        },
+        {
+          "icon": "🔗",
+          "label": "Letters join",
+          "text": "Letters connect and change shape by position. Same mechanism as Arabic, same four positions."
+        },
+        {
+          "icon": "✨",
+          "label": "Four extra letters",
+          "text": "پ (p), چ (ch), ژ (zh) and گ (g) exist in Persian and not in Arabic. They are built from Arabic letters with extra dots or a stroke."
+        },
+        {
+          "icon": "🅰️",
+          "label": "Short vowels",
+          "text": "Not written. Persian spelling is far more regular than English, so this is less painful than it sounds."
+        }
+      ],
+      "hardest": "Several letters share one sound. س، ص both say s; ت، ط both say t; ز، ذ، ض، ظ all say z. They are spelling history, not pronunciation — you learn which word takes which.",
+      "firstWin": "Persian has no grammatical gender and no noun cases. The script is the hard part, and it is the part that ends."
+    },
+    "joining": {
+      "nonConnectors": [
+        "ا",
+        "د",
+        "ر",
+        "ز",
+        "ژ",
+        "و"
+      ],
+      "note": "These never connect to the letter AFTER them. Everything else connects on both sides."
+    },
+    "confusables": [
+      {
+        "chars": [
+          "ب",
+          "پ"
+        ],
+        "tell": "One dot below is be. Three dots below is pe — the Persian addition."
+      },
+      {
+        "chars": [
+          "ج",
+          "چ"
+        ],
+        "tell": "One dot inside is jim. Three dots inside is che."
+      },
+      {
+        "chars": [
+          "ز",
+          "ژ"
+        ],
+        "tell": "One dot is ze. Three dots is zhe, the sound in 'measure'."
+      },
+      {
+        "chars": [
+          "ک",
+          "گ"
+        ],
+        "tell": "Add a second stroke on top and kaf becomes gaf."
+      },
+      {
+        "chars": [
+          "ع",
+          "غ"
+        ],
+        "tell": "Same shape. The dot makes it gheyn, a gargled g rather than a throat catch."
+      }
+    ]
+  }
 }

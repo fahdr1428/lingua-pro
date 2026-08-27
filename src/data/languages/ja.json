@@ -2898,5 +2898,51 @@
       "emoji": "🔠",
       "description": "Finishing the essentials"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Japanese is written",
+      "tagline": "Three systems at once, in the same sentence.",
+      "facts": [
+        {
+          "icon": "あ",
+          "label": "Hiragana",
+          "text": "46 characters, each a full syllable rather than a single sound. Grammar, endings and native words. This is what this course teaches, and it is where everyone starts."
+        },
+        {
+          "icon": "カ",
+          "label": "Katakana",
+          "text": "The same 46 syllables in a second, angular set — used for foreign words, names and emphasis. コーヒー is 'coffee'."
+        },
+        {
+          "icon": "漢",
+          "label": "Kanji",
+          "text": "Thousands of Chinese characters carrying meaning rather than sound. About 2,000 are needed for a newspaper, and they are learned over years, not weeks."
+        },
+        {
+          "icon": "␣",
+          "label": "No spaces",
+          "text": "Japanese does not put spaces between words. The mix of three scripts is what shows you where words begin and end."
+        }
+      ],
+      "hardest": "There is no way around kanji, and no shortcut. The good news is that hiragana alone lets you read children's books, menus with furigana, and every grammatical ending in the language.",
+      "firstWin": "Each kana is one syllable, always pronounced the same way. Japanese has no tones, no genders, and five clean vowel sounds — the pronunciation is genuinely easy."
+    },
+    "confusables": [
+      {
+        "chars": [
+          "さ",
+          "き"
+        ],
+        "tell": "Nearly the same shape. き has an extra crossbar — and this is the pattern to expect: hiragana distinguishes many pairs by a single stroke."
+      },
+      {
+        "chars": [
+          "ら",
+          "わ"
+        ],
+        "tell": "Both are two strokes with a hook. ら hooks inward at the top right; わ has a full vertical on the left."
+      }
+    ]
+  }
 }

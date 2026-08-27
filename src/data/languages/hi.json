@@ -3287,5 +3287,128 @@
       "emoji": "🔠",
       "description": "न, प, म, र, ल, स, ह — finishing the basics"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Hindi is written",
+      "tagline": "Devanagari — every consonant already has a vowel in it.",
+      "facts": [
+        {
+          "icon": "→",
+          "label": "Direction",
+          "text": "Left to right, hung from a horizontal line across the top. That line is part of the writing, not decoration."
+        },
+        {
+          "icon": "🅰️",
+          "label": "Built-in vowel",
+          "text": "क is not 'k'. It is 'ka'. Every consonant carries a short 'a' unless something removes or replaces it."
+        },
+        {
+          "icon": "✏️",
+          "label": "Vowel signs",
+          "text": "To get ki, ku, ke you attach a mark to the consonant. Twelve marks cover every vowel, and they are the same twelve on every letter."
+        },
+        {
+          "icon": "🔇",
+          "label": "Killing the vowel",
+          "text": "A small stroke underneath (्) removes the built-in 'a'. That is how you write consonants that end a word."
+        }
+      ],
+      "hardest": "The sign for 'i' is written BEFORE the consonant but pronounced AFTER it. कि is read 'ki', not 'ik'. Everyone trips on this once, then never again.",
+      "firstWin": "Devanagari is close to perfectly phonetic. Once you know the letters and the twelve signs, you can pronounce a word you have never seen — something English will never give you."
+    },
+    "vowelSigns": {
+      "demo": "क",
+      "demoName": "ka",
+      "note": "Every one of these attaches to every consonant the same way. Learn them once on क and you have them on all of them.",
+      "signs": [
+        {
+          "sign": "ा",
+          "combined": "का",
+          "reads": "kaa",
+          "where": "after",
+          "hint": "long a, as in 'father'"
+        },
+        {
+          "sign": "ि",
+          "combined": "कि",
+          "reads": "ki",
+          "where": "before",
+          "hint": "WRITTEN BEFORE, READ AFTER"
+        },
+        {
+          "sign": "ी",
+          "combined": "की",
+          "reads": "kee",
+          "where": "after",
+          "hint": "long ee"
+        },
+        {
+          "sign": "ु",
+          "combined": "कु",
+          "reads": "ku",
+          "where": "below",
+          "hint": "short u"
+        },
+        {
+          "sign": "ू",
+          "combined": "कू",
+          "reads": "koo",
+          "where": "below",
+          "hint": "long oo"
+        },
+        {
+          "sign": "े",
+          "combined": "के",
+          "reads": "ke",
+          "where": "above",
+          "hint": "as in 'cake'"
+        },
+        {
+          "sign": "ै",
+          "combined": "कै",
+          "reads": "kai",
+          "where": "above",
+          "hint": "open, as in 'cat'"
+        },
+        {
+          "sign": "ो",
+          "combined": "को",
+          "reads": "ko",
+          "where": "after",
+          "hint": "as in 'note'"
+        },
+        {
+          "sign": "ौ",
+          "combined": "कौ",
+          "reads": "kau",
+          "where": "after",
+          "hint": "open o"
+        },
+        {
+          "sign": "्",
+          "combined": "क्",
+          "reads": "k",
+          "where": "below",
+          "hint": "kills the vowel entirely"
+        }
+      ]
+    },
+    "confusables": [
+      {
+        "chars": [
+          "अ",
+          "आ"
+        ],
+        "tell": "One extra vertical stroke turns short 'a' into long 'aa'. That stroke is a whole different word."
+      },
+      {
+        "chars": [
+          "इ",
+          "ई"
+        ],
+        "tell": "Short i and long ee. The difference is the loop on top."
+      }
+    ]
+  }
 }

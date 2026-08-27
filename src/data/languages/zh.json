@@ -3144,5 +3144,65 @@
       "emoji": "🎵",
       "description": "Tones change the meaning of a word"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Mandarin is written — and how you get in",
+      "tagline": "There is no alphabet. So we start with the one that was made for you.",
+      "facts": [
+        {
+          "icon": "字",
+          "label": "Characters",
+          "text": "Chinese is written in characters, each carrying meaning rather than sound. There is no alphabet to learn and no way to sound out a character you have never seen."
+        },
+        {
+          "icon": "a",
+          "label": "Pinyin",
+          "text": "Pinyin spells Mandarin sounds in Latin letters. It is not Chinese writing — it is the ladder in, and it is what this course teaches first."
+        },
+        {
+          "icon": "˥",
+          "label": "Four tones",
+          "text": "The same syllable in a different pitch is a different word. mā is mother, mǎ is horse. Tone is not expression, it is part of the word."
+        },
+        {
+          "icon": "🧩",
+          "label": "Characters have parts",
+          "text": "Most characters are built from a meaning component and a sound component. 妈 (mā, mother) is 女 'woman' plus 马 'mǎ'. Once you see this, characters stop being pictures to memorise."
+        }
+      ],
+      "hardest": "The tones, and the fact that pinyin letters do not say what an English speaker expects. q is roughly 'ch', x is roughly 'sh', and zh/ch/sh are said with the tongue curled back. Learn these four wrong and every word after them is wrong.",
+      "firstWin": "Mandarin grammar is startlingly simple — no verb conjugation, no plurals, no gender, no tenses. Nearly all the difficulty is in the sound and the script, and none of it is in the sentences."
+    },
+    "confusables": [
+      {
+        "chars": [
+          "j",
+          "zh"
+        ],
+        "tell": "j is said with the tongue flat and forward. zh is the same sound with the tongue curled back."
+      },
+      {
+        "chars": [
+          "q",
+          "ch"
+        ],
+        "tell": "Same pair again, aspirated: q is forward, ch is curled back."
+      },
+      {
+        "chars": [
+          "x",
+          "sh"
+        ],
+        "tell": "And again: x is forward and hissy, sh is curled back."
+      },
+      {
+        "chars": [
+          "ǎ",
+          "à"
+        ],
+        "tell": "Third tone dips down then rises. Fourth tone falls sharply, like an order."
+      }
+    ]
+  }
 }

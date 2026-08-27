@@ -2733,5 +2733,114 @@
       "emoji": "🔠",
       "description": "r, l, sh, s, h, y"
     }
-  ]
+  ],
+  "scriptSystem": {
+    "primer": {
+      "title": "How Bengali is written",
+      "tagline": "One of the most beautiful scripts in the world, and a logical one.",
+      "facts": [
+        {
+          "icon": "→",
+          "label": "Direction",
+          "text": "Left to right, hung from a top line like Devanagari but with rounder, more flowing shapes."
+        },
+        {
+          "icon": "🅰️",
+          "label": "Built-in vowel",
+          "text": "ক is 'ka', not 'k'. Every consonant carries a vowel already."
+        },
+        {
+          "icon": "✏️",
+          "label": "Vowel signs",
+          "text": "Marks attach around the consonant to change that vowel. Some go before, some after, and one wraps around both sides."
+        },
+        {
+          "icon": "🔗",
+          "label": "Conjuncts",
+          "text": "When two consonants meet with no vowel between them they fuse into a single new shape. There are a few hundred; you learn the common ones by reading, not by drilling."
+        }
+      ],
+      "hardest": "The 'o' sign wraps around the consonant on BOTH sides — কো is one syllable, not two letters with something between them. And the inherent vowel is 'ô' (as in 'or'), not 'a'.",
+      "firstWin": "Bengali and Assamese share this script, and it is close cousin to Devanagari. Learn it once and a great deal of South Asian text opens up."
+    },
+    "vowelSigns": {
+      "demo": "ক",
+      "demoName": "ka",
+      "note": "The same marks work on every consonant in the alphabet.",
+      "signs": [
+        {
+          "sign": "া",
+          "combined": "কা",
+          "reads": "ka",
+          "where": "after",
+          "hint": "long a"
+        },
+        {
+          "sign": "ি",
+          "combined": "কি",
+          "reads": "ki",
+          "where": "before",
+          "hint": "WRITTEN BEFORE, READ AFTER"
+        },
+        {
+          "sign": "ী",
+          "combined": "কী",
+          "reads": "kee",
+          "where": "after",
+          "hint": "long ee"
+        },
+        {
+          "sign": "ু",
+          "combined": "কু",
+          "reads": "ku",
+          "where": "below",
+          "hint": "short u"
+        },
+        {
+          "sign": "ূ",
+          "combined": "কূ",
+          "reads": "koo",
+          "where": "below",
+          "hint": "long oo"
+        },
+        {
+          "sign": "ে",
+          "combined": "কে",
+          "reads": "ke",
+          "where": "before",
+          "hint": "written before the consonant"
+        },
+        {
+          "sign": "ো",
+          "combined": "কো",
+          "reads": "ko",
+          "where": "around",
+          "hint": "WRAPS AROUND BOTH SIDES"
+        },
+        {
+          "sign": "ৌ",
+          "combined": "কৌ",
+          "reads": "kou",
+          "where": "around",
+          "hint": "also wraps around"
+        },
+        {
+          "sign": "্",
+          "combined": "ক্",
+          "reads": "k",
+          "where": "below",
+          "hint": "kills the vowel"
+        }
+      ]
+    },
+    "confusables": [
+      {
+        "chars": [
+          "অ",
+          "আ"
+        ],
+        "tell": "The extra stroke on the right makes it long. অ is 'ô', আ is 'a'."
+      }
+    ]
+  }
 }
