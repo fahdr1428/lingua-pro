@@ -22,6 +22,19 @@
 // =============================================================================
 
 import { readFileSync, readdirSync } from "node:fs";
+import { EXTRA_EXAMPLES } from "../src/data/extraExamples.js";
+
+// v93 — THIS SCRIPT HAD A HOLE THE SIZE OF ITS OWN CLAIM.
+//
+// v92 reported "100% of examples romanised" and it was true of the language
+// packs. But registry.js merges src/data/extraExamples.js into the vocab at
+// load time, and this validator only ever read the pack JSON — so 65 Urdu and
+// Hindi sentences reached the learner without a romanisation and the check said
+// everything was fine.
+//
+// A validator that measures a file rather than what the learner actually gets
+// is worse than no validator, because it produces a number people trust. The
+// extras are folded in below and counted the same as any other example.
 
 // Languages whose examples cannot be read aloud without help.
 const NEEDS_TRANSLIT = new Set(["ar", "bn", "fa", "hi", "ja", "ko", "ml", "pa", "ta", "ur", "zh"]);
@@ -82,8 +95,36 @@ for (const code of codes) {
   let total = 0, have = 0;
   const seen = new Map(); // native -> translit, to catch two spellings of one line
 
-  for (const w of vocab) {
-    for (const e of w.examples || []) {
+  // Everything the learner will actually see for this language: the pack's own
+  // examples, plus the supplementary ones registry.js merges in at load time.
+  const extras = Object.values(EXTRA_EXAMPLES[code] || {}).flat();
+
+  // v93 — an extra example that repeats a sentence the pack already has is
+  // DEAD WEIGHT. mergeExamples() dedupes by native string, so it is dropped at
+  // load and the learner never sees it. 49 of the 149 extras (a third) were in
+  // that state: the file's header says every key was checked against the vocab,
+  // and it was — the LEMMA was verified, the SENTENCE never was. The whole
+  // point of an extra is a SECOND frame for a word, and a duplicate is none.
+  {
+    const packSentences = new Set(vocab.flatMap((w) => (w.examples || []).map((e) => e.native)));
+    for (const [lemma, arr] of Object.entries(EXTRA_EXAMPLES[code] || {})) {
+      for (const e of arr) {
+        if (packSentences.has(e.native)) {
+          errors.push(`${code}: extra example for "${lemma}" repeats a sentence the pack already has ("${e.native}") — mergeExamples drops it, so it gives the learner no second frame`);
+        }
+      }
+      if (!vocab.some((w) => w.lemma === lemma)) {
+        errors.push(`${code}: extra examples are keyed to "${lemma}", which is not a lemma in the pack — they can never attach to anything`);
+      }
+    }
+  }
+  const allExamples = [
+    ...vocab.flatMap((w) => w.examples || []),
+    ...extras,
+  ];
+
+  {
+    for (const e of allExamples) {
       total++;
       if (!e.translit) {
         if (NEEDS_TRANSLIT.has(code)) {

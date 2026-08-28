@@ -22,6 +22,7 @@
 
 import { chromium } from "playwright";
 import { readFileSync } from "node:fs";
+import { CHARACTERS } from "../src/data/characters.js";
 
 const BASE = process.env.BASE || "http://127.0.0.1:4173";
 const CODES = (process.env.ONLY || "ur,ja,ko,zh,ml,ar").split(",");
@@ -38,6 +39,9 @@ const seed = (code) => ({
   aiConsent: { accepted: true, at: 0, ageConfirmed: 16, version: 1 },
 });
 
+// Any character the learner cannot be assumed to read.
+const NATIVE_SCRIPT = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}\p{Script=Arabic}\p{Script=Devanagari}\p{Script=Bengali}\p{Script=Malayalam}\p{Script=Tamil}\p{Script=Gurmukhi}]/u;
+
 const browser = await chromium.launch({
   executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
 });
@@ -49,6 +53,14 @@ for (const code of CODES) {
   const pack = JSON.parse(readFileSync(`src/data/languages/${code}.json`, "utf8"));
   const known = new Set();
   for (const w of pack.vocab || []) for (const e of w.examples || []) if (e.translit) known.add(e.translit);
+
+  // Every line this language's guide can say to the learner.
+  const g = CHARACTERS[code] || {};
+  const guideLines = [
+    ...(g.greetings || []),
+    ...Object.values(g.celebrations || {}),
+    ...(g.reactions?.correct || []), ...(g.reactions?.wrong || []), ...(g.reactions?.streak || []),
+  ].filter((x) => typeof x === "string" && x.length > 2);
 
   console.log(`\n=== ${code} ===`);
   const ctx = await browser.newContext({ viewport: { width: 430, height: 932 }, serviceWorkers: "block" });
@@ -73,6 +85,7 @@ for (const code of CODES) {
 
   let sawIntro = false, sawRoman = false, introLines = null;
   let sawFlash = false, flashRoman = false, flashLines = null;
+  const guideSeen = [];
 
   for (let step = 0; step < 160; step++) {
     const state = await page.evaluate(() => {
@@ -100,8 +113,25 @@ for (const code of CODES) {
           en: ic.querySelector(".in-context-en")?.textContent?.trim() || "",
         } : null,
         done: /Lesson complete|Session complete|You (learned|got)/i.test(txt),
+        // The guide's voice on screen. Its reaction banner and celebration
+        // card are inline-styled divs with no class names, so there is nothing
+        // to select — instead the caller passes in every line this guide can
+        // say, and we look for them in the page text. A selector that matches
+        // nothing looks exactly like a clean pass; a string search cannot.
+        body: txt,
       };
     });
+
+    // v93 — the guide's own words, as they land on screen.
+    //
+    // Malayalam, Tamil and Persian shipped with every line of guide copy in
+    // native script: greetings, the correct/wrong reactions, and the
+    // end-of-lesson celebration. So the one moment the app stops testing you
+    // and says well done, it said it in a script you came here unable to read.
+    // Every other language romanises it. This watches the real screen.
+    for (const line of guideLines) {
+      if (state.body.includes(line) && !guideSeen.includes(line)) guideSeen.push(line);
+    }
 
     if (state.flash && state.flash.native && !sawFlash) {
       sawFlash = true;
@@ -159,6 +189,15 @@ for (const code of CODES) {
     for (const l of introLines) console.log("      · " + l);
     if (sawRoman) console.log("    ✓ re-teach romanisation on screen");
     else fail("re-teach card shows no romanisation — a learner who just missed the word still can't say it");
+  }
+
+  if (!guideSeen.length) {
+    console.log("    – no guide copy observed on screen in this run");
+  } else {
+    const bad = guideSeen.filter((g) => NATIVE_SCRIPT.test(g));
+    console.log(`    guide said: ${guideSeen.map((g) => JSON.stringify(g.slice(0, 44))).join(", ")}`);
+    if (bad.length) fail(`guide spoke in native script — unreadable to this learner: ${bad[0].slice(0, 48)}`);
+    else console.log("    ✓ every guide line seen was readable");
   }
 
   if (!sawFlash && !sawIntro) {

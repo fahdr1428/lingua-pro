@@ -245,8 +245,29 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    already read the script, and every Malayalam and Tamil romanisation was
    hidden. There is one list now, in `src/data/registry.js`, and
    `validate-script-flags.mjs` fails the build if a second copy appears.
-3. **Two or three example sentences per word instead of one.** 94% of words are
-   met in a single frame.
+3. **Two or three example sentences per word instead of one.** 96% of words are
+   met in a single frame — 2,840 of 2,965. A word seen in one sentence is learned
+   as that sentence; the form-meaning mapping generalises through varied
+   encounters, not repeated ones.
+
+   `src/data/extraExamples.js` is the mechanism for this and it covers four
+   languages (es, fr, ur, hi). v93 found that **49 of its 149 entries — a third —
+   were dead**: they repeated a sentence the pack already had, and
+   `mergeExamples()` dedupes by native string, so they were dropped at load and
+   gave no second frame at all. The file's header says every key was verified
+   against the vocab, and it was; the LEMMA was checked, the SENTENCE never was.
+   All 49 were replaced with sentences that put the word in a different
+   grammatical role, and `validate-translit.mjs` now fails the build on a dead
+   extra or one keyed to a lemma that doesn't exist.
+
+   v93 then extended it from four languages to **all nineteen**: 371 live second
+   frames, up from 100, each written to put the word in a different grammatical
+   role from the sentence already in the pack. Words met in a single frame fell
+   from **96% to 83%**, and words with two or more went from 125 to 494.
+
+   Still open: 2,471 words still have exactly one frame, and a second is worth
+   less than a third and fourth for the highest-frequency words. This is the
+   remaining content grind, and it is worth more than any new feature.
 4. **Every language now teaches its own script — and how that script works**
    (v90, v91). v90 closed the first hole: Malayalam, Tamil, Persian, Tagalog and
    Somali shipped with no alphabet at all, and seven older packs had letters with
