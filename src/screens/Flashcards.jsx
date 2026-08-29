@@ -172,9 +172,10 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
       </div>
 
       {/* The card itself — tap to flip */}
+      <div className="flip-scene">
       <div
         onClick={() => setFlipped(!flipped)}
-        className="slide-up"
+        className="card-turn"
         key={`${idx}-${flipped}`}
         role="button"
         tabIndex={0}
@@ -253,6 +254,7 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
             )}
           </>
         )}
+      </div>
       </div>
 
       {/* Audio button */}

@@ -2052,10 +2052,11 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
       </div>
 
       {/* The card */}
+      <div className="flip-scene">
       <div
         onClick={() => setFlipped(!flipped)}
         key={`${idx}-${flipped}`}
-        className="pop"
+        className="card-turn"
         role="button"
         tabIndex={0}
         aria-pressed={flipped}
@@ -2140,6 +2141,7 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
             )}
           </>
         )}
+      </div>
       </div>
 
       {/* Listen button */}

@@ -403,7 +403,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             {smartAction.progress && (
               <div style={{ marginTop: 16 }}>
                 <div className="hairline-bar">
-                  <div className="hairline-fill progress-fill" style={{ width: `${Math.round((smartAction.progress.value / smartAction.progress.max) * 100)}%` }} />
+                  <div className="hairline-fill progress-fill" style={{ "--fill": `${Math.round((smartAction.progress.value / smartAction.progress.max) * 100)}%` }} />
                 </div>
                 <div style={{ fontSize: 12, color: "var(--text-mute)", marginTop: 6 }}>
                   {smartAction.progress.value} of {smartAction.progress.max} words
@@ -437,14 +437,14 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           <div className="stat-cell">
             <div className="stat-value">Level {lv.level}</div>
             <div className="hairline-bar" style={{ marginTop: 7 }}>
-              <div className="hairline-fill" style={{ width: `${Math.round((lv.progressPct || 0) * 100)}%` }} />
+              <div className="hairline-fill" style={{ "--fill": `${Math.round((lv.progressPct || 0) * 100)}%` }} />
             </div>
             <div className="stat-label">{lv.name}</div>
           </div>
           <div className="stat-cell">
             <div className="stat-value">{todayXp}<span style={{ fontSize: 13, color: "var(--text-mute)", fontWeight: 600 }}> / {appState.dailyGoalXp}</span></div>
             <div className="hairline-bar" style={{ marginTop: 7 }}>
-              <div className="hairline-fill" style={{ width: `${Math.round(dailyPct * 100)}%`, background: goalMet ? "var(--primary)" : undefined }} />
+              <div className="hairline-fill" style={{ "--fill": `${Math.round(dailyPct * 100)}%`, background: goalMet ? "var(--primary)" : undefined }} />
             </div>
             <div className="stat-label">XP today</div>
           </div>

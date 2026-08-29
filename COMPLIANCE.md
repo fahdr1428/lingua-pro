@@ -273,8 +273,22 @@ probably not enough: reviewers expect reports to reach the operator. See blocker
    screens in three themes and reports 0 issues for accessible names, AA text
    contrast, image alt text and input labels — down from 82, and it found that
    the Dark theme had been rendering near-black text on near-black at 1.2:1.
-   ⚠️ Still outstanding: keyboard-only and screen-reader journeys have not been
-   walked by a human, and that is where the rest of WCAG lives.
+   **Extended in v94–v96.** `npm run audit-keyboard` fails the build if any
+   clickable element lacks a role, a tab stop and a key handler — it found ten
+   that did, two of them the flashcard, which made the app's single most-used
+   interaction mouse-only (WCAG 2.1.1 Keyboard). The language picker could be
+   opened by keyboard and not closed by one; it now has `role="dialog"`,
+   `aria-modal`, a label and Escape (2.1.2, 4.1.2). `npm run audit-motion`
+   requires a blanket `prefers-reduced-motion` rule — the app had fourteen
+   infinite animations and the old rule named six selectors, so a bobbing tutor
+   and a pulsing mic kept running for someone who had asked the OS to stop them
+   (2.3.3 Animation from Interactions). Verified empirically: three animations
+   running normally, **zero** with reduced motion requested. Progress bars also
+   now expose `role="progressbar"` with their value (4.1.2).
+
+   ⚠️ Still outstanding: a real screen-reader journey walked by a human, and
+   focus management on route changes. Automated checks cannot tell you whether
+   the app is *usable* blind — only that the labels exist.
 
 ### 🟢 Already handled
 

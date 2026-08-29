@@ -53,9 +53,23 @@ export function Button({ children, variant = "primary", style, ...rest }) {
 
 export function ProgressBar({ value, max, color = "var(--primary)", height = 12 }) {
   const pct = Math.min(100, max > 0 ? (value / max) * 100 : 0);
+  // v96: the fill is full width and slid into place rather than grown.
+  // Animating `width` runs layout on every frame; translating is composited.
+  // Translation also keeps the rounded right-hand cap its proper shape, which
+  // a scaleX would squash flat.
   return (
-    <div style={{ width: "100%", height, background: "var(--surface-hi)", borderRadius: 999, overflow: "hidden" }}>
-      <div style={{ height: "100%", width: `${pct}%`, background: color, borderRadius: 999, transition: "width 450ms cubic-bezier(0.16, 1, 0.3, 1)" }} />
+    <div
+      className="bar-track"
+      role="progressbar"
+      aria-valuemin={0}
+      aria-valuemax={max}
+      aria-valuenow={value}
+      style={{ width: "100%", height, background: "var(--surface-hi)", borderRadius: 999 }}
+    >
+      <div
+        className="bar-fill"
+        style={{ background: color, borderRadius: 999, transform: `translateX(${pct - 100}%)` }}
+      />
     </div>
   );
 }

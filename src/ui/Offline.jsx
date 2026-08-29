@@ -90,7 +90,7 @@ export function DownloadLanguage({ pack, langName }) {
 
       {busy && (
         <>
-          <div className="hairline-bar"><div className="hairline-fill" style={{ width: `${pct}%` }} /></div>
+          <div className="hairline-bar"><div className="hairline-fill" style={{ "--fill": `${pct}%` }} /></div>
           <div className="dl-lang-sub" style={{ marginTop: 6 }}>{state?.done || 0} of {state?.total || 0}…</div>
         </>
       )}

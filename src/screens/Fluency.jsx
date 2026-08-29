@@ -92,7 +92,7 @@ export function Fluency({ pack, onNavigate, profile, mutateProfile }) {
                 </span>
               </div>
               <div className="dim-track">
-                <div className="dim-fill" style={{ width: `${f[d.key] ?? 0}%` }} />
+                <div className="dim-fill" style={{ "--fill": `${f[d.key] ?? 0}%` }} />
               </div>
               <div className="dim-blurb">
                 {f[d.key] === null ? <em>{d.unlock} to unlock this.</em> : d.blurb}
