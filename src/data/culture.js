@@ -865,7 +865,346 @@ export const CULTURE = {
       body: "Much of the Nigerian music that travels globally is sung in Pidgin — which is why listeners worldwide can already recognise phrases like no wahala and my guy without ever studying it.",
     },
   ],
-};
+
+  // Persian — Iran.
+  fa: [
+    {
+      id: "fa-taarof",
+      tag: "etiquette",
+      when: "any",
+      title: "Taarof: the first offer is never the real one",
+      body:
+        "A shopkeeper may wave your money away — 'ghaabel nadaare', it's not worthy of you. He does not mean it. You insist, at least twice, and then you pay. Taarof runs through invitations, seats, and last helpings of food: offer what you can't spare, refuse what you want, and let the third exchange settle it.",
+    },
+    {
+      id: "fa-shoma-to",
+      tag: "register",
+      when: "u2",
+      title: "Shoma and to are not interchangeable",
+      body:
+        "Shoma is the respectful you and also the plural; to is for family, close friends, and children. Using to with someone older or newly met is not casual, it is rude. Persian has no grammatical gender to trip over, so this is the one choice that carries real social weight.",
+    },
+    {
+      id: "fa-ghorbunet",
+      tag: "etiquette",
+      when: "Greetings",
+      title: "Persian affection is extravagant on purpose",
+      body:
+        "'Ghorbunet beram' means 'may I be sacrificed for you' and is used for roughly what English does with 'you're a star'. 'Jaanam' — my soul — is ordinary between family. Taken literally it sounds alarming; taken normally it is simply warmth, and answering flatly reads as coldness.",
+    },
+    {
+      id: "fa-shoes",
+      tag: "custom",
+      when: "any",
+      title: "Shoes come off at the door, always",
+      body:
+        "Every home, without exception, and often the good carpet is exactly why. Slippers are usually offered. Keeping shoes on is the single fastest way to be remembered as the guest who did not know.",
+    },
+    {
+      id: "fa-nowruz",
+      tag: "custom",
+      when: "any",
+      title: "The year turns in spring, not January",
+      body:
+        "Nowruz begins at the exact moment of the equinox, and families sit together waiting for it. The haft-sin table holds seven things starting with the letter s. Wishing someone 'Nowruz mobarak' in late March lands far better than any January greeting.",
+    },
+    {
+      id: "fa-not-arabic",
+      tag: "sound",
+      when: "any",
+      title: "Persian is not a kind of Arabic",
+      body:
+        "It borrows the script and a good deal of vocabulary, but Persian is Indo-European — a distant cousin of English, not of Arabic. No grammatical gender, no broken plurals, no case endings. Assuming the two languages are related is a common and slightly wounding mistake.",
+    },
+    {
+      id: "fa-poetry",
+      tag: "custom",
+      when: "any",
+      title: "Poetry is quoted in ordinary conversation",
+      body:
+        "Hafez and Saadi turn up in arguments, condolences and jokes, and most people can produce a line to fit. Households keep a Hafez to open at random for guidance — fal-e Hafez. Knowing even one couplet buys more goodwill than a paragraph of correct grammar.",
+    },
+    {
+      id: "fa-no-gesture",
+      tag: "gesture",
+      when: "any",
+      title: "No is a tilt of the head, not a shake",
+      body:
+        "A small upward tilt of the chin, often with a soft tsk, means no. To an English speaker it can read as agreement or as a twitch, so the answer gets missed entirely. Watch for the eyebrows going up with it.",
+    },
+  ],
+
+  // Malayalam — Kerala.
+  ml: [
+    {
+      id: "ml-chetta-chechi",
+      tag: "register",
+      when: "Family",
+      title: "Everyone slightly older is a brother or sister",
+      body:
+        "Chetta for a man, chechi for a woman — used for shopkeepers, bus conductors and colleagues, not only relatives. Addressing someone older by bare name sounds abrupt. It is the cheapest politeness in the language and the most noticed when missing.",
+    },
+    {
+      id: "ml-nee-ningal",
+      tag: "register",
+      when: "u2",
+      title: "Three levels of you, and the verb follows",
+      body:
+        "Nee is for friends and children, ningal is respectful or plural, thaangal is formal to the point of distance. Choosing wrong is not a grammar slip, it is a statement about the relationship — and Malayalis notice it instantly in a returning heritage speaker.",
+    },
+    {
+      id: "ml-right-hand",
+      tag: "etiquette",
+      when: "Food",
+      title: "The right hand does the eating, and the passing",
+      body:
+        "Food is eaten with the right hand, and anything handed to another person — money, a plate, a document — goes with the right hand or both. The left is reserved for washing. This holds even for the left-handed.",
+    },
+    {
+      id: "ml-sadya",
+      tag: "custom",
+      when: "any",
+      title: "Onam and the meal on a banana leaf",
+      body:
+        "Onam is Kerala's own festival, kept by Malayali Hindus, Christians and Muslims alike. The sadya is served on a banana leaf in a fixed order, and the leaf is folded towards you at the end to say you enjoyed it. Folding it away signals the opposite.",
+    },
+    {
+      id: "ml-gulf",
+      tag: "custom",
+      when: "any",
+      title: "Half of Kerala has a relative in the Gulf",
+      body:
+        "Migration to the Gulf shaped the modern state — the money, the houses, the long absences. 'Gulf-il aanu' explains a father seen twice a year. For a heritage learner this is often the reason the language got interrupted in the first place.",
+    },
+    {
+      id: "ml-manglish",
+      tag: "sound",
+      when: "any",
+      title: "Mixing English in is normal, not lazy",
+      body:
+        "Educated Malayalam runs on English nouns inside Malayalam grammar, and nobody considers it a failure of the language. Speaking with no English at all sounds oddly formal. Use the English word when you don't know the Malayalam one and keep going.",
+    },
+    {
+      id: "ml-zha",
+      tag: "sound",
+      when: "any",
+      title: "The sound in the name of the language",
+      body:
+        "The letter ഴ, the zha in Malayalam, exists in almost no other language on earth. The tongue curls back and the sound comes out somewhere between r, l and zh. Getting it even close marks you out; most learners never try.",
+    },
+    {
+      id: "ml-nod",
+      tag: "gesture",
+      when: "any",
+      title: "The sideways tilt means yes",
+      body:
+        "A quick side-to-side tilt of the head is agreement, acknowledgement, or 'go on' — not doubt and not no. It appears constantly in conversation, and reading it as hesitation will have you repeating yourself to someone who already agreed.",
+    },
+  ],
+
+  // Tamil — Tamil Nadu and the diaspora.
+  ta: [
+    {
+      id: "ta-neenga",
+      tag: "register",
+      when: "u2",
+      title: "Neenga is the safe you",
+      body:
+        "Nee is for close friends, younger people and children; neenga is respectful and plural. Tamil speakers use neenga far more freely than the equivalent in neighbouring languages, and a heritage speaker who defaults to nee sounds younger and blunter than they mean to.",
+    },
+    {
+      id: "ta-anna-akka",
+      tag: "register",
+      when: "Family",
+      title: "Anna and akka are for strangers too",
+      body:
+        "Anna (older brother) and akka (older sister) are how you address a shopkeeper, a driver, or a colleague a few years your senior. Thambi and thangachi go the other way, to someone younger. Using a bare name across an age gap is what marks an outsider.",
+    },
+    {
+      id: "ta-diglossia",
+      tag: "sound",
+      when: "any",
+      title: "Written Tamil and spoken Tamil are different languages",
+      body:
+        "Books, news and formal speech use a literary register nobody speaks at home; conversation uses a spoken form with different verb endings and pronunciations. Learning only the written form leaves you understanding the news and lost at a dinner table. This course teaches the spoken one.",
+    },
+    {
+      id: "ta-zha",
+      tag: "sound",
+      when: "any",
+      title: "The sound Tamils are proud of",
+      body:
+        "ழ, the zha in தமிழ், is the sound Tamil speakers most enjoy hearing a foreigner attempt. It is a retroflex approximant — tongue curled back, no contact. Saying 'Tamizh' rather than 'Tamil' registers immediately.",
+    },
+    {
+      id: "ta-right-hand",
+      tag: "etiquette",
+      when: "Food",
+      title: "Right hand, and the leaf tells you when",
+      body:
+        "Eat with the right hand, pass with the right hand. At a feast the food arrives on a banana leaf in a set order, and you wait until everything is served before starting. Mixing rice with the fingers is the technique, not bad manners.",
+    },
+    {
+      id: "ta-pongal",
+      tag: "custom",
+      when: "any",
+      title: "The new year that thanks the sun",
+      body:
+        "Pongal is a four-day harvest festival in mid-January, named for the pot of rice boiled over until it spills — the spilling is the point, and the shout of 'Pongalo Pongal' goes up when it does. It is agricultural and Tamil rather than pan-Indian, which is much of why it matters.",
+    },
+    {
+      id: "ta-cinema",
+      tag: "custom",
+      when: "any",
+      title: "Cinema supplies the slang",
+      body:
+        "Tamil film dialogue enters everyday speech within weeks, and a well-placed line does the work of a joke. It also means the language moves fast: what sounds current to a returning speaker may be a decade stale, and that gap is audible.",
+    },
+    {
+      id: "ta-vanakkam",
+      tag: "gesture",
+      when: "Greetings",
+      title: "Vanakkam is hands, and it works at a distance",
+      body:
+        "Palms together at the chest with a slight bow, usable across a room and with anyone. No handshake is required, and it sidesteps every question about gender, age and touch that a handshake raises.",
+    },
+  ],
+
+  // Somali — the Horn and its diaspora.
+  so: [
+    {
+      id: "so-poetry",
+      tag: "custom",
+      when: "any",
+      title: "A nation that argues in verse",
+      body:
+        "Somali was an oral language with enormous prestige placed on poetry — the gabay could settle disputes, start them, and carry news between clans. Poets are public figures. A proverb dropped into conversation is not decoration, it is how a point gets made.",
+    },
+    {
+      id: "so-clan",
+      tag: "etiquette",
+      when: "any",
+      title: "Do not open with the clan question",
+      body:
+        "Clan lineage is genuinely important and genuinely fraught, tied to a civil war within living memory. Somalis may ask each other; a learner asking early sounds like they are sorting people into camps. Wait to be told.",
+    },
+    {
+      id: "so-nabad",
+      tag: "etiquette",
+      when: "Greetings",
+      title: "Greetings are long, and peace is the word",
+      body:
+        "Nabad means peace and runs through hello and goodbye alike — 'nabad gelyo', go in peace. The exchange is not one line: you ask after family, health and the journey before getting to the point. Cutting it short reads as bad news or bad manners.",
+    },
+    {
+      id: "so-shaah",
+      tag: "custom",
+      when: "Food",
+      title: "Tea is the invitation you don't refuse",
+      body:
+        "Shaah — spiced tea with cardamom, cinnamon and a lot of sugar — arrives for any visitor. Refusing outright is difficult; taking a cup and drinking slowly is the graceful answer. Hospitality to travellers is close to an obligation.",
+    },
+    {
+      id: "so-script",
+      tag: "sound",
+      when: "any",
+      title: "The written language is younger than most speakers' parents",
+      body:
+        "Somali had no official alphabet until 1972, when a Latin script was adopted and a mass literacy campaign followed. This is why the spelling is regular and phonetic — it was designed, recently, on purpose. It also means the deep tradition is spoken, not written.",
+    },
+    {
+      id: "so-camel",
+      tag: "custom",
+      when: "any",
+      title: "Precision where it mattered",
+      body:
+        "Somali carries a dense vocabulary for camels — age, condition, milk yield, colour — the way English does for money or weather. Much of it is retreating with urban life, but the words are in the proverbs, and they are a window into what the language was built to discuss.",
+    },
+    {
+      id: "so-right-hand",
+      tag: "etiquette",
+      when: "Food",
+      title: "Right hand for food and greeting",
+      body:
+        "Eat with the right hand and offer with it. Shared plates are normal, and eating from the section in front of you rather than reaching across is the expected manner.",
+    },
+    {
+      id: "so-adeer",
+      tag: "register",
+      when: "Family",
+      title: "Kinship terms used well beyond kin",
+      body:
+        "Adeer (uncle) and eedo (aunt) are used for older people you are not related to, and walaal (sibling) for peers. It is warmer than a name and safer than guessing a title, which makes it the most useful politeness a learner can pick up early.",
+    },
+  ],
+
+  // Tagalog — the Philippines.
+  tl: [
+    {
+      id: "tl-po",
+      tag: "register",
+      when: "any",
+      title: "Po is the whole politeness system in one syllable",
+      body:
+        "Po and opo are inserted into sentences addressed to anyone older or senior — 'Salamat po', 'Opo' for yes. Leaving them out is not neutral, it is disrespectful, and it is the single thing Filipino relatives notice first in a child raised abroad.",
+    },
+    {
+      id: "tl-mano",
+      tag: "gesture",
+      when: "Greetings",
+      title: "Mano po: the elder's hand to your forehead",
+      body:
+        "You take an older relative's hand and touch the back of it to your forehead, saying 'mano po'. It is expected on arriving and leaving, at family gatherings, from children and adults alike. Skipping it with a grandparent is conspicuous.",
+    },
+    {
+      id: "tl-kuya-ate",
+      tag: "register",
+      when: "Family",
+      title: "Kuya and ate for anyone slightly ahead of you",
+      body:
+        "Kuya for an older male, ate for an older female — cousins, colleagues, the person at the counter. Filipino relationships are ranked by age almost automatically, and using a bare first name upward is the mark of someone who grew up elsewhere.",
+    },
+    {
+      id: "tl-kumain",
+      tag: "etiquette",
+      when: "Food",
+      title: "'Have you eaten?' is a greeting",
+      body:
+        "'Kumain ka na?' is asked the way English asks how you are, and 'Kain tayo' — let's eat — is offered to anyone passing a meal, often without literal intent. Declining politely is fine; ignoring the offer is not.",
+    },
+    {
+      id: "tl-lips",
+      tag: "gesture",
+      when: "any",
+      title: "Directions are given with the lips",
+      body:
+        "Pointing is done by pursing the lips towards the thing, sometimes with a lift of the chin. Pointing with a finger at a person is rude. If someone seems to be pouting at you mid-sentence, they are answering your question.",
+    },
+    {
+      id: "tl-hiya",
+      tag: "register",
+      when: "any",
+      title: "No is said indirectly, and you have to hear it",
+      body:
+        "Hiya — a sense of propriety and not wanting to cause loss of face — makes flat refusal uncomfortable. 'Sige, tignan natin' (we'll see) or a vague maybe is frequently a no. Pressing for a straight answer puts the other person in a bind rather than getting you one.",
+    },
+    {
+      id: "tl-taglish",
+      tag: "sound",
+      when: "any",
+      title: "Taglish is the normal register",
+      body:
+        "Everyday Manila speech mixes English into Tagalog constantly, and it is what educated speech sounds like rather than a corruption. Pure Tagalog reads as formal or nationalist. Reaching for the English word mid-sentence is exactly what a native speaker does.",
+    },
+    {
+      id: "tl-fiesta",
+      tag: "custom",
+      when: "any",
+      title: "The town fiesta feeds strangers",
+      body:
+        "Every town keeps a patron saint's fiesta, and houses cook far more than the household can eat specifically so that visitors — including people nobody knows — can be fed. Turning up hungry is the correct behaviour, not an imposition.",
+    },
+  ],};
 
 const TAG_LABELS = {
   etiquette: "Etiquette",

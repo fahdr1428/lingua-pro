@@ -13,7 +13,7 @@
     "validate-journey": "node scripts/validate-journey.mjs",
     "test-speech": "node scripts/test-speech.mjs",
     "test-generator": "node scripts/test-generator.mjs",
-    "check": "npm run validate-vocab && npm run validate-journey && npm run validate-passages && npm run validate-alphabets && npm run validate-translit && npm run validate-script-flags && npm run validate-guide-copy && npm run validate-word-truth && npm run validate-themes && npm run validate-grammar-checks && npm run test-speech && npm run test-generator && npm run test-lessons && npm run test-engine && npm run test-coach && npm run audit-interface && npm run audit-keyboard && npm run build",
+    "check": "npm run validate-vocab && npm run validate-journey && npm run validate-passages && npm run validate-alphabets && npm run validate-translit && npm run validate-script-flags && npm run validate-guide-copy && npm run validate-word-truth && npm run validate-feature-coverage && npm run validate-themes && npm run validate-grammar-checks && npm run test-speech && npm run test-generator && npm run test-lessons && npm run test-engine && npm run test-coach && npm run audit-interface && npm run audit-keyboard && npm run build",
     "validate-grammar-checks": "node scripts/validate-grammar-checks.mjs",
     "test-coach": "node scripts/test-coach-api.mjs",
     "test-engine": "node scripts/test-engine.mjs",
@@ -38,7 +38,9 @@
     "validate-script-flags": "node scripts/validate-script-flags.mjs",
     "validate-guide-copy": "node scripts/validate-guide-copy.mjs",
     "validate-word-truth": "node scripts/validate-word-truth.mjs",
+    "validate-feature-coverage": "node scripts/validate-feature-coverage.mjs",
     "verify-recovery-card": "node scripts/verify-recovery-card.mjs",
+    "verify-new-doors": "node scripts/verify-new-doors.mjs",
     "merge-translit": "node scripts/merge-translit.mjs",
     "shot-script-course": "node scripts/shot-script-course.mjs"
   },

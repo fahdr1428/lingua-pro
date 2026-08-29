@@ -35,6 +35,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { EXTRA_EXAMPLES } from "../src/data/extraExamples.js";
 import { LATIN_SCRIPT_LANGUAGES } from "../src/data/registry.js";
+import { CONVERSATIONS } from "../src/data/conversations.js";
 
 const SCRIPT_OF = {
   ml: "Malayalam", ta: "Tamil", hi: "Devanagari", bn: "Bengali",
@@ -43,6 +44,7 @@ const SCRIPT_OF = {
 };
 
 const CAP = Number(process.env.CAP || 40);
+const nativeScriptAnywhere = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}\p{Script=Arabic}\p{Script=Devanagari}\p{Script=Bengali}\p{Script=Malayalam}\p{Script=Tamil}]/u;
 const errors = [], warnings = [], rows = [];
 
 // Strip anything that isn't a letter of the language: punctuation, digits,
@@ -168,6 +170,38 @@ for (const code of codes) {
   for (const [lemma, arr] of Object.entries(EXTRA_EXAMPLES[code] || {})) {
     const w = (pack.vocab || []).find((v) => v.lemma === lemma);
     for (const e of arr) check(lemma, w?.translit, e, "EXTRA for");
+  }
+
+  // v95 — the scripted conversations are learner-facing sentences too, and
+  // nothing was checking them. They need the same script purity and the same
+  // romanisation as everything else a learner is shown.
+  for (const convo of CONVERSATIONS[code] || []) {
+    for (const line of convo.lines || []) {
+      checked++;
+      const at = `${code} conversation "${convo.situation}"`;
+      if (!line.translation) errors.push(`${at}: a line has no translation`);
+      if (!line.translit) errors.push(`${at}: "${line.native}" has no romanisation`);
+      if (line.translit && nativeScriptAnywhere.test(line.translit)) {
+        errors.push(`${at}: romanisation of "${line.native}" still contains native script`);
+      }
+      if (script) {
+        if (!script.test(line.native)) {
+          badScript++;
+          errors.push(`${at}: "${line.native}" contains no ${scriptName}`);
+        } else {
+          const strays = new Set();
+          for (const ch of stripNonLetters(line.native)) {
+            if (/[a-zA-Z]/.test(ch)) continue;
+            if (!script.test(ch) && foreign.test(ch)) strays.add(ch);
+            foreign.lastIndex = 0;
+          }
+          if (strays.size) {
+            badScript++;
+            errors.push(`${at}: "${line.native}" mixes in non-${scriptName} letters: ${[...strays].join(" ")}`);
+          }
+        }
+      }
+    }
   }
 
   rows.push([code, checked, noLemma, badScript, badRoman]);

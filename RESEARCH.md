@@ -298,16 +298,33 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    primer, an Arabic-script language has no joining rules, an abugida has no
    vowel signs, or Hangul has no block lesson.
 
-5. **Five languages have no reading passages and no recorded audio** — Tagalog
+5. **Feature coverage is uneven, and now it is measured.** A language pack is
+   not one thing — vocabulary, a route map, a script course, grammar, passages,
+   conversations, culture notes, verb tables and sentence patterns were added by
+   different passes, and the newest languages arrived with the first few and
+   none of the rest.
+
+   v95 measured it for the first time. Persian, Malayalam, Tamil, Somali and
+   Tagalog had **no culture notes and no scripted conversations**, and Home
+   offered "Listen & follow — scripted conversations, with subtitles" to all of
+   them without checking: the door opened onto "no conversation starters for
+   Tamil yet". 40 culture notes and 60 conversations later, all nineteen
+   languages have both, and `validate-feature-coverage.mjs` fails the build if a
+   door is offered without the data behind it.
+
+   Remaining, correctly gated: the sentence lab covers 11 of 19 (missing de, fa,
+   ml, pa, so, ta, tl, zh), and five languages still have no reading passages.
+
+6. **Five languages have no reading passages and no recorded audio** — Tagalog
    and Persian (v86), Malayalam, Tamil and Somali (v89). The packs, guides and example sentences are there and
    the input stream works from them; the curated reading library does not exist
    yet, and `validate-passages.mjs` names both languages and the reason rather
    than letting the absence pass quietly. Writing literary Tagalog or Persian
    and calling it course material is the thing this project has said it will not
    do.
-6. **A native speaker's eye on Punjabi and Nigerian Pidgin passages** — and now
+7. **A native speaker's eye on Punjabi and Nigerian Pidgin passages** — and now
    on the Tagalog and Persian packs too.
-7. **Grammar beyond 4–6 lessons per language.** The "none at all for Turkish,
+8. **Grammar beyond 4–6 lessons per language.** The "none at all for Turkish,
    Punjabi, Indonesian, Nigerian Pidgin, Tagalog or Persian" that stood here was
    closed by v88, and v89 covered Malayalam, Tamil and Somali. All nineteen
    languages now have a grammar curriculum — 90 lessons, 990 generated checks —

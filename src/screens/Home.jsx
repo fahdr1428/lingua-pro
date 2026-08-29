@@ -24,6 +24,8 @@ import { getCharacter } from "../data/characters.js";
 import { GuideMark } from "../ui/GuideMark.jsx";
 import { JourneyMap } from "./JourneyMap.jsx";
 import { cultureOfTheDay, tagLabel, hasCulture } from "../data/culture.js";
+import { getConversations } from "../data/conversations.js";
+import { PASSAGES } from "../data/passages.js";
 import { isRecognitionSupported } from "../audio/speech.js";
 import { getLevel } from "../engine/gamification.js";
 import { computeFluency } from "../engine/fluency.js";
@@ -778,11 +780,23 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
     // sentences the curriculum already carries, so it gets its own door rather
     // than living behind the one that runs out fastest.
     { icon: "📜", title: `${lang.name} you can read`, sub: "Real sentences, at exactly your level", go: () => onNavigate("stream"), highlight: (stats.learned || 0) >= 15 },
-    { icon: "🎧", title: "Listen & follow", sub: "Scripted conversations, with subtitles", go: () => onNavigate("practice") },
     { icon: "📇", title: "Flashcards", sub: "Flip through your words at your own pace", go: () => onNavigate("flashcards") },
     { icon: "🧭", title: "Grammar", sub: `How ${lang.name} actually fits together`, go: () => onNavigate("grammar") },
     { icon: "📚", title: "My words", sub: `${stats.learned || 0} learned · ${stats.mastered || 0} mastered`, go: () => onNavigate("vocab") },
   ];
+  // v95: only offer this door if there is something behind it. Practice shows
+  // reading passages and scripted conversations; five languages had neither, so
+  // the door advertised "Scripted conversations, with subtitles" and opened onto
+  // "no conversation starters yet". An honest empty state is better than a
+  // crash, but not offering an empty room is better than both.
+  if (getConversations(pack.code).length > 0 || (PASSAGES[pack.code] || []).length > 0) {
+    doors.splice(1, 0, {
+      icon: "🎧", title: "Listen & follow",
+      sub: "Scripted conversations, with subtitles",
+      go: () => onNavigate("practice"),
+    });
+  }
+
   if (hasCulture(pack.code)) {
     doors.push({
       icon: "🫖", title: `Inside ${lang.name}`,

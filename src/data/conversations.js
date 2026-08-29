@@ -633,7 +633,1066 @@ export const CONVERSATIONS = {
       { native: "Güle güle! İyi günler!", translit: "gew-LEH gew-LEH, ee-YEE gewn-LEHR", translation: "Bye! Have a good day!", note: "The person leaving says 'Hoşça kal'; the one staying answers 'Güle güle'." },
     ]},
   ],
-};
+
+  // German
+  de: [
+    {
+      id: "de_c1",
+      situation: "Greeting someone",
+      emoji: "👋",
+      lines: [
+        {
+          native: "Hallo! Wie geht's?",
+          translit: "HAH-lo, vee GAYTS",
+          translation: "Hi! How are you?",
+        },
+        {
+          native: "Gut, und dir?",
+          translit: "goot, oont deer",
+          translation: "Good, and you?",
+        },
+      ],
+    },
+    {
+      id: "de_c2",
+      situation: "Asking how someone is",
+      emoji: "💬",
+      lines: [
+        {
+          native: "Wie geht es Ihnen?",
+          translit: "vee gayt es EE-nen",
+          translation: "How are you? (formal)",
+          note: "Ihnen is the formal you — use it until invited to say du.",
+        },
+        {
+          native: "Danke, sehr gut.",
+          translit: "DAN-ke, zair goot",
+          translation: "Thank you, very well.",
+        },
+      ],
+    },
+    {
+      id: "de_c3",
+      situation: "Introducing yourself",
+      emoji: "🤝",
+      lines: [
+        {
+          native: "Ich heiße Anna.",
+          translit: "ikh HIGH-se AH-na",
+          translation: "My name is Anna.",
+        },
+        {
+          native: "Freut mich, ich bin Tom.",
+          translit: "froyt mikh, ikh bin tom",
+          translation: "Pleased to meet you, I'm Tom.",
+        },
+      ],
+    },
+    {
+      id: "de_c4",
+      situation: "Saying thank you",
+      emoji: "🙏",
+      lines: [
+        {
+          native: "Vielen Dank!",
+          translit: "FEE-len dank",
+          translation: "Many thanks!",
+        },
+        {
+          native: "Gern geschehen.",
+          translit: "gairn ge-SHAY-en",
+          translation: "You're welcome.",
+        },
+      ],
+    },
+    {
+      id: "de_c5",
+      situation: "Asking for water",
+      emoji: "💧",
+      lines: [
+        {
+          native: "Ein Glas Wasser, bitte.",
+          translit: "ine glahs VAH-ser, BIT-te",
+          translation: "A glass of water, please.",
+        },
+        {
+          native: "Kommt sofort.",
+          translit: "komt zo-FORT",
+          translation: "Coming right up.",
+        },
+      ],
+    },
+    {
+      id: "de_c6",
+      situation: "Not understanding",
+      emoji: "🤔",
+      lines: [
+        {
+          native: "Entschuldigung, das habe ich nicht verstanden.",
+          translit: "ent-SHOOL-di-goong, das HAH-be ikh nikht fer-SHTAN-den",
+          translation: "Sorry, I didn't understand that.",
+        },
+        {
+          native: "Ich sage es noch einmal.",
+          translit: "ikh ZAH-ge es nokh INE-mahl",
+          translation: "I'll say it again.",
+        },
+      ],
+    },
+    {
+      id: "de_c7",
+      situation: "Apologizing",
+      emoji: "🙇",
+      lines: [
+        {
+          native: "Es tut mir leid.",
+          translit: "es toot meer lite",
+          translation: "I'm sorry.",
+        },
+        {
+          native: "Kein Problem.",
+          translit: "kine pro-BLAYM",
+          translation: "No problem.",
+        },
+      ],
+    },
+    {
+      id: "de_c8",
+      situation: "Asking the price",
+      emoji: "💰",
+      lines: [
+        {
+          native: "Was kostet das?",
+          translit: "vas KOS-tet das",
+          translation: "What does that cost?",
+        },
+        {
+          native: "Drei Euro fünfzig.",
+          translit: "dry OY-ro FUENF-tsikh",
+          translation: "Three euros fifty.",
+        },
+      ],
+    },
+    {
+      id: "de_c9",
+      situation: "Saying goodbye",
+      emoji: "👋",
+      lines: [
+        {
+          native: "Tschüss, bis morgen!",
+          translit: "chuess, bis MOR-gen",
+          translation: "Bye, see you tomorrow!",
+        },
+        {
+          native: "Bis morgen!",
+          translit: "bis MOR-gen",
+          translation: "See you tomorrow!",
+        },
+      ],
+    },
+    {
+      id: "de_c10",
+      situation: "Being a guest",
+      emoji: "🫖",
+      lines: [
+        {
+          native: "Vielen Dank für die Einladung.",
+          translit: "FEE-len dank fuer dee INE-lah-doong",
+          translation: "Thank you for the invitation.",
+        },
+        {
+          native: "Schön, dass du da bist.",
+          translit: "shern, das doo dah bist",
+          translation: "Good to have you here.",
+        },
+      ],
+    },
+  ],
+
+  // Persian
+  fa: [
+    {
+      id: "fa_c1",
+      situation: "Greeting someone",
+      emoji: "👋",
+      lines: [
+        {
+          native: "سلام! حال شما چطوره؟",
+          translit: "salâm! hâl-e shomâ chetore?",
+          translation: "Hello! How are you?",
+        },
+        {
+          native: "خوبم، ممنون. شما چطورید؟",
+          translit: "khubam, mamnun. shomâ chetorid?",
+          translation: "I'm well, thanks. And you?",
+        },
+      ],
+    },
+    {
+      id: "fa_c2",
+      situation: "Asking how someone is",
+      emoji: "💬",
+      lines: [
+        {
+          native: "چطوری؟",
+          translit: "chetori?",
+          translation: "How are you? (informal)",
+          note: "To someone close. Use hâl-e shomâ chetore with anyone older.",
+        },
+        {
+          native: "خوبم، تو چطوری؟",
+          translit: "khubam, to chetori?",
+          translation: "I'm fine, how about you?",
+        },
+      ],
+    },
+    {
+      id: "fa_c3",
+      situation: "Introducing yourself",
+      emoji: "🤝",
+      lines: [
+        {
+          native: "اسم من رویاست.",
+          translit: "esm-e man Royâst.",
+          translation: "My name is Roya.",
+        },
+        {
+          native: "خوشبختم، من علی هستم.",
+          translit: "khoshbakhtam, man Ali hastam.",
+          translation: "Pleased to meet you, I'm Ali.",
+        },
+      ],
+    },
+    {
+      id: "fa_c4",
+      situation: "Saying thank you",
+      emoji: "🙏",
+      lines: [
+        {
+          native: "خیلی ممنون!",
+          translit: "kheyli mamnun!",
+          translation: "Thank you very much!",
+        },
+        {
+          native: "خواهش می‌کنم.",
+          translit: "khâhesh mikonam.",
+          translation: "You're welcome.",
+        },
+      ],
+    },
+    {
+      id: "fa_c5",
+      situation: "Asking for water",
+      emoji: "💧",
+      lines: [
+        {
+          native: "یک لیوان آب، لطفا.",
+          translit: "yek livân âb, lotfan.",
+          translation: "A glass of water, please.",
+        },
+        {
+          native: "بفرمایید.",
+          translit: "befarmâyid.",
+          translation: "Here you are.",
+          note: "Befarmâyid covers here-you-are, after-you, and please-come-in.",
+        },
+      ],
+    },
+    {
+      id: "fa_c6",
+      situation: "Not understanding",
+      emoji: "🤔",
+      lines: [
+        {
+          native: "ببخشید، متوجه نشدم.",
+          translit: "bebakhshid, motevajjeh nashodam.",
+          translation: "Sorry, I didn't understand.",
+        },
+        {
+          native: "دوباره می‌گویم.",
+          translit: "dobâre miguyam.",
+          translation: "I'll say it again.",
+        },
+      ],
+    },
+    {
+      id: "fa_c7",
+      situation: "Apologizing",
+      emoji: "🙇",
+      lines: [
+        {
+          native: "معذرت می‌خواهم.",
+          translit: "ma'zerat mikhâham.",
+          translation: "I apologise.",
+        },
+        {
+          native: "اشکالی ندارد.",
+          translit: "eshkâli nadârad.",
+          translation: "It's no trouble.",
+        },
+      ],
+    },
+    {
+      id: "fa_c8",
+      situation: "Asking the price",
+      emoji: "💰",
+      lines: [
+        {
+          native: "این چند است؟",
+          translit: "in chand ast?",
+          translation: "How much is this?",
+        },
+        {
+          native: "قابل ندارد.",
+          translit: "ghâbel nadârad.",
+          translation: "It's not worthy of you.",
+          note: "Taarof: this means 'take it for free' and is not meant. Insist on paying.",
+        },
+      ],
+    },
+    {
+      id: "fa_c9",
+      situation: "Saying goodbye",
+      emoji: "👋",
+      lines: [
+        {
+          native: "خداحافظ، به امید دیدار.",
+          translit: "khodâhâfez, be omid-e didâr.",
+          translation: "Goodbye, hope to see you.",
+        },
+        {
+          native: "خدانگهدار.",
+          translit: "khodâ negahdâr.",
+          translation: "God keep you.",
+        },
+      ],
+    },
+    {
+      id: "fa_c10",
+      situation: "Being a guest",
+      emoji: "🫖",
+      lines: [
+        {
+          native: "چای می‌خورید؟",
+          translit: "châi mikhorid?",
+          translation: "Will you have tea?",
+        },
+        {
+          native: "بله، ممنون.",
+          translit: "bale, mamnun.",
+          translation: "Yes, thank you.",
+          note: "Refusing once is polite; they will ask again and you may accept.",
+        },
+      ],
+    },
+  ],
+
+  // Malayalam
+  ml: [
+    {
+      id: "ml_c1",
+      situation: "Greeting someone",
+      emoji: "👋",
+      lines: [
+        {
+          native: "നമസ്കാരം! സുഖമാണോ?",
+          translit: "namaskaaram! sukhamaano?",
+          translation: "Hello! Are you well?",
+        },
+        {
+          native: "സുഖമാണ്, നിങ്ങൾക്കോ?",
+          translit: "sukhamaanu, ningalkko?",
+          translation: "I'm well, and you?",
+        },
+      ],
+    },
+    {
+      id: "ml_c2",
+      situation: "Asking how someone is",
+      emoji: "💬",
+      lines: [
+        {
+          native: "എന്തുണ്ട് വിശേഷം?",
+          translit: "enthund vishesham?",
+          translation: "What's the news? (how are things?)",
+          note: "The everyday opener, warmer than asking about health.",
+        },
+        {
+          native: "വിശേഷിച്ചൊന്നുമില്ല.",
+          translit: "visheshichonnumilla.",
+          translation: "Nothing much.",
+        },
+      ],
+    },
+    {
+      id: "ml_c3",
+      situation: "Introducing yourself",
+      emoji: "🤝",
+      lines: [
+        {
+          native: "എന്റെ പേര് സാറ.",
+          translit: "ente peru Saara.",
+          translation: "My name is Sara.",
+        },
+        {
+          native: "സന്തോഷം, ഞാൻ രാജു.",
+          translit: "santhosham, njaan Raju.",
+          translation: "Glad to meet you, I'm Raju.",
+        },
+      ],
+    },
+    {
+      id: "ml_c4",
+      situation: "Saying thank you",
+      emoji: "🙏",
+      lines: [
+        {
+          native: "വളരെ നന്ദി!",
+          translit: "valare nandi!",
+          translation: "Thank you very much!",
+        },
+        {
+          native: "സാരമില്ല.",
+          translit: "saaramilla.",
+          translation: "It's nothing.",
+        },
+      ],
+    },
+    {
+      id: "ml_c5",
+      situation: "Asking for water",
+      emoji: "💧",
+      lines: [
+        {
+          native: "ഒരു ഗ്ലാസ് വെള്ളം തരാമോ?",
+          translit: "oru glass vellam taraamo?",
+          translation: "Could you give me a glass of water?",
+        },
+        {
+          native: "ഇതാ.",
+          translit: "ithaa.",
+          translation: "Here you go.",
+        },
+      ],
+    },
+    {
+      id: "ml_c6",
+      situation: "Not understanding",
+      emoji: "🤔",
+      lines: [
+        {
+          native: "ക്ഷമിക്കണം, മനസ്സിലായില്ല.",
+          translit: "kshamikkanam, manassilaayilla.",
+          translation: "Sorry, I didn't understand.",
+        },
+        {
+          native: "ഞാൻ പതുക്കെ പറയാം.",
+          translit: "njaan pathukke parayaam.",
+          translation: "I'll say it slowly.",
+        },
+      ],
+    },
+    {
+      id: "ml_c7",
+      situation: "Apologizing",
+      emoji: "🙇",
+      lines: [
+        {
+          native: "ക്ഷമിക്കണം, വൈകി.",
+          translit: "kshamikkanam, vaiki.",
+          translation: "Sorry, I'm late.",
+        },
+        {
+          native: "സാരമില്ല, വരൂ.",
+          translit: "saaramilla, varoo.",
+          translation: "No matter, come in.",
+        },
+      ],
+    },
+    {
+      id: "ml_c8",
+      situation: "Asking the price",
+      emoji: "💰",
+      lines: [
+        {
+          native: "ഇതിന് എത്ര രൂപ?",
+          translit: "ithinu ethra roopa?",
+          translation: "How many rupees for this?",
+        },
+        {
+          native: "അമ്പത് രൂപ.",
+          translit: "ambathu roopa.",
+          translation: "Fifty rupees.",
+        },
+      ],
+    },
+    {
+      id: "ml_c9",
+      situation: "Saying goodbye",
+      emoji: "👋",
+      lines: [
+        {
+          native: "ശരി, ഞാൻ പോയിവരാം.",
+          translit: "shari, njaan poyivaraam.",
+          translation: "Right, I'll go and come back.",
+          note: "Malayalam avoids a flat goodbye — you always say you'll return.",
+        },
+        {
+          native: "ശരി, വീണ്ടും കാണാം.",
+          translit: "shari, veendum kaanaam.",
+          translation: "Right, see you again.",
+        },
+      ],
+    },
+    {
+      id: "ml_c10",
+      situation: "Being a guest",
+      emoji: "🫖",
+      lines: [
+        {
+          native: "ചായ കുടിക്കുന്നോ?",
+          translit: "chaaya kudikkunno?",
+          translation: "Will you have tea?",
+        },
+        {
+          native: "വേണ്ട, നന്ദി.",
+          translit: "venda, nandi.",
+          translation: "No, thank you.",
+          note: "Saying no once is expected; the offer will come again.",
+        },
+      ],
+    },
+  ],
+
+  // Tamil
+  ta: [
+    {
+      id: "ta_c1",
+      situation: "Greeting someone",
+      emoji: "👋",
+      lines: [
+        {
+          native: "வணக்கம்! எப்படி இருக்கீங்க?",
+          translit: "vanakkam! eppadi irukkeenga?",
+          translation: "Hello! How are you?",
+        },
+        {
+          native: "நல்லா இருக்கேன், நீங்க?",
+          translit: "nallaa irukken, neenga?",
+          translation: "I'm well, and you?",
+        },
+      ],
+    },
+    {
+      id: "ta_c2",
+      situation: "Asking how someone is",
+      emoji: "💬",
+      lines: [
+        {
+          native: "என்ன விசேஷம்?",
+          translit: "enna vishesham?",
+          translation: "What's new?",
+        },
+        {
+          native: "ஒன்னும் இல்ல.",
+          translit: "onnum illa.",
+          translation: "Nothing much.",
+        },
+      ],
+    },
+    {
+      id: "ta_c3",
+      situation: "Introducing yourself",
+      emoji: "🤝",
+      lines: [
+        {
+          native: "என் பெயர் மீனா.",
+          translit: "en peyar Meena.",
+          translation: "My name is Meena.",
+        },
+        {
+          native: "சந்தோஷம், நான் ராஜு.",
+          translit: "santhosham, naan Raju.",
+          translation: "Glad to meet you, I'm Raju.",
+        },
+      ],
+    },
+    {
+      id: "ta_c4",
+      situation: "Saying thank you",
+      emoji: "🙏",
+      lines: [
+        {
+          native: "ரொம்ப நன்றி!",
+          translit: "romba nandri!",
+          translation: "Thank you very much!",
+        },
+        {
+          native: "பரவாயில்லை.",
+          translit: "paravaayilla.",
+          translation: "It's nothing.",
+        },
+      ],
+    },
+    {
+      id: "ta_c5",
+      situation: "Asking for water",
+      emoji: "💧",
+      lines: [
+        {
+          native: "கொஞ்சம் தண்ணி தர முடியுமா?",
+          translit: "konjam thanni thara mudiyumaa?",
+          translation: "Could you give me some water?",
+        },
+        {
+          native: "இதோ.",
+          translit: "itho.",
+          translation: "Here.",
+        },
+      ],
+    },
+    {
+      id: "ta_c6",
+      situation: "Not understanding",
+      emoji: "🤔",
+      lines: [
+        {
+          native: "மன்னிக்கவும், புரியலை.",
+          translit: "mannikkavum, puriyalai.",
+          translation: "Sorry, I didn't follow.",
+        },
+        {
+          native: "மெதுவா சொல்றேன்.",
+          translit: "medhuvaa solren.",
+          translation: "I'll say it slowly.",
+        },
+      ],
+    },
+    {
+      id: "ta_c7",
+      situation: "Apologizing",
+      emoji: "🙇",
+      lines: [
+        {
+          native: "மன்னிக்கவும், தாமதமாயிடுச்சு.",
+          translit: "mannikkavum, thaamathamaayiduchu.",
+          translation: "Sorry, I'm late.",
+        },
+        {
+          native: "பரவாயில்லை, வாங்க.",
+          translit: "paravaayilla, vaanga.",
+          translation: "No matter, come in.",
+        },
+      ],
+    },
+    {
+      id: "ta_c8",
+      situation: "Asking the price",
+      emoji: "💰",
+      lines: [
+        {
+          native: "இது என்ன விலை?",
+          translit: "idhu enna vilai?",
+          translation: "What's the price of this?",
+        },
+        {
+          native: "ஐம்பது ரூபாய்.",
+          translit: "aimbadhu roobaai.",
+          translation: "Fifty rupees.",
+        },
+      ],
+    },
+    {
+      id: "ta_c9",
+      situation: "Saying goodbye",
+      emoji: "👋",
+      lines: [
+        {
+          native: "சரி, போய்ட்டு வரேன்.",
+          translit: "sari, poyttu varen.",
+          translation: "Right, I'll go and come.",
+          note: "Tamil says 'I'll go and return' rather than a bare goodbye.",
+        },
+        {
+          native: "சரி, மறுபடி பாக்கலாம்.",
+          translit: "sari, marupadi paakkalaam.",
+          translation: "Right, see you again.",
+        },
+      ],
+    },
+    {
+      id: "ta_c10",
+      situation: "Being a guest",
+      emoji: "🫖",
+      lines: [
+        {
+          native: "காபி சாப்பிடறீங்களா?",
+          translit: "kaapi saappidareengalaa?",
+          translation: "Will you have coffee?",
+        },
+        {
+          native: "வேண்டாம், நன்றி.",
+          translit: "vendaam, nandri.",
+          translation: "No, thank you.",
+          note: "In Tamil Nadu the coffee is filter coffee, and the offer is rarely a formality.",
+        },
+      ],
+    },
+  ],
+
+  // Somali
+  so: [
+    {
+      id: "so_c1",
+      situation: "Greeting someone",
+      emoji: "👋",
+      lines: [
+        {
+          native: "Salaan diirran! Iska warran?",
+          translit: "sa-LAAN dee-RAN, IS-ka wa-RAN",
+          translation: "Warm greetings! How are you?",
+          note: "Iska warran is said to a man; to a woman, iska warran becomes is warran in some regions.",
+        },
+        {
+          native: "Waan fiicanahay, adiguna?",
+          translit: "waan fee-CHA-na-hay, a-DEE-gu-na",
+          translation: "I'm well, and you?",
+        },
+      ],
+    },
+    {
+      id: "so_c2",
+      situation: "Asking how someone is",
+      emoji: "💬",
+      lines: [
+        {
+          native: "Sidee tahay?",
+          translit: "si-DAY ta-HAY",
+          translation: "How are you?",
+        },
+        {
+          native: "Waan nabad qabaa, mahadsanid.",
+          translit: "waan na-BAD ka-BAA, ma-had-sa-NID",
+          translation: "I am at peace, thank you.",
+        },
+      ],
+    },
+    {
+      id: "so_c3",
+      situation: "Introducing yourself",
+      emoji: "🤝",
+      lines: [
+        {
+          native: "Magacaygu waa Hodan.",
+          translit: "ma-ga-CAY-gu waa HO-dan",
+          translation: "My name is Hodan.",
+        },
+        {
+          native: "Waan ku faraxsanahay, aniga waa Cabdi.",
+          translit: "waan ku fa-rah-sa-na-HAY, a-NEE-ga waa CAB-di",
+          translation: "Pleased to meet you, I'm Abdi.",
+        },
+      ],
+    },
+    {
+      id: "so_c4",
+      situation: "Saying thank you",
+      emoji: "🙏",
+      lines: [
+        {
+          native: "Aad baad u mahadsantahay!",
+          translit: "aad baad u ma-had-san-ta-HAY",
+          translation: "Thank you very much!",
+        },
+        {
+          native: "Adaa mudan.",
+          translit: "a-DAA MU-dan",
+          translation: "You deserve it. (you're welcome)",
+        },
+      ],
+    },
+    {
+      id: "so_c5",
+      situation: "Asking for water",
+      emoji: "💧",
+      lines: [
+        {
+          native: "Fadlan biyo i sii.",
+          translit: "FAD-lan BI-yo i see",
+          translation: "Please give me water.",
+        },
+        {
+          native: "Waa kan.",
+          translit: "waa kan",
+          translation: "Here it is.",
+        },
+      ],
+    },
+    {
+      id: "so_c6",
+      situation: "Not understanding",
+      emoji: "🤔",
+      lines: [
+        {
+          native: "Waan ka xumahay, ma fahmin.",
+          translit: "waan ka hu-ma-HAY, ma FAH-min",
+          translation: "I'm sorry, I didn't understand.",
+        },
+        {
+          native: "Si tartiib ah ayaan kuugu celinayaa.",
+          translit: "si tar-TEEB ah a-YAAN KOO-gu che-li-na-YAA",
+          translation: "I'll repeat it slowly for you.",
+        },
+      ],
+    },
+    {
+      id: "so_c7",
+      situation: "Apologizing",
+      emoji: "🙇",
+      lines: [
+        {
+          native: "Waan ka xumahay, waan daahay.",
+          translit: "waan ka hu-ma-HAY, waan DAA-hay",
+          translation: "I'm sorry, I'm late.",
+        },
+        {
+          native: "Dhib ma leh, soo gal.",
+          translit: "dib ma leh, soo gal",
+          translation: "No trouble, come in.",
+        },
+      ],
+    },
+    {
+      id: "so_c8",
+      situation: "Asking the price",
+      emoji: "💰",
+      lines: [
+        {
+          native: "Waa immisa?",
+          translit: "waa IM-mi-sa",
+          translation: "How much is it?",
+        },
+        {
+          native: "Waa shan doolar.",
+          translit: "waa shan DOO-lar",
+          translation: "It's five dollars.",
+        },
+      ],
+    },
+    {
+      id: "so_c9",
+      situation: "Saying goodbye",
+      emoji: "👋",
+      lines: [
+        {
+          native: "Nabad gelyo, walaal.",
+          translit: "na-BAD GEL-yo, wa-LAAL",
+          translation: "Go in peace, brother/sister.",
+        },
+        {
+          native: "Nabad, is ilaali.",
+          translit: "na-BAD, is i-LAA-li",
+          translation: "Peace, look after yourself.",
+        },
+      ],
+    },
+    {
+      id: "so_c10",
+      situation: "Being a guest",
+      emoji: "🫖",
+      lines: [
+        {
+          native: "Shaah ma cabaysaa?",
+          translit: "shaah ma cha-bay-SAA",
+          translation: "Will you drink tea?",
+        },
+        {
+          native: "Haa, mahadsanid.",
+          translit: "haa, ma-had-sa-NID",
+          translation: "Yes, thank you.",
+          note: "Shaah arrives for every visitor. Accepting is the easy answer.",
+        },
+      ],
+    },
+  ],
+
+  // Tagalog
+  tl: [
+    {
+      id: "tl_c1",
+      situation: "Greeting someone",
+      emoji: "👋",
+      lines: [
+        {
+          native: "Kumusta po kayo?",
+          translit: "koo-moos-TA po ka-YO",
+          translation: "How are you? (respectful)",
+          note: "Po marks respect and is expected with anyone older.",
+        },
+        {
+          native: "Mabuti po, kayo po?",
+          translit: "ma-BOO-ti po, ka-YO po",
+          translation: "I'm well, and you?",
+        },
+      ],
+    },
+    {
+      id: "tl_c2",
+      situation: "Asking how someone is",
+      emoji: "💬",
+      lines: [
+        {
+          native: "Kumain ka na?",
+          translit: "koo-MA-in ka na",
+          translation: "Have you eaten?",
+          note: "Used the way English uses 'how are you' — a greeting, not always a question.",
+        },
+        {
+          native: "Hindi pa, ikaw?",
+          translit: "hin-DEE pa, i-KAW",
+          translation: "Not yet, you?",
+        },
+      ],
+    },
+    {
+      id: "tl_c3",
+      situation: "Introducing yourself",
+      emoji: "🤝",
+      lines: [
+        {
+          native: "Ako si Ana.",
+          translit: "a-KO see A-na",
+          translation: "I'm Ana.",
+        },
+        {
+          native: "Ikinagagalak kong makilala ka, ako si Ben.",
+          translit: "i-ki-na-ga-GA-lak kong ma-ki-LA-la ka",
+          translation: "Pleased to meet you, I'm Ben.",
+        },
+      ],
+    },
+    {
+      id: "tl_c4",
+      situation: "Saying thank you",
+      emoji: "🙏",
+      lines: [
+        {
+          native: "Maraming salamat po!",
+          translit: "ma-RA-ming sa-LA-mat po",
+          translation: "Thank you very much!",
+        },
+        {
+          native: "Walang anuman po.",
+          translit: "wa-LANG a-noo-MAN po",
+          translation: "It's nothing.",
+        },
+      ],
+    },
+    {
+      id: "tl_c5",
+      situation: "Asking for water",
+      emoji: "💧",
+      lines: [
+        {
+          native: "Pwede po akong humingi ng tubig?",
+          translit: "PWE-de po a-KONG hoo-mi-NGEE nang TOO-big",
+          translation: "May I ask for some water?",
+        },
+        {
+          native: "Oo naman, heto.",
+          translit: "O-o na-MAN, HE-to",
+          translation: "Of course, here.",
+        },
+      ],
+    },
+    {
+      id: "tl_c6",
+      situation: "Not understanding",
+      emoji: "🤔",
+      lines: [
+        {
+          native: "Pasensya na po, hindi ko naintindihan.",
+          translit: "pa-SEN-sha na po, hin-DEE ko na-in-tin-di-HAN",
+          translation: "Sorry, I didn't understand.",
+        },
+        {
+          native: "Uulitin ko po nang mabagal.",
+          translit: "oo-oo-LI-tin ko po nang ma-ba-GAL",
+          translation: "I'll repeat it slowly.",
+        },
+      ],
+    },
+    {
+      id: "tl_c7",
+      situation: "Apologizing",
+      emoji: "🙇",
+      lines: [
+        {
+          native: "Pasensya na po, na-late ako.",
+          translit: "pa-SEN-sha na po, na-LEYT a-KO",
+          translation: "Sorry, I was late.",
+          note: "na-late is ordinary Taglish; nobody reaches for a pure Tagalog word here.",
+        },
+        {
+          native: "Ayos lang, pasok ka.",
+          translit: "A-yos lang, PA-sok ka",
+          translation: "It's fine, come in.",
+        },
+      ],
+    },
+    {
+      id: "tl_c8",
+      situation: "Asking the price",
+      emoji: "💰",
+      lines: [
+        {
+          native: "Magkano po ito?",
+          translit: "mag-KA-no po i-TO",
+          translation: "How much is this?",
+        },
+        {
+          native: "Limampung piso po.",
+          translit: "li-mam-POONG PEE-so po",
+          translation: "Fifty pesos.",
+        },
+      ],
+    },
+    {
+      id: "tl_c9",
+      situation: "Saying goodbye",
+      emoji: "👋",
+      lines: [
+        {
+          native: "Sige po, mauna na ako.",
+          translit: "SEE-ge po, ma-OO-na na a-KO",
+          translation: "Alright, I'll go ahead.",
+        },
+        {
+          native: "Ingat ka!",
+          translit: "EE-ngat ka",
+          translation: "Take care!",
+        },
+      ],
+    },
+    {
+      id: "tl_c10",
+      situation: "Being a guest",
+      emoji: "🫖",
+      lines: [
+        {
+          native: "Mano po.",
+          translit: "MA-no po",
+          translation: "(taking an elder's hand to your forehead)",
+          note: "Said while touching the back of an elder's hand to your forehead, arriving and leaving.",
+        },
+        {
+          native: "Kaawaan ka ng Diyos, apo.",
+          translit: "ka-a-WA-an ka nang JOS, A-po",
+          translation: "God bless you, child.",
+        },
+      ],
+    },
+  ],};
 
 /** All conversations for a language, or [] if none. */
 export function getConversations(langCode) {
