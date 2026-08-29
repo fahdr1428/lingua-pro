@@ -1175,6 +1175,12 @@ function ChapterExamCard({ chapterNum, available, passed, onStart }) {
   return (
     <div
       onClick={() => available && !passed && onStart()}
+      role="button"
+      tabIndex={available && !passed ? 0 : -1}
+      aria-disabled={!available || passed}
+      onKeyDown={(e) => {
+        if ((e.key === "Enter" || e.key === " ") && available && !passed) { e.preventDefault(); onStart(); }
+      }}
       style={{
         background: passed ? "var(--primary-soft)" : "var(--surface)",
         border: `1px solid ${passed ? "var(--border)" : available ? "var(--ink)" : "var(--border)"}`,

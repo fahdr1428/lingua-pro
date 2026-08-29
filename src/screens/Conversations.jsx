@@ -100,6 +100,12 @@ export function Conversations({ pack, appState, onNavigate }) {
                     <div
                       key={i}
                       onClick={() => voiceAvailable && speak(line.native, lang.ttsCode)}
+                      role={voiceAvailable ? "button" : undefined}
+                      tabIndex={voiceAvailable ? 0 : undefined}
+                      aria-label={voiceAvailable ? "Hear this line" : undefined}
+                      onKeyDown={voiceAvailable ? (e) => {
+                        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); speak(line.native, lang.ttsCode); }
+                      } : undefined}
                       style={{
                         padding: "12px 0",
                         borderTop: "1px solid var(--border)",

@@ -145,6 +145,12 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
             <div
               key={i}
               onClick={() => voiceAvailable && speak(line.native, lang.ttsCode)}
+              role={voiceAvailable ? "button" : undefined}
+              tabIndex={voiceAvailable ? 0 : undefined}
+              aria-label={voiceAvailable ? "Hear this line" : undefined}
+              onKeyDown={voiceAvailable ? (e) => {
+                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); speak(line.native, lang.ttsCode); }
+              } : undefined}
               style={{
                 padding: "14px 0",
                 borderBottom: i < passage.lines.length - 1 ? "1px solid var(--border)" : "none",

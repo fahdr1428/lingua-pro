@@ -310,12 +310,12 @@
         {
           "native": "تسیں کنج او؟",
           "translation": "How are you?",
-          "translit": "tusin kanj ao"
+          "translit": "tusin kinj ao"
         },
         {
           "native": "تسیں کیویں او؟",
           "translation": "How are you?",
-          "translit": "tusin kyoyn ao"
+          "translit": "tusin kiven ao"
         }
       ],
       "pronunciation": "tu-SEEN"
@@ -333,7 +333,7 @@
         {
           "native": "توں کیہ کر رہیا اے؟",
           "translation": "What are you doing?",
-          "translit": "ton ki kar rhya ae"
+          "translit": "tun ki kar rahiya ae"
         }
       ]
     },
@@ -367,7 +367,7 @@
         {
           "native": "اسیں جا رہے آں",
           "translation": "We are going",
-          "translit": "asin ja rhe aan"
+          "translit": "asin ja rahe aan"
         }
       ]
     },
@@ -384,7 +384,7 @@
         {
           "native": "ایہہ کیہ اے؟",
           "translation": "What is this?",
-          "translit": "ayhh ki ae"
+          "translit": "eh ki ae"
         }
       ]
     },
@@ -401,7 +401,7 @@
         {
           "native": "تسیں کنج او؟",
           "translation": "How are you?",
-          "translit": "tusin kanj ao"
+          "translit": "tusin kinj ao"
         }
       ]
     },
@@ -537,7 +537,7 @@
         {
           "native": "دو روٹیاں",
           "translation": "Two rotis",
-          "translit": "do rotyan"
+          "translit": "do rotiyan"
         }
       ]
     },
@@ -571,7 +571,7 @@
         {
           "native": "چار گھنٹے",
           "translation": "Four hours",
-          "translit": "chaar ghnte"
+          "translit": "chaar ghante"
         }
       ]
     },
@@ -588,7 +588,7 @@
         {
           "native": "پنج بچے",
           "translation": "Five children",
-          "translit": "panj bche"
+          "translit": "panj bachche"
         }
       ]
     },
@@ -622,7 +622,7 @@
         {
           "native": "تازی روٹی",
           "translation": "Fresh bread",
-          "translit": "tazy roti"
+          "translit": "taazi roti"
         }
       ]
     },
@@ -656,7 +656,7 @@
         {
           "native": "گرم دودھ",
           "translation": "Hot milk",
-          "translit": "garam dudh"
+          "translit": "garam duddh"
         }
       ]
     },
@@ -673,7 +673,7 @@
         {
           "native": "کھانا تیار اے",
           "translation": "The food is ready",
-          "translit": "khana tyar ae"
+          "translit": "khaana taiyaar ae"
         }
       ]
     },
@@ -724,7 +724,7 @@
         {
           "native": "نکا کتا",
           "translation": "Small dog",
-          "translit": "nikka kta"
+          "translit": "nikka kutta"
         }
       ]
     },
@@ -792,12 +792,12 @@
         {
           "native": "کل ملاں گے",
           "translation": "We'll meet tomorrow",
-          "translit": "kal mlan ge"
+          "translit": "kal milaan ge"
         },
         {
           "native": "کل ملدے آں",
           "translation": "See you tomorrow",
-          "translit": "kal mlde aan"
+          "translit": "kal milde aan"
         }
       ],
       "pronunciation": "KAL"
@@ -832,7 +832,7 @@
         {
           "native": "اوہ آؤندا اے",
           "translation": "He is coming",
-          "translit": "oh aaonda ae"
+          "translit": "oh aunda ae"
         }
       ]
     },
@@ -883,7 +883,7 @@
         {
           "native": "میرے کول وقت نہیں",
           "translation": "I don't have time",
-          "translit": "myre kol waqt nahin"
+          "translit": "mere kol waqt nahin"
         }
       ]
     },
@@ -900,7 +900,7 @@
         {
           "native": "میں جانناں آں",
           "translation": "I know",
-          "translit": "main jannan aan"
+          "translit": "main jaannan aan"
         }
       ]
     },
@@ -968,7 +968,7 @@
         {
           "native": "ایہہ لے",
           "translation": "Take this",
-          "translit": "ayhh le"
+          "translit": "eh le"
         }
       ]
     },
@@ -985,7 +985,7 @@
         {
           "native": "میں ویکھ رہیا آں",
           "translation": "I am watching",
-          "translit": "main oykh rhya aan"
+          "translit": "main vekh rahiya aan"
         }
       ]
     },
@@ -1070,7 +1070,7 @@
         {
           "native": "کالی چاہ",
           "translation": "Black tea",
-          "translit": "kaly chaa"
+          "translit": "kaali chaa"
         }
       ]
     },
@@ -1087,7 +1087,7 @@
         {
           "native": "چِٹا کاغذ",
           "translation": "White paper",
-          "translit": "chitta kaghz"
+          "translit": "chitta kaghaz"
         }
       ]
     },
@@ -1138,7 +1138,7 @@
         {
           "native": "بہت مینہ",
           "translation": "Lots of rain",
-          "translit": "bohot menh"
+          "translit": "bohot meenh"
         }
       ]
     },
@@ -1155,7 +1155,7 @@
         {
           "native": "ایہہ ورہا",
           "translation": "This year",
-          "translit": "ayhh varha"
+          "translit": "eh varha"
         }
       ]
     },
@@ -1172,7 +1172,7 @@
         {
           "native": "ایہہ ہفتہ",
           "translation": "This week",
-          "translit": "ayhh hafta"
+          "translit": "eh hafta"
         }
       ]
     },
@@ -1206,7 +1206,7 @@
         {
           "native": "کدوں آویں گا؟",
           "translation": "When will you come?",
-          "translit": "kadon aaoyn ga"
+          "translit": "kadon aaven ga"
         }
       ]
     },
@@ -1274,7 +1274,7 @@
         {
           "native": "مہربانی کرکے دوبارہ دسو",
           "translation": "Please say it again",
-          "translit": "meherbani karke dubara dso"
+          "translit": "meherbani karke dubara daso"
         }
       ]
     },
@@ -1291,7 +1291,7 @@
         {
           "native": "مینوں مدد چاہیدی اے",
           "translation": "I need help",
-          "translit": "mainu madad chahydy ae"
+          "translit": "mainu madad chahidi ae"
         }
       ]
     },
@@ -1325,7 +1325,7 @@
         {
           "native": "مینوں سمجھ نہیں آئی",
           "translation": "I don't understand",
-          "translit": "mainu samajh nahin aayy"
+          "translit": "mainu samajh nahin aayi"
         }
       ]
     },
@@ -1342,7 +1342,7 @@
         {
           "native": "دوبارہ دسو",
           "translation": "Say it again",
-          "translit": "dubara dso"
+          "translit": "dubara daso"
         }
       ]
     },
@@ -1410,7 +1410,7 @@
         {
           "native": "تسیں کتھے رہندے او؟",
           "translation": "Where do you live?",
-          "translit": "tusin kithe rhnde ao"
+          "translit": "tusin kithe rehnde ao"
         }
       ]
     },
@@ -1427,7 +1427,7 @@
         {
           "native": "ایہہ کنے دا اے؟",
           "translation": "How much is this?",
-          "translit": "ayhh kne da ae"
+          "translit": "eh kinne da ae"
         }
       ]
     },
@@ -1461,7 +1461,7 @@
         {
           "native": "سویرے ملاں گے",
           "translation": "See you in the morning",
-          "translit": "savere mlan ge"
+          "translit": "savere milaan ge"
         }
       ]
     },
@@ -1512,7 +1512,7 @@
         {
           "native": "میں پنجابی بولناں",
           "translation": "I speak Punjabi",
-          "translit": "main pnjaby bolnan"
+          "translit": "main punjabi bolnan"
         }
       ]
     },
@@ -1549,7 +1549,7 @@
         {
           "native": "چاۓ تے کافی",
           "translation": "Tea and coffee",
-          "translit": "cha te kafy"
+          "translit": "chaa te kaafi"
         }
       ],
       "frequencyRank": 112
@@ -1916,7 +1916,7 @@
         {
           "native": "مینوں نقشہ دیو",
           "translation": "Give me a map",
-          "translit": "mainu naksha dyo"
+          "translit": "mainu naksha deyo"
         }
       ],
       "frequencyRank": 129
@@ -1979,7 +1979,7 @@
         {
           "native": "سدھا جاوو",
           "translation": "Go straight ahead",
-          "translit": "siddha jaoo"
+          "translit": "siddha jao"
         }
       ],
       "frequencyRank": 132
@@ -1997,7 +1997,7 @@
         {
           "native": "میں پانی پیندا ہاں",
           "translation": "I drink water",
-          "translit": "main paani pynda haan"
+          "translit": "main paani peenda haan"
         }
       ],
       "frequencyRank": 42
@@ -2015,7 +2015,7 @@
         {
           "native": "میرے کول ویلا اے",
           "translation": "I have time",
-          "translit": "myre kol oyla ae"
+          "translit": "mere kol vela ae"
         }
       ],
       "frequencyRank": 88
@@ -2033,7 +2033,7 @@
         {
           "native": "میں سکھنا چاہنا واں",
           "translation": "I want to learn",
-          "translit": "main skhna chaahna oan"
+          "translit": "main sikhna chaahna aan"
         }
       ],
       "frequencyRank": 89
@@ -2069,7 +2069,7 @@
         {
           "native": "تسیں مدد کر سکدے او؟",
           "translation": "Can you help?",
-          "translit": "tusin madad kar skde ao"
+          "translit": "tusin madad kar sakde ao"
         }
       ],
       "frequencyRank": 90
@@ -2087,7 +2087,7 @@
         {
           "native": "میں نئیں سمجھیا",
           "translation": "I didn't understand",
-          "translit": "main nahin smjhya"
+          "translit": "main nahin samjhya"
         }
       ],
       "frequencyRank": 91
@@ -2105,7 +2105,7 @@
         {
           "native": "میرے کول پیسے نئیں",
           "translation": "I don't have money",
-          "translit": "myre kol paise nahin"
+          "translit": "mere kol paise nahin"
         }
       ],
       "frequencyRank": 45
@@ -2483,7 +2483,7 @@
         {
           "native": "میں روٹی خریدنا واں",
           "translation": "I buy bread",
-          "translit": "main roti khrydna oan"
+          "translit": "main roti khareedna aan"
         }
       ],
       "frequencyRank": 111
@@ -2555,7 +2555,7 @@
         {
           "native": "اوہ اداس لگدا اے",
           "translation": "He looks sad",
-          "translit": "oh udaas lgda ae"
+          "translit": "oh udaas lagda ae"
         }
       ],
       "frequencyRank": 95

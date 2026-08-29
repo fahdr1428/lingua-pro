@@ -2011,9 +2011,12 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
   // v30: keyboard nav — arrow keys + space to flip
   useEffect(() => {
     function onKey(e) {
+      // v94: arrows still move between cards, but Space/Enter are NOT handled
+      // here any more. The card is a real focusable control now and handles
+      // them itself; leaving this in meant one keypress fired both handlers and
+      // the card flipped twice, landing exactly where it started.
       if (e.key === "ArrowRight") { e.preventDefault(); next(); }
       else if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
-      else if (e.key === " " || e.key === "Enter") { e.preventDefault(); setFlipped((f) => !f); }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -2053,6 +2056,13 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
         onClick={() => setFlipped(!flipped)}
         key={`${idx}-${flipped}`}
         className="pop"
+        role="button"
+        tabIndex={0}
+        aria-pressed={flipped}
+        aria-label={flipped ? "Card showing the meaning — activate to see the word" : "Card showing the word — activate to see the meaning"}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFlipped(!flipped); }
+        }}
         style={{
           background: flipped ? "var(--primary-soft)" : "var(--surface)",
           border: `2px solid ${flipped ? "var(--primary)" : "var(--border)"}`,
@@ -2211,6 +2221,12 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
           <div
             key={i}
             onClick={() => voiceAvailable && speak(ex.native, lang.ttsCode)}
+            role={voiceAvailable ? "button" : undefined}
+            tabIndex={voiceAvailable ? 0 : undefined}
+            aria-label={voiceAvailable ? "Hear this line" : undefined}
+            onKeyDown={voiceAvailable ? (e) => {
+              if (e.key === "Enter" || e.key === " ") { e.preventDefault(); speak(ex.native, lang.ttsCode); }
+            } : undefined}
             style={{ background: "var(--surface)", borderRadius: 10, padding: 12, cursor: voiceAvailable ? "pointer" : "default" }}
           >
             <div style={{

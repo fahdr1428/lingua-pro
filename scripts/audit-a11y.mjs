@@ -197,6 +197,46 @@ const SCREENS = [
     await p.waitForTimeout(500);
     await p.locator("button", { hasText: "Letters & sounds" }).first().click();
   }],
+  // v94 — the script course grew three whole screens in v91 and none of them
+  // were ever audited: the walk stopped at the lesson LIST. The primer, the
+  // letter card with its joined-forms panel, and the vowel-sign lesson are
+  // where a learner who cannot read the script spends their first session.
+  ["alphabet · primer", async (p) => {
+    await p.locator(".bottom-nav button", { hasText: "Practice" }).click();
+    await p.waitForTimeout(500);
+    await p.locator("button", { hasText: "Letters & sounds" }).first().click();
+    await p.waitForTimeout(600);
+    await p.locator("button", { hasText: /START HERE/i }).first().click();
+  }],
+  ["alphabet · letter card", async (p) => {
+    await p.locator(".bottom-nav button", { hasText: "Practice" }).click();
+    await p.waitForTimeout(500);
+    await p.locator("button", { hasText: "Letters & sounds" }).first().click();
+    await p.waitForTimeout(600);
+    await p.locator("button", { hasText: /Lesson 1/i }).first().click();
+    await p.waitForTimeout(500);
+    // Step to a letter that connects both ways, so the four joined forms and
+    // the confusable panel are both on screen.
+    await p.locator("button", { hasText: /next letter/i }).first().click();
+  }],
+  ["alphabet · vowel signs", async (p) => {
+    // An abugida, so the matra lesson exists — Urdu has joining instead.
+    await p.evaluate(() => {
+      const s = JSON.parse(localStorage.getItem("lingua:app"));
+      s.currentLanguage = "ml";
+      localStorage.setItem("lingua:app", JSON.stringify(s));
+      const prog = {};
+      prog.ml = { vowels: true, consonants_1: true, consonants_2: true, tricky: true };
+      localStorage.setItem("alphabet_progress", JSON.stringify(prog));
+    });
+    await p.reload();
+    await p.waitForTimeout(1400);
+    await p.locator(".bottom-nav button", { hasText: "Practice" }).click();
+    await p.waitForTimeout(500);
+    await p.locator("button", { hasText: "Letters & sounds" }).first().click();
+    await p.waitForTimeout(600);
+    await p.locator("button", { hasText: /Vowel signs/i }).first().click();
+  }],
   ["my words", async (p) => {
     await p.locator(".bottom-nav button", { hasText: "Practice" }).click();
     await p.waitForTimeout(500);

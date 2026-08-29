@@ -1624,7 +1624,7 @@
         {
           "native": "من هذا؟",
           "translation": "Who is this?",
-          "translit": "min hadha"
+          "translit": "man hadha"
         }
       ],
       "dialects": {
@@ -2874,9 +2874,9 @@
           "translit": "al-maa baarid"
         },
         {
-          "native": "الماء بارد",
-          "translation": "The water is cold",
-          "translit": "al-maa baarid"
+          "native": "الجو بارد اليوم",
+          "translation": "The weather is cold today",
+          "translit": "al-jaw baarid al-yawm"
         }
       ],
       "frequencyRank": 184

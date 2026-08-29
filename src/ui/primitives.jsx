@@ -3,7 +3,7 @@
 // All styled inline so the project has zero CSS-framework dependencies.
 // =============================================================================
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LANGUAGES, listLanguages } from "../data/registry.js";
 
 // v69 (ui-ux-pro-max premium pass): brought the shared Button in line with the
@@ -169,7 +169,22 @@ export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, on
 // instantly (progress per language is preserved). Closes on backdrop tap.
 function LanguagePickerModal({ currentLang, onPick, onClose }) {
   const langs = listLanguages();
+
+  // v94 — the modal could be opened by keyboard and then not closed by one.
+  // It had a labelled ✕ button, but no Escape and no dialog semantics, so a
+  // screen reader announced it as an anonymous group of buttons with no way
+  // out except tabbing to find the ✕.
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") { e.preventDefault(); onClose(); } };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
   return (
+    // The backdrop closes on click, which is a mouse convenience — it must NOT
+    // be a tab stop, and it must NOT be aria-hidden either: the dialog is its
+    // child, so hiding it would hide the whole modal from a screen reader.
+    // Escape is the keyboard equivalent; the ✕ button inside is the visible one.
     <div
       onClick={onClose}
       style={{
@@ -179,6 +194,9 @@ function LanguagePickerModal({ currentLang, onPick, onClose }) {
       }}
     >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="language-picker-title"
         onClick={(e) => e.stopPropagation()}
         style={{
           background: "var(--bg)", borderRadius: 20, padding: 20,
@@ -187,7 +205,7 @@ function LanguagePickerModal({ currentLang, onPick, onClose }) {
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-          <h2 style={{ fontSize: 20, fontWeight: 900, margin: 0 }}>Choose a language</h2>
+          <h2 id="language-picker-title" style={{ fontSize: 20, fontWeight: 900, margin: 0 }}>Choose a language</h2>
           <button onClick={onClose} aria-label="Close" style={{ background: "none", border: "none", fontSize: 22, cursor: "pointer", color: "var(--text-dim)" }}>✕</button>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>

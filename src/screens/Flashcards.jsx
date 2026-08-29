@@ -44,10 +44,9 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
     function onKey(e) {
       // Don't intercept keys if user is typing in an input
       if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
-      if (e.key === " " || e.code === "Space") {
-        e.preventDefault();
-        setFlipped((f) => !f);
-      } else if (e.key === "ArrowRight") {
+      // v94: Space is handled by the card itself now — see the note in
+      // Lesson.jsx. Handling it here too flipped the card twice per keypress.
+      if (e.key === "ArrowRight") {
         e.preventDefault();
         if (idx + 1 >= cards.length) {
           setSelectedUnit(null); setIdx(0); setFlipped(false);
@@ -177,6 +176,13 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
         onClick={() => setFlipped(!flipped)}
         className="slide-up"
         key={`${idx}-${flipped}`}
+        role="button"
+        tabIndex={0}
+        aria-pressed={flipped}
+        aria-label={flipped ? "Card showing the meaning — activate to see the word" : "Card showing the word — activate to see the meaning"}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFlipped(!flipped); }
+        }}
         style={{
           background: flipped ? "var(--primary-soft)" : "var(--surface)",
           border: `2px solid ${flipped ? "var(--primary)" : "var(--border)"}`,

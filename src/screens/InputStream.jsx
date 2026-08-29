@@ -178,6 +178,12 @@ function Section({ label, note, sentences, lang, pack, isNonLatin, showRoman, vo
             <div
               key={key}
               onClick={() => toggle(key)}
+              role="button"
+              tabIndex={0}
+              aria-expanded={revealed.has(key)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(key); }
+              }}
               style={{
                 background: "var(--surface)", border: "1px solid var(--border)",
                 borderRadius: 12, padding: "12px 14px", cursor: "pointer",
