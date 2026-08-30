@@ -284,11 +284,33 @@ probably not enough: reviewers expect reports to reach the operator. See blocker
    and a pulsing mic kept running for someone who had asked the OS to stop them
    (2.3.3 Animation from Interactions). Verified empirically: three animations
    running normally, **zero** with reduced motion requested. Progress bars also
-   now expose `role="progressbar"` with their value (4.1.2).
+   now expose `role="progressbar"` with their value (4.1.2). **v98** fixed the
+   Sentence Lab: tiles already placed were still real `<button>`s with no
+   handler, so a keyboard user was walked through a row of controls that do
+   nothing (they're `disabled` now), and the "Not quite" / "Perfect word order!"
+   feedback was a colour and a mounted `<div>` with no live region — a screen
+   reader user tapped a tile and got silence either way. Both are `role="status"`
+   (4.1.3 Status Messages).
 
    ⚠️ Still outstanding: a real screen-reader journey walked by a human, and
    focus management on route changes. Automated checks cannot tell you whether
    the app is *usable* blind — only that the labels exist.
+9. **Move the AI rate limit into a shared store.** **Partly addressed in v97.**
+   All three AI endpoints identified the caller as
+   `x-forwarded-for.split(",")[0]` — the *leftmost* entry of a header the caller
+   writes — so sending a fresh `X-Forwarded-For` on every request looked like a
+   fresh visitor and the limit never fired. On endpoints with no accounts in
+   front of them that spend money per call, that was the whole protection. They
+   now take the address only from headers the platform sets, fall back to the
+   rightmost forwarded entry, bound the sum across endpoints, and enforce a
+   per-instance ceiling that address rotation cannot escape
+   (`npm run test-api-guard`, 12 assertions).
+
+   ⚠️ Still outstanding: the counters are in-process, so the real ceiling is
+   this times the number of warm instances. Vercel KV / Upstash is the fix, and
+   it needs provisioning this repo does not assume. Set `AI_MAX_PER_MINUTE` and
+   `AI_MAX_PER_CALLER` to suit your budget, and put a spend cap on the Anthropic
+   key regardless.
 
 ### 🟢 Already handled
 
@@ -302,8 +324,9 @@ probably not enough: reviewers expect reports to reach the operator. See blocker
 - No analytics, no ads, no cookies, no tracking, no third-party requests before
   consent
 - API key server-side only; learner text in user turns, never interpolated into
-  the system prompt; per-IP throttle; caps on body, history and turn length;
-  refusals handled; upstream errors never echoed to the client
+  the system prompt; three-level rate limiting on an address the caller cannot
+  forge (v97); caps on body, history and turn length; refusals handled; upstream
+  errors never echoed to the client
 - Reporting control on every AI turn
 - Installable on mobile without an app store
 

@@ -312,8 +312,30 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    languages have both, and `validate-feature-coverage.mjs` fails the build if a
    door is offered without the data behind it.
 
-   Remaining, correctly gated: the sentence lab covers 11 of 19 (missing de, fa,
-   ml, pa, so, ta, tl, zh), and five languages still have no reading passages.
+   v98 closed the sentence lab gap: German, Chinese, Persian, Punjabi, Tamil,
+   Malayalam, Somali and Tagalog now have ladders of their own, so **all
+   nineteen languages have every feature except passages**. Each ladder is built
+   around the one thing that language does differently rather than a translated
+   English template — German's verb-second rule, Chinese measure words and the
+   question word staying where the answer goes, Tagalog's verb-first order and
+   its `ba` particle, Somali's `waa`/`waxaan` markers, Punjabi's gendered present
+   tense, the `-ஆ` / `-ഓ` question suffixes in Tamil and Malayalam. The only
+   remaining gap is reading passages for five languages (item 6).
+
+   Two defects surfaced while building it, both invisible in the source:
+
+   - `validate-sentence-lab.mjs` exists because `SentenceLab.jsx` renders
+     `{isNonLatin ? chunk.translit : chunk.text}` — **in eleven languages the
+     draggable tile is the romanisation**, so a chunk missing `translit` is a
+     blank tile the learner is asked to place, and the file it came from looks
+     perfectly fine.
+   - the word bank was shuffled with `sort(() => Math.random() - 0.5)`. Measured
+     over 4,000 deals: **49.7% of two-chunk banks, 37.8% of three-chunk and
+     19.3% of four-chunk banks came out already in the correct order** — across
+     the content the app ships, 37% of build steps handed the learner the
+     finished sentence and asked them to build it. Fisher–Yates with a reshuffle
+     when the result matches the answer; `test-shuffle.mjs` pins it, and fails
+     with those exact numbers against the old line.
 
 6. **Five languages have no reading passages and no recorded audio** — Tagalog
    and Persian (v86), Malayalam, Tamil and Somali (v89). The packs, guides and example sentences are there and

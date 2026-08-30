@@ -17,14 +17,20 @@ import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { ROLE_COLORS } from "../data/sentencePatterns.js";
 import { speak } from "../audio/tts.js";
+import { shuffleBank } from "./shuffleBank.js";
 
 
-// A single color-coded chunk "tile"
+// A single color-coded chunk "tile". Without an onClick it is a label, not a
+// control: `disabled` keeps it out of the tab order so a keyboard user isn't
+// walked through a row of buttons that do nothing.
 function ChunkTile({ chunk, isNonLatin, rtl, onClick, faded, small }) {
   const color = ROLE_COLORS[chunk.role] || ROLE_COLORS.particle;
+  const shown = isNonLatin ? chunk.translit : chunk.text;
   return (
     <button
       onClick={onClick}
+      disabled={!onClick}
+      aria-label={onClick ? `${shown} — ${chunk.gloss}` : undefined}
       style={{
         background: faded ? "var(--surface)" : color.bg,
         color: faded ? "var(--text-dim)" : "#fff",
@@ -39,7 +45,7 @@ function ChunkTile({ chunk, isNonLatin, rtl, onClick, faded, small }) {
       }}
     >
       <div style={{ fontSize: small ? 18 : 22, fontWeight: 800, lineHeight: 1.2 }}>
-        {isNonLatin ? chunk.translit : chunk.text}
+        {shown}
       </div>
       <div style={{ fontSize: 11, opacity: 0.85, marginTop: 2 }}>{chunk.gloss}</div>
     </button>
@@ -172,10 +178,7 @@ function BuildStep({ pattern, lang, isNonLatin, rtl, scaffold, onNext }) {
   const [placed, setPlaced] = useState([]);
   const [wrong, setWrong] = useState(false);
 
-  const bank = useMemo(() => {
-    const arr = correct.map((c, i) => ({ ...c, _id: i }));
-    return arr.slice().sort(() => Math.random() - 0.5);
-  }, [pattern]);
+  const bank = useMemo(() => shuffleBank(correct), [pattern]);
 
   const remaining = bank.filter((b) => !placed.find((p) => p._id === b._id));
 
@@ -240,11 +243,15 @@ function BuildStep({ pattern, lang, isNonLatin, rtl, scaffold, onNext }) {
         </div>
       )}
 
-      {wrong && <div style={{ color: "var(--danger)", fontSize: 13, marginTop: 10 }}>Not quite — remember the word order. Try the next piece.</div>}
+      {/* Feedback here is a colour and a line of text. Both are invisible to a
+          screen reader unless the region announces itself. */}
+      <div role="status" aria-live="polite" style={{ color: "var(--danger)", fontSize: 13, marginTop: wrong ? 10 : 0 }}>
+        {wrong ? "Not quite — remember the word order. Try the next piece." : ""}
+      </div>
 
       {complete && (
-        <div style={{ marginTop: 8 }}>
-          <div style={{ fontSize: 32 }}>🎉</div>
+        <div style={{ marginTop: 8 }} role="status" aria-live="polite">
+          <div style={{ fontSize: 32 }} aria-hidden="true">🎉</div>
           <div style={{ fontWeight: 800, color: "var(--accent-text)", marginBottom: 12 }}>Perfect word order!</div>
           <Button onClick={onNext}>Continue →</Button>
         </div>
@@ -258,7 +265,7 @@ function TwistStep({ twist, lang, isNonLatin, rtl, onNext }) {
   const correct = twist.chunks;
   const [placed, setPlaced] = useState([]);
   const [wrong, setWrong] = useState(false);
-  const bank = useMemo(() => correct.map((c, i) => ({ ...c, _id: i })).slice().sort(() => Math.random() - 0.5), [twist]);
+  const bank = useMemo(() => shuffleBank(correct), [twist]);
   const remaining = bank.filter((b) => !placed.find((p) => p._id === b._id));
 
   function tap(chunk) {
@@ -290,10 +297,12 @@ function TwistStep({ twist, lang, isNonLatin, rtl, onNext }) {
           {remaining.map((c) => <ChunkTile key={c._id} chunk={c} isNonLatin={isNonLatin} rtl={rtl} small onClick={() => tap(c)} />)}
         </div>
       )}
-      {wrong && <div style={{ color: "var(--danger)", fontSize: 13, marginTop: 10 }}>Close — check the order and try the next piece.</div>}
+      <div role="status" aria-live="polite" style={{ color: "var(--danger)", fontSize: 13, marginTop: wrong ? 10 : 0 }}>
+        {wrong ? "Close — check the order and try the next piece." : ""}
+      </div>
       {complete && (
-        <div style={{ marginTop: 8 }}>
-          <div style={{ fontSize: 32 }}>🌟</div>
+        <div style={{ marginTop: 8 }} role="status" aria-live="polite">
+          <div style={{ fontSize: 32 }} aria-hidden="true">🌟</div>
           <div style={{ fontWeight: 800, color: "var(--accent-text)", marginBottom: 4 }}>You built that yourself!</div>
           <div style={{ fontSize: 14, color: "var(--text-dim)", marginBottom: 12 }}>"{twist.translation}"</div>
           <Button onClick={onNext}>Finish →</Button>
