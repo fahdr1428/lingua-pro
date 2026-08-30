@@ -26,6 +26,7 @@
     "audit-keyboard": "node scripts/audit-keyboard.mjs",
     "audit-motion": "node scripts/audit-motion.mjs",
     "verify-motion": "node scripts/verify-motion.mjs",
+    "verify-sentence-lab": "node scripts/verify-sentence-lab.mjs",
     "verify-keyboard-card": "node scripts/verify-keyboard-card.mjs",
     "validate-themes": "node scripts/validate-themes.mjs",
     "verify-offline": "node scripts/verify-offline.mjs",
