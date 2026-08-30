@@ -37,6 +37,7 @@ import {
   hasPassedChapter, chapterOfUnitIndex, chapterVocabIds,
 } from "../data/chapters.js";
 import { hasSentencePatterns, getPatternForDrop } from "../data/sentencePatterns.js";
+import { hasScriptCourse, scriptStops, hasPassedScript } from "../data/scriptCourse.js";
 import {
   todayKey, weakestWords, streakStage, nextMilestone, coachLine, daypart,
   goalLabel, estMinutes,
@@ -210,8 +211,28 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
   // THE one next action — strict priority, no competing cards.
   // ---------------------------------------------------------------------------
   const nextAction = useMemo(() => {
-    // 1. Milestone exam due (every 3 lessons)
     const done = appState?.lessonsCompleted?.[pack.code] || 0;
+
+    // 0. CHAPTER 0 — can they read the script at all? (v99)
+    //
+    // Ahead of everything else, and only at the very start: the first lessons
+    // put the language in its own script in front of someone we have never
+    // asked whether they can read it. Offered for the first two lessons and
+    // then it stops nagging — a learner who has decided to muddle through with
+    // romanisation is allowed to, and Chapter 0 stays on the route for
+    // whenever they change their mind.
+    if (hasScriptCourse(pack) && !hasPassedScript(appState, pack.code) && done < 2) {
+      return {
+        kind: "script",
+        eyebrow: "Chapter 0 · before words",
+        title: `Can you read ${lang.name}?`,
+        sub: "Two minutes. Pass and you skip straight to the lessons; don't and we'll teach you the script first.",
+        mins: 2,
+        go: () => onNavigate("scriptexam"),
+      };
+    }
+
+    // 1. Milestone exam due (every 3 lessons)
     const lastCleared = appState?.lastCheckpointAt?.[pack.code] ?? -1;
     if (done >= 3 && done % 3 === 0 && lastCleared !== done && (stats.learned || 0) >= 6) {
       const examSize = Math.min(15, Math.max(6, stats.learned));
@@ -266,7 +287,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
       };
     }
     return null;
-  }, [appState, pack.code, stats, currentUnit]);
+  }, [appState, pack, pack.code, lang, stats, currentUnit]);
 
   // v65: adapt the chosen plan's wording to the learner's current situation.
   const signals = useLearnerSignals(appState, stats, pack.code);
@@ -459,6 +480,20 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             what do I do now → where am I → what else can I practise → how am I
             doing overall. */}
         <h3 className="home-section-head">Your route</h3>
+
+        {/* v99 — CHAPTER 0. The script course used to be a tile in "more ways to
+            practise", below the fold, next to flashcards; the route opened on
+            Introductions and handed the learner ഞാൻ on the assumption they
+            could read it. For a heritage learner that assumption is often
+            exactly backwards. It is the first thing on the route now, and it
+            ends in an exam so anyone who already reads can prove it in two
+            minutes and go straight to Chapter 1. */}
+        <ScriptChapterZero
+          pack={pack}
+          lang={lang}
+          appState={appState}
+          onNavigate={onNavigate}
+        />
 
         {loadingUnits ? (
           <div style={{ textAlign: "center", padding: 40, color: "var(--text-dim)" }}>Loading…</div>
@@ -984,6 +1019,130 @@ export function ReachPanel({ stops = [], reached = 0, chapterTitle, due = 0, onR
 // CONVERSATION rather than a unit number. Chapter exams sit inline on the same
 // line, and any units past the written stops still render as unit nodes, so
 // nothing in the curriculum becomes unreachable.
+// =============================================================================
+// CHAPTER 0 — how this language is written, on the route, before introductions.
+//
+// Renders nothing at all for a Latin-script language: a Spanish learner can
+// already read "hola", and a collapsed "Chapter 0 (not applicable)" row would be
+// worse than absent. The gate is the pack's own alphabet data — see
+// hasScriptCourse — so a language that gains letters gains the chapter.
+//
+// Once the reading exam is passed the whole chapter collapses to a single quiet
+// line. It stays on the route rather than disappearing, because "I did that" is
+// information, and because the letter lessons remain worth revisiting.
+// =============================================================================
+function ScriptChapterZero({ pack, lang, appState, onNavigate }) {
+  const [open, setOpen] = useState(false);
+  if (!hasScriptCourse(pack)) return null;
+
+  const passed = hasPassedScript(appState, pack.code);
+  const stops = scriptStops(pack);
+
+  // Which stops the learner has worked through, read from the alphabet screen's
+  // own store rather than a second copy that could drift out of step with it.
+  let visited = {};
+  try { visited = (JSON.parse(localStorage.getItem("alphabet_progress") || "{}"))[pack.code] || {}; } catch {}
+  const doneCount = stops.filter((s) => visited[s.id]).length;
+
+  if (passed) {
+    return (
+      <div className="stop-row" style={{ marginBottom: 4 }}>
+        <div className="stop-gutter">
+          <div className="stop-dot stop-dot-done">✓</div>
+          <div className="stop-line stop-line-done" />
+        </div>
+        <button
+          onClick={() => onNavigate("alphabet")}
+          style={{
+            flex: 1, textAlign: "left", background: "none", border: "none",
+            padding: "0 0 16px", cursor: "pointer", opacity: 0.72, minWidth: 0,
+          }}
+        >
+          <div style={{ fontSize: 14.5, color: "var(--text)", lineHeight: 1.4 }}>
+            Chapter 0 — you can read {lang.name}
+          </div>
+          <div style={{ fontSize: 12, color: "var(--text-mute)", marginTop: 3 }}>
+            Reading test passed · the letters are still here if you want them
+          </div>
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="chapter-zero" style={{
+      border: "1px solid var(--border)", borderRadius: 14, padding: 14,
+      marginBottom: 16, background: "var(--surface)",
+    }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
+        <div style={{ minWidth: 0 }}>
+          {/* Just "Chapter 0" — the hero directly above already says
+              "Chapter 0 · before words", and the same eyebrow twice on one
+              screen reads as a rendering bug rather than emphasis. */}
+          <div className="eyebrow" style={{ color: "var(--accent-text)" }}>Chapter 0</div>
+          <div style={{ fontSize: 17, fontWeight: 800, marginTop: 4, lineHeight: 1.3 }}>
+            How {lang.name} is written
+          </div>
+          <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 6, lineHeight: 1.5 }}>
+            The lessons ahead show you {lang.name} in {lang.name} script. This is where that stops being
+            a wall — what kind of system it is, the letters, and the marks that turn letters into words.
+          </div>
+        </div>
+        <div style={{ fontSize: 30 }} aria-hidden="true">🔤</div>
+      </div>
+
+      {/* The exam first, and said plainly. Someone who reads already should not
+          have to scroll past six letter lessons to find the way out. */}
+      <button
+        className="btn-premium"
+        style={{ marginTop: 14 }}
+        onClick={() => onNavigate("scriptexam")}
+      >
+        Already read it? Take the 2-minute test →
+      </button>
+
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        style={{
+          marginTop: 10, width: "100%", background: "none", border: "none",
+          color: "var(--text-dim)", fontSize: 13, cursor: "pointer", padding: "6px 0",
+          textAlign: "center",
+        }}
+      >
+        {open ? "Hide" : "Or learn it"} · {stops.length} step{stops.length === 1 ? "" : "s"}
+        {doneCount ? ` · ${doneCount} done` : ""} {open ? "▲" : "▼"}
+      </button>
+
+      {open && (
+        <div style={{ marginTop: 6 }}>
+          {stops.map((s, i) => (
+            <div className="stop-row" key={s.id}>
+              <div className="stop-gutter">
+                <div className={`stop-dot ${visited[s.id] ? "stop-dot-done" : "stop-dot-todo"}`}>
+                  {visited[s.id] ? "✓" : ""}
+                </div>
+                {i < stops.length - 1 && <div className={`stop-line ${visited[s.id] ? "stop-line-done" : ""}`} />}
+              </div>
+              <button
+                onClick={() => onNavigate("alphabet", { lesson: s.id })}
+                style={{
+                  flex: 1, textAlign: "left", background: "none", border: "none",
+                  padding: "0 0 14px", cursor: "pointer", minWidth: 0,
+                  opacity: visited[s.id] ? 0.72 : 1,
+                }}
+              >
+                <div style={{ fontSize: 14.5, color: "var(--text)", lineHeight: 1.4 }}>{s.title}</div>
+                <div style={{ fontSize: 12, color: "var(--text-mute)", marginTop: 3 }}>{s.sub}</div>
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function JourneySpine({ stops, reached, unitProgress, appState, pack, onNavigate }) {
   const rows = [];
 

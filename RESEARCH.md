@@ -298,6 +298,42 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    primer, an Arabic-script language has no joining rules, an abugida has no
    vowel signs, or Hangul has no block lesson.
 
+4b. **The course assumed literacy, and for heritage learners that is backwards.**
+   The app taught a genuine script course — primer, letter groups, vowel signs,
+   joined forms, Hangul blocks, confusable pairs — and put it in a tile under
+   "more ways to practise", below the fold, next to flashcards. The route opened
+   on *Introductions* and showed Malayalam in Malayalam script.
+
+   The people this app is for often speak some of a language and read none of
+   it. Handing that person ഞാൻ is not comprehensible input, it is a wall; and
+   the thing that would have helped looked optional.
+
+   **v99 makes the script course Chapter 0** — first on the route, ahead of
+   introductions, for the eleven languages whose packs carry letters. The eight
+   Latin-script languages show nothing, because there is nothing honest to
+   teach.
+
+   The design constraint that shaped it: a learner who *already* reads must be
+   able to leave in two minutes. So the chapter opens with its own exit — a
+   twelve-question reading test — and the test asks *what does this say* and
+   *what does it mean* using real words from the learner's pack, rather than
+   asking them to name letters. Naming letters is a party trick a reader never
+   performs and a non-reader can be drilled into.
+
+   The distractors are where a multiple-choice reading test is won or lost: with
+   random wrong answers the question is answerable by elimination without
+   reading anything, so they come from the same script, the same length band,
+   and — for letters — from that letter's own confusable set (ത vs ട, ن vs ت).
+   Guessing passes fewer than 1 in 1,000 times, measured over 20,000 simulated
+   papers.
+
+   Two defects surfaced only because the checks build the real thing rather than
+   inspect the data: Chinese would have been asked to name `b p m f` (the pinyin
+   initials — Chinese has no alphabet), and papers were coming out eleven
+   questions long wherever a pack names two letters the same, which silently
+   moved the exam's own pass mark. Neither is visible in a single draw;
+   `test-script-exam.mjs` builds 200 papers per language.
+
 5. **Feature coverage is uneven, and now it is measured.** A language pack is
    not one thing — vocabulary, a route map, a script course, grammar, passages,
    conversations, culture notes, verb tables and sentence patterns were added by

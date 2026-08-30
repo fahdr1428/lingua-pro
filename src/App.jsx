@@ -43,6 +43,7 @@ const named = (loader, key) => React.lazy(() => loader().then((m) => ({ default:
 
 const Flashcards = named(() => import("./screens/Flashcards.jsx"), "Flashcards");
 const AlphabetLessons = named(() => import("./screens/AlphabetLessons.jsx"), "AlphabetLessons");
+const ScriptExam = named(() => import("./screens/ScriptExam.jsx"), "ScriptExam");
 const Reading = named(() => import("./screens/Reading.jsx"), "Reading");
 const Conversations = named(() => import("./screens/Conversations.jsx"), "Conversations");
 const SentenceLab = named(() => import("./screens/SentenceLab.jsx"), "SentenceLab");
@@ -175,6 +176,7 @@ const DEFAULT_APP_STATE = {
   sentenceDropsDone: {}, // v47: { langCode: highestDropNumber } — Sentence Lab progress
   lastCheckpointAt: {}, // { langCode: lessonCount when last checkpoint cleared }
   testedOut: {}, // { langCode: [wordId,...] } — words skipped via placement test
+  scriptCourse: {}, // v99: { langCode: { passed, at, score } } — Chapter 0's reading exam
   passagesRead: {}, // v79: { langCode: [passageId,...] } — so the reading library advances
   voice: null, // v74: { coachVoiceURI, tone, speed, targetVoiceURI } — null = automatic
   disabledExercises: [], // v76: exercise types the learner switched off
@@ -368,6 +370,7 @@ export default function App() {
         {screen === "lesson" && <Lesson {...screenProps} />}
         {screen === "flashcards" && <Flashcards {...screenProps} />}
         {screen === "alphabet" && <AlphabetLessons {...screenProps} />}
+        {screen === "scriptexam" && <ScriptExam {...screenProps} />}
         {screen === "practice" && <Practice {...screenProps} />}
         {screen === "speak" && <Speak {...screenProps} />}
         {screen === "culture" && <Culture {...screenProps} />}

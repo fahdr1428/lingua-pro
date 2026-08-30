@@ -82,13 +82,21 @@ function glyphBox(lang, fontSize) {
   };
 }
 
-export function AlphabetLessons({ pack, appState, onNavigate }) {
+export function AlphabetLessons({ pack, appState, params, onNavigate }) {
   const lang = LANGUAGES[pack.code];
   const voiceAvailable = hasVoiceFor(lang.ttsCode);
   const sys = pack.scriptSystem || null;
 
   const [progress, setProgress] = useState(loadProgress());
-  const [activeGroup, setActiveGroup] = useState(null);
+  // v99 — Chapter 0 on the route deep-links to one stop, so arriving with a
+  // `lesson` opens it rather than dropping the learner at the menu they just
+  // chose from. Unknown ids fall through to the menu instead of a blank screen.
+  const [activeGroup, setActiveGroup] = useState(() => {
+    const want = params?.lesson;
+    if (!want) return null;
+    if (want === PRIMER || want === VOWELS || want === BLOCKS) return { id: want, synthetic: true };
+    return (pack.alphabetGroups || []).find((g) => g.id === want) || null;
+  });
   const [phase, setPhase] = useState("learn"); // "learn" | "quiz" | "done"
   const [letterIdx, setLetterIdx] = useState(0);
 
