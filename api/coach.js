@@ -27,6 +27,7 @@
 // =============================================================================
 
 import Anthropic from "@anthropic-ai/sdk";
+import { rateLimit } from "./_guard.js";
 
 // Opus 5 is the default. Override with COACH_MODEL if you want to trade quality
 // for cost — that's a deployment decision, not one this file should make.
@@ -39,25 +40,6 @@ const MAX_TURN_CHARS = 400;
 // Generous because thinking is on by default on Opus 5 and max_tokens caps
 // thinking + response together — too tight and the JSON truncates mid-object.
 const MAX_TOKENS = 4096;
-
-// Best-effort per-IP throttle. In-process, so it resets on cold start.
-const WINDOW_MS = 60_000;
-const MAX_PER_WINDOW = 20;
-const hits = new Map();
-
-function throttled(ip) {
-  const now = Date.now();
-  const bucket = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
-  bucket.push(now);
-  hits.set(ip, bucket);
-  // Keep the map from growing without bound across a warm instance's lifetime.
-  if (hits.size > 500) {
-    for (const [key, times] of hits) {
-      if (!times.some((t) => now - t < WINDOW_MS)) hits.delete(key);
-    }
-  }
-  return bucket.length > MAX_PER_WINDOW;
-}
 
 // The guide replies as a structured object so the client knows which part to
 // speak in which voice. Without this the model returns prose and the client has
@@ -301,12 +283,14 @@ export default async function handler(req, res) {
     });
   }
 
-  const ip =
-    (req.headers["x-forwarded-for"] || "").split(",")[0].trim() ||
-    req.socket?.remoteAddress ||
-    "unknown";
-  if (throttled(ip)) {
-    return res.status(429).json({ error: "rate_limited", message: "Too many turns too quickly — give it a moment." });
+  const limit = rateLimit(req, { endpoint: "coach", max: 20 });
+  if (!limit.ok) {
+    return res.status(429).json({
+      error: "rate_limited",
+      message: limit.reason === "global"
+        ? "The coach is busy right now — try again in a moment."
+        : "Too many turns too quickly — give it a moment.",
+    });
   }
 
   // Vercel parses JSON bodies, but be defensive: this also runs under `vercel

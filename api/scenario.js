@@ -19,28 +19,12 @@
 // =============================================================================
 
 import Anthropic from "@anthropic-ai/sdk";
+import { rateLimit } from "./_guard.js";
 
 const MODEL = process.env.COACH_MODEL || "claude-opus-5";
 const MAX_BODY_BYTES = 8 * 1024;
 const MAX_DESC_CHARS = 300;
 const MAX_TOKENS = 2048;
-
-const WINDOW_MS = 60_000;
-const MAX_PER_WINDOW = 8; // stricter than /api/coach — this is a one-off setup call
-const hits = new Map();
-
-function throttled(ip) {
-  const now = Date.now();
-  const bucket = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
-  bucket.push(now);
-  hits.set(ip, bucket);
-  if (hits.size > 500) {
-    for (const [key, times] of hits) {
-      if (!times.some((t) => now - t < WINDOW_MS)) hits.delete(key);
-    }
-  }
-  return bucket.length > MAX_PER_WINDOW;
-}
 
 const MISSION_SCHEMA = {
   type: "object",
@@ -110,9 +94,14 @@ export default async function handler(req, res) {
     return res.status(501).json({ configured: false, error: "not_configured", message: "Custom scenarios need an API key on this deployment." });
   }
 
-  const ip = (req.headers["x-forwarded-for"] || "").split(",")[0].trim() || req.socket?.remoteAddress || "unknown";
-  if (throttled(ip)) {
-    return res.status(429).json({ error: "rate_limited", message: "Give it a moment before building another." });
+  const limit = rateLimit(req, { endpoint: "scenario", max: 8 });
+  if (!limit.ok) {
+    return res.status(429).json({
+      error: "rate_limited",
+      message: limit.reason === "global"
+        ? "Scenario building is busy right now — try again in a moment."
+        : "Give it a moment before building another.",
+    });
   }
 
   let body = req.body;

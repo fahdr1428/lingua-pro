@@ -30,28 +30,12 @@
 // =============================================================================
 
 import Anthropic from "@anthropic-ai/sdk";
+import { rateLimit } from "./_guard.js";
 
 const MODEL = process.env.COACH_MODEL || "claude-opus-5";
 const MAX_TEXT_CHARS = 600;
 const MAX_BODY_BYTES = 8 * 1024;
 const MAX_TOKENS = 4096;
-
-const WINDOW_MS = 60_000;
-const MAX_PER_WINDOW = 10;
-const hits = new Map();
-
-function throttled(ip) {
-  const now = Date.now();
-  const bucket = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
-  bucket.push(now);
-  hits.set(ip, bucket);
-  if (hits.size > 500) {
-    for (const [key, times] of hits) {
-      if (!times.some((t) => now - t < WINDOW_MS)) hits.delete(key);
-    }
-  }
-  return bucket.length > MAX_PER_WINDOW;
-}
 
 const SCHEMA = {
   type: "object",
@@ -182,12 +166,14 @@ export default async function handler(req, res) {
     });
   }
 
-  const ip =
-    (req.headers["x-forwarded-for"] || "").split(",")[0].trim() ||
-    req.socket?.remoteAddress ||
-    "unknown";
-  if (throttled(ip)) {
-    return res.status(429).json({ error: "rate_limited", message: "Give it a moment before decoding another." });
+  const limit = rateLimit(req, { endpoint: "decode", max: 10 });
+  if (!limit.ok) {
+    return res.status(429).json({
+      error: "rate_limited",
+      message: limit.reason === "global"
+        ? "Decode is busy right now — try again in a moment."
+        : "Give it a moment before decoding another.",
+    });
   }
 
   let body = req.body;
