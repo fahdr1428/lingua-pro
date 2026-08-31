@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "code": "ta",
   "categories": [
+    "Body",
     "Common",
     "Connectors",
     "Family",
@@ -2064,7 +2065,7 @@
       "category": "Connectors",
       "lemma": "கூட",
       "translit": "kooda",
-      "translation": "with",
+      "translation": "with, also",
       "difficulty": 1,
       "examples": [
         {
@@ -2363,6 +2364,278 @@
         }
       ],
       "frequencyRank": 124
+    },
+    {
+      "id": "ta_0125",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "கழிவறை",
+      "translation": "bathroom",
+      "difficulty": 1,
+      "frequencyRank": 125,
+      "examples": [
+        {
+          "native": "கழிவறை எங்கே?",
+          "translation": "Where is the bathroom?",
+          "translit": "kazhivarai enge"
+        }
+      ],
+      "translit": "kazhivarai"
+    },
+    {
+      "id": "ta_0126",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "ரொட்டி",
+      "translation": "bread",
+      "difficulty": 1,
+      "frequencyRank": 126,
+      "examples": [
+        {
+          "native": "எனக்கு ரொட்டி வேண்டும்",
+          "translation": "I want bread",
+          "translit": "enakku rotti vendum"
+        }
+      ],
+      "translit": "rotti"
+    },
+    {
+      "id": "ta_0127",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "தூங்க",
+      "translation": "to sleep",
+      "difficulty": 1,
+      "frequencyRank": 127,
+      "examples": [
+        {
+          "native": "நான் தூங்க வேண்டும்",
+          "translation": "I need to sleep",
+          "translit": "naan thoonga vendum"
+        }
+      ],
+      "translit": "thoonga"
+    },
+    {
+      "id": "ta_0128",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "நினைக்க",
+      "translation": "to think",
+      "difficulty": 1,
+      "frequencyRank": 128,
+      "examples": [
+        {
+          "native": "உன்னை நினைக்கிறேன்",
+          "translation": "I am thinking of you",
+          "translit": "unnai ninaikkiren"
+        }
+      ],
+      "translit": "ninaikka"
+    },
+    {
+      "id": "ta_0129",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "வருடம்",
+      "translation": "year",
+      "difficulty": 1,
+      "frequencyRank": 129,
+      "examples": [
+        {
+          "native": "ஒரு வருடம் ஆகிவிட்டது",
+          "translation": "A year has passed",
+          "translit": "oru varudam aagivittathu"
+        }
+      ],
+      "translit": "varudam"
+    },
+    {
+      "id": "ta_0130",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "ஹோட்டல்",
+      "translation": "hotel",
+      "difficulty": 1,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "ஹோட்டல் அருகில் இருக்கிறது",
+          "translation": "The hotel is near",
+          "translit": "hottal arugil irukkirathu"
+        }
+      ],
+      "translit": "hottal"
+    },
+    {
+      "id": "ta_0131",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "கார்",
+      "translation": "car",
+      "difficulty": 1,
+      "frequencyRank": 131,
+      "examples": [
+        {
+          "native": "கார் வந்துவிட்டது",
+          "translation": "The car has come",
+          "translit": "kaar vanthuvittathu"
+        }
+      ],
+      "translit": "kaar"
+    },
+    {
+      "id": "ta_0132",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "தலை",
+      "translation": "head",
+      "difficulty": 1,
+      "frequencyRank": 132,
+      "examples": [
+        {
+          "native": "என் தலை வலிக்கிறது",
+          "translation": "My head hurts",
+          "translit": "en thalai valikkirathu"
+        }
+      ],
+      "translit": "thalai"
+    },
+    {
+      "id": "ta_0133",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "கை",
+      "translation": "hand",
+      "difficulty": 1,
+      "frequencyRank": 133,
+      "examples": [
+        {
+          "native": "கையை கழுவு",
+          "translation": "Wash your hands",
+          "translit": "kaiyai kazhuvu"
+        }
+      ],
+      "translit": "kai"
+    },
+    {
+      "id": "ta_0134",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "இதயம்",
+      "translation": "heart",
+      "difficulty": 1,
+      "frequencyRank": 134,
+      "examples": [
+        {
+          "native": "என் இதயம் நிறைந்தது",
+          "translation": "My heart is full",
+          "translit": "en ithayam nirainthathu"
+        }
+      ],
+      "translit": "ithayam"
+    },
+    {
+      "id": "ta_0135",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "கருப்பு",
+      "translation": "black",
+      "difficulty": 1,
+      "frequencyRank": 135,
+      "examples": [
+        {
+          "native": "கருப்பு தேநீர்",
+          "translation": "Black tea",
+          "translit": "karuppu theneer"
+        }
+      ],
+      "translit": "karuppu"
+    },
+    {
+      "id": "ta_0136",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "வெள்ளை",
+      "translation": "white",
+      "difficulty": 1,
+      "frequencyRank": 136,
+      "examples": [
+        {
+          "native": "வெள்ளை சட்டை",
+          "translation": "A white shirt",
+          "translit": "vellai sattai"
+        }
+      ],
+      "translit": "vellai"
+    },
+    {
+      "id": "ta_0137",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "சூரியன்",
+      "translation": "sun",
+      "difficulty": 1,
+      "frequencyRank": 137,
+      "examples": [
+        {
+          "native": "சூரியன் உதித்தான்",
+          "translation": "The sun has risen",
+          "translit": "sooriyan uthithaan"
+        }
+      ],
+      "translit": "sooriyan"
+    },
+    {
+      "id": "ta_0138",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "மழை",
+      "translation": "rain",
+      "difficulty": 1,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "மழை பெய்கிறது",
+          "translation": "It is raining",
+          "translit": "mazhai peygirathu"
+        }
+      ],
+      "translit": "mazhai"
+    },
+    {
+      "id": "ta_0139",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "ரயில்",
+      "translation": "train",
+      "difficulty": 1,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "ரயில் தாமதம்",
+          "translation": "The train is late",
+          "translit": "rayil thaamatham"
+        }
+      ],
+      "translit": "rayil"
+    },
+    {
+      "id": "ta_0140",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "எவ்வளவு",
+      "translation": "how much, how many",
+      "difficulty": 1,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "இது எவ்வளவு?",
+          "translation": "How much is this?",
+          "translit": "ithu evvalavu"
+        }
+      ],
+      "translit": "evvalavu"
     }
   ],
   "alphabetGroups": [

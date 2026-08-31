@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "code": "tl",
   "categories": [
+    "Body",
     "Common",
     "Family",
     "Feelings",
@@ -2008,6 +2009,261 @@
         }
       ],
       "frequencyRank": 125
+    },
+    {
+      "id": "tl_0126",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "banyo",
+      "translation": "bathroom",
+      "difficulty": 1,
+      "frequencyRank": 126,
+      "examples": [
+        {
+          "native": "Nasaan ang banyo?",
+          "translation": "Where is the bathroom?"
+        }
+      ]
+    },
+    {
+      "id": "tl_0127",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "tinapay",
+      "translation": "bread",
+      "difficulty": 1,
+      "frequencyRank": 127,
+      "examples": [
+        {
+          "native": "Bumili ako ng tinapay.",
+          "translation": "I bought bread."
+        }
+      ]
+    },
+    {
+      "id": "tl_0128",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "tsaa",
+      "translation": "tea",
+      "difficulty": 1,
+      "frequencyRank": 128,
+      "examples": [
+        {
+          "native": "Gusto ko ng tsaa.",
+          "translation": "I want tea."
+        }
+      ]
+    },
+    {
+      "id": "tl_0129",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "gatas",
+      "translation": "milk",
+      "difficulty": 1,
+      "frequencyRank": 129,
+      "examples": [
+        {
+          "native": "May gatas ba?",
+          "translation": "Is there milk?"
+        }
+      ]
+    },
+    {
+      "id": "tl_0130",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "isipin",
+      "translation": "to think",
+      "difficulty": 1,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "Iniisip kita.",
+          "translation": "I am thinking of you."
+        }
+      ]
+    },
+    {
+      "id": "tl_0131",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "linggo",
+      "translation": "week",
+      "difficulty": 1,
+      "frequencyRank": 131,
+      "examples": [
+        {
+          "native": "Sa susunod na linggo.",
+          "translation": "Next week."
+        }
+      ]
+    },
+    {
+      "id": "tl_0132",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "taon",
+      "translation": "year",
+      "difficulty": 1,
+      "frequencyRank": 132,
+      "examples": [
+        {
+          "native": "Isang taon na ang lumipas.",
+          "translation": "A year has passed."
+        }
+      ]
+    },
+    {
+      "id": "tl_0133",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "hotel",
+      "translation": "hotel",
+      "difficulty": 1,
+      "frequencyRank": 133,
+      "examples": [
+        {
+          "native": "Malapit ang hotel.",
+          "translation": "The hotel is near."
+        }
+      ]
+    },
+    {
+      "id": "tl_0134",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "kotse",
+      "translation": "car",
+      "difficulty": 1,
+      "frequencyRank": 134,
+      "examples": [
+        {
+          "native": "May kotse kami.",
+          "translation": "We have a car."
+        }
+      ]
+    },
+    {
+      "id": "tl_0135",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "ulo",
+      "translation": "head",
+      "difficulty": 1,
+      "frequencyRank": 135,
+      "examples": [
+        {
+          "native": "Masakit ang ulo ko.",
+          "translation": "My head hurts."
+        }
+      ]
+    },
+    {
+      "id": "tl_0136",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "kamay",
+      "translation": "hand",
+      "difficulty": 1,
+      "frequencyRank": 136,
+      "examples": [
+        {
+          "native": "Hugasan mo ang kamay mo.",
+          "translation": "Wash your hands."
+        }
+      ]
+    },
+    {
+      "id": "tl_0137",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "puso",
+      "translation": "heart",
+      "difficulty": 1,
+      "frequencyRank": 137,
+      "examples": [
+        {
+          "native": "Puno ang puso ko.",
+          "translation": "My heart is full."
+        }
+      ]
+    },
+    {
+      "id": "tl_0138",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "itim",
+      "translation": "black",
+      "difficulty": 1,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "Itim na kape.",
+          "translation": "Black coffee."
+        }
+      ]
+    },
+    {
+      "id": "tl_0139",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "puti",
+      "translation": "white",
+      "difficulty": 1,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "Puting damit.",
+          "translation": "White clothes."
+        }
+      ]
+    },
+    {
+      "id": "tl_0140",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ulan",
+      "translation": "rain",
+      "difficulty": 1,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "Umuulan na.",
+          "translation": "It is raining."
+        }
+      ]
+    },
+    {
+      "id": "tl_0141",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "tren",
+      "translation": "train",
+      "difficulty": 1,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "Nahuli ang tren.",
+          "translation": "The train was late."
+        }
+      ]
+    },
+    {
+      "id": "tl_0142",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "din",
+      "translation": "also, too (din / rin)",
+      "difficulty": 1,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "Masarap din ang pagkain.",
+          "translation": "The food is delicious too."
+        }
+      ]
     }
   ],
   "alphabetGroups": [

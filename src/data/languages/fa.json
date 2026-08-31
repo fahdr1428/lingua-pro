@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "code": "fa",
   "categories": [
+    "Body",
     "Common",
     "Family",
     "Feelings",
@@ -2286,6 +2287,363 @@
         }
       ],
       "frequencyRank": 120
+    },
+    {
+      "id": "fa_0121",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "نوشیدن",
+      "translation": "to drink",
+      "difficulty": 1,
+      "frequencyRank": 121,
+      "examples": [
+        {
+          "native": "چای می‌نوشم",
+          "translation": "I drink tea",
+          "translit": "chây minusham"
+        }
+      ],
+      "translit": "nushidan"
+    },
+    {
+      "id": "fa_0122",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "دستشویی",
+      "translation": "bathroom, toilet",
+      "difficulty": 1,
+      "frequencyRank": 122,
+      "examples": [
+        {
+          "native": "دستشویی کجاست؟",
+          "translation": "Where is the bathroom?",
+          "translit": "dastshuyi kojâst"
+        }
+      ],
+      "translit": "dastshuyi"
+    },
+    {
+      "id": "fa_0123",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "مادربزرگ",
+      "translation": "grandmother",
+      "difficulty": 1,
+      "frequencyRank": 123,
+      "examples": [
+        {
+          "native": "مادربزرگ من در تهران است",
+          "translation": "My grandmother is in Tehran",
+          "translit": "mâdarbozorg-e man dar Tehrân ast"
+        }
+      ],
+      "translit": "mâdarbozorg"
+    },
+    {
+      "id": "fa_0124",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "پدربزرگ",
+      "translation": "grandfather",
+      "difficulty": 1,
+      "frequencyRank": 124,
+      "examples": [
+        {
+          "native": "پدربزرگ دکتر بود",
+          "translation": "My grandfather was a doctor",
+          "translit": "pedarbozorg doktor bud"
+        }
+      ],
+      "translit": "pedarbozorg"
+    },
+    {
+      "id": "fa_0125",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "شیر",
+      "translation": "milk",
+      "difficulty": 1,
+      "frequencyRank": 125,
+      "examples": [
+        {
+          "native": "شیر و نان می‌خواهم",
+          "translation": "I want milk and bread",
+          "translit": "shir va nân mikhâham"
+        }
+      ],
+      "translit": "shir"
+    },
+    {
+      "id": "fa_0126",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "خوابیدن",
+      "translation": "to sleep",
+      "difficulty": 1,
+      "frequencyRank": 126,
+      "examples": [
+        {
+          "native": "می‌خواهم بخوابم",
+          "translation": "I want to sleep",
+          "translit": "mikhâham bekhâbam"
+        }
+      ],
+      "translit": "khâbidan"
+    },
+    {
+      "id": "fa_0127",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "فکر کردن",
+      "translation": "to think",
+      "difficulty": 1,
+      "frequencyRank": 127,
+      "examples": [
+        {
+          "native": "به تو فکر می‌کنم",
+          "translation": "I am thinking of you",
+          "translit": "be to fekr mikonam"
+        }
+      ],
+      "translit": "fekr kardan"
+    },
+    {
+      "id": "fa_0128",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "کار",
+      "translation": "work, job",
+      "difficulty": 1,
+      "frequencyRank": 128,
+      "examples": [
+        {
+          "native": "کار زیاد است",
+          "translation": "There is a lot of work",
+          "translit": "kâr ziyâd ast"
+        }
+      ],
+      "translit": "kâr"
+    },
+    {
+      "id": "fa_0129",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "هفته",
+      "translation": "week",
+      "difficulty": 1,
+      "frequencyRank": 129,
+      "examples": [
+        {
+          "native": "هفته آینده می‌آیم",
+          "translation": "I am coming next week",
+          "translit": "hafte-ye âyande miâyam"
+        }
+      ],
+      "translit": "hafte"
+    },
+    {
+      "id": "fa_0130",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "سال",
+      "translation": "year",
+      "difficulty": 1,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "یک سال گذشت",
+          "translation": "A year has passed",
+          "translit": "yek sâl gozasht"
+        }
+      ],
+      "translit": "sâl"
+    },
+    {
+      "id": "fa_0131",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "هتل",
+      "translation": "hotel",
+      "difficulty": 1,
+      "frequencyRank": 131,
+      "examples": [
+        {
+          "native": "هتل نزدیک است",
+          "translation": "The hotel is near",
+          "translit": "hotel nazdik ast"
+        }
+      ],
+      "translit": "hotel"
+    },
+    {
+      "id": "fa_0132",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "ماشین",
+      "translation": "car",
+      "difficulty": 1,
+      "frequencyRank": 132,
+      "examples": [
+        {
+          "native": "ماشین من قرمز است",
+          "translation": "My car is red",
+          "translit": "mâshin-e man ghermez ast"
+        }
+      ],
+      "translit": "mâshin"
+    },
+    {
+      "id": "fa_0133",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "هم",
+      "translation": "also, too",
+      "difficulty": 1,
+      "frequencyRank": 133,
+      "examples": [
+        {
+          "native": "من هم می‌آیم",
+          "translation": "I am coming too",
+          "translit": "man ham miâyam"
+        }
+      ],
+      "translit": "ham"
+    },
+    {
+      "id": "fa_0134",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "سر",
+      "translation": "head",
+      "difficulty": 1,
+      "frequencyRank": 134,
+      "examples": [
+        {
+          "native": "سرم درد می‌کند",
+          "translation": "My head hurts",
+          "translit": "saram dard mikonad"
+        }
+      ],
+      "translit": "sar"
+    },
+    {
+      "id": "fa_0135",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "دست",
+      "translation": "hand",
+      "difficulty": 1,
+      "frequencyRank": 135,
+      "examples": [
+        {
+          "native": "دستت را بده",
+          "translation": "Give me your hand",
+          "translit": "dastet râ bede"
+        }
+      ],
+      "translit": "dast"
+    },
+    {
+      "id": "fa_0136",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "دل",
+      "translation": "heart",
+      "difficulty": 1,
+      "frequencyRank": 136,
+      "examples": [
+        {
+          "native": "دلم برایت تنگ شده",
+          "translation": "I miss you",
+          "translit": "delam barâyat tang shode"
+        }
+      ],
+      "translit": "del"
+    },
+    {
+      "id": "fa_0137",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "سیاه",
+      "translation": "black",
+      "difficulty": 1,
+      "frequencyRank": 137,
+      "examples": [
+        {
+          "native": "چای سیاه می‌خواهم",
+          "translation": "I want black tea",
+          "translit": "chây-e siyâh mikhâham"
+        }
+      ],
+      "translit": "siyâh"
+    },
+    {
+      "id": "fa_0138",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "سفید",
+      "translation": "white",
+      "difficulty": 1,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "نان سفید",
+          "translation": "White bread",
+          "translit": "nân-e sefid"
+        }
+      ],
+      "translit": "sefid"
+    },
+    {
+      "id": "fa_0139",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "خورشید",
+      "translation": "sun",
+      "difficulty": 1,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "خورشید گرم است",
+          "translation": "The sun is warm",
+          "translit": "khorshid garm ast"
+        }
+      ],
+      "translit": "khorshid"
+    },
+    {
+      "id": "fa_0140",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "باران",
+      "translation": "rain",
+      "difficulty": 1,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "باران می‌آید",
+          "translation": "It is raining",
+          "translit": "bârân miâyad"
+        }
+      ],
+      "translit": "bârân"
+    },
+    {
+      "id": "fa_0141",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "قطار",
+      "translation": "train",
+      "difficulty": 1,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "قطار دیر است",
+          "translation": "The train is late",
+          "translit": "ghatâr dir ast"
+        }
+      ],
+      "translit": "ghatâr"
     }
   ],
   "alphabetGroups": [

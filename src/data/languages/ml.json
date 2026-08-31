@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "code": "ml",
   "categories": [
+    "Body",
     "Common",
     "Connectors",
     "Family",
@@ -2430,6 +2431,295 @@
         }
       ],
       "frequencyRank": 125
+    },
+    {
+      "id": "ml_0126",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "കുളിമുറി",
+      "translation": "bathroom",
+      "difficulty": 1,
+      "frequencyRank": 126,
+      "examples": [
+        {
+          "native": "കുളിമുറി എവിടെയാണ്?",
+          "translation": "Where is the bathroom?",
+          "translit": "kulimuri evideyaanu"
+        }
+      ],
+      "translit": "kulimuri"
+    },
+    {
+      "id": "ml_0127",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "റൊട്ടി",
+      "translation": "bread",
+      "difficulty": 1,
+      "frequencyRank": 127,
+      "examples": [
+        {
+          "native": "എനിക്ക് റൊട്ടി വേണം",
+          "translation": "I want bread",
+          "translit": "enikku rotti venam"
+        }
+      ],
+      "translit": "rotti"
+    },
+    {
+      "id": "ml_0128",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ഉറങ്ങുക",
+      "translation": "to sleep",
+      "difficulty": 1,
+      "frequencyRank": 128,
+      "examples": [
+        {
+          "native": "എനിക്ക് ഉറങ്ങണം",
+          "translation": "I want to sleep",
+          "translit": "enikku uranganam"
+        }
+      ],
+      "translit": "uranguka"
+    },
+    {
+      "id": "ml_0129",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "വിചാരിക്കുക",
+      "translation": "to think",
+      "difficulty": 1,
+      "frequencyRank": 129,
+      "examples": [
+        {
+          "native": "ഞാൻ നിന്നെ വിചാരിക്കുന്നു",
+          "translation": "I am thinking of you",
+          "translit": "njaan ninne vichaarikkunnu"
+        }
+      ],
+      "translit": "vichaarikkuka"
+    },
+    {
+      "id": "ml_0130",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "വർഷം",
+      "translation": "year",
+      "difficulty": 1,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "ഒരു വർഷം കഴിഞ്ഞു",
+          "translation": "A year has passed",
+          "translit": "oru varsham kazhinju"
+        }
+      ],
+      "translit": "varsham"
+    },
+    {
+      "id": "ml_0131",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "ഹോട്ടൽ",
+      "translation": "hotel",
+      "difficulty": 1,
+      "frequencyRank": 131,
+      "examples": [
+        {
+          "native": "ഹോട്ടൽ അടുത്താണ്",
+          "translation": "The hotel is near",
+          "translit": "hottal aduthaanu"
+        }
+      ],
+      "translit": "hottal"
+    },
+    {
+      "id": "ml_0132",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "കാർ",
+      "translation": "car",
+      "difficulty": 1,
+      "frequencyRank": 132,
+      "examples": [
+        {
+          "native": "കാർ വന്നു",
+          "translation": "The car has come",
+          "translit": "kaar vannu"
+        }
+      ],
+      "translit": "kaar"
+    },
+    {
+      "id": "ml_0133",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "കൂടി",
+      "translation": "also, too",
+      "difficulty": 1,
+      "frequencyRank": 133,
+      "examples": [
+        {
+          "native": "ഞാനും കൂടി വരാം",
+          "translation": "I will come too",
+          "translit": "njaanum koodi varaam"
+        }
+      ],
+      "translit": "koodi"
+    },
+    {
+      "id": "ml_0134",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "തല",
+      "translation": "head",
+      "difficulty": 1,
+      "frequencyRank": 134,
+      "examples": [
+        {
+          "native": "എന്റെ തല വേദനിക്കുന്നു",
+          "translation": "My head hurts",
+          "translit": "ente thala vedanikkunnu"
+        }
+      ],
+      "translit": "thala"
+    },
+    {
+      "id": "ml_0135",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "കൈ",
+      "translation": "hand",
+      "difficulty": 1,
+      "frequencyRank": 135,
+      "examples": [
+        {
+          "native": "കൈ കഴുകൂ",
+          "translation": "Wash your hands",
+          "translit": "kai kazhukoo"
+        }
+      ],
+      "translit": "kai"
+    },
+    {
+      "id": "ml_0136",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "ഹൃദയം",
+      "translation": "heart",
+      "difficulty": 1,
+      "frequencyRank": 136,
+      "examples": [
+        {
+          "native": "എന്റെ ഹൃദയം നിറഞ്ഞു",
+          "translation": "My heart is full",
+          "translit": "ente hridayam niranju"
+        }
+      ],
+      "translit": "hridayam"
+    },
+    {
+      "id": "ml_0137",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "കറുപ്പ്",
+      "translation": "black",
+      "difficulty": 1,
+      "frequencyRank": 137,
+      "examples": [
+        {
+          "native": "കറുപ്പ് ചായ",
+          "translation": "Black tea",
+          "translit": "karuppu chaaya"
+        }
+      ],
+      "translit": "karuppu"
+    },
+    {
+      "id": "ml_0138",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "വെളുപ്പ്",
+      "translation": "white",
+      "difficulty": 1,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "വെളുപ്പ് ഷർട്ട്",
+          "translation": "A white shirt",
+          "translit": "veluppu shirt"
+        }
+      ],
+      "translit": "veluppu"
+    },
+    {
+      "id": "ml_0139",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "സൂര്യൻ",
+      "translation": "sun",
+      "difficulty": 1,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "സൂര്യൻ ഉദിച്ചു",
+          "translation": "The sun has risen",
+          "translit": "sooryan udichu"
+        }
+      ],
+      "translit": "sooryan"
+    },
+    {
+      "id": "ml_0140",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "മഴ",
+      "translation": "rain",
+      "difficulty": 1,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "മഴ പെയ്യുന്നു",
+          "translation": "It is raining",
+          "translit": "mazha peyyunnu"
+        }
+      ],
+      "translit": "mazha"
+    },
+    {
+      "id": "ml_0141",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "തീവണ്ടി",
+      "translation": "train",
+      "difficulty": 1,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "തീവണ്ടി വൈകി",
+          "translation": "The train is late",
+          "translit": "theevandi vaiki"
+        }
+      ],
+      "translit": "theevandi"
+    },
+    {
+      "id": "ml_0142",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "എത്ര",
+      "translation": "how much, how many",
+      "difficulty": 1,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "ഇത് എത്രയാണ്?",
+          "translation": "How much is this?",
+          "translit": "ithu ethrayaanu"
+        }
+      ],
+      "translit": "ethra"
     }
   ],
   "alphabetGroups": [

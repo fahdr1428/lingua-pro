@@ -3118,6 +3118,51 @@
           "translation": "My cousin arrives tomorrow"
         }
       ]
+    },
+    {
+      "id": "fr_0181",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "la famille",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "Ma famille est grande.",
+          "translation": "My family is big."
+        }
+      ]
+    },
+    {
+      "id": "fr_0182",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "le thé",
+      "translation": "tea",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "Un thé, s'il vous plaît.",
+          "translation": "A tea, please."
+        }
+      ]
+    },
+    {
+      "id": "fr_0183",
+      "unit": "u9",
+      "category": "Common",
+      "lemma": "plus",
+      "translation": "more",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "Encore un peu plus.",
+          "translation": "A little more."
+        }
+      ]
     }
   ],
   "alphabetGroups": [

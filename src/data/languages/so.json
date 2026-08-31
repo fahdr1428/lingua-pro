@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "code": "so",
   "categories": [
+    "Body",
     "Common",
     "Connectors",
     "Family",
@@ -2068,6 +2069,261 @@
         }
       ],
       "frequencyRank": 125
+    },
+    {
+      "id": "so_0126",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "musqusha",
+      "translation": "bathroom, toilet",
+      "difficulty": 1,
+      "frequencyRank": 126,
+      "examples": [
+        {
+          "native": "Musqushu waa xaggee?",
+          "translation": "Where is the bathroom?"
+        }
+      ]
+    },
+    {
+      "id": "so_0127",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "rooti",
+      "translation": "bread",
+      "difficulty": 1,
+      "frequencyRank": 127,
+      "examples": [
+        {
+          "native": "Waxaan doonayaa rooti.",
+          "translation": "I want bread."
+        }
+      ]
+    },
+    {
+      "id": "so_0128",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "hurdo",
+      "translation": "to sleep, sleep",
+      "difficulty": 1,
+      "frequencyRank": 128,
+      "examples": [
+        {
+          "native": "Waan hurdayaa.",
+          "translation": "I am sleeping."
+        }
+      ]
+    },
+    {
+      "id": "so_0129",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "fikir",
+      "translation": "to think, thought",
+      "difficulty": 1,
+      "frequencyRank": 129,
+      "examples": [
+        {
+          "native": "Waan ku fikirayaa.",
+          "translation": "I am thinking about you."
+        }
+      ]
+    },
+    {
+      "id": "so_0130",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "sannad",
+      "translation": "year",
+      "difficulty": 1,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "Sannad ayaa dhaafay.",
+          "translation": "A year has passed."
+        }
+      ]
+    },
+    {
+      "id": "so_0131",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "hudheel",
+      "translation": "hotel",
+      "difficulty": 1,
+      "frequencyRank": 131,
+      "examples": [
+        {
+          "native": "Hudheelku waa dhow yahay.",
+          "translation": "The hotel is near."
+        }
+      ]
+    },
+    {
+      "id": "so_0132",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "gaari",
+      "translation": "car",
+      "difficulty": 1,
+      "frequencyRank": 132,
+      "examples": [
+        {
+          "native": "Waxaan leeyahay gaari.",
+          "translation": "I have a car."
+        }
+      ]
+    },
+    {
+      "id": "so_0133",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "sidoo kale",
+      "translation": "also, too",
+      "difficulty": 1,
+      "frequencyRank": 133,
+      "examples": [
+        {
+          "native": "Anigu sidoo kale waan imanayaa.",
+          "translation": "I am coming too."
+        }
+      ]
+    },
+    {
+      "id": "so_0134",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "madax",
+      "translation": "head",
+      "difficulty": 1,
+      "frequencyRank": 134,
+      "examples": [
+        {
+          "native": "Madaxaygu wuu i xanuunayaa.",
+          "translation": "My head hurts."
+        }
+      ]
+    },
+    {
+      "id": "so_0135",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "gacan",
+      "translation": "hand",
+      "difficulty": 1,
+      "frequencyRank": 135,
+      "examples": [
+        {
+          "native": "Gacantaada i sii.",
+          "translation": "Give me your hand."
+        }
+      ]
+    },
+    {
+      "id": "so_0136",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "wadne",
+      "translation": "heart",
+      "difficulty": 1,
+      "frequencyRank": 136,
+      "examples": [
+        {
+          "native": "Wadnahaygu wuu buuxaa.",
+          "translation": "My heart is full."
+        }
+      ]
+    },
+    {
+      "id": "so_0137",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "madow",
+      "translation": "black",
+      "difficulty": 1,
+      "frequencyRank": 137,
+      "examples": [
+        {
+          "native": "Shaah madow.",
+          "translation": "Black tea."
+        }
+      ]
+    },
+    {
+      "id": "so_0138",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "cadaan",
+      "translation": "white",
+      "difficulty": 1,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "Shaati cadaan ah.",
+          "translation": "A white shirt."
+        }
+      ]
+    },
+    {
+      "id": "so_0139",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "qorrax",
+      "translation": "sun",
+      "difficulty": 1,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "Qorraxdu way kulushahay.",
+          "translation": "The sun is hot."
+        }
+      ]
+    },
+    {
+      "id": "so_0140",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "roob",
+      "translation": "rain",
+      "difficulty": 1,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "Roob baa da'aya.",
+          "translation": "It is raining."
+        }
+      ]
+    },
+    {
+      "id": "so_0141",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "tareen",
+      "translation": "train",
+      "difficulty": 1,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "Tareenku waa daahay.",
+          "translation": "The train is late."
+        }
+      ]
+    },
+    {
+      "id": "so_0142",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "immisa",
+      "translation": "how much, how many",
+      "difficulty": 1,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "Waa immisa?",
+          "translation": "How much is it?"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

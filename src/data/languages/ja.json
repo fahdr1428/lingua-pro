@@ -188,7 +188,7 @@
         {
           "native": "ありがとう ございます",
           "translation": "Thank you very much",
-          "translit": "arigatō gozaimasu"
+          "translit": "arigatou gozaimasu"
         }
       ],
       "unit": "u1",
@@ -251,7 +251,7 @@
         {
           "native": "さようなら また明日",
           "translation": "Goodbye see you tomorrow",
-          "translit": "sayōnara mata ashita"
+          "translit": "sayounara mata ashita"
         }
       ],
       "unit": "u1",
@@ -272,7 +272,7 @@
         {
           "native": "おはよう ございます",
           "translation": "Good morning (formal)",
-          "translit": "ohayō gozaimasu"
+          "translit": "ohayou gozaimasu"
         }
       ],
       "unit": "u1",
@@ -892,7 +892,7 @@
         {
           "native": "学校へ 行く",
           "translation": "To go to school",
-          "translit": "gakkō e iku"
+          "translit": "gakkou e iku"
         }
       ],
       "unit": "u7",
@@ -939,7 +939,7 @@
         {
           "native": "今日は 月曜日",
           "translation": "Today is Monday",
-          "translit": "kyō wa getsuyōbi"
+          "translit": "kyou wa getsuyōbi"
         }
       ],
       "unit": "u8",
@@ -1162,7 +1162,7 @@
         {
           "native": "大きい家",
           "translation": "Big house",
-          "translit": "ōkii ie"
+          "translit": "ookii ie"
         }
       ],
       "frequencyRank": 41
@@ -1270,7 +1270,7 @@
         {
           "native": "牛乳をください",
           "translation": "Milk please",
-          "translit": "gyūnyū o kudasai"
+          "translit": "gyuunyuu o kudasai"
         }
       ],
       "frequencyRank": 97
@@ -1324,7 +1324,7 @@
         {
           "native": "今日は月曜日",
           "translation": "Today is Monday",
-          "translit": "kyō wa getsuyōbi"
+          "translit": "kyou wa getsuyōbi"
         }
       ],
       "frequencyRank": 36
@@ -1529,7 +1529,7 @@
         {
           "native": "明るい太陽",
           "translation": "Bright sun",
-          "translit": "akarui taiyō"
+          "translit": "akarui taiyou"
         }
       ]
     },
@@ -2079,7 +2079,7 @@
         {
           "native": "助けが必要です",
           "translation": "I need help",
-          "translit": "tasuke ga hitsuyō desu"
+          "translit": "tasuke ga hitsuyou desu"
         }
       ],
       "frequencyRank": 137
@@ -2187,7 +2187,7 @@
         {
           "native": "昨日は寒かったです",
           "translation": "Yesterday was cold",
-          "translit": "kinō wa samukatta desu"
+          "translit": "kinou wa samukatta desu"
         }
       ],
       "frequencyRank": 38
@@ -2511,7 +2511,7 @@
         {
           "native": "病気です",
           "translation": "I'm ill",
-          "translit": "byōki desu"
+          "translit": "byouki desu"
         }
       ],
       "frequencyRank": 40
@@ -2799,7 +2799,7 @@
         {
           "native": "駅は遠いですか",
           "translation": "Is the station far?",
-          "translit": "eki wa tōi desu ka"
+          "translit": "eki wa tooi desu ka"
         }
       ],
       "frequencyRank": 62
@@ -2958,6 +2958,210 @@
           "translation": "My head hurts"
         }
       ]
+    },
+    {
+      "id": "ja_0151",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "私たち",
+      "translation": "we",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "私たちは学生です",
+          "translation": "We are students",
+          "translit": "watashitachi wa gakusei desu"
+        }
+      ],
+      "translit": "watashitachi"
+    },
+    {
+      "id": "ja_0152",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "彼",
+      "translation": "he",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "彼は私の兄です",
+          "translation": "He is my older brother",
+          "translit": "kare wa watashi no ani desu"
+        }
+      ],
+      "translit": "kare"
+    },
+    {
+      "id": "ja_0153",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "彼女",
+      "translation": "she",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "彼女は先生です",
+          "translation": "She is a teacher",
+          "translit": "kanojo wa sensei desu"
+        }
+      ],
+      "translit": "kanojo"
+    },
+    {
+      "id": "ja_0154",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "家族",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "家族は四人です",
+          "translation": "There are four in my family",
+          "translit": "kazoku wa yonin desu"
+        }
+      ],
+      "translit": "kazoku"
+    },
+    {
+      "id": "ja_0155",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "おじさん",
+      "translation": "uncle",
+      "difficulty": 1,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "おじさんは京都にいます",
+          "translation": "My uncle is in Kyoto",
+          "translit": "ojisan wa Kyouto ni imasu"
+        }
+      ],
+      "translit": "ojisan"
+    },
+    {
+      "id": "ja_0156",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "おばさん",
+      "translation": "aunt",
+      "difficulty": 1,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "おばさんの家に行きます",
+          "translation": "I am going to my aunt's house",
+          "translit": "obasan no ie ni ikimasu"
+        }
+      ],
+      "translit": "obasan"
+    },
+    {
+      "id": "ja_0157",
+      "unit": "u9",
+      "category": "Feelings",
+      "lemma": "喉が渇いた",
+      "translation": "thirsty",
+      "difficulty": 1,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "喉が渇いた。水をください。",
+          "translit": "nodo ga kawaita. mizu o kudasai.",
+          "translation": "I'm thirsty. Water, please."
+        }
+      ],
+      "translit": "nodo ga kawaita"
+    },
+    {
+      "id": "ja_0158",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "市場",
+      "translation": "market",
+      "difficulty": 1,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "市場は近いです",
+          "translation": "The market is close",
+          "translit": "ichiba wa chikai desu"
+        }
+      ],
+      "translit": "ichiba"
+    },
+    {
+      "id": "ja_0159",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ホテル",
+      "translation": "hotel",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "ホテルはどこですか",
+          "translation": "Where is the hotel?",
+          "translit": "hoteru wa doko desu ka"
+        }
+      ],
+      "translit": "hoteru"
+    },
+    {
+      "id": "ja_0160",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "も",
+      "translation": "also, too",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "お茶も飲みますか",
+          "translation": "Will you have tea as well?",
+          "translit": "ocha mo nomimasu ka"
+        }
+      ],
+      "translit": "mo"
+    },
+    {
+      "id": "ja_0161",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "四",
+      "translation": "four",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "四人います",
+          "translit": "yonin imasu",
+          "translation": "There are four people"
+        }
+      ],
+      "translit": "yon"
+    },
+    {
+      "id": "ja_0162",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "五",
+      "translation": "five",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "五分待ってください",
+          "translation": "Please wait five minutes",
+          "translit": "gofun matte kudasai"
+        }
+      ],
+      "translit": "go"
     }
   ],
   "units": [

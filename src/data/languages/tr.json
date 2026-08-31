@@ -3362,6 +3362,141 @@
           "translation": "My aunt will come tomorrow"
         }
       ]
+    },
+    {
+      "id": "tr_0185",
+      "unit": "u4",
+      "category": "People",
+      "lemma": "biz",
+      "translation": "we",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "Biz İstanbul'dan geliyoruz.",
+          "translation": "We come from Istanbul."
+        }
+      ]
+    },
+    {
+      "id": "tr_0186",
+      "unit": "u4",
+      "category": "People",
+      "lemma": "o",
+      "translation": "he, she",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "O benim kardeşim.",
+          "translation": "He is my brother."
+        }
+      ]
+    },
+    {
+      "id": "tr_0187",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "oğul",
+      "translation": "son",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "Oğlum okula gidiyor.",
+          "translation": "My son is going to school."
+        }
+      ]
+    },
+    {
+      "id": "tr_0188",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "büyükanne",
+      "translation": "grandmother",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "Büyükannem çay yapıyor.",
+          "translation": "My grandmother is making tea."
+        }
+      ]
+    },
+    {
+      "id": "tr_0189",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "pilav",
+      "translation": "rice",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "Pilav çok lezzetli.",
+          "translation": "The rice is very tasty."
+        }
+      ]
+    },
+    {
+      "id": "tr_0190",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "uyumak",
+      "translation": "to sleep",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "Erken uyumak istiyorum.",
+          "translation": "I want to sleep early."
+        }
+      ]
+    },
+    {
+      "id": "tr_0191",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "düşünmek",
+      "translation": "to think",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "Seni düşünüyorum.",
+          "translation": "I am thinking about you."
+        }
+      ]
+    },
+    {
+      "id": "tr_0192",
+      "unit": "u9",
+      "category": "Time",
+      "lemma": "yıl",
+      "translation": "year",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "Bir yıl oldu.",
+          "translation": "It has been a year."
+        }
+      ]
+    },
+    {
+      "id": "tr_0193",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "pazar",
+      "translation": "market",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "Pazara gidiyorum.",
+          "translation": "I am going to the market."
+        }
+      ]
     }
   ],
   "alphabetGroups": [

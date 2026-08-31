@@ -3192,6 +3192,108 @@
           "translation": "I am very happy"
         }
       ]
+    },
+    {
+      "id": "hi_0161",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "हम",
+      "translation": "we",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "हम दिल्ली से हैं",
+          "translation": "We are from Delhi",
+          "translit": "hum Dilli se hain"
+        }
+      ],
+      "translit": "hum"
+    },
+    {
+      "id": "hi_0162",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "वह",
+      "translation": "he, she",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "वह मेरा भाई है",
+          "translation": "He is my brother",
+          "translit": "vah mera bhai hai"
+        }
+      ],
+      "translit": "vah"
+    },
+    {
+      "id": "hi_0163",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "परिवार",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "मेरा परिवार बड़ा है",
+          "translation": "My family is big",
+          "translit": "mera parivaar bada hai"
+        }
+      ],
+      "translit": "parivaar"
+    },
+    {
+      "id": "hi_0164",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "बाज़ार",
+      "translation": "market",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "मैं बाज़ार जा रहा हूँ",
+          "translation": "I am going to the market",
+          "translit": "main baazaar ja raha hoon"
+        }
+      ],
+      "translit": "baazaar"
+    },
+    {
+      "id": "hi_0165",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "चार",
+      "translation": "four",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "चार लोग",
+          "translation": "Four people",
+          "translit": "chaar log"
+        }
+      ],
+      "translit": "chaar"
+    },
+    {
+      "id": "hi_0166",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "पाँच",
+      "translation": "five",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "पाँच रुपये",
+          "translation": "Five rupees",
+          "translit": "paanch rupaye"
+        }
+      ],
+      "translit": "paanch"
     }
   ],
   "units": [

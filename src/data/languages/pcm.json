@@ -13,6 +13,8 @@
     "Greetings",
     "Numbers",
     "People",
+    "Places",
+    "Questions",
     "Time",
     "Transport",
     "Travel",
@@ -2585,6 +2587,171 @@
         {
           "native": "Grandmama sabi plenty story",
           "translation": "Grandmother knows plenty of stories"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0147",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "pikin boy",
+      "translation": "son",
+      "difficulty": 1,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "My pikin boy dey school.",
+          "translation": "My son is at school."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0148",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "pikin girl",
+      "translation": "daughter",
+      "difficulty": 1,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "My pikin girl na doctor.",
+          "translation": "My daughter is a doctor."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0149",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "famili",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "My famili big well well.",
+          "translation": "My family is very big."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0150",
+      "unit": "u5",
+      "category": "Feelings",
+      "lemma": "tosty",
+      "translation": "thirsty",
+      "difficulty": 1,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "Water dey? I tosty.",
+          "translation": "Is there water? I'm thirsty."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0151",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "rais",
+      "translation": "rice",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "I wan chop rais.",
+          "translation": "I want to eat rice."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0152",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "milk",
+      "translation": "milk",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "Put milk for di tea.",
+          "translation": "Put milk in the tea."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0153",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "market",
+      "translation": "market",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "I dey go market.",
+          "translation": "I am going to the market."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0154",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "fo",
+      "translation": "four",
+      "difficulty": 1,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "Fo pesin dey come.",
+          "translation": "Four people are coming."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0155",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "faiv",
+      "translation": "five",
+      "difficulty": 1,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "Faiv minit remain.",
+          "translation": "Five minutes left."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0156",
+      "unit": "u6",
+      "category": "Questions",
+      "lemma": "How much",
+      "translation": "how much",
+      "difficulty": 1,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "How much be dis one?",
+          "translation": "How much is this one?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0157",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "More",
+      "translation": "more",
+      "difficulty": 1,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "Abeg give me more water.",
+          "translation": "Please give me more water."
         }
       ]
     }

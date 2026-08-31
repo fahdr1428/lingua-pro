@@ -1507,7 +1507,7 @@
         {
           "native": "ساعة واحدة",
           "translation": "One hour",
-          "translit": "saaa wahida"
+          "translit": "saa'a wahida"
         },
         {
           "native": "بعد ساعة",
@@ -1530,12 +1530,12 @@
         {
           "native": "متى تأتي؟",
           "translation": "When are you coming?",
-          "translit": "mata taati?"
+          "translit": "mataa taati?"
         },
         {
           "native": "متى تصل؟",
           "translation": "When do you arrive?",
-          "translit": "mata tasil?"
+          "translit": "mataa tasil?"
         }
       ],
       "dialects": {
@@ -1580,7 +1580,7 @@
         {
           "native": "لماذا تسأل؟",
           "translation": "Why do you ask?",
-          "translit": "limadha tasal?"
+          "translit": "limaadhaa tasal?"
         }
       ],
       "dialects": {
@@ -2182,12 +2182,12 @@
         {
           "native": "متعب لأن العمل كثير",
           "translation": "Tired because there's a lot of work",
-          "translit": "mutab li-anna al-amal katheer"
+          "translit": "mutab li'anna al-amal katheer"
         },
         {
           "native": "أبقى لأن الجو ممطر",
           "translation": "I'm staying because it's raining",
-          "translit": "abqa li-anna al-jaw mumtir"
+          "translit": "abqa li'anna al-jaw mumtir"
         }
       ],
       "dialects": {
@@ -2427,12 +2427,12 @@
         {
           "native": "انعطف يسار",
           "translation": "Turn left",
-          "translit": "inatif yasaar"
+          "translit": "inatif yasar"
         },
         {
           "native": "ثم يسار",
           "translation": "Then left",
-          "translit": "thumma yasaar"
+          "translit": "thumma yasar"
         },
         {
           "native": "اتجه يسارا",
@@ -3840,7 +3840,7 @@
         {
           "native": "هو دائما متأخر",
           "translation": "He's always late",
-          "translit": "huwa daaiman mutaakhkhir"
+          "translit": "huwa daa'iman mutaakhkhir"
         }
       ],
       "frequencyRank": 139
@@ -3876,7 +3876,7 @@
         {
           "native": "بعد الغداء",
           "translation": "After lunch",
-          "translit": "baad al-ghadaa"
+          "translit": "ba'd al-ghadaa"
         }
       ],
       "frequencyRank": 51
@@ -4066,7 +4066,7 @@
         {
           "native": "قهوة مع حليب",
           "translation": "Coffee with milk",
-          "translit": "qahwa maa haleeb"
+          "translit": "qahwa ma'a haleeb"
         }
       ],
       "frequencyRank": 61
@@ -4154,7 +4154,7 @@
         {
           "native": "الطقس سيء",
           "translation": "The weather is bad",
-          "translit": "at-taqs sayyi"
+          "translit": "at-taqs sayyi'"
         }
       ],
       "frequencyRank": 64
@@ -4172,7 +4172,7 @@
         {
           "native": "متى تأتي؟",
           "translation": "When are you coming?",
-          "translit": "mata taati?"
+          "translit": "mataa taati?"
         }
       ],
       "dialects": {
@@ -4246,7 +4246,7 @@
         {
           "native": "ليس معي مال",
           "translation": "I don't have money",
-          "translit": "laysa maai mal"
+          "translit": "laysa maai maal"
         }
       ],
       "dialects": {
@@ -4734,6 +4734,91 @@
           "translation": "My mother is unwell"
         }
       ]
+    },
+    {
+      "id": "ar_0198",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "نحن",
+      "translation": "we",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "نحن من لندن",
+          "translation": "We are from London",
+          "translit": "naḥnu min London"
+        }
+      ],
+      "translit": "naḥnu"
+    },
+    {
+      "id": "ar_0199",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "هو",
+      "translation": "he",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "هو أخي",
+          "translation": "He is my brother",
+          "translit": "huwa akhi"
+        }
+      ],
+      "translit": "huwa"
+    },
+    {
+      "id": "ar_0200",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "هي",
+      "translation": "she",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "هي أمي",
+          "translation": "She is my mother",
+          "translit": "hiya ummi"
+        }
+      ],
+      "translit": "hiya"
+    },
+    {
+      "id": "ar_0201",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "أربعة",
+      "translation": "four",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "أربعة كتب",
+          "translation": "Four books",
+          "translit": "arba'at kutub"
+        }
+      ],
+      "translit": "arba'a"
+    },
+    {
+      "id": "ar_0202",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "خمسة",
+      "translation": "five",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "خمسة أيام",
+          "translation": "Five days",
+          "translit": "khamsat ayyam"
+        }
+      ],
+      "translit": "khamsa"
     }
   ],
   "units": [

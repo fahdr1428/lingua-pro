@@ -334,6 +334,53 @@ outright ("I am a student (defining → ser)"). 517 assertions now guard it.
    moved the exam's own pass mark. Neither is visible in a single draw;
    `test-script-exam.mjs` builds 200 papers per language.
 
+4c. **Nothing said what a pack was FOR, so nineteen of them drifted.** Measured
+   in v100, before anything was changed: 420 distinct concepts across the app,
+   **53 taught in all nineteen languages, and 147 taught in exactly one**. The
+   Persian pack had 120 words and the Spanish pack 193.
+
+   The gaps were not obscure. Punjabi did not teach "eat"; Persian did not teach
+   "drink"; Chinese did not teach "want". Arabic, German, Hindi, Japanese and
+   Turkish taught "I" and "you" and no third person at all — a learner could
+   introduce themselves and then not mention anybody else. Five packs had no
+   word for "bathroom", while the Sentence Lab added in v98 teaches *"Where is
+   the bathroom?"* in three of them.
+
+   `src/data/coreVocabulary.js` is the floor: 115 concepts in three tiers, where
+   a concept is a MEANING and lists the English glosses that count as teaching
+   it — because Persian خوردن covers eat and drink, and "uncle (mother's
+   brother)" is still *uncle*. Missing a survival concept fails the build. 182
+   words later the gap is 197 → 7, all optional.
+
+   A quarter of the "missing" words were not missing: they were the same
+   inconsistency in different clothes — *cooked rice* against *rice*, *hunger*
+   against *hungry*, *illness* against *sick*. The fix for those is the concept
+   list accepting both, not a duplicate word. Two were real finds: Korean 차 is
+   both tea and car (the pack taught tea, so the car had to be 자동차), and
+   Tamil கூட means both "with" and "also" while the pack taught half of it.
+
+4d. **A card has to spell its own word the same way twice.** `validate-word-frames.mjs`
+   found 68 cards showing a learner two romanisations of one word — `suq`/`sooq`,
+   `arigatou`/`arigatō`, `khana`/`khaana`.
+
+   Two mistakes on the way there are worth more than the fix:
+
+   - **The first check was wrong.** It asked whether the card's romanisation
+     appeared inside the sentence's, which fires on every inflected language:
+     Arabic lists يذهب (third person) and uses أذهب ("I go"), inflecting on the
+     *front* of the word. Twenty-nine healthy cards reported as broken is a
+     check that gets switched off, and then the four real problems underneath
+     never surface. The sharp question is whether a token in the sentence is the
+     same word *after folding away convention differences* but spelled
+     differently — inflection folds to something else and drops out.
+   - **The automated fix was wrong.** It wanted to rewrite `bú shì` → `bù shì`
+     and `yí ge` → `yī ge`: correct pinyin into wrong pinyin. `foldConvention`
+     strips tone marks so the CHECKER tolerates sandhi; using the same fold to
+     drive a REWRITE inverts its purpose. A tool that normalises has to know
+     which differences carry meaning. Chinese is reported and never failed now,
+     and Punjabi and Urdu were done by hand because there the card was often the
+     worse spelling.
+
 5. **Feature coverage is uneven, and now it is measured.** A language pack is
    not one thing — vocabulary, a route map, a script course, grammar, passages,
    conversations, culture notes, verb tables and sentence patterns were added by

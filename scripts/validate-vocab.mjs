@@ -66,7 +66,11 @@ function checkLanguage(code) {
     }
 
     if (w.lemma) {
-      const k = w.lemma.trim().toLowerCase();
+      // German is the one language here where capitalisation is lexically
+      // contrastive: Essen (food) and essen (to eat) are different words, as
+      // are Sie (you, formal) and sie (she). Folding case would report both
+      // pairs as duplicates and be wrong about it.
+      const k = code === "de" ? w.lemma.trim() : w.lemma.trim().toLowerCase();
       if (lemmas.has(k)) warnings.push(`${at}: lemma "${w.lemma}" also on ${lemmas.get(k)}`);
       else lemmas.set(k, w.id);
     }

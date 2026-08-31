@@ -12,6 +12,7 @@
     "Greetings",
     "Numbers",
     "People",
+    "Places",
     "Time",
     "Transport",
     "Travel",
@@ -2509,6 +2510,111 @@
         {
           "native": "Nenek sangat baik",
           "translation": "Grandmother is very kind"
+        }
+      ]
+    },
+    {
+      "id": "id_0142",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "kakak laki-laki",
+      "translation": "older brother",
+      "difficulty": 1,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "Kakak laki-laki saya guru.",
+          "translation": "My older brother is a teacher."
+        }
+      ]
+    },
+    {
+      "id": "id_0143",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "kakak perempuan",
+      "translation": "older sister",
+      "difficulty": 1,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "Kakak perempuan saya di Jakarta.",
+          "translation": "My older sister is in Jakarta."
+        }
+      ]
+    },
+    {
+      "id": "id_0144",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "anak laki-laki",
+      "translation": "son",
+      "difficulty": 1,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "Anak laki-laki saya sekolah.",
+          "translation": "My son goes to school."
+        }
+      ]
+    },
+    {
+      "id": "id_0145",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "anak perempuan",
+      "translation": "daughter",
+      "difficulty": 1,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "Anak perempuan saya dokter.",
+          "translation": "My daughter is a doctor."
+        }
+      ]
+    },
+    {
+      "id": "id_0146",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "keluarga",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "Keluarga saya besar.",
+          "translation": "My family is big."
+        }
+      ]
+    },
+    {
+      "id": "id_0147",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "susu",
+      "translation": "milk",
+      "difficulty": 1,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "Saya mau susu.",
+          "translation": "I want milk."
+        }
+      ]
+    },
+    {
+      "id": "id_0148",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "pasar",
+      "translation": "market",
+      "difficulty": 1,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "Saya pergi ke pasar.",
+          "translation": "I am going to the market."
         }
       ]
     }

@@ -824,7 +824,7 @@
       "id": "ur_0031",
       "unit": "u5",
       "lemma": "پانی",
-      "translit": "pani",
+      "translit": "paani",
       "translation": "water",
       "category": "Food",
       "difficulty": 1,
@@ -2465,7 +2465,7 @@
       "id": "ur_0122",
       "unit": "u12",
       "lemma": "آسمان",
-      "translit": "asmaan",
+      "translit": "aasmaan",
       "pronunciation": "AHS-maan",
       "translation": "sky",
       "category": "Weather",
@@ -2475,7 +2475,7 @@
         {
           "native": "نیلا آسمان",
           "translation": "Blue sky",
-          "translit": "neela aasman"
+          "translit": "neela aasmaan"
         }
       ]
     },
@@ -3445,7 +3445,7 @@
         {
           "native": "ہم پہاڑ جا رہے ہیں",
           "translation": "We're going to the mountains",
-          "translit": "hum pahad ja rahe hain"
+          "translit": "hum pahaad ja rahe hain"
         }
       ],
       "frequencyRank": 167
@@ -3707,6 +3707,23 @@
           "translation": "Don't worry"
         }
       ]
+    },
+    {
+      "id": "ur_0192",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "خاندان",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "میرا خاندان بڑا ہے",
+          "translation": "My family is big",
+          "translit": "mera khandaan bara hai"
+        }
+      ],
+      "translit": "khandaan"
     }
   ],
   "alphabetGroups": [

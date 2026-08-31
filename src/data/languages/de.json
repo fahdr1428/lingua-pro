@@ -12,6 +12,7 @@
     "Numbers",
     "People",
     "Places",
+    "Questions",
     "Time",
     "Travel",
     "Verbs"
@@ -3339,6 +3340,156 @@
         {
           "native": "Meine Tante kocht gut",
           "translation": "My aunt cooks well"
+        }
+      ]
+    },
+    {
+      "id": "de_0185",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "wir",
+      "translation": "we",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "Wir wohnen in Berlin.",
+          "translation": "We live in Berlin."
+        }
+      ]
+    },
+    {
+      "id": "de_0186",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "er",
+      "translation": "he",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "Er ist mein Bruder.",
+          "translation": "He is my brother."
+        }
+      ]
+    },
+    {
+      "id": "de_0187",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "sie",
+      "translation": "she",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "Sie ist meine Schwester.",
+          "translation": "She is my sister."
+        }
+      ]
+    },
+    {
+      "id": "de_0188",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "Essen",
+      "translation": "food",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "Das Essen ist fertig.",
+          "translation": "The food is ready."
+        }
+      ]
+    },
+    {
+      "id": "de_0189",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "Tee",
+      "translation": "tea",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "Ich trinke Tee ohne Zucker.",
+          "translation": "I drink tea without sugar."
+        }
+      ]
+    },
+    {
+      "id": "de_0190",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "Milch",
+      "translation": "milk",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "Milch und Brot, bitte.",
+          "translation": "Milk and bread, please."
+        }
+      ]
+    },
+    {
+      "id": "de_0191",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "Reis",
+      "translation": "rice",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "Es gibt Reis zum Abendessen.",
+          "translation": "There is rice for dinner."
+        }
+      ]
+    },
+    {
+      "id": "de_0192",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "schlafen",
+      "translation": "to sleep",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "Ich möchte schlafen.",
+          "translation": "I would like to sleep."
+        }
+      ]
+    },
+    {
+      "id": "de_0193",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "denken",
+      "translation": "to think",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "Ich denke an dich.",
+          "translation": "I am thinking of you."
+        }
+      ]
+    },
+    {
+      "id": "de_0194",
+      "unit": "u10",
+      "category": "Questions",
+      "lemma": "wie viel",
+      "translation": "how much",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "Wie viel kostet das?",
+          "translation": "How much does that cost?"
         }
       ]
     }

@@ -2706,6 +2706,176 @@
           "translation": "Aunt (father's sister) will come tomorrow"
         }
       ]
+    },
+    {
+      "id": "bn_0138",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "বাথরুম",
+      "translation": "bathroom",
+      "difficulty": 1,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "বাথরুম কোথায়?",
+          "translation": "Where is the bathroom?",
+          "translit": "bathroom kothay?"
+        }
+      ],
+      "translit": "bathroom"
+    },
+    {
+      "id": "bn_0139",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "পরিবার",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "আমার পরিবার বড়",
+          "translation": "My family is big",
+          "translit": "amar poribar boro"
+        }
+      ],
+      "translit": "poribar"
+    },
+    {
+      "id": "bn_0140",
+      "unit": "u10",
+      "category": "Feelings",
+      "lemma": "তেষ্টা",
+      "translation": "thirst, thirsty",
+      "difficulty": 1,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "আমার তেষ্টা পেয়েছে",
+          "translation": "I am thirsty",
+          "translit": "amar teshta peyeche"
+        }
+      ],
+      "translit": "teshta"
+    },
+    {
+      "id": "bn_0141",
+      "unit": "u10",
+      "category": "Feelings",
+      "lemma": "দুঃখী",
+      "translation": "sad",
+      "difficulty": 1,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "আমি আজ দুঃখী",
+          "translation": "I am sad today",
+          "translit": "ami aaj dukkhi"
+        }
+      ],
+      "translit": "dukkhi"
+    },
+    {
+      "id": "bn_0142",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "কাছে",
+      "translation": "near, close",
+      "difficulty": 1,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "বাজার কাছে",
+          "translation": "The market is close",
+          "translit": "bajar kache"
+        }
+      ],
+      "translit": "kache"
+    },
+    {
+      "id": "bn_0143",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "দূরে",
+      "translation": "far",
+      "difficulty": 1,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "স্টেশন দূরে",
+          "translation": "The station is far",
+          "translit": "station dure"
+        }
+      ],
+      "translit": "dure"
+    },
+    {
+      "id": "bn_0144",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "হোটেল",
+      "translation": "hotel",
+      "difficulty": 1,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "হোটেল কোথায়?",
+          "translation": "Where is the hotel?",
+          "translit": "hotel kothay?"
+        }
+      ],
+      "translit": "hotel"
+    },
+    {
+      "id": "bn_0145",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "গাড়ি",
+      "translation": "car",
+      "difficulty": 1,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "গাড়ি এসেছে",
+          "translation": "The car has come",
+          "translit": "gari eseche"
+        }
+      ],
+      "translit": "gari"
+    },
+    {
+      "id": "bn_0146",
+      "unit": "u9",
+      "category": "Connectors",
+      "lemma": "ও",
+      "translation": "also, too",
+      "difficulty": 1,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "আমিও যাব",
+          "translation": "I will go too",
+          "translit": "amio jabo"
+        }
+      ],
+      "translit": "o"
+    },
+    {
+      "id": "bn_0147",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ট্রেন",
+      "translation": "train",
+      "difficulty": 1,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "ট্রেন দেরি",
+          "translation": "The train is late",
+          "translit": "train deri"
+        }
+      ],
+      "translit": "train"
     }
   ],
   "alphabetGroups": [

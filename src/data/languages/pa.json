@@ -13,6 +13,7 @@
     "Greetings",
     "Numbers",
     "People",
+    "Places",
     "Time",
     "Transport",
     "Travel",
@@ -647,7 +648,7 @@
       "id": "pa_0029",
       "unit": "u5",
       "lemma": "دودھ",
-      "translit": "dudh",
+      "translit": "duddh",
       "translation": "milk",
       "category": "Food",
       "difficulty": 1,
@@ -664,7 +665,7 @@
       "id": "pa_0030",
       "unit": "u5",
       "lemma": "کھانا",
-      "translit": "khana",
+      "translit": "khaana",
       "translation": "food, to eat",
       "category": "Food",
       "difficulty": 1,
@@ -775,7 +776,7 @@
         {
           "native": "اج پیر اے",
           "translation": "Today is Monday",
-          "translit": "aj peer ae"
+          "translit": "ajj peer ae"
         }
       ]
     },
@@ -1129,7 +1130,7 @@
       "id": "pa_0057",
       "unit": "u2",
       "lemma": "مینہ",
-      "translit": "menh",
+      "translit": "meenh",
       "translation": "rain",
       "category": "Weather",
       "difficulty": 2,
@@ -2267,7 +2268,7 @@
         {
           "native": "میرا کم مُک گیا",
           "translation": "My work is done",
-          "translit": "mera kam muk gaya"
+          "translit": "mera kamm muk gaya"
         }
       ],
       "frequencyRank": 13
@@ -2729,6 +2730,142 @@
           "translation": "I am hungry"
         }
       ]
+    },
+    {
+      "id": "pa_0144",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "غسل خانہ",
+      "translation": "bathroom",
+      "difficulty": 1,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "غسل خانہ کتھے اے؟",
+          "translation": "Where is the bathroom?",
+          "translit": "ghusal khana kithe ae"
+        }
+      ],
+      "translit": "ghusal khana"
+    },
+    {
+      "id": "pa_0145",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "پتر",
+      "translation": "son",
+      "difficulty": 1,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "میرا پتر سکول جاندا اے",
+          "translation": "My son goes to school",
+          "translit": "mera puttar school jaanda ae"
+        }
+      ],
+      "translit": "puttar"
+    },
+    {
+      "id": "pa_0146",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "دھی",
+      "translation": "daughter",
+      "difficulty": 1,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "میری دھی ڈاکٹر اے",
+          "translation": "My daughter is a doctor",
+          "translit": "meri dhee doctor ae"
+        }
+      ],
+      "translit": "dhee"
+    },
+    {
+      "id": "pa_0147",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ٹبر",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "سارا ٹبر آیا",
+          "translation": "The whole family came",
+          "translit": "saara tabbar aaya"
+        }
+      ],
+      "translit": "tabbar"
+    },
+    {
+      "id": "pa_0148",
+      "unit": "u6",
+      "category": "Feelings",
+      "lemma": "تیہہ",
+      "translation": "thirst, thirsty",
+      "difficulty": 1,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "مینوں تیہہ لگی اے",
+          "translation": "I am thirsty",
+          "translit": "mainu teh lagi ae"
+        }
+      ],
+      "translit": "teh"
+    },
+    {
+      "id": "pa_0149",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "چول",
+      "translation": "rice",
+      "difficulty": 1,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "چول تیار نیں",
+          "translation": "The rice is ready",
+          "translit": "chaul taiyaar nen"
+        }
+      ],
+      "translit": "chaul"
+    },
+    {
+      "id": "pa_0150",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "بازار",
+      "translation": "market",
+      "difficulty": 1,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "میں بازار جا رہیا ہاں",
+          "translation": "I am going to the market",
+          "translit": "main bazaar ja rahiya haan"
+        }
+      ],
+      "translit": "bazaar"
+    },
+    {
+      "id": "pa_0151",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "سورج",
+      "translation": "sun",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "سورج چڑھ گیا",
+          "translation": "The sun has risen",
+          "translit": "sooraj charh gaya"
+        }
+      ],
+      "translit": "sooraj"
     }
   ],
   "alphabetGroups": [

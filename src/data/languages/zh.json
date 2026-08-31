@@ -3274,6 +3274,40 @@
           "translation": "Mum is ill"
         }
       ]
+    },
+    {
+      "id": "zh_0167",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "家人",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "我家人很多",
+          "translation": "I have a big family",
+          "translit": "wǒ jiārén hěn duō"
+        }
+      ],
+      "translit": "jiārén"
+    },
+    {
+      "id": "zh_0168",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "面包",
+      "translation": "bread",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "我要一个面包",
+          "translation": "I want a piece of bread",
+          "translit": "wǒ yào yí ge miànbāo"
+        }
+      ],
+      "translit": "miànbāo"
     }
   ],
   "alphabetGroups": [

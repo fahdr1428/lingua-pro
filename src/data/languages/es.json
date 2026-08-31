@@ -3326,6 +3326,36 @@
           "translation": "My cousin is ten years old"
         }
       ]
+    },
+    {
+      "id": "es_0194",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "la familia",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "Mi familia es grande.",
+          "translation": "My family is big."
+        }
+      ]
+    },
+    {
+      "id": "es_0195",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "el té",
+      "translation": "tea",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "Un té, por favor.",
+          "translation": "A tea, please."
+        }
+      ]
     }
   ],
   "alphabetGroups": [

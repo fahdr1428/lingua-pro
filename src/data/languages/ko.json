@@ -2057,7 +2057,7 @@
         {
           "native": "제 마음",
           "translation": "My heart",
-          "translit": "je maeum"
+          "translit": "je ma-eum"
         }
       ]
     },
@@ -2284,7 +2284,7 @@
         {
           "native": "이거 얼마예요?",
           "translation": "How much is this?",
-          "translit": "igeo eolma-yeyo?"
+          "translit": "igeo eolmayeyo?"
         }
       ]
     },
@@ -2301,7 +2301,7 @@
         {
           "native": "화장실 어디예요?",
           "translation": "Where is the bathroom?",
-          "translit": "hwajangsil eodi-yeyo?"
+          "translit": "hwajangsil eodiyeyo?"
         }
       ]
     },
@@ -2369,7 +2369,7 @@
         {
           "native": "— 감사합니다. — 천만에요",
           "translation": "— Thank you. — You're welcome",
-          "translit": "— gamsahamnida. — cheonman-eyo"
+          "translit": "— gamsahamnida. — cheonmaneyo"
         }
       ]
     },
@@ -2386,7 +2386,7 @@
         {
           "native": "이게 뭐예요?",
           "translation": "What is this?",
-          "translit": "ige mwo-yeyo?"
+          "translit": "ige mwoyeyo?"
         }
       ]
     },
@@ -3175,7 +3175,7 @@
         {
           "native": "왼쪽으로 도세요",
           "translation": "Turn to the left",
-          "translit": "oenjjog-euro doseyo"
+          "translit": "oenjjogeuro doseyo"
         }
       ],
       "frequencyRank": 161
@@ -3193,7 +3193,7 @@
         {
           "native": "오른쪽으로 가세요",
           "translation": "Go to the right",
-          "translit": "oreunjjog-euro gaseyo"
+          "translit": "oreunjjogeuro gaseyo"
         }
       ],
       "frequencyRank": 162
@@ -3421,6 +3421,108 @@
           "translation": "My head hurts"
         }
       ]
+    },
+    {
+      "id": "ko_0175",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "그",
+      "translation": "he",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "그는 제 형이에요",
+          "translation": "He is my older brother",
+          "translit": "geuneun je hyeongieyo"
+        }
+      ],
+      "translit": "geu"
+    },
+    {
+      "id": "ko_0176",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "그녀",
+      "translation": "she",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "그녀는 선생님이에요",
+          "translation": "She is a teacher",
+          "translit": "geunyeoneun seonsaengnimieyo"
+        }
+      ],
+      "translit": "geunyeo"
+    },
+    {
+      "id": "ko_0177",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "가족",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "우리 가족은 네 명이에요",
+          "translation": "There are four in my family",
+          "translit": "uri gajogeun ne myeongieyo"
+        }
+      ],
+      "translit": "gajok"
+    },
+    {
+      "id": "ko_0178",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "삼촌",
+      "translation": "uncle",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "삼촌은 부산에 살아요",
+          "translation": "My uncle lives in Busan",
+          "translit": "samchoneun Busane sarayo"
+        }
+      ],
+      "translit": "samchon"
+    },
+    {
+      "id": "ko_0179",
+      "unit": "u11",
+      "category": "Feelings",
+      "lemma": "목말라요",
+      "translation": "thirsty",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "목말라요, 물 주세요",
+          "translation": "I'm thirsty, water please",
+          "translit": "mongmallayo, mul juseyo"
+        }
+      ],
+      "translit": "mongmallayo"
+    },
+    {
+      "id": "ko_0180",
+      "unit": "u13",
+      "category": "Transport",
+      "lemma": "자동차",
+      "translation": "car",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "자동차로 갈까요?",
+          "translation": "Shall we go by car?",
+          "translit": "jadongcharo galkkayo?"
+        }
+      ],
+      "translit": "jadongcha"
     }
   ],
   "alphabetGroups": [
