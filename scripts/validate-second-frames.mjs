@@ -26,9 +26,23 @@
 //     the word's JOB — 水を ください and 水が冷たいです put 水 in the same place
 //     and use it as an object and then a subject. A build that failed on the
 //     proxy would push someone to reword good frames.
-//   · WARNING — a frame of one or two words. "Mi madre" is not a frame, it is a
-//     phrase, and a word met only in a phrase is the problem this file exists
-//     to fix.
+//   · REPORTED, not judged — a frame of one or two words. This started life as
+//     a warning called "a phrase, not a sentence" and that description was
+//     WRONG, which is worth recording because the mistake is seductive. Word
+//     count is a terrible proxy for sentencehood in exactly the languages that
+//     matter here:
+//
+//         我不知道          4 characters   "I don't know"
+//         你要什么？         a full question
+//         ¿Tienes tiempo?  2 words        "Do you have time?"
+//         Kedi evde.       2 words        "The cat is at home"
+//         متى تصل؟          2 words        "When do you arrive?"
+//         도와주셔서 감사합니다  2 words        "Thank you for helping me"
+//
+//     Pro-drop and agglutinative languages say complete things in two words;
+//     Chinese says them in four characters. Calling those fragments would push
+//     someone to pad perfectly good frames with pronouns the language does not
+//     use. So the count is printed and nothing is concluded from it.
 //
 //   npm run validate-second-frames
 // =============================================================================
@@ -150,23 +164,22 @@ for (const code of codes) {
       }
 
       const shortest = Math.min(words(first).length, words(second).length);
-      if (shortest <= 2) phrases.push(`${code}`);
+      if (shortest <= 2) phrases.push(`${code}`);   // counted, not judged
     }
   }
 }
 
 console.log(`\n  second frames: ${secondFrames} across ${codes.length} languages · ${pairs} pairs compared`);
 
-// The base frames are often two words — "مرحبا صديقي", "Mi madre". A phrase is
-// not a frame, and it is the debt this file only half pays off: the SECOND
-// frame is now a sentence everywhere, but the first often still isn't.
-// Summarised per language rather than listed, so it stays visible without
-// drowning the errors.
+// Short frames, counted and not judged — see the header. Some are genuine
+// fragments ("Mi madre"); many are complete sentences in a language that does
+// not need a subject pronoun. Telling them apart needs a parser, not a word
+// count, so this is a number to look at rather than a verdict.
 if (phrases.length) {
   const per = {};
   for (const c of phrases) per[c] = (per[c] || 0) + 1;
   const total = phrases.length;
-  console.log(`\n  ${total} pair(s) where one frame is a phrase of two words or fewer — usually the pack's original example`);
+  console.log(`\n  ${total} pair(s) where one frame is two words or fewer — some are fragments, many are complete short sentences`);
   console.log("    " + Object.entries(per).sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c} ${n}`).join(" · "));
 }
 

@@ -111,10 +111,36 @@ matters. 水を ください and 水が冷たいです put 水 in the same place
 object and then a subject; failing the build on the proxy would push someone to
 reword good frames to satisfy it.
 
-It also reports, without failing, that **808 pairs still have a phrase of two
-words or fewer on one side** — almost always the pack's original example. The
-second frame is a sentence everywhere now. The first often still isn't. That is
-the next piece of this work.
+### A claim in the first draft of this changelog was wrong
+
+It said 808 pairs "still have a phrase of two words or fewer on one side —
+almost always the pack's original example. The second frame is a sentence
+everywhere now. The first often still isn't."
+
+Then I went to fix those and looked at what the check had actually flagged:
+
+```
+我不知道           4 characters   "I don't know"
+你要什么？          a full question
+¿Tienes tiempo?   2 words        "Do you have time?"
+Kedi evde.        2 words        "The cat is at home"
+متى تصل؟           2 words        "When do you arrive?"
+도와주셔서 감사합니다   2 words        "Thank you for helping me"
+```
+
+**Word count is a terrible proxy for sentencehood in exactly the languages that
+matter here.** Pro-drop and agglutinative languages say complete things in two
+words; Chinese says them in four characters. Acting on that number would have
+meant padding perfectly good frames with pronouns those languages do not use.
+
+The check now prints the count and concludes nothing from it, and the header
+says why. Telling a fragment from a short sentence needs a parser, not a word
+count. (The figure is 571 pairs, not 808 — 808 was the total warning count
+across every warning type, which the first draft also got wrong.)
+
+Some genuine fragments do remain — "Mi madre", "Tres días" — but far fewer than
+that number implied, and they are not the next piece of work I thought they
+were.
 
 ## Verified
 

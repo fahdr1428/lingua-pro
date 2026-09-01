@@ -110,6 +110,15 @@ one route, so the absence never showed. It was thrown away and the claim moved
 to `test-input-stream.mjs`, which calls `readableSentences` directly: 526 of 978
 extra-only sentences served with the merge, **0 of 978** without it.
 
+A second claim from that pass also had to be withdrawn. `validate-second-frames`
+counted frames of two words or fewer and called them "a phrase, not a sentence",
+which put the figure at 808 pairs. Looking at what it had flagged — 我不知道
+("I don't know"), ¿Tienes tiempo?, Kedi evde., متى تصل؟, 도와주셔서 감사합니다 — word
+count turns out to be a terrible proxy for sentencehood in precisely the
+languages this app teaches. Pro-drop and agglutinative languages say complete
+things in two words. The number is still printed and nothing is concluded from
+it; telling a fragment from a short sentence needs a parser.
+
 **Still true, and it is the biggest open problem in the app.** Reassembled
 sentences are not connected text. Nobody acquires a language from a list of
 unrelated lines, however well ordered. Real passages, written by people who
