@@ -981,9 +981,9 @@
       "frequencyRank": 41,
       "examples": [
         {
-          "native": "明天来",
-          "translation": "Come tomorrow",
-          "translit": "míngtiān lái"
+          "native": "他还没来",
+          "translit": "tā hái méi lái",
+          "translation": "He has not come yet"
         }
       ],
       "pronunciation": "lai (2nd tone)"
@@ -1503,9 +1503,9 @@
       "frequencyRank": 67,
       "examples": [
         {
-          "native": "很好",
-          "translation": "Very good",
-          "translit": "hěn hǎo"
+          "native": "天气很好",
+          "translit": "tiānqì hěn hǎo",
+          "translation": "The weather is good"
         }
       ],
       "pronunciation": "how (3rd tone)"

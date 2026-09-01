@@ -45,6 +45,8 @@
 // Scripts that don't put spaces between words. Token counting means nothing
 // there, so coverage is measured over characters and lemmas are matched as
 // substrings rather than as whole words.
+import { mergeExamples } from "../data/extraExamples.js";
+
 const UNSPACED = new Set(["zh", "ja"]);
 
 // Punctuation across every script the app teaches — Latin, Arabic, Devanagari,
@@ -122,7 +124,14 @@ export function readableSentences(pack, progress = {}, { maxUnknown = 1, preferT
   const out = [];
 
   for (const v of vocab) {
-    for (const ex of v.examples || []) {
+    // v101 — mergeExamples, not v.examples.
+    //
+    // This read the pack's own examples and nothing else, so extraExamples.js
+    // never reached the input stream. That is 1,160 sentences — a third of the
+    // app's entire sentence corpus, including every second frame added in v101
+    // — absent from the one screen whose whole purpose is comprehensible input.
+    // The vocabulary cards merged them; the reading feature did not.
+    for (const ex of mergeExamples(code, v.lemma, v.examples || [])) {
       if (!ex?.native) continue;
       const key = clean(ex.native);
       if (!key || seen.has(key)) continue;   // the same sentence can hang off two words

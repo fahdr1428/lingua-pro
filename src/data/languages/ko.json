@@ -371,9 +371,9 @@
       "frequencyRank": 81,
       "examples": [
         {
-          "native": "안녕히 가세요",
-          "translation": "Goodbye",
-          "translit": "annyeonghi gaseyo"
+          "native": "안녕히 가세요, 또 만나요.",
+          "translit": "annyeonghi gaseyo, tto mannayo.",
+          "translation": "Goodbye, see you again."
         }
       ],
       "pronunciation": "an-NYUNG-hee gah-SAY-yoh"
@@ -2350,9 +2350,9 @@
       "frequencyRank": 141,
       "examples": [
         {
-          "native": "이거 주세요",
-          "translation": "I'll take this one, please",
-          "translit": "igeo juseyo"
+          "native": "이거 주세요, 얼마예요?",
+          "translit": "igeo juseyo, eolmayeyo?",
+          "translation": "This one please — how much is it?"
         }
       ]
     },

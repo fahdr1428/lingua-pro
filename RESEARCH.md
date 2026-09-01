@@ -88,6 +88,28 @@ Punjabi, Nigerian Pidgin, Bengali and Urdu to people with family who speak them,
 and generated prose presented as course material is the wrong thing to hand
 someone trying to talk to their grandmother.
 
+**What changed (v101).** Two things, and the second was not the plan.
+
+Every one of the 42 survival concepts — the words every language must teach —
+now has a SECOND example sentence in all nineteen languages: 787 new sentences,
+each putting the word in a different slot from the first. Words met in exactly
+one frame: 84% → 65%. Survival words met in one frame: 607 → 0.
+
+Then, checking the new sentences reached a learner, `src/engine/inputStream.js`
+turned out to read `v.examples` and never call `mergeExamples` — so
+`extraExamples.js` had NEVER reached the input stream. 1,160 sentences, a third
+of the app's corpus, absent from the one screen whose entire purpose is
+comprehensible input. The vocabulary cards merged them; the reading feature did
+not, and nothing noticed because every check read the data files rather than
+what the engine returns. Readable sentences at 30 words known, before → after:
+French 16 → 26, Bengali 21 → 30, Hindi 24 → 30, Somali at ten words 2 → 6.
+
+The browser check written to prove that fix PASSED against a build with the
+merge deliberately removed — the reading screen surfaces sentences by more than
+one route, so the absence never showed. It was thrown away and the claim moved
+to `test-input-stream.mjs`, which calls `readableSentences` directly: 526 of 978
+extra-only sentences served with the merge, **0 of 978** without it.
+
 **Still true, and it is the biggest open problem in the app.** Reassembled
 sentences are not connected text. Nobody acquires a language from a list of
 unrelated lines, however well ordered. Real passages, written by people who

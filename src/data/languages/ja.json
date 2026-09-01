@@ -1142,9 +1142,9 @@
       "difficulty": 2,
       "examples": [
         {
-          "native": "ごめんなさい",
-          "translation": "I'm sorry",
-          "translit": "gomen nasai"
+          "native": "ごめんなさい、わかりません。",
+          "translit": "gomennasai, wakarimasen.",
+          "translation": "Sorry, I don't understand."
         }
       ],
       "frequencyRank": 136
