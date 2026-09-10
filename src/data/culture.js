@@ -27,6 +27,66 @@
 // =============================================================================
 
 export const CULTURE = {
+  // v102 — Vietnamese. Two of these are about pronouns, because Vietnamese
+  // pronouns are the thing a heritage learner is most likely to be quietly
+  // getting wrong with their own relatives.
+  vi: [
+    { id: "vi-pronouns", tag: "custom", when: "any",
+      title: "There is no neutral word for 'I'",
+      body: "Vietnamese picks a pronoun from the family relationship you are in. Talking to someone slightly older you are em and they are anh or chị; talking to a child you are anh or chị and they are em. Tôi exists but sounds cold and distant, like using someone's surname. Choosing right is not politeness trivia — it is how you say you know where you stand with someone." },
+    { id: "vi-age", tag: "custom", when: "any",
+      title: "The first question is often your age",
+      body: "Not nosiness. Until someone knows roughly how old you are, they do not know which pronoun to use for you, and the conversation cannot start properly. Answering plainly is the helpful thing to do." },
+    { id: "vi-tones", tag: "language", when: "any",
+      title: "Six tones, and all of them written",
+      body: "ma, má, mà, mả, mã, mạ are six different words — ghost, mother, but, tomb, horse, rice seedling. Unlike Chinese, Vietnamese writes every tone, so the marks on the page are the pronunciation. Text with the marks stripped off, which is common online, is genuinely ambiguous even to native readers." },
+    { id: "vi-north-south", tag: "language", when: "any",
+      title: "North and south do not sound alike",
+      body: "Hanoi and Saigon differ in several consonants and in how two of the tones are made. The written language is shared, which is why a northern speaker and a southern speaker read the same newspaper and sound very different reading it aloud. Neither is more correct." },
+    { id: "vi-food", tag: "food", when: "any",
+      title: "Phở is breakfast",
+      body: "It is a morning food in Vietnam, sold from shops that open before dawn and often close by ten. The evening phở familiar to diaspora communities is an adaptation to when people abroad actually eat. Both are real; only one is what you would find in Hanoi at seven in the morning." },
+    { id: "vi-tet", tag: "custom", when: "any",
+      title: "Tết resets everything",
+      body: "The lunar new year is the year's one great homecoming. Debts get settled, houses get cleaned, and the whole country travels. Saying chúc mừng năm mới at any other time of year is like saying merry Christmas in July." },
+    { id: "vi-two-hands", tag: "custom", when: "any",
+      title: "Two hands, and a slight bow",
+      body: "Passing or receiving anything from someone older — money, a cup, a gift — is done with two hands. It costs nothing and its absence is noticed immediately." },
+    { id: "vi-name-order", tag: "custom", when: "any",
+      title: "The last name comes first, and nobody uses it",
+      body: "Nguyễn Văn Nam is family name, middle name, given name — and he is called Nam, or anh Nam. Vietnamese address people by given name even formally, because roughly two in five Vietnamese people share the surname Nguyễn and it would not distinguish anyone." },
+  ],
+
+  // v102 — Yoruba. Greeting and respect are not one topic among many here;
+  // they are most of the social grammar of the language.
+  yo: [
+    { id: "yo-greetings", tag: "custom", when: "any",
+      title: "There is a greeting for everything",
+      body: "Yoruba has dedicated greetings for someone working, someone sitting, someone who has just returned, someone who has been ill, someone cooking, someone who lost something. Not greeting is not neutral — it registers as a refusal. Ẹ kú iṣẹ́ (greetings on your work) to someone at their stall costs a second and is genuinely expected." },
+    { id: "yo-prostration", tag: "custom", when: "any",
+      title: "Greeting an elder involves your whole body",
+      body: "Traditionally a man prostrates (dọ̀bálẹ̀) and a woman kneels (kúnlẹ̀) to greet an elder. In cities and abroad this softens to a bow or a bend, but the expectation that greeting is physical has not gone anywhere, and diaspora children who nod are often quietly corrected." },
+    { id: "yo-tones", tag: "language", when: "any",
+      title: "The drum can talk because the language is tonal",
+      body: "The talking drum reproduces the pitch pattern of speech, and listeners hear words in it. That works because Yoruba tone carries meaning: ọkọ̀ is a vehicle, ọkọ is a husband, oko is a farm. The marks in writing are that tune written down." },
+    { id: "yo-dots", tag: "language", when: "any",
+      title: "The dots under the letters are not decoration",
+      body: "ẹ, ọ and ṣ are separate letters, not e, o and s with something added. Most Yoruba online is typed without them because keyboards make them awkward, which is why so much written Yoruba is hard for learners and merely annoying for speakers who can fill the gaps from context." },
+    { id: "yo-names", tag: "custom", when: "any",
+      title: "Names are whole sentences",
+      body: "Olúwaṣeun means 'God did this'. Babátúndé means 'father has returned'. Yoruba names record the circumstances of a birth — what the family had prayed for, who had recently died, what day it was. Asking what a name means is a normal and welcome question." },
+    { id: "yo-elders", tag: "custom", when: "any",
+      title: "Ẹ is the respect you cannot skip",
+      body: "The plural ẹ̀yin and the ẹ that starts most greetings are used for one older person as a mark of respect. Using the singular with someone older is not casual, it is rude, in the way that calling a stranger's grandmother by her first name would be." },
+    { id: "yo-food", tag: "food", when: "any",
+      title: "Ẹ̀wà and ìrẹsì, and eating with your right hand",
+      body: "Beans and rice do a lot of the everyday work, alongside pounded yam and soups. Eating is done with the right hand; the left is considered unclean for food and passing things. Left-handed people abroad get quietly reminded of this at family gatherings." },
+    { id: "yo-proverbs", tag: "custom", when: "any",
+      title: "A proverb is an argument",
+      body: "Òwe l'ẹṣin ọ̀rọ̀ — the proverb is the horse of speech. Dropping a proverb into a disagreement is how a point gets carried, and an elder who answers you with one has usually just closed the discussion." },
+  ],
+
+
   de: [
     {
       id: "de-siezen",

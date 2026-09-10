@@ -18,11 +18,17 @@
 // =============================================================================
 
 import { readFileSync, readdirSync } from "node:fs";
+import { LATIN_SCRIPT_LANGUAGES } from "../src/data/registry.js";
 
 // Genuinely Latin-script languages. Keep in step with LATIN_SCRIPT in
 // src/screens/AlphabetLessons.jsx — the screen decides what to SAY, this
 // decides what to REQUIRE, and they must agree about which is which.
-const LATIN = new Set(["es", "fr", "de", "id", "tr", "pcm", "tl", "so"]);
+// The Latin-script list lives in ONE place: src/data/registry.js. It used to be
+// copied into six scripts, which had already drifted apart — import-vocab,
+// measure-input and validate-journey never learned about de, tl or so, and none
+// of them learned about vi or yo. That is the v92 bug (nine copies of the same
+// set in src/) repeating itself in scripts/, so the fix is the same one.
+const LATIN = LATIN_SCRIPT_LANGUAGES;
 
 // v91 — a list of letters is not a script course.
 //

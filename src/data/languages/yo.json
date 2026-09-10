@@ -1,0 +1,2079 @@
+{
+  "schemaVersion": 1,
+  "code": "yo",
+  "categories": [
+    "About You",
+    "Body",
+    "Colors",
+    "Common",
+    "Connectors",
+    "Family",
+    "Feelings",
+    "Food",
+    "Greetings",
+    "Numbers",
+    "People",
+    "Places",
+    "Politeness",
+    "Questions",
+    "Time",
+    "Transport",
+    "Verbs",
+    "Weather"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Yoruba greets by time of day, and there is one for everything"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "I, you, and how to give your name"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "The words for the people at the table"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers",
+      "emoji": "🔢",
+      "description": "Counting, and asking the price"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍲",
+      "description": "Rice, water, and eating together"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, come, know, want"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "📍",
+      "description": "Home, market, and finding your way"
+    },
+    {
+      "id": "u8",
+      "title": "Time & Feelings",
+      "emoji": "🕐",
+      "description": "Today, tomorrow, tired, hungry"
+    }
+  ],
+  "alphabet": [
+    {
+      "char": "ó",
+      "name": "high tone",
+      "sound": "pitch held high — 'ó' = he/she/it",
+      "group": "tones",
+      "note": "The acute is not stress. Yoruba syllables are all about the same length; what changes is the musical pitch you hold."
+    },
+    {
+      "char": "o",
+      "name": "mid tone",
+      "sound": "the middle of your range, written with no mark",
+      "group": "tones",
+      "note": "Unmarked does not mean untoned. Mid is a real tone that has to be held level."
+    },
+    {
+      "char": "ò",
+      "name": "low tone",
+      "sound": "pitch held low — 'ò' = does not",
+      "group": "tones",
+      "note": "ó and ò are opposites and turn 'he does' into 'he does not'. This is the pair to get right first."
+    },
+    {
+      "char": "ọkọ̀",
+      "name": "why it matters",
+      "sound": "ọkọ̀ vehicle · ọkọ husband · oko farm",
+      "group": "tones",
+      "note": "Three different words, one spelling without the marks. Yoruba written bare is guesswork for a learner."
+    },
+    {
+      "char": "ẹ",
+      "name": "ẹ",
+      "sound": "like the 'e' in 'bed'",
+      "group": "dotted",
+      "note": "A separate letter from e (which is the 'ay' of 'day'). The dot goes UNDER, and dropping it changes words."
+    },
+    {
+      "char": "ọ",
+      "name": "ọ",
+      "sound": "like the 'aw' in 'law'",
+      "group": "dotted",
+      "note": "A separate letter from o (which is the 'oh' of 'go')."
+    },
+    {
+      "char": "ṣ",
+      "name": "ṣ",
+      "sound": "like 'sh'",
+      "group": "dotted",
+      "note": "s is a plain 's'; ṣ is 'sh'. Ṣé (the question word) is 'sheh', not 'seh'."
+    },
+    {
+      "char": "gb",
+      "name": "gb",
+      "sound": "a g and a b at exactly the same time",
+      "group": "sounds",
+      "note": "One sound, not two. Close your lips as if for b while making a g at the back. English has nothing like it, and 'gbogbo' (all) is the word to practise on."
+    },
+    {
+      "char": "p",
+      "name": "p",
+      "sound": "a k and a p at the same time",
+      "group": "sounds",
+      "note": "Yoruba p is really 'kp'. There is no plain English p sound in the language."
+    },
+    {
+      "char": "an",
+      "name": "an",
+      "sound": "a nasal 'ahn'",
+      "group": "sounds"
+    },
+    {
+      "char": "ẹn",
+      "name": "ẹn",
+      "sound": "a nasal 'ehn'",
+      "group": "sounds"
+    },
+    {
+      "char": "ọn",
+      "name": "ọn",
+      "sound": "a nasal 'awn'",
+      "group": "sounds"
+    },
+    {
+      "char": "un",
+      "name": "un",
+      "sound": "a nasal 'oon'",
+      "group": "sounds"
+    },
+    {
+      "char": "j",
+      "name": "j",
+      "sound": "like the 'j' in 'jam'",
+      "group": "sounds"
+    },
+    {
+      "char": "y",
+      "name": "y",
+      "sound": "like the 'y' in 'yes'",
+      "group": "sounds"
+    },
+    {
+      "char": "r",
+      "name": "r",
+      "sound": "a light tap, closer to Spanish than English",
+      "group": "sounds"
+    }
+  ],
+  "frameworks": [],
+  "vocab": [
+    {
+      "id": "yo_0001",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "báwo ni",
+      "translation": "hello, how are you",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "Báwo ni? Ṣé àlàáfíà ni?",
+          "translation": "Hello, is all well?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0002",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "ẹ káàárọ̀",
+      "translation": "good morning",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "Ẹ káàárọ̀ ma",
+          "translation": "Good morning, ma'am"
+        }
+      ]
+    },
+    {
+      "id": "yo_0003",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "ẹ káàsán",
+      "translation": "good afternoon",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "Ẹ káàsán, ẹ jòwó",
+          "translation": "Good afternoon, please"
+        }
+      ]
+    },
+    {
+      "id": "yo_0004",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "ẹ kúùrọ̀lẹ́",
+      "translation": "good evening",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "Ẹ kúùrọ̀lẹ́ o",
+          "translation": "Good evening"
+        }
+      ]
+    },
+    {
+      "id": "yo_0005",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "ó dàbọ̀",
+      "translation": "goodbye",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "Ó dàbọ̀, a ó tún rí",
+          "translation": "Goodbye, we'll see each other again"
+        }
+      ]
+    },
+    {
+      "id": "yo_0006",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "bẹ́ẹ̀ni",
+      "translation": "yes",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "Bẹ́ẹ̀ni, mo gbọ́",
+          "translation": "Yes, I hear you"
+        }
+      ]
+    },
+    {
+      "id": "yo_0007",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "bẹ́ẹ̀kọ́",
+      "translation": "no",
+      "difficulty": 1,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "Bẹ́ẹ̀kọ́, ẹ ṣé",
+          "translation": "No, thank you"
+        }
+      ]
+    },
+    {
+      "id": "yo_0008",
+      "unit": "u1",
+      "category": "Politeness",
+      "lemma": "ẹ ṣé",
+      "translation": "thank you",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "Ẹ ṣé fún ìrànlọ́wọ́ yín",
+          "translation": "Thank you for your help"
+        }
+      ]
+    },
+    {
+      "id": "yo_0009",
+      "unit": "u1",
+      "category": "Politeness",
+      "lemma": "ẹ jọ̀ọ́",
+      "translation": "please",
+      "difficulty": 1,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "Ẹ jọ̀ọ́, ràn mí lọ́wọ́",
+          "translation": "Please, help me"
+        }
+      ]
+    },
+    {
+      "id": "yo_0010",
+      "unit": "u1",
+      "category": "Politeness",
+      "lemma": "pẹ̀lẹ́",
+      "translation": "sorry, sympathy for you",
+      "difficulty": 1,
+      "frequencyRank": 10,
+      "examples": [
+        {
+          "native": "Pẹ̀lẹ́ o, ó dáa",
+          "translation": "Sorry, it's all right"
+        }
+      ]
+    },
+    {
+      "id": "yo_0011",
+      "unit": "u1",
+      "category": "Politeness",
+      "lemma": "má bínú",
+      "translation": "I'm sorry (lit. don't be angry)",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "Má bínú, mo pẹ́",
+          "translation": "I'm sorry, I'm late"
+        }
+      ]
+    },
+    {
+      "id": "yo_0012",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "àlàáfíà",
+      "translation": "peace, wellbeing",
+      "difficulty": 1,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "Àlàáfíà ni",
+          "translation": "All is well"
+        }
+      ]
+    },
+    {
+      "id": "yo_0013",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "mo",
+      "translation": "I",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "Mo ń gbé ní Èkó",
+          "translation": "I live in Lagos"
+        }
+      ]
+    },
+    {
+      "id": "yo_0014",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "ìwọ",
+      "translation": "you",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "Ìwọ ni mo ń wá",
+          "translation": "It's you I'm looking for"
+        }
+      ]
+    },
+    {
+      "id": "yo_0015",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "ẹ̀yin",
+      "translation": "you (plural or respectful)",
+      "difficulty": 1,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "Ẹ̀yin ni ẹ mọ̀",
+          "translation": "You are the ones who know"
+        }
+      ]
+    },
+    {
+      "id": "yo_0016",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "àwa",
+      "translation": "we",
+      "difficulty": 1,
+      "frequencyRank": 16,
+      "examples": [
+        {
+          "native": "Àwa ti dé",
+          "translation": "We have arrived"
+        }
+      ]
+    },
+    {
+      "id": "yo_0017",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "ó",
+      "translation": "he, she, it",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "Ó jẹ́ ẹ̀gbọ́n mi",
+          "translation": "He is my older sibling"
+        }
+      ]
+    },
+    {
+      "id": "yo_0018",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "òun",
+      "translation": "he, she (emphatic)",
+      "difficulty": 1,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "Òun ni olùkọ́ mi",
+          "translation": "She is my teacher"
+        }
+      ]
+    },
+    {
+      "id": "yo_0019",
+      "unit": "u2",
+      "category": "About You",
+      "lemma": "orúkọ",
+      "translation": "name",
+      "difficulty": 1,
+      "frequencyRank": 19,
+      "examples": [
+        {
+          "native": "Kí ni orúkọ rẹ?",
+          "translation": "What is your name?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0020",
+      "unit": "u2",
+      "category": "About You",
+      "lemma": "ọmọ",
+      "translation": "child",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "examples": [
+        {
+          "native": "Ọmọ mi ni",
+          "translation": "This is my child"
+        }
+      ]
+    },
+    {
+      "id": "yo_0021",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ìyá",
+      "translation": "mother",
+      "difficulty": 1,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "Ìyá mi ń ṣe oúnjẹ",
+          "translation": "My mother is cooking"
+        }
+      ]
+    },
+    {
+      "id": "yo_0022",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "bàbá",
+      "translation": "father",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "Bàbá mi ti lọ sí iṣẹ́",
+          "translation": "My father has gone to work"
+        }
+      ]
+    },
+    {
+      "id": "yo_0023",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ẹ̀gbọ́n ọkùnrin",
+      "translation": "older brother",
+      "difficulty": 1,
+      "frequencyRank": 23,
+      "examples": [
+        {
+          "native": "Ẹ̀gbọ́n ọkùnrin mi wà ní Ìbàdàn",
+          "translation": "My older brother is in Ibadan"
+        }
+      ]
+    },
+    {
+      "id": "yo_0024",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ẹ̀gbọ́n obìnrin",
+      "translation": "older sister",
+      "difficulty": 1,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "Ẹ̀gbọ́n obìnrin mi jẹ́ dókítà",
+          "translation": "My older sister is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "yo_0025",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ọmọkùnrin",
+      "translation": "son, boy",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Ọmọkùnrin mi ń lọ sí ilé-ìwé",
+          "translation": "My son goes to school"
+        }
+      ]
+    },
+    {
+      "id": "yo_0026",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ọmọbìnrin",
+      "translation": "daughter, girl",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "Ọmọbìnrin mi jẹ́ olùkọ́",
+          "translation": "My daughter is a teacher"
+        }
+      ]
+    },
+    {
+      "id": "yo_0027",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ìdílé",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 27,
+      "examples": [
+        {
+          "native": "Ìdílé mi tóbi",
+          "translation": "My family is big"
+        }
+      ]
+    },
+    {
+      "id": "yo_0028",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ìyá àgbà",
+      "translation": "grandmother",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "Ìyá àgbà mi ń sọ ìtàn",
+          "translation": "My grandmother tells stories"
+        }
+      ]
+    },
+    {
+      "id": "yo_0029",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "bàbá àgbà",
+      "translation": "grandfather",
+      "difficulty": 1,
+      "frequencyRank": 29,
+      "examples": [
+        {
+          "native": "Bàbá àgbà mi ti darúgbó",
+          "translation": "My grandfather has grown old"
+        }
+      ]
+    },
+    {
+      "id": "yo_0030",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "arákùnrin ìyá",
+      "translation": "uncle (mother's brother)",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "Arákùnrin ìyá mi ń bọ̀",
+          "translation": "My uncle is coming"
+        }
+      ]
+    },
+    {
+      "id": "yo_0031",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "arábìnrin ìyá",
+      "translation": "aunt (mother's sister)",
+      "difficulty": 1,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "Mo lọ sí ilé arábìnrin ìyá mi",
+          "translation": "I went to my aunt's house"
+        }
+      ]
+    },
+    {
+      "id": "yo_0032",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "ọ̀rẹ́",
+      "translation": "friend",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "Ọ̀rẹ́ mi ni",
+          "translation": "He is my friend"
+        }
+      ]
+    },
+    {
+      "id": "yo_0033",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "ọkùnrin",
+      "translation": "man",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "Ọkùnrin náà ń bọ̀",
+          "translation": "The man is coming"
+        }
+      ]
+    },
+    {
+      "id": "yo_0034",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "obìnrin",
+      "translation": "woman",
+      "difficulty": 1,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "Obìnrin náà jẹ́ ìyá mi",
+          "translation": "That woman is my mother"
+        }
+      ]
+    },
+    {
+      "id": "yo_0035",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "dókítà",
+      "translation": "doctor",
+      "difficulty": 1,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "Mo fẹ́ rí dókítà",
+          "translation": "I want to see a doctor"
+        }
+      ]
+    },
+    {
+      "id": "yo_0036",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "ọ̀kan",
+      "translation": "one",
+      "difficulty": 1,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "Ọ̀kan ṣoṣo ló kù",
+          "translation": "Only one is left"
+        }
+      ]
+    },
+    {
+      "id": "yo_0037",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "méjì",
+      "translation": "two",
+      "difficulty": 1,
+      "frequencyRank": 37,
+      "examples": [
+        {
+          "native": "Mo ní ẹ̀gbọ́n méjì",
+          "translation": "I have two older siblings"
+        }
+      ]
+    },
+    {
+      "id": "yo_0038",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "mẹ́ta",
+      "translation": "three",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "Ọjọ́ mẹ́ta sí i",
+          "translation": "Three more days"
+        }
+      ]
+    },
+    {
+      "id": "yo_0039",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "mẹ́rin",
+      "translation": "four",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "Ènìyàn mẹ́rin ni",
+          "translation": "There are four people"
+        }
+      ]
+    },
+    {
+      "id": "yo_0040",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "márùn-ún",
+      "translation": "five",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "Ìṣẹ́jú márùn-ún",
+          "translation": "Five minutes"
+        }
+      ]
+    },
+    {
+      "id": "yo_0041",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "mẹ́wàá",
+      "translation": "ten",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "Mẹ́wàá ni mo fẹ́",
+          "translation": "I want ten"
+        }
+      ]
+    },
+    {
+      "id": "yo_0042",
+      "unit": "u4",
+      "category": "Questions",
+      "lemma": "élòó",
+      "translation": "how much",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "Élòó ni èyí?",
+          "translation": "How much is this?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0043",
+      "unit": "u4",
+      "category": "Common",
+      "lemma": "owó",
+      "translation": "money",
+      "difficulty": 1,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "Mi ò ní owó",
+          "translation": "I don't have money"
+        }
+      ]
+    },
+    {
+      "id": "yo_0044",
+      "unit": "u4",
+      "category": "Common",
+      "lemma": "wọ́n",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "Ó wọ́n jù",
+          "translation": "It's too expensive"
+        }
+      ]
+    },
+    {
+      "id": "yo_0045",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "omi",
+      "translation": "water",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "Fún mi ní omi, ẹ jọ̀ọ́",
+          "translation": "Give me water, please"
+        }
+      ]
+    },
+    {
+      "id": "yo_0046",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "oúnjẹ",
+      "translation": "food",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "Oúnjẹ ti ṣetán",
+          "translation": "The food is ready"
+        }
+      ]
+    },
+    {
+      "id": "yo_0047",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "ìrẹsì",
+      "translation": "rice",
+      "difficulty": 1,
+      "frequencyRank": 47,
+      "examples": [
+        {
+          "native": "Mo ń jẹ ìrẹsì",
+          "translation": "I am eating rice"
+        }
+      ]
+    },
+    {
+      "id": "yo_0048",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "búrẹ́dì",
+      "translation": "bread",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Mo ra búrẹ́dì lọ́wọ́ọ̀rọ̀",
+          "translation": "I bought bread this morning"
+        }
+      ]
+    },
+    {
+      "id": "yo_0049",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "tíì",
+      "translation": "tea",
+      "difficulty": 1,
+      "frequencyRank": 49,
+      "examples": [
+        {
+          "native": "Bàbá mi ń mu tíì",
+          "translation": "My father drinks tea"
+        }
+      ]
+    },
+    {
+      "id": "yo_0050",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "wàrà",
+      "translation": "milk",
+      "difficulty": 1,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "Fi wàrà sí i",
+          "translation": "Put milk in it"
+        }
+      ]
+    },
+    {
+      "id": "yo_0051",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "ẹ̀wà",
+      "translation": "beans",
+      "difficulty": 1,
+      "frequencyRank": 51,
+      "examples": [
+        {
+          "native": "Ẹ̀wà àti ìrẹsì",
+          "translation": "Beans and rice"
+        }
+      ]
+    },
+    {
+      "id": "yo_0052",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "dídùn",
+      "translation": "sweet, delicious",
+      "difficulty": 1,
+      "frequencyRank": 52,
+      "examples": [
+        {
+          "native": "Oúnjẹ yìí dídùn",
+          "translation": "This food is delicious"
+        }
+      ]
+    },
+    {
+      "id": "yo_0053",
+      "unit": "u5",
+      "category": "Verbs",
+      "lemma": "jẹ",
+      "translation": "to eat",
+      "difficulty": 1,
+      "frequencyRank": 53,
+      "examples": [
+        {
+          "native": "Kí ni o fẹ́ jẹ?",
+          "translation": "What do you want to eat?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0054",
+      "unit": "u5",
+      "category": "Verbs",
+      "lemma": "mu",
+      "translation": "to drink",
+      "difficulty": 1,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "Mo ń mu omi lójoojúmọ́",
+          "translation": "I drink water every day"
+        }
+      ]
+    },
+    {
+      "id": "yo_0055",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "lọ",
+      "translation": "to go",
+      "difficulty": 1,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "Níbo ni o fẹ́ lọ?",
+          "translation": "Where do you want to go?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0056",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "wá",
+      "translation": "to come",
+      "difficulty": 1,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "Wá sí ilé mi",
+          "translation": "Come to my house"
+        }
+      ]
+    },
+    {
+      "id": "yo_0057",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "fẹ́",
+      "translation": "to want, to like",
+      "difficulty": 1,
+      "frequencyRank": 57,
+      "examples": [
+        {
+          "native": "Mo fẹ́ kọ́ èdè Yorùbá",
+          "translation": "I want to learn Yoruba"
+        }
+      ]
+    },
+    {
+      "id": "yo_0058",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ní",
+      "translation": "to have",
+      "difficulty": 1,
+      "frequencyRank": 58,
+      "examples": [
+        {
+          "native": "Ṣé o ní àkókò?",
+          "translation": "Do you have time?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0059",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mọ̀",
+      "translation": "to know",
+      "difficulty": 1,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "Mi ò mọ ibi yìí",
+          "translation": "I don't know this place"
+        }
+      ]
+    },
+    {
+      "id": "yo_0060",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "gbọ́",
+      "translation": "to hear, to understand",
+      "difficulty": 1,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "Mo fẹ́ gbọ́ ọ̀rọ̀ rẹ",
+          "translation": "I want to understand you"
+        }
+      ]
+    },
+    {
+      "id": "yo_0061",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "sọ",
+      "translation": "to speak, to say",
+      "difficulty": 1,
+      "frequencyRank": 61,
+      "examples": [
+        {
+          "native": "Sọ òtítọ́ fún mi",
+          "translation": "Tell me the truth"
+        }
+      ]
+    },
+    {
+      "id": "yo_0062",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ràn lọ́wọ́",
+      "translation": "to help",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "Ṣé o lè ràn mí lọ́wọ́?",
+          "translation": "Can you help me?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0063",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "rí",
+      "translation": "to see",
+      "difficulty": 1,
+      "frequencyRank": 63,
+      "examples": [
+        {
+          "native": "Mi ò rí nǹkan kan",
+          "translation": "I don't see anything"
+        }
+      ]
+    },
+    {
+      "id": "yo_0064",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "fún",
+      "translation": "to give",
+      "difficulty": 1,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "Fún mi ní ọ̀kan",
+          "translation": "Give me one"
+        }
+      ]
+    },
+    {
+      "id": "yo_0065",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "gbà",
+      "translation": "to take, to receive",
+      "difficulty": 1,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "Gbà á lọ́wọ́ mi",
+          "translation": "Take it from me"
+        }
+      ]
+    },
+    {
+      "id": "yo_0066",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ṣe",
+      "translation": "to do, to make",
+      "difficulty": 1,
+      "frequencyRank": 66,
+      "examples": [
+        {
+          "native": "Kí ni o ń ṣe?",
+          "translation": "What are you doing?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0067",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "rà",
+      "translation": "to buy",
+      "difficulty": 1,
+      "frequencyRank": 67,
+      "examples": [
+        {
+          "native": "Mo rà á ní ọjà",
+          "translation": "I bought it at the market"
+        }
+      ]
+    },
+    {
+      "id": "yo_0068",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ṣí",
+      "translation": "to open",
+      "difficulty": 1,
+      "frequencyRank": 68,
+      "examples": [
+        {
+          "native": "Ṣí ilẹ̀kùn fún mi",
+          "translation": "Open the door for me"
+        }
+      ]
+    },
+    {
+      "id": "yo_0069",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "sùn",
+      "translation": "to sleep",
+      "difficulty": 1,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "Mo fẹ́ sùn",
+          "translation": "I want to sleep"
+        }
+      ]
+    },
+    {
+      "id": "yo_0070",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "rò",
+      "translation": "to think",
+      "difficulty": 1,
+      "frequencyRank": 70,
+      "examples": [
+        {
+          "native": "Mo ń rò nípa rẹ",
+          "translation": "I'm thinking about you"
+        }
+      ]
+    },
+    {
+      "id": "yo_0071",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "lè",
+      "translation": "can, to be able to",
+      "difficulty": 1,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "Mo lè ràn ọ́ lọ́wọ́",
+          "translation": "I can help you"
+        }
+      ]
+    },
+    {
+      "id": "yo_0072",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "iṣẹ́",
+      "translation": "work, job",
+      "difficulty": 1,
+      "frequencyRank": 72,
+      "examples": [
+        {
+          "native": "Iṣẹ́ pọ̀ lónìí",
+          "translation": "There is a lot of work today"
+        }
+      ]
+    },
+    {
+      "id": "yo_0073",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ilé",
+      "translation": "house, home",
+      "difficulty": 1,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "Mo ń lọ sí ilé",
+          "translation": "I am going home"
+        }
+      ]
+    },
+    {
+      "id": "yo_0074",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ilé ìwẹ̀",
+      "translation": "bathroom",
+      "difficulty": 1,
+      "frequencyRank": 74,
+      "examples": [
+        {
+          "native": "Ilé ìwẹ̀ wà níbo?",
+          "translation": "Where is the bathroom?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0075",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ọjà",
+      "translation": "market",
+      "difficulty": 1,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "Mo ń lọ sí ọjà",
+          "translation": "I am going to the market"
+        }
+      ]
+    },
+    {
+      "id": "yo_0076",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ìlú",
+      "translation": "town, city",
+      "difficulty": 1,
+      "frequencyRank": 76,
+      "examples": [
+        {
+          "native": "Ìlú yìí tóbi",
+          "translation": "This city is big"
+        }
+      ]
+    },
+    {
+      "id": "yo_0077",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "hòtẹ́ẹ̀lì",
+      "translation": "hotel",
+      "difficulty": 1,
+      "frequencyRank": 77,
+      "examples": [
+        {
+          "native": "Hòtẹ́ẹ̀lì náà wà nítòsí",
+          "translation": "The hotel is nearby"
+        }
+      ]
+    },
+    {
+      "id": "yo_0078",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "níbí",
+      "translation": "here",
+      "difficulty": 1,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Jókòó níbí",
+          "translation": "Sit here"
+        }
+      ]
+    },
+    {
+      "id": "yo_0079",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "níbẹ̀",
+      "translation": "there",
+      "difficulty": 1,
+      "frequencyRank": 79,
+      "examples": [
+        {
+          "native": "Ó wà níbẹ̀",
+          "translation": "It is over there"
+        }
+      ]
+    },
+    {
+      "id": "yo_0080",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "nítòsí",
+      "translation": "near, close",
+      "difficulty": 1,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "Ọjà wà nítòsí ilé mi",
+          "translation": "The market is near my house"
+        }
+      ]
+    },
+    {
+      "id": "yo_0081",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "jìnnà",
+      "translation": "far",
+      "difficulty": 1,
+      "frequencyRank": 81,
+      "examples": [
+        {
+          "native": "Ó jìnnà púpọ̀",
+          "translation": "It is very far"
+        }
+      ]
+    },
+    {
+      "id": "yo_0082",
+      "unit": "u7",
+      "category": "Transport",
+      "lemma": "ọkọ̀ ayọ́kẹ́lẹ́",
+      "translation": "car",
+      "difficulty": 1,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "Ọkọ̀ ayọ́kẹ́lẹ́ mi ti dé",
+          "translation": "My car has arrived"
+        }
+      ]
+    },
+    {
+      "id": "yo_0083",
+      "unit": "u7",
+      "category": "Transport",
+      "lemma": "ọkọ̀ ojú irin",
+      "translation": "train",
+      "difficulty": 1,
+      "frequencyRank": 83,
+      "examples": [
+        {
+          "native": "Ọkọ̀ ojú irin pẹ́",
+          "translation": "The train was late"
+        }
+      ]
+    },
+    {
+      "id": "yo_0084",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "òsì",
+      "translation": "left",
+      "difficulty": 1,
+      "frequencyRank": 84,
+      "examples": [
+        {
+          "native": "Yà sí òsì",
+          "translation": "Turn left"
+        }
+      ]
+    },
+    {
+      "id": "yo_0085",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ọ̀tún",
+      "translation": "right",
+      "difficulty": 1,
+      "frequencyRank": 85,
+      "examples": [
+        {
+          "native": "Ilé ìwẹ̀ wà ní ọ̀tún",
+          "translation": "The bathroom is on the right"
+        }
+      ]
+    },
+    {
+      "id": "yo_0086",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "lónìí",
+      "translation": "today",
+      "difficulty": 1,
+      "frequencyRank": 86,
+      "examples": [
+        {
+          "native": "Mi ò ṣiṣẹ́ lónìí",
+          "translation": "I'm not working today"
+        }
+      ]
+    },
+    {
+      "id": "yo_0087",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ọ̀la",
+      "translation": "tomorrow",
+      "difficulty": 1,
+      "frequencyRank": 87,
+      "examples": [
+        {
+          "native": "Ọ̀la ni mo máa lọ",
+          "translation": "Tomorrow is when I'll go"
+        }
+      ]
+    },
+    {
+      "id": "yo_0088",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "àná",
+      "translation": "yesterday",
+      "difficulty": 1,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "Òjò rọ̀ àná",
+          "translation": "It rained yesterday"
+        }
+      ]
+    },
+    {
+      "id": "yo_0089",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "báyìí",
+      "translation": "now",
+      "difficulty": 1,
+      "frequencyRank": 89,
+      "examples": [
+        {
+          "native": "Wá báyìí",
+          "translation": "Come now"
+        }
+      ]
+    },
+    {
+      "id": "yo_0090",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "àkókò",
+      "translation": "time",
+      "difficulty": 1,
+      "frequencyRank": 90,
+      "examples": [
+        {
+          "native": "Mi ò ní àkókò",
+          "translation": "I don't have time"
+        }
+      ]
+    },
+    {
+      "id": "yo_0091",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ọjọ́",
+      "translation": "day",
+      "difficulty": 1,
+      "frequencyRank": 91,
+      "examples": [
+        {
+          "native": "Ọjọ́ gígùn ni",
+          "translation": "It was a long day"
+        }
+      ]
+    },
+    {
+      "id": "yo_0092",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ọ̀sẹ̀",
+      "translation": "week",
+      "difficulty": 1,
+      "frequencyRank": 92,
+      "examples": [
+        {
+          "native": "Ọ̀sẹ̀ tó ń bọ̀",
+          "translation": "Next week"
+        }
+      ]
+    },
+    {
+      "id": "yo_0093",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ọdún",
+      "translation": "year",
+      "difficulty": 1,
+      "frequencyRank": 93,
+      "examples": [
+        {
+          "native": "Ọdún kan ti kọjá",
+          "translation": "A year has passed"
+        }
+      ]
+    },
+    {
+      "id": "yo_0094",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "ó rẹ̀ mí",
+      "translation": "tired (lit. it tires me)",
+      "difficulty": 1,
+      "frequencyRank": 94,
+      "examples": [
+        {
+          "native": "Ó rẹ̀ mí gan-an",
+          "translation": "I am very tired"
+        }
+      ]
+    },
+    {
+      "id": "yo_0095",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "ebi",
+      "translation": "hunger",
+      "difficulty": 1,
+      "frequencyRank": 95,
+      "examples": [
+        {
+          "native": "Ebi ń pa mí",
+          "translation": "I am hungry"
+        }
+      ]
+    },
+    {
+      "id": "yo_0096",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "òùngbẹ",
+      "translation": "thirst",
+      "difficulty": 1,
+      "frequencyRank": 96,
+      "examples": [
+        {
+          "native": "Òùngbẹ ń gbẹ mí",
+          "translation": "I am thirsty"
+        }
+      ]
+    },
+    {
+      "id": "yo_0097",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "inú dùn",
+      "translation": "happy",
+      "difficulty": 1,
+      "frequencyRank": 97,
+      "examples": [
+        {
+          "native": "Inú mi dùn púpọ̀",
+          "translation": "I am very happy"
+        }
+      ]
+    },
+    {
+      "id": "yo_0098",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "ìbànújẹ́",
+      "translation": "sadness",
+      "difficulty": 1,
+      "frequencyRank": 98,
+      "examples": [
+        {
+          "native": "Ìbànújẹ́ ń bá mi",
+          "translation": "I am sad"
+        }
+      ]
+    },
+    {
+      "id": "yo_0099",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "àìsàn",
+      "translation": "illness, sick",
+      "difficulty": 1,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "Ọmọ mi ní àìsàn",
+          "translation": "My child is sick"
+        }
+      ]
+    },
+    {
+      "id": "yo_0100",
+      "unit": "u2",
+      "category": "Questions",
+      "lemma": "kí ni",
+      "translation": "what",
+      "difficulty": 1,
+      "frequencyRank": 100,
+      "examples": [
+        {
+          "native": "Kí ni èyí?",
+          "translation": "What is this?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0101",
+      "unit": "u7",
+      "category": "Questions",
+      "lemma": "níbo",
+      "translation": "where",
+      "difficulty": 1,
+      "frequencyRank": 101,
+      "examples": [
+        {
+          "native": "Níbo ni o ń gbé?",
+          "translation": "Where do you live?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0102",
+      "unit": "u2",
+      "category": "Questions",
+      "lemma": "ta ni",
+      "translation": "who",
+      "difficulty": 1,
+      "frequencyRank": 102,
+      "examples": [
+        {
+          "native": "Ta ni ó ń bọ̀?",
+          "translation": "Who is coming?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0103",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "ìgbà wo",
+      "translation": "when",
+      "difficulty": 1,
+      "frequencyRank": 103,
+      "examples": [
+        {
+          "native": "Ìgbà wo ni o máa dé?",
+          "translation": "When will you arrive?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0104",
+      "unit": "u2",
+      "category": "Questions",
+      "lemma": "kí ló dé",
+      "translation": "why",
+      "difficulty": 1,
+      "frequencyRank": 104,
+      "examples": [
+        {
+          "native": "Kí ló dé tí o fi banú jẹ́?",
+          "translation": "Why are you sad?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0105",
+      "unit": "u2",
+      "category": "Connectors",
+      "lemma": "àti",
+      "translation": "and",
+      "difficulty": 1,
+      "frequencyRank": 105,
+      "examples": [
+        {
+          "native": "Bàbá àti ìyá mi",
+          "translation": "My father and mother"
+        }
+      ]
+    },
+    {
+      "id": "yo_0106",
+      "unit": "u2",
+      "category": "Connectors",
+      "lemma": "tàbí",
+      "translation": "or",
+      "difficulty": 1,
+      "frequencyRank": 106,
+      "examples": [
+        {
+          "native": "Tíì tàbí kọfí?",
+          "translation": "Tea or coffee?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0107",
+      "unit": "u2",
+      "category": "Connectors",
+      "lemma": "ṣùgbọ́n",
+      "translation": "but",
+      "difficulty": 1,
+      "frequencyRank": 107,
+      "examples": [
+        {
+          "native": "Mo fẹ́ lọ ṣùgbọ́n ó rẹ̀ mí",
+          "translation": "I want to go but I'm tired"
+        }
+      ]
+    },
+    {
+      "id": "yo_0108",
+      "unit": "u2",
+      "category": "Connectors",
+      "lemma": "nítorí",
+      "translation": "because",
+      "difficulty": 1,
+      "frequencyRank": 108,
+      "examples": [
+        {
+          "native": "Nítorí òjò ń rọ̀",
+          "translation": "Because it's raining"
+        }
+      ]
+    },
+    {
+      "id": "yo_0109",
+      "unit": "u2",
+      "category": "Connectors",
+      "lemma": "pẹ̀lú",
+      "translation": "with, also",
+      "difficulty": 1,
+      "frequencyRank": 109,
+      "examples": [
+        {
+          "native": "Wá pẹ̀lú mi",
+          "translation": "Come with me"
+        }
+      ]
+    },
+    {
+      "id": "yo_0110",
+      "unit": "u1",
+      "category": "Common",
+      "lemma": "dáadáa",
+      "translation": "good, well",
+      "difficulty": 1,
+      "frequencyRank": 110,
+      "examples": [
+        {
+          "native": "Ó dáadáa gan-an",
+          "translation": "It is very good"
+        }
+      ]
+    },
+    {
+      "id": "yo_0111",
+      "unit": "u1",
+      "category": "Common",
+      "lemma": "burúkú",
+      "translation": "bad",
+      "difficulty": 1,
+      "frequencyRank": 111,
+      "examples": [
+        {
+          "native": "Ọjọ́ burúkú ni àná",
+          "translation": "Yesterday was a bad day"
+        }
+      ]
+    },
+    {
+      "id": "yo_0112",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "tóbi",
+      "translation": "big",
+      "difficulty": 1,
+      "frequencyRank": 112,
+      "examples": [
+        {
+          "native": "Ilé bàbá mi tóbi",
+          "translation": "My father's house is big"
+        }
+      ]
+    },
+    {
+      "id": "yo_0113",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "kékeré",
+      "translation": "small",
+      "difficulty": 1,
+      "frequencyRank": 113,
+      "examples": [
+        {
+          "native": "Ilé kékeré ni",
+          "translation": "It is a small house"
+        }
+      ]
+    },
+    {
+      "id": "yo_0114",
+      "unit": "u8",
+      "category": "Weather",
+      "lemma": "gbóná",
+      "translation": "hot",
+      "difficulty": 1,
+      "frequencyRank": 114,
+      "examples": [
+        {
+          "native": "Tíì náà gbóná",
+          "translation": "The tea is hot"
+        }
+      ]
+    },
+    {
+      "id": "yo_0115",
+      "unit": "u8",
+      "category": "Weather",
+      "lemma": "tutù",
+      "translation": "cold",
+      "difficulty": 1,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Omi náà tutù",
+          "translation": "The water is cold"
+        }
+      ]
+    },
+    {
+      "id": "yo_0116",
+      "unit": "u1",
+      "category": "Common",
+      "lemma": "púpọ̀",
+      "translation": "very, much",
+      "difficulty": 1,
+      "frequencyRank": 116,
+      "examples": [
+        {
+          "native": "Ó dùn púpọ̀",
+          "translation": "It is very sweet"
+        }
+      ]
+    },
+    {
+      "id": "yo_0117",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "sí i",
+      "translation": "more",
+      "difficulty": 1,
+      "frequencyRank": 117,
+      "examples": [
+        {
+          "native": "Fún mi ní sí i",
+          "translation": "Give me more"
+        }
+      ]
+    },
+    {
+      "id": "yo_0118",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "gbogbo",
+      "translation": "all, every",
+      "difficulty": 1,
+      "frequencyRank": 118,
+      "examples": [
+        {
+          "native": "Gbogbo rẹ̀ dáa",
+          "translation": "All of it is good"
+        }
+      ]
+    },
+    {
+      "id": "yo_0119",
+      "unit": "u8",
+      "category": "Body",
+      "lemma": "orí",
+      "translation": "head",
+      "difficulty": 1,
+      "frequencyRank": 119,
+      "examples": [
+        {
+          "native": "Orí mi ń fọ́",
+          "translation": "My head hurts"
+        }
+      ]
+    },
+    {
+      "id": "yo_0120",
+      "unit": "u8",
+      "category": "Body",
+      "lemma": "ọwọ́",
+      "translation": "hand",
+      "difficulty": 1,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "Wẹ ọwọ́ rẹ",
+          "translation": "Wash your hands"
+        }
+      ]
+    },
+    {
+      "id": "yo_0121",
+      "unit": "u8",
+      "category": "Body",
+      "lemma": "ọkàn",
+      "translation": "heart",
+      "difficulty": 1,
+      "frequencyRank": 121,
+      "examples": [
+        {
+          "native": "Ọkàn mi balẹ̀",
+          "translation": "My heart is at peace"
+        }
+      ]
+    },
+    {
+      "id": "yo_0122",
+      "unit": "u5",
+      "category": "Colors",
+      "lemma": "dúdú",
+      "translation": "black",
+      "difficulty": 1,
+      "frequencyRank": 122,
+      "examples": [
+        {
+          "native": "Kọfí dúdú",
+          "translation": "Black coffee"
+        }
+      ]
+    },
+    {
+      "id": "yo_0123",
+      "unit": "u5",
+      "category": "Colors",
+      "lemma": "funfun",
+      "translation": "white",
+      "difficulty": 1,
+      "frequencyRank": 123,
+      "examples": [
+        {
+          "native": "Aṣọ funfun",
+          "translation": "White clothes"
+        }
+      ]
+    },
+    {
+      "id": "yo_0124",
+      "unit": "u8",
+      "category": "Weather",
+      "lemma": "oòrùn",
+      "translation": "sun",
+      "difficulty": 1,
+      "frequencyRank": 124,
+      "examples": [
+        {
+          "native": "Oòrùn ti yọ",
+          "translation": "The sun has risen"
+        }
+      ]
+    },
+    {
+      "id": "yo_0125",
+      "unit": "u8",
+      "category": "Weather",
+      "lemma": "òjò",
+      "translation": "rain",
+      "difficulty": 1,
+      "frequencyRank": 125,
+      "examples": [
+        {
+          "native": "Òjò ń rọ̀",
+          "translation": "It is raining"
+        }
+      ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "tones",
+      "title": "The three tones",
+      "emoji": "🎵",
+      "description": "High, mid, low — and they change the word"
+    },
+    {
+      "id": "dotted",
+      "title": "The dotted letters",
+      "emoji": "⚠️",
+      "description": "ẹ, ọ, ṣ — different letters, not decorated ones"
+    },
+    {
+      "id": "sounds",
+      "title": "Sounds English doesn't have",
+      "emoji": "🅰️",
+      "description": "gb, ẹ, ọ, and the nasal vowels"
+    }
+  ]
+}

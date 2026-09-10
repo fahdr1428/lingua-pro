@@ -22,11 +22,17 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { JOURNEY, getChapters } from "../src/data/journey.js";
+import { LATIN_SCRIPT_LANGUAGES } from "../src/data/registry.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const LANG_DIR = path.resolve(__dirname, "..", "src", "data", "languages");
 
-const LATIN = new Set(["es", "fr", "id", "pcm", "tr"]);
+// The Latin-script list lives in ONE place: src/data/registry.js. It used to be
+// copied into six scripts, which had already drifted apart — import-vocab,
+// measure-input and validate-journey never learned about de, tl or so, and none
+// of them learned about vi or yo. That is the v92 bug (nine copies of the same
+// set in src/) repeating itself in scripts/, so the fix is the same one.
+const LATIN = LATIN_SCRIPT_LANGUAGES;
 
 let totalErrors = 0;
 let totalWarnings = 0;

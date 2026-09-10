@@ -199,12 +199,15 @@ export function normalizeGloss(s) {
 export function taughtGlosses(vocab) {
   const out = new Set();
   for (const w of vocab || []) {
-    for (const seg of String(w.translation || "").split(/[,;/]| or /)) {
+    // Parentheses come off BEFORE the split, not after. A gloss like
+    // "yes (polite, northern)" was being split on the comma INSIDE the
+    // parentheses, producing "yes (polite" — which normalises to "yes polite"
+    // and matches nothing. Found while adding Vietnamese, where the honest
+    // gloss for half the pack needs a parenthetical.
+    const cleaned = String(w.translation || "").replace(/\(.*?\)/g, " ");
+    for (const seg of cleaned.split(/[,;/]| or /)) {
       const g = normalizeGloss(seg);
       if (g) out.add(g);
-      // "uncle (father's brother)" should also count as the fuller phrase.
-      const full = normalizeGloss(seg.replace(/[()]/g, ""));
-      if (full) out.add(full);
     }
   }
   return out;

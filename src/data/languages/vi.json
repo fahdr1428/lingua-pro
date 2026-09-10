@@ -1,0 +1,2194 @@
+{
+  "schemaVersion": 1,
+  "code": "vi",
+  "categories": [
+    "About You",
+    "Body",
+    "Colors",
+    "Common",
+    "Connectors",
+    "Family",
+    "Feelings",
+    "Food",
+    "Greetings",
+    "Numbers",
+    "People",
+    "Places",
+    "Politeness",
+    "Questions",
+    "Time",
+    "Transport",
+    "Verbs",
+    "Weather"
+  ],
+  "units": [
+    {
+      "id": "u1",
+      "title": "Greetings",
+      "emoji": "👋",
+      "description": "Hello, goodbye, and the word that changes with who you're talking to"
+    },
+    {
+      "id": "u2",
+      "title": "About You",
+      "emoji": "🙋",
+      "description": "Pronouns — and why Vietnamese has no simple 'I'"
+    },
+    {
+      "id": "u3",
+      "title": "Family",
+      "emoji": "👨‍👩‍👧",
+      "description": "The words you'll need at the table"
+    },
+    {
+      "id": "u4",
+      "title": "Numbers",
+      "emoji": "🔢",
+      "description": "Counting, and asking what things cost"
+    },
+    {
+      "id": "u5",
+      "title": "Food & Drink",
+      "emoji": "🍜",
+      "description": "Rice, tea, and ordering without pointing"
+    },
+    {
+      "id": "u6",
+      "title": "Common Verbs",
+      "emoji": "🏃",
+      "description": "Go, come, eat, know — the verbs that never change form"
+    },
+    {
+      "id": "u7",
+      "title": "Places",
+      "emoji": "📍",
+      "description": "Home, market, and finding the bathroom"
+    },
+    {
+      "id": "u8",
+      "title": "Time & Feelings",
+      "emoji": "🕐",
+      "description": "Today, tomorrow, tired, hungry"
+    }
+  ],
+  "alphabet": [
+    {
+      "char": "a",
+      "name": "ngang (level)",
+      "sound": "flat, no mark — 'ma' = ghost",
+      "group": "tones",
+      "note": "The unmarked tone. Not 'no tone' — a deliberate level pitch, and the one the other five are measured against."
+    },
+    {
+      "char": "á",
+      "name": "sắc (rising)",
+      "sound": "pitch rises sharply — 'má' = mother",
+      "group": "tones",
+      "note": "Rises like the end of an English question, but faster and only on the vowel."
+    },
+    {
+      "char": "à",
+      "name": "huyền (falling)",
+      "sound": "low and drifting down — 'mà' = but",
+      "group": "tones"
+    },
+    {
+      "char": "ả",
+      "name": "hỏi (dipping)",
+      "sound": "dips then rises — 'mả' = tomb",
+      "group": "tones",
+      "note": "The hook is not a question mark. In the north it dips and comes back up; in the south it is closer to a plain low tone."
+    },
+    {
+      "char": "ã",
+      "name": "ngã (broken)",
+      "sound": "rises with a catch in the middle — 'mã' = horse",
+      "group": "tones",
+      "note": "There is a glottal stop inside this one. Northern speakers make it clearly; many southern speakers merge it with hỏi."
+    },
+    {
+      "char": "ạ",
+      "name": "nặng (heavy)",
+      "sound": "short, low, cut off — 'mạ' = rice seedling",
+      "group": "tones",
+      "note": "The dot means the syllable is squeezed short and stops abruptly."
+    },
+    {
+      "char": "ơ",
+      "name": "ơ",
+      "sound": "like the 'u' in 'fur', with no r",
+      "group": "vowels"
+    },
+    {
+      "char": "ư",
+      "name": "ư",
+      "sound": "an 'oo' said with the lips spread, not rounded",
+      "group": "vowels",
+      "note": "English has no equivalent. Say 'ee' and then, without moving your lips, pull your tongue back."
+    },
+    {
+      "char": "â",
+      "name": "â",
+      "sound": "a short 'uh'",
+      "group": "vowels"
+    },
+    {
+      "char": "ă",
+      "name": "ă",
+      "sound": "a very short 'a'",
+      "group": "vowels"
+    },
+    {
+      "char": "ê",
+      "name": "ê",
+      "sound": "like the 'ay' in 'day', without the glide",
+      "group": "vowels"
+    },
+    {
+      "char": "ô",
+      "name": "ô",
+      "sound": "like the 'o' in 'go', without the glide",
+      "group": "vowels"
+    },
+    {
+      "char": "đ",
+      "name": "đ",
+      "sound": "an English 'd'",
+      "group": "surprises",
+      "note": "This is the ordinary d. The letter written 'd' is NOT — see below. Getting these two the wrong way round is the most common early mistake."
+    },
+    {
+      "char": "d",
+      "name": "d",
+      "sound": "a 'z' in the north, a 'y' in the south",
+      "group": "surprises",
+      "note": "Never an English d. 'Dạ' (the polite yes) is 'za' in Hanoi and 'ya' in Saigon."
+    },
+    {
+      "char": "ng",
+      "name": "ng",
+      "sound": "the 'ng' of 'singer' — and it can start a word",
+      "group": "surprises",
+      "note": "English only puts this sound at the end of a syllable. Vietnamese starts words with it: Nguyễn, ngon, ngủ."
+    },
+    {
+      "char": "nh",
+      "name": "nh",
+      "sound": "like the 'ñ' in 'señor'",
+      "group": "surprises"
+    },
+    {
+      "char": "x",
+      "name": "x",
+      "sound": "an 's'",
+      "group": "surprises"
+    },
+    {
+      "char": "gi",
+      "name": "gi",
+      "sound": "a 'z' in the north, a 'y' in the south",
+      "group": "surprises"
+    },
+    {
+      "char": "tr",
+      "name": "tr",
+      "sound": "a 'ch' said with the tongue curled back",
+      "group": "surprises"
+    },
+    {
+      "char": "ph",
+      "name": "ph",
+      "sound": "an 'f'",
+      "group": "surprises",
+      "note": "Which is why phở is 'fuh', not 'poh'."
+    }
+  ],
+  "frameworks": [],
+  "vocab": [
+    {
+      "id": "vi_0001",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "xin chào",
+      "translation": "hello",
+      "difficulty": 1,
+      "frequencyRank": 1,
+      "examples": [
+        {
+          "native": "Xin chào, tôi là Nam",
+          "translation": "Hello, I'm Nam"
+        }
+      ]
+    },
+    {
+      "id": "vi_0002",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "chào",
+      "translation": "hi (with a pronoun after it)",
+      "difficulty": 1,
+      "frequencyRank": 2,
+      "examples": [
+        {
+          "native": "Chào chị!",
+          "translation": "Hello (to an older woman)!"
+        }
+      ]
+    },
+    {
+      "id": "vi_0003",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "tạm biệt",
+      "translation": "goodbye",
+      "difficulty": 1,
+      "frequencyRank": 3,
+      "examples": [
+        {
+          "native": "Tạm biệt, hẹn gặp lại",
+          "translation": "Goodbye, see you again"
+        }
+      ]
+    },
+    {
+      "id": "vi_0004",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "vâng",
+      "translation": "yes (northern polite)",
+      "difficulty": 1,
+      "frequencyRank": 4,
+      "examples": [
+        {
+          "native": "Vâng, tôi hiểu",
+          "translation": "Yes, I understand"
+        }
+      ]
+    },
+    {
+      "id": "vi_0005",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "dạ",
+      "translation": "yes (southern polite)",
+      "difficulty": 1,
+      "frequencyRank": 5,
+      "examples": [
+        {
+          "native": "Dạ, con biết rồi",
+          "translation": "Yes, I know"
+        }
+      ]
+    },
+    {
+      "id": "vi_0006",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "không",
+      "translation": "no, not",
+      "difficulty": 1,
+      "frequencyRank": 6,
+      "examples": [
+        {
+          "native": "Không, cảm ơn",
+          "translation": "No, thank you"
+        }
+      ]
+    },
+    {
+      "id": "vi_0007",
+      "unit": "u1",
+      "category": "Politeness",
+      "lemma": "cảm ơn",
+      "translation": "thank you",
+      "difficulty": 1,
+      "frequencyRank": 7,
+      "examples": [
+        {
+          "native": "Cảm ơn anh nhiều",
+          "translation": "Thank you very much"
+        }
+      ]
+    },
+    {
+      "id": "vi_0008",
+      "unit": "u1",
+      "category": "Politeness",
+      "lemma": "làm ơn",
+      "translation": "please",
+      "difficulty": 1,
+      "frequencyRank": 8,
+      "examples": [
+        {
+          "native": "Làm ơn giúp tôi",
+          "translation": "Please help me"
+        }
+      ]
+    },
+    {
+      "id": "vi_0009",
+      "unit": "u1",
+      "category": "Politeness",
+      "lemma": "xin lỗi",
+      "translation": "sorry, excuse me",
+      "difficulty": 1,
+      "frequencyRank": 9,
+      "examples": [
+        {
+          "native": "Xin lỗi, tôi đến muộn",
+          "translation": "Sorry, I'm late"
+        }
+      ]
+    },
+    {
+      "id": "vi_0010",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "khỏe không",
+      "translation": "how are you? (lit. well or not)",
+      "difficulty": 1,
+      "frequencyRank": 10,
+      "examples": [
+        {
+          "native": "Chị khỏe không?",
+          "translation": "How are you?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0011",
+      "unit": "u1",
+      "category": "Greetings",
+      "lemma": "khỏe",
+      "translation": "well, healthy",
+      "difficulty": 1,
+      "frequencyRank": 11,
+      "examples": [
+        {
+          "native": "Tôi khỏe, cảm ơn",
+          "translation": "I'm well, thank you"
+        }
+      ]
+    },
+    {
+      "id": "vi_0012",
+      "unit": "u1",
+      "category": "Politeness",
+      "lemma": "không có gì",
+      "translation": "you're welcome (lit. it's nothing)",
+      "difficulty": 1,
+      "frequencyRank": 12,
+      "examples": [
+        {
+          "native": "Không có gì đâu",
+          "translation": "It's really nothing"
+        }
+      ]
+    },
+    {
+      "id": "vi_0013",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "tôi",
+      "translation": "I, me (neutral)",
+      "difficulty": 1,
+      "frequencyRank": 13,
+      "examples": [
+        {
+          "native": "Tôi sống ở Hà Nội",
+          "translation": "I live in Hanoi"
+        }
+      ]
+    },
+    {
+      "id": "vi_0014",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "bạn",
+      "translation": "you (friend, equal)",
+      "difficulty": 1,
+      "frequencyRank": 14,
+      "examples": [
+        {
+          "native": "Bạn tên là gì?",
+          "translation": "What's your name?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0015",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "anh",
+      "translation": "older brother; you (to an older man)",
+      "difficulty": 1,
+      "frequencyRank": 15,
+      "examples": [
+        {
+          "native": "Anh đi đâu đấy?",
+          "translation": "Where are you going?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0016",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "chị",
+      "translation": "older sister; you (to an older woman)",
+      "difficulty": 1,
+      "frequencyRank": 16,
+      "examples": [
+        {
+          "native": "Chị ấy là bác sĩ",
+          "translation": "She is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "vi_0017",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "em",
+      "translation": "younger sibling; you (to someone younger)",
+      "difficulty": 1,
+      "frequencyRank": 17,
+      "examples": [
+        {
+          "native": "Em học lớp mấy?",
+          "translation": "What year are you in?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0018",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "chúng tôi",
+      "translation": "we (not including you)",
+      "difficulty": 1,
+      "frequencyRank": 18,
+      "examples": [
+        {
+          "native": "Chúng tôi đến từ Úc",
+          "translation": "We come from Australia"
+        }
+      ]
+    },
+    {
+      "id": "vi_0019",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "anh ấy",
+      "translation": "he",
+      "difficulty": 1,
+      "frequencyRank": 19,
+      "examples": [
+        {
+          "native": "Anh ấy là anh trai tôi",
+          "translation": "He is my older brother"
+        }
+      ]
+    },
+    {
+      "id": "vi_0020",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "chị ấy",
+      "translation": "she",
+      "difficulty": 1,
+      "frequencyRank": 20,
+      "examples": [
+        {
+          "native": "Chị ấy nói ba thứ tiếng",
+          "translation": "She speaks three languages"
+        }
+      ]
+    },
+    {
+      "id": "vi_0021",
+      "unit": "u2",
+      "category": "About You",
+      "lemma": "tên",
+      "translation": "name",
+      "difficulty": 1,
+      "frequencyRank": 21,
+      "examples": [
+        {
+          "native": "Tên tôi là Linh",
+          "translation": "My name is Linh"
+        }
+      ]
+    },
+    {
+      "id": "vi_0022",
+      "unit": "u2",
+      "category": "About You",
+      "lemma": "người",
+      "translation": "person",
+      "difficulty": 1,
+      "frequencyRank": 22,
+      "examples": [
+        {
+          "native": "Người kia là ai?",
+          "translation": "Who is that person?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0023",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "mẹ",
+      "translation": "mother",
+      "difficulty": 1,
+      "frequencyRank": 23,
+      "examples": [
+        {
+          "native": "Mẹ tôi nấu ăn rất ngon",
+          "translation": "My mother cooks very well"
+        }
+      ]
+    },
+    {
+      "id": "vi_0024",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "bố",
+      "translation": "father, dad (ba in the south)",
+      "difficulty": 1,
+      "frequencyRank": 24,
+      "examples": [
+        {
+          "native": "Bố tôi đi làm rồi",
+          "translation": "My father has gone to work"
+        }
+      ]
+    },
+    {
+      "id": "vi_0025",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "anh trai",
+      "translation": "older brother",
+      "difficulty": 1,
+      "frequencyRank": 25,
+      "examples": [
+        {
+          "native": "Anh trai tôi ở Sài Gòn",
+          "translation": "My older brother is in Saigon"
+        }
+      ]
+    },
+    {
+      "id": "vi_0026",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "chị gái",
+      "translation": "older sister",
+      "difficulty": 1,
+      "frequencyRank": 26,
+      "examples": [
+        {
+          "native": "Chị gái tôi là giáo viên",
+          "translation": "My older sister is a teacher"
+        }
+      ]
+    },
+    {
+      "id": "vi_0027",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "con trai",
+      "translation": "son",
+      "difficulty": 1,
+      "frequencyRank": 27,
+      "examples": [
+        {
+          "native": "Con trai tôi đi học",
+          "translation": "My son goes to school"
+        }
+      ]
+    },
+    {
+      "id": "vi_0028",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "con gái",
+      "translation": "daughter",
+      "difficulty": 1,
+      "frequencyRank": 28,
+      "examples": [
+        {
+          "native": "Con gái tôi bảy tuổi",
+          "translation": "My daughter is seven"
+        }
+      ]
+    },
+    {
+      "id": "vi_0029",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "gia đình",
+      "translation": "family",
+      "difficulty": 1,
+      "frequencyRank": 29,
+      "examples": [
+        {
+          "native": "Gia đình tôi rất đông",
+          "translation": "My family is very big"
+        }
+      ]
+    },
+    {
+      "id": "vi_0030",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "bà",
+      "translation": "grandmother",
+      "difficulty": 1,
+      "frequencyRank": 30,
+      "examples": [
+        {
+          "native": "Bà tôi ở quê",
+          "translation": "My grandmother is in the countryside"
+        }
+      ]
+    },
+    {
+      "id": "vi_0031",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ông",
+      "translation": "grandfather",
+      "difficulty": 1,
+      "frequencyRank": 31,
+      "examples": [
+        {
+          "native": "Ông tôi kể chuyện hay lắm",
+          "translation": "My grandfather tells stories well"
+        }
+      ]
+    },
+    {
+      "id": "vi_0032",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "chú",
+      "translation": "uncle (father's younger brother)",
+      "difficulty": 1,
+      "frequencyRank": 32,
+      "examples": [
+        {
+          "native": "Chú tôi sống ở Huế",
+          "translation": "My uncle lives in Hue"
+        }
+      ]
+    },
+    {
+      "id": "vi_0033",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "cô",
+      "translation": "aunt (father's sister)",
+      "difficulty": 1,
+      "frequencyRank": 33,
+      "examples": [
+        {
+          "native": "Cô tôi nấu phở ngon",
+          "translation": "My aunt makes good phở"
+        }
+      ]
+    },
+    {
+      "id": "vi_0034",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "bạn bè",
+      "translation": "friend, friends",
+      "difficulty": 1,
+      "frequencyRank": 34,
+      "examples": [
+        {
+          "native": "Tôi đi với bạn bè",
+          "translation": "I'm going with friends"
+        }
+      ]
+    },
+    {
+      "id": "vi_0035",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "đàn ông",
+      "translation": "man",
+      "difficulty": 1,
+      "frequencyRank": 35,
+      "examples": [
+        {
+          "native": "Người đàn ông kia là ai?",
+          "translation": "Who is that man?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0036",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "phụ nữ",
+      "translation": "woman",
+      "difficulty": 1,
+      "frequencyRank": 36,
+      "examples": [
+        {
+          "native": "Phụ nữ ấy là mẹ tôi",
+          "translation": "That woman is my mother"
+        }
+      ]
+    },
+    {
+      "id": "vi_0037",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "bác sĩ",
+      "translation": "doctor",
+      "difficulty": 1,
+      "frequencyRank": 37,
+      "examples": [
+        {
+          "native": "Tôi cần gặp bác sĩ",
+          "translation": "I need to see a doctor"
+        }
+      ]
+    },
+    {
+      "id": "vi_0038",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "một",
+      "translation": "one",
+      "difficulty": 1,
+      "frequencyRank": 38,
+      "examples": [
+        {
+          "native": "Chỉ còn một cái",
+          "translation": "Only one is left"
+        }
+      ]
+    },
+    {
+      "id": "vi_0039",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "hai",
+      "translation": "two",
+      "difficulty": 1,
+      "frequencyRank": 39,
+      "examples": [
+        {
+          "native": "Tôi có hai chị gái",
+          "translation": "I have two older sisters"
+        }
+      ]
+    },
+    {
+      "id": "vi_0040",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "ba",
+      "translation": "three",
+      "difficulty": 1,
+      "frequencyRank": 40,
+      "examples": [
+        {
+          "native": "Ba ngày nữa",
+          "translation": "Three more days"
+        }
+      ]
+    },
+    {
+      "id": "vi_0041",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "bốn",
+      "translation": "four",
+      "difficulty": 1,
+      "frequencyRank": 41,
+      "examples": [
+        {
+          "native": "Bốn người trong gia đình",
+          "translation": "Four people in the family"
+        }
+      ]
+    },
+    {
+      "id": "vi_0042",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "năm",
+      "translation": "five, year",
+      "difficulty": 1,
+      "frequencyRank": 42,
+      "examples": [
+        {
+          "native": "Đợi năm phút",
+          "translation": "Wait five minutes"
+        }
+      ]
+    },
+    {
+      "id": "vi_0043",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "mười",
+      "translation": "ten",
+      "difficulty": 1,
+      "frequencyRank": 43,
+      "examples": [
+        {
+          "native": "Mười nghìn đồng",
+          "translation": "Ten thousand dong"
+        }
+      ]
+    },
+    {
+      "id": "vi_0044",
+      "unit": "u4",
+      "category": "Questions",
+      "lemma": "bao nhiêu",
+      "translation": "how much, how many",
+      "difficulty": 1,
+      "frequencyRank": 44,
+      "examples": [
+        {
+          "native": "Cái này bao nhiêu tiền?",
+          "translation": "How much is this?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0045",
+      "unit": "u4",
+      "category": "Common",
+      "lemma": "tiền",
+      "translation": "money",
+      "difficulty": 1,
+      "frequencyRank": 45,
+      "examples": [
+        {
+          "native": "Tôi không mang tiền",
+          "translation": "I didn't bring money"
+        }
+      ]
+    },
+    {
+      "id": "vi_0046",
+      "unit": "u4",
+      "category": "Common",
+      "lemma": "đắt",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 46,
+      "examples": [
+        {
+          "native": "Cái này đắt quá",
+          "translation": "This is too expensive"
+        }
+      ]
+    },
+    {
+      "id": "vi_0047",
+      "unit": "u4",
+      "category": "Common",
+      "lemma": "rẻ",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 47,
+      "examples": [
+        {
+          "native": "Ở chợ rẻ hơn",
+          "translation": "It's cheaper at the market"
+        }
+      ]
+    },
+    {
+      "id": "vi_0048",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "nước",
+      "translation": "water",
+      "difficulty": 1,
+      "frequencyRank": 48,
+      "examples": [
+        {
+          "native": "Cho tôi xin nước",
+          "translation": "Water for me, please"
+        }
+      ]
+    },
+    {
+      "id": "vi_0049",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "đồ ăn",
+      "translation": "food",
+      "difficulty": 1,
+      "frequencyRank": 49,
+      "examples": [
+        {
+          "native": "Đồ ăn ở đây ngon lắm",
+          "translation": "The food here is very good"
+        }
+      ]
+    },
+    {
+      "id": "vi_0050",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "cơm",
+      "translation": "rice (cooked)",
+      "difficulty": 1,
+      "frequencyRank": 50,
+      "examples": [
+        {
+          "native": "Tôi ăn cơm mỗi ngày",
+          "translation": "I eat rice every day"
+        }
+      ]
+    },
+    {
+      "id": "vi_0051",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "bánh mì",
+      "translation": "bread; the sandwich",
+      "difficulty": 1,
+      "frequencyRank": 51,
+      "examples": [
+        {
+          "native": "Sáng nay tôi ăn bánh mì",
+          "translation": "This morning I ate bánh mì"
+        }
+      ]
+    },
+    {
+      "id": "vi_0052",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "trà",
+      "translation": "tea",
+      "difficulty": 1,
+      "frequencyRank": 52,
+      "examples": [
+        {
+          "native": "Ông tôi uống trà mỗi sáng",
+          "translation": "My grandfather drinks tea every morning"
+        }
+      ]
+    },
+    {
+      "id": "vi_0053",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "sữa",
+      "translation": "milk",
+      "difficulty": 1,
+      "frequencyRank": 53,
+      "examples": [
+        {
+          "native": "Cho thêm sữa nhé",
+          "translation": "Add some milk"
+        }
+      ]
+    },
+    {
+      "id": "vi_0054",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "phở",
+      "translation": "phở — the noodle soup",
+      "difficulty": 1,
+      "frequencyRank": 54,
+      "examples": [
+        {
+          "native": "Phở bò hay phở gà?",
+          "translation": "Beef phở or chicken phở?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0055",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "cà phê",
+      "translation": "coffee",
+      "difficulty": 1,
+      "frequencyRank": 55,
+      "examples": [
+        {
+          "native": "Cà phê sữa đá, cảm ơn",
+          "translation": "Iced milk coffee, thank you"
+        }
+      ]
+    },
+    {
+      "id": "vi_0056",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "ngon",
+      "translation": "delicious",
+      "difficulty": 1,
+      "frequencyRank": 56,
+      "examples": [
+        {
+          "native": "Món này ngon quá!",
+          "translation": "This dish is delicious!"
+        }
+      ]
+    },
+    {
+      "id": "vi_0057",
+      "unit": "u5",
+      "category": "Verbs",
+      "lemma": "ăn",
+      "translation": "to eat",
+      "difficulty": 1,
+      "frequencyRank": 57,
+      "examples": [
+        {
+          "native": "Bạn muốn ăn gì?",
+          "translation": "What do you want to eat?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0058",
+      "unit": "u5",
+      "category": "Verbs",
+      "lemma": "uống",
+      "translation": "to drink",
+      "difficulty": 1,
+      "frequencyRank": 58,
+      "examples": [
+        {
+          "native": "Tôi uống trà mỗi sáng",
+          "translation": "I drink tea every morning"
+        }
+      ]
+    },
+    {
+      "id": "vi_0059",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "đi",
+      "translation": "to go",
+      "difficulty": 1,
+      "frequencyRank": 59,
+      "examples": [
+        {
+          "native": "Bạn muốn đi đâu?",
+          "translation": "Where do you want to go?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0060",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "đến",
+      "translation": "to come, to arrive",
+      "difficulty": 1,
+      "frequencyRank": 60,
+      "examples": [
+        {
+          "native": "Chị tôi đến ngày mai",
+          "translation": "My sister is coming tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "vi_0061",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "muốn",
+      "translation": "to want",
+      "difficulty": 1,
+      "frequencyRank": 61,
+      "examples": [
+        {
+          "native": "Tôi muốn học tiếng Việt",
+          "translation": "I want to learn Vietnamese"
+        }
+      ]
+    },
+    {
+      "id": "vi_0062",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "có",
+      "translation": "to have, there is",
+      "difficulty": 1,
+      "frequencyRank": 62,
+      "examples": [
+        {
+          "native": "Bạn có thời gian không?",
+          "translation": "Do you have time?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0063",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "biết",
+      "translation": "to know",
+      "difficulty": 1,
+      "frequencyRank": 63,
+      "examples": [
+        {
+          "native": "Tôi không biết chỗ này",
+          "translation": "I don't know this place"
+        }
+      ]
+    },
+    {
+      "id": "vi_0064",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "hiểu",
+      "translation": "to understand",
+      "difficulty": 1,
+      "frequencyRank": 64,
+      "examples": [
+        {
+          "native": "Tôi muốn hiểu bạn",
+          "translation": "I want to understand you"
+        }
+      ]
+    },
+    {
+      "id": "vi_0065",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "nói",
+      "translation": "to speak, to say",
+      "difficulty": 1,
+      "frequencyRank": 65,
+      "examples": [
+        {
+          "native": "Mẹ tôi nói ba thứ tiếng",
+          "translation": "My mother speaks three languages"
+        }
+      ]
+    },
+    {
+      "id": "vi_0066",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "giúp",
+      "translation": "to help",
+      "difficulty": 1,
+      "frequencyRank": 66,
+      "examples": [
+        {
+          "native": "Bạn giúp tôi được không?",
+          "translation": "Can you help me?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0067",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "thấy",
+      "translation": "to see",
+      "difficulty": 1,
+      "frequencyRank": 67,
+      "examples": [
+        {
+          "native": "Tôi không thấy gì cả",
+          "translation": "I can't see anything"
+        }
+      ]
+    },
+    {
+      "id": "vi_0068",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "cho",
+      "translation": "to give; for",
+      "difficulty": 1,
+      "frequencyRank": 68,
+      "examples": [
+        {
+          "native": "Cho tôi một cái",
+          "translation": "Give me one"
+        }
+      ]
+    },
+    {
+      "id": "vi_0069",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "lấy",
+      "translation": "to take, to get",
+      "difficulty": 1,
+      "frequencyRank": 69,
+      "examples": [
+        {
+          "native": "Lấy giúp tôi cái kia",
+          "translation": "Get me that one, please"
+        }
+      ]
+    },
+    {
+      "id": "vi_0070",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "làm",
+      "translation": "to do, to make",
+      "difficulty": 1,
+      "frequencyRank": 70,
+      "examples": [
+        {
+          "native": "Bạn làm nghề gì?",
+          "translation": "What work do you do?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0071",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mua",
+      "translation": "to buy",
+      "difficulty": 1,
+      "frequencyRank": 71,
+      "examples": [
+        {
+          "native": "Tôi mua ở chợ",
+          "translation": "I bought it at the market"
+        }
+      ]
+    },
+    {
+      "id": "vi_0072",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mở",
+      "translation": "to open",
+      "difficulty": 1,
+      "frequencyRank": 72,
+      "examples": [
+        {
+          "native": "Mở cửa giúp tôi",
+          "translation": "Open the door for me"
+        }
+      ]
+    },
+    {
+      "id": "vi_0073",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ngủ",
+      "translation": "to sleep",
+      "difficulty": 1,
+      "frequencyRank": 73,
+      "examples": [
+        {
+          "native": "Tôi muốn đi ngủ",
+          "translation": "I want to go to sleep"
+        }
+      ]
+    },
+    {
+      "id": "vi_0074",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "nghĩ",
+      "translation": "to think",
+      "difficulty": 1,
+      "frequencyRank": 74,
+      "examples": [
+        {
+          "native": "Tôi nghĩ về bạn",
+          "translation": "I'm thinking about you"
+        }
+      ]
+    },
+    {
+      "id": "vi_0075",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "có thể",
+      "translation": "can, to be able to",
+      "difficulty": 1,
+      "frequencyRank": 75,
+      "examples": [
+        {
+          "native": "Tôi có thể giúp bạn",
+          "translation": "I can help you"
+        }
+      ]
+    },
+    {
+      "id": "vi_0076",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "làm việc",
+      "translation": "to work",
+      "difficulty": 1,
+      "frequencyRank": 76,
+      "examples": [
+        {
+          "native": "Hôm nay tôi không làm việc",
+          "translation": "I'm not working today"
+        }
+      ]
+    },
+    {
+      "id": "vi_0077",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "nhà",
+      "translation": "house, home",
+      "difficulty": 1,
+      "frequencyRank": 77,
+      "examples": [
+        {
+          "native": "Tôi đang ở nhà",
+          "translation": "I'm at home"
+        }
+      ]
+    },
+    {
+      "id": "vi_0078",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "nhà vệ sinh",
+      "translation": "bathroom, toilet",
+      "difficulty": 1,
+      "frequencyRank": 78,
+      "examples": [
+        {
+          "native": "Nhà vệ sinh ở đâu?",
+          "translation": "Where is the bathroom?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0079",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "chợ",
+      "translation": "market",
+      "difficulty": 1,
+      "frequencyRank": 79,
+      "examples": [
+        {
+          "native": "Tôi đi chợ mua rau",
+          "translation": "I'm going to the market to buy vegetables"
+        }
+      ]
+    },
+    {
+      "id": "vi_0080",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "thành phố",
+      "translation": "city",
+      "difficulty": 1,
+      "frequencyRank": 80,
+      "examples": [
+        {
+          "native": "Thành phố này rất đông",
+          "translation": "This city is very crowded"
+        }
+      ]
+    },
+    {
+      "id": "vi_0081",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "khách sạn",
+      "translation": "hotel",
+      "difficulty": 1,
+      "frequencyRank": 81,
+      "examples": [
+        {
+          "native": "Khách sạn ở gần đây",
+          "translation": "The hotel is nearby"
+        }
+      ]
+    },
+    {
+      "id": "vi_0082",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "đây",
+      "translation": "here",
+      "difficulty": 1,
+      "frequencyRank": 82,
+      "examples": [
+        {
+          "native": "Ngồi đây đi",
+          "translation": "Sit here"
+        }
+      ]
+    },
+    {
+      "id": "vi_0083",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "kia",
+      "translation": "there, over there",
+      "difficulty": 1,
+      "frequencyRank": 83,
+      "examples": [
+        {
+          "native": "Cái kia của tôi",
+          "translation": "That one over there is mine"
+        }
+      ]
+    },
+    {
+      "id": "vi_0084",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "gần",
+      "translation": "near, close",
+      "difficulty": 1,
+      "frequencyRank": 84,
+      "examples": [
+        {
+          "native": "Chợ gần nhà tôi",
+          "translation": "The market is near my house"
+        }
+      ]
+    },
+    {
+      "id": "vi_0085",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "xa",
+      "translation": "far",
+      "difficulty": 1,
+      "frequencyRank": 85,
+      "examples": [
+        {
+          "native": "Ga tàu xa lắm",
+          "translation": "The station is very far"
+        }
+      ]
+    },
+    {
+      "id": "vi_0086",
+      "unit": "u7",
+      "category": "Transport",
+      "lemma": "xe ô tô",
+      "translation": "car",
+      "difficulty": 1,
+      "frequencyRank": 86,
+      "examples": [
+        {
+          "native": "Nhà tôi có xe ô tô",
+          "translation": "My family has a car"
+        }
+      ]
+    },
+    {
+      "id": "vi_0087",
+      "unit": "u7",
+      "category": "Transport",
+      "lemma": "tàu hỏa",
+      "translation": "train",
+      "difficulty": 1,
+      "frequencyRank": 87,
+      "examples": [
+        {
+          "native": "Tàu hỏa đến muộn",
+          "translation": "The train arrived late"
+        }
+      ]
+    },
+    {
+      "id": "vi_0088",
+      "unit": "u7",
+      "category": "Transport",
+      "lemma": "xe máy",
+      "translation": "motorbike",
+      "difficulty": 1,
+      "frequencyRank": 88,
+      "examples": [
+        {
+          "native": "Ở Việt Nam ai cũng đi xe máy",
+          "translation": "In Vietnam everyone rides a motorbike"
+        }
+      ]
+    },
+    {
+      "id": "vi_0089",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "bên trái",
+      "translation": "left",
+      "difficulty": 1,
+      "frequencyRank": 89,
+      "examples": [
+        {
+          "native": "Rẽ bên trái",
+          "translation": "Turn left"
+        }
+      ]
+    },
+    {
+      "id": "vi_0090",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "bên phải",
+      "translation": "right",
+      "difficulty": 1,
+      "frequencyRank": 90,
+      "examples": [
+        {
+          "native": "Nhà vệ sinh bên phải",
+          "translation": "The bathroom is on the right"
+        }
+      ]
+    },
+    {
+      "id": "vi_0091",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "hôm nay",
+      "translation": "today",
+      "difficulty": 1,
+      "frequencyRank": 91,
+      "examples": [
+        {
+          "native": "Hôm nay tôi không làm việc",
+          "translation": "I'm not working today"
+        }
+      ]
+    },
+    {
+      "id": "vi_0092",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ngày mai",
+      "translation": "tomorrow",
+      "difficulty": 1,
+      "frequencyRank": 92,
+      "examples": [
+        {
+          "native": "Ngày mai tôi đi Huế",
+          "translation": "Tomorrow I'm going to Hue"
+        }
+      ]
+    },
+    {
+      "id": "vi_0093",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "hôm qua",
+      "translation": "yesterday",
+      "difficulty": 1,
+      "frequencyRank": 93,
+      "examples": [
+        {
+          "native": "Hôm qua trời mưa",
+          "translation": "It rained yesterday"
+        }
+      ]
+    },
+    {
+      "id": "vi_0094",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "bây giờ",
+      "translation": "now",
+      "difficulty": 1,
+      "frequencyRank": 94,
+      "examples": [
+        {
+          "native": "Bây giờ mấy giờ rồi?",
+          "translation": "What time is it now?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0095",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "thời gian",
+      "translation": "time",
+      "difficulty": 1,
+      "frequencyRank": 95,
+      "examples": [
+        {
+          "native": "Tôi không có thời gian",
+          "translation": "I don't have time"
+        }
+      ]
+    },
+    {
+      "id": "vi_0096",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ngày",
+      "translation": "day",
+      "difficulty": 1,
+      "frequencyRank": 96,
+      "examples": [
+        {
+          "native": "Một ngày dài",
+          "translation": "A long day"
+        }
+      ]
+    },
+    {
+      "id": "vi_0097",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "tuần",
+      "translation": "week",
+      "difficulty": 1,
+      "frequencyRank": 97,
+      "examples": [
+        {
+          "native": "Tuần sau tôi về",
+          "translation": "I'm coming back next week"
+        }
+      ]
+    },
+    {
+      "id": "vi_0098",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "mệt",
+      "translation": "tired",
+      "difficulty": 1,
+      "frequencyRank": 98,
+      "examples": [
+        {
+          "native": "Tôi mệt quá",
+          "translation": "I'm so tired"
+        }
+      ]
+    },
+    {
+      "id": "vi_0099",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "đói",
+      "translation": "hungry",
+      "difficulty": 1,
+      "frequencyRank": 99,
+      "examples": [
+        {
+          "native": "Tôi đói rồi",
+          "translation": "I'm hungry"
+        }
+      ]
+    },
+    {
+      "id": "vi_0100",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "khát",
+      "translation": "thirsty",
+      "difficulty": 1,
+      "frequencyRank": 100,
+      "examples": [
+        {
+          "native": "Tôi khát nước",
+          "translation": "I'm thirsty"
+        }
+      ]
+    },
+    {
+      "id": "vi_0101",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "vui",
+      "translation": "happy, glad",
+      "difficulty": 1,
+      "frequencyRank": 101,
+      "examples": [
+        {
+          "native": "Tôi rất vui được gặp bạn",
+          "translation": "I'm very glad to meet you"
+        }
+      ]
+    },
+    {
+      "id": "vi_0102",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "buồn",
+      "translation": "sad",
+      "difficulty": 1,
+      "frequencyRank": 102,
+      "examples": [
+        {
+          "native": "Hôm nay tôi hơi buồn",
+          "translation": "I'm a bit sad today"
+        }
+      ]
+    },
+    {
+      "id": "vi_0103",
+      "unit": "u8",
+      "category": "Feelings",
+      "lemma": "ốm",
+      "translation": "sick, ill",
+      "difficulty": 1,
+      "frequencyRank": 103,
+      "examples": [
+        {
+          "native": "Con tôi bị ốm",
+          "translation": "My child is sick"
+        }
+      ]
+    },
+    {
+      "id": "vi_0104",
+      "unit": "u2",
+      "category": "Questions",
+      "lemma": "gì",
+      "translation": "what",
+      "difficulty": 1,
+      "frequencyRank": 104,
+      "examples": [
+        {
+          "native": "Đây là cái gì?",
+          "translation": "What is this?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0105",
+      "unit": "u7",
+      "category": "Questions",
+      "lemma": "ở đâu",
+      "translation": "where",
+      "difficulty": 1,
+      "frequencyRank": 105,
+      "examples": [
+        {
+          "native": "Bạn sống ở đâu?",
+          "translation": "Where do you live?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0106",
+      "unit": "u2",
+      "category": "Questions",
+      "lemma": "ai",
+      "translation": "who",
+      "difficulty": 1,
+      "frequencyRank": 106,
+      "examples": [
+        {
+          "native": "Bạn đi với ai?",
+          "translation": "Who are you going with?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0107",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "khi nào",
+      "translation": "when",
+      "difficulty": 1,
+      "frequencyRank": 107,
+      "examples": [
+        {
+          "native": "Khi nào bạn đến?",
+          "translation": "When are you arriving?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0108",
+      "unit": "u2",
+      "category": "Questions",
+      "lemma": "tại sao",
+      "translation": "why",
+      "difficulty": 1,
+      "frequencyRank": 108,
+      "examples": [
+        {
+          "native": "Tại sao bạn buồn?",
+          "translation": "Why are you sad?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0109",
+      "unit": "u2",
+      "category": "Connectors",
+      "lemma": "và",
+      "translation": "and",
+      "difficulty": 1,
+      "frequencyRank": 109,
+      "examples": [
+        {
+          "native": "Bố và mẹ tôi",
+          "translation": "My father and mother"
+        }
+      ]
+    },
+    {
+      "id": "vi_0110",
+      "unit": "u2",
+      "category": "Connectors",
+      "lemma": "hay",
+      "translation": "or",
+      "difficulty": 1,
+      "frequencyRank": 110,
+      "examples": [
+        {
+          "native": "Trà hay cà phê?",
+          "translation": "Tea or coffee?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0111",
+      "unit": "u2",
+      "category": "Connectors",
+      "lemma": "nhưng",
+      "translation": "but",
+      "difficulty": 1,
+      "frequencyRank": 111,
+      "examples": [
+        {
+          "native": "Tôi muốn đi nhưng tôi mệt",
+          "translation": "I want to go but I'm tired"
+        }
+      ]
+    },
+    {
+      "id": "vi_0112",
+      "unit": "u2",
+      "category": "Connectors",
+      "lemma": "vì",
+      "translation": "because",
+      "difficulty": 1,
+      "frequencyRank": 112,
+      "examples": [
+        {
+          "native": "Vì trời mưa",
+          "translation": "Because it's raining"
+        }
+      ]
+    },
+    {
+      "id": "vi_0113",
+      "unit": "u2",
+      "category": "Connectors",
+      "lemma": "với",
+      "translation": "with",
+      "difficulty": 1,
+      "frequencyRank": 113,
+      "examples": [
+        {
+          "native": "Đi với tôi",
+          "translation": "Come with me"
+        }
+      ]
+    },
+    {
+      "id": "vi_0114",
+      "unit": "u1",
+      "category": "Common",
+      "lemma": "tốt",
+      "translation": "good",
+      "difficulty": 1,
+      "frequencyRank": 114,
+      "examples": [
+        {
+          "native": "Đây là một ý tốt",
+          "translation": "That's a good idea"
+        }
+      ]
+    },
+    {
+      "id": "vi_0115",
+      "unit": "u1",
+      "category": "Common",
+      "lemma": "xấu",
+      "translation": "bad",
+      "difficulty": 1,
+      "frequencyRank": 115,
+      "examples": [
+        {
+          "native": "Hôm qua là một ngày xấu",
+          "translation": "Yesterday was a bad day"
+        }
+      ]
+    },
+    {
+      "id": "vi_0116",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "to",
+      "translation": "big",
+      "difficulty": 1,
+      "frequencyRank": 116,
+      "examples": [
+        {
+          "native": "Nhà bố tôi rất to",
+          "translation": "My father's house is very big"
+        }
+      ]
+    },
+    {
+      "id": "vi_0117",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "nhỏ",
+      "translation": "small",
+      "difficulty": 1,
+      "frequencyRank": 117,
+      "examples": [
+        {
+          "native": "Một cái bàn nhỏ",
+          "translation": "A small table"
+        }
+      ]
+    },
+    {
+      "id": "vi_0118",
+      "unit": "u8",
+      "category": "Weather",
+      "lemma": "nóng",
+      "translation": "hot",
+      "difficulty": 1,
+      "frequencyRank": 118,
+      "examples": [
+        {
+          "native": "Trà còn nóng",
+          "translation": "The tea is still hot"
+        }
+      ]
+    },
+    {
+      "id": "vi_0119",
+      "unit": "u8",
+      "category": "Weather",
+      "lemma": "lạnh",
+      "translation": "cold",
+      "difficulty": 1,
+      "frequencyRank": 119,
+      "examples": [
+        {
+          "native": "Nước lạnh quá",
+          "translation": "The water is very cold"
+        }
+      ]
+    },
+    {
+      "id": "vi_0120",
+      "unit": "u1",
+      "category": "Common",
+      "lemma": "rất",
+      "translation": "very",
+      "difficulty": 1,
+      "frequencyRank": 120,
+      "examples": [
+        {
+          "native": "Món này rất ngon",
+          "translation": "This dish is very good"
+        }
+      ]
+    },
+    {
+      "id": "vi_0121",
+      "unit": "u1",
+      "category": "Common",
+      "lemma": "quá",
+      "translation": "too, so (after the word)",
+      "difficulty": 1,
+      "frequencyRank": 121,
+      "examples": [
+        {
+          "native": "Đắt quá!",
+          "translation": "Too expensive!"
+        }
+      ]
+    },
+    {
+      "id": "vi_0122",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "thêm",
+      "translation": "more, additional",
+      "difficulty": 1,
+      "frequencyRank": 122,
+      "examples": [
+        {
+          "native": "Cho thêm một cái nữa",
+          "translation": "Give me one more"
+        }
+      ]
+    },
+    {
+      "id": "vi_0123",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "cũng",
+      "translation": "also, too",
+      "difficulty": 1,
+      "frequencyRank": 123,
+      "examples": [
+        {
+          "native": "Tôi cũng đi",
+          "translation": "I'm going too"
+        }
+      ]
+    },
+    {
+      "id": "vi_0124",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "tất cả",
+      "translation": "all, everything",
+      "difficulty": 1,
+      "frequencyRank": 124,
+      "examples": [
+        {
+          "native": "Tất cả đều tốt",
+          "translation": "Everything is fine"
+        }
+      ]
+    },
+    {
+      "id": "vi_0125",
+      "unit": "u8",
+      "category": "Body",
+      "lemma": "đầu",
+      "translation": "head",
+      "difficulty": 1,
+      "frequencyRank": 125,
+      "examples": [
+        {
+          "native": "Tôi đau đầu",
+          "translation": "I have a headache"
+        }
+      ]
+    },
+    {
+      "id": "vi_0126",
+      "unit": "u8",
+      "category": "Body",
+      "lemma": "tay",
+      "translation": "hand",
+      "difficulty": 1,
+      "frequencyRank": 126,
+      "examples": [
+        {
+          "native": "Rửa tay đi",
+          "translation": "Wash your hands"
+        }
+      ]
+    },
+    {
+      "id": "vi_0127",
+      "unit": "u8",
+      "category": "Body",
+      "lemma": "tim",
+      "translation": "heart",
+      "difficulty": 1,
+      "frequencyRank": 127,
+      "examples": [
+        {
+          "native": "Tim tôi đập nhanh",
+          "translation": "My heart is beating fast"
+        }
+      ]
+    },
+    {
+      "id": "vi_0128",
+      "unit": "u5",
+      "category": "Colors",
+      "lemma": "đen",
+      "translation": "black",
+      "difficulty": 1,
+      "frequencyRank": 128,
+      "examples": [
+        {
+          "native": "Cà phê đen",
+          "translation": "Black coffee"
+        }
+      ]
+    },
+    {
+      "id": "vi_0129",
+      "unit": "u5",
+      "category": "Colors",
+      "lemma": "trắng",
+      "translation": "white",
+      "difficulty": 1,
+      "frequencyRank": 129,
+      "examples": [
+        {
+          "native": "Áo trắng",
+          "translation": "A white shirt"
+        }
+      ]
+    },
+    {
+      "id": "vi_0130",
+      "unit": "u8",
+      "category": "Weather",
+      "lemma": "mặt trời",
+      "translation": "sun",
+      "difficulty": 1,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "Mặt trời lên rồi",
+          "translation": "The sun has risen"
+        }
+      ]
+    },
+    {
+      "id": "vi_0131",
+      "unit": "u8",
+      "category": "Weather",
+      "lemma": "mưa",
+      "translation": "rain, to rain",
+      "difficulty": 1,
+      "frequencyRank": 131,
+      "examples": [
+        {
+          "native": "Trời đang mưa",
+          "translation": "It's raining"
+        }
+      ]
+    }
+  ],
+  "alphabetGroups": [
+    {
+      "id": "tones",
+      "title": "The six tones",
+      "emoji": "🎵",
+      "description": "ma má mà mả mã mạ — six different words"
+    },
+    {
+      "id": "vowels",
+      "title": "Vowels you don't have",
+      "emoji": "🅰️",
+      "description": "ơ, ư, â, ă, ê, ô — six more than English"
+    },
+    {
+      "id": "surprises",
+      "title": "Letters that lie",
+      "emoji": "⚠️",
+      "description": "đ, ng, nh, x, d — none sound like they look"
+    }
+  ]
+}

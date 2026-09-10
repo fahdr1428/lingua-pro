@@ -12,6 +12,87 @@
 // =============================================================================
 
 export const CONVERSATIONS = {
+  // v102 — Vietnamese. Northern forms. The transliterations are pronunciation
+  // hints for someone who has not yet internalised the tone marks; the marked
+  // spelling above them is the real thing.
+  vi: [
+    { id: "vi_c1", situation: "Greeting someone", emoji: "👋", lines: [
+      { native: "Xin chào chị, chị khỏe không?", translit: "sin chow chi, chi kwe khong", translation: "Hello, how are you?",
+        note: "chị is used for a woman slightly older than you. To a man of the same standing it would be anh." },
+      { native: "Tôi khỏe, cảm ơn. Còn bạn?", translit: "toy kwe, cam un. con ban", translation: "I'm well, thank you. And you?" },
+      { native: "Tôi cũng khỏe", translit: "toy koong kwe", translation: "I'm well too" },
+    ]},
+    { id: "vi_c2", situation: "Giving your name", emoji: "🙋", lines: [
+      { native: "Bạn tên là gì?", translit: "ban ten la zi", translation: "What's your name?",
+        note: "gì is 'zi' in the north and 'yi' in the south — the letter gi is never a hard g." },
+      { native: "Tên tôi là Linh. Còn bạn?", translit: "ten toy la Linh. con ban", translation: "My name is Linh. And you?" },
+      { native: "Tôi là Nam. Rất vui được gặp bạn", translit: "toy la Nam. zat vui duoc gap ban", translation: "I'm Nam. Very glad to meet you" },
+    ]},
+    { id: "vi_c3", situation: "Ordering phở", emoji: "🍜", lines: [
+      { native: "Anh muốn ăn gì?", translit: "anh muon an zi", translation: "What would you like to eat?" },
+      { native: "Cho tôi một bát phở bò", translit: "cho toy mot bat fuh baw", translation: "One bowl of beef phở for me",
+        note: "phở is 'fuh' — ph is always f in Vietnamese." },
+      { native: "Anh uống gì không?", translit: "anh uong zi khong", translation: "Anything to drink?" },
+      { native: "Cho tôi trà đá", translit: "cho toy cha da", translation: "Iced tea for me" },
+    ]},
+    { id: "vi_c4", situation: "At the market", emoji: "🛒", lines: [
+      { native: "Cái này bao nhiêu tiền?", translit: "kai nay bao nyew tien", translation: "How much is this?" },
+      { native: "Năm mươi nghìn", translit: "nam muoi ngin", translation: "Fifty thousand" },
+      { native: "Đắt quá! Rẻ hơn được không?", translit: "dat kwa, re hon duoc khong", translation: "Too expensive! Can it be cheaper?",
+        note: "Haggling at a market is normal and expected; in a shop with printed prices it is not." },
+    ]},
+    { id: "vi_c5", situation: "Asking directions", emoji: "🧭", lines: [
+      { native: "Xin lỗi, nhà vệ sinh ở đâu?", translit: "sin loy, nya ve sinh uh dow", translation: "Excuse me, where is the bathroom?" },
+      { native: "Bên phải, cuối hành lang", translit: "ben fai, kuoi hanh lang", translation: "On the right, at the end of the corridor" },
+      { native: "Cảm ơn chị", translit: "cam un chi", translation: "Thank you" },
+    ]},
+    { id: "vi_c6", situation: "Talking about family", emoji: "👨‍👩‍👧", lines: [
+      { native: "Gia đình bạn có đông không?", translit: "za dinh ban co dong khong", translation: "Is your family big?" },
+      { native: "Có, tôi có hai chị gái", translit: "co, toy co hai chi gai", translation: "Yes, I have two older sisters" },
+      { native: "Bố mẹ bạn ở đâu?", translit: "bo me ban uh dow", translation: "Where are your parents?" },
+      { native: "Bố mẹ tôi ở Hà Nội", translit: "bo me toy uh Ha Noi", translation: "My parents are in Hanoi" },
+    ]},
+  ],
+
+  // v102 — Yoruba. The greetings are the point: two of the six are greeting
+  // exchanges because that is genuinely how much of a Yoruba conversation they
+  // occupy.
+  yo: [
+    { id: "yo_c1", situation: "Greeting someone", emoji: "👋", lines: [
+      { native: "Ẹ káàárọ̀ ma", translit: "e kaa-AA-ro ma", translation: "Good morning, ma'am",
+        note: "The ẹ at the start is the respectful form, used for one older person as well as for a group." },
+      { native: "Ẹ káàárọ̀. Ṣé àlàáfíà ni?", translit: "e kaa-AA-ro. she a-laa-FEE-a ni", translation: "Good morning. Is all well?" },
+      { native: "Àlàáfíà ni, ẹ ṣé", translit: "a-laa-FEE-a ni, e SHE", translation: "All is well, thank you" },
+    ]},
+    { id: "yo_c2", situation: "Greeting someone at work", emoji: "🛠️", lines: [
+      { native: "Ẹ kú iṣẹ́ o", translit: "e ku i-SHE o", translation: "Greetings on your work",
+        note: "Said to anyone you find working — a trader, a driver, someone cooking. Walking past without it is noticed." },
+      { native: "Ẹ ṣé, ẹ kú àbọ̀", translit: "e she, e ku a-BOR", translation: "Thank you, and welcome back" },
+    ]},
+    { id: "yo_c3", situation: "Giving your name", emoji: "🙋", lines: [
+      { native: "Kí ni orúkọ rẹ?", translit: "ki ni o-RU-ko re", translation: "What is your name?" },
+      { native: "Orúkọ mi ni Adé. Tìrẹ ńkọ́?", translit: "o-RU-ko mi ni A-de. ti-RE n-KO", translation: "My name is Ade. And yours?" },
+      { native: "Bọ́lá ni orúkọ mi", translit: "BO-la ni o-RU-ko mi", translation: "My name is Bọ́lá" },
+    ]},
+    { id: "yo_c4", situation: "At the market", emoji: "🛒", lines: [
+      { native: "Élòó ni èyí?", translit: "e-LOO ni e-YI", translation: "How much is this?" },
+      { native: "Ẹgbẹ̀rún méjì", translit: "eg-BE-run ME-ji", translation: "Two thousand" },
+      { native: "Ó wọ́n jù. Ẹ jọ̀ọ́, dín ín kù", translit: "o WON ju. e JOO, din in ku", translation: "It's too expensive. Please, reduce it" },
+    ]},
+    { id: "yo_c5", situation: "Eating together", emoji: "🍲", lines: [
+      { native: "Ṣé o fẹ́ jẹun?", translit: "she o FE jeun", translation: "Do you want to eat?" },
+      { native: "Bẹ́ẹ̀ni, ẹ ṣé", translit: "BE-e-ni, e SHE", translation: "Yes, thank you" },
+      { native: "Ìrẹsì àti ẹ̀wà ni", translit: "i-RE-si a-ti E-wa ni", translation: "It's rice and beans" },
+      { native: "Ó dùn gan-an", translit: "o DUN gan-an", translation: "It's very tasty" },
+    ]},
+    { id: "yo_c6", situation: "Asking directions", emoji: "🧭", lines: [
+      { native: "Ẹ jọ̀ọ́, ilé ìwẹ̀ wà níbo?", translit: "e JOO, i-le I-we wa NI-bo", translation: "Please, where is the bathroom?" },
+      { native: "Ó wà ní ọ̀tún", translit: "o wa ni OR-tun", translation: "It is on the right" },
+      { native: "Ẹ ṣé gan-an", translit: "e SHE gan-an", translation: "Thank you very much" },
+    ]},
+  ],
+
+
   // ===========================================================================
   // SPANISH
   // ===========================================================================

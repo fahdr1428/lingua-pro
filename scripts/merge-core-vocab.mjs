@@ -15,9 +15,15 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { CORE_FILL, CORE_FILL_2 } from "./content/core-fill.mjs";
 import { CORE, normalizeGloss, taughtGlosses } from "../src/data/coreVocabulary.js";
+import { LATIN_SCRIPT_LANGUAGES } from "../src/data/registry.js";
 
 const DRY = process.argv.includes("--dry");
-const LATIN = new Set(["es", "fr", "de", "id", "tr", "pcm", "tl", "so"]);
+// The Latin-script list lives in ONE place: src/data/registry.js. It used to be
+// copied into six scripts, which had already drifted apart — import-vocab,
+// measure-input and validate-journey never learned about de, tl or so, and none
+// of them learned about vi or yo. That is the v92 bug (nine copies of the same
+// set in src/) repeating itself in scripts/, so the fix is the same one.
+const LATIN = LATIN_SCRIPT_LANGUAGES;
 const byId = new Map(CORE.map((k) => [k.id, k]));
 
 let added = 0, skipped = 0, refused = 0;

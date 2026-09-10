@@ -37,6 +37,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { PASSAGES } from "../src/data/passages.js";
 import { GRAMMAR } from "../src/data/grammar.js";
 import { LANGUAGES } from "../src/data/registry.js";
+import { LATIN_SCRIPT_LANGUAGES } from "../src/data/registry.js";
 
 const DIR = "src/data/languages";
 const words = (s) => String(s || "").split(/\s+/).filter(Boolean).length;
@@ -48,7 +49,12 @@ const words = (s) => String(s || "").split(/\s+/).filter(Boolean).length;
 const DENSE = new Set(["zh", "ja"]);
 // Scripts a learner may not read yet, where a missing romanisation means a
 // sentence they can look at but cannot pronounce.
-const LATIN = new Set(["es", "fr", "de", "id", "pcm", "tr"]);
+// The Latin-script list lives in ONE place: src/data/registry.js. It used to be
+// copied into six scripts, which had already drifted apart — import-vocab,
+// measure-input and validate-journey never learned about de, tl or so, and none
+// of them learned about vi or yo. That is the v92 bug (nine copies of the same
+// set in src/) repeating itself in scripts/, so the fix is the same one.
+const LATIN = LATIN_SCRIPT_LANGUAGES;
 const lengthOf = (s, code) =>
   DENSE.has(code) ? Math.round([...String(s || "").replace(/\s/g, "")].length / 1.6) : words(s);
 

@@ -28,6 +28,70 @@
 // =============================================================================
 
 export const CHARACTERS = {
+  // v102 — the guides for the two languages added in v102. Their copy is in
+  // English with the Vietnamese and Yoruba written in its own (Latin) script,
+  // marks and all, because that is what the learner has to get used to reading.
+  vi: {
+    name: "Linh",
+    role: "Your Vietnamese guide",
+    initial: "L",
+    city: "Hanoi",
+    craft: "Runs a phở shop that opens at five in the morning",
+    accent: "#c8102e",
+    voice: { rate: 0.95, pitch: 1.05 },
+    signature: { text: "Từ từ thôi, không vội", translit: "tu tu thoi, khong voi", en: "Slowly now, no rush" },
+    intro: "Xin chào! I'm Linh, from Hanoi. I run a phở shop that opens at five in the morning, so I talk to about four hundred people before most of them are properly awake. Vietnamese uses our alphabet, which fools people — the marks are the whole language. Từ từ thôi, không vội.",
+    greetings: [
+      "Xin chào! Ready?",
+      "You came back — good.",
+      "A short one today.",
+      "New words waiting for you.",
+    ],
+    celebrations: {
+      perfect: "Giỏi quá! Not one mistake.",
+      great: "Rất tốt! You're picking this up fast.",
+      good: "Tốt. Slowly, slowly.",
+      keep_going: "Không sao đâu. Getting it wrong is how it goes in.",
+    },
+    streakNote: "Nước chảy đá mòn — running water wears the stone away.",
+    reactions: {
+      correct: ["Đúng rồi!", "Giỏi!", "Chuẩn!", "Chính xác!"],
+      wrong: ["Chưa đúng.", "Thử lại nhé.", "Gần rồi!", "Chưa — nhìn lại xem."],
+      streak: ["Tuyệt vời!", "Tiếp tục đi!", "Nhanh quá!"],
+    },
+  },
+
+  yo: {
+    name: "Bọ́lá",
+    role: "Your Yoruba guide",
+    initial: "B",
+    city: "Ibadan",
+    craft: "Drummer — the talking drum copies the tones of the language itself",
+    accent: "#0a8f3c",
+    voice: { rate: 0.92, pitch: 1 },
+    signature: { text: "Kí a bẹ̀rẹ̀", translit: "ki a bere", en: "Let us begin" },
+    intro: "Ẹ káàbọ̀! I'm Bọ́lá, from Ibadan. I play the talking drum, which works because Yoruba is a tonal language — the drum copies the pitches and people hear words in it. That is why the marks matter: they are not decoration, they are the tune. Kí a bẹ̀rẹ̀.",
+    greetings: [
+      "Ẹ káàbọ̀! Ready?",
+      "You came back — good.",
+      "A short one today.",
+      "New words waiting for you.",
+    ],
+    celebrations: {
+      perfect: "Ó dáa gan-an! Not one mistake.",
+      great: "Ó dáa! You're learning fast.",
+      good: "Dáadáa. Little by little.",
+      keep_going: "Kò burú. Getting it wrong is part of it.",
+    },
+    streakNote: "Bí a bá ń rìn, a ó dé — if we keep walking, we will arrive.",
+    reactions: {
+      correct: ["Bẹ́ẹ̀ ni!", "Ó dáa!", "Òtítọ́!", "Ó tọ̀nà!"],
+      wrong: ["Kò tọ̀nà.", "Gbìyànjú lẹ́ẹ̀kan sí i.", "Ó ku díẹ̀!", "Bẹ́ẹ̀kọ́ — wo ó lẹ́ẹ̀kan sí i."],
+      streak: ["Ó ṣeun!", "Máa lọ!", "Kíákíá!"],
+    },
+  },
+
+
   // v89 guides.
   ml: {
     name: "Sreeja", role: "Your Malayalam guide", initial: "S", city: "Kochi",

@@ -16,6 +16,23 @@
 // =============================================================================
 
 export const LANGUAGES = {
+  // v102 — two more the world ignores, both written in the Latin alphabet and
+  // both routinely written WITHOUT the marks that make them readable. That is
+  // the thing this app can fix: a learner who has only ever seen unmarked
+  // Yoruba or unmarked Vietnamese has been looking at ambiguous text and
+  // blaming themselves.
+  vi: {
+    code: "vi", name: "Vietnamese", nativeName: "Tiếng Việt", flag: "🇻🇳", rtl: false,
+    ttsCode: "vi-VN", color: "#c8102e",
+    tagline: "Little Saigon, Cabramatta, Prague — and the six tones nobody teaches you",
+    niche: true, loader: () => import("./languages/vi.json"),
+  },
+  yo: {
+    code: "yo", name: "Yoruba", nativeName: "Èdè Yorùbá", flag: "🇳🇬", rtl: false,
+    ttsCode: "yo-NG", color: "#0a8f3c",
+    tagline: "45 million speakers, and no course anywhere worth the name",
+    niche: true, loader: () => import("./languages/yo.json"),
+  },
   // v89 — three more nobody teaches. Malayalam was asked for by name; Tamil and
   // Somali are the same case: tens of millions of speakers, a diaspora that
   // lives away from where the language is spoken, and no course anywhere.
@@ -289,6 +306,10 @@ export function listLanguages() {
 // Keep in step with LATIN in scripts/validate-alphabets.mjs.
 export const LATIN_SCRIPT_LANGUAGES = new Set([
   "es", "fr", "de", "id", "tr", "pcm", "tl", "so",
+  // v102 — Vietnamese and Yoruba are Latin-script, so no Chapter 0. Their
+  // marks are taught in the letters course instead: the tones and the dotted
+  // letters are what a learner is actually missing, not the alphabet.
+  "vi", "yo",
 ]);
 
 /** True when the learner cannot be assumed to read this language's script. */

@@ -93,6 +93,8 @@ const AWAITING_PASSAGES = {
   ml: "added in v89; passages want a native speaker, not a generated approximation",
   ta: "added in v89; passages want a native speaker, not a generated approximation",
   so: "added in v89; passages want a native speaker, not a generated approximation",
+  vi: "added in v102; passages want a native speaker, not a generated approximation",
+  yo: "added in v102; passages want a native speaker, not a generated approximation",
 };
 
 function known(token, lemmas) {

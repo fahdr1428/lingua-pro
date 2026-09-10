@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "audio": "node scripts/generate-audio.cjs",
     "import-vocab": "node scripts/import-vocab.mjs",
+    "build-language-pack": "node scripts/build-language-pack.mjs",
     "validate-vocab": "node scripts/validate-vocab.mjs",
     "validate-core-vocab": "node scripts/validate-core-vocab.mjs",
     "merge-core-vocab": "node scripts/merge-core-vocab.mjs",

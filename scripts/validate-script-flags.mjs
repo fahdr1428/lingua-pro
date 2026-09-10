@@ -73,20 +73,32 @@ for (const file of files) {
   }
 }
 
-// The registry's list and the alphabet validator's list must agree, since one
-// decides how a language is PRESENTED and the other what it must TEACH.
-const alpha = readFileSync("scripts/validate-alphabets.mjs", "utf8");
-const regList = [...registrySrc.matchAll(/LATIN_SCRIPT_LANGUAGES = new Set\(\[([\s\S]*?)\]\)/g)][0]?.[1] || "";
-const alphaList = [...alpha.matchAll(/const LATIN = new Set\(\[([\s\S]*?)\]\)/g)][0]?.[1] || "";
-const norm = (s) => s.split(",").map((x) => x.trim().replace(/["']/g, "")).filter(Boolean).sort().join(",");
-if (norm(regList) !== norm(alphaList)) {
-  errors.push(
-    `registry LATIN_SCRIPT_LANGUAGES (${norm(regList)}) disagrees with validate-alphabets LATIN (${norm(alphaList)}) — ` +
-    `one decides how a language is presented, the other what it must teach, and they must name the same languages`
-  );
-} else {
-  notes.push(`registry and validate-alphabets agree: ${norm(regList)}`);
+// v102 — this used to compare two hand-kept literals: the registry's set and a
+// copy inside validate-alphabets.mjs. Six scripts turned out to be keeping
+// their own copies, and they had drifted — import-vocab, measure-input and
+// validate-journey had never learned about German, Tagalog or Somali. So the
+// copies are gone and every script imports the registry's set. What is worth
+// checking now is that they still DO, rather than that two literals match.
+const SHOULD_IMPORT = [
+  "scripts/validate-vocab.mjs",
+  "scripts/validate-alphabets.mjs",
+  "scripts/validate-journey.mjs",
+  "scripts/measure-input.mjs",
+  "scripts/import-vocab.mjs",
+  "scripts/merge-core-vocab.mjs",
+];
+for (const file of SHOULD_IMPORT) {
+  const src = readFileSync(file, "utf8");
+  if (/const LATIN = new Set\(/.test(src)) {
+    errors.push(
+      `${file} has grown its own Latin-script list again. There is one, in ` +
+      `src/data/registry.js, and every copy of it in this repo's history has drifted.`
+    );
+  } else if (!/LATIN_SCRIPT_LANGUAGES/.test(src)) {
+    errors.push(`${file} no longer imports LATIN_SCRIPT_LANGUAGES — it decides script handling from something else now`);
+  }
 }
+notes.push(`${SHOULD_IMPORT.length} scripts take the Latin-script list from the registry`);
 
 console.log("");
 if (notes.length) for (const n of notes) console.log("  [ok] " + n);

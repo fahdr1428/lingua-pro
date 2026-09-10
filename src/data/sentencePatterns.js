@@ -2188,6 +2188,251 @@ export const SENTENCE_PATTERNS = {
       },
     },
   ],
+  // ===========================================================================
+  // VIETNAMESE — SVO like English, and no conjugation at all: the verb is the
+  // same for every person and every tense. What a learner actually has to learn
+  // is the classifier, the question particle at the end, and the fact that
+  // "không" both negates a sentence and turns one into a question.
+  // ===========================================================================
+  vi: [
+    {
+      level: 1,
+      skill: "Subject + Verb + Object — and the verb never changes",
+      chunks: [
+        { text: "Tôi", translit: "toy", gloss: "I", role: "subject" },
+        { text: "uống", translit: "uong", gloss: "drink", role: "verb" },
+        { text: "trà", translit: "cha", gloss: "tea", role: "object" },
+      ],
+      translation: "I drink tea",
+      note: "Tôi uống, bạn uống, anh ấy uống — I drink, you drink, he drinks. One form, always. Vietnamese verbs do not change for person or tense.",
+      extend: {
+        skill: "Say when",
+        chunks: [
+          { text: "Tôi", translit: "toy", gloss: "I", role: "subject" },
+          { text: "uống", translit: "uong", gloss: "drink", role: "verb" },
+          { text: "trà", translit: "cha", gloss: "tea", role: "object" },
+          { text: "mỗi sáng", translit: "moi sang", gloss: "every morning", role: "time" },
+        ],
+        translation: "I drink tea every morning",
+      },
+      twist: {
+        prompt: "Now say: I eat rice (eat = ăn, rice = cơm)",
+        chunks: [
+          { text: "Tôi", translit: "toy", gloss: "I", role: "subject" },
+          { text: "ăn", translit: "an", gloss: "eat", role: "verb" },
+          { text: "cơm", translit: "kuhm", gloss: "rice", role: "object" },
+        ],
+        translation: "I eat rice",
+      },
+    },
+    {
+      level: 2,
+      skill: "Counting things needs a classifier",
+      chunks: [
+        { text: "Tôi", translit: "toy", gloss: "I", role: "subject" },
+        { text: "có", translit: "ko", gloss: "have", role: "verb" },
+        { text: "hai", translit: "hai", gloss: "two", role: "particle" },
+        { text: "chị gái", translit: "chi gai", gloss: "older sisters", role: "object" },
+      ],
+      translation: "I have two older sisters",
+      note: "Family words count directly. Most other nouns need a classifier between the number and the noun — một cái bàn (one CLASSIFIER table), hai con chó (two CLASSIFIER dogs). Getting the classifier wrong is normal and forgivable; leaving it out sounds abrupt.",
+      twist: {
+        prompt: "Now say: I have two older brothers (older brother = anh trai)",
+        chunks: [
+          { text: "Tôi", translit: "toy", gloss: "I", role: "subject" },
+          { text: "có", translit: "ko", gloss: "have", role: "verb" },
+          { text: "hai", translit: "hai", gloss: "two", role: "particle" },
+          { text: "anh trai", translit: "anh chai", gloss: "older brothers", role: "object" },
+        ],
+        translation: "I have two older brothers",
+      },
+    },
+    {
+      level: 3,
+      skill: "Saying what you want (muốn)",
+      chunks: [
+        { text: "Tôi", translit: "toy", gloss: "I", role: "subject" },
+        { text: "muốn", translit: "muon", gloss: "want", role: "verb" },
+        { text: "ăn", translit: "an", gloss: "to eat", role: "verb" },
+        { text: "phở", translit: "fuh", gloss: "phở", role: "object" },
+      ],
+      translation: "I want to eat phở",
+      note: "muốn is followed straight by another verb — no 'to'. Vietnamese stacks verbs like this constantly: tôi muốn đi (I want to go), tôi có thể giúp (I can help).",
+      twist: {
+        prompt: "Now say: I want to drink coffee (drink = uống, coffee = cà phê)",
+        chunks: [
+          { text: "Tôi", translit: "toy", gloss: "I", role: "subject" },
+          { text: "muốn", translit: "muon", gloss: "want", role: "verb" },
+          { text: "uống", translit: "uong", gloss: "to drink", role: "verb" },
+          { text: "cà phê", translit: "ka fe", gloss: "coffee", role: "object" },
+        ],
+        translation: "I want to drink coffee",
+      },
+    },
+    {
+      level: 4,
+      skill: "Asking 'where' — the question word goes where the answer goes",
+      chunks: [
+        { text: "Nhà vệ sinh", translit: "nya ve sinh", gloss: "the bathroom", role: "subject" },
+        { text: "ở đâu?", translit: "uh dow", gloss: "is where", role: "question" },
+      ],
+      translation: "Where is the bathroom?",
+      note: "English moves 'where' to the front. Vietnamese leaves it in the slot the answer belongs in — answer 'nhà vệ sinh ở bên phải' and the shape is identical.",
+      twist: {
+        prompt: "Now ask: Where is the market? (market = chợ)",
+        chunks: [
+          { text: "Chợ", translit: "chuh", gloss: "the market", role: "subject" },
+          { text: "ở đâu?", translit: "uh dow", gloss: "is where", role: "question" },
+        ],
+        translation: "Where is the market?",
+      },
+    },
+    {
+      level: 5,
+      skill: "Yes/no questions end with không",
+      chunks: [
+        { text: "Bạn", translit: "ban", gloss: "you", role: "subject" },
+        { text: "có", translit: "ko", gloss: "have", role: "verb" },
+        { text: "thời gian", translit: "thoi zan", gloss: "time", role: "object" },
+        { text: "không?", translit: "khong", gloss: "(question)", role: "question" },
+      ],
+      translation: "Do you have time?",
+      note: "không is the same word as 'no' and 'not'. On the end of a statement it turns it into a yes/no question — literally 'you have time or not?'. Answer with có (yes, have) or không (no).",
+      twist: {
+        prompt: "Now ask: Are you tired? (tired = mệt)",
+        chunks: [
+          { text: "Bạn", translit: "ban", gloss: "you", role: "subject" },
+          { text: "mệt", translit: "met", gloss: "tired", role: "adjective" },
+          { text: "không?", translit: "khong", gloss: "(question)", role: "question" },
+        ],
+        translation: "Are you tired?",
+      },
+    },
+  ],
+
+  // ===========================================================================
+  // YORUBA — SVO, no conjugation, and the work is done by small particles in
+  // front of the verb: ń for ongoing, ti for completed, ó for negation. The
+  // ladder ends on ṣé, because turning a statement into a question by putting
+  // one syllable in front of it is the cheapest useful thing Yoruba does.
+  // ===========================================================================
+  yo: [
+    {
+      level: 1,
+      skill: "Subject + Verb + Object",
+      chunks: [
+        { text: "Mo", translit: "mo", gloss: "I", role: "subject" },
+        { text: "mu", translit: "mu", gloss: "drink", role: "verb" },
+        { text: "omi", translit: "o-mi", gloss: "water", role: "object" },
+      ],
+      translation: "I drink water",
+      note: "Same order as English, and the verb never changes: mo mu, o mu, ó mu — I drink, you drink, he drinks.",
+      extend: {
+        skill: "Say it's happening now",
+        chunks: [
+          { text: "Mo", translit: "mo", gloss: "I", role: "subject" },
+          { text: "ń", translit: "n", gloss: "(happening now)", role: "particle" },
+          { text: "mu", translit: "mu", gloss: "drink", role: "verb" },
+          { text: "omi", translit: "o-mi", gloss: "water", role: "object" },
+        ],
+        translation: "I am drinking water",
+      },
+      twist: {
+        prompt: "Now say: I eat rice (eat = jẹ, rice = ìrẹsì)",
+        chunks: [
+          { text: "Mo", translit: "mo", gloss: "I", role: "subject" },
+          { text: "jẹ", translit: "je", gloss: "eat", role: "verb" },
+          { text: "ìrẹsì", translit: "i-RE-si", gloss: "rice", role: "object" },
+        ],
+        translation: "I eat rice",
+      },
+    },
+    {
+      level: 2,
+      skill: "Saying you have something (ní)",
+      chunks: [
+        { text: "Mo", translit: "mo", gloss: "I", role: "subject" },
+        { text: "ní", translit: "ni", gloss: "have", role: "verb" },
+        { text: "ẹ̀gbọ́n méjì", translit: "EG-bon ME-ji", gloss: "two older siblings", role: "object" },
+      ],
+      translation: "I have two older siblings",
+      note: "The number comes AFTER the noun in Yoruba — ẹ̀gbọ́n méjì is 'siblings two', not 'two siblings'.",
+      twist: {
+        prompt: "Now say: I have three children (child = ọmọ, three = mẹ́ta)",
+        chunks: [
+          { text: "Mo", translit: "mo", gloss: "I", role: "subject" },
+          { text: "ní", translit: "ni", gloss: "have", role: "verb" },
+          { text: "ọmọ mẹ́ta", translit: "O-mo ME-ta", gloss: "three children", role: "object" },
+        ],
+        translation: "I have three children",
+      },
+    },
+    {
+      level: 3,
+      skill: "Saying what you want (fẹ́)",
+      chunks: [
+        { text: "Mo", translit: "mo", gloss: "I", role: "subject" },
+        { text: "fẹ́", translit: "fe", gloss: "want", role: "verb" },
+        { text: "jẹ", translit: "je", gloss: "to eat", role: "verb" },
+        { text: "ìrẹsì", translit: "i-RE-si", gloss: "rice", role: "object" },
+      ],
+      translation: "I want to eat rice",
+      note: "fẹ́ takes another verb straight after it, with no 'to' in between — the same stacking as mo lè lọ (I can go).",
+      twist: {
+        prompt: "Now say: I want to drink water (drink = mu, water = omi)",
+        chunks: [
+          { text: "Mo", translit: "mo", gloss: "I", role: "subject" },
+          { text: "fẹ́", translit: "fe", gloss: "want", role: "verb" },
+          { text: "mu", translit: "mu", gloss: "to drink", role: "verb" },
+          { text: "omi", translit: "o-mi", gloss: "water", role: "object" },
+        ],
+        translation: "I want to drink water",
+      },
+    },
+    {
+      level: 4,
+      skill: "Asking 'where' (níbo)",
+      chunks: [
+        { text: "Ilé ìwẹ̀", translit: "i-le I-we", gloss: "the bathroom", role: "subject" },
+        { text: "wà", translit: "wa", gloss: "is located", role: "verb" },
+        { text: "níbo?", translit: "NI-bo", gloss: "where", role: "question" },
+      ],
+      translation: "Where is the bathroom?",
+      note: "wà is the verb for being in a place, and it is not the same as jẹ́, which is the verb for being something. Ó wà níbẹ̀ (it is over there) but ó jẹ́ dókítà (he is a doctor).",
+      twist: {
+        prompt: "Now ask: Where is the market? (market = ọjà)",
+        chunks: [
+          { text: "Ọjà", translit: "O-ja", gloss: "the market", role: "subject" },
+          { text: "wà", translit: "wa", gloss: "is located", role: "verb" },
+          { text: "níbo?", translit: "NI-bo", gloss: "where", role: "question" },
+        ],
+        translation: "Where is the market?",
+      },
+    },
+    {
+      level: 5,
+      skill: "Yes/no questions start with ṣé",
+      chunks: [
+        { text: "Ṣé", translit: "she", gloss: "(question)", role: "question" },
+        { text: "o", translit: "o", gloss: "you", role: "subject" },
+        { text: "ní", translit: "ni", gloss: "have", role: "verb" },
+        { text: "àkókò?", translit: "a-KO-ko", gloss: "time", role: "object" },
+      ],
+      translation: "Do you have time?",
+      note: "Put ṣé in front of any statement and it becomes a yes/no question. Nothing else moves. (ṣé is 'sheh' — ṣ with the dot under it is always sh.)",
+      twist: {
+        prompt: "Now ask: Do you want rice? (want = fẹ́, rice = ìrẹsì)",
+        chunks: [
+          { text: "Ṣé", translit: "she", gloss: "(question)", role: "question" },
+          { text: "o", translit: "o", gloss: "you", role: "subject" },
+          { text: "fẹ́", translit: "fe", gloss: "want", role: "verb" },
+          { text: "ìrẹsì?", translit: "i-RE-si", gloss: "rice", role: "object" },
+        ],
+        translation: "Do you want rice?",
+      },
+    },
+  ],
+
 };
 
 // Color for each grammatical role (used by the Sentence Lab UI for chunks).
