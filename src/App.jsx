@@ -5,6 +5,7 @@
 import React, { useState, useEffect, useCallback, Suspense } from "react";
 import { useEngine } from "./hooks/useEngine.js";
 import { usePersistentState } from "./hooks/usePersistentState.js";
+import { normalizeAppState, normalizeLanguageLists } from "./data/appStateShape.js";
 import { useProfile } from "./hooks/useProfile.js";
 import { getStorage } from "./storage/index.js";
 import { BottomNav, SideRail, Button, Container } from "./ui/primitives.jsx";
@@ -190,7 +191,20 @@ const DEFAULT_APP_STATE = {
 };
 
 export default function App() {
-  const [appState, setAppState, loaded] = usePersistentState("app", DEFAULT_APP_STATE);
+  // v103 — the saved state is reconciled against DEFAULT_APP_STATE before the
+  // app ever sees it. It comes from localStorage, which is shared with every
+  // version of Zaban that has run on this device and can be edited by hand, so
+  // it can be missing keys added since the learner last opened the app, or
+  // carry a value of the wrong type. One wrong type used to be enough to leave
+  // the route map on "Loading…" forever with no error screen and no way back.
+  const [appState, setAppState, loaded] = usePersistentState("app", DEFAULT_APP_STATE, (saved) => {
+    const { state, repaired } = normalizeAppState(saved, DEFAULT_APP_STATE);
+    normalizeLanguageLists(state, repaired);
+    if (repaired.length) {
+      console.warn(`[state] reconciled ${repaired.length} field(s) from an older or damaged save:`, repaired.join(", "));
+    }
+    return state;
+  });
   const [screen, setScreen] = useState("home");
   const [params, setParams] = useState(null);
 

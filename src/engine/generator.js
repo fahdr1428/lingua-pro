@@ -452,9 +452,31 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
   // the user has already learned. We score each candidate sentence by how
   // many of its words are also in the learned vocab pool. Higher = better.
   // -------------------------------------------------------------------------
-  const pickBestExample = () => {
-    const examples = item.examples || [];
-    if (examples.length <= 1) return examples[0] || null;
+  //
+  // v103: `minWords` — chooseExerciseType decides a word can carry a
+  // BUILD_SENTENCE because SOME frame of it is long enough, and then this
+  // picked a frame by learned-word overlap alone, which could hand back the
+  // two-word one and leave the builder falling back to an easier exercise. The
+  // two now ask the same question: candidates short of the bar are set aside
+  // when any candidate clears it, and overlap decides between the rest.
+  const pickBestExample = (minWords = 0, mustContain = null) => {
+    const all = (item.examples || []).filter((ex) => ex?.native);
+    if (!all.length) return null;
+
+    let usable = all;
+    if (minWords > 1) {
+      const longEnough = usable.filter((ex) => ex.native.split(/\s+/).filter(Boolean).length >= minWords);
+      if (longEnough.length) usable = longEnough;
+    }
+    if (mustContain) {
+      // COMPLETE_SENTENCE blanks the word out of its own sentence, so a frame
+      // that does not contain it is no use — the builder used to take whatever
+      // came back and fall back to a different exercise when it didn't fit.
+      const containing = usable.filter((ex) => ex.native.includes(mustContain));
+      if (containing.length) usable = containing;
+    }
+    const examples = usable;
+    if (examples.length === 1) return examples[0];
 
     // Build a set of learned-word lemmas (any word with reps > 0)
     const learnedLemmas = new Set();
@@ -466,7 +488,6 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
     let best = examples[0];
     let bestScore = -1;
     for (const ex of examples) {
-      if (!ex?.native) continue;
       const words = ex.native.split(/\s+/);
       let score = 0;
       for (const w of words) {
@@ -572,7 +593,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
     }
 
     case EXERCISE.TAP_WORDS: {
-      const ex = pickBestExample();
+      const ex = pickBestExample(2);
       if (!ex || !ex.native || ex.native.split(" ").length < 2) {
         return buildExercise(item, pool, { ...card, reps: 1 }, _depth + 1, progress);
       }
@@ -585,6 +606,10 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
         type,
         item,
         prompt: "Tap the words in order",
+        // v103: the exercise carries the sentence it was built from, so the
+        // feedback line shows THAT one rather than examples[0]. See the note
+        // on the footer in Lesson.jsx.
+        example: ex,
         translation: ex.translation || item.translation,
         showWord: false,
         playAudio: false,
@@ -594,7 +619,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
     }
 
     case EXERCISE.COMPLETE_SENTENCE: {
-      const ex = pickBestExample();
+      const ex = pickBestExample(2, item.lemma);
       if (!ex || !ex.native || !ex.native.includes(item.lemma)) {
         return buildExercise(item, pool, { ...card, reps: 0 }, _depth + 1, progress);
       }
@@ -607,6 +632,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
         type,
         item,
         prompt: "Complete the sentence",
+        example: ex,
         sentence: sentenceWithBlank,
         translation: ex.translation || item.translation,
         showWord: false,
@@ -618,8 +644,9 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
 
     case EXERCISE.BUILD_SENTENCE: {
       // Productive: show English, user taps native words in correct order.
-      // Uses pickBestExample to prefer sentences with words user has learned.
-      const ex = pickBestExample();
+      // Uses pickBestExample to prefer sentences with words user has learned,
+      // among those long enough to be worth building.
+      const ex = pickBestExample(3);
       if (!ex || !ex.native || ex.native.split(" ").length < 2) {
         return buildExercise(item, pool, { ...card, reps: 2 }, _depth + 1, progress);
       }
@@ -633,6 +660,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
         type,
         item,
         prompt: "Build this sentence",
+        example: ex,
         translation: ex.translation || item.translation,
         showWord: false,
         playAudio: false,
@@ -1004,10 +1032,18 @@ function effectiveReps(reps, lapses) {
 }
 
 function chooseExerciseType(reps, item, lapses = 0) {
-  const ex0 = item.examples?.[0]?.native || "";
-  const exWords = ex0.split(" ").filter(Boolean).length;
-  const hasShortSentence = exWords >= 2;        // enough for TAP_WORDS / COMPLETE
-  const hasRealSentence = exWords >= 3;         // enough for a meaningful BUILD
+  // v103 — this asked examples[0] how long it was and decided from that alone
+  // whether the word could carry a sentence exercise. Since v101 a word can
+  // have several frames, and for 425 of them the FIRST is the short one:
+  // Arabic مرحبا leads with "مرحبا صديقي" (2 words) and also has
+  // "مرحبا، كيف الحال؟". Those words were quietly barred from BUILD_SENTENCE
+  // and TAP_WORDS even though pickBestExample would have found them a
+  // sentence. The gate now asks the whole set the question the builders will
+  // actually ask.
+  const longest = (item.examples || []).reduce((n, e) =>
+    Math.max(n, String(e?.native || "").split(" ").filter(Boolean).length), 0);
+  const hasShortSentence = longest >= 2;        // enough for TAP_WORDS / COMPLETE
+  const hasRealSentence = longest >= 3;         // enough for a meaningful BUILD
 
   // A word that is genuinely fighting them. Show it inside its sentence where
   // possible — a word that won't stick alone often sticks in context, which is

@@ -14,7 +14,7 @@ import { THEMES } from "../ui/themes.js";
 import { VoiceSettings, DialectSettings } from "./VoiceSettings.jsx";
 import { ExerciseSettings } from "./ExerciseSettings.jsx";
 import { getCharacter, getGreeting } from "../data/characters.js";
-import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilestones } from "../engine/gamification.js";
+import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilestones, countPassagesRead } from "../engine/gamification.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 import { UNITS_PER_CHAPTER, computeUnlocks, isChapterExamAvailable, hasPassedChapter, chapterOfUnitIndex, chapterVocabIds } from "../data/chapters.js";
 import { hasSentencePatterns, getPatternForDrop, ladderHeight } from "../data/sentencePatterns.js";
@@ -718,7 +718,10 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
               const ap = JSON.parse(localStorage.getItem("alphabet_progress") || "{}");
               alphabetDone = Object.keys(ap[pack.code] || {}).length > 0;
             } catch {}
-            const passagesRead = (appState.sessions || []).filter((s) => s.type === "reading").length;
+            // v103 — this counted sessions of type "reading", and nothing in
+            // the app writes one, so "First real text" could never be reached.
+            // countPassagesRead reads the record that does exist.
+            const passagesRead = countPassagesRead(appState);
             const daysStudied = new Set(
               (appState.sessions || []).map((s) => new Date(s.ts).toDateString())
             ).size;

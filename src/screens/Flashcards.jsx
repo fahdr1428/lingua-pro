@@ -7,6 +7,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
+import { InContext } from "../ui/InContext.jsx";
 
 
 export function Flashcards({ pack, appState, onNavigate, params }) {
@@ -241,15 +242,22 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
             <div style={{ fontSize: 28, fontWeight: 800, color: "var(--primary-text)", marginBottom: 16 }}>
               {card.translation}
             </div>
-            {card.examples?.[0] && (
-              <div style={{
-                fontSize: 14,
-                color: "var(--text-dim)",
-                fontStyle: "italic",
-                lineHeight: 1.5,
-                maxWidth: 400,
-              }}>
-                "{card.examples[0].translation}"
+            {/* v103 — this showed `"{examples[0].translation}"` and nothing
+                else: the back of a flashcard for an Urdu word gave you the
+                word, its English meaning, and an English sentence. Nothing
+                about how the word behaves in Urdu. That is word-for-word the
+                bug v79 fixed on the lesson's new-word card, still sitting
+                here, on the screen whose entire job is to show you a word.
+                The sentence was in the data the whole time. */}
+            {card.examples?.[0]?.native && (
+              <div style={{ maxWidth: 400 }}>
+                <InContext
+                  example={card.examples[0]}
+                  lemma={card.lemma}
+                  lang={lang}
+                  isNonLatin={isNonLatin}
+                  voiceAvailable={voiceAvailable}
+                />
               </div>
             )}
           </>

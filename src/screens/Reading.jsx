@@ -87,13 +87,34 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
     const correct = picked === passage.answer;
     setFeedback(correct ? "correct" : "wrong");
     if (correct && setAppState) {
-      // Record passage completion for the "First Read" badge + daily mission
+      // v103 — this used to be `passagesRead: (s.passagesRead || 0) + 1`,
+      // written as if passagesRead were a counter. It is the per-language map
+      // of what you have already read (declared in App.jsx, written by
+      // setSeenIds twenty lines up). `{} || 0` is `{}` and `{} + 1` is the
+      // string "[object Object]1", so getting one comprehension question right
+      // replaced the entire read history with fifteen characters of nonsense —
+      // and the next visit, reading `passagesRead?.[code] || []` off a string,
+      // started drawing from the whole library again. That is precisely the
+      // repeat-passage bug v79 was written to fix; this line quietly undid it.
+      //
+      // It also records the passage HERE rather than only in nextPassage(),
+      // because a learner who reads one piece and leaves had their visit
+      // forgotten entirely.
       try {
-        setAppState((s) => ({
-          ...s,
-          passagesRead: (s.passagesRead || 0) + 1,
-          passageLog: [...(s.passageLog || []).slice(-99), Date.now()],
-        }));
+        setAppState((s) => {
+          const map = s.passagesRead && typeof s.passagesRead === "object" && !Array.isArray(s.passagesRead)
+            ? s.passagesRead
+            : {};
+          const mine = Array.isArray(map[pack.code]) ? map[pack.code] : [];
+          return {
+            ...s,
+            passagesRead: {
+              ...map,
+              [pack.code]: mine.includes(passage.id) ? mine : [...mine, passage.id].slice(-60),
+            },
+            passageLog: [...(Array.isArray(s.passageLog) ? s.passageLog : []).slice(-99), Date.now()],
+          };
+        });
       } catch {}
     }
   }

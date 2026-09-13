@@ -69,14 +69,38 @@ for (const code of codes) {
 
 // Rule 1, enforced against the source: the Practice door must be gated on the
 // data existing. A regression here is what shipped for five languages.
+// v103 — this used to match one exact spelling of the gate:
+//
+//     /getConversations\(pack\.code\)\.length > 0/ && /PASSAGES\[pack\.code\]/
+//
+// which is a check on how the line is PHRASED, not on whether the door is
+// gated. When v103 moved the availability question off the two content
+// libraries and onto the generated contentIndex — so 104KB stopped being
+// downloaded before the first word — the gate was still there, doing the same
+// job, and this failed the build anyway.
+//
+// It still cannot evaluate the expression, so it is still a grep. But it now
+// asks for *a* conversation-availability symbol and *a* passage-availability
+// symbol, from the set of spellings that genuinely answer the question. A
+// refactor that keeps the gate passes; deleting the gate, which is the
+// regression that shipped for five languages, still fails.
+const CONVERSATION_GATE = [/getConversations\(pack\.code\)\.length/, /hasConversations\(pack\.code\)/];
+const PASSAGE_GATE = [/PASSAGES\[pack\.code\]/, /hasPassages\(pack\.code\)/];
+
 const home = readFileSync("src/screens/Home.jsx", "utf8");
 if (/title: "Listen & follow"/.test(home)) {
-  const gatedHere = /getConversations\(pack\.code\)\.length > 0/.test(home)
-    && /PASSAGES\[pack\.code\]/.test(home);
-  if (!gatedHere) {
+  const asksAboutConversations = CONVERSATION_GATE.some((re) => re.test(home));
+  const asksAboutPassages = PASSAGE_GATE.some((re) => re.test(home));
+  if (!asksAboutConversations || !asksAboutPassages) {
+    const missing = [
+      !asksAboutConversations && "conversations",
+      !asksAboutPassages && "passages",
+    ].filter(Boolean).join(" or ");
     errors.push(
-      `Home.jsx offers "Listen & follow" without checking that any conversation or passage exists — ` +
-      `for a language with neither, that door opens onto an empty screen.`
+      `Home.jsx offers "Listen & follow" without checking that any ${missing} exist — ` +
+      `for a language with neither, that door opens onto an empty screen. ` +
+      `If the gate was rephrased rather than removed, add the new spelling to ` +
+      `CONVERSATION_GATE / PASSAGE_GATE in this file.`
     );
   }
 }

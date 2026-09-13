@@ -24,8 +24,14 @@ import { getCharacter } from "../data/characters.js";
 import { GuideMark } from "../ui/GuideMark.jsx";
 import { JourneyMap } from "./JourneyMap.jsx";
 import { cultureOfTheDay, tagLabel, hasCulture } from "../data/culture.js";
-import { getConversations } from "../data/conversations.js";
-import { PASSAGES } from "../data/passages.js";
+// v103 — these two used to be `getConversations` from conversations.js (75KB
+// of source) and `PASSAGES` from passages.js (29KB), imported into the eager
+// bundle so that one line below could ask whether either had anything in it.
+// The screens that show that content are both lazy; only the availability
+// question was holding 104KB in the payload every learner downloads before
+// their first word. contentIndex.js is the answer to that question and nothing
+// else, and it is generated, so it cannot drift from the libraries it counts.
+import { hasConversations, hasPassages } from "../data/contentIndex.js";
 import { isRecognitionSupported } from "../audio/speech.js";
 import { getLevel } from "../engine/gamification.js";
 import { computeFluency } from "../engine/fluency.js";
@@ -824,7 +830,7 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
   // the door advertised "Scripted conversations, with subtitles" and opened onto
   // "no conversation starters yet". An honest empty state is better than a
   // crash, but not offering an empty room is better than both.
-  if (getConversations(pack.code).length > 0 || (PASSAGES[pack.code] || []).length > 0) {
+  if (hasConversations(pack.code) || hasPassages(pack.code)) {
     doors.splice(1, 0, {
       icon: "🎧", title: "Listen & follow",
       sub: "Scripted conversations, with subtitles",

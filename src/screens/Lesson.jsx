@@ -13,6 +13,7 @@ import { dialectForm, acceptedForms, regionLabel } from "../data/dialects.js";
 import { explainAnswer } from "../engine/explain.js";
 import { getCharacter, getCelebration } from "../data/characters.js";
 import { GuideMark } from "../ui/GuideMark.jsx";
+import { InContext } from "../ui/InContext.jsx";
 import { isRecognitionSupported, startListening, judge, displayScore, BAND } from "../audio/speech.js";
 import { getGrammar } from "../data/grammar.js";
 import { pickFunFact } from "../data/funFacts.js";
@@ -1441,9 +1442,36 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     Correct answer: <strong>{exercise.answer}</strong>
                   </div>
                 )}
-                {exercise.item?.examples?.[0] && !showExplain && (
-                  <div style={{ marginTop: 10, color: "var(--text-dim)", fontSize: 14 }}>
-                    <em>{exercise.item.examples[0].native}</em> — {exercise.item.examples[0].translation}
+                {/* v103 — THE LINE EVERY LEARNER SEES MOST.
+                    This rendered `<em>{native}</em> — {translation}` with no
+                    romanisation, no dir and no lang. In eleven languages that
+                    meant the moment after every single answer showed a line of
+                    script the learner came here unable to read, with the
+                    romanisation sitting unused in the same object; and in
+                    Arabic, Urdu and Persian the missing dir let the bidi
+                    algorithm pull the em-dash and the English gloss into the
+                    right-to-left run, so the line came out in a jumbled order.
+                    It is the v92 bug — 587 romanisations in the data and none
+                    on screen — on the busiest surface in the app.
+
+                    InContext is the component the new-word card already uses:
+                    dir, lang, the romanisation, the word picked out inside its
+                    own sentence, and tap-to-hear.
+
+                    It also shows `exercise.example` — the sentence the question
+                    was actually built from. 1,193 words now carry a second
+                    frame, and the generator picks between them by which words
+                    the learner already knows, so pinning this to examples[0]
+                    showed a different sentence from the one just answered. */}
+                {(exercise.example || exercise.item?.examples?.[0]) && !showExplain && (
+                  <div className="answer-frame" style={{ marginTop: 10 }}>
+                    <InContext
+                      example={exercise.example || exercise.item.examples[0]}
+                      lemma={exercise.item?.lemma}
+                      lang={lang}
+                      isNonLatin={isNonLatin}
+                      voiceAvailable={voiceAvailable}
+                    />
                   </div>
                 )}
               </Card>
@@ -1912,68 +1940,6 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
 // card, "Start practice" appears. This batch-introduction is much better
 // pedagogy than testing each word right after introducing it.
 // =============================================================================
-
-// =============================================================================
-// IN CONTEXT (v79) — one word, inside a real sentence, with the word picked out.
-//
-// A word learned as a pair — "kitaab = book" — is a fact about a dictionary. A
-// word seen doing a job in a sentence is a piece of the language. The second one
-// survives contact with a native speaker talking at normal speed; the first one
-// mostly doesn't.
-//
-// The highlight is a substring match on the lemma, matched case-insensitively —
-// packs store "Ser" as the dictionary form and write "yo soy" or "es" in the
-// sentence, and an exact match found the word in only 65% of entries against
-// 82% this way. Spanish went from 47% to 88%, French 46% to 90%. It's the
-// SENTENCE's own text that gets rendered, never the lemma's, so a capitalised
-// dictionary form can't appear mid-sentence where the real word is lower case.
-//
-// It FAILS SOFTLY on purpose. In an inflected language the example often carries
-// a conjugated or declined form that doesn't contain the dictionary form at all,
-// and in Japanese and Chinese there are no word boundaries to match on — those
-// two sit around 50% and always will. When the match fails the sentence renders
-// plain, rather than the app guessing at morphology and highlighting half a word,
-// which would teach something false.
-// =============================================================================
-function InContext({ example, lemma, lang, isNonLatin, voiceAvailable }) {
-  const native = example.native || "";
-  const at = lemma && lemma.length > 1
-    ? native.toLowerCase().indexOf(lemma.toLowerCase())
-    : -1;
-  const found = at >= 0;
-  // Sliced out of the sentence, so the casing shown is the sentence's own.
-  const asWritten = found ? native.slice(at, at + lemma.length) : "";
-
-  return (
-    <button
-      className="in-context"
-      onClick={(e) => {
-        e.stopPropagation(); // the card itself flips on click
-        if (voiceAvailable) speak(native, lang.ttsCode, { code: lang.code, translit: example.translit });
-      }}
-      aria-label={voiceAvailable ? "Hear this sentence" : "Example sentence"}
-    >
-      <span className="in-context-tag">
-        {voiceAvailable ? "how it's actually used ▸ tap to hear" : "how it's actually used"}
-      </span>
-      <span className="in-context-native" dir={lang.rtl ? "rtl" : "ltr"} lang={lang.code}>
-        {found ? (
-          <>
-            {native.slice(0, at)}
-            <mark className="in-context-mark">{asWritten}</mark>
-            {native.slice(at + lemma.length)}
-          </>
-        ) : (
-          native
-        )}
-      </span>
-      {isNonLatin && example.translit && (
-        <span className="in-context-tl">{example.translit}</span>
-      )}
-      <span className="in-context-en">{example.translation}</span>
-    </button>
-  );
-}
 
 function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }) {
   const [idx, setIdx] = useState(0);

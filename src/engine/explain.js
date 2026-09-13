@@ -181,7 +181,11 @@ export function explainAnswer(exercise, userAnswer, langCode, opts = {}) {
 
   // The example sentence, in the language being learned. This is the payload —
   // everything else is framing around it.
-  const ex = item?.examples?.[0];
+  // v103: the sentence the exercise was actually built from, when it had one.
+  // A third of the vocabulary now carries a second frame and the generator
+  // chooses between them, so `examples[0]` explained a sentence the learner had
+  // not just been asked about.
+  const ex = exercise.example || item?.examples?.[0];
   const sentence = ex?.native
     ? { native: ex.native, translit: ex.translit || "", translation: ex.translation || "" }
     : null;

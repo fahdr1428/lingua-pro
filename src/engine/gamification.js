@@ -5,6 +5,28 @@
 // learner" positioning while still feeling motivating and alive.
 // =============================================================================
 
+/**
+ * How many reading passages this learner has understood, across every language.
+ *
+ * v103 — there were two answers to this question and both were always zero.
+ * The "First Read" badge read `appState.passagesRead` as a number, but it is
+ * the `{ langCode: [passageId, …] }` map; an object is never `>= 1`. The
+ * "First real text" milestone counted sessions of type "reading", and nothing
+ * in the app has ever written one. So a learner could read every passage in
+ * their language and watch both stay locked.
+ *
+ * The map is the only record that actually exists, so it is the one source
+ * both now use. Written defensively because it has been the wrong type in
+ * shipped storage — see the note in Reading.jsx.
+ */
+export function countPassagesRead(appState) {
+  const map = appState?.passagesRead;
+  if (!map || typeof map !== "object" || Array.isArray(map)) return 0;
+  let n = 0;
+  for (const list of Object.values(map)) if (Array.isArray(list)) n += list.length;
+  return n;
+}
+
 // -----------------------------------------------------------------------------
 // LEVELS — derived from total XP. Names mean something (a capability ladder),
 // not just numbers. Thresholds grow gradually so early levels feel attainable.
@@ -118,7 +140,7 @@ export const BADGES = [
     name: "First Read",
     emoji: "📖",
     desc: "Understood a reading passage",
-    check: (c) => (c.appState.passagesRead || 0) >= 1,
+    check: (c) => countPassagesRead(c.appState) >= 1,
   },
   {
     id: "polyglot_2",
