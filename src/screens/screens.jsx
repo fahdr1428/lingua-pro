@@ -16,10 +16,27 @@ import { ExerciseSettings } from "./ExerciseSettings.jsx";
 import { getCharacter, getGreeting } from "../data/characters.js";
 import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilestones, countPassagesRead } from "../engine/gamification.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
+import { foldForSearch } from "../data/searchText.js";
 import { UNITS_PER_CHAPTER, computeUnlocks, isChapterExamAvailable, hasPassedChapter, chapterOfUnitIndex, chapterVocabIds } from "../data/chapters.js";
 import { hasSentencePatterns, getPatternForDrop, ladderHeight } from "../data/sentencePatterns.js";
 import { APP_MIN_AGE, AI_MIN_AGE, LAST_UPDATED, policiesIncomplete } from "../legal/policies.js";
-import { Legal } from "./Legal.jsx";
+// v104 — LAZY, because App.jsx already declares it lazy and this static
+// import was quietly cancelling that. Rollup says so out loud:
+//
+//   (!) Legal.jsx is dynamically imported by App.jsx but also statically
+//       imported by screens.jsx, dynamic import will not move module into
+//       another chunk.
+//
+// So the three policies rode in the eager bundle for everyone — which is
+// precisely what v78 split them out to stop: "a learner opening the app to do
+// a lesson downloaded the mission engine, the fluency dial, the dialect drill
+// and three legal policies before the first word appeared." The split was
+// written; one ordinary-looking import undid it and the build had been saying
+// so ever since.
+//
+// Onboarding needs the reader inline (a link that leaves the flow loses the
+// answers), so it gets its own lazy handle and its own Suspense.
+const LegalReader = React.lazy(() => import("./Legal.jsx").then((m) => ({ default: m.Legal })));
 import { aiAccepted, aiDeclined } from "../ui/AiDisclosure.jsx";
 import { downloadExport } from "../legal/exportData.js";
 import { DownloadLanguage } from "../ui/Offline.jsx";
@@ -46,7 +63,11 @@ export function Onboarding({ onComplete }) {
   // The router doesn't exist yet at onboarding, so the policy reader is shown
   // inline. Better than a link that leaves the flow and loses the answers.
   if (reading) {
-    return <Legal params={{ policy: reading }} onNavigate={() => setReading(null)} />;
+    return (
+      <React.Suspense fallback={<Container style={{ paddingTop: 80, textAlign: "center", color: "var(--text-dim)" }}>Loading…</Container>}>
+        <LegalReader params={{ policy: reading }} onNavigate={() => setReading(null)} />
+      </React.Suspense>
+    );
   }
 
   if (step === 0) {
@@ -328,10 +349,40 @@ export function Vocab({ engine, pack, appState, onNavigate }) {
     engine.getProgress().then(setProgress);
   }, [engine]);
 
+  // v104 — THE SEARCH BOX CRASHED THE SCREEN IN TEN LANGUAGES.
+  //
+  // It was:
+  //
+  //   !v.translation.toLowerCase().includes(q) && !v.translit.toLowerCase().includes(q)
+  //
+  // `translit` is absent on every Latin-script word — 612 of them, and in
+  // Vietnamese, Yoruba, Somali and Tagalog that is the ENTIRE pack. So the
+  // moment a query failed to match a translation, `.toLowerCase()` ran on
+  // undefined and the whole screen fell through to the error boundary:
+  //
+  //   😵 Something went wrong — Cannot read properties of undefined (reading 'toLowerCase')
+  //
+  // In those four languages that was the first keystroke, every time.
+  //
+  // It also never looked at the word itself. You could not search a Spanish
+  // pack for "hola", only for "hello" — on the screen called "My words".
+  //
+  // And it matched literally, which is the wrong bar for a learner on an
+  // English keyboard: nobody hunting for "chào" is going to type the grave
+  // accent, and in Yoruba they would need three dead keys and a sub-dot. The
+  // query and the text are both folded to bare letters before comparing, so
+  // "chao" finds "chào" and "gbogbo" finds "gbogbo" however it was typed —
+  // while an exactly-typed query still matches, because folding is applied to
+  // both sides.
+  const q = foldForSearch(search);
   const filtered = all.filter((v) => {
     if (filter !== "All" && v.category !== filter) return false;
-    if (search && !v.translation.toLowerCase().includes(search.toLowerCase()) && !v.translit.toLowerCase().includes(search.toLowerCase())) return false;
-    return true;
+    if (!q) return true;
+    return (
+      foldForSearch(v.lemma).includes(q) ||
+      foldForSearch(v.translation).includes(q) ||
+      foldForSearch(v.translit).includes(q)
+    );
   });
 
   // v69: group into category sections instead of one flat 150+-item scroll.

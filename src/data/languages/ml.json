@@ -3,6 +3,7 @@
   "code": "ml",
   "categories": [
     "Body",
+    "Colors",
     "Common",
     "Connectors",
     "Family",
@@ -15,6 +16,7 @@
     "Politeness",
     "Questions",
     "Time",
+    "Useful",
     "Verbs"
   ],
   "units": [
@@ -2720,6 +2722,193 @@
         }
       ],
       "translit": "ethra"
+    },
+    {
+      "id": "ml_0143",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "കാത്തിരിക്കുക",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "ഞാൻ ഇവിടെ കാത്തിരിക്കുന്നു",
+          "translation": "I am waiting here",
+          "translit": "njaan ivide kaathirikkunnu"
+        }
+      ],
+      "translit": "kaathirikkuka"
+    },
+    {
+      "id": "ml_0144",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "പണം കൊടുക്കുക",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "ഞാൻ പണം കൊടുക്കുന്നു",
+          "translation": "I pay the money",
+          "translit": "njaan panam kodukkunnu"
+        }
+      ],
+      "translit": "panam kodukkuka"
+    },
+    {
+      "id": "ml_0145",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "എഴുതുക",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "ഞാൻ പേര് എഴുതുന്നു",
+          "translation": "I write my name",
+          "translit": "njaan peru ezhuthunnu"
+        }
+      ],
+      "translit": "ezhuthuka"
+    },
+    {
+      "id": "ml_0146",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "താമസിക്കുക",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "ഞാൻ കൊച്ചിയിൽ താമസിക്കുന്നു",
+          "translation": "I live in Kochi",
+          "translit": "njaan Kochiyil thaamasikkunnu"
+        }
+      ],
+      "translit": "thaamasikkuka"
+    },
+    {
+      "id": "ml_0147",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "എളുപ്പം",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "ഇത് എളുപ്പമാണ്",
+          "translation": "This is easy",
+          "translit": "ithu eluppamaanu"
+        }
+      ],
+      "translit": "eluppam"
+    },
+    {
+      "id": "ml_0148",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "പ്രയാസം",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "ഇത് വളരെ പ്രയാസമാണ്",
+          "translation": "This is very difficult",
+          "translit": "ithu valare prayaasamaanu"
+        }
+      ],
+      "translit": "prayaasam"
+    },
+    {
+      "id": "ml_0149",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "പഴയ",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "ഇത് പഴയ വീടാണ്",
+          "translation": "This is an old house",
+          "translit": "ithu pazhaya veedaanu"
+        }
+      ],
+      "translit": "pazhaya"
+    },
+    {
+      "id": "ml_0150",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "താക്കോൽ",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "താക്കോൽ എവിടെ?",
+          "translation": "Where is the key?",
+          "translit": "thaakkol evide?"
+        }
+      ],
+      "translit": "thaakkol"
+    },
+    {
+      "id": "ml_0151",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "ഫോൺ",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "എന്റെ ഫോൺ ഇവിടെയുണ്ട്",
+          "translation": "My phone is here",
+          "translit": "ente phone ivideyundu"
+        }
+      ],
+      "translit": "phone"
+    },
+    {
+      "id": "ml_0152",
+      "unit": "u7",
+      "category": "Colors",
+      "lemma": "ചുവപ്പ്",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "ഈ വീട് ചുവപ്പാണ്",
+          "translation": "This house is red",
+          "translit": "ee veedu chuvappaanu"
+        }
+      ],
+      "translit": "chuvappu"
+    },
+    {
+      "id": "ml_0153",
+      "unit": "u7",
+      "category": "Colors",
+      "lemma": "നീല",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "ഈ വീട് നീലയാണ്",
+          "translation": "This house is blue",
+          "translit": "ee veedu neelayaanu"
+        }
+      ],
+      "translit": "neela"
     }
   ],
   "alphabetGroups": [

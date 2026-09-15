@@ -3162,6 +3162,210 @@
         }
       ],
       "translit": "go"
+    },
+    {
+      "id": "ja_0163",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "待つ",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "ここで待ちます",
+          "translation": "I will wait here",
+          "translit": "koko de machimasu"
+        }
+      ],
+      "translit": "matsu"
+    },
+    {
+      "id": "ja_0164",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "払う",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "お金を払います",
+          "translation": "I pay the money",
+          "translit": "okane wo haraimasu"
+        }
+      ],
+      "translit": "harau"
+    },
+    {
+      "id": "ja_0165",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "書く",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "名前を書きます",
+          "translation": "I write my name",
+          "translit": "namae wo kakimasu"
+        }
+      ],
+      "translit": "kaku"
+    },
+    {
+      "id": "ja_0166",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "住む",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "東京に住んでいます",
+          "translation": "I live in Tokyo",
+          "translit": "Toukyou ni sunde imasu"
+        }
+      ],
+      "translit": "sumu"
+    },
+    {
+      "id": "ja_0167",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "簡単",
+      "translation": "easy, simple",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "これは簡単です",
+          "translation": "This is easy",
+          "translit": "kore wa kantan desu"
+        }
+      ],
+      "translit": "kantan"
+    },
+    {
+      "id": "ja_0168",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "難しい",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "これはとても難しいです",
+          "translation": "This is very difficult",
+          "translit": "kore wa totemo muzukashii desu"
+        }
+      ],
+      "translit": "muzukashii"
+    },
+    {
+      "id": "ja_0169",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "古い",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "古い家です",
+          "translation": "It is an old house",
+          "translit": "furui ie desu"
+        }
+      ],
+      "translit": "furui"
+    },
+    {
+      "id": "ja_0170",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "鍵",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "鍵はどこですか",
+          "translation": "Where is the key?",
+          "translit": "kagi wa doko desu ka"
+        }
+      ],
+      "translit": "kagi"
+    },
+    {
+      "id": "ja_0171",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "電話",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "電話はここです",
+          "translation": "The phone is here",
+          "translit": "denwa wa koko desu"
+        }
+      ],
+      "translit": "denwa"
+    },
+    {
+      "id": "ja_0172",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ドア",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "ドアが開いています",
+          "translation": "The door is open",
+          "translit": "doa ga aite imasu"
+        }
+      ],
+      "translit": "doa"
+    },
+    {
+      "id": "ja_0173",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "赤い",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "ドアは赤いです",
+          "translation": "The door is red",
+          "translit": "doa wa akai desu"
+        }
+      ],
+      "translit": "akai"
+    },
+    {
+      "id": "ja_0174",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "青い",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "家は青いです",
+          "translation": "The house is blue",
+          "translit": "ie wa aoi desu"
+        }
+      ],
+      "translit": "aoi"
     }
   ],
   "units": [

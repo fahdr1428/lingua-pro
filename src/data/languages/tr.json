@@ -5,6 +5,7 @@
     "About You",
     "Adjectives",
     "Body",
+    "Colors",
     "Common",
     "Connectors",
     "Family",
@@ -20,6 +21,7 @@
     "Time",
     "Transport",
     "Travel",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -3495,6 +3497,171 @@
         {
           "native": "Pazara gidiyorum.",
           "translation": "I am going to the market."
+        }
+      ]
+    },
+    {
+      "id": "tr_0194",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "beklemek",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "Burada bekliyorum",
+          "translation": "I am waiting here"
+        }
+      ]
+    },
+    {
+      "id": "tr_0195",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ödemek",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "Ödemek istiyorum",
+          "translation": "I want to pay"
+        }
+      ]
+    },
+    {
+      "id": "tr_0196",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "yazmak",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "Adımı yazıyorum",
+          "translation": "I am writing my name"
+        }
+      ]
+    },
+    {
+      "id": "tr_0197",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "yaşamak",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "İstanbul'da yaşıyorum",
+          "translation": "I live in Istanbul"
+        }
+      ]
+    },
+    {
+      "id": "tr_0198",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "kolay",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "Bu kolay",
+          "translation": "This is easy"
+        }
+      ]
+    },
+    {
+      "id": "tr_0199",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "zor",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "Bu çok zor",
+          "translation": "This is very difficult"
+        }
+      ]
+    },
+    {
+      "id": "tr_0200",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "anahtar",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "Anahtar nerede?",
+          "translation": "Where is the key?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0201",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "telefon",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "Telefonum burada",
+          "translation": "My phone is here"
+        }
+      ]
+    },
+    {
+      "id": "tr_0202",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "kapı",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "Kapı açık",
+          "translation": "The door is open"
+        }
+      ]
+    },
+    {
+      "id": "tr_0203",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "kırmızı",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "Kapı kırmızı",
+          "translation": "The door is red"
+        }
+      ]
+    },
+    {
+      "id": "tr_0204",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "mavi",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "Ev mavi",
+          "translation": "The house is blue"
         }
       ]
     }

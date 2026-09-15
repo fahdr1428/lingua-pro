@@ -3,6 +3,7 @@
   "code": "de",
   "categories": [
     "Body",
+    "Colors",
     "Common",
     "Connectors",
     "Family",
@@ -3490,6 +3491,126 @@
         {
           "native": "Wie viel kostet das?",
           "translation": "How much does that cost?"
+        }
+      ]
+    },
+    {
+      "id": "de_0195",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "warten",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "Ich warte hier",
+          "translation": "I am waiting here"
+        }
+      ]
+    },
+    {
+      "id": "de_0196",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "schreiben",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "Ich schreibe meinen Namen",
+          "translation": "I write my name"
+        }
+      ]
+    },
+    {
+      "id": "de_0197",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "einfach",
+      "translation": "easy, simple",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "Das ist einfach",
+          "translation": "That is easy"
+        }
+      ]
+    },
+    {
+      "id": "de_0198",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "schwer",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "Das ist sehr schwer",
+          "translation": "That is very difficult"
+        }
+      ]
+    },
+    {
+      "id": "de_0199",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "alt",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "Das ist ein altes Haus",
+          "translation": "That is an old house"
+        }
+      ]
+    },
+    {
+      "id": "de_0200",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "die Tür",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "Die Tür ist offen",
+          "translation": "The door is open"
+        }
+      ]
+    },
+    {
+      "id": "de_0201",
+      "unit": "u13",
+      "category": "Colors",
+      "lemma": "rot",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "Die Tür ist rot",
+          "translation": "The door is red"
+        }
+      ]
+    },
+    {
+      "id": "de_0202",
+      "unit": "u13",
+      "category": "Colors",
+      "lemma": "blau",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "Das Haus ist blau",
+          "translation": "The house is blue"
         }
       ]
     }

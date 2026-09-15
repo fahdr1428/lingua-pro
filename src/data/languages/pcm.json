@@ -18,6 +18,7 @@
     "Time",
     "Transport",
     "Travel",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -2752,6 +2753,186 @@
         {
           "native": "Abeg give me more water.",
           "translation": "Please give me more water."
+        }
+      ]
+    },
+    {
+      "id": "pcm_0158",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "wait",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "I dey wait here",
+          "translation": "I am waiting here"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0159",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "pay",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "I wan pay now",
+          "translation": "I want to pay now"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0160",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "write",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "I dey write my name",
+          "translation": "I am writing my name"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0161",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "stay",
+      "translation": "to live, to stay",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "I dey stay for Lagos",
+          "translation": "I live in Lagos"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0162",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "easy",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "Dis one easy",
+          "translation": "This one is easy"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0163",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "hard",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "Dis one hard well well",
+          "translation": "This one is very difficult"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0164",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "old",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "Na old house",
+          "translation": "It is an old house"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0165",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "key",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "Where di key?",
+          "translation": "Where is the key?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0166",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "phone",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "My phone dey here",
+          "translation": "My phone is here"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0167",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "door",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "Di door open",
+          "translation": "The door is open"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0168",
+      "unit": "u6",
+      "category": "Colors",
+      "lemma": "red",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "Di door red",
+          "translation": "The door is red"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0169",
+      "unit": "u6",
+      "category": "Colors",
+      "lemma": "blue",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "Di house blue",
+          "translation": "The house is blue"
         }
       ]
     }

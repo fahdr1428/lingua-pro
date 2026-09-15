@@ -66,7 +66,10 @@
     "verify-reading-memory": "node scripts/verify-reading-memory.mjs",
     "verify-state-recovery": "node scripts/verify-state-recovery.mjs",
     "build-content-index": "node scripts/build-content-index.mjs",
-    "validate-content-index": "node scripts/validate-content-index.mjs"
+    "validate-content-index": "node scripts/validate-content-index.mjs",
+    "verify-navigation": "node scripts/verify-navigation.mjs",
+    "verify-prefetch": "node scripts/verify-prefetch.mjs",
+    "verify-word-search": "node scripts/verify-word-search.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",

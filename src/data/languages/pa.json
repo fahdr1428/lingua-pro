@@ -17,6 +17,7 @@
     "Time",
     "Transport",
     "Travel",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -2866,6 +2867,210 @@
         }
       ],
       "translit": "sooraj"
+    },
+    {
+      "id": "pa_0152",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "انتظار کرنا",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "میں انتظار کردا واں",
+          "translation": "I am waiting",
+          "translit": "main intezaar karda waan"
+        }
+      ],
+      "translit": "intezaar karna"
+    },
+    {
+      "id": "pa_0153",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پیسے دینا",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "میں پیسے دیندا واں",
+          "translation": "I pay",
+          "translit": "main paise dinda waan"
+        }
+      ],
+      "translit": "paise dena"
+    },
+    {
+      "id": "pa_0154",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "لکھنا",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "میں ناں لکھدا واں",
+          "translation": "I write my name",
+          "translit": "main naan likhda waan"
+        }
+      ],
+      "translit": "likhna"
+    },
+    {
+      "id": "pa_0155",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "رہنا",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "میں لاہور وچ رہندا واں",
+          "translation": "I live in Lahore",
+          "translit": "main Lahore wich rehnda waan"
+        }
+      ],
+      "translit": "rehna"
+    },
+    {
+      "id": "pa_0156",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "سوکھا",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "ایہ سوکھا اے",
+          "translation": "This is easy",
+          "translit": "eh saukha ae"
+        }
+      ],
+      "translit": "saukha"
+    },
+    {
+      "id": "pa_0157",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "اوکھا",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "ایہ بہت اوکھا اے",
+          "translation": "This is very difficult",
+          "translit": "eh bahut aukha ae"
+        }
+      ],
+      "translit": "aukha"
+    },
+    {
+      "id": "pa_0158",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "پرانا",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "ایہ پرانا گھر اے",
+          "translation": "This is an old house",
+          "translit": "eh purana ghar ae"
+        }
+      ],
+      "translit": "purana"
+    },
+    {
+      "id": "pa_0159",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "چابی",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "چابی کتھے اے؟",
+          "translation": "Where is the key?",
+          "translit": "chaabi kithe ae?"
+        }
+      ],
+      "translit": "chaabi"
+    },
+    {
+      "id": "pa_0160",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "فون",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "میرا فون ایتھے اے",
+          "translation": "My phone is here",
+          "translit": "mera phone ithe ae"
+        }
+      ],
+      "translit": "phone"
+    },
+    {
+      "id": "pa_0161",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "بوہا",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "بوہا کھلا اے",
+          "translation": "The door is open",
+          "translit": "boha khulla ae"
+        }
+      ],
+      "translit": "boha"
+    },
+    {
+      "id": "pa_0162",
+      "unit": "u6",
+      "category": "Colors",
+      "lemma": "لال",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "بوہا لال اے",
+          "translation": "The door is red",
+          "translit": "boha laal ae"
+        }
+      ],
+      "translit": "laal"
+    },
+    {
+      "id": "pa_0163",
+      "unit": "u6",
+      "category": "Colors",
+      "lemma": "نیلا",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "گھر نیلا اے",
+          "translation": "The house is blue",
+          "translit": "ghar neela ae"
+        }
+      ],
+      "translit": "neela"
     }
   ],
   "alphabetGroups": [

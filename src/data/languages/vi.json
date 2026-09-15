@@ -18,6 +18,7 @@
     "Questions",
     "Time",
     "Transport",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -2167,6 +2168,186 @@
         {
           "native": "Trời đang mưa",
           "translation": "It's raining"
+        }
+      ]
+    },
+    {
+      "id": "vi_0132",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "đợi",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 132,
+      "examples": [
+        {
+          "native": "Tôi đợi ở đây",
+          "translation": "I wait here"
+        }
+      ]
+    },
+    {
+      "id": "vi_0133",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "trả tiền",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 133,
+      "examples": [
+        {
+          "native": "Tôi muốn trả tiền",
+          "translation": "I want to pay"
+        }
+      ]
+    },
+    {
+      "id": "vi_0134",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "viết",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 134,
+      "examples": [
+        {
+          "native": "Tôi viết tên tôi",
+          "translation": "I write my name"
+        }
+      ]
+    },
+    {
+      "id": "vi_0135",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "sống",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 135,
+      "examples": [
+        {
+          "native": "Tôi sống ở Hà Nội",
+          "translation": "I live in Hanoi"
+        }
+      ]
+    },
+    {
+      "id": "vi_0136",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "dễ",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 136,
+      "examples": [
+        {
+          "native": "Cái này dễ",
+          "translation": "This is easy"
+        }
+      ]
+    },
+    {
+      "id": "vi_0137",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "khó",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 137,
+      "examples": [
+        {
+          "native": "Cái này rất khó",
+          "translation": "This is very difficult"
+        }
+      ]
+    },
+    {
+      "id": "vi_0138",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "cũ",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "Nhà này cũ",
+          "translation": "This house is old"
+        }
+      ]
+    },
+    {
+      "id": "vi_0139",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "chìa khóa",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "Chìa khóa ở đâu?",
+          "translation": "Where is the key?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0140",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "điện thoại",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "Điện thoại của tôi ở đây",
+          "translation": "My phone is here"
+        }
+      ]
+    },
+    {
+      "id": "vi_0141",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "cửa",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "Cửa mở",
+          "translation": "The door is open"
+        }
+      ]
+    },
+    {
+      "id": "vi_0142",
+      "unit": "u8",
+      "category": "Colors",
+      "lemma": "đỏ",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "Cửa màu đỏ",
+          "translation": "The door is red"
+        }
+      ]
+    },
+    {
+      "id": "vi_0143",
+      "unit": "u8",
+      "category": "Colors",
+      "lemma": "xanh",
+      "translation": "blue (also green)",
+      "difficulty": 1,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "Nhà màu xanh",
+          "translation": "The house is blue"
         }
       ]
     }

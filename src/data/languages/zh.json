@@ -3308,6 +3308,210 @@
         }
       ],
       "translit": "miànbāo"
+    },
+    {
+      "id": "zh_0169",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "等",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "我在这里等",
+          "translation": "I am waiting here",
+          "translit": "wǒ zài zhèlǐ děng"
+        }
+      ],
+      "translit": "děng"
+    },
+    {
+      "id": "zh_0170",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "付钱",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "我要付钱",
+          "translation": "I want to pay",
+          "translit": "wǒ yào fù qián"
+        }
+      ],
+      "translit": "fù qián"
+    },
+    {
+      "id": "zh_0171",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "写",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "我写我的名字",
+          "translation": "I write my name",
+          "translit": "wǒ xiě wǒ de míngzi"
+        }
+      ],
+      "translit": "xiě"
+    },
+    {
+      "id": "zh_0172",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "住",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "我住在北京",
+          "translation": "I live in Beijing",
+          "translit": "wǒ zhù zài Běijīng"
+        }
+      ],
+      "translit": "zhù"
+    },
+    {
+      "id": "zh_0173",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "容易",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "这个很容易",
+          "translation": "This is easy",
+          "translit": "zhège hěn róngyì"
+        }
+      ],
+      "translit": "róngyì"
+    },
+    {
+      "id": "zh_0174",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "难",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "这个很难",
+          "translation": "This is very difficult",
+          "translit": "zhège hěn nán"
+        }
+      ],
+      "translit": "nán"
+    },
+    {
+      "id": "zh_0175",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "旧",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "这是旧房子",
+          "translation": "This is an old house",
+          "translit": "zhè shì jiù fángzi"
+        }
+      ],
+      "translit": "jiù"
+    },
+    {
+      "id": "zh_0176",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "钥匙",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "钥匙在哪里？",
+          "translation": "Where is the key?",
+          "translit": "yàoshi zài nǎlǐ?"
+        }
+      ],
+      "translit": "yàoshi"
+    },
+    {
+      "id": "zh_0177",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "电话",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "我的电话在这里",
+          "translation": "My phone is here",
+          "translit": "wǒ de diànhuà zài zhèlǐ"
+        }
+      ],
+      "translit": "diànhuà"
+    },
+    {
+      "id": "zh_0178",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "门",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "门开着",
+          "translation": "The door is open",
+          "translit": "mén kāi zhe"
+        }
+      ],
+      "translit": "mén"
+    },
+    {
+      "id": "zh_0179",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "红色",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "门是红色的",
+          "translation": "The door is red",
+          "translit": "mén shì hóngsè de"
+        }
+      ],
+      "translit": "hóngsè"
+    },
+    {
+      "id": "zh_0180",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "蓝色",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "房子是蓝色的",
+          "translation": "The house is blue",
+          "translit": "fángzi shì lánsè de"
+        }
+      ],
+      "translit": "lánsè"
     }
   ],
   "alphabetGroups": [

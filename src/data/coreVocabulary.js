@@ -172,6 +172,25 @@ export const CORE = [
   c("five", "five", 2, "Numbers", []),
 
   // --- Tier 3 · reach -------------------------------------------------------
+  //
+  // v104 — this tier was these eight concepts and nothing else, and every one
+  // of the twenty-one packs already taught all eight. A tier that names no gap
+  // asks nothing of a new pack and tells a finished one nothing; it was a
+  // label, not a target.
+  //
+  // The twelve below were chosen by measuring what all twenty-one packs were
+  // missing at the same time, rather than by taste:
+  //
+  //     to wait   0/21 taught      easy       0/21
+  //     to pay    1/21             difficult  0/21
+  //     key       1/21             old        2/21
+  //     phone     1/21             red        2/21
+  //     to write  3/21             blue       2/21
+  //     to live   3/21             door       3/21
+  //
+  // They hang together: waiting, paying, a key, a phone, a door, and enough
+  // adjective to say which one you mean. That is most of an afternoon out in a
+  // city whose language you don't have — the situation this app is built for.
   c("head", "head", 3, "Body", []),
   c("hand", "hand", 3, "Body", []),
   c("heart", "heart", 3, "Body", []),
@@ -180,6 +199,19 @@ export const CORE = [
   c("sun", "sun", 3, "Weather", []),
   c("rain", "rain", 3, "Weather", []),
   c("train", "train", 3, "Transport", []),
+
+  c("to_wait", "to wait", 3, "Verbs", ["wait", "waits", "to wait for", "wait for"]),
+  c("to_pay", "to pay", 3, "Verbs", ["pay", "pays"]),
+  c("to_write", "to write", 3, "Verbs", ["write", "writes"]),
+  c("to_live", "to live", 3, "Verbs", ["live", "lives", "to stay", "stay", "to reside", "reside"]),
+  c("easy", "easy", 3, "Common", ["simple"]),
+  c("difficult", "difficult", 3, "Common", ["hard"]),
+  c("old", "old", 3, "Common", []),
+  c("key", "key", 3, "Useful", ["keys"]),
+  c("phone", "phone", 3, "Useful", ["telephone", "mobile", "mobile phone", "cellphone"]),
+  c("door", "door", 3, "Places", ["doors"]),
+  c("red", "red", 3, "Colors", []),
+  c("blue", "blue", 3, "Colors", []),
 ];
 
 export const TIER_NAMES = { 1: "survival", 2: "everyday", 3: "reach" };

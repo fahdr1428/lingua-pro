@@ -3,6 +3,7 @@
   "code": "so",
   "categories": [
     "Body",
+    "Colors",
     "Common",
     "Connectors",
     "Family",
@@ -15,6 +16,7 @@
     "Politeness",
     "Questions",
     "Time",
+    "Useful",
     "Verbs"
   ],
   "units": [
@@ -2322,6 +2324,171 @@
         {
           "native": "Waa immisa?",
           "translation": "How much is it?"
+        }
+      ]
+    },
+    {
+      "id": "so_0143",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "sugid",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "Halkan i sug",
+          "translation": "Wait for me here"
+        }
+      ]
+    },
+    {
+      "id": "so_0144",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "bixin",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "Lacagta waan bixinayaa",
+          "translation": "I am paying the money"
+        }
+      ]
+    },
+    {
+      "id": "so_0145",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "qorid",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "Magacayga waan qorayaa",
+          "translation": "I am writing my name"
+        }
+      ]
+    },
+    {
+      "id": "so_0146",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "degan",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "Waxaan degan ahay London",
+          "translation": "I live in London"
+        }
+      ]
+    },
+    {
+      "id": "so_0147",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "fudud",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "Tani waa fudud",
+          "translation": "This is easy"
+        }
+      ]
+    },
+    {
+      "id": "so_0148",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "adag",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "Tani aad bay u adag tahay",
+          "translation": "This is very difficult"
+        }
+      ]
+    },
+    {
+      "id": "so_0149",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "duug",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "Kani waa guri duug ah",
+          "translation": "This is an old house"
+        }
+      ]
+    },
+    {
+      "id": "so_0150",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "fure",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "Fure baan doonayaa",
+          "translation": "I want a key"
+        }
+      ]
+    },
+    {
+      "id": "so_0151",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "taleefan",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "Waa kan taleefankayga",
+          "translation": "This is my phone"
+        }
+      ]
+    },
+    {
+      "id": "so_0152",
+      "unit": "u7",
+      "category": "Colors",
+      "lemma": "cas",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "Gurigu waa cas",
+          "translation": "The house is red"
+        }
+      ]
+    },
+    {
+      "id": "so_0153",
+      "unit": "u7",
+      "category": "Colors",
+      "lemma": "buluug",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "Gurigu waa buluug",
+          "translation": "The house is blue"
         }
       ]
     }

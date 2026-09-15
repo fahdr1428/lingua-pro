@@ -4819,6 +4819,210 @@
         }
       ],
       "translit": "khamsa"
+    },
+    {
+      "id": "ar_0203",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ينتظر",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "أنا أنتظر صديقي",
+          "translation": "I am waiting for my friend",
+          "translit": "ana antazir sadiqi"
+        }
+      ],
+      "translit": "yantazir"
+    },
+    {
+      "id": "ar_0204",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يدفع",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "أنا أدفع الآن",
+          "translation": "I am paying now",
+          "translit": "ana adfa al-aan"
+        }
+      ],
+      "translit": "yadfa"
+    },
+    {
+      "id": "ar_0205",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يكتب",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "أكتب اسمي",
+          "translation": "I write my name",
+          "translit": "aktub ismi"
+        }
+      ],
+      "translit": "yaktub"
+    },
+    {
+      "id": "ar_0206",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يسكن",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "أسكن في المدينة",
+          "translation": "I live in the city",
+          "translit": "askun fi al-madina"
+        }
+      ],
+      "translit": "yaskun"
+    },
+    {
+      "id": "ar_0207",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "سهل",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "هذا سهل",
+          "translation": "This is easy",
+          "translit": "hadha sahl"
+        }
+      ],
+      "translit": "sahl"
+    },
+    {
+      "id": "ar_0208",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "صعب",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "هذا صعب جدا",
+          "translation": "This is very difficult",
+          "translit": "hadha saab jiddan"
+        }
+      ],
+      "translit": "saab"
+    },
+    {
+      "id": "ar_0209",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "قديم",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "هذا بيت قديم",
+          "translation": "This is an old house",
+          "translit": "hadha bayt qadeem"
+        }
+      ],
+      "translit": "qadeem"
+    },
+    {
+      "id": "ar_0210",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "مفتاح",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "أين المفتاح؟",
+          "translation": "Where is the key?",
+          "translit": "ayna al-miftah?"
+        }
+      ],
+      "translit": "miftah"
+    },
+    {
+      "id": "ar_0211",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "هاتف",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "هاتفي هنا",
+          "translation": "My phone is here",
+          "translit": "hatifi huna"
+        }
+      ],
+      "translit": "hatif"
+    },
+    {
+      "id": "ar_0212",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "باب",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "الباب مفتوح",
+          "translation": "The door is open",
+          "translit": "al-bab maftuh"
+        }
+      ],
+      "translit": "bab"
+    },
+    {
+      "id": "ar_0213",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "أحمر",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "الباب أحمر",
+          "translation": "The door is red",
+          "translit": "al-bab ahmar"
+        }
+      ],
+      "translit": "ahmar"
+    },
+    {
+      "id": "ar_0214",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "أزرق",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "البيت أزرق",
+          "translation": "The house is blue",
+          "translit": "al-bayt azraq"
+        }
+      ],
+      "translit": "azraq"
     }
   ],
   "units": [

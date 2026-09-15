@@ -16,6 +16,7 @@
     "Places",
     "Time",
     "Travel",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -2876,6 +2877,193 @@
         }
       ],
       "translit": "train"
+    },
+    {
+      "id": "bn_0148",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "অপেক্ষা করা",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "আমি অপেক্ষা করছি",
+          "translation": "I am waiting",
+          "translit": "ami opekkha korchi"
+        }
+      ],
+      "translit": "opekkha kora"
+    },
+    {
+      "id": "bn_0149",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "টাকা দেওয়া",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "আমি টাকা দিচ্ছি",
+          "translation": "I am paying",
+          "translit": "ami taka dichchhi"
+        }
+      ],
+      "translit": "taka deoya"
+    },
+    {
+      "id": "bn_0150",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "লেখা",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "আমি নাম লেখি",
+          "translation": "I write my name",
+          "translit": "ami nam lekhi"
+        }
+      ],
+      "translit": "lekha"
+    },
+    {
+      "id": "bn_0151",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "সহজ",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "এটা সহজ",
+          "translation": "This is easy",
+          "translit": "eta shohoj"
+        }
+      ],
+      "translit": "shohoj"
+    },
+    {
+      "id": "bn_0152",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "কঠিন",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "এটা খুব কঠিন",
+          "translation": "This is very difficult",
+          "translit": "eta khub kothin"
+        }
+      ],
+      "translit": "kothin"
+    },
+    {
+      "id": "bn_0153",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "পুরনো",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "এটা পুরনো বাড়ি",
+          "translation": "This is an old house",
+          "translit": "eta purono bari"
+        }
+      ],
+      "translit": "purono"
+    },
+    {
+      "id": "bn_0154",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "চাবি",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "চাবি কোথায়?",
+          "translation": "Where is the key?",
+          "translit": "chabi kothay?"
+        }
+      ],
+      "translit": "chabi"
+    },
+    {
+      "id": "bn_0155",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "ফোন",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "আমার ফোন এখানে",
+          "translation": "My phone is here",
+          "translit": "amar phone ekhane"
+        }
+      ],
+      "translit": "phone"
+    },
+    {
+      "id": "bn_0156",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "দরজা",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "দরজা খোলা",
+          "translation": "The door is open",
+          "translit": "dorja khola"
+        }
+      ],
+      "translit": "dorja"
+    },
+    {
+      "id": "bn_0157",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "লাল",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "দরজা লাল",
+          "translation": "The door is red",
+          "translit": "dorja lal"
+        }
+      ],
+      "translit": "lal"
+    },
+    {
+      "id": "bn_0158",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "নীল",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "বাড়ি নীল",
+          "translation": "The house is blue",
+          "translit": "bari nil"
+        }
+      ],
+      "translit": "nil"
     }
   ],
   "alphabetGroups": [

@@ -3294,6 +3294,210 @@
         }
       ],
       "translit": "paanch"
+    },
+    {
+      "id": "hi_0167",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "इंतज़ार करना",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "मैं इंतज़ार कर रहा हूँ",
+          "translation": "I am waiting",
+          "translit": "main intazaar kar raha hoon"
+        }
+      ],
+      "translit": "intazaar karna"
+    },
+    {
+      "id": "hi_0168",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "पैसे देना",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "मैं पैसे देता हूँ",
+          "translation": "I pay",
+          "translit": "main paise deta hoon"
+        }
+      ],
+      "translit": "paise dena"
+    },
+    {
+      "id": "hi_0169",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "लिखना",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "मैं अपना नाम लिखता हूँ",
+          "translation": "I write my name",
+          "translit": "main apna naam likhta hoon"
+        }
+      ],
+      "translit": "likhna"
+    },
+    {
+      "id": "hi_0170",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "रहना",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "मैं दिल्ली में रहता हूँ",
+          "translation": "I live in Delhi",
+          "translit": "main Dilli mein rehta hoon"
+        }
+      ],
+      "translit": "rehna"
+    },
+    {
+      "id": "hi_0171",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "आसान",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "यह आसान है",
+          "translation": "This is easy",
+          "translit": "yeh aasaan hai"
+        }
+      ],
+      "translit": "aasaan"
+    },
+    {
+      "id": "hi_0172",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "मुश्किल",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "यह बहुत मुश्किल है",
+          "translation": "This is very difficult",
+          "translit": "yeh bahut mushkil hai"
+        }
+      ],
+      "translit": "mushkil"
+    },
+    {
+      "id": "hi_0173",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "पुराना",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "यह पुराना घर है",
+          "translation": "This is an old house",
+          "translit": "yeh puraana ghar hai"
+        }
+      ],
+      "translit": "puraana"
+    },
+    {
+      "id": "hi_0174",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "चाबी",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "चाबी कहाँ है?",
+          "translation": "Where is the key?",
+          "translit": "chaabi kahaan hai?"
+        }
+      ],
+      "translit": "chaabi"
+    },
+    {
+      "id": "hi_0175",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "फ़ोन",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "मेरा फ़ोन यहाँ है",
+          "translation": "My phone is here",
+          "translit": "mera phone yahaan hai"
+        }
+      ],
+      "translit": "phone"
+    },
+    {
+      "id": "hi_0176",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "दरवाज़ा",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "दरवाज़ा खुला है",
+          "translation": "The door is open",
+          "translit": "darwaaza khula hai"
+        }
+      ],
+      "translit": "darwaaza"
+    },
+    {
+      "id": "hi_0177",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "लाल",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "दरवाज़ा लाल है",
+          "translation": "The door is red",
+          "translit": "darwaaza laal hai"
+        }
+      ],
+      "translit": "laal"
+    },
+    {
+      "id": "hi_0178",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "नीला",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "घर नीला है",
+          "translation": "The house is blue",
+          "translit": "ghar neela hai"
+        }
+      ],
+      "translit": "neela"
     }
   ],
   "units": [

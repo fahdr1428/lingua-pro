@@ -3523,6 +3523,210 @@
         }
       ],
       "translit": "jadongcha"
+    },
+    {
+      "id": "ko_0181",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "기다리다",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "여기에서 기다려요",
+          "translation": "I wait here",
+          "translit": "yeogieseo gidaryeoyo"
+        }
+      ],
+      "translit": "gidarida"
+    },
+    {
+      "id": "ko_0182",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "지불하다",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "여기서 지불해요",
+          "translation": "I pay here",
+          "translit": "yeogiseo jibulhaeyo"
+        }
+      ],
+      "translit": "jibulhada"
+    },
+    {
+      "id": "ko_0183",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "쓰다",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "여기에 쓰세요",
+          "translation": "Write it here",
+          "translit": "yeogie sseuseyo"
+        }
+      ],
+      "translit": "sseuda"
+    },
+    {
+      "id": "ko_0184",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "살다",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "서울에 살아요",
+          "translation": "I live in Seoul",
+          "translit": "seoure sarayo"
+        }
+      ],
+      "translit": "salda"
+    },
+    {
+      "id": "ko_0185",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "쉬워요",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "이것은 쉬워요",
+          "translation": "This is easy",
+          "translit": "igeoseun swiwoyo"
+        }
+      ],
+      "translit": "swiwoyo"
+    },
+    {
+      "id": "ko_0186",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "어려워요",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "이것은 아주 어려워요",
+          "translation": "This is very difficult",
+          "translit": "igeoseun aju eoryeowoyo"
+        }
+      ],
+      "translit": "eoryeowoyo"
+    },
+    {
+      "id": "ko_0187",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "오래된",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "오래된 집이에요",
+          "translation": "It is an old house",
+          "translit": "oraedoen jibieyo"
+        }
+      ],
+      "translit": "oraedoen"
+    },
+    {
+      "id": "ko_0188",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "열쇠",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "열쇠가 어디에 있어요?",
+          "translation": "Where is the key?",
+          "translit": "yeolsoega eodie isseoyo?"
+        }
+      ],
+      "translit": "yeolsoe"
+    },
+    {
+      "id": "ko_0189",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "전화",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "제 전화는 여기 있어요",
+          "translation": "My phone is here",
+          "translit": "je jeonhwaneun yeogi isseoyo"
+        }
+      ],
+      "translit": "jeonhwa"
+    },
+    {
+      "id": "ko_0190",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "문",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "문이 열려 있어요",
+          "translation": "The door is open",
+          "translit": "muni yeollyeo isseoyo"
+        }
+      ],
+      "translit": "mun"
+    },
+    {
+      "id": "ko_0191",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "빨간색",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "문은 빨간색이에요",
+          "translation": "The door is red",
+          "translit": "muneun ppalgansaegieyo"
+        }
+      ],
+      "translit": "ppalgansaek"
+    },
+    {
+      "id": "ko_0192",
+      "unit": "u10",
+      "category": "Colors",
+      "lemma": "파란색",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "집은 파란색이에요",
+          "translation": "The house is blue",
+          "translit": "jibeun paransaegieyo"
+        }
+      ],
+      "translit": "paransaek"
     }
   ],
   "alphabetGroups": [

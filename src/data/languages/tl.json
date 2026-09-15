@@ -3,6 +3,7 @@
   "code": "tl",
   "categories": [
     "Body",
+    "Colors",
     "Common",
     "Family",
     "Feelings",
@@ -14,6 +15,7 @@
     "Politeness",
     "Questions",
     "Time",
+    "Useful",
     "Verbs"
   ],
   "units": [
@@ -2262,6 +2264,186 @@
         {
           "native": "Masarap din ang pagkain.",
           "translation": "The food is delicious too."
+        }
+      ]
+    },
+    {
+      "id": "tl_0143",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "maghintay",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "Maghintay ka dito",
+          "translation": "Wait here"
+        }
+      ]
+    },
+    {
+      "id": "tl_0144",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magbayad",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "Gusto kong magbayad",
+          "translation": "I want to pay"
+        }
+      ]
+    },
+    {
+      "id": "tl_0145",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magsulat",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "Magsulat ka ng pangalan mo",
+          "translation": "Write your name"
+        }
+      ]
+    },
+    {
+      "id": "tl_0146",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "tumira",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "Tumira ako sa Maynila",
+          "translation": "I live in Manila"
+        }
+      ]
+    },
+    {
+      "id": "tl_0147",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "madali",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "Madali ito",
+          "translation": "This is easy"
+        }
+      ]
+    },
+    {
+      "id": "tl_0148",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "mahirap",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "Mahirap ito",
+          "translation": "This is difficult"
+        }
+      ]
+    },
+    {
+      "id": "tl_0149",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "luma",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "Luma ang bahay",
+          "translation": "The house is old"
+        }
+      ]
+    },
+    {
+      "id": "tl_0150",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "susi",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "Nasaan ang susi?",
+          "translation": "Where is the key?"
+        }
+      ]
+    },
+    {
+      "id": "tl_0151",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "telepono",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "Nandito ang telepono ko",
+          "translation": "My phone is here"
+        }
+      ]
+    },
+    {
+      "id": "tl_0152",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "pinto",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "Bukas ang pinto",
+          "translation": "The door is open"
+        }
+      ]
+    },
+    {
+      "id": "tl_0153",
+      "unit": "u7",
+      "category": "Colors",
+      "lemma": "pula",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "Pula ang pinto",
+          "translation": "The door is red"
+        }
+      ]
+    },
+    {
+      "id": "tl_0154",
+      "unit": "u7",
+      "category": "Colors",
+      "lemma": "asul",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "Asul ang bahay",
+          "translation": "The house is blue"
         }
       ]
     }

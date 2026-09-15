@@ -16,6 +16,7 @@
     "Time",
     "Transport",
     "Travel",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -2615,6 +2616,186 @@
         {
           "native": "Saya pergi ke pasar.",
           "translation": "I am going to the market."
+        }
+      ]
+    },
+    {
+      "id": "id_0149",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "menunggu",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "Saya menunggu di sini",
+          "translation": "I am waiting here"
+        }
+      ]
+    },
+    {
+      "id": "id_0150",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "membayar",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "Saya mau membayar",
+          "translation": "I want to pay"
+        }
+      ]
+    },
+    {
+      "id": "id_0151",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "menulis",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "Saya menulis nama saya",
+          "translation": "I write my name"
+        }
+      ]
+    },
+    {
+      "id": "id_0152",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "tinggal",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "Saya tinggal di Jakarta",
+          "translation": "I live in Jakarta"
+        }
+      ]
+    },
+    {
+      "id": "id_0153",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "mudah",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "Ini mudah",
+          "translation": "This is easy"
+        }
+      ]
+    },
+    {
+      "id": "id_0154",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "sulit",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "Ini sangat sulit",
+          "translation": "This is very difficult"
+        }
+      ]
+    },
+    {
+      "id": "id_0155",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "tua",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "Ini rumah tua",
+          "translation": "This is an old house"
+        }
+      ]
+    },
+    {
+      "id": "id_0156",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "kunci",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "Di mana kunci?",
+          "translation": "Where is the key?"
+        }
+      ]
+    },
+    {
+      "id": "id_0157",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "telepon",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "Telepon saya di sini",
+          "translation": "My phone is here"
+        }
+      ]
+    },
+    {
+      "id": "id_0158",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "pintu",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "Pintu terbuka",
+          "translation": "The door is open"
+        }
+      ]
+    },
+    {
+      "id": "id_0159",
+      "unit": "u6",
+      "category": "Colors",
+      "lemma": "merah",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "Pintu merah",
+          "translation": "The door is red"
+        }
+      ]
+    },
+    {
+      "id": "id_0160",
+      "unit": "u6",
+      "category": "Colors",
+      "lemma": "biru",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "Rumah biru",
+          "translation": "The house is blue"
         }
       ]
     }

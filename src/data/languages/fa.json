@@ -3,6 +3,7 @@
   "code": "fa",
   "categories": [
     "Body",
+    "Colors",
     "Common",
     "Family",
     "Feelings",
@@ -14,6 +15,7 @@
     "Politeness",
     "Questions",
     "Time",
+    "Useful",
     "Verbs"
   ],
   "units": [
@@ -2644,6 +2646,210 @@
         }
       ],
       "translit": "ghatâr"
+    },
+    {
+      "id": "fa_0142",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "منتظر بودن",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "من منتظرم",
+          "translation": "I am waiting",
+          "translit": "man montazeram"
+        }
+      ],
+      "translit": "montazer budan"
+    },
+    {
+      "id": "fa_0143",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "پرداختن",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "من پرداخت می‌کنم",
+          "translation": "I am paying",
+          "translit": "man pardâkht mikonam"
+        }
+      ],
+      "translit": "pardâkhtan"
+    },
+    {
+      "id": "fa_0144",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "نوشتن",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "من نامم را می‌نویسم",
+          "translation": "I write my name",
+          "translit": "man nâmam râ minevisam"
+        }
+      ],
+      "translit": "neveshtan"
+    },
+    {
+      "id": "fa_0145",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "زندگی کردن",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "من در لندن زندگی می‌کنم",
+          "translation": "I live in London",
+          "translit": "man dar London zendegi mikonam"
+        }
+      ],
+      "translit": "zendegi kardan"
+    },
+    {
+      "id": "fa_0146",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "آسان",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "این آسان است",
+          "translation": "This is easy",
+          "translit": "in âsân ast"
+        }
+      ],
+      "translit": "âsân"
+    },
+    {
+      "id": "fa_0147",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "سخت",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "این خیلی سخت است",
+          "translation": "This is very difficult",
+          "translit": "in kheyli sakht ast"
+        }
+      ],
+      "translit": "sakht"
+    },
+    {
+      "id": "fa_0148",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "قدیمی",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "این خانه قدیمی است",
+          "translation": "This is an old house",
+          "translit": "in khâne qadimi ast"
+        }
+      ],
+      "translit": "qadimi"
+    },
+    {
+      "id": "fa_0149",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "کلید",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "کلید کجاست؟",
+          "translation": "Where is the key?",
+          "translit": "kelid kojâst?"
+        }
+      ],
+      "translit": "kelid"
+    },
+    {
+      "id": "fa_0150",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "تلفن",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "تلفن من اینجاست",
+          "translation": "My phone is here",
+          "translit": "telefon-e man injâst"
+        }
+      ],
+      "translit": "telefon"
+    },
+    {
+      "id": "fa_0151",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "در",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "در باز است",
+          "translation": "The door is open",
+          "translit": "dar bâz ast"
+        }
+      ],
+      "translit": "dar"
+    },
+    {
+      "id": "fa_0152",
+      "unit": "u7",
+      "category": "Colors",
+      "lemma": "قرمز",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "در قرمز است",
+          "translation": "The door is red",
+          "translit": "dar qermez ast"
+        }
+      ],
+      "translit": "qermez"
+    },
+    {
+      "id": "fa_0153",
+      "unit": "u7",
+      "category": "Colors",
+      "lemma": "آبی",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "خانه آبی است",
+          "translation": "The house is blue",
+          "translit": "khâne âbi ast"
+        }
+      ],
+      "translit": "âbi"
     }
   ],
   "alphabetGroups": [

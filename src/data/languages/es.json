@@ -17,6 +17,7 @@
     "Time",
     "Transport",
     "Travel",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -3354,6 +3355,126 @@
         {
           "native": "Un té, por favor.",
           "translation": "A tea, please."
+        }
+      ]
+    },
+    {
+      "id": "es_0196",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "esperar",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "Espero aquí",
+          "translation": "I am waiting here"
+        }
+      ]
+    },
+    {
+      "id": "es_0197",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "pagar",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "Quiero pagar",
+          "translation": "I want to pay"
+        }
+      ]
+    },
+    {
+      "id": "es_0198",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "fácil",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "Esto es fácil",
+          "translation": "This is easy"
+        }
+      ]
+    },
+    {
+      "id": "es_0199",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "difícil",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "Esto es muy difícil",
+          "translation": "This is very difficult"
+        }
+      ]
+    },
+    {
+      "id": "es_0200",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "viejo",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "Es un hotel viejo",
+          "translation": "It is an old hotel"
+        }
+      ]
+    },
+    {
+      "id": "es_0201",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "la llave",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "¿Dónde está la llave?",
+          "translation": "Where is the key?"
+        }
+      ]
+    },
+    {
+      "id": "es_0202",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "el teléfono",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "El teléfono está aquí",
+          "translation": "The phone is here"
+        }
+      ]
+    },
+    {
+      "id": "es_0203",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "la puerta",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "La puerta está abierta",
+          "translation": "The door is open"
         }
       ]
     }

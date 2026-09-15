@@ -14,6 +14,7 @@
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { CORE_FILL, CORE_FILL_2 } from "./content/core-fill.mjs";
+import { TIER3_FILL } from "./content/tier3-fill.mjs";
 import { CORE, normalizeGloss, taughtGlosses } from "../src/data/coreVocabulary.js";
 import { LATIN_SCRIPT_LANGUAGES } from "../src/data/registry.js";
 
@@ -31,7 +32,7 @@ let added = 0, skipped = 0, refused = 0;
 // Both passes, merged the same way. Entries the packs already satisfy are
 // skipped, so re-running after a pass has landed is a no-op.
 const ALL = {};
-for (const src of [CORE_FILL, CORE_FILL_2]) {
+for (const src of [CORE_FILL, CORE_FILL_2, TIER3_FILL]) {
   for (const [code, entries] of Object.entries(src)) ALL[code] = (ALL[code] || []).concat(entries);
 }
 

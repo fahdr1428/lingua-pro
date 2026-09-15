@@ -3,6 +3,7 @@
   "code": "ta",
   "categories": [
     "Body",
+    "Colors",
     "Common",
     "Connectors",
     "Family",
@@ -15,6 +16,7 @@
     "Politeness",
     "Questions",
     "Time",
+    "Useful",
     "Verbs"
   ],
   "units": [
@@ -2636,6 +2638,193 @@
         }
       ],
       "translit": "evvalavu"
+    },
+    {
+      "id": "ta_0141",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "காத்திருக்க",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "நான் இங்கே காத்திருக்கேன்",
+          "translation": "I am waiting here",
+          "translit": "naan inge kaathirukken"
+        }
+      ],
+      "translit": "kaathirukka"
+    },
+    {
+      "id": "ta_0142",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "பணம் கொடுக்க",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "நான் பணம் கொடுக்கேன்",
+          "translation": "I pay the money",
+          "translit": "naan panam kodukken"
+        }
+      ],
+      "translit": "panam kodukka"
+    },
+    {
+      "id": "ta_0143",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "எழுத",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "நான் பேரு எழுதுறேன்",
+          "translation": "I write my name",
+          "translit": "naan peru ezhuthuren"
+        }
+      ],
+      "translit": "ezhutha"
+    },
+    {
+      "id": "ta_0144",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "வசிக்க",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "நான் சென்னையில வசிக்கிறேன்",
+          "translation": "I live in Chennai",
+          "translit": "naan Chennaiyila vasikkiren"
+        }
+      ],
+      "translit": "vasikka"
+    },
+    {
+      "id": "ta_0145",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "சுலபம்",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "இது சுலபம்",
+          "translation": "This is easy",
+          "translit": "idhu sulabam"
+        }
+      ],
+      "translit": "sulabam"
+    },
+    {
+      "id": "ta_0146",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "கஷ்டம்",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "இது ரொம்ப கஷ்டம்",
+          "translation": "This is very difficult",
+          "translit": "idhu romba kashtam"
+        }
+      ],
+      "translit": "kashtam"
+    },
+    {
+      "id": "ta_0147",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "பழைய",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "இது பழைய வீடு",
+          "translation": "This is an old house",
+          "translit": "idhu pazhaiya veedu"
+        }
+      ],
+      "translit": "pazhaiya"
+    },
+    {
+      "id": "ta_0148",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "சாவி",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "சாவி எங்கே?",
+          "translation": "Where is the key?",
+          "translit": "saavi enge?"
+        }
+      ],
+      "translit": "saavi"
+    },
+    {
+      "id": "ta_0149",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "ஃபோன்",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "என் ஃபோன் இங்கே",
+          "translation": "My phone is here",
+          "translit": "en phone inge"
+        }
+      ],
+      "translit": "phone"
+    },
+    {
+      "id": "ta_0150",
+      "unit": "u7",
+      "category": "Colors",
+      "lemma": "சிவப்பு",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "இந்த வீடு சிவப்பு",
+          "translation": "This house is red",
+          "translit": "indha veedu sivappu"
+        }
+      ],
+      "translit": "sivappu"
+    },
+    {
+      "id": "ta_0151",
+      "unit": "u7",
+      "category": "Colors",
+      "lemma": "நீலம்",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "இந்த வீடு நீலம்",
+          "translation": "This house is blue",
+          "translit": "indha veedu neelam"
+        }
+      ],
+      "translit": "neelam"
     }
   ],
   "alphabetGroups": [

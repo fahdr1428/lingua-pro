@@ -17,6 +17,7 @@
     "Time",
     "Transport",
     "Travel",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -3161,6 +3162,126 @@
         {
           "native": "Encore un peu plus.",
           "translation": "A little more."
+        }
+      ]
+    },
+    {
+      "id": "fr_0184",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "attendre",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "J'attends ici",
+          "translation": "I am waiting here"
+        }
+      ]
+    },
+    {
+      "id": "fr_0185",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "payer",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "Je veux payer",
+          "translation": "I want to pay"
+        }
+      ]
+    },
+    {
+      "id": "fr_0186",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "facile",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "C'est facile",
+          "translation": "It is easy"
+        }
+      ]
+    },
+    {
+      "id": "fr_0187",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "difficile",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "C'est très difficile",
+          "translation": "It is very difficult"
+        }
+      ]
+    },
+    {
+      "id": "fr_0188",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "vieux",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "C'est un vieux marché",
+          "translation": "It is an old market"
+        }
+      ]
+    },
+    {
+      "id": "fr_0189",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "la clé",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "Où est la clé ?",
+          "translation": "Where is the key?"
+        }
+      ]
+    },
+    {
+      "id": "fr_0190",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "le téléphone",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "Le téléphone est ici",
+          "translation": "The phone is here"
+        }
+      ]
+    },
+    {
+      "id": "fr_0191",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "la porte",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "La porte est ouverte",
+          "translation": "The door is open"
         }
       ]
     }

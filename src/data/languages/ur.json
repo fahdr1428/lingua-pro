@@ -17,6 +17,7 @@
     "Time",
     "Transport",
     "Travel",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -3724,6 +3725,176 @@
         }
       ],
       "translit": "khandaan"
+    },
+    {
+      "id": "ur_0193",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "انتظار کرنا",
+      "translation": "to wait",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "میں انتظار کر رہا ہوں",
+          "translation": "I am waiting",
+          "translit": "main intezaar kar raha hoon"
+        }
+      ],
+      "translit": "intezaar karna"
+    },
+    {
+      "id": "ur_0194",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پیسے دینا",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "میں پیسے دیتا ہوں",
+          "translation": "I pay",
+          "translit": "main paise deta hoon"
+        }
+      ],
+      "translit": "paise dena"
+    },
+    {
+      "id": "ur_0195",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "رہنا",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "میں لاہور میں رہتا ہوں",
+          "translation": "I live in Lahore",
+          "translit": "main Lahore mein rehta hoon"
+        }
+      ],
+      "translit": "rehna"
+    },
+    {
+      "id": "ur_0196",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "آسان",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "یہ آسان ہے",
+          "translation": "This is easy",
+          "translit": "yeh aasaan hai"
+        }
+      ],
+      "translit": "aasaan"
+    },
+    {
+      "id": "ur_0197",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "مشکل",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "یہ بہت مشکل ہے",
+          "translation": "This is very difficult",
+          "translit": "yeh bahut mushkil hai"
+        }
+      ],
+      "translit": "mushkil"
+    },
+    {
+      "id": "ur_0198",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "چابی",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "چابی کہاں ہے؟",
+          "translation": "Where is the key?",
+          "translit": "chaabi kahaan hai?"
+        }
+      ],
+      "translit": "chaabi"
+    },
+    {
+      "id": "ur_0199",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "فون",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "میرا فون یہاں ہے",
+          "translation": "My phone is here",
+          "translit": "mera phone yahaan hai"
+        }
+      ],
+      "translit": "phone"
+    },
+    {
+      "id": "ur_0200",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "دروازہ",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "دروازہ کھلا ہے",
+          "translation": "The door is open",
+          "translit": "darwaaza khula hai"
+        }
+      ],
+      "translit": "darwaaza"
+    },
+    {
+      "id": "ur_0201",
+      "unit": "u13",
+      "category": "Colors",
+      "lemma": "لال",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "دروازہ لال ہے",
+          "translation": "The door is red",
+          "translit": "darwaaza laal hai"
+        }
+      ],
+      "translit": "laal"
+    },
+    {
+      "id": "ur_0202",
+      "unit": "u13",
+      "category": "Colors",
+      "lemma": "نیلا",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "گھر نیلا ہے",
+          "translation": "The house is blue",
+          "translit": "ghar neela hai"
+        }
+      ],
+      "translit": "neela"
     }
   ],
   "alphabetGroups": [

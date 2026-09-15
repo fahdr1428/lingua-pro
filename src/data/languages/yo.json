@@ -18,6 +18,7 @@
     "Questions",
     "Time",
     "Transport",
+    "Useful",
     "Verbs",
     "Weather"
   ],
@@ -2052,6 +2053,186 @@
         {
           "native": "Òjò ń rọ̀",
           "translation": "It is raining"
+        }
+      ]
+    },
+    {
+      "id": "yo_0126",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "dúró de",
+      "translation": "to wait for",
+      "difficulty": 1,
+      "frequencyRank": 126,
+      "examples": [
+        {
+          "native": "Mo dúró de ọ̀rẹ́ mi",
+          "translation": "I am waiting for my friend"
+        }
+      ]
+    },
+    {
+      "id": "yo_0127",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "san owó",
+      "translation": "to pay",
+      "difficulty": 1,
+      "frequencyRank": 127,
+      "examples": [
+        {
+          "native": "Mo fẹ́ san owó",
+          "translation": "I want to pay"
+        }
+      ]
+    },
+    {
+      "id": "yo_0128",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "kọ",
+      "translation": "to write",
+      "difficulty": 1,
+      "frequencyRank": 128,
+      "examples": [
+        {
+          "native": "Mo kọ orúkọ mi",
+          "translation": "I write my name"
+        }
+      ]
+    },
+    {
+      "id": "yo_0129",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "gbé",
+      "translation": "to live",
+      "difficulty": 1,
+      "frequencyRank": 129,
+      "examples": [
+        {
+          "native": "Mo ń gbé ní Èkó",
+          "translation": "I live in Lagos"
+        }
+      ]
+    },
+    {
+      "id": "yo_0130",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "rọrùn",
+      "translation": "easy",
+      "difficulty": 1,
+      "frequencyRank": 130,
+      "examples": [
+        {
+          "native": "Èyí rọrùn",
+          "translation": "This is easy"
+        }
+      ]
+    },
+    {
+      "id": "yo_0131",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ṣòro",
+      "translation": "difficult, hard",
+      "difficulty": 1,
+      "frequencyRank": 131,
+      "examples": [
+        {
+          "native": "Èyí ṣòro gan-an",
+          "translation": "This is very difficult"
+        }
+      ]
+    },
+    {
+      "id": "yo_0132",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "àtijọ́",
+      "translation": "old",
+      "difficulty": 1,
+      "frequencyRank": 132,
+      "examples": [
+        {
+          "native": "Ilé àtijọ́ ni",
+          "translation": "It is an old house"
+        }
+      ]
+    },
+    {
+      "id": "yo_0133",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "kọ́kọ́rọ́",
+      "translation": "key",
+      "difficulty": 1,
+      "frequencyRank": 133,
+      "examples": [
+        {
+          "native": "Kọ́kọ́rọ́ wà níbo?",
+          "translation": "Where is the key?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0134",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "fóònù",
+      "translation": "phone",
+      "difficulty": 1,
+      "frequencyRank": 134,
+      "examples": [
+        {
+          "native": "Fóònù mi wà níbí",
+          "translation": "My phone is here"
+        }
+      ]
+    },
+    {
+      "id": "yo_0135",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ilẹ̀kùn",
+      "translation": "door",
+      "difficulty": 1,
+      "frequencyRank": 135,
+      "examples": [
+        {
+          "native": "Ilẹ̀kùn ṣí sílẹ̀",
+          "translation": "The door is open"
+        }
+      ]
+    },
+    {
+      "id": "yo_0136",
+      "unit": "u8",
+      "category": "Colors",
+      "lemma": "pupa",
+      "translation": "red",
+      "difficulty": 1,
+      "frequencyRank": 136,
+      "examples": [
+        {
+          "native": "Ilẹ̀kùn náà pupa",
+          "translation": "The door is red"
+        }
+      ]
+    },
+    {
+      "id": "yo_0137",
+      "unit": "u8",
+      "category": "Colors",
+      "lemma": "búlùú",
+      "translation": "blue",
+      "difficulty": 1,
+      "frequencyRank": 137,
+      "examples": [
+        {
+          "native": "Ilé náà búlùú",
+          "translation": "The house is blue"
         }
       ]
     }
