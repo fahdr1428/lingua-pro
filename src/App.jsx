@@ -335,15 +335,24 @@ export default function App() {
   // See src/ui/navigation.js for the stack, and index.css for what "forward"
   // and "back" look like.
   const navRef = useRef(null);
+  const screenRef = useRef("home");
   if (!navRef.current) {
     navRef.current = createNavigator({
       onChange: (entry, direction) => {
+        // A lesson takes over the viewport and has no bottom bar. Tell CSS
+        // which way the chrome is going so it can fade the bar rather than
+        // letting it sit there for the whole transition and then vanish in one
+        // frame — a pop at the exact moment the learner is looking at it.
+        const wasFocused = FOCUSED.has(screenRef.current);
+        const willFocus = FOCUSED.has(entry.screen);
+        const chrome = wasFocused === willFocus ? [] : [willFocus ? "chromeout" : "chromein"];
+        screenRef.current = entry.screen;
         withTransition(direction, () => {
           flushSync(() => {
             setScreen(entry.screen);
             setParams(entry.params);
           });
-        });
+        }, chrome);
       },
       getScroll: () => window.scrollY,
       // Restoring scroll has to wait for the new screen to have laid out, or

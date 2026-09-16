@@ -2196,115 +2196,165 @@ button:focus:not(:focus-visible) { outline: none; }
 
    `.screen-enter` alone is an ENTRANCE, and only an entrance: the outgoing
    screen vanishes on the same frame the new one starts fading up. That reads
-   as a slideshow. It is also the same movement whether you are going deeper
+   as a slideshow, and it is the same movement whether you are going deeper
    into the app or coming back out of it, which tells the learner nothing.
 
-   The View Transition API fixes both, and does it on the compositor: the
-   browser snapshots the old screen, lets React swap the DOM, snapshots the
-   new one, and animates between two real layers. No double-mounting, no
-   measuring, nothing per-frame on the main thread.
+   The View Transition API fixes both on the compositor — the browser
+   snapshots the old screen, lets React swap the DOM, snapshots the new one,
+   and animates between two real layers.
 
-   WHAT MOVES, AND WHAT MUST NOT. By default the whole document is one
-   snapshot called `root`, so a naive version slides the bottom nav and the
-   side rail off the screen along with the content — the app appears to come
-   apart. Giving the persistent chrome its own `view-transition-name` lifts
-   each piece into its own group, which stays put while only the content
-   panel travels. That standing-still frame is what makes the movement read
-   as one place rather than two pictures.
+   ---------------------------------------------------------------------------
+   THE THING THAT MADE THE FIRST VERSION GLITCHY, because it is not obvious
+   and it cost a release to find:
 
-   `contain: layout` is required on a named element; without it the browser
-   refuses the name and the whole transition is skipped. */
+   A view transition captures the WHOLE element, not the visible part of it.
+   This app's <main> is 3052px tall on the home screen and 1598px on Practice.
+   The browser's default `::view-transition-group` animation then animates the
+   group's box from one height to the other over 250ms — and the two snapshots
+   are replaced content stretched to fill that box. So the entire page visibly
+   SQUASHED vertically while it slid, and a 26% horizontal push of a
+   three-thousand-pixel image squashing as it goes is exactly as bad as it
+   sounds.
+
+   It does not show up in a still screenshot of the finished screen, and it
+   does not show up in a check that asks "did a transition run". It shows up
+   in document.getAnimations() during the transition:
+
+       ::view-transition-group(screen)  -ua-view-transition-group-anim-screen  250ms
+       ::view-transition-group(root)    -ua-view-transition-group-anim-root    250ms
+
+   So: no group animation, ever. The box does not resize, and with
+   `height: auto; object-fit: none` the snapshots keep their natural size
+   instead of being stretched into it. `object-position: top center` pins them
+   to the top so the part you are actually looking at stays put.
+
+   And the movement is small. A short cross-dissolve with a few percent of
+   travel reads as one surface turning over; a big slide of a full page does
+   not, however satisfying it sounds written down.
+   --------------------------------------------------------------------------- */
 
 main#main { view-transition-name: screen; contain: layout; }
 .bottom-nav { view-transition-name: nav; contain: layout; }
 .side-rail  { view-transition-name: rail; contain: layout; }
 
-/* The root group holds whatever is left — the page background, the offline
-   bar, the policy notice. Cross-fading it under a sliding panel just makes
-   the panel look translucent, so it is held still. */
+/* Nothing resizes. This is the whole fix for the squash. */
+::view-transition-group(screen),
+::view-transition-group(root),
+::view-transition-group(nav),
+::view-transition-group(rail) { animation: none; }
+
+/* The snapshots keep their own size rather than being stretched to the group
+   box, and are pinned to the top so the visible region does not drift. */
+::view-transition-old(screen),
+::view-transition-new(screen) {
+  height: auto;
+  object-fit: none;
+  object-position: top center;
+  /* <main> has no background of its own — the page colour is on :root — so
+     without this the arriving panel is transparent and you read both screens
+     through each other for the length of the transition. It looks like a
+     printing fault. Only visible in a mid-transition screenshot; at full
+     speed it registers as "that felt cheap". */
+  background: var(--bg);
+}
+
+/* The root group holds the page background and any banners. Held still: a
+   cross-fade under a moving panel just makes the panel look translucent. */
 ::view-transition-old(root),
 ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
 
-/* The chrome does not animate at all. It is the fixed point. */
-::view-transition-group(nav),
-::view-transition-group(rail) { animation: none; }
-::view-transition-old(nav), ::view-transition-new(nav),
-::view-transition-old(rail), ::view-transition-new(rail) { animation: none; }
+/* The chrome is the fixed point: killing the GROUP animation above is what
+   stops the bottom bar travelling with the content, which is what made the
+   app appear to come apart on every tap.
 
-@keyframes screenSlideOutLeft {
-  to { opacity: 0; transform: translateX(-11%); }
+   Its old/new snapshots are deliberately left to the browser's default
+   cross-fade rather than pinned. When the bar exists on both screens the two
+   snapshots are identical and the fade is invisible; when it exists on only
+   one — a lesson takes over the whole viewport and has no bar — that fade is
+   exactly what should happen. Pinning them instead held the bar on screen for
+   the whole transition and then made it vanish in one frame at the end, which
+   is a pop at the precise moment the learner is looking at it.
+
+   Which side to fade is NAMED rather than guessed. navigation.js adds a
+   `chromeout` type when the destination is a lesson (no bar) and `chromein`
+   coming back out, so exactly one side animates. Fading both — the obvious
+   version — is wrong even when it looks symmetrical: two identical snapshots
+   fading through each other reach about 75% combined opacity halfway, so the
+   bar would visibly dip on every single navigation in the app. */
+@keyframes chromeFade { from { opacity: 1; } to { opacity: 0; } }
+
+html:active-view-transition-type(chromeout) {
+  &::view-transition-old(nav)  { animation: chromeFade 180ms var(--ease-smooth) both; }
+  &::view-transition-old(rail) { animation: chromeFade 180ms var(--ease-smooth) both; }
 }
-@keyframes screenSlideInRight {
-  from { opacity: 0; transform: translateX(26%); }
+html:active-view-transition-type(chromein) {
+  &::view-transition-new(nav)  { animation: chromeFade 220ms var(--ease-smooth) reverse both; }
+  &::view-transition-new(rail) { animation: chromeFade 220ms var(--ease-smooth) reverse both; }
 }
-@keyframes screenSlideOutRight {
-  to { opacity: 0; transform: translateX(26%); }
-}
-@keyframes screenSlideInLeft {
-  from { opacity: 0; transform: translateX(-11%); }
-}
+
+/* NO CROSS-FADE. This is the second thing that made it feel cheap, and it is
+   worth writing down because "fade between screens" is the obvious first
+   instinct and it is wrong for this app.
+
+   Both screens here are dense text. Fading one into the other means that for
+   the length of the transition you are looking at two paragraphs of type
+   superimposed — "Practice" printed over "Urdu", a list of focus cards over
+   the guide's greeting. Frozen at 40ms it reads as a misregistered print job.
+   Nobody consciously sees it at speed; everybody feels it.
+
+   Native push transitions have never done this. The arriving screen is OPAQUE
+   and slides over the one you are leaving, which only has to shift slightly to
+   suggest depth. Nothing is ever translucent, so nothing can double-expose.
+   Transform only — no opacity anywhere — which is also the cheapest thing a
+   compositor can be asked to do. */
+@keyframes pushInFromRight { from { transform: translateX(100%); } }
+@keyframes pushOutToLeft   { to   { transform: translateX(-24%); } }
+@keyframes pushInFromLeft  { from { transform: translateX(-100%); } }
+@keyframes pushOutToRight  { to   { transform: translateX(24%); } }
 
 /* The two directions are not mirror images, and that asymmetry is the point.
-   Going FORWARD, the new screen travels the full distance and the old one
-   only eases back a little — the arriving screen is the subject. Coming BACK,
-   the screen you are returning to is the subject, so it is the one that
-   barely moves while the screen you are leaving gets out of the way. It is
-   the same grammar iOS and Android have used for a decade, and it is why
-   "back" feels like a return rather than another departure.
-
-   Exit is faster than entry (200ms against 320ms). The thing you are leaving
-   does not need your attention; the thing arriving does. */
+   Going FORWARD the arriving screen travels the full width and the one you
+   are leaving eases back a quarter of it — parallax, so the old screen reads
+   as sitting behind rather than being shoved. Coming BACK, the screen you are
+   RETURNING to is the subject: it is already nearly in place, and the one you
+   are leaving gets out of the way. Same grammar every phone has used for a
+   decade, which is why back feels like a return rather than another
+   departure. */
 html:active-view-transition-type(forward) {
-  &::view-transition-old(screen) {
-    animation: screenSlideOutLeft 200ms var(--ease-smooth) both;
-  }
-  &::view-transition-new(screen) {
-    animation: screenSlideInRight 320ms var(--ease-out-expo) both;
-  }
+  &::view-transition-old(screen) { animation: pushOutToLeft 260ms var(--ease-out-expo) both; }
+  &::view-transition-new(screen) { animation: pushInFromRight 260ms var(--ease-out-expo) both; }
 }
 html:active-view-transition-type(back) {
-  &::view-transition-old(screen) {
-    animation: screenSlideOutRight 200ms var(--ease-smooth) both;
-  }
-  &::view-transition-new(screen) {
-    animation: screenSlideInLeft 320ms var(--ease-out-expo) both;
-  }
+  &::view-transition-old(screen) { animation: pushOutToRight 260ms var(--ease-out-expo) both; }
+  &::view-transition-new(screen) { animation: pushInFromLeft 260ms var(--ease-out-expo) both; }
 }
 
-/* The old and new snapshots are stacked; without this the outgoing screen
-   paints over the incoming one for the whole overlap. */
+/* Coming back, the screen you are RETURNING to is the one that should be on
+   top — it is arriving, and the one you are leaving slides off over nothing.
+   Without this the departing screen paints over it and you watch your own
+   destination through it. */
+html:active-view-transition-type(back)::view-transition-old(screen) { z-index: 2; }
+html:active-view-transition-type(back)::view-transition-new(screen) { z-index: 1; }
+
+/* Stacked: the arriving screen is on top and covers what it slides over. */
 ::view-transition-old(screen) { z-index: 1; }
 ::view-transition-new(screen) { z-index: 2; }
 
-/* AND THE ARRIVING SCREEN HAS TO BE OPAQUE.
-   <main> carries no background of its own — the page colour is on :root — so
-   the first version of this slid a transparent panel over the old one and you
-   could read both screens through each other for 300ms. It looked like a
-   printing fault. Caught by screenshotting mid-transition rather than by
-   watching it, because at full speed it registers only as "that felt cheap".
-   The snapshot gets the page's own colour so the panel is a panel. */
-::view-transition-new(screen),
-::view-transition-old(screen) { background: var(--bg); }
-
 /* `.screen-enter` is the fallback for browsers with no View Transition API
-   (Firefox, at the time of writing). It is also what plays for the very first
-   screen, which has nothing to transition from. Kept short: 240ms with an 8px
-   rise reads as the screen simply being there, which is what you want dozens
-   of times a session. */
+   (Firefox, at the time of writing), and what plays for the very first screen,
+   which has nothing to transition from. */
 @keyframes screenIn2 {
   from { opacity: 0; transform: translateY(8px) scale(0.994); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 .screen-enter { animation: screenIn2 240ms var(--ease-out-expo) both; }
 
-/* Running both at once would animate the panel twice — once by the browser's
-   snapshot and once by React's remount — which shows up as a double take. */
+/* Running both would animate the panel twice — once by the browser's snapshot
+   and once by React's remount — which shows up as a double take. */
 html:active-view-transition .screen-enter { animation: none; }
 
-/* Motion is a preference for most people and a medical problem for some.
-   navigation.js already skips startViewTransition entirely under reduced
-   motion, so this is the belt to that braces: if a transition is somehow
-   running, it is instant rather than a full-screen slide. */
+/* navigation.js already skips startViewTransition entirely under reduced
+   motion; this is the belt to that braces. */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*),
   ::view-transition-old(*),

@@ -61,11 +61,24 @@ async function openApp(context) {
   page.on("pageerror", (e) => problems.push(`page threw: ${String(e?.message || e).slice(0, 120)}`));
   await page.addInitScript(() => {
     window.__vt = [];
+    window.__anims = [];
     const orig = document.startViewTransition?.bind(document);
     if (orig) {
       document.startViewTransition = (arg) => {
         window.__vt.push(arg && arg.types ? [...arg.types] : ["callback-form"]);
-        return orig(arg);
+        const vt = orig(arg);
+        // Record what is ACTUALLY animating the moment the transition is
+        // ready. This is the only place the browser's own defaults are
+        // visible, and they are what made v104's first attempt look broken.
+        vt.ready.then(() => {
+          for (const a of document.getAnimations()) {
+            const pseudo = a.effect?.pseudoElement;
+            if (pseudo && pseudo.includes("view-transition")) {
+              window.__anims.push({ pseudo, name: a.animationName, ms: a.effect.getTiming().duration });
+            }
+          }
+        }, () => {});
+        return vt;
       };
     }
   });
@@ -147,6 +160,57 @@ async function toFlashcards(page) {
     problems.push(`back from the home screen stayed in the app (url ${page.url()}) — that traps the person`);
   }
 
+  await ctx.close();
+}
+
+// ---------------------------------------------------------------------------
+// 3b. NOTHING IS LEFT TO THE BROWSER'S DEFAULTS
+//
+// This is the check that would have saved v104's first attempt, and it is here
+// because "a transition ran" and "the transition looks right" are different
+// claims and only the first one was being made.
+//
+// A view transition captures the WHOLE element, not the visible part. <main>
+// is ~3000px tall on the home screen and ~1600px on Practice, and the UA's
+// default `::view-transition-group` animation animates the group's box between
+// those two heights while both snapshots are stretched to fill it. The entire
+// page squashed vertically as it slid. The UA's default old/new animation is a
+// cross-fade, which on two screens of dense text means you read both at once —
+// frozen mid-flight it looks like a misregistered print job.
+//
+// Neither shows up in a screenshot of the finished screen. Both show up here:
+// every animation on a view-transition pseudo-element must be one we wrote.
+// UA animations are named `-ua-view-transition-...`, so the rule is simply
+// that no animation name starts with `-ua-`.
+// ---------------------------------------------------------------------------
+{
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await openApp(ctx);
+  await toPractice(page);
+  await page.waitForTimeout(600);
+  await page.goBack().catch(() => {});
+  await page.waitForTimeout(700);
+
+  const anims = await page.evaluate(() => window.__anims);
+  if (!anims.length) {
+    problems.push("no view-transition animations were recorded at all — this check proved nothing");
+  }
+  const ua = anims.filter((a) => /^-ua-/.test(a.name || ""));
+  for (const a of ua) {
+    problems.push(
+      `${a.pseudo} is running the browser's default animation "${a.name}" (${a.ms}ms). ` +
+      `The group default resizes the box between two page heights and squashes the content; ` +
+      `the old/new default cross-fades two screens of text through each other. Neither is wanted.`
+    );
+  }
+  // And the ones we DO run must be transform-only. An opacity fade between two
+  // text screens is the double-exposure this release removed.
+  const named = anims.filter((a) => !/^-ua-/.test(a.name || "")).map((a) => a.name);
+  for (const want of ["pushInFromRight", "pushOutToLeft", "pushInFromLeft", "pushOutToRight"]) {
+    if (!named.includes(want)) {
+      problems.push(`expected the ${want} push animation to run across a forward+back pair; saw ${JSON.stringify([...new Set(named)])}`);
+    }
+  }
   await ctx.close();
 }
 

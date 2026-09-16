@@ -75,17 +75,24 @@ export function prefersReducedMotion() {
  * a class on <html> because the browser scopes them to the transition itself —
  * there is no state left behind to clean up if something throws mid-flight.
  *
+ * `extraTypes` carries anything else CSS needs to know about THIS move. The
+ * one in use is whether the bottom bar is appearing or disappearing: a lesson
+ * takes over the whole viewport and has no bar, so entering one has to fade it
+ * out. Naming the case is better than cross-fading the bar on every
+ * navigation — two identical snapshots fading through each other dip to about
+ * 75% opacity halfway, which reads as the bar flickering on every single tap.
+ *
  * The update must be applied synchronously inside the callback, which in React
  * means flushSync; the caller passes that in rather than this module importing
  * react-dom, so it stays testable in plain Node.
  */
-export function withTransition(direction, update) {
+export function withTransition(direction, update, extraTypes = []) {
   if (!canViewTransition || prefersReducedMotion()) {
     update();
     return null;
   }
   try {
-    return document.startViewTransition({ update, types: ["screen", direction] });
+    return document.startViewTransition({ update, types: ["screen", direction, ...extraTypes] });
   } catch {
     // Any refusal — a duplicate view-transition-name is the usual one — must
     // not cost the navigation itself. The screen change is the point; the
