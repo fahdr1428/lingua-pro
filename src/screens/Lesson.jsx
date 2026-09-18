@@ -94,8 +94,71 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   const [resultData, setResultData] = useState(null);
   const startedAt = useRef(Date.now());
 
-  // Build session on mount
+  // v104.2 — EVERY PER-SESSION PIECE OF STATE, RESET IN ONE PLACE.
+  //
+  // Found while investigating the transition work: "Retake Chapter 1 exam",
+  // on the FAIL screen, calls onNavigate("lesson", { …the same chapter… }).
+  // Because it is the SAME screen ("lesson"), React does not remount this
+  // component — key={screen} in App.jsx only changes when the SCREEN NAME
+  // does — so none of this state was ever cleared. `done` stayed true, so
+  // `if (done) return <Result …/>` kept rendering the OLD fail screen with
+  // the OLD score forever, no matter how many times "Retake" was pressed.
+  // (A companion bug in the nav stack made it worse — see navigation.js —
+  // but even with that fixed, a fresh session would have built silently
+  // behind a Result screen that never agreed to get out of the way.)
+  //
+  // `reviewMistakes()` below already had to solve exactly this problem for
+  // its own case (finishing a lesson, then reviewing what you missed without
+  // leaving the screen), and had its own hand-written list of setters — which
+  // had quietly gone stale itself: match-pairs, the combo counter, the
+  // recovery round and the hint flags were all added to this component after
+  // that list was written, and none of them were ever added to it. One
+  // function, used everywhere a session restarts in place, so there is one
+  // list to keep in sync rather than two drifting apart.
+  function resetSessionState() {
+    // Cleared here too, not just by whoever calls this. Between this running
+    // and the real session arriving there would otherwise be a gap where
+    // `done` has already flipped false but `session` still holds the
+    // PREVIOUS params' exercises — exercise 0 of the wrong lesson, for a
+    // frame or two. React 18 batches synchronous setState calls, so a caller
+    // that immediately follows this with its own setSession(...) (reviewMistakes
+    // does) never actually paints the null in between — only the params
+    // effect, which has to wait on an async call, shows the loading state
+    // this produces, which is what it already has for the very first mount.
+    setSession(null);
+    setIdx(0);
+    setPicked(null);
+    setTyped("");
+    setTapped([]);
+    setMatchedPairs([]);
+    setMatchSelection(null);
+    setFeedback(null);
+    setCombo(0);
+    setRecoveryDone(false);
+    setInRecovery(false);
+    setReaction(null);
+    setShowExplain(false);
+    setCorrectCount(0);
+    setMissedItems([]);
+    setStreakInLesson(0);
+    setHintActive(false);
+    setHintOffered(false);
+    setDone(false);
+    setResultData(null);
+    startedAt.current = Date.now();
+  }
+
+  // Build session on mount — and on every later params change, which is a
+  // real thing that happens: "Retake Chapter 1 exam" on the fail screen calls
+  // onNavigate("lesson", { …that chapter again… }) without ever leaving the
+  // "lesson" screen, so this component does not remount. Without the reset
+  // below, `done` stayed true from the FAILED attempt and
+  // `if (done) return <Result …/>` (line ~258) kept showing that same old
+  // fail screen forever — Retake looked like it did nothing, because visually
+  // it did. resetSessionState() (and its own setSession(null)) run before
+  // the async call below can be reasoned about the same way as a fresh mount.
   useEffect(() => {
+    resetSessionState();
     let cancelled = false;
     engine
       .generateSession({
@@ -195,20 +258,12 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     if (missedItems.length === 0) return;
     const pool = pack.vocab || [];
     const exercises = generateLesson(missedItems, pool, {});
+    // v104.2: was its own hand-written list here — see resetSessionState.
+    // Called BEFORE setSession so the real session is the one that ends up
+    // rendered — resetSessionState's own setSession(null) and this one are
+    // batched into a single React update, never a visible blank frame.
+    resetSessionState();
     setSession({ exercises, mode: "review" });
-    setIdx(0);
-    setPicked(null);
-    setTyped("");
-    setTapped([]);
-    setFeedback(null);
-    setReaction(null);
-    setShowExplain(false);
-    setCorrectCount(0);
-    setMissedItems([]);
-    setStreakInLesson(0);
-    setDone(false);
-    setResultData(null);
-    startedAt.current = Date.now();
   }
 
   if (done) {

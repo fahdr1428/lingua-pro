@@ -305,6 +305,110 @@ async function toFlashcards(page) {
 }
 
 // ---------------------------------------------------------------------------
+// 5c. NO SECOND ANIMATION FIRES AFTER THE PUSH ENDS
+//
+// v104.2's actual bug, found by direct measurement, not a screenshot guess.
+// `.screen-enter`'s fade was suppressed with:
+//     html:active-view-transition .screen-enter { animation: none; }
+// which looked right and was wrong: the moment the push finished,
+// `:active-view-transition` went false, `.screen-enter`'s animation-name
+// flipped from `none` back to `screenIn2`, and per the CSS Animations spec
+// that starts a BRAND NEW animation instance — even reapplying the "same"
+// name after `none` restarts it. So immediately after the slide settled, the
+// whole panel dropped to transparent and faded back up over ~250ms:
+// getComputedStyle read opacity 0 the instant :active-view-transition became
+// false, then 0.37 → 0.62 → 0.77 → 0.86 → 0.95 → 1 across the next few frames.
+// A second, unrelated flash bolted onto the end of a transition that had
+// already finished correctly.
+//
+// The fix (App.jsx, animatedByViewTransition) decides whether `.screen-enter`
+// is present AT ALL from JS, before the DOM changes, so there is no
+// animation-name to ever flip back. This polls computed opacity on <main> for
+// 400ms after a transition ends and fails if it is ever caught below 0.95.
+// ---------------------------------------------------------------------------
+{
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await openApp(ctx);
+  await toPractice(page);
+  await page.waitForTimeout(500);
+
+  await page.evaluate(() => {
+    window.__opacitySamples = [];
+    window.__sampling = false;
+    const poll = () => {
+      if (window.__sampling) {
+        const m = document.querySelector("main");
+        if (m) window.__opacitySamples.push(Number(getComputedStyle(m).opacity));
+      }
+      requestAnimationFrame(poll);
+    };
+    requestAnimationFrame(poll);
+  });
+
+  await page.evaluate(() => { window.__sampling = true; });
+  await page.goBack().catch(() => {});
+  await page.waitForTimeout(700);
+  await page.evaluate(() => { window.__sampling = false; });
+
+  const samples = await page.evaluate(() => window.__opacitySamples);
+  const min = samples.length ? Math.min(...samples) : null;
+  if (min === null) {
+    problems.push("no opacity samples were taken on <main> across a back-navigation — this check proved nothing");
+  } else if (min < 0.95) {
+    problems.push(
+      `<main>'s opacity dropped to ${min.toFixed(2)} at some point after a navigation — a second fade-in is running ` +
+      `on top of (or after) the view transition's own push. Samples: ${samples.map((n) => n.toFixed(2)).join(",")}`
+    );
+  }
+  await ctx.close();
+}
+
+// ---------------------------------------------------------------------------
+// 5d. FOCUS MOVES WITH THE SCREEN
+//
+// <main key={screen}> has fully remounted on every navigation since v78, but
+// nothing ever moved keyboard focus to it. Measured directly: focus a button
+// that lives INSIDE <main> — a card, a journey stop, anything that isn't the
+// persistent tab bar — activate it with the keyboard, and the element it was
+// on is destroyed by the remount. Focus fell all the way back to <body>. A
+// keyboard or screen-reader user's next Tab started from the very top of the
+// page — the language picker — every time they navigated by anything other
+// than the five tab-bar buttons, which happen to survive the remount and so
+// happened to keep focus by accident.
+// ---------------------------------------------------------------------------
+{
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await openApp(ctx);
+
+  // Reach Practice, then focus+activate a button that lives INSIDE <main> —
+  // Flashcards, on the Practice hub — exactly as a keyboard user would.
+  await toPractice(page);
+  await page.waitForTimeout(500);
+  await page.evaluate(() => {
+    const b = [...document.querySelectorAll("button")].find((x) => /📇/.test(x.innerText || ""));
+    if (b) b.focus();
+  });
+  const before = await page.evaluate(() => document.activeElement?.textContent?.slice(0, 20));
+  await page.keyboard.press("Enter");
+  await page.waitForTimeout(700);
+
+  const after = await page.evaluate(() => ({
+    tag: document.activeElement?.tagName,
+    isBody: document.activeElement === document.body,
+    id: document.activeElement?.id,
+  }));
+  if (after.isBody) {
+    problems.push(
+      `activating "${before}" (a button inside <main>) via the keyboard left focus on <body> after navigating — ` +
+      `a keyboard or screen-reader user is now nowhere and has to tab from the very top of the page`
+    );
+  } else if (after.tag !== "MAIN" && after.id !== "main") {
+    problems.push(`focus after navigating landed on <${after.tag}>, not #main — expected the new screen's landmark to receive it`);
+  }
+  await ctx.close();
+}
+
+// ---------------------------------------------------------------------------
 // 6. reduced motion: no transition at all
 // ---------------------------------------------------------------------------
 {
@@ -317,6 +421,119 @@ async function toFlashcards(page) {
   }
   if (!/practice/i.test(await screenText(page))) {
     problems.push("with reduced motion the navigation did not happen at all — the movement is optional, the navigation is not");
+  }
+  await ctx.close();
+}
+
+// ---------------------------------------------------------------------------
+// 7. SWITCHING LANGUAGE DOESN'T LEAVE A STALE ENTRY IN THE STACK
+//
+// switchLanguage/pickLanguageInstant/resetAll used to call setScreen("home")
+// directly — the same navRef-bypass pattern as the exam-retake bug (see the
+// v104.2 comment on go() in navigation.js). It looked harmless because
+// switching language routes through <Onboarding>, which renders above the
+// screen/<main> system entirely and so never asks the desynced stack a
+// question it would get wrong — right up until the person backs out of
+// Onboarding and then forward again.
+//
+// Reproduced here: build a stack of Home -> Practice -> Profile, switch
+// language from Profile (this should collapse the CURRENT stack entry to
+// "home", not leave it labelled "profile"), complete onboarding, then press
+// back (lands on Practice, untouched by any of this) and forward again.
+// Forward should return to home — where the person actually was when they
+// switched — not to the stale "profile" label a bare setScreen() left
+// behind because it never told the navigator anything had changed.
+// ---------------------------------------------------------------------------
+{
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await openApp(ctx);
+
+  // Profile and Home are told apart by DOM markers, not by scanning
+  // screenText's first 60 characters for the word "profile" — it never
+  // appears there. The Profile screen's own heading is "Learning {language}"
+  // (see screens.jsx); the word "Profile" exists only as the bottom-nav tab
+  // label, which sits well past that 60-character cut. The settings gear
+  // (aria-label="Settings") is unique to Profile; the language-picker button
+  // (aria-label="Switch language") is unique to Home's TopBar, since only
+  // Home passes onPickLanguage to it. Caught by running this exact check
+  // against the truncated-text version first: it reported Profile as
+  // unreachable even though the click had worked correctly.
+  const onProfile = (page) => page.evaluate(() => !!document.querySelector('button[aria-label="Settings"]'));
+  const onHome = (page) => page.evaluate(() => !!document.querySelector('button[aria-label="Switch language"]'));
+
+  await toPractice(page);
+  await page.evaluate(() => {
+    const b = [...document.querySelectorAll(".bottom-nav button")].find((x) => /profile/i.test(x.innerText || ""));
+    if (b) b.click();
+  });
+  await page.waitForTimeout(600);
+
+  if (!(await onProfile(page))) {
+    problems.push(`could not reach Profile to run the language-switch check — got "${await screenText(page)}"`);
+  } else {
+    const clicked = await page.evaluate(() => {
+      const b = [...document.querySelectorAll("button")].find((x) => /switch.*language|change.*language/i.test(x.innerText || ""));
+      if (b) { b.click(); return true; }
+      return false;
+    });
+    if (!clicked) {
+      problems.push('no "switch language" control found on Profile — this check proved nothing');
+    } else {
+      await page.waitForTimeout(500);
+      // Onboarding step 0 -> 1
+      await page.evaluate(() => {
+        const b = [...document.querySelectorAll("button")].find((x) => /get started/i.test(x.innerText || ""));
+        if (b) b.click();
+      });
+      await page.waitForTimeout(300);
+      // Step 1: pick any language, continue
+      await page.evaluate(() => document.querySelector(".card-lift")?.click());
+      await page.waitForTimeout(200);
+      await page.evaluate(() => {
+        const b = [...document.querySelectorAll("button")].find((x) => /^continue$/i.test((x.innerText || "").trim()));
+        if (b) b.click();
+      });
+      await page.waitForTimeout(200);
+      // Step 2: pick a goal, continue
+      await page.evaluate(() => {
+        const b = [...document.querySelectorAll("button")].find((x) => /regular/i.test(x.innerText || ""));
+        if (b) b.click();
+      });
+      await page.evaluate(() => {
+        const b = [...document.querySelectorAll("button")].find((x) => /^continue$/i.test((x.innerText || "").trim()));
+        if (b) b.click();
+      });
+      await page.waitForTimeout(200);
+      // Step 3: consent, start learning
+      await page.evaluate(() => {
+        for (const c of document.querySelectorAll('input[type="checkbox"]')) c.click();
+      });
+      await page.evaluate(() => {
+        const b = [...document.querySelectorAll("button")].find((x) => /start learning/i.test(x.innerText || ""));
+        if (b) b.click();
+      });
+      await page.waitForTimeout(700);
+
+      if (!(await onHome(page))) {
+        problems.push(`completing onboarding after a language switch did not land on home — got "${await screenText(page)}"`);
+      } else {
+        await page.goBack().catch(() => {});
+        await page.waitForTimeout(700);
+        if (!/practice/i.test(await screenText(page))) {
+          problems.push(`back after a post-switch onboarding did not land on Practice — got "${await screenText(page)}"`);
+        }
+        await page.goForward().catch(() => {});
+        await page.waitForTimeout(700);
+        if (await onProfile(page)) {
+          problems.push(
+            `going forward after a language switch landed back on the stale Profile screen instead of home — ` +
+            `the navigator's stack still thinks the entry at this position is "profile" because the switch never told it otherwise`
+          );
+        } else if (!(await onHome(page))) {
+          problems.push(`going forward after a language switch landed on "${await screenText(page)}", not home`);
+        }
+      }
+    }
   }
   await ctx.close();
 }

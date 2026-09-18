@@ -539,6 +539,23 @@ body { line-height: 1.5; }
 :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
 button:focus:not(:focus-visible) { outline: none; }
 
+/* v104.3 — App.jsx moves DOM focus to #main after every navigation, so a
+   keyboard or screen-reader user isn't left on <body> once the element they
+   activated has been unmounted (see the note above mainRef in App.jsx).
+   Screen readers act on the DOM focus move regardless of whether anything is
+   drawn for it, but a SIGHTED keyboard user who just pressed Enter benefits
+   from seeing where they landed — so this defers to :focus-visible rather
+   than blanket-killing the outline: a mouse/touch-driven navigation (the
+   common case) leaves the browser's own heuristic reporting "not visible",
+   so :focus:not(:focus-visible) below applies and no ring is drawn — the
+   screen having visibly just changed is indicator enough, and a rectangle
+   traced around the entire viewport would be noise. A KEYBOARD-driven
+   navigation reports "visible", falls through to the global :focus-visible
+   rule above, and draws the ring — exactly the case audit-interface exists
+   to protect: outline: none is only safe paired with a real replacement,
+   and here the replacement is the existing rule, not a new one. */
+#main:focus:not(:focus-visible) { outline: none; }
+
 /* ============================================================
    v66 RESPONSIVE SHELL — phone and laptop are different layouts,
    not the same column at two sizes.
@@ -2342,16 +2359,30 @@ html:active-view-transition-type(back)::view-transition-new(screen) { z-index: 1
 
 /* `.screen-enter` is the fallback for browsers with no View Transition API
    (Firefox, at the time of writing), and what plays for the very first screen,
-   which has nothing to transition from. */
+   which has nothing to transition from.
+
+   v104.2 — THIS CLASS MUST NEVER BE PRESENT ON A VIEW-TRANSITIONED SCREEN.
+   The first version tried to suppress it with a CSS rule instead:
+       html:active-view-transition .screen-enter { animation: none; }
+   That looked right and was wrong. `:active-view-transition` goes false the
+   MOMENT the push finishes, at which point `.screen-enter`'s animation-name
+   flips from `none` back to `screenIn2` — and per the CSS Animations spec,
+   that transition starts a BRAND NEW animation instance, even though it is
+   "the same" name the element had before being suppressed. So right after
+   the slide settled, the whole panel dropped to transparent and faded back
+   up over ~250ms — a second, unrelated flash bolted onto the end of a
+   transition that had already finished correctly. Measured with
+   getAnimations(): opacity 0 → 0.37 → 0.62 → 0.77 → 0.86 → 0.95 → 1 across
+   four frames, starting the instant :active-view-transition became false.
+
+   The class is now applied from JS (App.jsx, animatedByViewTransition) and
+   is simply absent from the DOM on a view-transitioned screen — nothing here
+   to race, because there is no animation-name to ever flip back. */
 @keyframes screenIn2 {
   from { opacity: 0; transform: translateY(8px) scale(0.994); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 .screen-enter { animation: screenIn2 240ms var(--ease-out-expo) both; }
-
-/* Running both would animate the panel twice — once by the browser's snapshot
-   and once by React's remount — which shows up as a double take. */
-html:active-view-transition .screen-enter { animation: none; }
 
 /* navigation.js already skips startViewTransition entirely under reduced
    motion; this is the belt to that braces. */

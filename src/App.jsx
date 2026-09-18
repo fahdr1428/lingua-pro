@@ -7,7 +7,7 @@ import { flushSync } from "react-dom";
 import { useEngine } from "./hooks/useEngine.js";
 import { usePersistentState } from "./hooks/usePersistentState.js";
 import { normalizeAppState, normalizeLanguageLists } from "./data/appStateShape.js";
-import { createNavigator, withTransition } from "./ui/navigation.js";
+import { createNavigator, withTransition, canViewTransition, prefersReducedMotion } from "./ui/navigation.js";
 import { useProfile } from "./hooks/useProfile.js";
 import { getStorage } from "./storage/index.js";
 import { BottomNav, SideRail, Button, Container } from "./ui/primitives.jsx";
@@ -282,6 +282,33 @@ export default function App() {
   });
   const [screen, setScreen] = useState("home");
   const [params, setParams] = useState(null);
+  // v104.2 — FOCUS FOLLOWS THE SCREEN, for keyboard and screen-reader users.
+  //
+  // <main key={screen}> has fully remounted on every navigation since v78 —
+  // that is what makes the screen-reader landmark meaningful in the first
+  // place. But nothing ever moved FOCUS to it. Measured directly: focus a
+  // button that lives inside <main> (anything that isn't the persistent tab
+  // bar — a card, a "Retake exam" button, a journey stop), activate it with
+  // the keyboard, and the element it was on is destroyed by the remount.
+  // Focus does not move to the new screen; it falls all the way back to
+  // <body>. A keyboard user's next Tab starts from the very top of the page
+  // — the language picker in the top bar — every single time they navigate
+  // by anything other than the five tab-bar buttons, which happen to survive
+  // the remount and so happen to keep focus by accident.
+  //
+  // The effect below moves focus to <main> on EVERY navigation, including a
+  // tap on a tab-bar button — checked directly rather than assumed, because
+  // the tab bar survives the remount (see FOCUSED / the persistent chrome)
+  // and the first instinct is that focus should just stay there. It
+  // shouldn't: a screen reader given nothing after "Practice" is pressed
+  // announces nothing at all — the person has to go hunting to discover the
+  // screen even changed. Native mobile accessibility does the same thing on
+  // a tab switch for the same reason. What a sighted keyboard user loses is
+  // smaller — their next Tab reaches the new screen's first control rather
+  // than the next tab along — and is the trade the platforms it copies make
+  // too.
+  const mainRef = useRef(null);
+  const everMounted = useRef(false);
 
   const { engine, pack, stats, loading, refreshStats } = useEngine(appState?.currentLanguage);
   // v73: the learner profile is owned here, once, and passed down. Speak, the
@@ -336,6 +363,27 @@ export default function App() {
   // and "back" look like.
   const navRef = useRef(null);
   const screenRef = useRef("home");
+  // v104.2 — WHETHER THE SCREEN CURRENTLY ON-DOM WAS PUSHED IN BY A REAL VIEW
+  // TRANSITION, decided in JS instead of raced in CSS.
+  //
+  // `.screen-enter`'s fade was suppressed only WHILE a transition was active:
+  //   html:active-view-transition .screen-enter { animation: none; }
+  // Measured with getAnimations() on a real back-navigation, that rule does
+  // not just fail to help — it manufactures a second glitch. The push finishes,
+  // `:active-view-transition` goes false, and `.screen-enter`'s animation-name
+  // flips from `none` back to `screenIn2`. Per the CSS Animations spec, that
+  // transition — even re-applying a name the element already "had" before it
+  // was suppressed — starts a BRAND NEW animation instance. So immediately
+  // after the slide settles, the whole panel drops to transparent and fades
+  // back up over ~250ms: getComputedStyle read opacity 0 the instant the
+  // transition ended, then 0.37 → 0.62 → 0.77 → 0.86 → 0.95 → 1 over the next
+  // four frames. That is the "flash" — not the slide, a second animation
+  // the slide's own end was silently triggering.
+  //
+  // The fix is to never let `.screen-enter` exist on a view-transitioned
+  // screen at all, decided once, before the DOM changes, rather than raced
+  // against a CSS pseudo-class that flips at the wrong moment.
+  const animatedByViewTransition = useRef(false);
   if (!navRef.current) {
     navRef.current = createNavigator({
       onChange: (entry, direction) => {
@@ -347,6 +395,10 @@ export default function App() {
         const willFocus = FOCUSED.has(entry.screen);
         const chrome = wasFocused === willFocus ? [] : [willFocus ? "chromeout" : "chromein"];
         screenRef.current = entry.screen;
+        // Mirrors withTransition's own condition exactly, so this is set to
+        // true only when a view transition will actually run — never when it
+        // is about to fall back to a plain DOM update.
+        animatedByViewTransition.current = canViewTransition && !prefersReducedMotion();
         withTransition(direction, () => {
           flushSync(() => {
             setScreen(entry.screen);
@@ -369,14 +421,53 @@ export default function App() {
     return () => window.removeEventListener("popstate", onPop);
   }, []);
 
+  // v104.2 — see the note above mainRef. Skips the very first screen: nobody
+  // navigated to get there, and stealing focus the instant the app opens —
+  // before anyone has done anything — is its own kind of disorienting.
+  // preventScroll because scroll position is already handled by the nav
+  // stack (top on the way in, restored on the way back); without it, focus()
+  // performs its own scroll-into-view first and the two fight each other.
+  useEffect(() => {
+    if (!everMounted.current) { everMounted.current = true; return; }
+    mainRef.current?.focus({ preventScroll: true });
+  }, [screen]);
+
   const navigate = useCallback((s, p) => {
     navRef.current.go(s, p);
   }, []);
 
+  // v104.3 — these three all used to call `setScreen("home")` directly,
+  // bypassing navRef the same way the exam-retake bug did. Measured with
+  // Playwright: after switching language, `history.length` didn't move and
+  // `history.state.linguaIndex` stayed pointed at the entry from BEFORE the
+  // switch — the navigator's stack thought it was still wherever the user
+  // had been, while the screen on-DOM said "home". It never visibly broke
+  // navigation here only because switching language routes through
+  // <Onboarding>, which renders above the screen/<main> system entirely and
+  // so never asks the desynced stack a question it would get wrong. That's
+  // luck, not correctness, and `params` was left stale too — a plain
+  // setScreen never clears it, so whatever params the PREVIOUS screen was
+  // showing (a lesson's exercise filter, a conversation stop id) stayed in
+  // React state after the jump to "home".
+  //
+  // `replace`, not `go`: this isn't a place to arrive at that back should
+  // walk you out of — it's a full reset of context (new language, or a wiped
+  // account), so the current stack entry becomes "home" in place rather than
+  // stacking a new one on top of wherever the user happened to be.
+  const resetToHome = useCallback(() => {
+    navRef.current.replace("home", null);
+    screenRef.current = "home";
+    // No view transition ran for this jump, so let the plain CSS entrance
+    // animation play instead of leaving `<main>` a hard, unanimated cut.
+    animatedByViewTransition.current = false;
+    setScreen("home");
+    setParams(null);
+  }, []);
+
   const switchLanguage = useCallback(() => {
     setAppState((s) => ({ ...s, onboarded: false, currentLanguage: null }));
-    setScreen("home");
-  }, [setAppState]);
+    resetToHome();
+  }, [setAppState, resetToHome]);
 
   // v40: instant language switch — change the active language WITHOUT wiping
   // onboarding/goal. Used by the quick-switch picker in the top bar so changing
@@ -384,15 +475,15 @@ export default function App() {
   // preserved automatically since it's keyed by language code in storage.
   const pickLanguageInstant = useCallback((code) => {
     setAppState((s) => ({ ...s, currentLanguage: code }));
-    setScreen("home");
+    resetToHome();
     window.scrollTo(0, 0);
-  }, [setAppState]);
+  }, [setAppState, resetToHome]);
 
   const resetAll = useCallback(async () => {
     await getStorage().clear();
     setAppState(DEFAULT_APP_STATE);
-    setScreen("home");
-  }, [setAppState]);
+    resetToHome();
+  }, [setAppState, resetToHome]);
 
   // Loading states
   if (!loaded) {
@@ -498,7 +589,16 @@ export default function App() {
           change. Suspense wraps it because the heavier screens are code-split;
           the fallback is deliberately plain, since it shows for a few hundred
           milliseconds at most and a spinner that flashes is worse than a word. */}
-      <main key={screen} className="screen-enter" id="main">
+      {/* v104.2: "screen-enter" is applied only when THIS screen was not
+          pushed in by a view transition — the very first paint (nothing to
+          transition from), or a browser/setting where withTransition never
+          runs one at all. See the note above animatedByViewTransition.
+
+          tabIndex={-1}: programmatically focusable, never part of the normal
+          Tab order — nobody should ever tab INTO the landmark itself, only
+          land there because a navigation just happened. See the focus effect
+          below for why this needs to exist at all. */}
+      <main key={screen} ref={mainRef} tabIndex={-1} className={animatedByViewTransition.current ? "" : "screen-enter"} id="main">
         <Suspense fallback={<div className="screen-loading">Loading…</div>}>
         {screen === "home" && <Home {...screenProps} />}
         {screen === "hub" && <PracticeHub {...screenProps} />}

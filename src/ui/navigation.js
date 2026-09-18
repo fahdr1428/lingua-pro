@@ -145,7 +145,27 @@ export function createNavigator({ onChange, getScroll, setScroll }) {
     // rather than instant, because a jump to the top from halfway down a long
     // home screen is disorienting — unless the person has asked for less
     // motion, in which case it is immediate.
-    if (current().screen === screen && JSON.stringify(current().params || null) === JSON.stringify(params || null)) {
+    //
+    // v104.2 — RESTRICTED TO PARAM-LESS VISITS, after this broke a real
+    // button. "Retake Chapter 1 exam" on a failed exam calls
+    //   onNavigate("lesson", { mode: "chapter_exam", chapter: 1,
+    //                           filter: { vocabIds: [...] }, sessionSize: 8 })
+    // — and a retake of the SAME chapter carries the SAME chapter, the SAME
+    // vocabIds, the SAME sessionSize as the attempt that just failed. Compared
+    // by JSON.stringify, that is byte-for-byte the entry already on the stack,
+    // so this dedupe was swallowing the click: onChange never fired, no new
+    // session was requested, the fail screen just sat there. Proven directly
+    // (createNavigator in isolation, no UI): a second go("lesson", <identical
+    // params>) produced zero additional onChange calls.
+    //
+    // The five bottom-nav tabs — the only thing this was written for — always
+    // navigate with no params at all, so scoping the check to "both sides
+    // param-less" keeps tapping a tab twice cheap and free of a stray history
+    // entry, while any navigation that carries params — starting a lesson, an
+    // exam, a specific conversation stop — is now always treated as a fresh
+    // request, retried or not.
+    const noParamsEitherSide = !current().params && !params;
+    if (noParamsEitherSide && current().screen === screen) {
       if (getScroll() > 0) {
         window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
       }
