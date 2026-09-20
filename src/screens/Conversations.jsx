@@ -99,12 +99,12 @@ export function Conversations({ pack, appState, onNavigate }) {
                   {conv.lines.map((line, i) => (
                     <div
                       key={i}
-                      onClick={() => voiceAvailable && speak(line.native, lang.ttsCode)}
+                      onClick={() => voiceAvailable && speak(line.native, lang.ttsCode, { code: pack.code, translit: line.translit })}
                       role={voiceAvailable ? "button" : undefined}
                       tabIndex={voiceAvailable ? 0 : undefined}
                       aria-label={voiceAvailable ? "Hear this line" : undefined}
                       onKeyDown={voiceAvailable ? (e) => {
-                        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); speak(line.native, lang.ttsCode); }
+                        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); speak(line.native, lang.ttsCode, { code: pack.code, translit: line.translit }); }
                       } : undefined}
                       style={{
                         padding: "12px 0",

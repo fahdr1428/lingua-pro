@@ -103,6 +103,7 @@ export function buildExam(pack) {
       answer: v.translit,
       options: shuffled([v.translit, ...distractors(v.translit, sameLength, others)]),
       speakOnReveal: v.lemma,
+      speakTranslit: v.translit,
     });
   }
 
@@ -118,6 +119,7 @@ export function buildExam(pack) {
       answer: v.translation,
       options: shuffled([v.translation, ...distractors(v.translation, [], others)]),
       speakOnReveal: v.lemma,
+      speakTranslit: v.translit,
     });
   }
 
@@ -135,6 +137,7 @@ export function buildExam(pack) {
       answer: l.name,
       options: shuffled([l.name, ...distractors(l.name, near, others)]),
       speakOnReveal: l.char,
+      speakTranslit: l.name,
     });
   }
 

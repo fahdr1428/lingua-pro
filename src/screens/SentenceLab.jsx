@@ -156,7 +156,7 @@ function SeeStep({ pattern, lang, isNonLatin, rtl, onNext, isExtend }) {
       <div style={{ fontSize: 13, color: "var(--text-dim)", marginBottom: 4 }}>{isNonLatin ? fullTranslit : ""}</div>
       <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 4 }}>"{pattern.translation}"</div>
       <button
-        onClick={() => speak(full, lang.ttsCode)}
+        onClick={() => speak(full, lang.ttsCode, { code: lang.code, translit: fullTranslit })}
         style={{ background: "none", border: "1px solid var(--border)", borderRadius: 999, padding: "6px 14px", cursor: "pointer", color: "var(--text)", fontSize: 14, marginTop: 8 }}
       >
         🔊 Hear it
@@ -191,7 +191,7 @@ function BuildStep({ pattern, lang, isNonLatin, rtl, scaffold, onNext }) {
       setWrong(false);
       if (np.length === correct.length) {
         setTimeout(() => {
-          speak(correct.map((c) => c.text).join(" "), lang.ttsCode);
+          speak(correct.map((c) => c.text).join(" "), lang.ttsCode, { code: lang.code, translit: correct.map((c) => c.translit).join(" ") });
         }, 200);
       }
     } else {
@@ -273,7 +273,7 @@ function TwistStep({ twist, lang, isNonLatin, rtl, onNext }) {
       const np = [...placed, chunk];
       setPlaced(np);
       setWrong(false);
-      if (np.length === correct.length) setTimeout(() => speak(correct.map((c) => c.text).join(" "), lang.ttsCode), 200);
+      if (np.length === correct.length) setTimeout(() => speak(correct.map((c) => c.text).join(" "), lang.ttsCode, { code: lang.code, translit: correct.map((c) => c.translit).join(" ") }), 200);
     } else {
       setWrong(true); setTimeout(() => setWrong(false), 600);
     }

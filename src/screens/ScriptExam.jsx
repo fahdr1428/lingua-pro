@@ -67,7 +67,7 @@ export function ScriptExam({ pack, appState, setAppState, onNavigate }) {
     setPicked(opt);
     const correct = opt === q.answer;
     if (correct) setRight((r) => r + 1);
-    if (q.speakOnReveal) setTimeout(() => speak(q.speakOnReveal, lang.ttsCode), 250);
+    if (q.speakOnReveal) setTimeout(() => speak(q.speakOnReveal, lang.ttsCode, { code: pack.code, translit: q.speakTranslit }), 250);
   }
 
   function next() {

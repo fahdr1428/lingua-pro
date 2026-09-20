@@ -66,7 +66,7 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
     if (!voiceAvailable) return;
     // Speak each line with a small gap
     passage.lines.forEach((line, i) => {
-      setTimeout(() => speak(line.native, lang.ttsCode), i * 1800);
+      setTimeout(() => speak(line.native, lang.ttsCode, { code: pack.code, translit: line.translit }), i * 1800);
     });
   }
 
@@ -165,12 +165,12 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
           {passage.lines.map((line, i) => (
             <div
               key={i}
-              onClick={() => voiceAvailable && speak(line.native, lang.ttsCode)}
+              onClick={() => voiceAvailable && speak(line.native, lang.ttsCode, { code: pack.code, translit: line.translit })}
               role={voiceAvailable ? "button" : undefined}
               tabIndex={voiceAvailable ? 0 : undefined}
               aria-label={voiceAvailable ? "Hear this line" : undefined}
               onKeyDown={voiceAvailable ? (e) => {
-                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); speak(line.native, lang.ttsCode); }
+                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); speak(line.native, lang.ttsCode, { code: pack.code, translit: line.translit }); }
               } : undefined}
               style={{
                 padding: "14px 0",

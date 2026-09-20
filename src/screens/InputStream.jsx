@@ -219,7 +219,7 @@ function Section({ label, note, sentences, lang, pack, isNonLatin, showRoman, vo
                 </div>
                 {voiceAvailable && (
                   <button
-                    onClick={(e) => { e.stopPropagation(); speak(s.native, lang.ttsCode); }}
+                    onClick={(e) => { e.stopPropagation(); speak(s.native, lang.ttsCode, { code: pack.code, translit: s.translit }); }}
                     aria-label="Hear this sentence"
                     style={{
                       background: "transparent", border: "1px solid var(--border)",

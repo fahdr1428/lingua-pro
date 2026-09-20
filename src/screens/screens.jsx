@@ -293,7 +293,7 @@ export function Letters({ pack, appState, onNavigate }) {
           {letters.map((l, i) => (
             <button
               key={i}
-              onClick={() => { setSelected(l); speak(l.char, lang.ttsCode); }}
+              onClick={() => { setSelected(l); speak(l.char, lang.ttsCode, { code: pack.code, translit: l.name }); }}
               style={{
                 background: selected?.char === l.char ? "var(--primary-dark)" : "var(--surface)",
                 border: `2px solid ${selected?.char === l.char ? "var(--primary)" : "var(--border)"}`,
@@ -323,7 +323,7 @@ export function Letters({ pack, appState, onNavigate }) {
             <div style={{ fontSize: 14, color: "var(--text-dim)" }}>Letter</div>
             <div style={{ fontSize: 22, fontWeight: 800 }}>{selected.name} ({selected.char})</div>
             <div style={{ marginTop: 8, fontSize: 14 }}><strong>Sound:</strong> {selected.sound}</div>
-            <Button style={{ marginTop: 14 }} onClick={() => speak(selected.char, lang.ttsCode)}>
+            <Button style={{ marginTop: 14 }} onClick={() => speak(selected.char, lang.ttsCode, { code: pack.code, translit: selected.name })}>
               🔊 Hear again
             </Button>
           </Card>

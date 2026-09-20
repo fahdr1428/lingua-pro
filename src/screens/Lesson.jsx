@@ -2261,12 +2261,12 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
         {(g.examples || []).map((ex, i) => (
           <div
             key={i}
-            onClick={() => voiceAvailable && speak(ex.native, lang.ttsCode)}
+            onClick={() => voiceAvailable && speak(ex.native, lang.ttsCode, { code: lang.code, translit: ex.translit })}
             role={voiceAvailable ? "button" : undefined}
             tabIndex={voiceAvailable ? 0 : undefined}
             aria-label={voiceAvailable ? "Hear this line" : undefined}
             onKeyDown={voiceAvailable ? (e) => {
-              if (e.key === "Enter" || e.key === " ") { e.preventDefault(); speak(ex.native, lang.ttsCode); }
+              if (e.key === "Enter" || e.key === " ") { e.preventDefault(); speak(ex.native, lang.ttsCode, { code: lang.code, translit: ex.translit }); }
             } : undefined}
             style={{ background: "var(--surface)", borderRadius: 10, padding: 12, cursor: voiceAvailable ? "pointer" : "default" }}
           >

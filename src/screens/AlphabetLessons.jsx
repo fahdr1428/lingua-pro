@@ -444,7 +444,7 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
           <Button
             variant="secondary"
             style={{ marginTop: 14, marginBottom: 14 }}
-            onClick={() => speak(letter.char, lang.ttsCode)}
+            onClick={() => speak(letter.char, lang.ttsCode, { code: pack.code, translit: letter.name })}
           >
             🔊 Hear it
           </Button>
