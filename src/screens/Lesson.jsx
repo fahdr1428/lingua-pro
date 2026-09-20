@@ -1565,14 +1565,20 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     </div>
                     <div style={{ fontSize: 15, fontWeight: 800, marginBottom: 8 }}>{exp.title}</div>
                     <div style={{ fontSize: 14, color: "var(--text)", lineHeight: 1.55 }}>
-                      {/* Render simple **bold** markdown */}
-                      {exp.body.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
-                        part.startsWith("**") && part.endsWith("**") ? (
-                          <strong key={i} style={{ color: exp.special ? "var(--accent)" : "var(--primary)" }}>{part.slice(2, -2)}</strong>
-                        ) : (
-                          <React.Fragment key={i}>{part}</React.Fragment>
-                        )
-                      )}
+                      {/* Render simple **bold** and *italic* markdown. SPECIAL_CASES
+                          entries in explain.js (e.g. "Soy→Estoy", "Le→La") use *italic*
+                          for the same reason grammar_part*.js does — setting off an
+                          embedded example inline — and it rendered with literal
+                          asterisks left on before this matched it too. */}
+                      {exp.body.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g).map((part, i) => {
+                        if (part.startsWith("**") && part.endsWith("**")) {
+                          return <strong key={i} style={{ color: exp.special ? "var(--accent)" : "var(--primary)" }}>{part.slice(2, -2)}</strong>;
+                        }
+                        if (part.startsWith("*") && part.endsWith("*")) {
+                          return <em key={i}>{part.slice(1, -1)}</em>;
+                        }
+                        return <React.Fragment key={i}>{part}</React.Fragment>;
+                      })}
                     </div>
 
                     {/* v79 — THE WORD IN A REAL SENTENCE.
@@ -2212,9 +2218,21 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
   const [checkAnswered, setCheckAnswered] = React.useState(null);
   const check = g.checks && g.checks[0];
 
+  // v104.4 — grammar concept text is hand-authored prose (grammar_part*.js)
+  // that uses both **bold** and *italic* for exactly the reason a writer
+  // reaches for either: **bold** to name the grammatical point, *italic* to
+  // set off an embedded native-script or romanised example inline in an
+  // English sentence. This only ever implemented **bold** — every *italic*
+  // span (39 of them, across German, Turkish, Persian, Punjabi, Tamil,
+  // Malayalam, Somali, Indonesian, Tagalog, Nigerian Pidgin) rendered with
+  // its asterisks left on, literally, in production: "*میں روٹی کھاندا آں*"
+  // with the stars still there. The alternation tries **bold** first at each
+  // position, so a run of four asterisks is never mistaken for two italics.
   function boldify(text) {
     const esc = String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    return esc.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    return esc.replace(/\*\*(.+?)\*\*|\*(.+?)\*/g, (m, bold, italic) =>
+      bold !== undefined ? `<strong>${bold}</strong>` : `<em>${italic}</em>`
+    );
   }
 
   return (

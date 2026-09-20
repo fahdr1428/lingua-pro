@@ -538,6 +538,90 @@ async function toFlashcards(page) {
   await ctx.close();
 }
 
+// ---------------------------------------------------------------------------
+// 8. THE DESKTOP RAIL SURVIVES A FORWARD NAVIGATION
+//
+// Every check above runs at a 414×896 phone viewport — the only viewport
+// this file had ever used. Caught only by looking at actual screenshots at a
+// desktop width (1440×900), not by any of the numeric checks above, all of
+// which passed the whole time: for the first ~70ms of a FORWARD navigation,
+// the departing screen's snapshot visibly painted over the side rail,
+// blanking "Zaban" and the five nav items until it finished sliding clear.
+//
+// The mechanism: ::view-transition-old(screen)/::view-transition-new(screen)
+// carry an explicit z-index (1/2) so the arriving screen covers the one it
+// slides over. ::view-transition-group(rail) had no z-index at all — which
+// defaults to auto, and an explicit positive z-index always outranks a
+// sibling stacked at auto, regardless of paint order. On the phone layout
+// this was invisible: the bottom nav sits in a different row, so a
+// horizontal slide of <main> never crosses it. On the desktop layout the
+// rail sits in the SAME row, immediately to <main>'s left — and a FORWARD
+// navigation's departing screen slides LEFT, directly through the rail's own
+// screen space, with a higher z-index than it.
+//
+// FIRST ATTEMPT AT THIS CHECK sampled pixels with page.screenshot() in a
+// tight loop, looking for the rail's dark (--ink) text going missing. It
+// never failed, even reverted onto the exact code this section's own
+// comment above describes — because page.screenshot() in this environment
+// takes 100-250ms round-trip, and the whole bug window is ~35-70ms: the
+// first screenshot always lands after the transition has already finished.
+// This is the same lesson v104.2 already paid for once (see 5c above) —
+// screenshot polling races the very thing it is trying to catch.
+//
+// The fix is to not use screenshots at all. z-index is a computed style, and
+// computed style of a view-transition pseudo-element is readable the
+// ordinary way — getComputedStyle(document.documentElement,
+// "::view-transition-group(rail)") — synchronously, from inside the page,
+// the instant the transition is ready. No round trip, nothing to race.
+// ---------------------------------------------------------------------------
+{
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await openApp(ctx);
+
+  const z = await page.evaluate(() => new Promise((resolve) => {
+    const btn = [...document.querySelectorAll(".side-rail-item")].find((x) => /practice/i.test(x.innerText || ""));
+    if (!btn) return resolve(null);
+    const orig = document.startViewTransition?.bind(document);
+    if (!orig) return resolve(null);
+    document.startViewTransition = (arg) => {
+      const vt = orig(arg);
+      let captured = null;
+      vt.ready.then(() => {
+        const read = (pseudo) => getComputedStyle(document.documentElement, pseudo).zIndex;
+        captured = {
+          rail: read("::view-transition-group(rail)"),
+          nav: read("::view-transition-group(nav)"),
+          screenOld: read("::view-transition-old(screen)"),
+          screenNew: read("::view-transition-new(screen)"),
+        };
+      }, () => {});
+      vt.finished.finally(() => resolve(captured));
+      return vt;
+    };
+    btn.click();
+  }));
+
+  if (!z) {
+    problems.push("could not capture z-index during a desktop forward navigation — this check proved nothing");
+  } else {
+    const num = (v) => (v === "auto" ? null : Number(v));
+    const railZ = num(z.rail);
+    const screenTop = Math.max(num(z.screenOld) ?? -Infinity, num(z.screenNew) ?? -Infinity);
+    if (railZ === null) {
+      problems.push(
+        `::view-transition-group(rail) has no z-index (computed "auto") while the screen it sits beside does ` +
+        `(old=${z.screenOld}, new=${z.screenNew}) — a sibling with z-index:auto always loses to one with a ` +
+        `positive z-index, so the departing screen's forward-navigation slide (which moves LEFT, through the ` +
+        `rail's own column) paints directly over the rail. Confirmed on camera: "Zaban" and all five nav items ` +
+        `disappear for the ~70ms it takes to slide clear.`
+      );
+    } else if (railZ <= screenTop) {
+      problems.push(`::view-transition-group(rail) z-index (${railZ}) does not outrank the screen's (${screenTop}) — the rail can still be painted over`);
+    }
+  }
+  await ctx.close();
+}
+
 await browser.close();
 
 console.log("\n  navigation checked in a real browser: stack, direction, chrome, scroll, reduced motion");

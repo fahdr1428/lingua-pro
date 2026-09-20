@@ -2260,6 +2260,29 @@ main#main { view-transition-name: screen; contain: layout; }
 ::view-transition-group(nav),
 ::view-transition-group(rail) { animation: none; }
 
+/* v104.4 — THE CHROME MUST OUTRANK THE SCREEN, ALWAYS.
+   ::view-transition-old(screen)/::view-transition-new(screen) below carry an
+   explicit z-index (1/2, flipped by direction) so the arriving screen paints
+   over the departing one. ::view-transition-group(nav) and (rail) were never
+   given one, which defaults to z-index:auto — and an explicit positive
+   z-index always outranks a sibling stacked at auto, regardless of paint
+   order. On the phone layout that was invisible: the bottom nav sits in a
+   different row, so a horizontal slide of <main> never crosses it. On the
+   desktop layout the side rail sits in the SAME row, immediately to the
+   left of <main> — and FORWARD navigation's departing screen slides LEFT,
+   directly through the rail's own screen space. Found on camera first — a
+   forward navigation at 1440px briefly painted the outgoing screen's edge
+   directly over the rail, blanking out "Zaban" and the five nav items for
+   the ~70ms it took to slide clear — then confirmed the mechanism directly:
+   getComputedStyle(document.documentElement, "::view-transition-group(rail)")
+   read z-index "auto" the instant the transition was ready. (Back doesn't
+   show it — the departing screen there slides RIGHT, away from the rail, so
+   it never overlaps.) The rail and bottom nav are the one fixed point in
+   this whole system; nothing sliding through their row should ever be able
+   to cover them, so they now always win. */
+::view-transition-group(nav),
+::view-transition-group(rail) { z-index: 10; }
+
 /* The snapshots keep their own size rather than being stretched to the group
    box, and are pinned to the top so the visible region does not drift. */
 ::view-transition-old(screen),
