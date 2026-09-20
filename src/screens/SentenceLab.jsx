@@ -112,8 +112,19 @@ export function SentenceLab({ pack, params, onNavigate, appState, setAppState })
     onNavigate("home");
   }
 
+  // v104.6 — this used to force minHeight:100vh on every drop, regardless of
+  // how tall the actual content was. A drop's card is a few chunks and a
+  // button — a few hundred px — so on most screens this stretched a wash of
+  // ${lang.color} at ~9% opacity fading to --bg across the WHOLE viewport,
+  // leaving thirty-plus percent of the screen (worse on a short mobile
+  // Sentence Lab, worst on a 900px+ desktop one) as dead, oddly-tinted empty
+  // space below the card, with nothing in it. Safe to just let the wrapper
+  // size to its content: the gradient's own end stop is --bg, which is also
+  // the page's own background (html/body/#root), so wherever this div now
+  // ends there is no seam — the "extra" cream below it was always going to
+  // look identical whether this div drew it or the page did.
   return (
-    <div style={{ minHeight: "100vh", background: `linear-gradient(180deg, ${lang.color}18, var(--bg))` }}>
+    <div style={{ background: `linear-gradient(180deg, ${lang.color}18, var(--bg))` }}>
       <Container style={{ paddingTop: 24, paddingBottom: 40 }}>
         {/* progress */}
         <div style={{ marginBottom: 8 }}>

@@ -725,7 +725,7 @@ function VowelSignLesson({ data, lang, voiceAvailable, onDone, onBack }) {
         <Button
           variant="secondary"
           style={{ marginTop: 14 }}
-          onClick={() => speak(sign.combined, lang.ttsCode)}
+          onClick={() => speak(sign.combined, lang.ttsCode, { code: lang.code, translit: sign.reads })}
         >
           🔊 Hear {sign.reads}
         </Button>
@@ -821,7 +821,7 @@ function BlockLesson({ data, lang, voiceAvailable, onDone, onBack }) {
       </Card>
 
       {voiceAvailable && (
-        <Button variant="secondary" style={{ marginTop: 14 }} onClick={() => speak(b.result, lang.ttsCode)}>
+        <Button variant="secondary" style={{ marginTop: 14 }} onClick={() => speak(b.result, lang.ttsCode, { code: lang.code, translit: b.reads })}>
           🔊 Hear it
         </Button>
       )}
@@ -856,6 +856,7 @@ function CombinedQuiz({ signs, demo, lang, voiceAvailable, onComplete, onBack })
       prompt="What does this syllable read as?"
       renderStimulus={(q) => q.answer.combined}
       speakText={(q) => q.answer.combined}
+      speakTranslit={(q) => q.answer.reads}
       optionKey={(o) => o.combined}
       renderOption={(o) => (
         <>
@@ -901,6 +902,7 @@ function AlphabetQuiz({ letters, lang, voiceAvailable, onComplete, onBack }) {
       renderStimulus={(q) => (q.reverse ? null : q.answer.char)}
       renderStimulusText={(q) => (q.reverse ? q.answer.sound : null)}
       speakText={(q) => q.answer.char}
+      speakTranslit={(q) => q.answer.name}
       optionKey={(o) => o.char}
       renderOption={(o, q) =>
         q.reverse ? (
@@ -926,7 +928,7 @@ function AlphabetQuiz({ letters, lang, voiceAvailable, onComplete, onBack }) {
 // =============================================================================
 function QuizRunner({
   questions, lang, voiceAvailable, kicker, prompt,
-  renderStimulus, renderStimulusText, speakText,
+  renderStimulus, renderStimulusText, speakText, speakTranslit,
   optionKey, renderOption, answerLabel,
   onComplete, onBack,
 }) {
@@ -996,7 +998,7 @@ function QuizRunner({
           <Button
             variant="ghost"
             style={{ marginTop: 8, fontSize: 14 }}
-            onClick={() => speak(speakText(q), lang.ttsCode)}
+            onClick={() => speak(speakText(q), lang.ttsCode, { code: lang.code, translit: speakTranslit?.(q) })}
           >
             🔊 Hear it
           </Button>

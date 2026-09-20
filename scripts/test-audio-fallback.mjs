@@ -34,6 +34,11 @@ const problems = [];
 // same options is fine but silently dropping the option is caught).
 const CALLS = [
   { file: "src/screens/AlphabetLessons.jsx", must: 'speak(letter.char, lang.ttsCode, { code: pack.code, translit: letter.name })' },
+  { file: "src/screens/AlphabetLessons.jsx", must: 'speak(sign.combined, lang.ttsCode, { code: lang.code, translit: sign.reads })' },
+  { file: "src/screens/AlphabetLessons.jsx", must: 'speak(b.result, lang.ttsCode, { code: lang.code, translit: b.reads })' },
+  { file: "src/screens/AlphabetLessons.jsx", must: 'speak(speakText(q), lang.ttsCode, { code: lang.code, translit: speakTranslit?.(q) })' },
+  { file: "src/screens/AlphabetLessons.jsx", must: 'speakTranslit={(q) => q.answer.reads}' },
+  { file: "src/screens/AlphabetLessons.jsx", must: 'speakTranslit={(q) => q.answer.name}' },
   { file: "src/screens/screens.jsx", must: 'speak(l.char, lang.ttsCode, { code: pack.code, translit: l.name })' },
   { file: "src/screens/screens.jsx", must: 'speak(selected.char, lang.ttsCode, { code: pack.code, translit: selected.name })' },
   { file: "src/screens/Conversations.jsx", must: 'speak(line.native, lang.ttsCode, { code: pack.code, translit: line.translit })' },
