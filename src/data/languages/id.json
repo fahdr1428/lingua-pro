@@ -2798,6 +2798,246 @@
           "translation": "The house is blue"
         }
       ]
+    },
+    {
+      "id": "id_0161",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "Enam",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "Enam hari lagi",
+          "translation": "Six more days"
+        }
+      ]
+    },
+    {
+      "id": "id_0162",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "Tujuh",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "Jam tujuh pagi",
+          "translation": "Seven in the morning"
+        }
+      ]
+    },
+    {
+      "id": "id_0163",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "Delapan",
+      "translation": "eight",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "Delapan orang",
+          "translation": "Eight people"
+        }
+      ]
+    },
+    {
+      "id": "id_0164",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "Sembilan",
+      "translation": "nine",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "Sembilan ribu rupiah",
+          "translation": "Nine thousand rupiah"
+        }
+      ]
+    },
+    {
+      "id": "id_0165",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "Sepuluh",
+      "translation": "ten",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "Sepuluh menit",
+          "translation": "Ten minutes"
+        }
+      ]
+    },
+    {
+      "id": "id_0166",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "Seratus",
+      "translation": "hundred",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "Seratus ribu rupiah",
+          "translation": "A hundred thousand rupiah"
+        }
+      ]
+    },
+    {
+      "id": "id_0167",
+      "unit": "u5",
+      "category": "Time",
+      "lemma": "pagi",
+      "translation": "morning",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "Setiap pagi saya minum kopi",
+          "translation": "Every morning I drink coffee"
+        }
+      ]
+    },
+    {
+      "id": "id_0168",
+      "unit": "u5",
+      "category": "Time",
+      "lemma": "malam",
+      "translation": "night",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "Malam ini dingin",
+          "translation": "It is cold tonight"
+        }
+      ]
+    },
+    {
+      "id": "id_0169",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "duduk",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "Silakan duduk",
+          "translation": "Please sit down"
+        }
+      ]
+    },
+    {
+      "id": "id_0170",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "memasak",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "Ibu memasak nasi",
+          "translation": "Mother is cooking rice"
+        }
+      ]
+    },
+    {
+      "id": "id_0171",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "bertanya",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "Boleh saya bertanya?",
+          "translation": "May I ask?"
+        }
+      ]
+    },
+    {
+      "id": "id_0172",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "kamar",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "Kamar saya kecil",
+          "translation": "My room is small"
+        }
+      ]
+    },
+    {
+      "id": "id_0173",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "indah",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "Pantai ini indah",
+          "translation": "This beach is beautiful"
+        }
+      ]
+    },
+    {
+      "id": "id_0174",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "mata",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "Mata saya merah",
+          "translation": "My eyes are red"
+        }
+      ]
+    },
+    {
+      "id": "id_0175",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "rasa sakit",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "Rasa sakitnya sudah hilang",
+          "translation": "The pain is gone"
+        }
+      ]
+    },
+    {
+      "id": "id_0176",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "obat",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "Saya perlu obat",
+          "translation": "I need medicine"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

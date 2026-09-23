@@ -3727,6 +3727,142 @@
         }
       ],
       "translit": "paransaek"
+    },
+    {
+      "id": "ko_0193",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "여섯",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "여섯 시",
+          "translation": "Six o'clock",
+          "translit": "yeoseot si"
+        }
+      ],
+      "translit": "yeoseot"
+    },
+    {
+      "id": "ko_0194",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "일곱",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "일곱 명",
+          "translation": "Seven people",
+          "translit": "ilgop myeong"
+        }
+      ],
+      "translit": "ilgop"
+    },
+    {
+      "id": "ko_0195",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "앉다",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "여기 앉으세요",
+          "translation": "Please sit here",
+          "translit": "yeogi anjeuseyo"
+        }
+      ],
+      "translit": "anjda"
+    },
+    {
+      "id": "ko_0196",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "요리하다",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "요리하는 것을 좋아해요",
+          "translation": "I like cooking",
+          "translit": "yorihaneun geoseul joahaeyo"
+        }
+      ],
+      "translit": "yorihada"
+    },
+    {
+      "id": "ko_0197",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "물어보다",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "선생님께 물어보세요",
+          "translation": "Ask the teacher",
+          "translit": "seonsaengnimkke mureoboseyo"
+        }
+      ],
+      "translit": "mureoboda"
+    },
+    {
+      "id": "ko_0198",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "방",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "방이 작아요",
+          "translation": "The room is small",
+          "translit": "bangi jagayo"
+        }
+      ],
+      "translit": "bang"
+    },
+    {
+      "id": "ko_0199",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "아름답다",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "경치가 아름답다",
+          "translation": "The view is beautiful",
+          "translit": "gyeongchiga areumdapda"
+        }
+      ],
+      "translit": "areumdapda"
+    },
+    {
+      "id": "ko_0200",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "약",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "약 먹었어요?",
+          "translation": "Did you take your medicine?",
+          "translit": "yak meogeosseoyo?"
+        }
+      ],
+      "translit": "yak"
     }
   ],
   "alphabetGroups": [

@@ -3512,6 +3512,159 @@
         }
       ],
       "translit": "lánsè"
+    },
+    {
+      "id": "zh_0181",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "六",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "六点",
+          "translation": "Six o'clock",
+          "translit": "liù diǎn"
+        }
+      ],
+      "translit": "liù"
+    },
+    {
+      "id": "zh_0182",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "七",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "七天",
+          "translation": "Seven days",
+          "translit": "qī tiān"
+        }
+      ],
+      "translit": "qī"
+    },
+    {
+      "id": "zh_0183",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "坐",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "请坐",
+          "translation": "Please sit",
+          "translit": "qǐng zuò"
+        }
+      ],
+      "translit": "zuò"
+    },
+    {
+      "id": "zh_0184",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "做饭",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "妈妈在做饭",
+          "translation": "Mom is cooking",
+          "translit": "māma zài zuò fàn"
+        }
+      ],
+      "translit": "zuò fàn"
+    },
+    {
+      "id": "zh_0185",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "问",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "我可以问你吗？",
+          "translation": "Can I ask you?",
+          "translit": "wǒ kěyǐ wèn nǐ ma?"
+        }
+      ],
+      "translit": "wèn"
+    },
+    {
+      "id": "zh_0186",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "房间",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "我的房间很小",
+          "translation": "My room is small",
+          "translit": "wǒ de fángjiān hěn xiǎo"
+        }
+      ],
+      "translit": "fángjiān"
+    },
+    {
+      "id": "zh_0187",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "漂亮",
+      "translation": "beautiful, pretty",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "这里很漂亮",
+          "translation": "It is beautiful here",
+          "translit": "zhèlǐ hěn piàoliang"
+        }
+      ],
+      "translit": "piàoliang"
+    },
+    {
+      "id": "zh_0188",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "疼",
+      "translation": "pain, to hurt",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "我头疼",
+          "translation": "I have a headache",
+          "translit": "wǒ tóu téng"
+        }
+      ],
+      "translit": "téng"
+    },
+    {
+      "id": "zh_0189",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "药",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "你吃药了吗？",
+          "translation": "Have you taken your medicine?",
+          "translit": "nǐ chī yào le ma?"
+        }
+      ],
+      "translit": "yào"
     }
   ],
   "alphabetGroups": [

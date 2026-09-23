@@ -10,7 +10,7 @@
 //   4. Cap the total so a session has a clear end.
 // =============================================================================
 
-import { retrievability } from "./srs.js";
+import { retrievability, masteryLevel } from "./srs.js";
 
 const DEFAULTS = {
   sessionSize: 10,
@@ -208,4 +208,72 @@ export function filterVocab(vocab, { category, tags, stage, unit, difficultyMax 
     if (tags && tags.length && !tags.some((t) => (v.tags || []).includes(t))) return false;
     return true;
   });
+}
+
+// =============================================================================
+// v105 — PRACTISE A TOPIC.
+//
+// filterVocab above has said "for study this category only" since it was
+// written, and nothing in the app ever called it with a category: there was no
+// way to say "I want to get numbers right before I phone my grandmother" or
+// "food words, before dinner at my aunt's". Every session was the curriculum's
+// choice. These two functions are what the Topics screen and the engine's
+// "topic" mode run on, and they are pure so test-topics.mjs can hold them to
+// what the screen promises without a browser.
+// =============================================================================
+
+/**
+ * One focused session inside a single topic.
+ *
+ *   · a few NEW words, capped at newPerSession — a drill that dumps eight
+ *     unseen words on someone is a flashcard deck, not practice
+ *   · then the SHAKIEST learned words in the topic: lowest retrievability
+ *     first (closest to being forgotten), most lapses as the tiebreak
+ *   · topped up with more unseen words only if the topic has too few learned
+ *     ones to fill the session — a brand-new topic still gives a full session
+ *
+ * Pack order is kept for unseen words, which is frequency order in every pack.
+ */
+export function buildTopicQueue(vocab, progress, { sessionSize = 8, newPerSession = 3, now = Date.now() } = {}) {
+  const isLearned = (v) => (progress[v.id]?.reps || 0) > 0;
+  const unseen = vocab.filter((v) => !isLearned(v));
+  const shaky = vocab
+    .filter(isLearned)
+    .map((v) => ({ v, r: retrievability(progress[v.id], now), l: progress[v.id].lapses || 0 }))
+    .sort((a, b) => a.r - b.r || b.l - a.l)
+    .map((x) => x.v);
+
+  const fresh = unseen.slice(0, Math.min(newPerSession, sessionSize));
+  let queue = [...fresh, ...shaky.slice(0, sessionSize - fresh.length)];
+  if (queue.length < sessionSize) {
+    queue = queue.concat(unseen.slice(fresh.length, fresh.length + (sessionSize - queue.length)));
+  }
+  return queue;
+}
+
+/**
+ * Where the learner stands in every topic the pack teaches: how many words it
+ * has, how many they've met, mastered, and how many are due for review. Words
+ * the learner saved themselves (custom) are left out — they have their own
+ * home under My words, and a "Custom" topic of one word is noise here.
+ *
+ * Topics smaller than minWords are dropped: a two-word topic makes a session
+ * that repeats the same two cards, which feels broken rather than focused.
+ */
+export function summariseTopics(vocab, progress, { now = Date.now(), minWords = 3, dueThreshold = 0.9 } = {}) {
+  const by = new Map();
+  for (const v of vocab) {
+    if (v.custom) continue;
+    const category = v.category || "Other";
+    if (!by.has(category)) by.set(category, { category, total: 0, learned: 0, mastered: 0, due: 0 });
+    const t = by.get(category);
+    t.total++;
+    const card = progress[v.id];
+    if (card && (card.reps || 0) > 0) {
+      t.learned++;
+      if (masteryLevel(card) >= 4) t.mastered++;
+      if (retrievability(card, now) < dueThreshold) t.due++;
+    }
+  }
+  return [...by.values()].filter((t) => t.total >= minWords);
 }

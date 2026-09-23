@@ -3895,6 +3895,74 @@
         }
       ],
       "translit": "neela"
+    },
+    {
+      "id": "ur_0203",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پکانا",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "امی کھانا پکا رہی ہیں",
+          "translation": "Mom is cooking food",
+          "translit": "ammi khana paka rahi hain"
+        }
+      ],
+      "translit": "pakana"
+    },
+    {
+      "id": "ur_0204",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پوچھنا",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "ان سے پوچھو",
+          "translation": "Ask them",
+          "translit": "un se poochho"
+        }
+      ],
+      "translit": "poochhna"
+    },
+    {
+      "id": "ur_0205",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "درد",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "مجھے درد ہے",
+          "translation": "I am in pain",
+          "translit": "mujhe dard hai"
+        }
+      ],
+      "translit": "dard"
+    },
+    {
+      "id": "ur_0206",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "دوائی",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "دوائی لے لو",
+          "translation": "Take the medicine",
+          "translit": "dawai le lo"
+        }
+      ],
+      "translit": "dawai"
     }
   ],
   "alphabetGroups": [

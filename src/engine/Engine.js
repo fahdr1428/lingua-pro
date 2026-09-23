@@ -7,7 +7,7 @@
 // =============================================================================
 
 import { newCardState, review, masteryLevel, RATING } from "./srs.js";
-import { buildQueue, countDue, countLearned, filterVocab } from "./selector.js";
+import { buildQueue, countDue, countLearned, filterVocab, buildTopicQueue, summariseTopics } from "./selector.js";
 import { generateLesson, gradeAnswer, EXERCISE } from "./generator.js";
 import { CONJUGATIONS } from "../data/conjugations.js";
 import { TENSES } from "../data/tenses.js";
@@ -214,6 +214,12 @@ export class Engine {
   // ---------------------------------------------------------------------------
   // Lesson generation — bulletproof: ALWAYS returns at least sessionSize exercises
   // ---------------------------------------------------------------------------
+  /** v105: per-topic standing for the Topics screen (see summariseTopics). */
+  async getTopics() {
+    const progress = await this.getProgress();
+    return summariseTopics(this.pack.vocab || [], progress);
+  }
+
   async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null, disabledExercises = null } = {}) {
     const progress = await this.getProgress();
     let pool = this.pack.vocab;
@@ -316,6 +322,12 @@ export class Engine {
       if (queue.length === 0) {
         queue = pool.slice(0, sessionSize);
       }
+    } else if (mode === "topic" && filter?.category) {
+      // v105: one topic, chosen by the learner — a few new words and the
+      // shakiest learned ones. See buildTopicQueue for why that mix.
+      // Saved-from-chat words are counted out of the topic's numbers on the
+      // Topics screen, so they stay out of its lesson too.
+      queue = buildTopicQueue(pool.filter((v) => !v.custom), progress, { sessionSize, newPerSession });
     } else if (mode === "unit" && filter?.unit) {
       // Unit lesson: focus on this unit's words specifically.
       // Mix learned (for review) and unseen (for new), prioritising unseen.

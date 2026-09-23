@@ -187,7 +187,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           // existed and never updated, and nothing failed loudly when they
           // arrived. Listed from the mode constants rather than typed out again
           // so the next mode that needs excluding is a one-line change.
-          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam"]);
+          // v105: "topic" too — someone who picked Numbers came to drill numbers,
+          // and a grammar lesson about word order in the middle is off-topic.
+          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic"]);
           const isReviewish = NO_TEACHING.has(params?.mode) || s.mode === "review";
           if (!isReviewish) {
             const allGrammar = getGrammar(pack.code);
@@ -280,6 +282,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         isChapterExam={params?.mode === "chapter_exam"}
         chapterNum={params?.chapter}
         passThreshold={70}
+        topic={params?.mode === "topic" ? params?.topic || params?.filter?.category : null}
       />
     );
   }
@@ -1787,7 +1790,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
 // RESULT — designed to feel rewarding + screenshot-worthy for sharing
 // =============================================================================
 
-function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [], onReviewMistakes, isExam = false, isChapterExam = false, chapterNum = null, passThreshold = 70 }) {
+function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [], onReviewMistakes, isExam = false, isChapterExam = false, chapterNum = null, passThreshold = 70, topic = null }) {
   const lang = LANGUAGES[pack.code];
   const framework = pack.frameworks?.[Math.floor(Math.random() * (pack.frameworks?.length || 1))];
 
@@ -1986,9 +1989,20 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
           </Card>
         )}
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 24 }}>
+        {/* v105: a topic session is one the learner chose; offer the same
+            again (a fresh mix from that topic) and the way back to the list. */}
+        {topic && (
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 24 }}>
+            <Button variant="secondary" onClick={() => onNavigate("topics")}>🎯 Other topics</Button>
+            <Button onClick={() => onNavigate("lesson", { mode: "topic", filter: { category: topic }, sessionSize: data.examSize || 8, topic })}>
+              Another round of {topic}
+            </Button>
+          </div>
+        )}
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: topic ? 10 : 24 }}>
           <Button variant="secondary" onClick={shareResult}>📤 Share</Button>
-          <Button onClick={() => onNavigate("home")}>Continue</Button>
+          <Button variant={topic ? "secondary" : undefined} onClick={() => onNavigate("home")}>Continue</Button>
         </div>
       </Container>
     </div>

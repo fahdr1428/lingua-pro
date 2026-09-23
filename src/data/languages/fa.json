@@ -2850,6 +2850,278 @@
         }
       ],
       "translit": "âbi"
+    },
+    {
+      "id": "fa_0154",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "شش",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "شش ماه",
+          "translation": "Six months",
+          "translit": "shesh mâh"
+        }
+      ],
+      "translit": "shesh"
+    },
+    {
+      "id": "fa_0155",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "هفت",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "هفت روز",
+          "translation": "Seven days",
+          "translit": "haft ruz"
+        }
+      ],
+      "translit": "haft"
+    },
+    {
+      "id": "fa_0156",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "هشت",
+      "translation": "eight",
+      "difficulty": 1,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "هشت نفر",
+          "translation": "Eight people",
+          "translit": "hasht nafar"
+        }
+      ],
+      "translit": "hasht"
+    },
+    {
+      "id": "fa_0157",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "نُه",
+      "translation": "nine",
+      "difficulty": 1,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "نُه سال",
+          "translation": "Nine years",
+          "translit": "noh sâl"
+        }
+      ],
+      "translit": "noh"
+    },
+    {
+      "id": "fa_0158",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "ده",
+      "translation": "ten",
+      "difficulty": 1,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "ده دقیقه",
+          "translation": "Ten minutes",
+          "translit": "dah daqiqe"
+        }
+      ],
+      "translit": "dah"
+    },
+    {
+      "id": "fa_0159",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "صد",
+      "translation": "hundred",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "صد تومان",
+          "translation": "A hundred tomans",
+          "translit": "sad tomân"
+        }
+      ],
+      "translit": "sad"
+    },
+    {
+      "id": "fa_0160",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "صبح",
+      "translation": "morning",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "صبح چای می‌خورم",
+          "translation": "In the morning I drink tea",
+          "translit": "sobh châi mikhoram"
+        }
+      ],
+      "translit": "sobh"
+    },
+    {
+      "id": "fa_0161",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "شب",
+      "translation": "night",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "شب سرد است",
+          "translation": "The night is cold",
+          "translit": "shab sard ast"
+        }
+      ],
+      "translit": "shab"
+    },
+    {
+      "id": "fa_0162",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "نشستن",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "او اینجا نشست",
+          "translation": "He sat here",
+          "translit": "u injâ neshast"
+        }
+      ],
+      "translit": "neshastan"
+    },
+    {
+      "id": "fa_0163",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "پختن",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "مادرم غذا پخت",
+          "translation": "My mother cooked food",
+          "translit": "mâdaram ghazâ pokht"
+        }
+      ],
+      "translit": "pokhtan"
+    },
+    {
+      "id": "fa_0164",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "پرسیدن",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "از او پرسیدم",
+          "translation": "I asked him",
+          "translit": "az u porsidam"
+        }
+      ],
+      "translit": "porsidan"
+    },
+    {
+      "id": "fa_0165",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "اتاق",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "اتاق من کوچک است",
+          "translation": "My room is small",
+          "translit": "otâgh-e man kuchak ast"
+        }
+      ],
+      "translit": "otâgh"
+    },
+    {
+      "id": "fa_0166",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "زیبا",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "این شهر زیباست",
+          "translation": "This city is beautiful",
+          "translit": "in shahr zibâst"
+        }
+      ],
+      "translit": "zibâ"
+    },
+    {
+      "id": "fa_0167",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "چشم",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "چشمم درد می‌کند",
+          "translation": "My eye hurts",
+          "translit": "cheshmam dard mikonad"
+        }
+      ],
+      "translit": "cheshm"
+    },
+    {
+      "id": "fa_0168",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "درد",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "درد دارم",
+          "translation": "I am in pain",
+          "translit": "dard dâram"
+        }
+      ],
+      "translit": "dard"
+    },
+    {
+      "id": "fa_0169",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "دارو",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "دارو بخور",
+          "translation": "Take the medicine",
+          "translit": "dâru bokhor"
+        }
+      ],
+      "translit": "dâru"
     }
   ],
   "alphabetGroups": [

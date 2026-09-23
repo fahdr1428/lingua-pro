@@ -3664,6 +3664,141 @@
           "translation": "The house is blue"
         }
       ]
+    },
+    {
+      "id": "tr_0205",
+      "unit": "u3",
+      "category": "Numbers",
+      "lemma": "yüz",
+      "translation": "hundred",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "Yüz lira",
+          "translation": "A hundred lira"
+        }
+      ]
+    },
+    {
+      "id": "tr_0206",
+      "unit": "u9",
+      "category": "Time",
+      "lemma": "sabah",
+      "translation": "morning",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "Sabah kahvaltı yaparım",
+          "translation": "I have breakfast in the morning"
+        }
+      ]
+    },
+    {
+      "id": "tr_0207",
+      "unit": "u9",
+      "category": "Time",
+      "lemma": "gece",
+      "translation": "night",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "Gece çok soğuk",
+          "translation": "The night is very cold"
+        }
+      ]
+    },
+    {
+      "id": "tr_0208",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "oturmak",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "Buraya oturun",
+          "translation": "Sit here, please"
+        }
+      ]
+    },
+    {
+      "id": "tr_0209",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "pişirmek",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "Annem yemek pişiriyor",
+          "translation": "My mother is cooking food"
+        }
+      ]
+    },
+    {
+      "id": "tr_0210",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "sormak",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "Bir şey sorabilir miyim?",
+          "translation": "May I ask something?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0211",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "oda",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "Odam küçük",
+          "translation": "My room is small"
+        }
+      ]
+    },
+    {
+      "id": "tr_0212",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "ağrı",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "Başımda ağrı var",
+          "translation": "I have a pain in my head"
+        }
+      ]
+    },
+    {
+      "id": "tr_0213",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "ilaç",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "Bana ilaç lazım",
+          "translation": "I need medicine"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

@@ -2825,6 +2825,261 @@
         }
       ],
       "translit": "neelam"
+    },
+    {
+      "id": "ta_0152",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "ஆறு",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "ஆறு மணி",
+          "translation": "Six o'clock",
+          "translit": "aaru mani"
+        }
+      ],
+      "translit": "aaru"
+    },
+    {
+      "id": "ta_0153",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "ஏழு",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "ஏழு நாள்",
+          "translation": "Seven days",
+          "translit": "ezhu naal"
+        }
+      ],
+      "translit": "ezhu"
+    },
+    {
+      "id": "ta_0154",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "எட்டு",
+      "translation": "eight",
+      "difficulty": 1,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "எட்டு பேர்",
+          "translation": "Eight people",
+          "translit": "ettu per"
+        }
+      ],
+      "translit": "ettu"
+    },
+    {
+      "id": "ta_0155",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "ஒன்பது",
+      "translation": "nine",
+      "difficulty": 1,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "ஒன்பது மணி",
+          "translation": "Nine o'clock",
+          "translit": "onbadhu mani"
+        }
+      ],
+      "translit": "onbadhu"
+    },
+    {
+      "id": "ta_0156",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "பத்து",
+      "translation": "ten",
+      "difficulty": 1,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "பத்து ரூபாய்",
+          "translation": "Ten rupees",
+          "translit": "pathu roopaay"
+        }
+      ],
+      "translit": "pathu"
+    },
+    {
+      "id": "ta_0157",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "நூறு",
+      "translation": "hundred",
+      "difficulty": 1,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "நூறு வருஷம்",
+          "translation": "A hundred years",
+          "translit": "nooru varusham"
+        }
+      ],
+      "translit": "nooru"
+    },
+    {
+      "id": "ta_0158",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "காலை",
+      "translation": "morning",
+      "difficulty": 1,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "காலையில் டீ குடிப்பேன்",
+          "translation": "I drink tea in the morning",
+          "translit": "kaalaiyil tea kudippen"
+        }
+      ],
+      "translit": "kaalai"
+    },
+    {
+      "id": "ta_0159",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "இரவு",
+      "translation": "night",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "இரவில் குளிராக இருக்கும்",
+          "translation": "It is cold at night",
+          "translit": "iravil kuliraaga irukkum"
+        }
+      ],
+      "translit": "iravu"
+    },
+    {
+      "id": "ta_0160",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "சமைக்க",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "அம்மா சமைக்கிறாங்க",
+          "translation": "Mother is cooking",
+          "translit": "amma samaikkiraanga"
+        }
+      ],
+      "translit": "samaikka"
+    },
+    {
+      "id": "ta_0161",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "கேட்க",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "நான் ஒரு கேள்வி கேட்கணும்",
+          "translation": "I need to ask a question",
+          "translit": "naan oru kelvi ketkanum"
+        }
+      ],
+      "translit": "ketka"
+    },
+    {
+      "id": "ta_0162",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "அறை",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "என் அறை சின்னது",
+          "translation": "My room is small",
+          "translit": "en arai chinnadhu"
+        }
+      ],
+      "translit": "arai"
+    },
+    {
+      "id": "ta_0163",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "அழகு",
+      "translation": "beautiful, beauty",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "இந்த இடம் அழகாக இருக்கிறது",
+          "translation": "This place is beautiful",
+          "translit": "indha idam azhagaaga irukkiradhu"
+        }
+      ],
+      "translit": "azhagu"
+    },
+    {
+      "id": "ta_0164",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "கண்",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "என் கண் வலிக்கிறது",
+          "translation": "My eye hurts",
+          "translit": "en kan valikkiradhu"
+        }
+      ],
+      "translit": "kan"
+    },
+    {
+      "id": "ta_0165",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "வலி",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "எனக்கு வலிக்கிறது",
+          "translation": "It hurts",
+          "translit": "enakku valikkiradhu"
+        }
+      ],
+      "translit": "vali"
+    },
+    {
+      "id": "ta_0166",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "மருந்து",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "மருந்து சாப்பிடு",
+          "translation": "Take the medicine",
+          "translit": "marundhu saappidu"
+        }
+      ],
+      "translit": "marundhu"
     }
   ],
   "alphabetGroups": [

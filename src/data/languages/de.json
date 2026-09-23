@@ -3613,6 +3613,126 @@
           "translation": "The house is blue"
         }
       ]
+    },
+    {
+      "id": "de_0203",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "am Morgen",
+      "translation": "in the morning",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "Am Morgen trinke ich Kaffee",
+          "translation": "In the morning I drink coffee"
+        }
+      ]
+    },
+    {
+      "id": "de_0204",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "die Nacht",
+      "translation": "night",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "Die Nacht ist kalt",
+          "translation": "The night is cold"
+        }
+      ]
+    },
+    {
+      "id": "de_0205",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "sitzen",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "Ich sitze hier",
+          "translation": "I am sitting here"
+        }
+      ]
+    },
+    {
+      "id": "de_0206",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "kochen",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "Meine Mutter kocht gut",
+          "translation": "My mother cooks well"
+        }
+      ]
+    },
+    {
+      "id": "de_0207",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "fragen",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "Darf ich etwas fragen?",
+          "translation": "May I ask something?"
+        }
+      ]
+    },
+    {
+      "id": "de_0208",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "das Zimmer",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "Das Zimmer ist klein",
+          "translation": "The room is small"
+        }
+      ]
+    },
+    {
+      "id": "de_0209",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "das Auge",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "Das Auge ist rot",
+          "translation": "The eye is red"
+        }
+      ]
+    },
+    {
+      "id": "de_0210",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "das Medikament",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "Das Medikament hilft",
+          "translation": "The medicine helps"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

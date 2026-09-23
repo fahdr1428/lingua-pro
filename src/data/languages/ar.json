@@ -5023,6 +5023,176 @@
         }
       ],
       "translit": "azraq"
+    },
+    {
+      "id": "ar_0215",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "ستة",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "ستة أشخاص",
+          "translation": "Six people",
+          "translit": "sittat ashkhas"
+        }
+      ],
+      "translit": "sitta"
+    },
+    {
+      "id": "ar_0216",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "سبعة",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "سبعة أيام",
+          "translation": "Seven days",
+          "translit": "sab'at ayyam"
+        }
+      ],
+      "translit": "sab'a"
+    },
+    {
+      "id": "ar_0217",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ليل",
+      "translation": "night",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "الليل بارد",
+          "translation": "The night is cold",
+          "translit": "al-layl baarid"
+        }
+      ],
+      "translit": "layl"
+    },
+    {
+      "id": "ar_0218",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يجلس",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "يجلس الولد هنا",
+          "translation": "The boy sits here",
+          "translit": "yajlis al-walad huna"
+        }
+      ],
+      "translit": "yajlis"
+    },
+    {
+      "id": "ar_0219",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يطبخ",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "أبي يطبخ الأكل",
+          "translation": "My father cooks the food",
+          "translit": "abi yatbukh al-akl"
+        }
+      ],
+      "translit": "yatbukh"
+    },
+    {
+      "id": "ar_0220",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يسأل",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "أبي يسأل سؤالا",
+          "translation": "My father asks a question",
+          "translit": "abi yas'al su'alan"
+        }
+      ],
+      "translit": "yas'al"
+    },
+    {
+      "id": "ar_0221",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "جميل",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "هذا المكان جميل",
+          "translation": "This place is beautiful",
+          "translit": "hadha al-makan jameel"
+        }
+      ],
+      "translit": "jameel"
+    },
+    {
+      "id": "ar_0222",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "عين",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "عيني حمراء",
+          "translation": "My eye is red",
+          "translit": "ayni hamra"
+        }
+      ],
+      "translit": "ayn"
+    },
+    {
+      "id": "ar_0223",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "ألم",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "عندي ألم هنا",
+          "translation": "I have pain here",
+          "translit": "indi alam huna"
+        }
+      ],
+      "translit": "alam"
+    },
+    {
+      "id": "ar_0224",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "دواء",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "خذ الدواء",
+          "translation": "Take the medicine",
+          "translit": "khudh ad-dawa"
+        }
+      ],
+      "translit": "dawa"
     }
   ],
   "units": [

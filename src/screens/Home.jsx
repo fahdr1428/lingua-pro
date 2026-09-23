@@ -821,6 +821,8 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
     // sentences the curriculum already carries, so it gets its own door rather
     // than living behind the one that runs out fastest.
     { icon: "📜", title: `${lang.name} you can read`, sub: "Real sentences, at exactly your level", go: () => onNavigate("stream"), highlight: (stats.learned || 0) >= 15 },
+    // v105: drill one topic by choice — the curriculum picks every other session.
+    { icon: "🎯", title: "Practise a topic", sub: "Numbers, food, family — drill just one", go: () => onNavigate("topics") },
     { icon: "📇", title: "Flashcards", sub: "Flip through your words at your own pace", go: () => onNavigate("flashcards") },
     { icon: "🧭", title: "Grammar", sub: `How ${lang.name} actually fits together`, go: () => onNavigate("grammar") },
     { icon: "📚", title: "My words", sub: `${stats.learned || 0} learned · ${stats.mastered || 0} mastered`, go: () => onNavigate("vocab") },

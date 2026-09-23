@@ -3477,6 +3477,126 @@
           "translation": "The door is open"
         }
       ]
+    },
+    {
+      "id": "es_0204",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "por la mañana",
+      "translation": "in the morning",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "Por la mañana bebo café",
+          "translation": "In the morning I drink coffee"
+        }
+      ]
+    },
+    {
+      "id": "es_0205",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "sentarse",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "Quiero sentarme aquí",
+          "translation": "I want to sit here"
+        }
+      ]
+    },
+    {
+      "id": "es_0206",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "cocinar",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "Mi madre cocina muy bien",
+          "translation": "My mother cooks very well"
+        }
+      ]
+    },
+    {
+      "id": "es_0207",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "preguntar",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "¿Puedo preguntar algo?",
+          "translation": "Can I ask something?"
+        }
+      ]
+    },
+    {
+      "id": "es_0208",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "la habitación",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "La habitación es pequeña",
+          "translation": "The room is small"
+        }
+      ]
+    },
+    {
+      "id": "es_0209",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "bonito",
+      "translation": "beautiful, pretty",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "Es un lugar muy bonito",
+          "translation": "It is a very beautiful place"
+        }
+      ]
+    },
+    {
+      "id": "es_0210",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "el dolor",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "El dolor es muy fuerte",
+          "translation": "The pain is very strong"
+        }
+      ]
+    },
+    {
+      "id": "es_0211",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "la medicina",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "La medicina está aquí",
+          "translation": "The medicine is here"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

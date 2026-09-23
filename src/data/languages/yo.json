@@ -2235,6 +2235,231 @@
           "translation": "The house is blue"
         }
       ]
+    },
+    {
+      "id": "yo_0138",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "mẹ́fà",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 138,
+      "examples": [
+        {
+          "native": "Ọmọ mẹ́fà",
+          "translation": "Six children"
+        }
+      ]
+    },
+    {
+      "id": "yo_0139",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "méje",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 139,
+      "examples": [
+        {
+          "native": "Ọjọ́ méje",
+          "translation": "Seven days"
+        }
+      ]
+    },
+    {
+      "id": "yo_0140",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "mẹ́jọ",
+      "translation": "eight",
+      "difficulty": 1,
+      "frequencyRank": 140,
+      "examples": [
+        {
+          "native": "Ènìyàn mẹ́jọ",
+          "translation": "Eight people"
+        }
+      ]
+    },
+    {
+      "id": "yo_0141",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "mẹ́sàn-án",
+      "translation": "nine",
+      "difficulty": 1,
+      "frequencyRank": 141,
+      "examples": [
+        {
+          "native": "Wákàtí mẹ́sàn-án",
+          "translation": "Nine hours"
+        }
+      ]
+    },
+    {
+      "id": "yo_0142",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "ọgọ́rùn-ún",
+      "translation": "hundred",
+      "difficulty": 1,
+      "frequencyRank": 142,
+      "examples": [
+        {
+          "native": "Náírà ọgọ́rùn-ún",
+          "translation": "A hundred naira"
+        }
+      ]
+    },
+    {
+      "id": "yo_0143",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "òwúrọ̀",
+      "translation": "morning",
+      "difficulty": 1,
+      "frequencyRank": 143,
+      "examples": [
+        {
+          "native": "Mo jí ní òwúrọ̀",
+          "translation": "I woke up in the morning"
+        }
+      ]
+    },
+    {
+      "id": "yo_0144",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "alẹ́",
+      "translation": "night",
+      "difficulty": 1,
+      "frequencyRank": 144,
+      "examples": [
+        {
+          "native": "Ó ti di alẹ́",
+          "translation": "It has become night"
+        }
+      ]
+    },
+    {
+      "id": "yo_0145",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "jókòó",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 145,
+      "examples": [
+        {
+          "native": "Jókòó síbí",
+          "translation": "Sit here"
+        }
+      ]
+    },
+    {
+      "id": "yo_0146",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "se oúnjẹ",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 146,
+      "examples": [
+        {
+          "native": "Ìyá mi ń se oúnjẹ",
+          "translation": "My mother is cooking"
+        }
+      ]
+    },
+    {
+      "id": "yo_0147",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "béèrè",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 147,
+      "examples": [
+        {
+          "native": "Mo fẹ́ béèrè ìbéèrè kan",
+          "translation": "I want to ask a question"
+        }
+      ]
+    },
+    {
+      "id": "yo_0148",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "yàrá",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 148,
+      "examples": [
+        {
+          "native": "Yàrá mi kéré",
+          "translation": "My room is small"
+        }
+      ]
+    },
+    {
+      "id": "yo_0149",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "lẹ́wà",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 149,
+      "examples": [
+        {
+          "native": "Ìlú yìí lẹ́wà",
+          "translation": "This town is beautiful"
+        }
+      ]
+    },
+    {
+      "id": "yo_0150",
+      "unit": "u8",
+      "category": "Body",
+      "lemma": "ojú",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 150,
+      "examples": [
+        {
+          "native": "Ojú mi ń dùn mí",
+          "translation": "My eye hurts"
+        }
+      ]
+    },
+    {
+      "id": "yo_0151",
+      "unit": "u8",
+      "category": "Body",
+      "lemma": "ìrora",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 151,
+      "examples": [
+        {
+          "native": "Mo ní ìrora",
+          "translation": "I am in pain"
+        }
+      ]
+    },
+    {
+      "id": "yo_0152",
+      "unit": "u8",
+      "category": "Body",
+      "lemma": "oògùn",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 152,
+      "examples": [
+        {
+          "native": "Lo oògùn rẹ",
+          "translation": "Take your medicine"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

@@ -3498,6 +3498,227 @@
         }
       ],
       "translit": "neela"
+    },
+    {
+      "id": "hi_0179",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "छह",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "छह बजे",
+          "translation": "Six o'clock",
+          "translit": "chhah baje"
+        }
+      ],
+      "translit": "chhah"
+    },
+    {
+      "id": "hi_0180",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "सात",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "सात दिन",
+          "translation": "Seven days",
+          "translit": "saat din"
+        }
+      ],
+      "translit": "saat"
+    },
+    {
+      "id": "hi_0181",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "आठ",
+      "translation": "eight",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "आठ लोग",
+          "translation": "Eight people",
+          "translit": "aath log"
+        }
+      ],
+      "translit": "aath"
+    },
+    {
+      "id": "hi_0182",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "नौ",
+      "translation": "nine",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "नौ रुपये",
+          "translation": "Nine rupees",
+          "translit": "nau rupaye"
+        }
+      ],
+      "translit": "nau"
+    },
+    {
+      "id": "hi_0183",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "सौ",
+      "translation": "hundred",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "सौ साल",
+          "translation": "A hundred years",
+          "translit": "sau saal"
+        }
+      ],
+      "translit": "sau"
+    },
+    {
+      "id": "hi_0184",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "बैठना",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "यहाँ बैठो",
+          "translation": "Sit here",
+          "translit": "yahan baitho"
+        }
+      ],
+      "translit": "baithna"
+    },
+    {
+      "id": "hi_0185",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "पकाना",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "माँ खाना पकाती है",
+          "translation": "Mother cooks food",
+          "translit": "maa khana pakaati hai"
+        }
+      ],
+      "translit": "pakaana"
+    },
+    {
+      "id": "hi_0186",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "पूछना",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "उससे पूछो",
+          "translation": "Ask him",
+          "translit": "usse poochho"
+        }
+      ],
+      "translit": "poochhna"
+    },
+    {
+      "id": "hi_0187",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "कमरा",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "मेरा कमरा छोटा है",
+          "translation": "My room is small",
+          "translit": "mera kamra chota hai"
+        }
+      ],
+      "translit": "kamra"
+    },
+    {
+      "id": "hi_0188",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "सुंदर",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "यह शहर सुंदर है",
+          "translation": "This city is beautiful",
+          "translit": "yeh shehar sundar hai"
+        }
+      ],
+      "translit": "sundar"
+    },
+    {
+      "id": "hi_0189",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "आँख",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "मेरी आँख में दर्द है",
+          "translation": "I have pain in my eye",
+          "translit": "meri aankh mein dard hai"
+        }
+      ],
+      "translit": "aankh"
+    },
+    {
+      "id": "hi_0190",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "दर्द",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "मुझे दर्द है",
+          "translation": "I am in pain",
+          "translit": "mujhe dard hai"
+        }
+      ],
+      "translit": "dard"
+    },
+    {
+      "id": "hi_0191",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "दवा",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "दवा खाओ",
+          "translation": "Take the medicine",
+          "translit": "dava khao"
+        }
+      ],
+      "translit": "dava"
     }
   ],
   "units": [

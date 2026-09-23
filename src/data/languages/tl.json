@@ -2446,6 +2446,216 @@
           "translation": "The house is blue"
         }
       ]
+    },
+    {
+      "id": "tl_0155",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "anim",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "Anim na araw",
+          "translation": "Six days"
+        }
+      ]
+    },
+    {
+      "id": "tl_0156",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "pito",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "Pitong tao",
+          "translation": "Seven people"
+        }
+      ]
+    },
+    {
+      "id": "tl_0157",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "walo",
+      "translation": "eight",
+      "difficulty": 1,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "Walong oras",
+          "translation": "Eight hours"
+        }
+      ]
+    },
+    {
+      "id": "tl_0158",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "siyam",
+      "translation": "nine",
+      "difficulty": 1,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "Siyam na piso",
+          "translation": "Nine pesos"
+        }
+      ]
+    },
+    {
+      "id": "tl_0159",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "sampu",
+      "translation": "ten",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "Sampung minuto",
+          "translation": "Ten minutes"
+        }
+      ]
+    },
+    {
+      "id": "tl_0160",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "sandaan",
+      "translation": "hundred",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "Sandaang piso lang",
+          "translation": "Only a hundred pesos"
+        }
+      ]
+    },
+    {
+      "id": "tl_0161",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "umaga",
+      "translation": "morning",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "Umiinom ako ng kape tuwing umaga",
+          "translation": "I drink coffee every morning"
+        }
+      ]
+    },
+    {
+      "id": "tl_0162",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "umupo",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "Umupo ka rito",
+          "translation": "Sit here"
+        }
+      ]
+    },
+    {
+      "id": "tl_0163",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magluto",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "Marunong magluto si Lola",
+          "translation": "Grandma knows how to cook"
+        }
+      ]
+    },
+    {
+      "id": "tl_0164",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magtanong",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "Puwede ba akong magtanong?",
+          "translation": "May I ask something?"
+        }
+      ]
+    },
+    {
+      "id": "tl_0165",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "kuwarto",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "Maliit ang kuwarto ko",
+          "translation": "My room is small"
+        }
+      ]
+    },
+    {
+      "id": "tl_0166",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "mata",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "Pula ang mata ko",
+          "translation": "My eye is red"
+        }
+      ]
+    },
+    {
+      "id": "tl_0167",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "sakit",
+      "translation": "pain, ache",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "Masakit ang ulo ko",
+          "translation": "My head hurts"
+        }
+      ]
+    },
+    {
+      "id": "tl_0168",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "gamot",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "Uminom ka ng gamot",
+          "translation": "Take your medicine"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

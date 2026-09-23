@@ -3366,6 +3366,176 @@
         }
       ],
       "translit": "aoi"
+    },
+    {
+      "id": "ja_0175",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "六",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "六時です",
+          "translation": "It's six o'clock",
+          "translit": "rokuji desu"
+        }
+      ],
+      "translit": "roku"
+    },
+    {
+      "id": "ja_0176",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "朝",
+      "translation": "morning",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "朝ごはんを食べます",
+          "translation": "I eat breakfast",
+          "translit": "asagohan wo tabemasu"
+        }
+      ],
+      "translit": "asa"
+    },
+    {
+      "id": "ja_0177",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "夜",
+      "translation": "night",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "夜は静かです",
+          "translation": "The night is quiet",
+          "translit": "yoru wa shizuka desu"
+        }
+      ],
+      "translit": "yoru"
+    },
+    {
+      "id": "ja_0178",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "座る",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "私はここに座る",
+          "translation": "I will sit here",
+          "translit": "watashi wa koko ni suwaru"
+        }
+      ],
+      "translit": "suwaru"
+    },
+    {
+      "id": "ja_0179",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "料理する",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "母は毎日料理する",
+          "translation": "My mother cooks every day",
+          "translit": "haha wa mainichi ryouri suru"
+        }
+      ],
+      "translit": "ryouri suru"
+    },
+    {
+      "id": "ja_0180",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "質問する",
+      "translation": "to ask (a question)",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "先生に質問する",
+          "translation": "I will ask the teacher a question",
+          "translit": "sensei ni shitsumon suru"
+        }
+      ],
+      "translit": "shitsumon suru"
+    },
+    {
+      "id": "ja_0181",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "部屋",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "私の部屋は小さいです",
+          "translation": "My room is small",
+          "translit": "watashi no heya wa chiisai desu"
+        }
+      ],
+      "translit": "heya"
+    },
+    {
+      "id": "ja_0182",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "きれい",
+      "translation": "beautiful, clean",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "この花はきれいです",
+          "translation": "This flower is beautiful",
+          "translit": "kono hana wa kirei desu"
+        }
+      ],
+      "translit": "kirei"
+    },
+    {
+      "id": "ja_0183",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "目",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "目が痛いです",
+          "translation": "My eye hurts",
+          "translit": "me ga itai desu"
+        }
+      ],
+      "translit": "me"
+    },
+    {
+      "id": "ja_0184",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "薬",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "薬を飲みます",
+          "translation": "I take medicine",
+          "translit": "kusuri wo nomimasu"
+        }
+      ],
+      "translit": "kusuri"
     }
   ],
   "units": [

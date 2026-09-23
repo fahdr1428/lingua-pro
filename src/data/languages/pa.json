@@ -3071,6 +3071,244 @@
         }
       ],
       "translit": "neela"
+    },
+    {
+      "id": "pa_0164",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "چھ",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "چھ وجے",
+          "translation": "Six o'clock",
+          "translit": "chhe vaje"
+        }
+      ],
+      "translit": "chhe"
+    },
+    {
+      "id": "pa_0165",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "ست",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "ست دن",
+          "translation": "Seven days",
+          "translit": "satt din"
+        }
+      ],
+      "translit": "satt"
+    },
+    {
+      "id": "pa_0166",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "اٹھ",
+      "translation": "eight",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "اٹھ بندے",
+          "translation": "Eight people",
+          "translit": "atth bande"
+        }
+      ],
+      "translit": "atth"
+    },
+    {
+      "id": "pa_0167",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "نو",
+      "translation": "nine",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "نو روپے",
+          "translation": "Nine rupees",
+          "translit": "nau rupaye"
+        }
+      ],
+      "translit": "nau"
+    },
+    {
+      "id": "pa_0168",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "دس",
+      "translation": "ten",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "دس منٹ",
+          "translation": "Ten minutes",
+          "translit": "das minat"
+        }
+      ],
+      "translit": "das"
+    },
+    {
+      "id": "pa_0169",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "سو",
+      "translation": "hundred",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "سو سال",
+          "translation": "A hundred years",
+          "translit": "sau saal"
+        }
+      ],
+      "translit": "sau"
+    },
+    {
+      "id": "pa_0170",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "بیٹھنا",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "اِتھے بیٹھو",
+          "translation": "Sit here",
+          "translit": "ithe baitho"
+        }
+      ],
+      "translit": "baithna"
+    },
+    {
+      "id": "pa_0171",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پکانا",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "ماں روٹی پکاندی اے",
+          "translation": "Mother is cooking roti",
+          "translit": "maan roti pakaandi ae"
+        }
+      ],
+      "translit": "pakaana"
+    },
+    {
+      "id": "pa_0172",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پچھنا",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "اوہنوں پچھو",
+          "translation": "Ask him",
+          "translit": "ohnu puchho"
+        }
+      ],
+      "translit": "puchhna"
+    },
+    {
+      "id": "pa_0173",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "کمرا",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "میرا کمرا نکا اے",
+          "translation": "My room is small",
+          "translit": "mera kamra nikka ae"
+        }
+      ],
+      "translit": "kamra"
+    },
+    {
+      "id": "pa_0174",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "سوہنا",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "پنڈ بہت سوہنا اے",
+          "translation": "The village is very beautiful",
+          "translit": "pind bahut sohna ae"
+        }
+      ],
+      "translit": "sohna"
+    },
+    {
+      "id": "pa_0175",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "اکھ",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "میری اکھ دکھدی اے",
+          "translation": "My eye hurts",
+          "translit": "meri akh dukhdi ae"
+        }
+      ],
+      "translit": "akh"
+    },
+    {
+      "id": "pa_0176",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "درد",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "مینوں درد اے",
+          "translation": "I am in pain",
+          "translit": "mainu dard ae"
+        }
+      ],
+      "translit": "dard"
+    },
+    {
+      "id": "pa_0177",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "دوائی",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "دوائی کھاؤ",
+          "translation": "Take the medicine",
+          "translit": "davaai khao"
+        }
+      ],
+      "translit": "davaai"
     }
   ],
   "alphabetGroups": [

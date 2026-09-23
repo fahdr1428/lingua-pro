@@ -3064,6 +3064,210 @@
         }
       ],
       "translit": "nil"
+    },
+    {
+      "id": "bn_0159",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "ছয়",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "ছয় টাকা",
+          "translation": "Six taka",
+          "translit": "choy taka"
+        }
+      ],
+      "translit": "choy"
+    },
+    {
+      "id": "bn_0160",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "সাত",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "সাত দিন",
+          "translation": "Seven days",
+          "translit": "sat din"
+        }
+      ],
+      "translit": "sat"
+    },
+    {
+      "id": "bn_0161",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "আট",
+      "translation": "eight",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "আট ঘণ্টা",
+          "translation": "Eight hours",
+          "translit": "at ghanta"
+        }
+      ],
+      "translit": "at"
+    },
+    {
+      "id": "bn_0162",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "নয়",
+      "translation": "nine",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "নয় জন",
+          "translation": "Nine people",
+          "translit": "noy jon"
+        }
+      ],
+      "translit": "noy"
+    },
+    {
+      "id": "bn_0163",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "বসা",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "এখানে বসা যায়",
+          "translation": "You can sit here",
+          "translit": "ekhane bosa jay"
+        }
+      ],
+      "translit": "bosa"
+    },
+    {
+      "id": "bn_0164",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "রান্না করা",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "মা রান্না করছে",
+          "translation": "Mother is cooking",
+          "translit": "ma ranna korche"
+        }
+      ],
+      "translit": "ranna kora"
+    },
+    {
+      "id": "bn_0165",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "জিজ্ঞাসা করা",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "ওকে জিজ্ঞাসা করো",
+          "translation": "Ask him",
+          "translit": "oke jiggasha koro"
+        }
+      ],
+      "translit": "jiggasha kora"
+    },
+    {
+      "id": "bn_0166",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ঘর",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "আমার ঘর ছোট",
+          "translation": "My room is small",
+          "translit": "amar ghor choto"
+        }
+      ],
+      "translit": "ghor"
+    },
+    {
+      "id": "bn_0167",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "সুন্দর",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "শহরটা খুব সুন্দর",
+          "translation": "The city is very beautiful",
+          "translit": "shohorta khub sundor"
+        }
+      ],
+      "translit": "sundor"
+    },
+    {
+      "id": "bn_0168",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "চোখ",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "আমার চোখ লাল",
+          "translation": "My eyes are red",
+          "translit": "amar chokh lal"
+        }
+      ],
+      "translit": "chokh"
+    },
+    {
+      "id": "bn_0169",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "ব্যথা",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "আমার মাথায় ব্যথা",
+          "translation": "I have a headache",
+          "translit": "amar mathay byatha"
+        }
+      ],
+      "translit": "byatha"
+    },
+    {
+      "id": "bn_0170",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "ওষুধ",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "ওষুধ খাও",
+          "translation": "Take the medicine",
+          "translit": "oshudh khao"
+        }
+      ],
+      "translit": "oshudh"
     }
   ],
   "alphabetGroups": [

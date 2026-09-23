@@ -2491,6 +2491,231 @@
           "translation": "The house is blue"
         }
       ]
+    },
+    {
+      "id": "so_0154",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "lix",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "Lix saacadood",
+          "translation": "Six hours"
+        }
+      ]
+    },
+    {
+      "id": "so_0155",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "toddoba",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "Toddoba maalmood",
+          "translation": "Seven days"
+        }
+      ]
+    },
+    {
+      "id": "so_0156",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "siddeed",
+      "translation": "eight",
+      "difficulty": 1,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "Siddeed qof",
+          "translation": "Eight people"
+        }
+      ]
+    },
+    {
+      "id": "so_0157",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "sagaal",
+      "translation": "nine",
+      "difficulty": 1,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "Sagaal doolar",
+          "translation": "Nine dollars"
+        }
+      ]
+    },
+    {
+      "id": "so_0158",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "toban",
+      "translation": "ten",
+      "difficulty": 1,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "Toban daqiiqo",
+          "translation": "Ten minutes"
+        }
+      ]
+    },
+    {
+      "id": "so_0159",
+      "unit": "u8",
+      "category": "Numbers",
+      "lemma": "boqol",
+      "translation": "hundred",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "Boqol shilin",
+          "translation": "A hundred shillings"
+        }
+      ]
+    },
+    {
+      "id": "so_0160",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "subax",
+      "translation": "morning",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "Subaxdii shaah baan cabbaa",
+          "translation": "I drink tea in the morning"
+        }
+      ]
+    },
+    {
+      "id": "so_0161",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "habeen",
+      "translation": "night",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "Habeenkii waa qabow",
+          "translation": "It is cold at night"
+        }
+      ]
+    },
+    {
+      "id": "so_0162",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "karin",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "Hooyo cunto ayay karinaysaa",
+          "translation": "Mother is cooking food"
+        }
+      ]
+    },
+    {
+      "id": "so_0163",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "weydiin",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "Macallinka wax weydii",
+          "translation": "Ask the teacher something"
+        }
+      ]
+    },
+    {
+      "id": "so_0164",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "qol",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "Qolkaygu waa yar",
+          "translation": "My room is small"
+        }
+      ]
+    },
+    {
+      "id": "so_0165",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "qurux badan",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "Magaaladan waa qurux badan",
+          "translation": "This city is beautiful"
+        }
+      ]
+    },
+    {
+      "id": "so_0166",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "indho",
+      "translation": "eyes, eye",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "Indhahaygu way i xanuunayaan",
+          "translation": "My eyes hurt"
+        }
+      ]
+    },
+    {
+      "id": "so_0167",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "xanuun",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "Xanuun baan qabaa",
+          "translation": "I am in pain"
+        }
+      ]
+    },
+    {
+      "id": "so_0168",
+      "unit": "u5",
+      "category": "Body",
+      "lemma": "daawo",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "Daawada qaado",
+          "translation": "Take the medicine"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

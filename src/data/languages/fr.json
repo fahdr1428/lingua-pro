@@ -3284,6 +3284,111 @@
           "translation": "The door is open"
         }
       ]
+    },
+    {
+      "id": "fr_0192",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "s'asseoir",
+      "translation": "to sit",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "Il veut s'asseoir ici",
+          "translation": "He wants to sit here"
+        }
+      ]
+    },
+    {
+      "id": "fr_0193",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "cuisiner",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "Ma mère cuisine bien",
+          "translation": "My mother cooks well"
+        }
+      ]
+    },
+    {
+      "id": "fr_0194",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "demander",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "Je peux demander quelque chose ?",
+          "translation": "Can I ask something?"
+        }
+      ]
+    },
+    {
+      "id": "fr_0195",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "la chambre",
+      "translation": "room, bedroom",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "La chambre est petite",
+          "translation": "The room is small"
+        }
+      ]
+    },
+    {
+      "id": "fr_0196",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "beau",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "C'est très beau",
+          "translation": "It is very beautiful"
+        }
+      ]
+    },
+    {
+      "id": "fr_0197",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "la douleur",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "La douleur est forte",
+          "translation": "The pain is strong"
+        }
+      ]
+    },
+    {
+      "id": "fr_0198",
+      "unit": "u11",
+      "category": "Body",
+      "lemma": "le médicament",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "Le médicament est ici",
+          "translation": "The medicine is here"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

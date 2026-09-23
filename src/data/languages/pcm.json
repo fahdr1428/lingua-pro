@@ -2935,6 +2935,246 @@
           "translation": "The house is blue"
         }
       ]
+    },
+    {
+      "id": "pcm_0170",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "siks",
+      "translation": "six",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "Siks pikin dey house",
+          "translation": "Six children are in the house"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0171",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "seven",
+      "translation": "seven",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "Seven days dey one week",
+          "translation": "There are seven days in a week"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0172",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "eit",
+      "translation": "eight",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "Di bus go comot for eit",
+          "translation": "The bus leaves at eight"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0173",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "nain",
+      "translation": "nine",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "Nain pesin dey line",
+          "translation": "Nine people are in the queue"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0174",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "ten",
+      "translation": "ten",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "E cost ten naira",
+          "translation": "It costs ten naira"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0175",
+      "unit": "u4",
+      "category": "Numbers",
+      "lemma": "hundred",
+      "translation": "hundred",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "Hundred naira go do",
+          "translation": "A hundred naira will do"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0176",
+      "unit": "u2",
+      "category": "Time",
+      "lemma": "morning",
+      "translation": "morning",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "Every morning I dey drink tea",
+          "translation": "Every morning I drink tea"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0177",
+      "unit": "u2",
+      "category": "Time",
+      "lemma": "night",
+      "translation": "night",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "Night don reach",
+          "translation": "Night has come"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0178",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "sidon",
+      "translation": "to sit, to sit down",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "Sidon for here",
+          "translation": "Sit down here"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0179",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "cook",
+      "translation": "to cook",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "My mama dey cook rice",
+          "translation": "My mother is cooking rice"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0180",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ask",
+      "translation": "to ask",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "Make I ask you one question",
+          "translation": "Let me ask you a question"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0181",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "room",
+      "translation": "room",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "My room small",
+          "translation": "My room is small"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0182",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "fine-fine",
+      "translation": "beautiful",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "Dat house fine-fine",
+          "translation": "That house is beautiful"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0183",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "eye",
+      "translation": "eye",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "My eye dey pain me",
+          "translation": "My eye hurts"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0184",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "pain",
+      "translation": "pain",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "Di pain don go",
+          "translation": "The pain is gone"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0185",
+      "unit": "u2",
+      "category": "Body",
+      "lemma": "medicine",
+      "translation": "medicine",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "Take dis medicine",
+          "translation": "Take this medicine"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

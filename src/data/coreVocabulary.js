@@ -170,6 +170,14 @@ export const CORE = [
   c("all", "all", 2, "Common", ["everyone", "everything"]),
   c("four", "four", 2, "Numbers", []),
   c("five", "five", 2, "Numbers", []),
+  // v105 — counting stopped at five in eleven packs. A learner who cannot say
+  // "seven" cannot say a price, a time or an age; everyday, not optional.
+  c("six", "six", 2, "Numbers", []),
+  c("seven", "seven", 2, "Numbers", []),
+  c("eight", "eight", 2, "Numbers", []),
+  c("nine", "nine", 2, "Numbers", []),
+  c("ten", "ten", 2, "Numbers", []),
+  c("hundred", "hundred", 2, "Numbers", ["one hundred", "a hundred"]),
 
   // --- Tier 3 · reach -------------------------------------------------------
   //
@@ -212,6 +220,18 @@ export const CORE = [
   c("door", "door", 3, "Places", ["doors"]),
   c("red", "red", 3, "Colors", []),
   c("blue", "blue", 3, "Colors", []),
+  // v105 — a day at home with family, measured as the least-taught set left:
+  // cook, ask and medicine 0/21, pain 1/21, room 2/21, sit and beautiful 4/21.
+  c("morning", "morning", 3, "Time", ["in the morning"]),
+  c("night", "night", 3, "Time", ["at night"]),
+  c("to_sit", "to sit", 3, "Verbs", ["sit", "sit down", "to sit down"]),
+  c("to_cook", "to cook", 3, "Verbs", ["cook"]),
+  c("to_ask", "to ask", 3, "Verbs", ["ask"]),
+  c("room", "room", 3, "Places", ["bedroom"]),
+  c("beautiful", "beautiful", 3, "Common", ["pretty", "lovely", "beauty"]),
+  c("eye", "eye", 3, "Body", ["eyes"]),
+  c("pain", "pain", 3, "Body", ["ache", "hurt", "to hurt", "it hurts"]),
+  c("medicine", "medicine", 3, "Body", ["medication"]),
 ];
 
 export const TIER_NAMES = { 1: "survival", 2: "everyday", 3: "reach" };
