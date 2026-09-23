@@ -2656,6 +2656,366 @@
           "translation": "Take your medicine"
         }
       ]
+    },
+    {
+      "id": "tl_0169",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ito",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "Ito ang bahay ko",
+          "translation": "This is my house"
+        }
+      ]
+    },
+    {
+      "id": "tl_0170",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "iyan",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "Ano iyan?",
+          "translation": "What is that?"
+        }
+      ]
+    },
+    {
+      "id": "tl_0171",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "alin",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "Alin ang sa iyo?",
+          "translation": "Which one is yours?"
+        }
+      ]
+    },
+    {
+      "id": "tl_0172",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ulit",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "Sabihin mo ulit",
+          "translation": "Say it again"
+        }
+      ]
+    },
+    {
+      "id": "tl_0173",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "palagi",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "Palaging nagluluto si Nanay",
+          "translation": "Mother always cooks"
+        }
+      ]
+    },
+    {
+      "id": "tl_0174",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "kailanman",
+      "translation": "ever, never (with hindi)",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "Hindi ko ito kailanman malilimutan",
+          "translation": "I will never forget this"
+        }
+      ]
+    },
+    {
+      "id": "tl_0175",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "siguro",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "Siguro bukas",
+          "translation": "Maybe tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "tl_0176",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "bago",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "Bago ang kotse ko",
+          "translation": "My car is new"
+        }
+      ]
+    },
+    {
+      "id": "tl_0177",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "mura",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "Mura dito sa palengke",
+          "translation": "It's cheap here at the market"
+        }
+      ]
+    },
+    {
+      "id": "tl_0178",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "libro",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "Maganda ang librong ito",
+          "translation": "This book is good"
+        }
+      ]
+    },
+    {
+      "id": "tl_0179",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "karne",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "Hindi ako kumakain ng karne",
+          "translation": "I don't eat meat"
+        }
+      ]
+    },
+    {
+      "id": "tl_0180",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "itlog",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "Pahingi ng dalawang itlog",
+          "translation": "Two eggs, please"
+        }
+      ]
+    },
+    {
+      "id": "tl_0181",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "prutas",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "Gusto ko ng prutas",
+          "translation": "I like fruit"
+        }
+      ]
+    },
+    {
+      "id": "tl_0182",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "damit",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "Malinis na ang damit",
+          "translation": "The clothes are clean now"
+        }
+      ]
+    },
+    {
+      "id": "tl_0183",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "sapatos",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "Nasaan ang sapatos ko?",
+          "translation": "Where are my shoes?"
+        }
+      ]
+    },
+    {
+      "id": "tl_0184",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "matuto",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "Gusto kong matuto ng Tagalog",
+          "translation": "I want to learn Tagalog"
+        }
+      ]
+    },
+    {
+      "id": "tl_0185",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magbasa",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "Mahilig akong magbasa",
+          "translation": "I love to read"
+        }
+      ]
+    },
+    {
+      "id": "tl_0186",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "makinig",
+      "translation": "to listen",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "Makinig ka sa akin",
+          "translation": "Listen to me"
+        }
+      ]
+    },
+    {
+      "id": "tl_0187",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "bumalik",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "Bumalik ka agad",
+          "translation": "Come back soon"
+        }
+      ]
+    },
+    {
+      "id": "tl_0188",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "hanapin",
+      "translation": "to look for, to find",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "Hanapin mo ang susi",
+          "translation": "Look for the key"
+        }
+      ]
+    },
+    {
+      "id": "tl_0189",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "dalhin",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "Dalhin mo ang tubig",
+          "translation": "Bring the water"
+        }
+      ]
+    },
+    {
+      "id": "tl_0190",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "maglaro",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "Gusto nilang maglaro sa labas",
+          "translation": "They want to play outside"
+        }
+      ]
+    },
+    {
+      "id": "tl_0191",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "ospital",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "Nasaan ang ospital?",
+          "translation": "Where is the hospital?"
+        }
+      ]
+    },
+    {
+      "id": "tl_0192",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "pulis",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "Tumawag ka ng pulis!",
+          "translation": "Call the police!"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

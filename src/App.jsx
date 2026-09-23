@@ -79,6 +79,7 @@ const SCREEN_LOADERS = {
   decode: () => import("./screens/Decode.jsx"),
   stream: () => import("./screens/InputStream.jsx"),
   topics: () => import("./screens/Topics.jsx"),
+  listen: () => import("./screens/Listen.jsx"),
 };
 
 // One tap away from everywhere, so they are warmed first. The rest follow.
@@ -136,6 +137,7 @@ const Legal = named("legal", "Legal");
 const Decode = named("decode", "Decode");
 const InputStream = named("stream", "InputStream");
 const Topics = named("topics", "Topics");
+const Listen = named("listen", "Listen");
 
 // A lazily-imported screen that fails to load is almost never a bug in the
 // screen. It's a deploy: this app splits fifteen screens into content-hashed
@@ -632,6 +634,7 @@ export default function App() {
         {screen === "decode" && <Decode {...screenProps} />}
         {screen === "stream" && <InputStream {...screenProps} />}
         {screen === "topics" && <Topics {...screenProps} />}
+        {screen === "listen" && <Listen {...screenProps} />}
         </Suspense>
       </main>
       </div>

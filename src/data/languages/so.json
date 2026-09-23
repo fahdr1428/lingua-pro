@@ -2716,6 +2716,396 @@
           "translation": "Take the medicine"
         }
       ]
+    },
+    {
+      "id": "so_0169",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "kan",
+      "translation": "this (one)",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "Kan waa guriga",
+          "translation": "This is the house"
+        }
+      ]
+    },
+    {
+      "id": "so_0170",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "kaas",
+      "translation": "that (one)",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "Kaas waa maxay?",
+          "translation": "What is that?"
+        }
+      ]
+    },
+    {
+      "id": "so_0171",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "kee",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "Kee baad rabtaa?",
+          "translation": "Which one do you want?"
+        }
+      ]
+    },
+    {
+      "id": "so_0172",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "mar kale",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "Mar kale dheh",
+          "translation": "Say it again"
+        }
+      ]
+    },
+    {
+      "id": "so_0173",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "had iyo jeer",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "Hooyo had iyo jeer way karisaa",
+          "translation": "Mother always cooks"
+        }
+      ]
+    },
+    {
+      "id": "so_0174",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "weligay",
+      "translation": "never (I have never)",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "Weligay ma sigaar cabbin",
+          "translation": "I have never smoked"
+        }
+      ]
+    },
+    {
+      "id": "so_0175",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "malaha",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "Malaha berri",
+          "translation": "Maybe tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "so_0176",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "cusub",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "Gaarigan waa cusub",
+          "translation": "This car is new"
+        }
+      ]
+    },
+    {
+      "id": "so_0177",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "jaban",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "Suuqan waa jaban",
+          "translation": "This market is cheap"
+        }
+      ]
+    },
+    {
+      "id": "so_0178",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "qaali",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "Huteelku waa qaali",
+          "translation": "The hotel is expensive"
+        }
+      ]
+    },
+    {
+      "id": "so_0179",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "ilmo",
+      "translation": "child",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "Ilmuhu wuu seexday",
+          "translation": "The child is asleep"
+        }
+      ]
+    },
+    {
+      "id": "so_0180",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "dugsi",
+      "translation": "school",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "Dugsigu wuu dhow yahay",
+          "translation": "The school is near"
+        }
+      ]
+    },
+    {
+      "id": "so_0181",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "kalluun",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "Kalluun baan jeclahay",
+          "translation": "I like fish"
+        }
+      ]
+    },
+    {
+      "id": "so_0182",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "ukun",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "Laba ukun i sii",
+          "translation": "Give me two eggs"
+        }
+      ]
+    },
+    {
+      "id": "so_0183",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "miro",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "Miro baan jeclahay",
+          "translation": "I like fruit"
+        }
+      ]
+    },
+    {
+      "id": "so_0184",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "dhar",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "Dharku waa nadiif",
+          "translation": "The clothes are clean"
+        }
+      ]
+    },
+    {
+      "id": "so_0185",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "kabo",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "Kabahaygu xaggee bay yaalliin?",
+          "translation": "Where are my shoes?"
+        }
+      ]
+    },
+    {
+      "id": "so_0186",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "jeclaan",
+      "translation": "to like",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "Shaah baan jeclahay",
+          "translation": "I like tea"
+        }
+      ]
+    },
+    {
+      "id": "so_0187",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "akhri",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "Aabbe wargeyska wuu akhrinayaa",
+          "translation": "Father is reading the newspaper"
+        }
+      ]
+    },
+    {
+      "id": "so_0188",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "dhegeyso",
+      "translation": "to listen",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "I dhegeyso",
+          "translation": "Listen to me"
+        }
+      ]
+    },
+    {
+      "id": "so_0189",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "soo noqo",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "Goorma ayaad soo noqonaysaa?",
+          "translation": "When are you coming back?"
+        }
+      ]
+    },
+    {
+      "id": "so_0190",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "hel",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "Furihii waan helay",
+          "translation": "I found the key"
+        }
+      ]
+    },
+    {
+      "id": "so_0191",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "keen",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "Biyo keen",
+          "translation": "Bring water"
+        }
+      ]
+    },
+    {
+      "id": "so_0192",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ciyaar",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "Carruurtu way ciyaarayaan",
+          "translation": "The children are playing"
+        }
+      ]
+    },
+    {
+      "id": "so_0193",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "isbitaal",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "Isbitaalku xaggee buu yaal?",
+          "translation": "Where is the hospital?"
+        }
+      ]
+    },
+    {
+      "id": "so_0194",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "booliis",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "Booliiska u yeer!",
+          "translation": "Call the police!"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

@@ -906,14 +906,25 @@ function buildMatchPairs(items) {
 // =============================================================================
 function buildOddOneOut(item, pool) {
   // Find 3 words (including item) sharing item's category
-  const sameCat = shuffle(pool.filter((p) => p.category === item.category && p.lemma));
-  if (sameCat.length < 3) return null;
-  const group = sameCat.slice(0, 3);
+  // v106: the four options must be four different WORDS on screen. Hindi has
+  // खाना twice — "food" (Food) and "to eat" (Verbs) — and this could show
+  // [खाना | खाना | दूध | रोटी] with the answer graded by lemma, so either
+  // button counted as "the odd one". Distinct spellings, or no exercise.
+  const seen = new Set();
+  const distinct = (w) => {
+    const k = String(w.lemma).trim().toLowerCase();
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  };
+  const group = shuffle(pool.filter((p) => p.category === item.category && p.lemma)).filter(distinct).slice(0, 3);
+  if (group.length < 3) return null;
+  seen.clear();
+  group.forEach(distinct);
 
-  // Find 1 word from a DIFFERENT category — this is the odd one
-  const otherCat = shuffle(pool.filter((p) => p.category && p.category !== item.category && p.lemma));
-  if (otherCat.length < 1) return null;
-  const odd = otherCat[0];
+  // Find 1 word from a DIFFERENT category, spelled unlike all three — the odd one
+  const odd = shuffle(pool.filter((p) => p.category && p.category !== item.category && p.lemma)).find(distinct);
+  if (!odd) return null;
 
   const options = shuffle([...group, odd]).map((w) => ({
     id: w.id,

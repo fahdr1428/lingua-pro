@@ -3080,6 +3080,414 @@
         }
       ],
       "translit": "marundhu"
+    },
+    {
+      "id": "ta_0167",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "இது",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "இது என் வீடு",
+          "translation": "This is my house",
+          "translit": "idhu en veedu"
+        }
+      ],
+      "translit": "idhu"
+    },
+    {
+      "id": "ta_0168",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "அது",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "அது என்ன?",
+          "translation": "What is that?",
+          "translit": "adhu enna?"
+        }
+      ],
+      "translit": "adhu"
+    },
+    {
+      "id": "ta_0169",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "எது",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "எது உன்னுடையது?",
+          "translation": "Which one is yours?",
+          "translit": "edhu unnudaiyadhu?"
+        }
+      ],
+      "translit": "edhu"
+    },
+    {
+      "id": "ta_0170",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "மீண்டும்",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "மீண்டும் வாருங்கள்",
+          "translation": "Please come again",
+          "translit": "meendum vaarungal"
+        }
+      ],
+      "translit": "meendum"
+    },
+    {
+      "id": "ta_0171",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "எப்போதும்",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "அம்மா எப்போதும் சமைப்பார்",
+          "translation": "Mother always cooks",
+          "translit": "amma eppodhum samaippaar"
+        }
+      ],
+      "translit": "eppodhum"
+    },
+    {
+      "id": "ta_0172",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ஒருபோதும்",
+      "translation": "never (with a negative), ever",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "நான் ஒருபோதும் மறக்க மாட்டேன்",
+          "translation": "I will never forget",
+          "translit": "naan orupodhum marakka maatten"
+        }
+      ],
+      "translit": "orupodhum"
+    },
+    {
+      "id": "ta_0173",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ஒருவேளை",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "ஒருவேளை நாளை",
+          "translation": "Maybe tomorrow",
+          "translit": "oruvelai naalai"
+        }
+      ],
+      "translit": "oruvelai"
+    },
+    {
+      "id": "ta_0174",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "புதிய",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "இது புதிய வீடு",
+          "translation": "This is a new house",
+          "translit": "idhu pudhiya veedu"
+        }
+      ],
+      "translit": "pudhiya"
+    },
+    {
+      "id": "ta_0175",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "மலிவு",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "இது மலிவாக இருக்கிறது",
+          "translation": "This is cheap",
+          "translit": "idhu malivaaga irukkiradhu"
+        }
+      ],
+      "translit": "malivu"
+    },
+    {
+      "id": "ta_0176",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "விலை உயர்ந்த",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "இது விலை உயர்ந்த போன்",
+          "translation": "This is an expensive phone",
+          "translit": "idhu vilai uyarndha phone"
+        }
+      ],
+      "translit": "vilai uyarndha"
+    },
+    {
+      "id": "ta_0177",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "குழந்தை",
+      "translation": "child",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "குழந்தை தூங்குகிறது",
+          "translation": "The child is sleeping",
+          "translit": "kuzhandhai thoongugiradhu"
+        }
+      ],
+      "translit": "kuzhandhai"
+    },
+    {
+      "id": "ta_0178",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "பள்ளி",
+      "translation": "school",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "பள்ளி அருகில் இருக்கிறது",
+          "translation": "The school is nearby",
+          "translit": "palli arugil irukkiradhu"
+        }
+      ],
+      "translit": "palli"
+    },
+    {
+      "id": "ta_0179",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "இறைச்சி",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "நான் இறைச்சி சாப்பிட மாட்டேன்",
+          "translation": "I don't eat meat",
+          "translit": "naan iraichi saappida maatten"
+        }
+      ],
+      "translit": "iraichi"
+    },
+    {
+      "id": "ta_0180",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "முட்டை",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "இரண்டு முட்டை கொடுங்கள்",
+          "translation": "Give me two eggs",
+          "translit": "irandu muttai kodungal"
+        }
+      ],
+      "translit": "muttai"
+    },
+    {
+      "id": "ta_0181",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "துணி",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "துணி சுத்தமாக இருக்கிறது",
+          "translation": "The clothes are clean",
+          "translit": "thuni suththamaaga irukkiradhu"
+        }
+      ],
+      "translit": "thuni"
+    },
+    {
+      "id": "ta_0182",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "செருப்பு",
+      "translation": "shoes, footwear",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "என் செருப்பு எங்கே?",
+          "translation": "Where are my shoes?",
+          "translit": "en seruppu enge?"
+        }
+      ],
+      "translit": "seruppu"
+    },
+    {
+      "id": "ta_0183",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "பிடிக்கும்",
+      "translation": "to like",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "எனக்கு டீ பிடிக்கும்",
+          "translation": "I like tea",
+          "translit": "enakku tea pidikkum"
+        }
+      ],
+      "translit": "pidikkum"
+    },
+    {
+      "id": "ta_0184",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "கேள்",
+      "translation": "to listen, to hear",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "தயவுசெய்து கேளுங்கள்",
+          "translation": "Please listen",
+          "translit": "thayavuseidhu kelungal"
+        }
+      ],
+      "translit": "kel"
+    },
+    {
+      "id": "ta_0185",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "திரும்பி வா",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "சீக்கிரம் திரும்பி வா",
+          "translation": "Come back soon",
+          "translit": "seekkiram thirumbi vaa"
+        }
+      ],
+      "translit": "thirumbi vaa"
+    },
+    {
+      "id": "ta_0186",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "கண்டுபிடி",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "சாவியைக் கண்டுபிடித்தேன்",
+          "translation": "I found the key",
+          "translit": "saaviyaik kandupidiththen"
+        }
+      ],
+      "translit": "kandupidi"
+    },
+    {
+      "id": "ta_0187",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "கொண்டு வா",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "தண்ணீர் கொண்டு வா",
+          "translation": "Bring water",
+          "translit": "thanneer kondu vaa"
+        }
+      ],
+      "translit": "kondu vaa"
+    },
+    {
+      "id": "ta_0188",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "விளையாடு",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "குழந்தைகள் வெளியே விளையாடுகிறார்கள்",
+          "translation": "The children are playing outside",
+          "translit": "kuzhandhaigal veliye vilaiyaadugiraargal"
+        }
+      ],
+      "translit": "vilaiyaadu"
+    },
+    {
+      "id": "ta_0189",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "மருத்துவமனை",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "மருத்துவமனை எங்கே?",
+          "translation": "Where is the hospital?",
+          "translit": "maruththuvamanai enge?"
+        }
+      ],
+      "translit": "maruththuvamanai"
+    },
+    {
+      "id": "ta_0190",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "காவல்துறை",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "காவல்துறையை அழையுங்கள்",
+          "translation": "Call the police",
+          "translit": "kaavalthuraiyai azhaiyungal"
+        }
+      ],
+      "translit": "kaavalthurai"
     }
   ],
   "alphabetGroups": [

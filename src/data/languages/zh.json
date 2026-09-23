@@ -3665,6 +3665,380 @@
         }
       ],
       "translit": "yào"
+    },
+    {
+      "id": "zh_0190",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "这个",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "这个多少钱？",
+          "translation": "How much is this?",
+          "translit": "zhège duōshao qián?"
+        }
+      ],
+      "translit": "zhège"
+    },
+    {
+      "id": "zh_0191",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "那个",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "那个是什么？",
+          "translation": "What is that?",
+          "translit": "nàge shì shénme?"
+        }
+      ],
+      "translit": "nàge"
+    },
+    {
+      "id": "zh_0192",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "哪个",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "你要哪个？",
+          "translation": "Which one do you want?",
+          "translit": "nǐ yào nǎge?"
+        }
+      ],
+      "translit": "nǎge"
+    },
+    {
+      "id": "zh_0193",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "再",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "请再说一遍",
+          "translation": "Please say it again",
+          "translit": "qǐng zài shuō yí biàn"
+        }
+      ],
+      "translit": "zài"
+    },
+    {
+      "id": "zh_0194",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "总是",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "妈妈总是做饭",
+          "translation": "Mom always cooks",
+          "translit": "māma zǒngshì zuòfàn"
+        }
+      ],
+      "translit": "zǒngshì"
+    },
+    {
+      "id": "zh_0195",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "从来不",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "我从来不抽烟",
+          "translation": "I never smoke",
+          "translit": "wǒ cónglái bù chōuyān"
+        }
+      ],
+      "translit": "cónglái bù"
+    },
+    {
+      "id": "zh_0196",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "也许",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "也许明天",
+          "translation": "Maybe tomorrow",
+          "translit": "yěxǔ míngtiān"
+        }
+      ],
+      "translit": "yěxǔ"
+    },
+    {
+      "id": "zh_0197",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "新",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "这是新车",
+          "translation": "This is a new car",
+          "translit": "zhè shì xīn chē"
+        }
+      ],
+      "translit": "xīn"
+    },
+    {
+      "id": "zh_0198",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "便宜",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "这个很便宜",
+          "translation": "This is very cheap",
+          "translit": "zhège hěn piányi"
+        }
+      ],
+      "translit": "piányi"
+    },
+    {
+      "id": "zh_0199",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "贵",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "酒店很贵",
+          "translation": "The hotel is expensive",
+          "translit": "jiǔdiàn hěn guì"
+        }
+      ],
+      "translit": "guì"
+    },
+    {
+      "id": "zh_0200",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "书",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "这本书很好看",
+          "translation": "This book is good",
+          "translit": "zhè běn shū hěn hǎokàn"
+        }
+      ],
+      "translit": "shū"
+    },
+    {
+      "id": "zh_0201",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "鱼",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "我喜欢吃鱼",
+          "translation": "I like eating fish",
+          "translit": "wǒ xǐhuan chī yú"
+        }
+      ],
+      "translit": "yú"
+    },
+    {
+      "id": "zh_0202",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "水果",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "我每天吃水果",
+          "translation": "I eat fruit every day",
+          "translit": "wǒ měitiān chī shuǐguǒ"
+        }
+      ],
+      "translit": "shuǐguǒ"
+    },
+    {
+      "id": "zh_0203",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "衣服",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "衣服干净了",
+          "translation": "The clothes are clean now",
+          "translit": "yīfu gānjìng le"
+        }
+      ],
+      "translit": "yīfu"
+    },
+    {
+      "id": "zh_0204",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "鞋",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "我的鞋在哪儿？",
+          "translation": "Where are my shoes?",
+          "translit": "wǒ de xié zài nǎr?"
+        }
+      ],
+      "translit": "xié"
+    },
+    {
+      "id": "zh_0205",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "学",
+      "translation": "to learn, to study",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "我在学中文",
+          "translation": "I am learning Chinese",
+          "translit": "wǒ zài xué zhōngwén"
+        }
+      ],
+      "translit": "xué"
+    },
+    {
+      "id": "zh_0206",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "回来",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "你什么时候回来？",
+          "translation": "When are you coming back?",
+          "translit": "nǐ shénme shíhou huílai?"
+        }
+      ],
+      "translit": "huílai"
+    },
+    {
+      "id": "zh_0207",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "找到",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "我找到钥匙了",
+          "translation": "I found the key",
+          "translit": "wǒ zhǎodào yàoshi le"
+        }
+      ],
+      "translit": "zhǎodào"
+    },
+    {
+      "id": "zh_0208",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "带",
+      "translation": "to bring, to take along",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "别忘了带水",
+          "translation": "Don't forget to bring water",
+          "translit": "bié wàng le dài shuǐ"
+        }
+      ],
+      "translit": "dài"
+    },
+    {
+      "id": "zh_0209",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "玩",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "孩子们在外面玩",
+          "translation": "The children are playing outside",
+          "translit": "háizimen zài wàimiàn wán"
+        }
+      ],
+      "translit": "wán"
+    },
+    {
+      "id": "zh_0210",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "医院",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "医院在哪儿？",
+          "translation": "Where is the hospital?",
+          "translit": "yīyuàn zài nǎr?"
+        }
+      ],
+      "translit": "yīyuàn"
+    },
+    {
+      "id": "zh_0211",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "警察",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "快叫警察！",
+          "translation": "Call the police, quick!",
+          "translit": "kuài jiào jǐngchá!"
+        }
+      ],
+      "translit": "jǐngchá"
     }
   ],
   "alphabetGroups": [

@@ -3536,6 +3536,414 @@
         }
       ],
       "translit": "kusuri"
+    },
+    {
+      "id": "ja_0185",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "あれ",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "あれは何ですか",
+          "translation": "What is that?",
+          "translit": "are wa nan desu ka"
+        }
+      ],
+      "translit": "are"
+    },
+    {
+      "id": "ja_0186",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "どれ",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "どれがいいですか",
+          "translation": "Which one is good?",
+          "translit": "dore ga ii desu ka"
+        }
+      ],
+      "translit": "dore"
+    },
+    {
+      "id": "ja_0187",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "また",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "また会いましょう",
+          "translation": "Let's meet again",
+          "translit": "mata aimashou"
+        }
+      ],
+      "translit": "mata"
+    },
+    {
+      "id": "ja_0188",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "いつも",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "母はいつも料理します",
+          "translation": "My mother always cooks",
+          "translit": "haha wa itsumo ryouri shimasu"
+        }
+      ],
+      "translit": "itsumo"
+    },
+    {
+      "id": "ja_0189",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "決して",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "決して忘れません",
+          "translation": "I will never forget",
+          "translit": "kesshite wasuremasen"
+        }
+      ],
+      "translit": "kesshite"
+    },
+    {
+      "id": "ja_0190",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "たぶん",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "たぶん明日です",
+          "translation": "Maybe tomorrow",
+          "translit": "tabun ashita desu"
+        }
+      ],
+      "translit": "tabun"
+    },
+    {
+      "id": "ja_0191",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "新しい",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "新しい車です",
+          "translation": "It is a new car",
+          "translit": "atarashii kuruma desu"
+        }
+      ],
+      "translit": "atarashii"
+    },
+    {
+      "id": "ja_0192",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "安い",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "これは安いです",
+          "translation": "This is cheap",
+          "translit": "kore wa yasui desu"
+        }
+      ],
+      "translit": "yasui"
+    },
+    {
+      "id": "ja_0193",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "高い",
+      "translation": "expensive, high",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "このホテルは高いです",
+          "translation": "This hotel is expensive",
+          "translit": "kono hoteru wa takai desu"
+        }
+      ],
+      "translit": "takai"
+    },
+    {
+      "id": "ja_0194",
+      "unit": "u2",
+      "category": "Family",
+      "lemma": "子供",
+      "translation": "child",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "子供が寝ています",
+          "translation": "The child is sleeping",
+          "translit": "kodomo ga nete imasu"
+        }
+      ],
+      "translit": "kodomo"
+    },
+    {
+      "id": "ja_0195",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "本",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "この本はおもしろいです",
+          "translation": "This book is interesting",
+          "translit": "kono hon wa omoshiroi desu"
+        }
+      ],
+      "translit": "hon"
+    },
+    {
+      "id": "ja_0196",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "卵",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "卵を二つください",
+          "translation": "Two eggs, please",
+          "translit": "tamago wo futatsu kudasai"
+        }
+      ],
+      "translit": "tamago"
+    },
+    {
+      "id": "ja_0197",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "果物",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "果物が好きです",
+          "translation": "I like fruit",
+          "translit": "kudamono ga suki desu"
+        }
+      ],
+      "translit": "kudamono"
+    },
+    {
+      "id": "ja_0198",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "服",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "服を洗います",
+          "translation": "I wash the clothes",
+          "translit": "fuku wo araimasu"
+        }
+      ],
+      "translit": "fuku"
+    },
+    {
+      "id": "ja_0199",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "靴",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "私の靴はどこですか",
+          "translation": "Where are my shoes?",
+          "translit": "watashi no kutsu wa doko desu ka"
+        }
+      ],
+      "translit": "kutsu"
+    },
+    {
+      "id": "ja_0200",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "好き",
+      "translation": "to like",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "コーヒーが好きです",
+          "translation": "I like coffee",
+          "translit": "koohii ga suki desu"
+        }
+      ],
+      "translit": "suki"
+    },
+    {
+      "id": "ja_0201",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "習う",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "娘はピアノを習う",
+          "translation": "My daughter learns piano",
+          "translit": "musume wa piano wo narau"
+        }
+      ],
+      "translit": "narau"
+    },
+    {
+      "id": "ja_0202",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "読む",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "父は新聞を読む",
+          "translation": "My father reads the newspaper",
+          "translit": "chichi wa shinbun wo yomu"
+        }
+      ],
+      "translit": "yomu"
+    },
+    {
+      "id": "ja_0203",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "帰る",
+      "translation": "to go home, to come back",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "何時に帰る？",
+          "translation": "What time are you coming home?",
+          "translit": "nanji ni kaeru?"
+        }
+      ],
+      "translit": "kaeru"
+    },
+    {
+      "id": "ja_0204",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "見つける",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "鍵を見つけるのは難しい",
+          "translation": "Finding the key is hard",
+          "translit": "kagi wo mitsukeru no wa muzukashii"
+        }
+      ],
+      "translit": "mitsukeru"
+    },
+    {
+      "id": "ja_0205",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "持ってくる",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "水を持ってくる",
+          "translation": "I'll bring water",
+          "translit": "mizu wo motte kuru"
+        }
+      ],
+      "translit": "motte kuru"
+    },
+    {
+      "id": "ja_0206",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "遊ぶ",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "子供たちは外で遊ぶ",
+          "translation": "The children play outside",
+          "translit": "kodomotachi wa soto de asobu"
+        }
+      ],
+      "translit": "asobu"
+    },
+    {
+      "id": "ja_0207",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "病院",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "病院はどこですか",
+          "translation": "Where is the hospital?",
+          "translit": "byouin wa doko desu ka"
+        }
+      ],
+      "translit": "byouin"
+    },
+    {
+      "id": "ja_0208",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "警察",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "警察を呼んでください",
+          "translation": "Please call the police",
+          "translit": "keisatsu wo yonde kudasai"
+        }
+      ],
+      "translit": "keisatsu"
     }
   ],
   "units": [

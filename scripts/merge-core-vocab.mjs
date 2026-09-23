@@ -16,6 +16,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { CORE_FILL, CORE_FILL_2 } from "./content/core-fill.mjs";
 import { TIER3_FILL } from "./content/tier3-fill.mjs";
 import { V105_FILL } from "./content/v105-fill.mjs";
+import { V106_FILL, V106_EXTEND } from "./content/v106-fill.mjs";
 import { CORE, normalizeGloss, taughtGlosses } from "../src/data/coreVocabulary.js";
 import { LATIN_SCRIPT_LANGUAGES } from "../src/data/registry.js";
 
@@ -33,7 +34,7 @@ let added = 0, skipped = 0, refused = 0;
 // Both passes, merged the same way. Entries the packs already satisfy are
 // skipped, so re-running after a pass has landed is a no-op.
 const ALL = {};
-for (const src of [CORE_FILL, CORE_FILL_2, TIER3_FILL, V105_FILL]) {
+for (const src of [CORE_FILL, CORE_FILL_2, TIER3_FILL, V105_FILL, V106_FILL]) {
   for (const [code, entries] of Object.entries(src)) ALL[code] = (ALL[code] || []).concat(entries);
 }
 
@@ -106,5 +107,28 @@ for (const [code, entries] of Object.entries(ALL)) {
   if (!DRY) writeFileSync(path, JSON.stringify(pack, null, 2) + "\n");
 }
 
-console.log(`\n  ${added} added · ${skipped} skipped · ${refused} refused${DRY ? "  (dry run — nothing written)" : ""}\n`);
+// v106: widen an existing word's gloss where it already carries a missing
+// meaning (see V106_EXTEND). Idempotent — safe to re-run like the rest.
+let extended = 0;
+for (const [code, rows] of Object.entries(V106_EXTEND)) {
+  const path = `src/data/languages/${code}.json`;
+  const pack = JSON.parse(readFileSync(path, "utf8"));
+  let changed = false;
+  for (const [conceptId, lemma, gloss, exN, exT, exE] of rows) {
+    let rowChanged = false;
+    if (!byId.has(conceptId)) { console.log(`  refuse ${code}/${lemma}: "${conceptId}" is not a core concept`); refused++; continue; }
+    const w = (pack.vocab || []).find((v) => v.lemma === lemma);
+    if (!w) { console.log(`  refuse ${code}/${lemma}: no such word to extend`); refused++; continue; }
+    const have = String(w.translation).split(/,\s*/).map(normalizeGloss);
+    if (!have.includes(normalizeGloss(gloss))) { w.translation = `${w.translation}, ${gloss}`; rowChanged = true; }
+    if (exN && !(w.examples || []).some((e) => e.native === exN)) {
+      w.examples = [...(w.examples || []), { native: exN, translation: exE, ...(exT ? { translit: exT } : {}) }];
+      rowChanged = true;
+    }
+    if (rowChanged) { changed = true; extended++; console.log(`  extend ${code}/${lemma}: "${w.translation}"`); }
+  }
+  if (changed && !DRY) writeFileSync(path, JSON.stringify(pack, null, 2) + "\n");
+}
+
+console.log(`\n  ${added} added · ${extended} extended · ${skipped} skipped · ${refused} refused${DRY ? "  (dry run — nothing written)" : ""}\n`);
 if (refused) process.exit(1);

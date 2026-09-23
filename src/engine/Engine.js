@@ -215,6 +215,17 @@ export class Engine {
   // Lesson generation — bulletproof: ALWAYS returns at least sessionSize exercises
   // ---------------------------------------------------------------------------
   /** v105: per-topic standing for the Topics screen (see summariseTopics). */
+  // v106: the words for a hands-free listening round — the learned ones you're
+  // closest to forgetting, plus a few you haven't met (hearing a word before
+  // it's taught is still useful exposure). Nothing here touches SRS state:
+  // listening isn't graded, so it mustn't pretend to be a review.
+  async getListenQueue({ category = null, size = 12 } = {}) {
+    const progress = await this.getProgress();
+    let pool = (this.pack.vocab || []).filter((v) => !v.custom);
+    if (category) pool = pool.filter((v) => v.category === category);
+    return buildTopicQueue(pool, progress, { sessionSize: size, newPerSession: 3 });
+  }
+
   async getTopics() {
     const progress = await this.getProgress();
     return summariseTopics(this.pack.vocab || [], progress);

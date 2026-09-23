@@ -3164,6 +3164,431 @@
         }
       ],
       "translit": "marunnu"
+    },
+    {
+      "id": "ml_0169",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ഇത്",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "ഇത് എന്റെ വീടാണ്",
+          "translation": "This is my house",
+          "translit": "ithu ente veedaanu"
+        }
+      ],
+      "translit": "ithu"
+    },
+    {
+      "id": "ml_0170",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "അത്",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "അത് എന്താണ്?",
+          "translation": "What is that?",
+          "translit": "athu enthaanu?"
+        }
+      ],
+      "translit": "athu"
+    },
+    {
+      "id": "ml_0171",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "ഏത്",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "ഏത് ബസ്?",
+          "translation": "Which bus?",
+          "translit": "ethu bus?"
+        }
+      ],
+      "translit": "ethu"
+    },
+    {
+      "id": "ml_0172",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "വീണ്ടും",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "വീണ്ടും വരൂ",
+          "translation": "Come again",
+          "translit": "veendum varoo"
+        }
+      ],
+      "translit": "veendum"
+    },
+    {
+      "id": "ml_0173",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "എപ്പോഴും",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "അമ്മ എപ്പോഴും പാചകം ചെയ്യും",
+          "translation": "Mother always cooks",
+          "translit": "amma eppozhum paachakam cheyyum"
+        }
+      ],
+      "translit": "eppozhum"
+    },
+    {
+      "id": "ml_0174",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ഒരിക്കലും",
+      "translation": "never (with a negative), ever",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "ഞാൻ ഒരിക്കലും മറക്കില്ല",
+          "translation": "I will never forget",
+          "translit": "njaan orikkalum marakkilla"
+        }
+      ],
+      "translit": "orikkalum"
+    },
+    {
+      "id": "ml_0175",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ഒരുപക്ഷേ",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "ഒരുപക്ഷേ നാളെ",
+          "translation": "Maybe tomorrow",
+          "translit": "orupakshe naale"
+        }
+      ],
+      "translit": "orupakshe"
+    },
+    {
+      "id": "ml_0176",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "പുതിയ",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "ഇത് പുതിയ വീടാണ്",
+          "translation": "This is a new house",
+          "translit": "ithu puthiya veedaanu"
+        }
+      ],
+      "translit": "puthiya"
+    },
+    {
+      "id": "ml_0177",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "വില കുറഞ്ഞ",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "ഇത് വില കുറഞ്ഞ സാധനമാണ്",
+          "translation": "This is a cheap item",
+          "translit": "ithu vila kuranja saadhanamaanu"
+        }
+      ],
+      "translit": "vila kuranja"
+    },
+    {
+      "id": "ml_0178",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "വിലകൂടിയ",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "ഇത് വിലകൂടിയ ഫോണാണ്",
+          "translation": "This is an expensive phone",
+          "translit": "ithu vilakoodiya phonaanu"
+        }
+      ],
+      "translit": "vilakoodiya"
+    },
+    {
+      "id": "ml_0179",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "കുട്ടി",
+      "translation": "child",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "കുട്ടി ഉറങ്ങുകയാണ്",
+          "translation": "The child is sleeping",
+          "translit": "kutti urangukayaanu"
+        }
+      ],
+      "translit": "kutti"
+    },
+    {
+      "id": "ml_0180",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "സ്കൂൾ",
+      "translation": "school",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "സ്കൂൾ അടുത്താണ്",
+          "translation": "The school is near",
+          "translit": "school aduthaanu"
+        }
+      ],
+      "translit": "school"
+    },
+    {
+      "id": "ml_0181",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "ഇറച്ചി",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "ഞാൻ ഇറച്ചി കഴിക്കില്ല",
+          "translation": "I don't eat meat",
+          "translit": "njaan irachi kazhikkilla"
+        }
+      ],
+      "translit": "irachi"
+    },
+    {
+      "id": "ml_0182",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "മുട്ട",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "രണ്ട് മുട്ട തരൂ",
+          "translation": "Give me two eggs",
+          "translit": "randu mutta tharoo"
+        }
+      ],
+      "translit": "mutta"
+    },
+    {
+      "id": "ml_0183",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "വസ്ത്രം",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "വസ്ത്രം വൃത്തിയാണ്",
+          "translation": "The clothes are clean",
+          "translit": "vasthram vruthiyaanu"
+        }
+      ],
+      "translit": "vasthram"
+    },
+    {
+      "id": "ml_0184",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "ചെരിപ്പ്",
+      "translation": "shoes, footwear",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "എന്റെ ചെരിപ്പ് എവിടെ?",
+          "translation": "Where are my shoes?",
+          "translit": "ente cherippu evide?"
+        }
+      ],
+      "translit": "cherippu"
+    },
+    {
+      "id": "ml_0185",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ഇഷ്ടം",
+      "translation": "to like, liking",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "എനിക്ക് ചായ ഇഷ്ടമാണ്",
+          "translation": "I like tea",
+          "translit": "enikku chaaya ishtamaanu"
+        }
+      ],
+      "translit": "ishtam"
+    },
+    {
+      "id": "ml_0186",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "വായിക്കുക",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "അച്ഛൻ പത്രം വായിക്കുന്നു",
+          "translation": "Father is reading the newspaper",
+          "translit": "achan pathram vaayikkunnu"
+        }
+      ],
+      "translit": "vaayikkuka"
+    },
+    {
+      "id": "ml_0187",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "കേൾക്കുക",
+      "translation": "to listen, to hear",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "ഞാൻ പാട്ട് കേൾക്കുന്നു",
+          "translation": "I am listening to a song",
+          "translit": "njaan paattu kelkkunnu"
+        }
+      ],
+      "translit": "kelkkuka"
+    },
+    {
+      "id": "ml_0188",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "തിരിച്ചുവരിക",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "അച്ഛൻ എപ്പോൾ തിരിച്ചുവരും?",
+          "translation": "When will Father come back?",
+          "translit": "achan eppol thirichuvarum?"
+        }
+      ],
+      "translit": "thirichuvarika"
+    },
+    {
+      "id": "ml_0189",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "കണ്ടെത്തുക",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "താക്കോൽ കണ്ടെത്തി",
+          "translation": "I found the key",
+          "translit": "thaakkol kandethi"
+        }
+      ],
+      "translit": "kandethuka"
+    },
+    {
+      "id": "ml_0190",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "കൊണ്ടുവരിക",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "വെള്ളം കൊണ്ടുവരൂ",
+          "translation": "Bring water",
+          "translit": "vellam konduvaroo"
+        }
+      ],
+      "translit": "konduvarika"
+    },
+    {
+      "id": "ml_0191",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "കളിക്കുക",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "കുട്ടികൾ പുറത്ത് കളിക്കുന്നു",
+          "translation": "The children are playing outside",
+          "translit": "kuttikal purathu kalikkunnu"
+        }
+      ],
+      "translit": "kalikkuka"
+    },
+    {
+      "id": "ml_0192",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "ആശുപത്രി",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "ആശുപത്രി എവിടെയാണ്?",
+          "translation": "Where is the hospital?",
+          "translit": "aashupathri evideyaanu?"
+        }
+      ],
+      "translit": "aashupathri"
+    },
+    {
+      "id": "ml_0193",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "പോലീസ്",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "പോലീസിനെ വിളിക്കൂ",
+          "translation": "Call the police",
+          "translit": "policine vilikkoo"
+        }
+      ],
+      "translit": "police"
     }
   ],
   "alphabetGroups": [

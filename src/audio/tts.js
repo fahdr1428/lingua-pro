@@ -47,34 +47,55 @@ async function tryPlayMp3(langCode, audioId) {
   const cacheKey = `${langCode}/${audioId}`;
   if (mp3AvailabilityCache.get(cacheKey) === false) return false;
 
+  // v106: this used to set `settled = true` the moment play() started, and the
+  // "ended" handler only resolved `if (!settled)` — so a clip that PLAYED never
+  // resolved at all. Every `await speak(…, { audioId })` hung forever for any
+  // word with a recording: the speaking drill's auto-advance after a pass
+  // (Speak.jsx) silently stopped in the eleven languages that ship MP3s. A clip
+  // stopped part-way by stopSpeaking() never resolved either.
+  //
+  // Now: resolve true when the clip finishes or is stopped, false if it can't
+  // start — and a clip that missed its start window is never allowed to start.
   return new Promise((resolve) => {
     const audio = new Audio(url);
     activeAudio = audio;
-    let settled = false;
+    let started = false, done = false, cap = null, startWindow = null;
+
+    const finish = (ok) => {
+      if (done) return;
+      done = true;
+      clearTimeout(startWindow);
+      clearTimeout(cap);
+      resolve(ok);
+    };
 
     audio.addEventListener("canplaythrough", () => {
-      if (settled) return;
+      if (done) return;
       audio.play()
         .then(() => {
+          if (done) { try { audio.pause(); } catch {} return; }
+          started = true;
           mp3AvailabilityCache.set(cacheKey, true);
-          settled = true;
+          // Belt and braces: if "ended" never arrives, don't wait past the clip.
+          const secs = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 10;
+          cap = setTimeout(() => finish(true), (secs + 2) * 1000);
         })
-        .catch(() => {
-          if (!settled) { settled = true; resolve(false); }
-        });
+        .catch(() => finish(false));
     }, { once: true });
 
-    audio.addEventListener("ended", () => { if (!settled) { settled = true; resolve(true); } });
+    audio.addEventListener("ended", () => finish(true));
+    // stopSpeaking() pauses the clip; that ends this utterance rather than
+    // leaving whoever awaited it waiting on an "ended" that will never come.
+    audio.addEventListener("pause", () => { if (started) finish(true); });
     audio.addEventListener("error", () => {
-      if (settled) return;
       mp3AvailabilityCache.set(cacheKey, false);
-      settled = true;
-      resolve(false);
+      finish(false);
     });
 
-    // Set a timeout so we don't hang forever
-    setTimeout(() => {
-      if (!settled) { settled = true; resolve(false); }
+    startWindow = setTimeout(() => {
+      if (started || done) return;
+      try { audio.pause(); audio.removeAttribute("src"); } catch {}
+      finish(false);
     }, 3000);
 
     audio.load();

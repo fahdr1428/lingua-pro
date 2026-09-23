@@ -502,7 +502,7 @@
       "unit": "u2",
       "lemma": "وہ",
       "translit": "woh",
-      "translation": "he, she, they",
+      "translation": "he, she, they, that",
       "category": "People",
       "difficulty": 2,
       "frequencyRank": 83,
@@ -511,6 +511,11 @@
           "native": "وہ ڈاکٹر ہے",
           "translation": "He is a doctor",
           "translit": "woh doctor hai"
+        },
+        {
+          "native": "وہ گھر بڑا ہے",
+          "translation": "That house is big",
+          "translit": "woh ghar bara hai"
         }
       ],
       "pronunciation": "WOH"
@@ -3963,6 +3968,295 @@
         }
       ],
       "translit": "dawai"
+    },
+    {
+      "id": "ur_0207",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "کون سا",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "کون سا رنگ؟",
+          "translation": "Which colour?",
+          "translit": "kaun sa rang?"
+        }
+      ],
+      "translit": "kaun sa"
+    },
+    {
+      "id": "ur_0208",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "دوبارہ",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "دوبارہ بولیں",
+          "translation": "Please say it again",
+          "translit": "dobara bolein"
+        }
+      ],
+      "translit": "dobara"
+    },
+    {
+      "id": "ur_0209",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ہمیشہ",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "امی ہمیشہ کھانا پکاتی ہیں",
+          "translation": "Mom always cooks",
+          "translit": "ammi hamesha khana pakati hain"
+        }
+      ],
+      "translit": "hamesha"
+    },
+    {
+      "id": "ur_0210",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "کبھی نہیں",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "میں کبھی نہیں بھولوں گا",
+          "translation": "I will never forget",
+          "translit": "main kabhi nahin bhoolun ga"
+        }
+      ],
+      "translit": "kabhi nahin"
+    },
+    {
+      "id": "ur_0211",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "شاید",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "شاید کل",
+          "translation": "Maybe tomorrow",
+          "translit": "shayad kal"
+        }
+      ],
+      "translit": "shayad"
+    },
+    {
+      "id": "ur_0212",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "سستا",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "یہ بہت سستا ہے",
+          "translation": "This is very cheap",
+          "translit": "yeh bohat sasta hai"
+        }
+      ],
+      "translit": "sasta"
+    },
+    {
+      "id": "ur_0213",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "مہنگا",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "ہوٹل مہنگا ہے",
+          "translation": "The hotel is expensive",
+          "translit": "hotel mehnga hai"
+        }
+      ],
+      "translit": "mehnga"
+    },
+    {
+      "id": "ur_0214",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "کتاب",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "یہ کتاب اچھی ہے",
+          "translation": "This book is good",
+          "translit": "yeh kitaab achhi hai"
+        }
+      ],
+      "translit": "kitaab"
+    },
+    {
+      "id": "ur_0215",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "کپڑے",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "کپڑے صاف ہیں",
+          "translation": "The clothes are clean",
+          "translit": "kapray saaf hain"
+        }
+      ],
+      "translit": "kapray"
+    },
+    {
+      "id": "ur_0216",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "جوتے",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "میرے جوتے کہاں ہیں؟",
+          "translation": "Where are my shoes?",
+          "translit": "meray jootay kahan hain?"
+        }
+      ],
+      "translit": "jootay"
+    },
+    {
+      "id": "ur_0217",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پسند کرنا",
+      "translation": "to like",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "مجھے چائے پسند ہے",
+          "translation": "I like tea",
+          "translit": "mujhe chai pasand hai"
+        }
+      ],
+      "translit": "pasand karna"
+    },
+    {
+      "id": "ur_0218",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "سیکھنا",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "مجھے اردو سیکھنا ہے",
+          "translation": "I want to learn Urdu",
+          "translit": "mujhe urdu seekhna hai"
+        }
+      ],
+      "translit": "seekhna"
+    },
+    {
+      "id": "ur_0219",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "واپس آنا",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "ابو کب واپس آئیں گے؟",
+          "translation": "When will Dad come back?",
+          "translit": "abbu kab wapas aayen ge?"
+        }
+      ],
+      "translit": "wapas aana"
+    },
+    {
+      "id": "ur_0220",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ڈھونڈنا",
+      "translation": "to look for, to find",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "میں چابی ڈھونڈ رہا ہوں",
+          "translation": "I am looking for the key",
+          "translit": "main chaabi dhoond raha hoon"
+        }
+      ],
+      "translit": "dhoondna"
+    },
+    {
+      "id": "ur_0221",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "لانا",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "پانی لانا",
+          "translation": "Bring water",
+          "translit": "paani laana"
+        }
+      ],
+      "translit": "laana"
+    },
+    {
+      "id": "ur_0222",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "کھیلنا",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "بچے باہر کھیل رہے ہیں",
+          "translation": "The children are playing outside",
+          "translit": "bachay bahar khel rahay hain"
+        }
+      ],
+      "translit": "khelna"
+    },
+    {
+      "id": "ur_0223",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "پولیس",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "پولیس کو بلاؤ",
+          "translation": "Call the police",
+          "translit": "police ko bulao"
+        }
+      ],
+      "translit": "police"
     }
   ],
   "alphabetGroups": [

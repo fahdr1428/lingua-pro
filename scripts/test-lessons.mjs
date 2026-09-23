@@ -172,6 +172,39 @@ check("no question offers the same answer twice",
   dupes.length === 0, `${dupes.length} cases, e.g.\n      ${dupes.slice(0, 3).join("\n      ")}`);
 
 // =========================================================================
+// v106 — HOMOGRAPHS. Hindi teaches खाना twice: "food" (Food) and "to eat"
+// (Verbs). The pack-wide sweep above only trips over that when the shuffle
+// happens to pick both, so it failed one run in several; this builds the
+// exact situation and asks many times. Three Food words, one of them खाना,
+// and a Verbs word also spelled खाना: an odd-one-out must never show it twice.
+console.log("\nlesson generator · two words spelled the same\n");
+{
+  const hi = packs.find((p) => p.code === "hi");
+  const pick = (id) => hi.vocab.find((v) => v.id === id);
+  const food = pick("hi_0013"), eat = pick("hi_0020");
+  const others = hi.vocab.filter((v) => v.category === "Food" && v.lemma !== food.lemma).slice(0, 2);
+  const verb = hi.vocab.find((v) => v.category === "Verbs" && v.lemma !== eat.lemma);
+  const pool = [food, ...others, eat, verb];
+  const learnedAll = Object.fromEntries(pool.map((v) => [v.id, {
+    reps: 6, lapses: 0, stability: 8, difficulty: 5,
+    lastReview: Date.now() - 3 * 86400000, nextReview: Date.now() - 86400000, lastRating: 3,
+  }]));
+  let seen = 0, twice = 0, example = "";
+  for (let run = 0; run < 400; run++) {
+    const out = generateLesson(pool, pool, learnedAll, "hi");
+    for (const ex of out) {
+      if (ex.type !== "odd_one_out") continue;
+      seen++;
+      const shown = ex.options.map((o) => o.lemma);
+      if (new Set(shown).size !== shown.length) { twice++; example ||= shown.join(" | "); }
+    }
+  }
+  check("the homograph case was actually exercised", seen > 20, `only ${seen} odd-one-out questions in 400 lessons`);
+  check("an odd-one-out never shows खाना (food) and खाना (to eat) together",
+    twice === 0, `${twice} of ${seen}, e.g. [${example}]`);
+}
+
+// =========================================================================
 console.log("\nlesson generator · degenerate input must not throw\n");
 
 const es = packs.find((p) => p.code === "es");

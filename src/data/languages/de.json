@@ -16,6 +16,7 @@
     "Questions",
     "Time",
     "Travel",
+    "Useful",
     "Verbs"
   ],
   "units": [
@@ -3731,6 +3732,381 @@
         {
           "native": "Das Medikament hilft",
           "translation": "The medicine helps"
+        }
+      ]
+    },
+    {
+      "id": "de_0211",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "dieser",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "Dieser Zug ist schnell",
+          "translation": "This train is fast"
+        }
+      ]
+    },
+    {
+      "id": "de_0212",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "das",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "Das ist mein Vater",
+          "translation": "That is my father"
+        }
+      ]
+    },
+    {
+      "id": "de_0213",
+      "unit": "u9",
+      "category": "Common",
+      "lemma": "welcher",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "Welcher Bus fährt zum Bahnhof?",
+          "translation": "Which bus goes to the station?"
+        }
+      ]
+    },
+    {
+      "id": "de_0214",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "wieder",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "Komm bald wieder",
+          "translation": "Come again soon"
+        }
+      ]
+    },
+    {
+      "id": "de_0215",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "nie",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "Ich rauche nie",
+          "translation": "I never smoke"
+        }
+      ]
+    },
+    {
+      "id": "de_0216",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "vielleicht",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "Vielleicht morgen",
+          "translation": "Maybe tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "de_0217",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "neu",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "Das Auto ist neu",
+          "translation": "The car is new"
+        }
+      ]
+    },
+    {
+      "id": "de_0218",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "die Schule",
+      "translation": "school",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "Die Schule ist nah",
+          "translation": "The school is near"
+        }
+      ]
+    },
+    {
+      "id": "de_0219",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "das Buch",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "Das Buch ist gut",
+          "translation": "The book is good"
+        }
+      ]
+    },
+    {
+      "id": "de_0220",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "der Fisch",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "Der Fisch ist frisch",
+          "translation": "The fish is fresh"
+        }
+      ]
+    },
+    {
+      "id": "de_0221",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "das Fleisch",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "Das Fleisch ist teuer",
+          "translation": "The meat is expensive"
+        }
+      ]
+    },
+    {
+      "id": "de_0222",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "das Ei",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "Das Ei ist gekocht",
+          "translation": "The egg is boiled"
+        }
+      ]
+    },
+    {
+      "id": "de_0223",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "das Obst",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "Das Obst ist süß",
+          "translation": "The fruit is sweet"
+        }
+      ]
+    },
+    {
+      "id": "de_0224",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "die Kleidung",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "Die Kleidung ist sauber",
+          "translation": "The clothes are clean"
+        }
+      ]
+    },
+    {
+      "id": "de_0225",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "die Schuhe",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "Die Schuhe sind neu",
+          "translation": "The shoes are new"
+        }
+      ]
+    },
+    {
+      "id": "de_0226",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mögen",
+      "translation": "to like",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "Mögen Sie Kaffee?",
+          "translation": "Do you like coffee?"
+        }
+      ]
+    },
+    {
+      "id": "de_0227",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "lernen",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "Ich will Deutsch lernen",
+          "translation": "I want to learn German"
+        }
+      ]
+    },
+    {
+      "id": "de_0228",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "lesen",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "Kannst du das lesen?",
+          "translation": "Can you read that?"
+        }
+      ]
+    },
+    {
+      "id": "de_0229",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "zuhören",
+      "translation": "to listen",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "Du musst gut zuhören",
+          "translation": "You have to listen carefully"
+        }
+      ]
+    },
+    {
+      "id": "de_0230",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "anrufen",
+      "translation": "to call",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "Ich muss meine Mutter anrufen",
+          "translation": "I have to call my mother"
+        }
+      ]
+    },
+    {
+      "id": "de_0231",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "zurückkommen",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "Er will morgen zurückkommen",
+          "translation": "He wants to come back tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "de_0232",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "finden",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "Ich kann meinen Schlüssel nicht finden",
+          "translation": "I can't find my key"
+        }
+      ]
+    },
+    {
+      "id": "de_0233",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "bringen",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "Kannst du Brot bringen?",
+          "translation": "Can you bring bread?"
+        }
+      ]
+    },
+    {
+      "id": "de_0234",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "spielen",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "Die Kinder spielen draußen",
+          "translation": "The children are playing outside"
+        }
+      ]
+    },
+    {
+      "id": "de_0235",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "die Polizei",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "Ruf die Polizei!",
+          "translation": "Call the police!"
         }
       ]
     }

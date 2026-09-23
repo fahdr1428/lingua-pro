@@ -3268,6 +3268,346 @@
         }
       ],
       "translit": "oshudh"
+    },
+    {
+      "id": "bn_0171",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "এটা",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "এটা আমার বাড়ি",
+          "translation": "This is my house",
+          "translit": "eta amar bari"
+        }
+      ],
+      "translit": "eta"
+    },
+    {
+      "id": "bn_0172",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "ওটা",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "ওটা কী?",
+          "translation": "What is that?",
+          "translit": "ota ki?"
+        }
+      ],
+      "translit": "ota"
+    },
+    {
+      "id": "bn_0173",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "কোনটা",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "কোনটা তোমার?",
+          "translation": "Which one is yours?",
+          "translit": "konta tomar?"
+        }
+      ],
+      "translit": "konta"
+    },
+    {
+      "id": "bn_0174",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "সবসময়",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "মা সবসময় রান্না করেন",
+          "translation": "Mother always cooks",
+          "translit": "ma sobshomoy ranna koren"
+        }
+      ],
+      "translit": "sobshomoy"
+    },
+    {
+      "id": "bn_0175",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "কখনো",
+      "translation": "never (with না), ever",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "আমি কখনো মাংস খাই না",
+          "translation": "I never eat meat",
+          "translit": "ami kokhono mangsho khai na"
+        }
+      ],
+      "translit": "kokhono"
+    },
+    {
+      "id": "bn_0176",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "হয়তো",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "হয়তো কাল",
+          "translation": "Maybe tomorrow",
+          "translit": "hoyto kal"
+        }
+      ],
+      "translit": "hoyto"
+    },
+    {
+      "id": "bn_0177",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "সস্তা",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "এটা খুব সস্তা",
+          "translation": "This is very cheap",
+          "translit": "eta khub shosta"
+        }
+      ],
+      "translit": "shosta"
+    },
+    {
+      "id": "bn_0178",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "দামি",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "এই জামা দামি",
+          "translation": "This shirt is expensive",
+          "translit": "ei jama dami"
+        }
+      ],
+      "translit": "dami"
+    },
+    {
+      "id": "bn_0179",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "বাচ্চা",
+      "translation": "child",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "বাচ্চাটা ঘুমাচ্ছে",
+          "translation": "The child is sleeping",
+          "translit": "bacchata ghumacche"
+        }
+      ],
+      "translit": "baccha"
+    },
+    {
+      "id": "bn_0180",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "বই",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "আমি বই পড়ি",
+          "translation": "I read books",
+          "translit": "ami boi pori"
+        }
+      ],
+      "translit": "boi"
+    },
+    {
+      "id": "bn_0181",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "ডিম",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "দুটো ডিম দাও",
+          "translation": "Give me two eggs",
+          "translit": "duto dim dao"
+        }
+      ],
+      "translit": "dim"
+    },
+    {
+      "id": "bn_0182",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "ফল",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "আমি ফল খাই",
+          "translation": "I eat fruit",
+          "translit": "ami fol khai"
+        }
+      ],
+      "translit": "fol"
+    },
+    {
+      "id": "bn_0183",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "কাপড়",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "কাপড় ধুতে হবে",
+          "translation": "The clothes need washing",
+          "translit": "kapor dhute hobe"
+        }
+      ],
+      "translit": "kapor"
+    },
+    {
+      "id": "bn_0184",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "জুতা",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "আমার জুতা কোথায়?",
+          "translation": "Where are my shoes?",
+          "translit": "amar juta kothay?"
+        }
+      ],
+      "translit": "juta"
+    },
+    {
+      "id": "bn_0185",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "পছন্দ করা",
+      "translation": "to like",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "আমি চা পছন্দ করি",
+          "translation": "I like tea",
+          "translit": "ami cha pochhondo kori"
+        }
+      ],
+      "translit": "pochhondo kora"
+    },
+    {
+      "id": "bn_0186",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ফিরে আসা",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "বাবা কখন ফিরে আসবেন?",
+          "translation": "When will Dad come back?",
+          "translit": "baba kokhon phire ashben?"
+        }
+      ],
+      "translit": "phire asha"
+    },
+    {
+      "id": "bn_0187",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "খুঁজে পাওয়া",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "চাবি খুঁজে পাচ্ছি না",
+          "translation": "I can't find the key",
+          "translit": "chabi khuje pacchi na"
+        }
+      ],
+      "translit": "khuje paowa"
+    },
+    {
+      "id": "bn_0188",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "আনা",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "বাজার থেকে দুধ আনা লাগবে",
+          "translation": "We need to bring milk from the market",
+          "translit": "bazar theke dudh ana lagbe"
+        }
+      ],
+      "translit": "ana"
+    },
+    {
+      "id": "bn_0189",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "খেলা",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "বাচ্চারা খেলা করছে",
+          "translation": "The children are playing",
+          "translit": "bacchara khela korche"
+        }
+      ],
+      "translit": "khela"
+    },
+    {
+      "id": "bn_0190",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "পুলিশ",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "পুলিশ ডাকো",
+          "translation": "Call the police",
+          "translit": "pulish dako"
+        }
+      ],
+      "translit": "pulish"
     }
   ],
   "alphabetGroups": [

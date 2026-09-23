@@ -3309,6 +3309,431 @@
         }
       ],
       "translit": "davaai"
+    },
+    {
+      "id": "pa_0178",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "ایہہ",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "ایہہ میرا گھر اے",
+          "translation": "This is my house",
+          "translit": "eh mera ghar ae"
+        }
+      ],
+      "translit": "eh"
+    },
+    {
+      "id": "pa_0179",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "کیہڑا",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "کیہڑا رنگ؟",
+          "translation": "Which colour?",
+          "translit": "kehra rang?"
+        }
+      ],
+      "translit": "kehra"
+    },
+    {
+      "id": "pa_0180",
+      "unit": "u4",
+      "category": "Time",
+      "lemma": "ہمیشہ",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "ماں ہمیشہ کھانا پکاندی اے",
+          "translation": "Mother always cooks",
+          "translit": "maan hamesha khana pakaandi ae"
+        }
+      ],
+      "translit": "hamesha"
+    },
+    {
+      "id": "pa_0181",
+      "unit": "u4",
+      "category": "Time",
+      "lemma": "کدی نئیں",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "میں کدی نئیں بھلاں گا",
+          "translation": "I will never forget",
+          "translit": "main kadi nahin bhulaan ga"
+        }
+      ],
+      "translit": "kadi nahin"
+    },
+    {
+      "id": "pa_0182",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "شاید",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "شاید کل",
+          "translation": "Maybe tomorrow",
+          "translit": "shayad kal"
+        }
+      ],
+      "translit": "shayad"
+    },
+    {
+      "id": "pa_0183",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "نواں",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "ایہہ نواں گھر اے",
+          "translation": "This is a new house",
+          "translit": "eh navaan ghar ae"
+        }
+      ],
+      "translit": "navaan"
+    },
+    {
+      "id": "pa_0184",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "سستا",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "ایہہ بہت سستا اے",
+          "translation": "This is very cheap",
+          "translit": "eh bahut sasta ae"
+        }
+      ],
+      "translit": "sasta"
+    },
+    {
+      "id": "pa_0185",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "مہنگا",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "ہوٹل مہنگا اے",
+          "translation": "The hotel is expensive",
+          "translit": "hotel mehnga ae"
+        }
+      ],
+      "translit": "mehnga"
+    },
+    {
+      "id": "pa_0186",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "سکول",
+      "translation": "school",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "سکول نیڑے اے",
+          "translation": "The school is near",
+          "translit": "school nerre ae"
+        }
+      ],
+      "translit": "school"
+    },
+    {
+      "id": "pa_0187",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "کتاب",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "ایہہ کتاب چنگی اے",
+          "translation": "This book is good",
+          "translit": "eh kitaab changi ae"
+        }
+      ],
+      "translit": "kitaab"
+    },
+    {
+      "id": "pa_0188",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "مچھی",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "مچھی تازی اے",
+          "translation": "The fish is fresh",
+          "translit": "machhi taazi ae"
+        }
+      ],
+      "translit": "machhi"
+    },
+    {
+      "id": "pa_0189",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "گوشت",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "میں گوشت نئیں کھاندا",
+          "translation": "I don't eat meat",
+          "translit": "main gosht nahin khaanda"
+        }
+      ],
+      "translit": "gosht"
+    },
+    {
+      "id": "pa_0190",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "انڈا",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "دو انڈے دیو",
+          "translation": "Give me two eggs",
+          "translit": "do ande deo"
+        }
+      ],
+      "translit": "anda"
+    },
+    {
+      "id": "pa_0191",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "پھل",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "مینوں پھل پسند اے",
+          "translation": "I like fruit",
+          "translit": "mainu phal pasand ae"
+        }
+      ],
+      "translit": "phal"
+    },
+    {
+      "id": "pa_0192",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "کپڑے",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "کپڑے صاف نیں",
+          "translation": "The clothes are clean",
+          "translit": "kapre saaf nein"
+        }
+      ],
+      "translit": "kapre"
+    },
+    {
+      "id": "pa_0193",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "جتی",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "میری جتی کتھے اے؟",
+          "translation": "Where are my shoes?",
+          "translit": "meri jutti kithe ae?"
+        }
+      ],
+      "translit": "jutti"
+    },
+    {
+      "id": "pa_0194",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پسند کرنا",
+      "translation": "to like",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "مینوں چاہ پسند اے",
+          "translation": "I like tea",
+          "translit": "mainu chaah pasand ae"
+        }
+      ],
+      "translit": "pasand karna"
+    },
+    {
+      "id": "pa_0195",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "سکھنا",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "میں پنجابی سکھنا چاہندا ہاں",
+          "translation": "I want to learn Punjabi",
+          "translit": "main punjabi sikhna chaahnda haan"
+        }
+      ],
+      "translit": "sikhna"
+    },
+    {
+      "id": "pa_0196",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پڑھنا",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "مینوں پڑھنا پسند اے",
+          "translation": "I like to read",
+          "translit": "mainu parhna pasand ae"
+        }
+      ],
+      "translit": "parhna"
+    },
+    {
+      "id": "pa_0197",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "واپس آنا",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "ابا کدوں واپس آن گے؟",
+          "translation": "When will Dad come back?",
+          "translit": "abba kadon vaapas aan ge?"
+        }
+      ],
+      "translit": "vaapas aana"
+    },
+    {
+      "id": "pa_0198",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "لبھنا",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "چابی نئیں لبھدی",
+          "translation": "I can't find the key",
+          "translit": "chaabi nahin labhdi"
+        }
+      ],
+      "translit": "labhna"
+    },
+    {
+      "id": "pa_0199",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "لیانا",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "پانی لیاؤ",
+          "translation": "Bring water",
+          "translit": "paani liaao"
+        }
+      ],
+      "translit": "liaana"
+    },
+    {
+      "id": "pa_0200",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "کھیڈنا",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "بچے باہر کھیڈ رہے نیں",
+          "translation": "The children are playing outside",
+          "translit": "bache baahar khed rahe nein"
+        }
+      ],
+      "translit": "khedna"
+    },
+    {
+      "id": "pa_0201",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "ہسپتال",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "ہسپتال کتھے اے؟",
+          "translation": "Where is the hospital?",
+          "translit": "haspataal kithe ae?"
+        }
+      ],
+      "translit": "haspataal"
+    },
+    {
+      "id": "pa_0202",
+      "unit": "u6",
+      "category": "People",
+      "lemma": "پولیس",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "پولیس نوں بلاؤ",
+          "translation": "Call the police",
+          "translit": "police nu bulaao"
+        }
+      ],
+      "translit": "police"
     }
   ],
   "alphabetGroups": [

@@ -232,6 +232,40 @@ export const CORE = [
   c("eye", "eye", 3, "Body", ["eyes"]),
   c("pain", "pain", 3, "Body", ["ache", "hurt", "to hurt", "it hurts"]),
   c("medicine", "medicine", 3, "Body", ["medication"]),
+  // v106 — the things around you, measured the same way: to play, to call, to
+  // come back, to find, to bring, never, clothes, shoes, which and police were
+  // taught by no pack at all; this/that/maybe/always/cheap by one or two. You
+  // cannot point, shop, say how often, or run an errand without them.
+  c("this", "this", 3, "Common", ["this one"]),
+  c("that", "that", 3, "Common", ["that one"]),
+  c("which", "which", 3, "Common", ["which one"]),
+  c("again", "again", 3, "Common", []),
+  c("always", "always", 3, "Time", []),
+  c("never", "never", 3, "Time", []),
+  c("maybe", "maybe", 3, "Common", ["perhaps"]),
+  c("new", "new", 3, "Common", []),
+  c("cheap", "cheap", 3, "Common", []),
+  c("expensive", "expensive", 3, "Common", ["costly"]),
+  c("child", "child", 3, "Family", ["kid", "children"]),
+  c("school", "school", 3, "Places", []),
+  c("book", "book", 3, "Useful", []),
+  c("fish", "fish", 3, "Food", []),
+  c("meat", "meat", 3, "Food", []),
+  c("egg", "egg", 3, "Food", ["eggs"]),
+  c("fruit", "fruit", 3, "Food", []),
+  c("clothes", "clothes", 3, "Useful", ["clothing"]),
+  c("shoes", "shoes", 3, "Useful", ["shoe", "footwear"]),
+  c("to_like", "to like", 3, "Verbs", ["like", "to love", "love"]),
+  c("to_learn", "to learn", 3, "Verbs", ["learn", "to study", "study"]),
+  c("to_read", "to read", 3, "Verbs", ["read"]),
+  c("to_listen", "to listen", 3, "Verbs", ["listen", "to hear", "hear"]),
+  c("to_call", "to call", 3, "Verbs", ["call", "to phone"]),
+  c("to_return", "to come back", 3, "Verbs", ["come back", "to return", "return", "to go back"]),
+  c("to_find", "to find", 3, "Verbs", ["find"]),
+  c("to_bring", "to bring", 3, "Verbs", ["bring"]),
+  c("to_play", "to play", 3, "Verbs", ["play"]),
+  c("hospital", "hospital", 3, "Places", []),
+  c("police", "police", 3, "People", []),
 ];
 
 export const TIER_NAMES = { 1: "survival", 2: "everyday", 3: "reach" };

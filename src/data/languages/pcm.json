@@ -3175,6 +3175,396 @@
           "translation": "Take this medicine"
         }
       ]
+    },
+    {
+      "id": "pcm_0186",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "dis",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "Dis na my house",
+          "translation": "This is my house"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0187",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "dat",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "Wetin be dat?",
+          "translation": "What is that?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0188",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "which one",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "Which one you want?",
+          "translation": "Which one do you want?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0189",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "again",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "Talk am again",
+          "translation": "Say it again"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0190",
+      "unit": "u4",
+      "category": "Time",
+      "lemma": "every time",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "Mama dey cook every time",
+          "translation": "Mama is always cooking"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0191",
+      "unit": "u4",
+      "category": "Time",
+      "lemma": "never",
+      "translation": "never, not yet",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "I never see am",
+          "translation": "I haven't seen him yet"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0192",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "maybe",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "Maybe e go rain",
+          "translation": "Maybe it will rain"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0193",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "new",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "Dis motor na new one",
+          "translation": "This car is a new one"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0194",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "cheap",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "Dis market cheap well well",
+          "translation": "This market is very cheap"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0195",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "cost",
+      "translation": "expensive, costly",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "Dat hotel cost well well",
+          "translation": "That hotel is very expensive"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0196",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "school",
+      "translation": "school",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "Di pikin dey go school",
+          "translation": "The child goes to school"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0197",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "book",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "Dis book sweet",
+          "translation": "This book is interesting"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0198",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "fish",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "Di fish fresh",
+          "translation": "The fish is fresh"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0199",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "meat",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "I no dey chop meat",
+          "translation": "I don't eat meat"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0200",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "egg",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "Give me two egg",
+          "translation": "Give me two eggs"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0201",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "fruit",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "I like fruit well well",
+          "translation": "I really like fruit"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0202",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "cloth",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "My cloth don clean",
+          "translation": "My clothes are clean now"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0203",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "shoe",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "Where my shoe dey?",
+          "translation": "Where are my shoes?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0204",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "learn",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "I wan learn Pidgin",
+          "translation": "I want to learn Pidgin"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0205",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "read",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "Papa dey read newspaper",
+          "translation": "Dad is reading the newspaper"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0206",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "come back",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "When you go come back?",
+          "translation": "When will you come back?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0207",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "find",
+      "translation": "to look for, to find",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "I dey find my key",
+          "translation": "I am looking for my key"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0208",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "bring",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "Bring water come",
+          "translation": "Bring some water"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0209",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "play",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "Di pikin dem dey play for outside",
+          "translation": "The children are playing outside"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0210",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "hospital",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "Where di hospital dey?",
+          "translation": "Where is the hospital?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0211",
+      "unit": "u6",
+      "category": "People",
+      "lemma": "police",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "Call police!",
+          "translation": "Call the police!"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

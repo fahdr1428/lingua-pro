@@ -1441,7 +1441,7 @@
       "unit": "u7",
       "category": "Places",
       "lemma": "kia",
-      "translation": "there, over there",
+      "translation": "there, over there, that (over there)",
       "difficulty": 1,
       "frequencyRank": 83,
       "examples": [
@@ -2573,6 +2573,396 @@
         {
           "native": "Uống thuốc đi",
           "translation": "Take your medicine"
+        }
+      ]
+    },
+    {
+      "id": "vi_0159",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "này",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "Cái này bao nhiêu tiền?",
+          "translation": "How much is this?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0160",
+      "unit": "u2",
+      "category": "Questions",
+      "lemma": "nào",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "Bạn muốn cái nào?",
+          "translation": "Which one do you want?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0161",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "lại",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "Nói lại đi",
+          "translation": "Say it again"
+        }
+      ]
+    },
+    {
+      "id": "vi_0162",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "luôn luôn",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "Mẹ luôn luôn nấu ăn",
+          "translation": "Mother always cooks"
+        }
+      ]
+    },
+    {
+      "id": "vi_0163",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "không bao giờ",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "Tôi không bao giờ quên",
+          "translation": "I never forget"
+        }
+      ]
+    },
+    {
+      "id": "vi_0164",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "có lẽ",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "Có lẽ ngày mai",
+          "translation": "Maybe tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "vi_0165",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "mới",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "Xe này mới",
+          "translation": "This car is new"
+        }
+      ]
+    },
+    {
+      "id": "vi_0166",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "đứa trẻ",
+      "translation": "child",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "Đứa trẻ đang ngủ",
+          "translation": "The child is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "vi_0167",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "trường",
+      "translation": "school",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "Trường gần nhà",
+          "translation": "The school is near home"
+        }
+      ]
+    },
+    {
+      "id": "vi_0168",
+      "unit": "u8",
+      "category": "Useful",
+      "lemma": "sách",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "Quyển sách này hay",
+          "translation": "This book is good"
+        }
+      ]
+    },
+    {
+      "id": "vi_0169",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "cá",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "Cá này tươi",
+          "translation": "This fish is fresh"
+        }
+      ]
+    },
+    {
+      "id": "vi_0170",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "thịt",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "Tôi không ăn thịt",
+          "translation": "I don't eat meat"
+        }
+      ]
+    },
+    {
+      "id": "vi_0171",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "trứng",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "Cho tôi hai quả trứng",
+          "translation": "Give me two eggs"
+        }
+      ]
+    },
+    {
+      "id": "vi_0172",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "trái cây",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "Tôi thích trái cây",
+          "translation": "I like fruit"
+        }
+      ]
+    },
+    {
+      "id": "vi_0173",
+      "unit": "u8",
+      "category": "Useful",
+      "lemma": "quần áo",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "Quần áo sạch rồi",
+          "translation": "The clothes are clean now"
+        }
+      ]
+    },
+    {
+      "id": "vi_0174",
+      "unit": "u8",
+      "category": "Useful",
+      "lemma": "giày",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "Giày của tôi đâu?",
+          "translation": "Where are my shoes?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0175",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "thích",
+      "translation": "to like",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "Tôi thích uống trà",
+          "translation": "I like drinking tea"
+        }
+      ]
+    },
+    {
+      "id": "vi_0176",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "học",
+      "translation": "to learn, to study",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "Tôi đang học tiếng Việt",
+          "translation": "I am learning Vietnamese"
+        }
+      ]
+    },
+    {
+      "id": "vi_0177",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "đọc",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "Bố đọc báo",
+          "translation": "Dad reads the newspaper"
+        }
+      ]
+    },
+    {
+      "id": "vi_0178",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "nghe",
+      "translation": "to listen, to hear",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "Tôi nghe nhạc",
+          "translation": "I listen to music"
+        }
+      ]
+    },
+    {
+      "id": "vi_0179",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "về",
+      "translation": "to come back, to return home",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "Khi nào bạn về?",
+          "translation": "When are you coming back?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0180",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "tìm",
+      "translation": "to find, to look for",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "Tôi đang tìm chìa khóa",
+          "translation": "I am looking for the key"
+        }
+      ]
+    },
+    {
+      "id": "vi_0181",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mang",
+      "translation": "to bring, to carry",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "Mang nước đến đây",
+          "translation": "Bring water here"
+        }
+      ]
+    },
+    {
+      "id": "vi_0182",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "chơi",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "Trẻ con chơi ở ngoài",
+          "translation": "The children play outside"
+        }
+      ]
+    },
+    {
+      "id": "vi_0183",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "bệnh viện",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "Bệnh viện ở đâu?",
+          "translation": "Where is the hospital?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0184",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "cảnh sát",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "Gọi cảnh sát!",
+          "translation": "Call the police!"
         }
       ]
     }

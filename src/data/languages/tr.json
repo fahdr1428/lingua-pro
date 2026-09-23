@@ -3799,6 +3799,306 @@
           "translation": "I need medicine"
         }
       ]
+    },
+    {
+      "id": "tr_0214",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "bu",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "Bu benim evim",
+          "translation": "This is my house"
+        }
+      ]
+    },
+    {
+      "id": "tr_0215",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "şu",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "Şu ne?",
+          "translation": "What is that?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0216",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "hangi",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "Hangi otobüs?",
+          "translation": "Which bus?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0217",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "tekrar",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "Tekrar söyler misin?",
+          "translation": "Can you say it again?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0218",
+      "unit": "u9",
+      "category": "Time",
+      "lemma": "her zaman",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "Annem her zaman yemek yapar",
+          "translation": "My mother always cooks"
+        }
+      ]
+    },
+    {
+      "id": "tr_0219",
+      "unit": "u9",
+      "category": "Time",
+      "lemma": "asla",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "Asla unutmam",
+          "translation": "I will never forget"
+        }
+      ]
+    },
+    {
+      "id": "tr_0220",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "belki",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "Belki yarın",
+          "translation": "Maybe tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "tr_0221",
+      "unit": "u8",
+      "category": "Adjectives",
+      "lemma": "ucuz",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "Bu pazar ucuz",
+          "translation": "This market is cheap"
+        }
+      ]
+    },
+    {
+      "id": "tr_0222",
+      "unit": "u8",
+      "category": "Adjectives",
+      "lemma": "pahalı",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "Otel çok pahalı",
+          "translation": "The hotel is very expensive"
+        }
+      ]
+    },
+    {
+      "id": "tr_0223",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "yumurta",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "İki yumurta lütfen",
+          "translation": "Two eggs, please"
+        }
+      ]
+    },
+    {
+      "id": "tr_0224",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "meyve",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "Meyve severim",
+          "translation": "I like fruit"
+        }
+      ]
+    },
+    {
+      "id": "tr_0225",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "kıyafet",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "Kıyafetler temiz",
+          "translation": "The clothes are clean"
+        }
+      ]
+    },
+    {
+      "id": "tr_0226",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "ayakkabı",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "Ayakkabılarım nerede?",
+          "translation": "Where are my shoes?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0227",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "öğrenmek",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "Türkçe öğrenmek istiyorum",
+          "translation": "I want to learn Turkish"
+        }
+      ]
+    },
+    {
+      "id": "tr_0228",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "dinlemek",
+      "translation": "to listen",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "Müzik dinlemek güzel",
+          "translation": "Listening to music is nice"
+        }
+      ]
+    },
+    {
+      "id": "tr_0229",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "dönmek",
+      "translation": "to come back, to return",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "Ne zaman dönmek istiyorsun?",
+          "translation": "When do you want to come back?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0230",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "bulmak",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "Anahtarı bulmak zor",
+          "translation": "Finding the key is hard"
+        }
+      ]
+    },
+    {
+      "id": "tr_0231",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "getirmek",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "Ekmek getirmeyi unutma",
+          "translation": "Don't forget to bring bread"
+        }
+      ]
+    },
+    {
+      "id": "tr_0232",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "oynamak",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "Çocuklar dışarıda oynamak istiyor",
+          "translation": "The children want to play outside"
+        }
+      ]
+    },
+    {
+      "id": "tr_0233",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "polis",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "Polisi ara!",
+          "translation": "Call the police!"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

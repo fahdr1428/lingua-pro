@@ -3215,7 +3215,7 @@
       "unit": "u2",
       "category": "People",
       "lemma": "वह",
-      "translation": "he, she",
+      "translation": "he, she, that",
       "difficulty": 1,
       "frequencyRank": 162,
       "examples": [
@@ -3223,6 +3223,11 @@
           "native": "वह मेरा भाई है",
           "translation": "He is my brother",
           "translit": "vah mera bhai hai"
+        },
+        {
+          "native": "वह आदमी डॉक्टर है",
+          "translation": "That man is a doctor",
+          "translit": "vah aadmi doctor hai"
         }
       ],
       "translit": "vah"
@@ -3719,6 +3724,397 @@
         }
       ],
       "translit": "dava"
+    },
+    {
+      "id": "hi_0192",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "यह",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "यह मेरा घर है",
+          "translation": "This is my house",
+          "translit": "yeh mera ghar hai"
+        }
+      ],
+      "translit": "yeh"
+    },
+    {
+      "id": "hi_0193",
+      "unit": "u1",
+      "category": "Common",
+      "lemma": "कौन सा",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "कौन सा रंग?",
+          "translation": "Which colour?",
+          "translit": "kaun sa rang?"
+        }
+      ],
+      "translit": "kaun sa"
+    },
+    {
+      "id": "hi_0194",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "हमेशा",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "माँ हमेशा खाना बनाती हैं",
+          "translation": "Mother always cooks",
+          "translit": "maa hamesha khana banati hain"
+        }
+      ],
+      "translit": "hamesha"
+    },
+    {
+      "id": "hi_0195",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "कभी नहीं",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "मैं कभी नहीं भूलूँगा",
+          "translation": "I will never forget",
+          "translit": "main kabhi nahin bhooloonga"
+        }
+      ],
+      "translit": "kabhi nahin"
+    },
+    {
+      "id": "hi_0196",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "शायद",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "शायद कल",
+          "translation": "Maybe tomorrow",
+          "translit": "shayad kal"
+        }
+      ],
+      "translit": "shayad"
+    },
+    {
+      "id": "hi_0197",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "नया",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "यह नया घर है",
+          "translation": "This is a new house",
+          "translit": "yeh naya ghar hai"
+        }
+      ],
+      "translit": "naya"
+    },
+    {
+      "id": "hi_0198",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "सस्ता",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "यह बहुत सस्ता है",
+          "translation": "This is very cheap",
+          "translit": "yeh bahut sasta hai"
+        }
+      ],
+      "translit": "sasta"
+    },
+    {
+      "id": "hi_0199",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "महँगा",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "होटल महँगा है",
+          "translation": "The hotel is expensive",
+          "translit": "hotel mahanga hai"
+        }
+      ],
+      "translit": "mahanga"
+    },
+    {
+      "id": "hi_0200",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "किताब",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "यह किताब अच्छी है",
+          "translation": "This book is good",
+          "translit": "yeh kitaab achchhi hai"
+        }
+      ],
+      "translit": "kitaab"
+    },
+    {
+      "id": "hi_0201",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "मछली",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "मछली ताज़ा है",
+          "translation": "The fish is fresh",
+          "translit": "machhli taaza hai"
+        }
+      ],
+      "translit": "machhli"
+    },
+    {
+      "id": "hi_0202",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "मांस",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "मैं मांस नहीं खाता",
+          "translation": "I don't eat meat",
+          "translit": "main maans nahin khata"
+        }
+      ],
+      "translit": "maans"
+    },
+    {
+      "id": "hi_0203",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "अंडा",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "दो अंडे दो",
+          "translation": "Give me two eggs",
+          "translit": "do ande do"
+        }
+      ],
+      "translit": "anda"
+    },
+    {
+      "id": "hi_0204",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "फल",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "मुझे फल पसंद है",
+          "translation": "I like fruit",
+          "translit": "mujhe phal pasand hai"
+        }
+      ],
+      "translit": "phal"
+    },
+    {
+      "id": "hi_0205",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "कपड़े",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "कपड़े साफ़ हैं",
+          "translation": "The clothes are clean",
+          "translit": "kapde saaf hain"
+        }
+      ],
+      "translit": "kapde"
+    },
+    {
+      "id": "hi_0206",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "जूते",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "मेरे जूते कहाँ हैं?",
+          "translation": "Where are my shoes?",
+          "translit": "mere joote kahan hain?"
+        }
+      ],
+      "translit": "joote"
+    },
+    {
+      "id": "hi_0207",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "सीखना",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "मुझे हिंदी सीखना है",
+          "translation": "I want to learn Hindi",
+          "translit": "mujhe hindi seekhna hai"
+        }
+      ],
+      "translit": "seekhna"
+    },
+    {
+      "id": "hi_0208",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "पढ़ना",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "मुझे पढ़ना पसंद है",
+          "translation": "I like to read",
+          "translit": "mujhe padhna pasand hai"
+        }
+      ],
+      "translit": "padhna"
+    },
+    {
+      "id": "hi_0209",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "लौटना",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "पापा कब लौटेंगे?",
+          "translation": "When will Dad come back?",
+          "translit": "papa kab lautenge?"
+        }
+      ],
+      "translit": "lautna"
+    },
+    {
+      "id": "hi_0210",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ढूँढना",
+      "translation": "to look for, to find",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "मैं चाबी ढूँढ रहा हूँ",
+          "translation": "I am looking for the key",
+          "translit": "main chaabi dhoondh raha hoon"
+        }
+      ],
+      "translit": "dhoondhna"
+    },
+    {
+      "id": "hi_0211",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "लाना",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "पानी लाना",
+          "translation": "Bring water",
+          "translit": "paani laana"
+        }
+      ],
+      "translit": "laana"
+    },
+    {
+      "id": "hi_0212",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "खेलना",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "बच्चे बाहर खेल रहे हैं",
+          "translation": "The children are playing outside",
+          "translit": "bachche bahar khel rahe hain"
+        }
+      ],
+      "translit": "khelna"
+    },
+    {
+      "id": "hi_0213",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "अस्पताल",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "अस्पताल कहाँ है?",
+          "translation": "Where is the hospital?",
+          "translit": "aspataal kahan hai?"
+        }
+      ],
+      "translit": "aspataal"
+    },
+    {
+      "id": "hi_0214",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "पुलिस",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "पुलिस को बुलाओ",
+          "translation": "Call the police",
+          "translit": "pulis ko bulao"
+        }
+      ],
+      "translit": "pulis"
     }
   ],
   "units": [

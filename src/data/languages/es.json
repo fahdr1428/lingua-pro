@@ -3597,6 +3597,261 @@
           "translation": "The medicine is here"
         }
       ]
+    },
+    {
+      "id": "es_0212",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "este",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "Este tren es rápido",
+          "translation": "This train is fast"
+        }
+      ]
+    },
+    {
+      "id": "es_0213",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "eso",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "¿Qué es eso?",
+          "translation": "What is that?"
+        }
+      ]
+    },
+    {
+      "id": "es_0214",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "cuál",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "¿Cuál prefieres?",
+          "translation": "Which do you prefer?"
+        }
+      ]
+    },
+    {
+      "id": "es_0215",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "siempre",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "Mi madre siempre cocina",
+          "translation": "My mother always cooks"
+        }
+      ]
+    },
+    {
+      "id": "es_0216",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "nunca",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "Nunca fumo",
+          "translation": "I never smoke"
+        }
+      ]
+    },
+    {
+      "id": "es_0217",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "barato",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "Este mercado es barato",
+          "translation": "This market is cheap"
+        }
+      ]
+    },
+    {
+      "id": "es_0218",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "caro",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "El hotel es muy caro",
+          "translation": "The hotel is very expensive"
+        }
+      ]
+    },
+    {
+      "id": "es_0219",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "el niño",
+      "translation": "child",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "El niño está durmiendo",
+          "translation": "The child is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "es_0220",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "el libro",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "El libro es nuevo",
+          "translation": "The book is new"
+        }
+      ]
+    },
+    {
+      "id": "es_0221",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "la fruta",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "Me gusta la fruta",
+          "translation": "I like fruit"
+        }
+      ]
+    },
+    {
+      "id": "es_0222",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "la ropa",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "La ropa está limpia",
+          "translation": "The clothes are clean"
+        }
+      ]
+    },
+    {
+      "id": "es_0223",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "los zapatos",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "Los zapatos son nuevos",
+          "translation": "The shoes are new"
+        }
+      ]
+    },
+    {
+      "id": "es_0224",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "volver",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "Quiero volver mañana",
+          "translation": "I want to come back tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "es_0225",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "encontrar",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "No puedo encontrar la llave",
+          "translation": "I can't find the key"
+        }
+      ]
+    },
+    {
+      "id": "es_0226",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "traer",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "¿Puedes traer pan?",
+          "translation": "Can you bring bread?"
+        }
+      ]
+    },
+    {
+      "id": "es_0227",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "jugar",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "Los niños quieren jugar",
+          "translation": "The children want to play"
+        }
+      ]
+    },
+    {
+      "id": "es_0228",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "la policía",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "¡Llama a la policía!",
+          "translation": "Call the police!"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

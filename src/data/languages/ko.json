@@ -3863,6 +3863,397 @@
         }
       ],
       "translit": "yak"
+    },
+    {
+      "id": "ko_0201",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "저것",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "저것은 뭐예요?",
+          "translation": "What is that?",
+          "translit": "jeogeoseun mwoyeyo?"
+        }
+      ],
+      "translit": "jeogeot"
+    },
+    {
+      "id": "ko_0202",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "어느",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "어느 것이 좋아요?",
+          "translation": "Which one is good?",
+          "translit": "eoneu geosi joayo?"
+        }
+      ],
+      "translit": "eoneu"
+    },
+    {
+      "id": "ko_0203",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "다시",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "다시 말해 주세요",
+          "translation": "Please say it again",
+          "translit": "dasi malhae juseyo"
+        }
+      ],
+      "translit": "dasi"
+    },
+    {
+      "id": "ko_0204",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "항상",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "엄마는 항상 요리해요",
+          "translation": "Mom always cooks",
+          "translit": "eommaneun hangsang yorihaeyo"
+        }
+      ],
+      "translit": "hangsang"
+    },
+    {
+      "id": "ko_0205",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "절대",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "절대 잊지 않을게요",
+          "translation": "I will never forget",
+          "translit": "jeoldae itji aneulgeyo"
+        }
+      ],
+      "translit": "jeoldae"
+    },
+    {
+      "id": "ko_0206",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "아마",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "아마 내일이요",
+          "translation": "Maybe tomorrow",
+          "translit": "ama naeiriyo"
+        }
+      ],
+      "translit": "ama"
+    },
+    {
+      "id": "ko_0207",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "새",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "새 차예요",
+          "translation": "It's a new car",
+          "translit": "sae chayeyo"
+        }
+      ],
+      "translit": "sae"
+    },
+    {
+      "id": "ko_0208",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "싸다",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "이거 정말 싸다",
+          "translation": "This is really cheap",
+          "translit": "igeo jeongmal ssada"
+        }
+      ],
+      "translit": "ssada"
+    },
+    {
+      "id": "ko_0209",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "비싸다",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "호텔이 너무 비싸다",
+          "translation": "The hotel is too expensive",
+          "translit": "hoteri neomu bissada"
+        }
+      ],
+      "translit": "bissada"
+    },
+    {
+      "id": "ko_0210",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "책",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "이 책은 재미있어요",
+          "translation": "This book is interesting",
+          "translit": "i chaegeun jaemiisseoyo"
+        }
+      ],
+      "translit": "chaek"
+    },
+    {
+      "id": "ko_0211",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "생선",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "생선이 신선해요",
+          "translation": "The fish is fresh",
+          "translit": "saengseoni sinseonhaeyo"
+        }
+      ],
+      "translit": "saengseon"
+    },
+    {
+      "id": "ko_0212",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "계란",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "계란 두 개 주세요",
+          "translation": "Two eggs, please",
+          "translit": "gyeran du gae juseyo"
+        }
+      ],
+      "translit": "gyeran"
+    },
+    {
+      "id": "ko_0213",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "과일",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "과일을 좋아해요",
+          "translation": "I like fruit",
+          "translit": "gwaireul joahaeyo"
+        }
+      ],
+      "translit": "gwail"
+    },
+    {
+      "id": "ko_0214",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "옷",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "옷 가게가 어디예요?",
+          "translation": "Where is the clothes shop?",
+          "translit": "ot gagega eodiyeyo?"
+        }
+      ],
+      "translit": "ot"
+    },
+    {
+      "id": "ko_0215",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "신발",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "신발이 어디 있어요?",
+          "translation": "Where are the shoes?",
+          "translit": "sinbari eodi isseoyo?"
+        }
+      ],
+      "translit": "sinbal"
+    },
+    {
+      "id": "ko_0216",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "좋아하다",
+      "translation": "to like",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "제가 좋아하는 음식이에요",
+          "translation": "It's the food I like",
+          "translit": "jega joahaneun eumsigieyo"
+        }
+      ],
+      "translit": "joahada"
+    },
+    {
+      "id": "ko_0217",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "배우다",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "배우다 보면 쉬워져요",
+          "translation": "It gets easier as you learn",
+          "translit": "baeuda bomyeon swiwojyeoyo"
+        }
+      ],
+      "translit": "baeuda"
+    },
+    {
+      "id": "ko_0218",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "돌아오다",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "빨리 돌아오세요",
+          "translation": "Come back soon",
+          "translit": "ppalli doraoseyo"
+        }
+      ],
+      "translit": "doraoda"
+    },
+    {
+      "id": "ko_0219",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "찾다",
+      "translation": "to find, to look for",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "열쇠를 찾다가 늦었어요",
+          "translation": "I was late looking for my key",
+          "translit": "yeolsoereul chatdaga neujeosseoyo"
+        }
+      ],
+      "translit": "chatda"
+    },
+    {
+      "id": "ko_0220",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "가져오다",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "물 좀 가져오세요",
+          "translation": "Please bring some water",
+          "translit": "mul jom gajyeooseyo"
+        }
+      ],
+      "translit": "gajyeooda"
+    },
+    {
+      "id": "ko_0221",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "놀다",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "놀다가 넘어졌어요",
+          "translation": "I fell while playing",
+          "translit": "noldaga neomeojyeosseoyo"
+        }
+      ],
+      "translit": "nolda"
+    },
+    {
+      "id": "ko_0222",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "병원",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "병원이 어디예요?",
+          "translation": "Where is the hospital?",
+          "translit": "byeongwoni eodiyeyo?"
+        }
+      ],
+      "translit": "byeongwon"
+    },
+    {
+      "id": "ko_0223",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "경찰",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "경찰을 불러 주세요",
+          "translation": "Please call the police",
+          "translit": "gyeongchareul bulleo juseyo"
+        }
+      ],
+      "translit": "gyeongchal"
     }
   ],
   "alphabetGroups": [

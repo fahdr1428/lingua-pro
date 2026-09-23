@@ -823,6 +823,8 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
     { icon: "📜", title: `${lang.name} you can read`, sub: "Real sentences, at exactly your level", go: () => onNavigate("stream"), highlight: (stats.learned || 0) >= 15 },
     // v105: drill one topic by choice — the curriculum picks every other session.
     { icon: "🎯", title: "Practise a topic", sub: "Numbers, food, family — drill just one", go: () => onNavigate("topics") },
+    // v106: the one drill that needs neither eyes nor thumbs.
+    { icon: "🔁", title: "Listen and repeat", sub: "Hands-free — hear it, say it, hear the meaning", go: () => onNavigate("listen") },
     { icon: "📇", title: "Flashcards", sub: "Flip through your words at your own pace", go: () => onNavigate("flashcards") },
     { icon: "🧭", title: "Grammar", sub: `How ${lang.name} actually fits together`, go: () => onNavigate("grammar") },
     { icon: "📚", title: "My words", sub: `${stats.learned || 0} learned · ${stats.mastered || 0} mastered`, go: () => onNavigate("vocab") },

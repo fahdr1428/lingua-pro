@@ -2416,3 +2416,15 @@ html:active-view-transition-type(back)::view-transition-new(screen) { z-index: 1
     animation-duration: 0.01ms !important;
   }
 }
+
+/* v106 — Listen and repeat: the pause to speak in, emptying left to right.
+   transform only, so it stays on the compositor; the global reduced-motion
+   rule collapses it to an instant, and the pause itself is timed in JS. */
+.listen-gap {
+  height: 100%;
+  background: var(--primary);
+  transform-origin: left center;
+  animation: listen-gap var(--gap, 1600ms) linear forwards;
+}
+@keyframes listen-gap { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+

@@ -5193,6 +5193,363 @@
         }
       ],
       "translit": "dawa"
+    },
+    {
+      "id": "ar_0225",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "هذا",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "هذا بيتي",
+          "translation": "This is my house",
+          "translit": "hadha bayti"
+        }
+      ],
+      "translit": "hadha"
+    },
+    {
+      "id": "ar_0226",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "ذلك",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "ذلك الرجل طبيب",
+          "translation": "That man is a doctor",
+          "translit": "dhalika ar-rajul tabib"
+        }
+      ],
+      "translit": "dhalika"
+    },
+    {
+      "id": "ar_0227",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "أي",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "أي بيت؟",
+          "translation": "Which house?",
+          "translit": "ayy bayt?"
+        }
+      ],
+      "translit": "ayy"
+    },
+    {
+      "id": "ar_0228",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "مرة أخرى",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "قلها مرة أخرى",
+          "translation": "Say it again",
+          "translit": "qulha marra ukhra"
+        }
+      ],
+      "translit": "marra ukhra"
+    },
+    {
+      "id": "ar_0229",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "أبدا",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "لا أدخن أبدا",
+          "translation": "I never smoke",
+          "translit": "la udakhkhin abadan"
+        }
+      ],
+      "translit": "abadan"
+    },
+    {
+      "id": "ar_0230",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "ربما",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "ربما غدا",
+          "translation": "Maybe tomorrow",
+          "translit": "rubbama ghadan"
+        }
+      ],
+      "translit": "rubbama"
+    },
+    {
+      "id": "ar_0231",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "رخيص",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "هذا رخيص",
+          "translation": "This is cheap",
+          "translit": "hadha rakhees"
+        }
+      ],
+      "translit": "rakhees"
+    },
+    {
+      "id": "ar_0232",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "غالي",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "هذا غالي جدا",
+          "translation": "This is very expensive",
+          "translit": "hadha ghali jiddan"
+        }
+      ],
+      "translit": "ghali"
+    },
+    {
+      "id": "ar_0233",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "كتاب",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "هذا كتاب جديد",
+          "translation": "This is a new book",
+          "translit": "hadha kitab jadeed"
+        }
+      ],
+      "translit": "kitab"
+    },
+    {
+      "id": "ar_0234",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "سمك",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "أحب السمك",
+          "translation": "I like fish",
+          "translit": "uhibb as-samak"
+        }
+      ],
+      "translit": "samak"
+    },
+    {
+      "id": "ar_0235",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "بيضة",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "أريد بيضة",
+          "translation": "I want an egg",
+          "translit": "urid bayda"
+        }
+      ],
+      "translit": "bayda"
+    },
+    {
+      "id": "ar_0236",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "ملابس",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "ملابسي نظيفة",
+          "translation": "My clothes are clean",
+          "translit": "malabisi nadheefa"
+        }
+      ],
+      "translit": "malabis"
+    },
+    {
+      "id": "ar_0237",
+      "unit": "u10",
+      "category": "Useful",
+      "lemma": "حذاء",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "أين حذائي؟",
+          "translation": "Where are my shoes?",
+          "translit": "ayna hidha'i?"
+        }
+      ],
+      "translit": "hidha"
+    },
+    {
+      "id": "ar_0238",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يحب",
+      "translation": "to like, to love",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "أبي يحب الشاي",
+          "translation": "My father likes tea",
+          "translit": "abi yuhibb ash-shay"
+        }
+      ],
+      "translit": "yuhibb"
+    },
+    {
+      "id": "ar_0239",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يتعلم",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "ابني يتعلم العربية",
+          "translation": "My son is learning Arabic",
+          "translit": "ibni yata'allam al-arabiyya"
+        }
+      ],
+      "translit": "yata'allam"
+    },
+    {
+      "id": "ar_0240",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يقرأ",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "أبي يقرأ الجريدة",
+          "translation": "My father reads the newspaper",
+          "translit": "abi yaqra al-jareeda"
+        }
+      ],
+      "translit": "yaqra"
+    },
+    {
+      "id": "ar_0241",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يرجع",
+      "translation": "to return, to come back",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "متى يرجع أخوك؟",
+          "translation": "When does your brother come back?",
+          "translit": "mata yarja akhuk?"
+        }
+      ],
+      "translit": "yarja"
+    },
+    {
+      "id": "ar_0242",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يجد",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "لا يجد مفتاحه",
+          "translation": "He can't find his key",
+          "translit": "la yajid miftahahu"
+        }
+      ],
+      "translit": "yajid"
+    },
+    {
+      "id": "ar_0243",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يحضر",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "أخي يحضر الأكل",
+          "translation": "My brother brings the food",
+          "translit": "akhi yuhdir al-akl"
+        }
+      ],
+      "translit": "yuhdir"
+    },
+    {
+      "id": "ar_0244",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يلعب",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "الولد يلعب في البيت",
+          "translation": "The boy plays at home",
+          "translit": "al-walad yal'ab fil-bayt"
+        }
+      ],
+      "translit": "yal'ab"
+    },
+    {
+      "id": "ar_0245",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "شرطة",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "اتصل بالشرطة",
+          "translation": "Call the police",
+          "translit": "ittasil bish-shurta"
+        }
+      ],
+      "translit": "shurta"
     }
   ],
   "units": [

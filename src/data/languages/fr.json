@@ -3389,6 +3389,321 @@
           "translation": "The medicine is here"
         }
       ]
+    },
+    {
+      "id": "fr_0199",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "ce",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "Ce train est rapide",
+          "translation": "This train is fast"
+        }
+      ]
+    },
+    {
+      "id": "fr_0200",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "ça",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "Ça coûte combien ?",
+          "translation": "How much does that cost?"
+        }
+      ]
+    },
+    {
+      "id": "fr_0201",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "quel",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "Quel bus va à la gare ?",
+          "translation": "Which bus goes to the station?"
+        }
+      ]
+    },
+    {
+      "id": "fr_0202",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "encore",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "Dis-le encore",
+          "translation": "Say it again"
+        }
+      ]
+    },
+    {
+      "id": "fr_0203",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "toujours",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "Ma mère cuisine toujours",
+          "translation": "My mother always cooks"
+        }
+      ]
+    },
+    {
+      "id": "fr_0204",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "jamais",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "Je ne fume jamais",
+          "translation": "I never smoke"
+        }
+      ]
+    },
+    {
+      "id": "fr_0205",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "peut-être",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "Peut-être demain",
+          "translation": "Maybe tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "fr_0206",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "nouveau",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "C'est un nouveau livre",
+          "translation": "It's a new book"
+        }
+      ]
+    },
+    {
+      "id": "fr_0207",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "bon marché",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "Ce restaurant est bon marché",
+          "translation": "This restaurant is cheap"
+        }
+      ]
+    },
+    {
+      "id": "fr_0208",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "cher",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "L'hôtel est très cher",
+          "translation": "The hotel is very expensive"
+        }
+      ]
+    },
+    {
+      "id": "fr_0209",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "l'enfant",
+      "translation": "child",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "L'enfant dort",
+          "translation": "The child is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "fr_0210",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "le livre",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "Le livre est sur la table",
+          "translation": "The book is on the table"
+        }
+      ]
+    },
+    {
+      "id": "fr_0211",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "la viande",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "La viande est chère",
+          "translation": "The meat is expensive"
+        }
+      ]
+    },
+    {
+      "id": "fr_0212",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "le fruit",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "Le fruit est mûr",
+          "translation": "The fruit is ripe"
+        }
+      ]
+    },
+    {
+      "id": "fr_0213",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "les vêtements",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "Les vêtements sont propres",
+          "translation": "The clothes are clean"
+        }
+      ]
+    },
+    {
+      "id": "fr_0214",
+      "unit": "u13",
+      "category": "Useful",
+      "lemma": "les chaussures",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "Les chaussures sont neuves",
+          "translation": "The shoes are new"
+        }
+      ]
+    },
+    {
+      "id": "fr_0215",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "revenir",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "Je veux revenir demain",
+          "translation": "I want to come back tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "fr_0216",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "trouver",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "Je ne peux pas trouver la clé",
+          "translation": "I can't find the key"
+        }
+      ]
+    },
+    {
+      "id": "fr_0217",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "apporter",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "Tu peux apporter du pain ?",
+          "translation": "Can you bring some bread?"
+        }
+      ]
+    },
+    {
+      "id": "fr_0218",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "jouer",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "Les enfants veulent jouer",
+          "translation": "The children want to play"
+        }
+      ]
+    },
+    {
+      "id": "fr_0219",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "la police",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "Appelle la police !",
+          "translation": "Call the police!"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

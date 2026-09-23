@@ -3038,6 +3038,381 @@
           "translation": "I need medicine"
         }
       ]
+    },
+    {
+      "id": "id_0177",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "ini",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "Ini rumah saya",
+          "translation": "This is my house"
+        }
+      ]
+    },
+    {
+      "id": "id_0178",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "itu",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "Itu apa?",
+          "translation": "What is that?"
+        }
+      ]
+    },
+    {
+      "id": "id_0179",
+      "unit": "u2",
+      "category": "Common",
+      "lemma": "yang mana",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "Yang mana punyamu?",
+          "translation": "Which one is yours?"
+        }
+      ]
+    },
+    {
+      "id": "id_0180",
+      "unit": "u5",
+      "category": "Time",
+      "lemma": "selalu",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "Ibu selalu memasak",
+          "translation": "Mother always cooks"
+        }
+      ]
+    },
+    {
+      "id": "id_0181",
+      "unit": "u5",
+      "category": "Time",
+      "lemma": "tidak pernah",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "Saya tidak pernah merokok",
+          "translation": "I never smoke"
+        }
+      ]
+    },
+    {
+      "id": "id_0182",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "mungkin",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "Mungkin besok",
+          "translation": "Maybe tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "id_0183",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "baru",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "Mobil ini baru",
+          "translation": "This car is new"
+        }
+      ]
+    },
+    {
+      "id": "id_0184",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "murah",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "Pasar ini murah",
+          "translation": "This market is cheap"
+        }
+      ]
+    },
+    {
+      "id": "id_0185",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "mahal",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "Hotel itu mahal",
+          "translation": "That hotel is expensive"
+        }
+      ]
+    },
+    {
+      "id": "id_0186",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "sekolah",
+      "translation": "school",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "Sekolah dekat dari rumah",
+          "translation": "The school is near the house"
+        }
+      ]
+    },
+    {
+      "id": "id_0187",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "buku",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "Buku ini bagus",
+          "translation": "This book is good"
+        }
+      ]
+    },
+    {
+      "id": "id_0188",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "ikan",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "Ikan ini segar",
+          "translation": "This fish is fresh"
+        }
+      ]
+    },
+    {
+      "id": "id_0189",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "daging",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "Saya tidak makan daging",
+          "translation": "I don't eat meat"
+        }
+      ]
+    },
+    {
+      "id": "id_0190",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "telur",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "Dua telur, ya",
+          "translation": "Two eggs, please"
+        }
+      ]
+    },
+    {
+      "id": "id_0191",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "buah",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "Saya suka buah",
+          "translation": "I like fruit"
+        }
+      ]
+    },
+    {
+      "id": "id_0192",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "baju",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "Bajunya sudah bersih",
+          "translation": "The clothes are clean now"
+        }
+      ]
+    },
+    {
+      "id": "id_0193",
+      "unit": "u6",
+      "category": "Useful",
+      "lemma": "sepatu",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "Di mana sepatu saya?",
+          "translation": "Where are my shoes?"
+        }
+      ]
+    },
+    {
+      "id": "id_0194",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "belajar",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "Saya belajar bahasa Indonesia",
+          "translation": "I am learning Indonesian"
+        }
+      ]
+    },
+    {
+      "id": "id_0195",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "membaca",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "Ayah membaca koran",
+          "translation": "Father reads the newspaper"
+        }
+      ]
+    },
+    {
+      "id": "id_0196",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "kembali",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "Kapan kamu kembali?",
+          "translation": "When are you coming back?"
+        }
+      ]
+    },
+    {
+      "id": "id_0197",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "menemukan",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "Saya tidak bisa menemukan kunci",
+          "translation": "I can't find the key"
+        }
+      ]
+    },
+    {
+      "id": "id_0198",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "membawa",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "Dia membawa makanan",
+          "translation": "He brings food"
+        }
+      ]
+    },
+    {
+      "id": "id_0199",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "bermain",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "Anak-anak bermain di luar",
+          "translation": "The children are playing outside"
+        }
+      ]
+    },
+    {
+      "id": "id_0200",
+      "unit": "u6",
+      "category": "Places",
+      "lemma": "rumah sakit",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "Rumah sakit di mana?",
+          "translation": "Where is the hospital?"
+        }
+      ]
+    },
+    {
+      "id": "id_0201",
+      "unit": "u6",
+      "category": "People",
+      "lemma": "polisi",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "Panggil polisi!",
+          "translation": "Call the police!"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

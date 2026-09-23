@@ -3122,6 +3122,465 @@
         }
       ],
       "translit": "dâru"
+    },
+    {
+      "id": "fa_0170",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "این",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "این خانهٔ من است",
+          "translation": "This is my house",
+          "translit": "in khâne-ye man ast"
+        }
+      ],
+      "translit": "in"
+    },
+    {
+      "id": "fa_0171",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "آن",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "آن مرد پزشک است",
+          "translation": "That man is a doctor",
+          "translit": "ân mard pezeshk ast"
+        }
+      ],
+      "translit": "ân"
+    },
+    {
+      "id": "fa_0172",
+      "unit": "u8",
+      "category": "Questions",
+      "lemma": "کدام",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "کدام خانه؟",
+          "translation": "Which house?",
+          "translit": "kodâm khâne?"
+        }
+      ],
+      "translit": "kodâm"
+    },
+    {
+      "id": "fa_0173",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "دوباره",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "دوباره بگو",
+          "translation": "Say it again",
+          "translit": "dobâre begu"
+        }
+      ],
+      "translit": "dobâre"
+    },
+    {
+      "id": "fa_0174",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "همیشه",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "مادرم همیشه آشپزی می‌کند",
+          "translation": "My mother always cooks",
+          "translit": "mâdaram hamishe âshpazi mikonad"
+        }
+      ],
+      "translit": "hamishe"
+    },
+    {
+      "id": "fa_0175",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "هرگز",
+      "translation": "never",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "من هرگز سیگار نمی‌کشم",
+          "translation": "I never smoke",
+          "translit": "man hargez sigâr nemikesham"
+        }
+      ],
+      "translit": "hargez"
+    },
+    {
+      "id": "fa_0176",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "شاید",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "شاید فردا",
+          "translation": "Maybe tomorrow",
+          "translit": "shâyad fardâ"
+        }
+      ],
+      "translit": "shâyad"
+    },
+    {
+      "id": "fa_0177",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "جدید",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "ماشین جدید",
+          "translation": "A new car",
+          "translit": "mâshin-e jadid"
+        }
+      ],
+      "translit": "jadid"
+    },
+    {
+      "id": "fa_0178",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ارزان",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "این ارزان است",
+          "translation": "This is cheap",
+          "translit": "in arzân ast"
+        }
+      ],
+      "translit": "arzân"
+    },
+    {
+      "id": "fa_0179",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "گران",
+      "translation": "expensive",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "هتل گران است",
+          "translation": "The hotel is expensive",
+          "translit": "hotel gerân ast"
+        }
+      ],
+      "translit": "gerân"
+    },
+    {
+      "id": "fa_0180",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "بچه",
+      "translation": "child",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "بچه خواب است",
+          "translation": "The child is asleep",
+          "translit": "bache khâb ast"
+        }
+      ],
+      "translit": "bache"
+    },
+    {
+      "id": "fa_0181",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "مدرسه",
+      "translation": "school",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "مدرسه نزدیک است",
+          "translation": "The school is near",
+          "translit": "madrese nazdik ast"
+        }
+      ],
+      "translit": "madrese"
+    },
+    {
+      "id": "fa_0182",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "ماهی",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "ماهی تازه است",
+          "translation": "The fish is fresh",
+          "translit": "mâhi tâze ast"
+        }
+      ],
+      "translit": "mâhi"
+    },
+    {
+      "id": "fa_0183",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "گوشت",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "گوشت نمی‌خورم",
+          "translation": "I don't eat meat",
+          "translit": "gusht nemikhoram"
+        }
+      ],
+      "translit": "gusht"
+    },
+    {
+      "id": "fa_0184",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "تخم‌مرغ",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "دو تخم‌مرغ بده",
+          "translation": "Give me two eggs",
+          "translit": "do tokhm-e morgh bede"
+        }
+      ],
+      "translit": "tokhm-e morgh"
+    },
+    {
+      "id": "fa_0185",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "میوه",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "میوه دوست دارم",
+          "translation": "I like fruit",
+          "translit": "mive dust dâram"
+        }
+      ],
+      "translit": "mive"
+    },
+    {
+      "id": "fa_0186",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "لباس",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "لباس‌هایم تمیز است",
+          "translation": "My clothes are clean",
+          "translit": "lebâshâyam tamiz ast"
+        }
+      ],
+      "translit": "lebâs"
+    },
+    {
+      "id": "fa_0187",
+      "unit": "u7",
+      "category": "Useful",
+      "lemma": "کفش",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "کفش‌هایم کجاست؟",
+          "translation": "Where are my shoes?",
+          "translit": "kafshhâyam kojâst?"
+        }
+      ],
+      "translit": "kafsh"
+    },
+    {
+      "id": "fa_0188",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "یاد گرفتن",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "یاد گرفتن فارسی آسان نیست",
+          "translation": "Learning Persian is not easy",
+          "translit": "yâd gereftan-e fârsi âsân nist"
+        }
+      ],
+      "translit": "yâd gereftan"
+    },
+    {
+      "id": "fa_0189",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "خواندن",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "خواندن را دوست دارم",
+          "translation": "I like reading",
+          "translit": "khândan râ dust dâram"
+        }
+      ],
+      "translit": "khândan"
+    },
+    {
+      "id": "fa_0190",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "گوش دادن",
+      "translation": "to listen",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "گوش دادن مهم است",
+          "translation": "Listening is important",
+          "translit": "gush dâdan mohem ast"
+        }
+      ],
+      "translit": "gush dâdan"
+    },
+    {
+      "id": "fa_0191",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "برگشتن",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "وقت برگشتن است",
+          "translation": "It's time to come back",
+          "translit": "vaqt-e bargashtan ast"
+        }
+      ],
+      "translit": "bargashtan"
+    },
+    {
+      "id": "fa_0192",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "پیدا کردن",
+      "translation": "to find",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "کلیدم را پیدا کردم",
+          "translation": "I found my key",
+          "translit": "kelidam râ peydâ kardam"
+        }
+      ],
+      "translit": "peydâ kardan"
+    },
+    {
+      "id": "fa_0193",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "آوردن",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "آوردن نان یادت نرود",
+          "translation": "Don't forget to bring bread",
+          "translit": "âvardan-e nân yâdat naravad"
+        }
+      ],
+      "translit": "âvardan"
+    },
+    {
+      "id": "fa_0194",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "بازی کردن",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "بچه‌ها بازی کردن را دوست دارند",
+          "translation": "Children love to play",
+          "translit": "bachehâ bâzi kardan râ dust dârand"
+        }
+      ],
+      "translit": "bâzi kardan"
+    },
+    {
+      "id": "fa_0195",
+      "unit": "u8",
+      "category": "Places",
+      "lemma": "بیمارستان",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "بیمارستان کجاست؟",
+          "translation": "Where is the hospital?",
+          "translit": "bimârestân kojâst?"
+        }
+      ],
+      "translit": "bimârestân"
+    },
+    {
+      "id": "fa_0196",
+      "unit": "u8",
+      "category": "People",
+      "lemma": "پلیس",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "به پلیس زنگ بزن",
+          "translation": "Call the police",
+          "translit": "be polis zang bezan"
+        }
+      ],
+      "translit": "polis"
     }
   ],
   "alphabetGroups": [

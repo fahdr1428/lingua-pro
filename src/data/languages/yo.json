@@ -1116,13 +1116,17 @@
       "unit": "u6",
       "category": "Verbs",
       "lemma": "rí",
-      "translation": "to see",
+      "translation": "to see, to find",
       "difficulty": 1,
       "frequencyRank": 63,
       "examples": [
         {
           "native": "Mi ò rí nǹkan kan",
           "translation": "I don't see anything"
+        },
+        {
+          "native": "Mi ò rí kọ́kọ́rọ́ mi",
+          "translation": "I can't find my key"
         }
       ]
     },
@@ -2458,6 +2462,366 @@
         {
           "native": "Lo oògùn rẹ",
           "translation": "Take your medicine"
+        }
+      ]
+    },
+    {
+      "id": "yo_0153",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "èyí",
+      "translation": "this",
+      "difficulty": 1,
+      "frequencyRank": 153,
+      "examples": [
+        {
+          "native": "Èyí ni ilé mi",
+          "translation": "This is my house"
+        }
+      ]
+    },
+    {
+      "id": "yo_0154",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ìyẹn",
+      "translation": "that",
+      "difficulty": 1,
+      "frequencyRank": 154,
+      "examples": [
+        {
+          "native": "Kí ni ìyẹn?",
+          "translation": "What is that?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0155",
+      "unit": "u2",
+      "category": "Questions",
+      "lemma": "èwo",
+      "translation": "which",
+      "difficulty": 1,
+      "frequencyRank": 155,
+      "examples": [
+        {
+          "native": "Èwo lo fẹ́?",
+          "translation": "Which one do you want?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0156",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "lẹ́ẹ̀kan sí i",
+      "translation": "again",
+      "difficulty": 1,
+      "frequencyRank": 156,
+      "examples": [
+        {
+          "native": "Sọ ọ́ lẹ́ẹ̀kan sí i",
+          "translation": "Say it again"
+        }
+      ]
+    },
+    {
+      "id": "yo_0157",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "nígbà gbogbo",
+      "translation": "always",
+      "difficulty": 1,
+      "frequencyRank": 157,
+      "examples": [
+        {
+          "native": "Màmá máa ń se oúnjẹ nígbà gbogbo",
+          "translation": "Mother always cooks"
+        }
+      ]
+    },
+    {
+      "id": "yo_0158",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "láéláé",
+      "translation": "never (with a negative), ever",
+      "difficulty": 1,
+      "frequencyRank": 158,
+      "examples": [
+        {
+          "native": "Mi ò ní gbàgbé láéláé",
+          "translation": "I will never forget"
+        }
+      ]
+    },
+    {
+      "id": "yo_0159",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "bóyá",
+      "translation": "maybe",
+      "difficulty": 1,
+      "frequencyRank": 159,
+      "examples": [
+        {
+          "native": "Bóyá ní ọ̀la",
+          "translation": "Maybe tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "yo_0160",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "tuntun",
+      "translation": "new",
+      "difficulty": 1,
+      "frequencyRank": 160,
+      "examples": [
+        {
+          "native": "Ọkọ̀ tuntun ni",
+          "translation": "It's a new car"
+        }
+      ]
+    },
+    {
+      "id": "yo_0161",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "pọ́ọ́kú",
+      "translation": "cheap",
+      "difficulty": 1,
+      "frequencyRank": 161,
+      "examples": [
+        {
+          "native": "Ọjà yìí pọ́ọ́kú",
+          "translation": "These goods are cheap"
+        }
+      ]
+    },
+    {
+      "id": "yo_0162",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ilé ìwé",
+      "translation": "school",
+      "difficulty": 1,
+      "frequencyRank": 162,
+      "examples": [
+        {
+          "native": "Ilé ìwé wà nítòsí",
+          "translation": "The school is nearby"
+        }
+      ]
+    },
+    {
+      "id": "yo_0163",
+      "unit": "u8",
+      "category": "Useful",
+      "lemma": "ìwé",
+      "translation": "book",
+      "difficulty": 1,
+      "frequencyRank": 163,
+      "examples": [
+        {
+          "native": "Ìwé yìí dára",
+          "translation": "This book is good"
+        }
+      ]
+    },
+    {
+      "id": "yo_0164",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "ẹja",
+      "translation": "fish",
+      "difficulty": 1,
+      "frequencyRank": 164,
+      "examples": [
+        {
+          "native": "Mo fẹ́ràn ẹja",
+          "translation": "I like fish"
+        }
+      ]
+    },
+    {
+      "id": "yo_0165",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "ẹran",
+      "translation": "meat",
+      "difficulty": 1,
+      "frequencyRank": 165,
+      "examples": [
+        {
+          "native": "Mi ò jẹ ẹran",
+          "translation": "I don't eat meat"
+        }
+      ]
+    },
+    {
+      "id": "yo_0166",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "ẹyin",
+      "translation": "egg",
+      "difficulty": 1,
+      "frequencyRank": 166,
+      "examples": [
+        {
+          "native": "Fún mi ní ẹyin méjì",
+          "translation": "Give me two eggs"
+        }
+      ]
+    },
+    {
+      "id": "yo_0167",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "èso",
+      "translation": "fruit",
+      "difficulty": 1,
+      "frequencyRank": 167,
+      "examples": [
+        {
+          "native": "Mo fẹ́ràn èso",
+          "translation": "I like fruit"
+        }
+      ]
+    },
+    {
+      "id": "yo_0168",
+      "unit": "u8",
+      "category": "Useful",
+      "lemma": "aṣọ",
+      "translation": "clothes",
+      "difficulty": 1,
+      "frequencyRank": 168,
+      "examples": [
+        {
+          "native": "Aṣọ mi ti mọ́",
+          "translation": "My clothes are clean"
+        }
+      ]
+    },
+    {
+      "id": "yo_0169",
+      "unit": "u8",
+      "category": "Useful",
+      "lemma": "bàtà",
+      "translation": "shoes",
+      "difficulty": 1,
+      "frequencyRank": 169,
+      "examples": [
+        {
+          "native": "Níbo ni bàtà mi wà?",
+          "translation": "Where are my shoes?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0170",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "kọ́",
+      "translation": "to learn",
+      "difficulty": 1,
+      "frequencyRank": 170,
+      "examples": [
+        {
+          "native": "Mo fẹ́ kọ́ èdè Yorùbá",
+          "translation": "I want to learn Yoruba"
+        }
+      ]
+    },
+    {
+      "id": "yo_0171",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ka",
+      "translation": "to read",
+      "difficulty": 1,
+      "frequencyRank": 171,
+      "examples": [
+        {
+          "native": "Bàbá ń ka ìwé ìròyìn",
+          "translation": "Father is reading the newspaper"
+        }
+      ]
+    },
+    {
+      "id": "yo_0172",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "padà wá",
+      "translation": "to come back",
+      "difficulty": 1,
+      "frequencyRank": 172,
+      "examples": [
+        {
+          "native": "Ìgbà wo lo máa padà wá?",
+          "translation": "When will you come back?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0173",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mú wá",
+      "translation": "to bring",
+      "difficulty": 1,
+      "frequencyRank": 173,
+      "examples": [
+        {
+          "native": "Mú omi wá",
+          "translation": "Bring water"
+        }
+      ]
+    },
+    {
+      "id": "yo_0174",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ṣeré",
+      "translation": "to play",
+      "difficulty": 1,
+      "frequencyRank": 174,
+      "examples": [
+        {
+          "native": "Àwọn ọmọdé ń ṣeré níta",
+          "translation": "The children are playing outside"
+        }
+      ]
+    },
+    {
+      "id": "yo_0175",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ilé ìwòsàn",
+      "translation": "hospital",
+      "difficulty": 1,
+      "frequencyRank": 175,
+      "examples": [
+        {
+          "native": "Níbo ni ilé ìwòsàn wà?",
+          "translation": "Where is the hospital?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0176",
+      "unit": "u7",
+      "category": "People",
+      "lemma": "ọlọ́pàá",
+      "translation": "police",
+      "difficulty": 1,
+      "frequencyRank": 176,
+      "examples": [
+        {
+          "native": "Pe ọlọ́pàá!",
+          "translation": "Call the police!"
         }
       ]
     }
