@@ -24,6 +24,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
+import { goBack } from "../ui/navigation.js";
 
 // localStorage key for tracking which groups are completed (per language)
 const STORAGE_KEY = "alphabet_progress";
@@ -169,7 +170,7 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
     return (
       <Container>
         <div style={{ marginBottom: 16 }}>
-          <Button variant="ghost" onClick={() => onNavigate("home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
+          <Button variant="ghost" onClick={() => goBack(onNavigate, "home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
             ← Back
           </Button>
         </div>

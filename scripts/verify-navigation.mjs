@@ -622,6 +622,62 @@ async function toFlashcards(page) {
   await ctx.close();
 }
 
+// ---------------------------------------------------------------------------
+// 9. THE ON-SCREEN "← BACK" GOES BACK (v107)
+//
+// Thirteen Back buttons were forward navigations to a hard-coded screen:
+// Practice → Grammar → "← Back" landed on Home and pushed a history entry, so
+// the browser's back then returned to Grammar. The sentence stream's Back went
+// to Reading — for Tamil, an empty screen whose only button is the stream.
+// Checked here: the button returns to where you came from, WITHOUT growing the
+// history, for three screens reached from Practice. And Tamil (no passages)
+// is not offered a Reading door at all.
+// ---------------------------------------------------------------------------
+{
+  const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const page = await openApp(ctx);
+  const clickDoor = (re) => page.evaluate((src) => {
+    const b = [...document.querySelectorAll("button")].find((x) => x.offsetParent && new RegExp(src).test(x.innerText || ""));
+    if (b) b.click();
+    return !!b;
+  }, re.source);
+  const onHub = () => page.evaluate(() => /Every drill in one place/.test(document.querySelector("#main")?.innerText || ""));
+
+  for (const [door, label] of [[/🧭\s*Grammar/, "Grammar"], [/📜\s*Urdu you can read/, "sentence stream"], [/🎯\s*Practise a topic/, "Topics"]]) {
+    await toPractice(page);
+    if (!(await onHub(page))) { problems.push(`[back button] couldn't reach Practice before testing ${label}`); continue; }
+    if (!(await clickDoor(door))) { problems.push(`[back button] no ${label} door in Practice`); continue; }
+    await page.waitForTimeout(800);
+    const before = await page.evaluate(() => history.length);
+    const clicked = await page.evaluate(() => {
+      const b = [...document.querySelectorAll("button")].find((x) => x.offsetParent && /← Back/.test(x.innerText || ""));
+      if (b) b.click();
+      return !!b;
+    });
+    if (!clicked) { problems.push(`[back button] ${label} has no "← Back" button`); continue; }
+    await page.waitForTimeout(800);
+    const after = await page.evaluate(() => history.length);
+    if (!(await onHub(page))) problems.push(`[back button] "← Back" on ${label} didn't return to Practice — landed on "${await screenText(page)}"`);
+    if (after > before) problems.push(`[back button] "← Back" on ${label} pushed a new history entry (${before} → ${after}) instead of going back`);
+    // and go home between runs so each starts from the same place
+    await page.evaluate(() => [...document.querySelectorAll(".bottom-nav button")].find((x) => /learn/i.test(x.innerText || ""))?.click());
+    await page.waitForTimeout(500);
+  }
+  await ctx.close();
+
+  const ctx2 = await browser.newContext({ viewport: { width: 414, height: 896 } });
+  const ta = await ctx2.newPage();
+  await ta.goto(BASE, { waitUntil: "load" });
+  await ta.evaluate((s) => { localStorage.setItem("lingua:app", s.replace(/"ur"/g, '"ta"')); localStorage.setItem("lingua:progress", "{}"); }, seed);
+  await ta.reload();
+  await ta.waitForTimeout(1300);
+  await toPractice(ta);
+  const doors = await ta.evaluate(() => [...document.querySelectorAll("button")].map((b) => b.innerText || ""));
+  if (!doors.some((t) => /Tamil you can read/.test(t))) problems.push("[reading door] Tamil's Practice lost the sentence-stream door");
+  if (doors.some((t) => /Read some Tamil/.test(t))) problems.push(`[reading door] Tamil has no reading passages but Practice still offers "Read some Tamil" — it opens onto "No reading passages for Tamil yet"`);
+  await ctx2.close();
+}
+
 await browser.close();
 
 console.log("\n  navigation checked in a real browser: stack, direction, chrome, scroll, reduced motion");

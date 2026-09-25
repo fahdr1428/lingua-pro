@@ -8,6 +8,7 @@ import { Button, Card, Container } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { InContext } from "../ui/InContext.jsx";
+import { goBack } from "../ui/navigation.js";
 
 
 export function Flashcards({ pack, appState, onNavigate, params }) {
@@ -70,7 +71,7 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
     return (
       <Container>
         <div style={{ marginBottom: 20 }}>
-          <Button variant="ghost" onClick={() => onNavigate("home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
+          <Button variant="ghost" onClick={() => goBack(onNavigate, "home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
             ← Back
           </Button>
         </div>

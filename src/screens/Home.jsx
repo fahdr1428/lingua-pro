@@ -43,7 +43,7 @@ import {
   hasPassedChapter, chapterOfUnitIndex, chapterVocabIds,
 } from "../data/chapters.js";
 import { hasSentencePatterns, getPatternForDrop } from "../data/sentencePatterns.js";
-import { hasScriptCourse, scriptStops, hasPassedScript } from "../data/scriptCourse.js";
+import { hasScriptCourse, scriptStops, hasPassedScript, hasAttemptedScript } from "../data/scriptCourse.js";
 import {
   todayKey, weakestWords, streakStage, nextMilestone, coachLine, daypart,
   goalLabel, estMinutes,
@@ -64,12 +64,22 @@ import {
 // The component is kept, because the idea is good and the images may yet be
 // made, but it now checks whether the file is there before rendering anything,
 // and stays silent when it isn't.
+//
+// v107: "checks whether the file is there" was itself a request for the file —
+// an Image() probe that 404'd, twice, on every cold visit to Home in every
+// language, and put two red "Failed to load resource" lines in the console
+// (verify-browser has been failing on them). The directory still doesn't
+// exist, so the honest check is a list of what does: add a language's code
+// and how many scenes it has here when the images are added to
+// public/scenes/{code}-{n}.jpg, and nothing is requested until then.
+const SCENES = {}; // e.g. { ur: 3 }
 const sceneCache = new Map(); // code → Promise<string|null>
 
 function findScene(code) {
+  if (!SCENES[code]) return Promise.resolve(null);
   if (sceneCache.has(code)) return sceneCache.get(code);
   const p = new Promise((resolve) => {
-    const idx = 1 + Math.floor(Math.random() * 3);
+    const idx = 1 + Math.floor(Math.random() * SCENES[code]);
     const tryLoad = (n, fallback) => {
       const img = new Image();
       img.onload = () => resolve(`/scenes/${code}-${n}.jpg`);
@@ -228,6 +238,37 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
     // romanisation is allowed to, and Chapter 0 stays on the route for
     // whenever they change their mind.
     if (hasScriptCourse(pack) && !hasPassedScript(appState, pack.code) && done < 2) {
+      // v107: tried the test and didn't pass — the next step is learning to
+      // read, one stop at a time, not the same test again. And a way into
+      // Chapter 1 with romanisation, for whoever would rather start there.
+      if (hasAttemptedScript(appState, pack.code)) {
+        const stopsAll = scriptStops(pack);
+        let visited = {};
+        try { visited = (JSON.parse(localStorage.getItem("alphabet_progress") || "{}"))[pack.code] || {}; } catch {}
+        const next = stopsAll.find((s) => !visited[s.id]);
+        const doneStops = stopsAll.filter((s) => visited[s.id]).length;
+        const skip = { label: "or start Chapter 1 with romanisation", go: () => onNavigate("lesson", { mode: "smart" }) };
+        if (next) {
+          return {
+            kind: "script-learn",
+            eyebrow: `Chapter 0 · learning to read · ${doneStops} of ${stopsAll.length}`,
+            title: next.title,
+            sub: next.sub,
+            mins: 3,
+            go: () => onNavigate("alphabet", { lesson: next.id }),
+            alt: skip,
+          };
+        }
+        return {
+          kind: "script",
+          eyebrow: "Chapter 0 · all the letters done",
+          title: `Try the ${lang.name} reading test again`,
+          sub: "You've been through every stop. Two minutes — see how much of it reads now.",
+          mins: 2,
+          go: () => onNavigate("scriptexam"),
+          alt: skip,
+        };
+      }
       return {
         kind: "script",
         eyebrow: "Chapter 0 · before words",
@@ -442,7 +483,13 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
               {goalMet ? "Keep going" : "Continue"} · ~{smartAction.mins} min
             </button>
 
-            {weakWord && smartAction.kind !== "review" && (
+            {smartAction.alt && (
+              <button className="quiet-link" onClick={smartAction.alt.go}>
+                {smartAction.alt.label}
+              </button>
+            )}
+
+            {weakWord && smartAction.kind !== "review" && !smartAction.alt && (
               <button
                 className="quiet-link"
                 onClick={() => onNavigate("lesson", { mode: "weak", sessionSize: 4 })}
@@ -814,7 +861,6 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
     // 41 and every language has some. Connected text you can mostly understand
     // is the best-evidenced way anyone learns a language; it shouldn't be the
     // hardest thing in the app to find.
-    { icon: "📖", title: `Read some ${lang.name}`, sub: "Short pieces built only from words you've met", go: () => onNavigate("reading"), highlight: (stats.learned || 0) >= 10 },
     // v83: those 41 passages are 623 words BETWEEN THEM — a minute of reading
     // split fourteen ways, and four words of it is Korean. The sentence stream
     // is several times that in every language, assembled from the example
@@ -834,6 +880,14 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
   // the door advertised "Scripted conversations, with subtitles" and opened onto
   // "no conversation starters yet". An honest empty state is better than a
   // crash, but not offering an empty room is better than both.
+  // v107: the same rule for reading. Seven languages (fa ml so ta tl vi yo)
+  // have no passages yet — they want a native writer, not a generated
+  // approximation — and this door promised them "short pieces built only from
+  // words you've met", highlighted, and opened onto "no reading passages yet".
+  // Those learners still have the sentence stream just below it.
+  if (hasPassages(pack.code)) {
+    doors.unshift({ icon: "📖", title: `Read some ${lang.name}`, sub: "Short pieces built only from words you've met", go: () => onNavigate("reading"), highlight: (stats.learned || 0) >= 10 });
+  }
   if (hasConversations(pack.code) || hasPassages(pack.code)) {
     doors.splice(1, 0, {
       icon: "🎧", title: "Listen & follow",
@@ -1042,7 +1096,10 @@ export function ReachPanel({ stops = [], reached = 0, chapterTitle, due = 0, onR
 // information, and because the letter lessons remain worth revisiting.
 // =============================================================================
 function ScriptChapterZero({ pack, lang, appState, onNavigate }) {
-  const [open, setOpen] = useState(false);
+  // v107: after a failed attempt the letter lessons ARE the chapter, so they
+  // start open, and the test stops being the first thing it says.
+  const attempted = hasAttemptedScript(appState, pack.code);
+  const [open, setOpen] = useState(attempted);
   if (!hasScriptCourse(pack)) return null;
 
   const passed = hasPassedScript(appState, pack.code);
@@ -1108,7 +1165,7 @@ function ScriptChapterZero({ pack, lang, appState, onNavigate }) {
         style={{ marginTop: 14 }}
         onClick={() => onNavigate("scriptexam")}
       >
-        Already read it? Take the 2-minute test →
+        {attempted ? "Take the reading test again →" : "Already read it? Take the 2-minute test →"}
       </button>
 
       <button

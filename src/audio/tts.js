@@ -23,6 +23,7 @@ import {
   fallbackVoiceFor, speechAvailability,
 } from "./voices.js";
 import { toDevanagari } from "./romanise.js";
+import { hasRecording } from "../data/audioIndex.js";
 
 let mp3AvailabilityCache = new Map(); // 'langCode/wordId' -> true|false (cached HEAD requests)
 let activeAudio = null;
@@ -31,17 +32,34 @@ function bestVoice(langCode, code) {
   return targetVoice(langCode, code) || voicesFor(langCode)[0] || null;
 }
 
+/**
+ * Which folder a word's recording lives in: the pack code at the front of its
+ * id ("pcm_0012" → pcm).
+ *
+ * v107: this used to be the TTS locale's prefix ("ur-PK" → ur). Two packs'
+ * locales don't start with their own code — Nigerian Pidgin speaks with
+ * en-NG, Tagalog with fil-PH — so Pidgin's 66 recordings in /audio/pcm/ were
+ * requested from /audio/en/, 404'd every time, and no Pidgin learner has ever
+ * heard one. The id can't disagree with the folder: generate-audio.cjs names
+ * both from the same pack.
+ */
+function recordingFolder(audioId) {
+  return String(audioId || "").split("_")[0];
+}
+
 /** Build the URL where the pre-generated MP3 should live. */
-function mp3Url(langCode, audioId) {
-  // Strip region: "ur-PK" -> "ur" for folder naming
-  const lang = (langCode || "").split("-")[0];
-  return `/audio/${lang}/${audioId}.mp3`;
+function mp3Url(audioId) {
+  return `/audio/${recordingFolder(audioId)}/${audioId}.mp3`;
 }
 
 /** Try to play a pre-generated MP3. Resolves true on success, false otherwise. */
 async function tryPlayMp3(langCode, audioId) {
   if (!audioId) return false;
-  const url = mp3Url(langCode, audioId);
+  // v107: ask the generated index, not the network. A word without a recording
+  // used to cost a request that could only 404, and a round trip of silence
+  // before the fallback voice — see scripts/build-audio-index.mjs.
+  if (!hasRecording(recordingFolder(audioId), audioId)) return false;
+  const url = mp3Url(audioId);
 
   // Check cache first
   const cacheKey = `${langCode}/${audioId}`;
@@ -180,6 +198,7 @@ export function speechModeFor(langCode, code) {
 export function hasAudioFor(langCode, audioId) {
   // If we have a cached "false" for the MP3, fall back to browser TTS check
   if (audioId) {
+    if (hasRecording(recordingFolder(audioId), audioId)) return true;
     const cacheKey = `${langCode}/${audioId}`;
     if (mp3AvailabilityCache.get(cacheKey) === true) return true;
   }

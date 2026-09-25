@@ -28,7 +28,7 @@
 // non-reader cannot separate, which is exactly what the exam is asking about.
 // =============================================================================
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
 import { LANGUAGES } from "../data/registry.js";
 import { SCRIPT_PASS } from "../data/scriptCourse.js";
@@ -41,6 +41,7 @@ export function ScriptExam({ pack, appState, setAppState, onNavigate }) {
 
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null);
+  const answeredRef = useRef(-1); // which question index has already been scored — see choose()
   const [right, setRight] = useState(0);
   const [done, setDone] = useState(false);
 
@@ -63,7 +64,13 @@ export function ScriptExam({ pack, appState, setAppState, onNavigate }) {
   }
 
   function choose(opt) {
-    if (picked) return;
+    // v107: guarded by a ref, not the `picked` state. State only updates on
+    // the next render, so two presses inside one task both passed `if
+    // (picked)` and both scored — any question with the right answer among
+    // the presses counted as right. A browser test that pressed every option
+    // "passed" the reading test 12 out of 12 that way. One answer per question.
+    if (picked || answeredRef.current === idx) return;
+    answeredRef.current = idx;
     setPicked(opt);
     const correct = opt === q.answer;
     if (correct) setRight((r) => r + 1);
@@ -73,16 +80,27 @@ export function ScriptExam({ pack, appState, setAppState, onNavigate }) {
   function next() {
     if (idx + 1 >= questions.length) {
       const score = right / questions.length;
-      if (score >= SCRIPT_PASS) {
-        setAppState((s) => ({
+      const passedNow = score >= SCRIPT_PASS;
+      // v107: a fail is recorded too (attempts, last score) — see
+      // hasAttemptedScript. Home uses it to move the learner on to the letter
+      // lessons instead of offering this same test again as the next step.
+      setAppState((s) => {
+        const prev = s.scriptCourse?.[pack.code] || {};
+        return {
           ...s,
           scriptCourse: {
             ...(s.scriptCourse || {}),
-            [pack.code]: { passed: true, at: Date.now(), score },
+            [pack.code]: {
+              ...prev,
+              passed: passedNow || !!prev.passed,
+              attempts: (prev.attempts || 0) + 1,
+              at: Date.now(),
+              ...(passedNow ? { score } : { lastScore: score }),
+            },
           },
-          totalXp: (s.totalXp || 0) + 40,
-        }));
-      }
+          totalXp: (s.totalXp || 0) + (passedNow && !prev.passed ? 40 : 0),
+        };
+      });
       setDone(true);
       return;
     }

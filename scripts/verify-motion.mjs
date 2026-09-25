@@ -109,7 +109,9 @@ for (const reduced of [false, true]) {
   const ctx = await browser.newContext({ viewport: { width: 430, height: 932 } });
   const page = await ctx.newPage();
   await page.goto(BASE);
-  await page.evaluate((s) => localStorage.setItem("lingua:app", JSON.stringify({ ...s, lessonsCompleted: {} })), seed);
+  // A fresh learner, but past Chapter 0 — which a new Urdu learner now opens
+  // on — so "Continue" starts a word lesson with flashcards.
+  await page.evaluate((s) => localStorage.setItem("lingua:app", JSON.stringify({ ...s, lessonsCompleted: {}, scriptCourse: { ur: { passed: true } } })), seed);
   await page.reload();
   await page.waitForTimeout(1500);
   await page.evaluate(() => {

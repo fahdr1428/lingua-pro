@@ -13,6 +13,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
 import { LANGUAGES } from "../data/registry.js";
+import { goBack } from "../ui/navigation.js";
 
 const ICONS = {
   Greetings: "👋", Politeness: "🙏", "About You": "🙋", Family: "👪", People: "🧑‍🤝‍🧑",
@@ -63,7 +64,7 @@ export function Topics({ engine, pack, onNavigate }) {
   const header = (
     <>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-        <Button variant="ghost" onClick={() => onNavigate("hub")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
+        <Button variant="ghost" onClick={() => goBack(onNavigate, "hub")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
           ← Back
         </Button>
         <div style={{ fontSize: 12, color: "var(--text-dim)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>

@@ -11,7 +11,10 @@
 //   4. Save the key file as `google-tts-key.json` in this project's root folder
 //      (DO NOT COMMIT IT — see .gitignore)
 //   5. npm install @google-cloud/text-to-speech
-//   6. node scripts/generate-audio.js
+//   6. node scripts/generate-audio.cjs
+//   7. npm run build-audio-index   ← v107: the app only plays recordings the
+//      generated index lists (src/data/audioIndex.js); new files are silent
+//      until it's rebuilt, and `npm run check` fails until then.
 //
 // What it does:
 //   - Reads every src/data/languages/*.json file
@@ -156,5 +159,6 @@ async function processLanguage(code) {
   }
   console.log(`\n🎉 Done. Generated ${totalGenerated}, skipped ${totalSkipped} (already existed), failed ${totalFailed}.`);
   console.log(`\nFiles saved to: public/audio/`);
-  console.log(`These will be served by Vercel as static assets at https://yoursite.com/audio/{lang}/{id}.mp3\n`);
+  console.log(`These will be served by Vercel as static assets at https://yoursite.com/audio/{lang}/{id}.mp3`);
+  console.log(`\nNext: npm run build-audio-index — the app only plays recordings listed in src/data/audioIndex.js.\n`);
 })();

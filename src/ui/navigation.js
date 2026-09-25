@@ -218,3 +218,25 @@ export function createNavigator({ onChange, getScroll, setScroll }) {
 
   return { go, onPop, replace, current, size: () => stack.length, at: () => index };
 }
+
+/**
+ * v107 — what a "← Back" button should do.
+ *
+ * Thirteen of them called onNavigate("home") / ("hub") / ("reading"): a
+ * FORWARD navigation to a fixed place, whatever the learner actually came
+ * from. Practice → Grammar → "← Back" landed on Home, not Practice, and pushed
+ * a new history entry — so the browser's own back button then took them to
+ * Grammar again. The sentence stream's Back went to Reading, which for seven
+ * languages is an empty screen whose only button leads back to the stream.
+ *
+ * Back means back. If there is an entry of ours behind this one, go to it —
+ * the navigator's popstate handler does the rest, scroll position included.
+ * Only when there's nothing behind (the screen was the first thing opened in
+ * this tab) fall back to the place the button used to name.
+ */
+export function goBack(onNavigate, fallback = "home") {
+  let behind = false;
+  try { behind = typeof history.state?.linguaIndex === "number" && history.state.linguaIndex > 0; } catch { /* no history API */ }
+  if (behind) history.back();
+  else onNavigate(fallback);
+}

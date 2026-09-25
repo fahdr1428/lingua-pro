@@ -19,6 +19,10 @@ const seed = (code) => ({
   grammarSeen: {}, learningGoal: {}, chaptersPassed: {}, sentenceDropsDone: {},
   lastCheckpointAt: {}, testedOut: {}, momentDone: {}, planVisited: {},
   passagesRead: {}, userName: "",
+  // Past Chapter 0: since it shipped, a brand-new learner of a non-Latin
+  // language opens on "Can you read Urdu?" rather than a word lesson, and this
+  // test never reached a flashcard. It's the flashcard it checks, not the test.
+  scriptCourse: { [code]: { passed: true } },
   lastStudyDate: new Date().toISOString().slice(0, 10),
   consent: { terms: true, ageConfirmed: 13, at: 0 },
   aiConsent: { accepted: true, at: 0, ageConfirmed: 16, version: 1 },

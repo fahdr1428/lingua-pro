@@ -34,6 +34,9 @@ const seed = (code) => ({
   grammarSeen: {}, learningGoal: {}, chaptersPassed: {}, sentenceDropsDone: {},
   lastCheckpointAt: {}, testedOut: {}, momentDone: {}, planVisited: {},
   passagesRead: {}, userName: "",
+  // Past Chapter 0, which a new non-Latin learner now opens on (see
+  // verify-keyboard-card); it's the word lesson's surfaces this checks.
+  scriptCourse: { [code]: { passed: true } },
   lastStudyDate: new Date().toISOString().slice(0, 10),
   consent: { terms: true, ageConfirmed: 13, at: 0 },
   aiConsent: { accepted: true, at: 0, ageConfirmed: 16, version: 1 },
@@ -49,7 +52,11 @@ const browser = await chromium.launch({
 let problems = 0;
 const fail = (m) => { console.log("    ✗ " + m); problems++; };
 
-for (const code of CODES) {
+for (const code of CODES) for (let attempt = 1; attempt <= 3; attempt++) {
+  // v107: up to three runs per language. The lesson is random, and a run can
+  // simply not reach a flashcard example or a recovery round; that is "this run
+  // saw nothing", not "the app is broken", and it used to fail the suite about
+  // one time in six. Only three empty runs in a row count as a failure.
   const pack = JSON.parse(readFileSync(`src/data/languages/${code}.json`, "utf8"));
   const known = new Set();
   for (const w of pack.vocab || []) for (const e of w.examples || []) if (e.translit) known.add(e.translit);
@@ -62,7 +69,7 @@ for (const code of CODES) {
     ...(g.reactions?.correct || []), ...(g.reactions?.wrong || []), ...(g.reactions?.streak || []),
   ].filter((x) => typeof x === "string" && x.length > 2);
 
-  console.log(`\n=== ${code} ===`);
+  console.log(`\n=== ${code}${attempt > 1 ? ` (run ${attempt})` : ""} ===`);
   const ctx = await browser.newContext({ viewport: { width: 430, height: 932 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   page.on("pageerror", (e) => fail(`page error: ${e.message}`));
@@ -201,10 +208,14 @@ for (const code of CODES) {
   }
 
   if (!sawFlash && !sawIntro) {
-    fail("neither example surface was observed — this run verified nothing");
+    await ctx.close();
+    if (attempt < 3) { console.log(`    – run ${attempt} observed neither surface; trying again`); continue; }
+    fail("neither example surface was observed in three runs — this verified nothing");
+    break;
   }
 
   await ctx.close();
+  break;
 }
 
 await browser.close();

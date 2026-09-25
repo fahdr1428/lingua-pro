@@ -21,6 +21,7 @@ import { Button, Card, Container } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, stopSpeaking, speechModeFor } from "../audio/tts.js";
 import { sayCoach, cancelVoice, voiceSupported } from "../audio/voice.js";
+import { goBack } from "../ui/navigation.js";
 
 export const GAPS = { short: 1600, long: 2800 };
 const PHASE_LABEL = { hear: "Listen", repeat: "Say it aloud", meaning: "It means", again: "Once more", done: "" };
@@ -105,8 +106,13 @@ export function Listen({ engine, pack, appState, params, onNavigate }) {
         wait(6000),
       ]);
 
+      // When nothing can be played — no recording and no voice on this device —
+      // speak() returns at once, and "Listen" used to flash straight into "Say
+      // it aloud" before the word had been presented at all. Hold it long
+      // enough to read instead.
       setPhase("hear");
-      await say();
+      const heardAt = Date.now();
+      if (!(await say())) await wait(Math.max(0, 1400 - (Date.now() - heardAt)));
       if (!live()) return;
 
       setPhase("repeat");
@@ -120,7 +126,8 @@ export function Listen({ engine, pack, appState, params, onNavigate }) {
       if (!live()) return;
 
       setPhase("again");
-      await say();
+      const againAt = Date.now();
+      if (!(await say())) await wait(Math.max(0, 900 - (Date.now() - againAt)));
       if (!live()) return;
       await wait(700);
       if (!live()) return;
@@ -140,7 +147,7 @@ export function Listen({ engine, pack, appState, params, onNavigate }) {
   const header = (
     <>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-        <Button variant="ghost" onClick={() => { halt(); onNavigate("hub"); }} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
+        <Button variant="ghost" onClick={() => { halt(); goBack(onNavigate, "hub"); }} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
           ← Back
         </Button>
         <div style={{ fontSize: 12, color: "var(--text-dim)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>

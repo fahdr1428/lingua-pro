@@ -10,6 +10,7 @@ import { Button, Card, Container } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getPassage, PASSAGES } from "../data/passages.js";
+import { goBack } from "../ui/navigation.js";
 
 
 export function Reading({ pack, appState, setAppState, onNavigate }) {
@@ -43,7 +44,7 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
     return (
       <Container>
         <div style={{ marginBottom: 16 }}>
-          <Button variant="ghost" onClick={() => onNavigate("home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
+          <Button variant="ghost" onClick={() => goBack(onNavigate, "home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
             ← Back
           </Button>
         </div>
@@ -126,7 +127,7 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
     return (
       <Container style={{ paddingBottom: 160 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-          <Button variant="ghost" onClick={() => onNavigate("home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
+          <Button variant="ghost" onClick={() => goBack(onNavigate, "home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
             ← Back
           </Button>
           <div style={{ fontSize: 12, color: "var(--text-dim)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>

@@ -11,7 +11,8 @@
 // plays, one that is stopped part-way, one that loads too late, one that 404s.
 //
 // PROVEN CAPABLE OF FAILING: against the pre-v106 tryPlayMp3, "a clip that
-// plays" and "stopped part-way" both time out. "Loads too late" and "missing
+// plays" and "stopped part-way" both time out; against the pre-v107 one,
+// "no recording" reports the 404 request and Pidgin reports /audio/en/. "Loads too late" and "missing
 // file" passed before too — they are here so the rewrite can't break them.
 //
 //   npm run test-mp3-playback
@@ -19,12 +20,14 @@
 
 const problems = [];
 let plays = 0;
+const requested = [];
 
 // Each fake clip follows a script: when it becomes playable, and how it ends.
 let script = { readyAfter: 10, lengthMs: 60, fail: false };
 
 class FakeAudio {
   constructor(src) {
+    requested.push(src);
     this.src = src; this.duration = script.lengthMs / 1000; this.paused = true;
     this.listeners = {}; this.currentTime = 0;
     this.s = { ...script };
@@ -99,7 +102,27 @@ const within = (p, ms) => Promise.race([p.then((v) => ({ v })), new Promise((r) 
   else if (r.v !== false) problems.push(`a missing clip with no browser voice resolved ${r.v}, expected false`);
 }
 
-console.log("\n  mp3 playback: 4 situations through speak()");
+// 5. v107 — a word with no recording asks nobody. It used to fetch a file that
+//    could only 404, then fall back after a round trip of silence.
+{
+  requested.length = 0;
+  const r = await within(speak("x", "ar-SA", { audioId: "ar_0400" }), 1500);
+  if (requested.length) problems.push(`a word with no recording still requested ${requested.join(", ")} — a guaranteed 404 and a delay before the fallback voice`);
+  if (r.timeout) problems.push("a word with no recording left speak() pending");
+}
+
+// 6. v107 — the folder comes from the word's id, not the voice locale. Pidgin
+//    speaks with en-NG, and its recordings in /audio/pcm/ were being requested
+//    from /audio/en/ — every one a 404, none ever heard.
+{
+  requested.length = 0;
+  script = { readyAfter: 10, lengthMs: 60, fail: false };
+  await within(speak("x", "en-NG", { audioId: "pcm_0001" }), 1500);
+  if (!requested.length) problems.push("a recorded Pidgin word wasn't requested at all");
+  else if (!requested[0].startsWith("/audio/pcm/")) problems.push(`a recorded Pidgin word was requested from ${requested[0]} — its file is in /audio/pcm/`);
+}
+
+console.log("\n  mp3 playback: 6 situations through speak()");
 if (problems.length) {
   console.log(`\n  ✗ ${problems.length} problems\n`);
   for (const p of problems) console.log(`   ${p}`);

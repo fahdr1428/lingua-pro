@@ -8,7 +8,7 @@ import { Button, Card, ProgressBar, Container } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor, stopSpeaking } from "../audio/tts.js";
 import { playCorrect, playWrong, playLessonComplete } from "../audio/sfx.js";
-import { EXERCISE, generateLesson } from "../engine/generator.js";
+import { EXERCISE, generateLesson, buildRecoveryRound } from "../engine/generator.js";
 import { dialectForm, acceptedForms, regionLabel } from "../data/dialects.js";
 import { explainAnswer } from "../engine/explain.js";
 import { getCharacter, getCelebration } from "../data/characters.js";
@@ -422,25 +422,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       params?.milestone == null
     ) {
       try {
-        const pool = pack.vocab || [];
-        const extra = [];
-        for (const item of missedItems) {
-          // Re-teach first (no penalty, just a friendly reminder of the word)…
-          extra.push({ type: EXERCISE.INTRODUCE, item });
-          // …then ask it back in a gentle recognition format.
-          const distractors = pool
-            .filter((w) => w.id !== item.id)
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 3);
-          const options = [item, ...distractors].sort(() => Math.random() - 0.5);
-          extra.push({
-            type: EXERCISE.PICK_WORD,
-            item,
-            prompt: item.meaning,
-            options,
-            answer: item.lemma,
-          });
-        }
+        // Re-teach each missed word, then ask it back — built by the generator
+        // (buildRecoveryRound) so it's shaped like every other question.
+        const extra = buildRecoveryRound(missedItems, pack.vocab || []);
         if (extra.length > 0) {
           setSession((prev) => ({ ...prev, exercises: [...prev.exercises, ...extra] }));
           setRecoveryDone(true);

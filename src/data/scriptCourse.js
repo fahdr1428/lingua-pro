@@ -126,6 +126,17 @@ export function hasPassedScript(appState, code) {
   return Boolean(appState?.scriptCourse?.[code]?.passed);
 }
 
+/**
+ * v107 — took the reading test and didn't pass it (yet). Before this nothing
+ * was recorded for a fail, so Home offered the identical test as its one next
+ * action again, straight away, to the learner it had just told "that's what
+ * Chapter 0 is for".
+ */
+export function hasAttemptedScript(appState, code) {
+  const c = appState?.scriptCourse?.[code];
+  return Boolean(c && !c.passed && (c.attempts || 0) > 0);
+}
+
 /** Which Chapter 0 stops have been worked through, from the alphabet screen's own store. */
 export function scriptStopsDone(groupProgress, pack) {
   const done = groupProgress?.[pack.code] || {};

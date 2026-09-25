@@ -19,7 +19,7 @@
  */
 
 import { readFileSync, readdirSync } from "node:fs";
-import { generateLesson, EXERCISE } from "../src/engine/generator.js";
+import { generateLesson, buildRecoveryRound, EXERCISE } from "../src/engine/generator.js";
 
 const results = [];
 function check(name, cond, detail = "") {
@@ -170,6 +170,37 @@ check(`${generated} generated exercises all satisfy the lesson screen's contract
   others.length === 0, `\n      ${others.slice(0, 20).join("\n      ")}`);
 check("no question offers the same answer twice",
   dupes.length === 0, `${dupes.length} cases, e.g.\n      ${dupes.slice(0, 3).join("\n      ")}`);
+
+// =========================================================================
+// v107 — THE MISTAKE-RECOVERY ROUND. Lesson.jsx used to build its own
+// PICK_WORD for each missed word with whole vocabulary objects as options, and
+// React threw the moment it rendered one: every lesson with a mistake in it
+// ended on the error boundary. It's built by the generator now; this holds it
+// to the same contract as every other question, in every language, and adds
+// the one thing the old version broke — options are text.
+console.log("\nlesson generator · the mistake-recovery round\n");
+{
+  const before = problems.length;
+  let rounds = 0, nonText = [];
+  for (const pack of packs) {
+    const vocab = pack.vocab || [];
+    for (const missed of [vocab.slice(0, 1), vocab.slice(3, 6), vocab.slice(-4)]) {
+      const out = buildRecoveryRound(missed, vocab);
+      rounds++;
+      validate(`${pack.code}/recovery`, out);
+      for (const ex of out) {
+        if (Array.isArray(ex.options) && ex.options.some((o) => typeof o !== "string")) {
+          nonText.push(`${pack.code}: ${ex.type} options are ${typeof ex.options.find((o) => typeof o !== "string")}s`);
+        }
+        if (ex.type === "pick_word" && !/Pick the word for "/.test(ex.prompt || "")) nonText.push(`${pack.code}: recovery prompt is "${ex.prompt}"`);
+      }
+      if (out.length !== missed.length * 2) nonText.push(`${pack.code}: ${missed.length} missed words gave ${out.length} recovery steps, expected ${missed.length * 2}`);
+    }
+  }
+  const added = problems.slice(before);
+  check(`${rounds} recovery rounds satisfy the lesson screen's contract`, added.length === 0, added.slice(0, 5).join("\n      "));
+  check("recovery options are text, and every missed word is re-taught and re-asked", nonText.length === 0, nonText.slice(0, 5).join("\n      "));
+}
 
 // =========================================================================
 // v106 — HOMOGRAPHS. Hindi teaches खाना twice: "food" (Food) and "to eat"

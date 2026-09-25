@@ -31,6 +31,7 @@ import { Button, Card, Container } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { readableSentences } from "../engine/inputStream.js";
+import { goBack } from "../ui/navigation.js";
 
 
 export function InputStream({ pack, engine, appState, onNavigate }) {
@@ -68,7 +69,7 @@ export function InputStream({ pack, engine, appState, onNavigate }) {
 
   const header = (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-      <Button variant="ghost" onClick={() => onNavigate("reading")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
+      <Button variant="ghost" onClick={() => goBack(onNavigate, "reading")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
         ← Back
       </Button>
       <div style={{ fontSize: 12, color: "var(--text-dim)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>

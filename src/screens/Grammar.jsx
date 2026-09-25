@@ -10,6 +10,7 @@ import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getGrammar } from "../data/grammar.js";
 import { checksFor } from "../engine/grammarChecks.js";
+import { goBack } from "../ui/navigation.js";
 
 
 export function Grammar({ pack, appState, onNavigate }) {
@@ -26,7 +27,7 @@ export function Grammar({ pack, appState, onNavigate }) {
     return (
       <Container>
         <div style={{ marginBottom: 16 }}>
-          <Button variant="ghost" onClick={() => onNavigate("home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
+          <Button variant="ghost" onClick={() => goBack(onNavigate, "home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
             ← Back
           </Button>
         </div>
@@ -44,7 +45,7 @@ export function Grammar({ pack, appState, onNavigate }) {
   return (
     <Container style={{ paddingBottom: 120 }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-        <Button variant="ghost" onClick={() => onNavigate("home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
+        <Button variant="ghost" onClick={() => goBack(onNavigate, "home")} style={{ width: "auto", padding: "8px 14px", fontSize: 13 }}>
           ← Back
         </Button>
         <div style={{ fontSize: 12, color: "var(--text-dim)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>

@@ -29,7 +29,7 @@ async function run(width, height, label) {
   const ctx = await browser.newContext({ viewport: { width, height } });
   const page = await ctx.newPage();
   const errors = [];
-  page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
+  page.on("console", (m) => { if (m.type() === "error") errors.push(`${m.text()} ${m.location()?.url || ""}`); });
   page.on("pageerror", (e) => errors.push(String(e)));
   page.on("requestfailed", (r) => errors.push(`requestfailed ${r.url()} ${r.failure()?.errorText}`));
 
@@ -145,6 +145,11 @@ async function run(width, height, label) {
   await page.waitForTimeout(1200);
 
   check("a correction lands on the learner's own line", await page.locator(".corr-card").first().isVisible());
+  // v83 holds the fix back until the learner has a go or asks ("ask, then
+  // tell"); this used to wait for .corr-better straight away and time out.
+  check("the fix is held back until they try or ask", (await page.locator(".corr-card").first().locator(".corr-better").count()) === 0);
+  await page.locator(".corr-card .corr-show").first().click();
+  await page.waitForTimeout(200);
   check("the correction shows what to say instead",
     (await page.locator(".corr-better").first().innerText()).includes("qahwa wahida"));
   check("the fluent rewrite of their own sentence is offered", await page.locator(".fluent-line").first().isVisible());
@@ -378,8 +383,9 @@ async function runSkipAhead() {
   check("German loads as a language", (await page.locator("body").innerText()).includes("German") ||
     (await page.locator(".home-container, body").count()) > 0);
 
-  // The decode door shares the .skip-invite class, so scope to the chapter one.
-  await page.locator(".skip-invite:not(.skip-invite-lead)").click();
+  // Several Home doors share .skip-invite (decode, dialects, everything else),
+  // so pick this one by what it says rather than by position.
+  await page.locator(".skip-invite", { hasText: "Already know some" }).click();
   await page.waitForTimeout(700);
   const chapters = await page.locator(".mission-card").count();
   check("the skip-ahead screen lists chapters", chapters >= 4, String(chapters));
@@ -469,7 +475,7 @@ async function runDialectDrill() {
   console.log("\n=== dialect drill (Arabic) ===\n");
   const { ctx, page, errors } = await seeded(browser, "ar");
 
-  await page.locator(".skip-invite").first().click();
+  await page.locator(".skip-invite", { hasText: /dialect|variet|region/i }).first().click();
   await page.waitForTimeout(800);
   check("the dialect screen offers the varieties",
     (await page.locator(".mission-card").count()) >= 6, String(await page.locator(".mission-card").count()));
@@ -1179,9 +1185,15 @@ async function runReading() {
 
   const { PASSAGES } = await import("../src/data/passages.js");
   const codes = readdirSync("src/data/languages").filter((f) => f.endsWith(".json")).map((f) => f.replace(".json", ""));
-  check("every language has reading material",
-    codes.every((c) => (PASSAGES[c] || []).length >= 1),
-    codes.filter((c) => !(PASSAGES[c] || []).length).join(" "));
+  // v107: seven languages (fa ml so ta tl vi yo) have no passages yet — they
+  // want a native writer — and their Practice hub no longer offers a Reading
+  // door (verify-navigation §9). What every language must have is SOMETHING
+  // to read: the sentence stream, built from each pack's example sentences.
+  const sentencesIn = (c) => JSON.parse(readFileSync(`src/data/languages/${c}.json`, "utf8"))
+    .vocab.reduce((n, v) => n + (v.examples || []).length, 0);
+  check("every language has reading material (passages, or 100+ sentences for the stream)",
+    codes.every((c) => (PASSAGES[c] || []).length >= 1 || sentencesIn(c) >= 100),
+    codes.filter((c) => !(PASSAGES[c] || []).length && sentencesIn(c) < 100).join(" "));
   check("the five that had none now have several",
     ["de", "id", "pa", "pcm", "tr"].every((c) => (PASSAGES[c] || []).length >= 4));
 

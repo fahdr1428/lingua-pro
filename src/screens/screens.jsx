@@ -40,6 +40,7 @@ const LegalReader = React.lazy(() => import("./Legal.jsx").then((m) => ({ defaul
 import { aiAccepted, aiDeclined } from "../ui/AiDisclosure.jsx";
 import { downloadExport } from "../legal/exportData.js";
 import { DownloadLanguage } from "../ui/Offline.jsx";
+import { goBack } from "../ui/navigation.js";
 
 // =============================================================================
 // ONBOARDING — language picker + daily goal
@@ -284,7 +285,7 @@ export function Letters({ pack, appState, onNavigate }) {
     <div>
       <TopBar streak={appState.streak} gems={appState.gems} hearts={appState.hearts} totalXp={appState.totalXp} premium={appState.isPremium} />
       <Container>
-        <Button variant="ghost" onClick={() => onNavigate("home")}>← Back</Button>
+        <Button variant="ghost" onClick={() => goBack(onNavigate, "home")}>← Back</Button>
         <h2 style={{ fontSize: 28, fontWeight: 900, margin: "8px 0 4px" }}>Letters & Sounds</h2>
         <p style={{ color: "var(--text-dim)", marginBottom: 20 }}>
           Tap any letter to hear it. Listen, repeat, master the sounds before words.
@@ -1210,7 +1211,7 @@ export function Upgrade({ appState, setAppState, onNavigate }) {
     <div>
       <TopBar streak={appState.streak} gems={appState.gems} hearts={appState.hearts} totalXp={appState.totalXp} premium={appState.isPremium} />
       <Container>
-        <Button variant="ghost" onClick={() => onNavigate("profile")}>← Back</Button>
+        <Button variant="ghost" onClick={() => goBack(onNavigate, "profile")}>← Back</Button>
         <div style={{ textAlign: "center", marginTop: 20 }}>
           <div style={{ fontSize: 60 }}>✨</div>
           <h1 style={{ fontSize: 32, fontWeight: 900, margin: "8px 0" }}>Zaban Plus</h1>

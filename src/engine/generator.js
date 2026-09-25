@@ -944,6 +944,34 @@ function buildOddOneOut(item, pool) {
   };
 }
 
+/**
+ * v107 — THE MISTAKE-RECOVERY ROUND, built here rather than in Lesson.jsx.
+ *
+ * Since v64 the lesson screen appended its own "let's nail these" round when a
+ * learner missed words: re-teach each word, then ask it back as a PICK_WORD.
+ * It hand-built that PICK_WORD with `options: [item, ...distractors]` — whole
+ * vocabulary OBJECTS where every renderer expects strings — and
+ * `prompt: item.meaning`, a field vocabulary entries don't have. React cannot
+ * render an object, so the moment the round began the error boundary took
+ * over: every ordinary lesson in which the learner got anything wrong ended
+ * on "Something went wrong" instead of their results. verify-first-day found
+ * it on a new learner's very first lesson.
+ *
+ * Built by the same code as every other PICK_WORD, so it has the same shape,
+ * the same same-category distractors and the same de-duplication.
+ */
+export function buildRecoveryRound(missedItems, pool) {
+  const out = [];
+  for (const item of missedItems || []) {
+    if (!item?.lemma) continue;
+    const ask = buildExerciseOfType(item, EXERCISE.PICK_WORD, pool || [], null, 0, {});
+    if (!ask) continue;
+    out.push({ type: EXERCISE.INTRODUCE, item });
+    out.push({ ...ask, recovery: true });
+  }
+  return out;
+}
+
 function buildGraduatedSet(item, pool, card, progress = {}) {
   const reps = card?.reps || 0;
   const lapses = card?.lapses || 0;
