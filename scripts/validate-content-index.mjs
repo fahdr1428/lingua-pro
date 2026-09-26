@@ -43,6 +43,13 @@ if (onDisk !== fresh) {
 const HEAVY = {
   "src/data/conversations.js": "the conversation library",
   "src/data/passages.js": "the reading library",
+  // v107 — per-language libraries a learner only ever needs one slice of,
+  // loaded when a screen that shows them opens.
+  "src/data/culture.js": "the culture notes",
+  "src/data/sentencePatterns.js": "the Sentence Lab patterns",
+  "src/data/grammar.js": "the grammar lessons",
+  "src/data/conjugations.js": "the verb tables",
+  "src/data/tenses.js": "the tense tables",
 };
 
 function resolveSpec(from, spec) {
@@ -90,6 +97,18 @@ for (const [file, what] of Object.entries(HEAVY)) {
 
 const kb = [...seen].reduce((n, f) => n + readFileSync(f, "utf8").length, 0) / 1024;
 console.log(`\n  contentIndex.js in sync · eager graph ${seen.size} modules, ${Math.round(kb)}KB of source`);
+
+// v107 — a budget, so the first download can't quietly grow back. It was
+// 1,312KB of source (243KB gzipped) before v107 split the per-language
+// libraries out; 914KB (174KB gzipped) after. The headroom is for ordinary
+// feature work; crossing it means something big became eager — find it in
+// the list this prints, and load it where it's used instead.
+const EAGER_BUDGET_KB = 1000;
+if (kb > EAGER_BUDGET_KB) {
+  const biggest = [...seen].map((f) => [f.replace(cwd, ""), readFileSync(f, "utf8").length / 1024])
+    .sort((a, b) => b[1] - a[1]).slice(0, 6).map(([f, k]) => `${f} ${Math.round(k)}KB`).join(", ");
+  errors.push(`the eager bundle is ${Math.round(kb)}KB of source, over the ${EAGER_BUDGET_KB}KB budget. Largest: ${biggest}`);
+}
 
 if (errors.length) {
   console.log(`\n  ✗ ${errors.length} problems\n`);

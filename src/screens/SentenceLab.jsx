@@ -15,7 +15,7 @@
 import React, { useState, useMemo } from "react";
 import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
-import { ROLE_COLORS } from "../data/sentencePatterns.js";
+import { ROLE_COLORS, getPatternForDrop } from "../data/sentencePatterns.js";
 import { speak } from "../audio/tts.js";
 import { shuffleBank } from "./shuffleBank.js";
 
@@ -74,8 +74,11 @@ export function SentenceLab({ pack, params, onNavigate, appState, setAppState })
   const lang = LANGUAGES[pack.code];
   const isNonLatin = isNonLatinScript(pack.code);
   const rtl = lang?.rtl;
-  const pattern = params?.pattern;
   const dropNumber = params?.dropNumber || 1;
+  // v107: Home passes only the drop number now (the patterns aren't in the
+  // eager bundle any more); an older navigation entry may still carry the
+  // whole pattern.
+  const pattern = params?.pattern || getPatternForDrop(pack.code, dropNumber);
 
   // Steps: see → build (scaffold) → build (no scaffold) → extend? → twist?
   const steps = useMemo(() => {

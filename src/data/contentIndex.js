@@ -59,5 +59,63 @@ export const PASSAGE_COUNT = {
   zh: 1,
 };
 
+export const CULTURE_COUNT = {
+  ar: 8,
+  bn: 8,
+  de: 10,
+  es: 8,
+  fa: 8,
+  fr: 8,
+  hi: 8,
+  id: 8,
+  ja: 8,
+  ko: 8,
+  ml: 8,
+  pa: 8,
+  pcm: 8,
+  so: 8,
+  ta: 8,
+  tl: 8,
+  tr: 8,
+  ur: 8,
+  vi: 8,
+  yo: 8,
+  zh: 8,
+};
+
+// The skill each Sentence Lab drop teaches, in ladder order. Only the titles:
+// the patterns themselves are loaded by the Sentence Lab screen.
+export const PATTERN_SKILLS = {
+  ar: ["Saying who you are (no verb needed in Arabic!)","Saying you have something (عندي)","Saying what you want (أريد)","Asking 'where' (أين)","Asking yes/no questions (هل at the start)"],
+  bn: ["Subject + Verb (verb comes LAST in Bengali)","Subject + Object + Verb","Drinking something (tea/water)","Making it negative (না goes AFTER the verb, at the end)","Asking a yes/no question (কি after the subject)"],
+  de: ["Subject + Verb","Saying you have something (and meeting the accusative)","Asking for something politely (ich möchte)","Asking 'where' (Wo ist…?)","Putting the time first — and the verb stays second"],
+  es: ["Subject + Verb","Subject + Verb + Object","Adding 'want to' + action","Making it negative","Asking a question"],
+  fa: ["The verb comes LAST","Saying you have something (دارم)","Saying what you want (می‌خواهم)","Asking 'where' (کجا)","Yes/no questions — your voice does all the work"],
+  fr: ["Subject + Verb","Subject + Verb + Object","Saying what you want to do","Making it negative (ne...pas wraps the verb)","Asking 'where'"],
+  hi: ["Subject + Verb (verb comes LAST in Hindi)","Subject + Object + Verb","Saying what you want","Making it negative","Asking 'where'"],
+  id: ["Subject + Verb","Subject + Verb + Object","Saying what you want to do","Making it negative (tidak before the verb)","Asking 'where'"],
+  ja: ["Topic + Verb (verb comes LAST, は marks the topic)","Saying what something is (X は Y です)","Drinking something at a place","Making it negative (verb ending changes to ません)","Asking a question (just add か at the end!)"],
+  ko: ["Topic + Verb (verb comes LAST, 는 marks the topic)","Saying what you are (저는 ... 이에요)","Drinking something","Making it negative (안 before the verb)","Asking 'where' (어디)"],
+  ml: ["The verb comes last","Saying you have something (എനിക്ക് … ഉണ്ട്)","Saying what you want (എനിക്ക് … വേണം)","Asking 'where' (എവിടെ)","Yes/no questions — add -ഓ to the end"],
+  pa: ["The verb comes last — and it knows who's speaking","Saying you have something (میرے کول)","Saying what you need (چاہیدا)","Asking 'where' (کتھے)","Yes/no questions — nothing is added"],
+  pcm: ["Subject + Verb","Saying what you want","Making it negative (no before the verb)","Asking a question","Asking the price"],
+  so: ["Every statement needs a marker (waa)","Saying what you want (waxaan doonayaa)","Saying you have something (leeyahay)","Asking 'where' (xaggee)","Yes/no questions start with ma"],
+  ta: ["The verb comes last","Saying you have something (என்னிடம்)","Saying what you want (எனக்கு … வேண்டும்)","Asking 'where' (எங்கே)","Yes/no questions — add -ஆ to the last word"],
+  tl: ["The verb comes FIRST","Adding what you're eating (ng)","Saying what you want (Gusto ko)","Asking 'where' (Nasaan ang…)","Yes/no questions with ba"],
+  tr: ["Ask politely: thing + lütfen","Verb goes LAST: Subject + Object + Verb","Say WHERE with a suffix: -de / -da","Turn it into a question with mi?","Say NO inside the verb: -m-"],
+  ur: ["Subject + Verb (note: verb comes LAST in Urdu)","Subject + Object + Verb","Saying what you want","Making it negative","Asking 'where'"],
+  vi: ["Subject + Verb + Object — and the verb never changes","Counting things needs a classifier","Saying what you want (muốn)","Asking 'where' — the question word goes where the answer goes","Yes/no questions end with không"],
+  yo: ["Subject + Verb + Object","Saying you have something (ní)","Saying what you want (fẹ́)","Asking 'where' (níbo)","Yes/no questions start with ṣé"],
+  zh: ["Subject + Verb + Object (same order as English)","Saying you have something — and counting it","Ordering something (我要)","Asking 'where' — the question word goes where the answer goes","Yes/no questions with 吗"],
+};
+
 export const hasConversations = (code) => (CONVERSATION_COUNT[code] || 0) > 0;
 export const hasPassages = (code) => (PASSAGE_COUNT[code] || 0) > 0;
+export const hasCulture = (code) => (CULTURE_COUNT[code] || 0) > 0;
+export const hasSentencePatterns = (code) => (PATTERN_SKILLS[code] || []).length > 0;
+/** Mirrors getPatternForDrop in sentencePatterns.js: drop 1 is rung 0, cycling. */
+export function patternSkillForDrop(code, dropNumber) {
+  const ladder = PATTERN_SKILLS[code] || [];
+  if (!ladder.length) return null;
+  return ladder[(dropNumber - 1) % ladder.length];
+}

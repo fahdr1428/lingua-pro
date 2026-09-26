@@ -9,8 +9,6 @@
 import { newCardState, review, masteryLevel, RATING } from "./srs.js";
 import { buildQueue, countDue, countLearned, filterVocab, buildTopicQueue, summariseTopics } from "./selector.js";
 import { generateLesson, gradeAnswer, EXERCISE } from "./generator.js";
-import { CONJUGATIONS } from "../data/conjugations.js";
-import { TENSES } from "../data/tenses.js";
 import { loadLanguagePack } from "../data/registry.js";
 
 export class Engine {
@@ -359,6 +357,14 @@ export class Engine {
     if (queue.length === 0) {
       queue = (this.pack.vocab || []).slice(0, sessionSize);
     }
+
+    // v107: the verb tables for every language (~70KB of source) are loaded
+    // when a lesson is first built, not in the bundle every learner downloads
+    // before their first word. Cached by the module system after the first time.
+    const [{ CONJUGATIONS }, { TENSES }] = await Promise.all([
+      import("../data/conjugations.js"),
+      import("../data/tenses.js"),
+    ]);
 
     return {
       mode,

@@ -15,7 +15,6 @@ import { getCharacter, getCelebration } from "../data/characters.js";
 import { GuideMark } from "../ui/GuideMark.jsx";
 import { InContext } from "../ui/InContext.jsx";
 import { isRecognitionSupported, startListening, judge, displayScore, BAND } from "../audio/speech.js";
-import { getGrammar } from "../data/grammar.js";
 import { pickFunFact } from "../data/funFacts.js";
 import { goalCategoryOrder } from "../data/goals.js";
 import { WORD_PRONUNCIATION } from "../data/wordPronunciation.js";
@@ -170,7 +169,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         // v76: exercise types the learner turned off in Settings.
         disabledExercises: appState?.disabledExercises || null,
       })
-      .then((s) => {
+      .then(async (s) => {
         if (cancelled) return;
         // v24: weave grammar INTO the lesson, a little at a time. Pick the
         // next unseen grammar lesson for this language and insert one short
@@ -192,6 +191,11 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic"]);
           const isReviewish = NO_TEACHING.has(params?.mode) || s.mode === "review";
           if (!isReviewish) {
+            // v107: every language's grammar lessons are ~95KB of source; loaded
+            // here, when a lesson is being built, rather than in the bundle every
+            // learner downloads before their first word.
+            const { getGrammar } = await import("../data/grammar.js");
+            if (cancelled) return;
             const allGrammar = getGrammar(pack.code);
             const seen = (appState?.grammarSeen?.[pack.code]) || [];
             const nextG = allGrammar.find((g) => !seen.includes(g.id))

@@ -85,6 +85,17 @@ const SCREEN_LOADERS = {
 // One tap away from everywhere, so they are warmed first. The rest follow.
 const PREFETCH_FIRST = ["speak", "missions", "practice", "flashcards"];
 
+// v107: data a LESSON needs, split out of the first download (grammar, verb
+// and tense tables — see validate-content-index's HEAVY list). A lesson is the
+// most likely next tap, so these are warmed before any screen: the first
+// lesson should never be the thing that waits on the network. Same import
+// specifiers as Lesson.jsx / Engine.js, so they resolve to the same chunks.
+const DATA_WARM = [
+  () => import("./data/grammar.js"),
+  () => import("./data/conjugations.js"),
+  () => import("./data/tenses.js"),
+];
+
 /**
  * Warm the split chunks while nobody is waiting on anything.
  *
@@ -102,13 +113,16 @@ function prefetchScreens() {
     if (navigator.connection?.saveData) return;
   } catch { /* no Network Information API; carry on */ }
 
-  const order = [...PREFETCH_FIRST, ...Object.keys(SCREEN_LOADERS).filter((k) => !PREFETCH_FIRST.includes(k))];
+  const order = [
+    ...DATA_WARM,
+    ...[...PREFETCH_FIRST, ...Object.keys(SCREEN_LOADERS).filter((k) => !PREFETCH_FIRST.includes(k))].map((k) => SCREEN_LOADERS[k]),
+  ];
   const idle = window.requestIdleCallback || ((fn) => setTimeout(() => fn({ timeRemaining: () => 8 }), 220));
 
   let i = 0;
   const step = () => {
     if (i >= order.length) return;
-    const load = SCREEN_LOADERS[order[i++]];
+    const load = order[i++];
     // A failed prefetch is not an error anyone should see: the screen will be
     // fetched again, and reported properly, when it is actually opened.
     Promise.resolve().then(load).catch(() => {}).then(() => idle(step));
@@ -720,7 +734,8 @@ function Tutorial({ onDone, langName }) {
             height: 8,
             borderRadius: 999,
             background: i === step ? "var(--primary)" : "var(--border)",
-            transition: "width 0.2s",
+            // v107: no width transition — animating a layout property re-runs
+            // layout each frame (see audit-motion); the dot simply changes.
           }} />
         ))}
       </div>

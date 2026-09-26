@@ -23,7 +23,6 @@ import { hasJourney, getStops, getChapterTitle, stopsReached } from "../data/jou
 import { getCharacter } from "../data/characters.js";
 import { GuideMark } from "../ui/GuideMark.jsx";
 import { JourneyMap } from "./JourneyMap.jsx";
-import { cultureOfTheDay, tagLabel, hasCulture } from "../data/culture.js";
 // v103 — these two used to be `getConversations` from conversations.js (75KB
 // of source) and `PASSAGES` from passages.js (29KB), imported into the eager
 // bundle so that one line below could ask whether either had anything in it.
@@ -31,7 +30,7 @@ import { cultureOfTheDay, tagLabel, hasCulture } from "../data/culture.js";
 // question was holding 104KB in the payload every learner downloads before
 // their first word. contentIndex.js is the answer to that question and nothing
 // else, and it is generated, so it cannot drift from the libraries it counts.
-import { hasConversations, hasPassages } from "../data/contentIndex.js";
+import { hasConversations, hasPassages, hasCulture, hasSentencePatterns, patternSkillForDrop } from "../data/contentIndex.js";
 import { isRecognitionSupported } from "../audio/speech.js";
 import { getLevel } from "../engine/gamification.js";
 import { computeFluency } from "../engine/fluency.js";
@@ -42,7 +41,6 @@ import {
   UNITS_PER_CHAPTER, computeUnlocks, isChapterExamAvailable,
   hasPassedChapter, chapterOfUnitIndex, chapterVocabIds,
 } from "../data/chapters.js";
-import { hasSentencePatterns, getPatternForDrop } from "../data/sentencePatterns.js";
 import { hasScriptCourse, scriptStops, hasPassedScript, hasAttemptedScript } from "../data/scriptCourse.js";
 import {
   todayKey, weakestWords, streakStage, nextMilestone, coachLine, daypart,
@@ -308,15 +306,17 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
       const dropsDone = appState?.sentenceDropsDone?.[pack.code] || 0;
       const nextDrop = dropsDone + 1;
       if (Math.floor(done / 2) >= nextDrop) {
-        const pattern = getPatternForDrop(pack.code, nextDrop);
-        if (pattern) {
+        // v107: only the drop's title lives in the eager bundle (contentIndex);
+        // the Sentence Lab screen loads the pattern itself from dropNumber.
+        const skill = patternSkillForDrop(pack.code, nextDrop);
+        if (skill) {
           return {
             kind: "lab",
             eyebrow: "Sentence Lab",
-            title: `Build: ${pattern.skill}`,
+            title: `Build: ${skill}`,
             sub: "Construct a real sentence, one piece at a time.",
             mins: 2,
-            go: () => onNavigate("sentencelab", { pattern, dropNumber: nextDrop }),
+            go: () => onNavigate("sentencelab", { dropNumber: nextDrop }),
           };
         }
       }
@@ -372,10 +372,22 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
 
   // v70: tied to the unit they're actually on, so the note is contextual rather
   // than trivia — etiquette for the greetings unit, register for pronouns, etc.
-  const cultureNote = useMemo(
-    () => cultureOfTheDay(pack.code, { unit: currentUnit?.id, category: currentUnit?.title }),
-    [pack.code, currentUnit?.id, currentUnit?.title]
-  );
+  //
+  // v107: loaded on demand. culture.js is every language's notes — 68KB of
+  // source — and Home shows one of them, well below the fold. It used to be in
+  // the bundle every learner downloads before their first word.
+  const [cultureNote, setCultureNote] = useState(null);
+  const [cultureLib, setCultureLib] = useState(null);
+  useEffect(() => {
+    if (!hasCulture(pack.code)) { setCultureNote(null); return; }
+    let live = true;
+    import("../data/culture.js").then((m) => {
+      if (!live) return;
+      setCultureLib(m);
+      setCultureNote(m.cultureOfTheDay(pack.code, { unit: currentUnit?.id, category: currentUnit?.title }));
+    }).catch(() => {});
+    return () => { live = false; };
+  }, [pack.code, currentUnit?.id, currentUnit?.title]);
 
   return (
     <div className="home-wash">
@@ -718,7 +730,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
               it doesn't flicker between renders. */}
           {cultureNote && (
             <div className="culture-note" style={{ marginTop: 22 }}>
-              <div className="culture-tag">{tagLabel(cultureNote.tag)}</div>
+              <div className="culture-tag">{cultureLib?.tagLabel(cultureNote.tag)}</div>
               <div className="culture-title">{cultureNote.title}</div>
               <div className="culture-body">{cultureNote.body}</div>
             </div>

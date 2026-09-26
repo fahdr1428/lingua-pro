@@ -18,7 +18,6 @@ import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilesto
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 import { foldForSearch } from "../data/searchText.js";
 import { UNITS_PER_CHAPTER, computeUnlocks, isChapterExamAvailable, hasPassedChapter, chapterOfUnitIndex, chapterVocabIds } from "../data/chapters.js";
-import { hasSentencePatterns, getPatternForDrop, ladderHeight } from "../data/sentencePatterns.js";
 import { APP_MIN_AGE, AI_MIN_AGE, LAST_UPDATED, policiesIncomplete } from "../legal/policies.js";
 // v104 — LAZY, because App.jsx already declares it lazy and this static
 // import was quietly cancelling that. Rollup says so out loud:
@@ -621,19 +620,30 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
             {last7Days.map((d, i) => (
               <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
                 <div style={{ fontSize: 11, color: "var(--text-dim)" }}>{d.xp || ""}</div>
+                {/* v107: scaled, not resized — animating `height` re-runs layout
+                    every frame (the rule audit-motion enforces for the CSS file;
+                    inline styles slipped past it). */}
                 <div
                   style={{
                     width: "100%",
+                    height: 80,
                     background: d.xp > 0 ? (d.isToday ? "var(--accent)" : "var(--primary)") : "var(--surface-hi)",
                     borderRadius: 6,
-                    height: `${Math.max(4, (d.xp / maxXp) * 80)}px`,
-                    transition: "height 0.4s",
+                    transformOrigin: "bottom",
+                    transform: `scaleY(${Math.max(4, (d.xp / maxXp) * 80) / 80})`,
+                    transition: "transform 0.4s",
                   }}
                 />
                 <div style={{ fontSize: 11, color: d.isToday ? "var(--accent)" : "var(--text-dim)", fontWeight: 700 }}>{d.day}</div>
               </div>
             ))}
           </div>
+          {/* An all-empty chart said nothing at all; say what it's waiting for. */}
+          {last7Days.every((d) => !d.xp) && (
+            <div style={{ fontSize: 12, color: "var(--text-dim)", textAlign: "center", marginTop: 10 }}>
+              No XP yet this week — one lesson starts the chart.
+            </div>
+          )}
         </Card>
 
         {/* Mastery breakdown */}
@@ -647,7 +657,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
             <div style={{ width: `${(masteryBreakdown.learning / masteryTotal) * 100}%`, background: "var(--accent)" }} />
             <div style={{ width: `${(masteryBreakdown.new / masteryTotal) * 100}%`, background: "var(--surface-hi)" }} />
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, fontSize: 12 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 28px", fontSize: 12 }}>
             <MasteryRow color="var(--purple)" label="Mastered" count={masteryBreakdown.mastered} />
             <MasteryRow color="var(--primary)" label="Familiar" count={masteryBreakdown.familiar} />
             <MasteryRow color="var(--accent)" label="Learning" count={masteryBreakdown.learning} />
@@ -669,14 +679,9 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
                     {u.learned}/{u.total}
                   </div>
                 </div>
-                <div style={{ height: 6, background: "var(--surface-hi)", borderRadius: 999, overflow: "hidden" }}>
-                  <div style={{
-                    width: `${u.pct * 100}%`,
-                    height: "100%",
-                    background: u.pct >= 1 ? "var(--accent)" : "var(--primary)",
-                    transition: "width 0.4s",
-                  }} />
-                </div>
+                {/* v107: the shared ProgressBar slides a full-width fill into
+                    place (composited) instead of animating width. */}
+                <ProgressBar value={u.learned} max={u.total || 1} height={6} color={u.pct >= 1 ? "var(--accent)" : "var(--primary)"} />
               </div>
             ))}
           </Card>
@@ -696,9 +701,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
               </div>
               {lv.next ? (
                 <>
-                  <div style={{ height: 8, background: "var(--surface-hi)", borderRadius: 999, overflow: "hidden" }}>
-                    <div style={{ width: `${lv.progressPct * 100}%`, height: "100%", background: "var(--accent)", transition: "width 0.5s" }} />
-                  </div>
+                  <ProgressBar value={Math.round(lv.progressPct * 100)} max={100} height={8} color="var(--accent)" />
                   <div style={{ fontSize: 12, color: "var(--text-dim)", marginTop: 6 }}>
                     {lv.xpToNext} XP to <strong>{lv.next.name}</strong>
                   </div>

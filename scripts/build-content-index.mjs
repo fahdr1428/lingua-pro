@@ -22,21 +22,30 @@
 import { writeFileSync } from "node:fs";
 import { CONVERSATIONS } from "../src/data/conversations.js";
 import { PASSAGES } from "../src/data/passages.js";
+import { CULTURE } from "../src/data/culture.js";
+import { SENTENCE_PATTERNS } from "../src/data/sentencePatterns.js";
 import { LANGUAGES } from "../src/data/registry.js";
 
 export function buildIndex() {
   const conversations = {};
   const passages = {};
+  const culture = {};
+  const patternSkills = {};
   for (const code of Object.keys(LANGUAGES).sort()) {
     const c = CONVERSATIONS[code];
     const p = PASSAGES[code];
     conversations[code] = Array.isArray(c) ? c.length : 0;
     passages[code] = Array.isArray(p) ? p.length : 0;
+    // v107: Home asks "are there culture notes?" and "what is the next Sentence
+    // Lab drop called?" — two more questions that were pulling 178KB of source
+    // (culture.js, sentencePatterns.js) into the first download.
+    culture[code] = Array.isArray(CULTURE[code]) ? CULTURE[code].length : 0;
+    patternSkills[code] = (SENTENCE_PATTERNS[code] || []).map((x) => x.skill || "");
   }
-  return { conversations, passages };
+  return { conversations, passages, culture, patternSkills };
 }
 
-export function render({ conversations, passages }) {
+export function render({ conversations, passages, culture, patternSkills }) {
   const table = (obj) =>
     Object.entries(obj).map(([k, v]) => `  ${k}: ${v},`).join("\n");
 
@@ -61,8 +70,26 @@ export const PASSAGE_COUNT = {
 ${table(passages)}
 };
 
+export const CULTURE_COUNT = {
+${table(culture)}
+};
+
+// The skill each Sentence Lab drop teaches, in ladder order. Only the titles:
+// the patterns themselves are loaded by the Sentence Lab screen.
+export const PATTERN_SKILLS = {
+${Object.entries(patternSkills).map(([k, v]) => `  ${k}: ${JSON.stringify(v)},`).join("\n")}
+};
+
 export const hasConversations = (code) => (CONVERSATION_COUNT[code] || 0) > 0;
 export const hasPassages = (code) => (PASSAGE_COUNT[code] || 0) > 0;
+export const hasCulture = (code) => (CULTURE_COUNT[code] || 0) > 0;
+export const hasSentencePatterns = (code) => (PATTERN_SKILLS[code] || []).length > 0;
+/** Mirrors getPatternForDrop in sentencePatterns.js: drop 1 is rung 0, cycling. */
+export function patternSkillForDrop(code, dropNumber) {
+  const ladder = PATTERN_SKILLS[code] || [];
+  if (!ladder.length) return null;
+  return ladder[(dropNumber - 1) % ladder.length];
+}
 `;
 }
 

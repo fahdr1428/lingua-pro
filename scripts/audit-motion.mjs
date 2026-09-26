@@ -21,7 +21,7 @@
 //   npm run audit-motion
 // =============================================================================
 
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync, statSync } from "node:fs";
 
 const css = readFileSync("src/index.css", "utf8");
 const errors = [], warnings = [], notes = [];
@@ -44,6 +44,33 @@ lines.forEach((line, i) => {
     }
   }
 });
+
+// --- 1b. the same, in inline styles (v107) ----------------------------------
+// The CSS-file check above never saw `style={{ transition: "width 0.4s" }}` in
+// a component — and three had crept in (Profile's unit and level bars, the
+// tour's dots). Same rule, applied to every .jsx under src.
+function jsxFiles(dir) {
+  return readdirSync(dir).flatMap((f) => {
+    const p = `${dir}/${f}`;
+    return statSync(p).isDirectory() ? jsxFiles(p) : p.endsWith(".jsx") ? [p] : [];
+  });
+}
+let inlineScanned = 0;
+for (const file of jsxFiles("src")) {
+  const src = readFileSync(file, "utf8");
+  inlineScanned++;
+  src.split("\n").forEach((line, i) => {
+    const m = line.match(/transition:\s*["'`]([^"'`]+)["'`]/);
+    if (!m) return;
+    for (const part of m[1].split(",")) {
+      const prop = part.trim().split(/\s+/)[0];
+      if (LAYOUT_PROPS.test(prop)) {
+        errors.push(`${file}:${i + 1} animates "${prop}" inline — a layout property, re-laid-out every frame. Use transform (the shared ProgressBar already does).`);
+      }
+    }
+  });
+}
+notes.push(`${inlineScanned} components checked for inline layout transitions`);
 
 // --- 2. reduced motion, as a blanket rule ----------------------------------
 const blanket = /@media\s*\(prefers-reduced-motion:\s*reduce\)\s*\{[^}]*\*,\s*\*::before,\s*\*::after\s*\{[^}]*animation-duration:\s*0\.01ms\s*!important/s;
