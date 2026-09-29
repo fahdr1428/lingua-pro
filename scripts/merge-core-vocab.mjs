@@ -17,6 +17,7 @@ import { CORE_FILL, CORE_FILL_2 } from "./content/core-fill.mjs";
 import { TIER3_FILL } from "./content/tier3-fill.mjs";
 import { V105_FILL } from "./content/v105-fill.mjs";
 import { V106_FILL, V106_EXTEND } from "./content/v106-fill.mjs";
+import { V109_FILL, V109_EXTEND, V109_REGLOSS } from "./content/v109-fill.mjs";
 import { CORE, normalizeGloss, taughtGlosses } from "../src/data/coreVocabulary.js";
 import { LATIN_SCRIPT_LANGUAGES } from "../src/data/registry.js";
 
@@ -34,7 +35,7 @@ let added = 0, skipped = 0, refused = 0;
 // Both passes, merged the same way. Entries the packs already satisfy are
 // skipped, so re-running after a pass has landed is a no-op.
 const ALL = {};
-for (const src of [CORE_FILL, CORE_FILL_2, TIER3_FILL, V105_FILL, V106_FILL]) {
+for (const src of [CORE_FILL, CORE_FILL_2, TIER3_FILL, V105_FILL, V106_FILL, V109_FILL]) {
   for (const [code, entries] of Object.entries(src)) ALL[code] = (ALL[code] || []).concat(entries);
 }
 
@@ -44,7 +45,9 @@ for (const [code, entries] of Object.entries(ALL)) {
   const vocab = pack.vocab || [];
 
   const unitIds = new Set((pack.units || []).map((u) => u.id));
-  const haveLemma = new Set(vocab.map((w) => String(w.lemma).trim().toLowerCase()));
+  // Arabic-script vowel marks don't make a different word (see merge-vocab).
+  const lemmaKey = (l) => String(l).replace(/[\u064B-\u065F\u0670]/g, "").trim().toLowerCase();
+  const haveLemma = new Set(vocab.map((w) => lemmaKey(w.lemma)));
   const taught = taughtGlosses(vocab);
 
   // Continue the pack's own numbering rather than inventing a scheme.
@@ -65,7 +68,7 @@ for (const [code, entries] of Object.entries(ALL)) {
     if (!LATIN.has(code) && !translit) { console.log(`  refuse ${at}: non-Latin script needs a transliteration`); refused++; continue; }
     if (!exN || !exE) { console.log(`  refuse ${at}: no example sentence`); refused++; continue; }
 
-    if (haveLemma.has(String(lemma).trim().toLowerCase()) && code !== "de") {
+    if (haveLemma.has(lemmaKey(lemma)) && code !== "de") {
       console.log(`  skip   ${at}: the pack already has this lemma`); skipped++; continue;
     }
     if (concept.accepts.some((a) => taught.has(normalizeGloss(a)))) {
@@ -86,7 +89,7 @@ for (const [code, entries] of Object.entries(ALL)) {
     if (translit) entry.translit = translit;
 
     fresh.push(entry);
-    haveLemma.add(String(lemma).trim().toLowerCase());
+    haveLemma.add(lemmaKey(lemma));
     for (const seg of String(translation).split(/[,;/]/)) {
       const g = normalizeGloss(seg);
       if (g) taught.add(g);
@@ -110,7 +113,11 @@ for (const [code, entries] of Object.entries(ALL)) {
 // v106: widen an existing word's gloss where it already carries a missing
 // meaning (see V106_EXTEND). Idempotent — safe to re-run like the rest.
 let extended = 0;
-for (const [code, rows] of Object.entries(V106_EXTEND)) {
+const EXTEND = {};
+for (const src of [V106_EXTEND, V109_EXTEND]) {
+  for (const [code, rows] of Object.entries(src)) EXTEND[code] = (EXTEND[code] || []).concat(rows);
+}
+for (const [code, rows] of Object.entries(EXTEND)) {
   const path = `src/data/languages/${code}.json`;
   const pack = JSON.parse(readFileSync(path, "utf8"));
   let changed = false;
@@ -126,6 +133,21 @@ for (const [code, rows] of Object.entries(V106_EXTEND)) {
       rowChanged = true;
     }
     if (rowChanged) { changed = true; extended++; console.log(`  extend ${code}/${lemma}: "${w.translation}"`); }
+  }
+  if (changed && !DRY) writeFileSync(path, JSON.stringify(pack, null, 2) + "\n");
+}
+
+// v109: restate a gloss whose meaning was hidden in parentheses. Only when the
+// translation is still exactly what it was, so a later hand edit is never
+// overwritten. Idempotent.
+for (const [code, rows] of Object.entries(V109_REGLOSS)) {
+  const path = `src/data/languages/${code}.json`;
+  const pack = JSON.parse(readFileSync(path, "utf8"));
+  let changed = false;
+  for (const [lemma, from, to] of rows) {
+    const w = (pack.vocab || []).find((v) => v.lemma === lemma);
+    if (!w) { console.log(`  refuse ${code}/${lemma}: no such word to regloss`); refused++; continue; }
+    if (w.translation === from) { w.translation = to; changed = true; extended++; console.log(`  regloss ${code}/${lemma}: "${to}"`); }
   }
   if (changed && !DRY) writeFileSync(path, JSON.stringify(pack, null, 2) + "\n");
 }

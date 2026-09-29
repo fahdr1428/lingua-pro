@@ -1626,12 +1626,16 @@
       "unit": "u8",
       "category": "People",
       "lemma": "nin",
-      "translation": "man",
+      "translation": "man, husband",
       "difficulty": 1,
       "examples": [
         {
           "native": "Ninkaasi waa macallin",
           "translation": "That man is a teacher"
+        },
+        {
+          "native": "Ninkaygu waa macallin",
+          "translation": "My husband is a teacher"
         }
       ],
       "frequencyRank": 96
@@ -3104,6 +3108,351 @@
         {
           "native": "Booliiska u yeer!",
           "translation": "Call the police!"
+        }
+      ]
+    },
+    {
+      "id": "so_0195",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "dhallaan",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "Dhallaanku wuu seexday",
+          "translation": "The baby is asleep"
+        }
+      ]
+    },
+    {
+      "id": "so_0196",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "xaas",
+      "translation": "wife",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "Xaaskaygu waa dhakhtar",
+          "translation": "My wife is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "so_0197",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "marti",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "Maanta marti ayaa noo imanaysa",
+          "translation": "A guest is coming to us today"
+        }
+      ]
+    },
+    {
+      "id": "so_0198",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "deris",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "Deriskayagu waa wanaagsan yahay",
+          "translation": "Our neighbour is good"
+        }
+      ]
+    },
+    {
+      "id": "so_0199",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "dhalasho",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "Dhalasho wacan",
+          "translation": "Happy birthday"
+        }
+      ]
+    },
+    {
+      "id": "so_0200",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "aroos",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "Arooska walaashay waa berri",
+          "translation": "My sister's wedding is tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "so_0201",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "hadiyad",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "Tani waa hadiyad adiga kuu ah",
+          "translation": "This is a gift for you"
+        }
+      ]
+    },
+    {
+      "id": "so_0202",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "jiko",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "Hooyo waxay joogtaa jikada",
+          "translation": "Mother is in the kitchen"
+        }
+      ]
+    },
+    {
+      "id": "so_0203",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "miis",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "Cuntadu waxay saaran tahay miiska",
+          "translation": "The food is on the table"
+        }
+      ]
+    },
+    {
+      "id": "so_0204",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "sariir",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "Sariirtu way raaxo leedahay",
+          "translation": "The bed is comfortable"
+        }
+      ]
+    },
+    {
+      "id": "so_0205",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "dhaq",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "Gacmahaaga dhaq",
+          "translation": "Wash your hands"
+        }
+      ]
+    },
+    {
+      "id": "so_0206",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "xiro",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "Dharka cusub xiro",
+          "translation": "Wear the new clothes"
+        }
+      ]
+    },
+    {
+      "id": "so_0207",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ilaaw",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "Ha ilaawin",
+          "translation": "Don't forget"
+        }
+      ]
+    },
+    {
+      "id": "so_0208",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "xusuuso",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "Magacayga xusuuso",
+          "translation": "Remember my name"
+        }
+      ]
+    },
+    {
+      "id": "so_0209",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "bilow",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "Hadda bilow",
+          "translation": "Start now"
+        }
+      ]
+    },
+    {
+      "id": "so_0210",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "dhammee",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "Shaqada dhammee",
+          "translation": "Finish the work"
+        }
+      ]
+    },
+    {
+      "id": "so_0211",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "qosol",
+      "translation": "to laugh, laughter",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "Carruurtu way qoslayaan",
+          "translation": "The children are laughing"
+        }
+      ]
+    },
+    {
+      "id": "so_0212",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "diyaar",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "Cuntadu waa diyaar",
+          "translation": "The food is ready"
+        }
+      ]
+    },
+    {
+      "id": "so_0213",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "mashquul",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "Maanta waan mashquulsanahay",
+          "translation": "I'm busy today"
+        }
+      ]
+    },
+    {
+      "id": "so_0214",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "da' yar",
+      "translation": "young (of age)",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "Eeddaday waa da' yar tahay",
+          "translation": "My aunt is young"
+        }
+      ]
+    },
+    {
+      "id": "so_0215",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "nadiif",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "Qolku waa nadiif",
+          "translation": "The room is clean"
+        }
+      ]
+    },
+    {
+      "id": "so_0216",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "goor hore",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "Berri goor hore kaalay",
+          "translation": "Come early tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "so_0217",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "daah",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "Waan daahay",
+          "translation": "I'm late"
         }
       ]
     }

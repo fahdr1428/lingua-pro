@@ -2428,3 +2428,33 @@ html:active-view-transition-type(back)::view-transition-new(screen) { z-index: 1
 }
 @keyframes listen-gap { from { transform: scaleX(1); } to { transform: scaleX(0); } }
 
+/* v109 — Word Rush. The clock drains left to right (transform only, so it
+   stays on the compositor); the reduced-motion rule collapses it, and the
+   countdown text beside it carries the time either way. */
+.rush-clock-bar {
+  height: 100%;
+  background: var(--primary);
+  transform-origin: left center;
+  animation: rush-clock var(--rush-ms, 60000ms) linear forwards;
+}
+@keyframes rush-clock { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+/* The points a correct answer earned, rising off the card. */
+.rush-pop {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--primary);
+  pointer-events: none;
+  animation: rush-pop 600ms ease-out forwards;
+}
+@keyframes rush-pop {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-18px); opacity: 0; }
+}
+
+/* 1–4 key hints only mean something with a keyboard. */
+@media (pointer: coarse) { .desktop-only-key { display: none !important; } }
+

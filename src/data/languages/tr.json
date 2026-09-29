@@ -4099,6 +4099,366 @@
           "translation": "Call the police!"
         }
       ]
+    },
+    {
+      "id": "tr_0234",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "bebek",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "Bebek uyuyor",
+          "translation": "The baby is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "tr_0235",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "koca",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "Kocam öğretmen",
+          "translation": "My husband is a teacher"
+        }
+      ]
+    },
+    {
+      "id": "tr_0236",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "eş",
+      "translation": "spouse, wife, husband",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "Eşim doktor",
+          "translation": "My wife is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "tr_0237",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "misafir",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "Bugün misafirimiz var",
+          "translation": "We have a guest today"
+        }
+      ]
+    },
+    {
+      "id": "tr_0238",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "komşu",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "Komşumuz çok iyi",
+          "translation": "Our neighbour is very nice"
+        }
+      ]
+    },
+    {
+      "id": "tr_0239",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "doğum günü",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "Doğum günün kutlu olsun",
+          "translation": "Happy birthday"
+        }
+      ]
+    },
+    {
+      "id": "tr_0240",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "düğün",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "Ablamın düğünü yarın",
+          "translation": "My sister's wedding is tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "tr_0241",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "hediye",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "Bu hediye senin için",
+          "translation": "This gift is for you"
+        }
+      ]
+    },
+    {
+      "id": "tr_0242",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "mutfak",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "Annem mutfakta",
+          "translation": "My mother is in the kitchen"
+        }
+      ]
+    },
+    {
+      "id": "tr_0243",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "masa",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "Yemek masada",
+          "translation": "The food is on the table"
+        }
+      ]
+    },
+    {
+      "id": "tr_0244",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "yatak",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "Yatak çok rahat",
+          "translation": "The bed is very comfortable"
+        }
+      ]
+    },
+    {
+      "id": "tr_0245",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "yıkamak",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "Bulaşıkları yıkamak lazım",
+          "translation": "The dishes need washing"
+        }
+      ]
+    },
+    {
+      "id": "tr_0246",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "giymek",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 246,
+      "examples": [
+        {
+          "native": "Yeni elbisemi giymek istiyorum",
+          "translation": "I want to wear my new dress"
+        }
+      ]
+    },
+    {
+      "id": "tr_0247",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "unutmak",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 247,
+      "examples": [
+        {
+          "native": "Unutmak istemiyorum",
+          "translation": "I don't want to forget"
+        }
+      ]
+    },
+    {
+      "id": "tr_0248",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "hatırlamak",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 248,
+      "examples": [
+        {
+          "native": "Adını hatırlamak zor",
+          "translation": "Remembering his name is hard"
+        }
+      ]
+    },
+    {
+      "id": "tr_0249",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "başlamak",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 249,
+      "examples": [
+        {
+          "native": "Şimdi başlamak istiyorum",
+          "translation": "I want to start now"
+        }
+      ]
+    },
+    {
+      "id": "tr_0250",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "bitirmek",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 250,
+      "examples": [
+        {
+          "native": "İşi bitirmek zorundayım",
+          "translation": "I have to finish the work"
+        }
+      ]
+    },
+    {
+      "id": "tr_0251",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "gülmek",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 251,
+      "examples": [
+        {
+          "native": "Gülmek sağlığa iyi gelir",
+          "translation": "Laughing is good for your health"
+        }
+      ]
+    },
+    {
+      "id": "tr_0252",
+      "unit": "u8",
+      "category": "Adjectives",
+      "lemma": "hazır",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 252,
+      "examples": [
+        {
+          "native": "Yemek hazır",
+          "translation": "The food is ready"
+        }
+      ]
+    },
+    {
+      "id": "tr_0253",
+      "unit": "u8",
+      "category": "Adjectives",
+      "lemma": "meşgul",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 253,
+      "examples": [
+        {
+          "native": "Bugün meşgulüm",
+          "translation": "I'm busy today"
+        }
+      ]
+    },
+    {
+      "id": "tr_0254",
+      "unit": "u8",
+      "category": "Adjectives",
+      "lemma": "genç",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 254,
+      "examples": [
+        {
+          "native": "Teyzem çok genç",
+          "translation": "My aunt is very young"
+        }
+      ]
+    },
+    {
+      "id": "tr_0255",
+      "unit": "u8",
+      "category": "Adjectives",
+      "lemma": "temiz",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 255,
+      "examples": [
+        {
+          "native": "Oda temiz",
+          "translation": "The room is clean"
+        }
+      ]
+    },
+    {
+      "id": "tr_0256",
+      "unit": "u9",
+      "category": "Time",
+      "lemma": "erken",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 256,
+      "examples": [
+        {
+          "native": "Yarın erken gel",
+          "translation": "Come early tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "tr_0257",
+      "unit": "u9",
+      "category": "Time",
+      "lemma": "geç",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 257,
+      "examples": [
+        {
+          "native": "Geç kaldım",
+          "translation": "I'm late"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

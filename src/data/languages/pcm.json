@@ -3565,6 +3565,366 @@
           "translation": "Call the police!"
         }
       ]
+    },
+    {
+      "id": "pcm_0212",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "small pikin",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "Di small pikin dey sleep",
+          "translation": "The baby is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0213",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "husband",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "My husband na teacher",
+          "translation": "My husband is a teacher"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0214",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "wife",
+      "translation": "wife",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "My wife na doctor",
+          "translation": "My wife is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0215",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "visitor",
+      "translation": "guest, visitor",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "Visitor dey come today",
+          "translation": "A visitor is coming today"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0216",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "neighbour",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "My neighbour good well well",
+          "translation": "My neighbour is very kind"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0217",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "birthday",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "Happy birthday to you",
+          "translation": "Happy birthday to you"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0218",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "wedding",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "My sister wedding na tomorrow",
+          "translation": "My sister's wedding is tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0219",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "gift",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "Dis gift na for you",
+          "translation": "This gift is for you"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0220",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "kitchen",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "Mama dey kitchen",
+          "translation": "Mama is in the kitchen"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0221",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "table",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "Food dey for table",
+          "translation": "The food is on the table"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0222",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "bed",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "Dis bed soft well well",
+          "translation": "This bed is very soft"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0223",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "wash",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "Make you wash plate",
+          "translation": "Wash the plates"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0224",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "wear",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "I go wear my new cloth",
+          "translation": "I'll wear my new clothes"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0225",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "forget",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "I don forget im name",
+          "translation": "I've forgotten his name"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0226",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "remember",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "You remember me?",
+          "translation": "Do you remember me?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0227",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "start",
+      "translation": "to start",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "Make we start now",
+          "translation": "Let's start now"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0228",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "finish",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "I don finish my work",
+          "translation": "I've finished my work"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0229",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "laugh",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "Di pikin dem dey laugh",
+          "translation": "The children are laughing"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0230",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "ready",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "Food don ready",
+          "translation": "The food is ready"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0231",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "busy",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "I dey busy today",
+          "translation": "I'm busy today"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0232",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "young",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "My aunty still young",
+          "translation": "My aunt is still young"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0233",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "clean",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "Dis room clean well well",
+          "translation": "This room is very clean"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0234",
+      "unit": "u4",
+      "category": "Time",
+      "lemma": "early",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "Come early tomorrow",
+          "translation": "Come early tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0235",
+      "unit": "u4",
+      "category": "Time",
+      "lemma": "late",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "I don late",
+          "translation": "I'm late"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

@@ -266,6 +266,35 @@ export const CORE = [
   c("to_play", "to play", 3, "Verbs", ["play"]),
   c("hospital", "hospital", 3, "Places", []),
   c("police", "police", 3, "People", []),
+  // v109 — family life and the home. Husband and wife were taught by seven
+  // packs, clean and late by one; the other twenty (baby, guest, neighbour,
+  // birthday, wedding, gift, kitchen, table, bed, wash, wear, forget,
+  // remember, start, finish, laugh, ready, busy, young, early) by none. A heritage learner's first real conversations are about exactly
+  // these: who's coming over, who got married, what to wear, are you ready.
+  c("baby", "baby", 3, "Family", ["infant"]),
+  c("husband", "husband", 3, "Family", []),
+  c("wife", "wife", 3, "Family", []),
+  c("guest", "guest", 3, "Family", ["visitor"]),
+  c("neighbor", "neighbour", 3, "Family", ["neighbor", "neighbours"]),
+  c("birthday", "birthday", 3, "Family", []),
+  c("wedding", "wedding", 3, "Family", ["marriage"]),
+  c("gift", "gift", 3, "Family", ["present"]),
+  c("kitchen", "kitchen", 3, "Places", []),
+  c("table", "table", 3, "Places", []),
+  c("bed", "bed", 3, "Places", []),
+  c("to_wash", "to wash", 3, "Verbs", ["wash"]),
+  c("to_wear", "to wear", 3, "Verbs", ["wear", "to put on"]),
+  c("to_forget", "to forget", 3, "Verbs", ["forget"]),
+  c("to_remember", "to remember", 3, "Verbs", ["remember"]),
+  c("to_start", "to start", 3, "Verbs", ["start", "to begin", "begin"]),
+  c("to_finish", "to finish", 3, "Verbs", ["finish", "to complete"]),
+  c("to_laugh", "to laugh", 3, "Verbs", ["laugh"]),
+  c("ready", "ready", 3, "Common", []),
+  c("busy", "busy", 3, "Common", []),
+  c("young", "young", 3, "Common", []),
+  c("clean", "clean", 3, "Common", []),
+  c("early", "early", 3, "Time", []),
+  c("late", "late", 3, "Time", []),
 ];
 
 export const TIER_NAMES = { 1: "survival", 2: "everyday", 3: "reach" };

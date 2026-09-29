@@ -2824,7 +2824,7 @@
     },
     {
       "id": "ja_0143",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "お母さん",
       "translit": "okāsan",
       "translation": "mother (someone else's, or addressing your own)",
@@ -2842,7 +2842,7 @@
     },
     {
       "id": "ja_0144",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "お父さん",
       "translit": "otōsan",
       "translation": "father (someone else's, or addressing your own)",
@@ -2859,7 +2859,7 @@
     },
     {
       "id": "ja_0145",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "おじいさん",
       "translit": "ojīsan",
       "translation": "grandfather",
@@ -2876,7 +2876,7 @@
     },
     {
       "id": "ja_0146",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "おばあさん",
       "translit": "obāsan",
       "translation": "grandmother",
@@ -2893,7 +2893,7 @@
     },
     {
       "id": "ja_0147",
-      "unit": "u5",
+      "unit": "u9",
       "lemma": "疲れた",
       "translit": "tsukareta",
       "translation": "tired",
@@ -2927,7 +2927,7 @@
     },
     {
       "id": "ja_0149",
-      "unit": "u5",
+      "unit": "u9",
       "lemma": "嬉しい",
       "translit": "ureshii",
       "translation": "happy, glad",
@@ -2944,7 +2944,7 @@
     },
     {
       "id": "ja_0150",
-      "unit": "u5",
+      "unit": "u9",
       "lemma": "痛い",
       "translit": "itai",
       "translation": "it hurts, painful",
@@ -3944,6 +3944,397 @@
         }
       ],
       "translit": "keisatsu"
+    },
+    {
+      "id": "ja_0209",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "赤ちゃん",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "赤ちゃんが寝ています",
+          "translation": "The baby is sleeping",
+          "translit": "akachan ga nete imasu"
+        }
+      ],
+      "translit": "akachan"
+    },
+    {
+      "id": "ja_0210",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "夫",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "夫は先生です",
+          "translation": "My husband is a teacher",
+          "translit": "otto wa sensei desu"
+        }
+      ],
+      "translit": "otto"
+    },
+    {
+      "id": "ja_0211",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "妻",
+      "translation": "wife",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "妻は医者です",
+          "translation": "My wife is a doctor",
+          "translit": "tsuma wa isha desu"
+        }
+      ],
+      "translit": "tsuma"
+    },
+    {
+      "id": "ja_0212",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "お客さん",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "今日はお客さんが来ます",
+          "translation": "Guests are coming today",
+          "translit": "kyou wa okyakusan ga kimasu"
+        }
+      ],
+      "translit": "okyakusan"
+    },
+    {
+      "id": "ja_0213",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "隣の人",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "隣の人は親切です",
+          "translation": "The neighbour is kind",
+          "translit": "tonari no hito wa shinsetsu desu"
+        }
+      ],
+      "translit": "tonari no hito"
+    },
+    {
+      "id": "ja_0214",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "誕生日",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "誕生日おめでとう",
+          "translation": "Happy birthday",
+          "translit": "tanjoubi omedetou"
+        }
+      ],
+      "translit": "tanjoubi"
+    },
+    {
+      "id": "ja_0215",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "結婚式",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "姉の結婚式は明日です",
+          "translation": "My sister's wedding is tomorrow",
+          "translit": "ane no kekkonshiki wa ashita desu"
+        }
+      ],
+      "translit": "kekkonshiki"
+    },
+    {
+      "id": "ja_0216",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "プレゼント",
+      "translation": "gift, present",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "これはプレゼントです",
+          "translation": "This is a present",
+          "translit": "kore wa purezento desu"
+        }
+      ],
+      "translit": "purezento"
+    },
+    {
+      "id": "ja_0217",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "台所",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "母は台所にいます",
+          "translation": "My mother is in the kitchen",
+          "translit": "haha wa daidokoro ni imasu"
+        }
+      ],
+      "translit": "daidokoro"
+    },
+    {
+      "id": "ja_0218",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "テーブル",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "ご飯はテーブルの上です",
+          "translation": "The food is on the table",
+          "translit": "gohan wa teeburu no ue desu"
+        }
+      ],
+      "translit": "teeburu"
+    },
+    {
+      "id": "ja_0219",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ベッド",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "ベッドは大きいです",
+          "translation": "The bed is big",
+          "translit": "beddo wa ookii desu"
+        }
+      ],
+      "translit": "beddo"
+    },
+    {
+      "id": "ja_0220",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "洗う",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "手を洗う",
+          "translation": "Wash your hands",
+          "translit": "te wo arau"
+        }
+      ],
+      "translit": "arau"
+    },
+    {
+      "id": "ja_0221",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "着る",
+      "translation": "to wear (clothes)",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "着物を着る",
+          "translation": "I wear a kimono",
+          "translit": "kimono wo kiru"
+        }
+      ],
+      "translit": "kiru"
+    },
+    {
+      "id": "ja_0222",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "忘れる",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "忘れるな",
+          "translation": "Don't forget",
+          "translit": "wasureru na"
+        }
+      ],
+      "translit": "wasureru"
+    },
+    {
+      "id": "ja_0223",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "覚える",
+      "translation": "to remember, to memorise",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "新しい単語を覚える",
+          "translation": "I memorise new words",
+          "translit": "atarashii tango wo oboeru"
+        }
+      ],
+      "translit": "oboeru"
+    },
+    {
+      "id": "ja_0224",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "始める",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "仕事を始める",
+          "translation": "I start work",
+          "translit": "shigoto wo hajimeru"
+        }
+      ],
+      "translit": "hajimeru"
+    },
+    {
+      "id": "ja_0225",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "終わる",
+      "translation": "to finish, to end",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "授業は三時に終わる",
+          "translation": "Class finishes at three",
+          "translit": "jugyou wa sanji ni owaru"
+        }
+      ],
+      "translit": "owaru"
+    },
+    {
+      "id": "ja_0226",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "笑う",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "子供たちはよく笑う",
+          "translation": "The children laugh a lot",
+          "translit": "kodomotachi wa yoku warau"
+        }
+      ],
+      "translit": "warau"
+    },
+    {
+      "id": "ja_0227",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "準備",
+      "translation": "ready, preparation",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "準備ができました",
+          "translation": "I'm ready",
+          "translit": "junbi ga dekimashita"
+        }
+      ],
+      "translit": "junbi"
+    },
+    {
+      "id": "ja_0228",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "忙しい",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "今日は忙しいです",
+          "translation": "I'm busy today",
+          "translit": "kyou wa isogashii desu"
+        }
+      ],
+      "translit": "isogashii"
+    },
+    {
+      "id": "ja_0229",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "若い",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "叔母は若いです",
+          "translation": "My aunt is young",
+          "translit": "oba wa wakai desu"
+        }
+      ],
+      "translit": "wakai"
+    },
+    {
+      "id": "ja_0230",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "早く",
+      "translation": "early, quickly",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "明日は早く来てください",
+          "translation": "Please come early tomorrow",
+          "translit": "ashita wa hayaku kite kudasai"
+        }
+      ],
+      "translit": "hayaku"
+    },
+    {
+      "id": "ja_0231",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "遅い",
+      "translation": "late, slow",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "もう遅いです",
+          "translation": "It's already late",
+          "translit": "mou osoi desu"
+        }
+      ],
+      "translit": "osoi"
     }
   ],
   "units": [

@@ -188,7 +188,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           // so the next mode that needs excluding is a one-line change.
           // v105: "topic" too — someone who picked Numbers came to drill numbers,
           // and a grammar lesson about word order in the middle is off-topic.
-          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic"]);
+          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic", "words"]);
           const isReviewish = NO_TEACHING.has(params?.mode) || s.mode === "review";
           if (!isReviewish) {
             // v107: every language's grammar lessons are ~95KB of source; loaded

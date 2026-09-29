@@ -783,27 +783,6 @@
       "pronunciation": "ahl-YAWM"
     },
     {
-      "id": "ar_0027",
-      "lemma": "غدا",
-      "translit": "ghadan",
-      "translation": "tomorrow",
-      "category": "Time",
-      "difficulty": 2,
-      "frequencyRank": 128,
-      "tags": [
-        "time"
-      ],
-      "examples": [
-        {
-          "native": "إلى الغد",
-          "translation": "See you tomorrow",
-          "translit": "ila al-ghad"
-        }
-      ],
-      "unit": "u8",
-      "pronunciation": "GHAH-dahn"
-    },
-    {
       "id": "ar_0028",
       "unit": "u3",
       "lemma": "أخت",
@@ -1421,7 +1400,7 @@
     },
     {
       "id": "ar_0056",
-      "unit": "u8",
+      "unit": "u12",
       "lemma": "شمس",
       "translit": "shams",
       "translation": "sun",
@@ -1439,7 +1418,7 @@
     },
     {
       "id": "ar_0057",
-      "unit": "u8",
+      "unit": "u12",
       "lemma": "مطر",
       "translit": "matar",
       "translation": "rain",
@@ -3275,6 +3254,11 @@
           "native": "جدي من دمشق",
           "translation": "My grandfather is from Damascus",
           "translit": "jaddi min Dimashq"
+        },
+        {
+          "native": "جدي كبير",
+          "translit": "jaddi kabeer",
+          "translation": "My grandfather is old"
         }
       ],
       "frequencyRank": 93
@@ -3293,6 +3277,11 @@
           "native": "جدتي تحكي قصصا",
           "translation": "My grandmother tells stories",
           "translit": "jaddati tahki qisasan"
+        },
+        {
+          "native": "جدتي طيبة",
+          "translit": "jaddati tayyiba",
+          "translation": "My grandmother is kind"
         }
       ],
       "frequencyRank": 94
@@ -3913,6 +3902,11 @@
           "native": "يبدو حزينا",
           "translation": "He looks sad",
           "translit": "yabdu hazeenan"
+        },
+        {
+          "native": "هو حزين اليوم",
+          "translit": "huwa hazeen al-yawm",
+          "translation": "He is sad today"
         }
       ],
       "dialects": {
@@ -3941,6 +3935,11 @@
           "native": "هي مريضة",
           "translation": "She is ill",
           "translit": "hiya mareeda"
+        },
+        {
+          "native": "أمي مريضة",
+          "translit": "ummi mareeda",
+          "translation": "My mother is unwell"
         }
       ],
       "frequencyRank": 146
@@ -4533,7 +4532,7 @@
     },
     {
       "id": "ar_0186",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "عَمّ",
       "translit": "'amm",
       "translation": "uncle (father's brother)",
@@ -4550,7 +4549,7 @@
     },
     {
       "id": "ar_0187",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "خال",
       "translit": "khaal",
       "translation": "uncle (mother's brother)",
@@ -4567,7 +4566,7 @@
     },
     {
       "id": "ar_0188",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "عَمّة",
       "translit": "'amma",
       "translation": "aunt (father's sister)",
@@ -4584,7 +4583,7 @@
     },
     {
       "id": "ar_0189",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "خالة",
       "translit": "khaala",
       "translation": "aunt (mother's sister)",
@@ -4596,74 +4595,6 @@
           "native": "خالَتي في البَيت",
           "translit": "khaalati fi al-bayt",
           "translation": "My aunt (mother's sister) is at home"
-        }
-      ]
-    },
-    {
-      "id": "ar_0190",
-      "unit": "u4",
-      "lemma": "جَدّ",
-      "translit": "jadd",
-      "translation": "grandfather",
-      "category": "Family",
-      "difficulty": 1,
-      "frequencyRank": 190,
-      "examples": [
-        {
-          "native": "جَدّي كَبير",
-          "translit": "jaddi kabeer",
-          "translation": "My grandfather is old"
-        }
-      ]
-    },
-    {
-      "id": "ar_0191",
-      "unit": "u4",
-      "lemma": "جَدّة",
-      "translit": "jadda",
-      "translation": "grandmother",
-      "category": "Family",
-      "difficulty": 1,
-      "frequencyRank": 191,
-      "examples": [
-        {
-          "native": "جَدَّتي طَيِّبة",
-          "translit": "jaddati tayyiba",
-          "translation": "My grandmother is kind"
-        }
-      ]
-    },
-    {
-      "id": "ar_0192",
-      "unit": "u5",
-      "lemma": "تَعبان",
-      "translit": "ta'baan",
-      "translation": "tired",
-      "category": "Feelings",
-      "difficulty": 2,
-      "frequencyRank": 192,
-      "examples": [
-        {
-          "native": "أَنا تَعبان",
-          "translit": "ana ta'baan",
-          "translation": "I am tired"
-        }
-      ]
-    },
-    {
-      "id": "ar_0193",
-      "unit": "u5",
-      "lemma": "جَوعان",
-      "translit": "jaw'aan",
-      "translation": "hungry",
-      "category": "Feelings",
-      "difficulty": 2,
-      "frequencyRank": 193,
-      "examples": [
-        {
-          "native": "أَنا جَوعان",
-          "translit": "ana jaw'aan",
-          "translation": "I am hungry"
         }
       ]
     },
@@ -4681,57 +4612,6 @@
           "native": "هَل أَنتَ عَطشان؟",
           "translit": "hal anta 'atshaan?",
           "translation": "Are you thirsty?"
-        }
-      ]
-    },
-    {
-      "id": "ar_0195",
-      "unit": "u5",
-      "lemma": "سَعيد",
-      "translit": "sa'eed",
-      "translation": "happy",
-      "category": "Feelings",
-      "difficulty": 1,
-      "frequencyRank": 195,
-      "examples": [
-        {
-          "native": "أَنا سَعيد جِدًّا",
-          "translit": "ana sa'eed jiddan",
-          "translation": "I am very happy"
-        }
-      ]
-    },
-    {
-      "id": "ar_0196",
-      "unit": "u5",
-      "lemma": "حَزين",
-      "translit": "hazeen",
-      "translation": "sad",
-      "category": "Feelings",
-      "difficulty": 2,
-      "frequencyRank": 196,
-      "examples": [
-        {
-          "native": "هُوَ حَزين اليَوم",
-          "translit": "huwa hazeen al-yawm",
-          "translation": "He is sad today"
-        }
-      ]
-    },
-    {
-      "id": "ar_0197",
-      "unit": "u5",
-      "lemma": "مَريض",
-      "translit": "mareed",
-      "translation": "ill, unwell",
-      "category": "Feelings",
-      "difficulty": 2,
-      "frequencyRank": 197,
-      "examples": [
-        {
-          "native": "أُمّي مَريضة",
-          "translit": "ummi mareeda",
-          "translation": "My mother is unwell"
         }
       ]
     },
@@ -5550,6 +5430,380 @@
         }
       ],
       "translit": "shurta"
+    },
+    {
+      "id": "ar_0246",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "رضيع",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 246,
+      "examples": [
+        {
+          "native": "الرضيع نائم",
+          "translation": "The baby is asleep",
+          "translit": "ar-radee' na'im"
+        }
+      ],
+      "translit": "radee'"
+    },
+    {
+      "id": "ar_0247",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "ضيف",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 247,
+      "examples": [
+        {
+          "native": "عندنا ضيف اليوم",
+          "translation": "We have a guest today",
+          "translit": "indana dayf al-yawm"
+        }
+      ],
+      "translit": "dayf"
+    },
+    {
+      "id": "ar_0248",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "جار",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 248,
+      "examples": [
+        {
+          "native": "جاري طيب",
+          "translation": "My neighbour is kind",
+          "translit": "jaari tayyib"
+        }
+      ],
+      "translit": "jaar"
+    },
+    {
+      "id": "ar_0249",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "عيد ميلاد",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 249,
+      "examples": [
+        {
+          "native": "عيد ميلاد سعيد",
+          "translation": "Happy birthday",
+          "translit": "eid milad sa'eed"
+        }
+      ],
+      "translit": "eid milad"
+    },
+    {
+      "id": "ar_0250",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "عرس",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 250,
+      "examples": [
+        {
+          "native": "العرس يوم الجمعة",
+          "translation": "The wedding is on Friday",
+          "translit": "al-'urs yawm al-jum'a"
+        }
+      ],
+      "translit": "'urs"
+    },
+    {
+      "id": "ar_0251",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "هدية",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 251,
+      "examples": [
+        {
+          "native": "هذه هدية لك",
+          "translation": "This is a gift for you",
+          "translit": "hadhihi hadiyya lak"
+        }
+      ],
+      "translit": "hadiyya"
+    },
+    {
+      "id": "ar_0252",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "مطبخ",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 252,
+      "examples": [
+        {
+          "native": "أمي في المطبخ",
+          "translation": "My mother is in the kitchen",
+          "translit": "ummi fil-matbakh"
+        }
+      ],
+      "translit": "matbakh"
+    },
+    {
+      "id": "ar_0253",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "طاولة",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 253,
+      "examples": [
+        {
+          "native": "الأكل على الطاولة",
+          "translation": "The food is on the table",
+          "translit": "al-akl ala at-tawila"
+        }
+      ],
+      "translit": "tawila"
+    },
+    {
+      "id": "ar_0254",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "سرير",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 254,
+      "examples": [
+        {
+          "native": "السرير مريح",
+          "translation": "The bed is comfortable",
+          "translit": "as-sareer mureeh"
+        }
+      ],
+      "translit": "sareer"
+    },
+    {
+      "id": "ar_0255",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يغسل",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 255,
+      "examples": [
+        {
+          "native": "أخي يغسل الصحون",
+          "translation": "My brother washes the dishes",
+          "translit": "akhi yaghsil as-suhun"
+        }
+      ],
+      "translit": "yaghsil"
+    },
+    {
+      "id": "ar_0256",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يلبس",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 256,
+      "examples": [
+        {
+          "native": "أبي يلبس قميصا أبيض",
+          "translation": "My father wears a white shirt",
+          "translit": "abi yalbas qamisan abyad"
+        }
+      ],
+      "translit": "yalbas"
+    },
+    {
+      "id": "ar_0257",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ينسى",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 257,
+      "examples": [
+        {
+          "native": "أبي ينسى مفتاحه دائما",
+          "translation": "My father always forgets his key",
+          "translit": "abi yansa miftahahu da'iman"
+        }
+      ],
+      "translit": "yansa"
+    },
+    {
+      "id": "ar_0258",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يتذكر",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 258,
+      "examples": [
+        {
+          "native": "جدي يتذكر كل شيء",
+          "translation": "My grandfather remembers everything",
+          "translit": "jaddi yatadhakkar kull shay'"
+        }
+      ],
+      "translit": "yatadhakkar"
+    },
+    {
+      "id": "ar_0259",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يبدأ",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 259,
+      "examples": [
+        {
+          "native": "الدرس يبدأ الآن",
+          "translation": "The lesson starts now",
+          "translit": "ad-dars yabda' al-aan"
+        }
+      ],
+      "translit": "yabda'"
+    },
+    {
+      "id": "ar_0260",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ينتهي",
+      "translation": "to finish, to end",
+      "difficulty": 1,
+      "frequencyRank": 260,
+      "examples": [
+        {
+          "native": "الفيلم ينتهي الساعة تسعة",
+          "translation": "The film ends at nine",
+          "translit": "al-film yantahi as-sa'a tis'a"
+        }
+      ],
+      "translit": "yantahi"
+    },
+    {
+      "id": "ar_0261",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يضحك",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 261,
+      "examples": [
+        {
+          "native": "الطفل يضحك",
+          "translation": "The child laughs",
+          "translit": "at-tifl yadhak"
+        }
+      ],
+      "translit": "yadhak"
+    },
+    {
+      "id": "ar_0262",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "جاهز",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 262,
+      "examples": [
+        {
+          "native": "الأكل جاهز",
+          "translation": "The food is ready",
+          "translit": "al-akl jahiz"
+        }
+      ],
+      "translit": "jahiz"
+    },
+    {
+      "id": "ar_0263",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "مشغول",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 263,
+      "examples": [
+        {
+          "native": "أنا مشغول اليوم",
+          "translation": "I am busy today",
+          "translit": "ana mashghul al-yawm"
+        }
+      ],
+      "translit": "mashghul"
+    },
+    {
+      "id": "ar_0264",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "شاب",
+      "translation": "young, young man",
+      "difficulty": 1,
+      "frequencyRank": 264,
+      "examples": [
+        {
+          "native": "أخي شاب",
+          "translation": "My brother is young",
+          "translit": "akhi shabb"
+        }
+      ],
+      "translit": "shabb"
+    },
+    {
+      "id": "ar_0265",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "نظيف",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 265,
+      "examples": [
+        {
+          "native": "البيت نظيف",
+          "translation": "The house is clean",
+          "translit": "al-bayt nadheef"
+        }
+      ],
+      "translit": "nadheef"
+    },
+    {
+      "id": "ar_0266",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "مبكرا",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 266,
+      "examples": [
+        {
+          "native": "أصحو مبكرا",
+          "translation": "I wake up early",
+          "translit": "as-hu mubakkiran"
+        }
+      ],
+      "translit": "mubakkiran"
+    },
+    {
+      "id": "ar_0267",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "متأخر",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 267,
+      "examples": [
+        {
+          "native": "أنا متأخر",
+          "translation": "I am late",
+          "translit": "ana muta'akhkhir"
+        }
+      ],
+      "translit": "muta'akhkhir"
     }
   ],
   "units": [

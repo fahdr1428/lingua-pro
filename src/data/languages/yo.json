@@ -2824,6 +2824,366 @@
           "translation": "Call the police!"
         }
       ]
+    },
+    {
+      "id": "yo_0177",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ọmọ ọwọ́",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 177,
+      "examples": [
+        {
+          "native": "Ọmọ ọwọ́ ń sùn",
+          "translation": "The baby is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "yo_0178",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ọkọ",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 178,
+      "examples": [
+        {
+          "native": "Olùkọ́ ni ọkọ mi",
+          "translation": "My husband is a teacher"
+        }
+      ]
+    },
+    {
+      "id": "yo_0179",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ìyàwó",
+      "translation": "wife",
+      "difficulty": 1,
+      "frequencyRank": 179,
+      "examples": [
+        {
+          "native": "Dókítà ni ìyàwó mi",
+          "translation": "My wife is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "yo_0180",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "àlejò",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 180,
+      "examples": [
+        {
+          "native": "A ní àlejò lónìí",
+          "translation": "We have a guest today"
+        }
+      ]
+    },
+    {
+      "id": "yo_0181",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "aládùúgbò",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 181,
+      "examples": [
+        {
+          "native": "Aládùúgbò wa dára",
+          "translation": "Our neighbour is good"
+        }
+      ]
+    },
+    {
+      "id": "yo_0182",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ọjọ́ ìbí",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 182,
+      "examples": [
+        {
+          "native": "Ẹ kú ọjọ́ ìbí",
+          "translation": "Happy birthday"
+        }
+      ]
+    },
+    {
+      "id": "yo_0183",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ìgbéyàwó",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 183,
+      "examples": [
+        {
+          "native": "Ìgbéyàwó ẹ̀gbọ́n mi ni ọ̀la",
+          "translation": "My sister's wedding is tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "yo_0184",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ẹ̀bùn",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 184,
+      "examples": [
+        {
+          "native": "Ẹ̀bùn rẹ nìyí",
+          "translation": "Here is your gift"
+        }
+      ]
+    },
+    {
+      "id": "yo_0185",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ilé ìdáná",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "Màmá wà ní ilé ìdáná",
+          "translation": "Mother is in the kitchen"
+        }
+      ]
+    },
+    {
+      "id": "yo_0186",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "tábìlì",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "Oúnjẹ wà lórí tábìlì",
+          "translation": "The food is on the table"
+        }
+      ]
+    },
+    {
+      "id": "yo_0187",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "ibùsùn",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "Ibùsùn yìí rọ̀",
+          "translation": "This bed is soft"
+        }
+      ]
+    },
+    {
+      "id": "yo_0188",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "fọ",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "Fọ ọwọ́ rẹ",
+          "translation": "Wash your hands"
+        }
+      ]
+    },
+    {
+      "id": "yo_0189",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "wọ",
+      "translation": "to wear, to put on",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "Wọ aṣọ tuntun rẹ",
+          "translation": "Wear your new clothes"
+        }
+      ]
+    },
+    {
+      "id": "yo_0190",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "gbàgbé",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "Má gbàgbé o",
+          "translation": "Don't forget"
+        }
+      ]
+    },
+    {
+      "id": "yo_0191",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "rántí",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "Ṣé o rántí mi?",
+          "translation": "Do you remember me?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0192",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "bẹ̀rẹ̀",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "Ẹ jẹ́ ká bẹ̀rẹ̀",
+          "translation": "Let's start"
+        }
+      ]
+    },
+    {
+      "id": "yo_0193",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "parí",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "Mo ti parí iṣẹ́ mi",
+          "translation": "I have finished my work"
+        }
+      ]
+    },
+    {
+      "id": "yo_0194",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "rẹ́rìn-ín",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "Àwọn ọmọdé ń rẹ́rìn-ín",
+          "translation": "The children are laughing"
+        }
+      ]
+    },
+    {
+      "id": "yo_0195",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ṣetán",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "Oúnjẹ ti ṣetán",
+          "translation": "The food is ready"
+        }
+      ]
+    },
+    {
+      "id": "yo_0196",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ọwọ́ dí",
+      "translation": "busy (lit. hands are full)",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "Ọwọ́ mi dí lónìí",
+          "translation": "I'm busy today"
+        }
+      ]
+    },
+    {
+      "id": "yo_0197",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ọ̀dọ́",
+      "translation": "young, youth",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "Ọ̀dọ́ ni wọ́n",
+          "translation": "They are young"
+        }
+      ]
+    },
+    {
+      "id": "yo_0198",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "mọ́",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "Yàrá yìí mọ́",
+          "translation": "This room is clean"
+        }
+      ]
+    },
+    {
+      "id": "yo_0199",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "kùtùkùtù",
+      "translation": "early (in the morning)",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "Mo jí ní kùtùkùtù",
+          "translation": "I woke up early"
+        }
+      ]
+    },
+    {
+      "id": "yo_0200",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "pẹ́",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "Mo ti pẹ́",
+          "translation": "I'm late"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

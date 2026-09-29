@@ -35,9 +35,14 @@ export function foldConvention(s) {
 }
 
 /** Is `needle` traceable inside `hay`, allowing for inflection at either end? */
+// Arabic spelling that changes without the word changing: vowel marks, the
+// hamza seat on alef, and ta marbuta, which is written ت as soon as anything
+// is attached — جدة "grandmother", جدتي "my grandmother".
+const foldArabic = (s) => s.replace(/[\u064B-\u065F\u0670]/g, "").replace(/[أإآ]/g, "ا").replace(/ة/g, "ت").replace(/ى/g, "ي");
+
 export function stemMatch(hay, needle) {
   if (!needle) return true;
-  const h = hay.toLowerCase(), n = needle.toLowerCase();
+  const h = foldArabic(hay.toLowerCase()), n = foldArabic(needle.toLowerCase());
   if (h.includes(n)) return true;
   // Allow the word to have been inflected: try progressively shorter stems,
   // never below 3 characters or half the word, whichever is longer.

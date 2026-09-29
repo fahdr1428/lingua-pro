@@ -40,6 +40,23 @@ const SCRIPTS = {
 // set in src/) repeating itself in scripts/, so the fix is the same one.
 const LATIN = LATIN_SCRIPT_LANGUAGES;
 
+// v109 — the meanings in a gloss, for telling a homograph (खाना "food" and
+// खाना "to eat": two words) from the same word entered twice. Commas inside
+// parentheses don't split, and a leading to/the/a/an doesn't count.
+const meanings = (t) => String(t || "").replace(/\([^)]*\)/g, " ").split(/[,;/]| or /)
+  .map((m) => m.toLowerCase().replace(/\s+/g, " ").trim().replace(/^(to|the|a|an) /, "")).filter(Boolean);
+// Arabic-script vowel marks don't make a different word: جوعان and جَوعان are one.
+const HARAKAT = /[\u064B-\u065F\u0670]/g;
+
+// v109 — a word filed under ANOTHER topic's unit. The v86 kinship batch went
+// into "Numbers 1-10" in nine packs (it meant the Family unit and wrote u4),
+// so a learner met their four uncles in the counting lesson; tired, sad and
+// worried went into "Food & Drink". Only these named topics are checked —
+// verbs are spread across units on purpose, so each has something to make
+// sentences with — and hungry/thirsty belong with food.
+const TOPIC_UNIT = { Family: /family/i, Feelings: /feeling/i, Numbers: /number/i, Weather: /weather/i, Food: /food/i, Colors: /colou?r/i, Body: /body/i, Time: /\btime\b/i };
+const FITS_ELSEWHERE = { Feelings: { Food: /hung|thirst/i } };
+
 function checkLanguage(code) {
   const file = path.join(LANG_DIR, `${code}.json`);
   const d = JSON.parse(fs.readFileSync(file, "utf8"));
@@ -76,9 +93,26 @@ function checkLanguage(code) {
       // contrastive: Essen (food) and essen (to eat) are different words, as
       // are Sie (you, formal) and sie (she). Folding case would report both
       // pairs as duplicates and be wrong about it.
-      const k = code === "de" ? w.lemma.trim() : w.lemma.trim().toLowerCase();
-      if (lemmas.has(k)) warnings.push(`${at}: lemma "${w.lemma}" also on ${lemmas.get(k)}`);
-      else lemmas.set(k, w.id);
+      const bare = w.lemma.replace(HARAKAT, "").trim();
+      const k = code === "de" ? bare : bare.toLowerCase();
+      const other = lemmas.get(k);
+      if (other) {
+        // Same spelling and a shared meaning is the same word taught twice —
+        // two cards, two sets of reviews, and two right answers in a quiz.
+        const shared = meanings(w.translation).filter((m) => meanings(other.translation).includes(m));
+        if (shared.length) errors.push(`${at} "${w.lemma}" is ${other.id} "${other.lemma}" again (both "${shared[0]}") — the same word taught twice`);
+        else warnings.push(`${at}: lemma "${w.lemma}" also on ${other.id}`);
+      } else lemmas.set(k, w);
+    }
+
+    const own = TOPIC_UNIT[w.category];
+    const unitTitle = (d.units || []).find((u) => u.id === w.unit)?.title || "";
+    if (own && unitTitle && !own.test(unitTitle) && (d.units || []).some((u) => own.test(u.title || ""))) {
+      const [otherTopic] = Object.entries(TOPIC_UNIT).find(([c, re]) => c !== w.category && re.test(unitTitle)) || [];
+      if (otherTopic && !FITS_ELSEWHERE[w.category]?.[otherTopic]?.test(w.translation)) {
+        const home = (d.units || []).find((u) => own.test(u.title || ""));
+        errors.push(`${at} "${w.translation}" (${w.category}) is filed under ${w.unit} "${unitTitle}" — it belongs in ${home.id} "${home.title}"`);
+      }
     }
 
     for (const ex of w.examples || []) {

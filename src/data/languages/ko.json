@@ -3236,7 +3236,7 @@
     },
     {
       "id": "ko_0164",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "오빠",
       "translit": "oppa",
       "translation": "older brother (said by a woman)",
@@ -3254,7 +3254,7 @@
     },
     {
       "id": "ko_0165",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "언니",
       "translit": "eonni",
       "translation": "older sister (said by a woman)",
@@ -3271,7 +3271,7 @@
     },
     {
       "id": "ko_0166",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "할아버지",
       "translit": "harabeoji",
       "translation": "grandfather",
@@ -3288,7 +3288,7 @@
     },
     {
       "id": "ko_0167",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "할머니",
       "translit": "halmeoni",
       "translation": "grandmother",
@@ -3305,7 +3305,7 @@
     },
     {
       "id": "ko_0168",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "이모",
       "translit": "imo",
       "translation": "aunt (mother's sister)",
@@ -3322,7 +3322,7 @@
     },
     {
       "id": "ko_0169",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "고모",
       "translit": "gomo",
       "translation": "aunt (father's sister)",
@@ -3339,7 +3339,7 @@
     },
     {
       "id": "ko_0170",
-      "unit": "u5",
+      "unit": "u11",
       "lemma": "피곤해요",
       "translit": "pigonhaeyo",
       "translation": "tired",
@@ -3373,7 +3373,7 @@
     },
     {
       "id": "ko_0172",
-      "unit": "u5",
+      "unit": "u11",
       "lemma": "행복해요",
       "translit": "haengbokhaeyo",
       "translation": "happy",
@@ -3390,7 +3390,7 @@
     },
     {
       "id": "ko_0173",
-      "unit": "u5",
+      "unit": "u11",
       "lemma": "슬퍼요",
       "translit": "seulpeoyo",
       "translation": "sad",
@@ -3407,7 +3407,7 @@
     },
     {
       "id": "ko_0174",
-      "unit": "u5",
+      "unit": "u11",
       "lemma": "아파요",
       "translit": "apayo",
       "translation": "it hurts, I am ill",
@@ -4254,6 +4254,414 @@
         }
       ],
       "translit": "gyeongchal"
+    },
+    {
+      "id": "ko_0224",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "아기",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "아기가 자요",
+          "translation": "The baby is sleeping",
+          "translit": "agiga jayo"
+        }
+      ],
+      "translit": "agi"
+    },
+    {
+      "id": "ko_0225",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "남편",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "남편은 선생님이에요",
+          "translation": "My husband is a teacher",
+          "translit": "nampyeoneun seonsaengnimieyo"
+        }
+      ],
+      "translit": "nampyeon"
+    },
+    {
+      "id": "ko_0226",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "아내",
+      "translation": "wife",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "아내는 의사예요",
+          "translation": "My wife is a doctor",
+          "translit": "anaeneun uisayeyo"
+        }
+      ],
+      "translit": "anae"
+    },
+    {
+      "id": "ko_0227",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "손님",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "오늘 손님이 와요",
+          "translation": "A guest is coming today",
+          "translit": "oneul sonnimi wayo"
+        }
+      ],
+      "translit": "sonnim"
+    },
+    {
+      "id": "ko_0228",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "이웃 사람",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "이웃 사람이 친절해요",
+          "translation": "The neighbour is kind",
+          "translit": "iut sarami chinjeolhaeyo"
+        }
+      ],
+      "translit": "iut saram"
+    },
+    {
+      "id": "ko_0229",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "생일",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "생일 축하해요",
+          "translation": "Happy birthday",
+          "translit": "saengil chukahaeyo"
+        }
+      ],
+      "translit": "saengil"
+    },
+    {
+      "id": "ko_0230",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "결혼식",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "언니 결혼식은 내일이에요",
+          "translation": "My sister's wedding is tomorrow",
+          "translit": "eonni gyeolhonsigeun naeirieyo"
+        }
+      ],
+      "translit": "gyeolhonsik"
+    },
+    {
+      "id": "ko_0231",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "선물",
+      "translation": "gift, present",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "이건 선물이에요",
+          "translation": "This is a gift",
+          "translit": "igeon seonmurieyo"
+        }
+      ],
+      "translit": "seonmul"
+    },
+    {
+      "id": "ko_0232",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "부엌",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "엄마는 부엌에 있어요",
+          "translation": "Mom is in the kitchen",
+          "translit": "eommaneun bueoge isseoyo"
+        }
+      ],
+      "translit": "bueok"
+    },
+    {
+      "id": "ko_0233",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "식탁",
+      "translation": "table (dining)",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "밥이 식탁 위에 있어요",
+          "translation": "The food is on the table",
+          "translit": "babi siktak wie isseoyo"
+        }
+      ],
+      "translit": "siktak"
+    },
+    {
+      "id": "ko_0234",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "침대",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "침대가 편해요",
+          "translation": "The bed is comfortable",
+          "translit": "chimdaega pyeonhaeyo"
+        }
+      ],
+      "translit": "chimdae"
+    },
+    {
+      "id": "ko_0235",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "씻다",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "손을 씻다가 전화를 받았어요",
+          "translation": "I answered the phone while washing my hands",
+          "translit": "soneul ssitdaga jeonhwareul badasseoyo"
+        }
+      ],
+      "translit": "ssitda"
+    },
+    {
+      "id": "ko_0236",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "입다",
+      "translation": "to wear (clothes)",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "옷을 입다가 늦었어요",
+          "translation": "I was late getting dressed",
+          "translit": "oseul ipdaga neujeosseoyo"
+        }
+      ],
+      "translit": "ipda"
+    },
+    {
+      "id": "ko_0237",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "잊어버리다",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "이름을 잊어버렸어요",
+          "translation": "I forgot the name",
+          "translit": "ireumeul ijeobeoryeosseoyo"
+        }
+      ],
+      "translit": "ijeobeorida"
+    },
+    {
+      "id": "ko_0238",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "기억하다",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "이 말을 기억하세요",
+          "translation": "Remember these words",
+          "translit": "i mareul gieokhaseyo"
+        }
+      ],
+      "translit": "gieokhada"
+    },
+    {
+      "id": "ko_0239",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "시작하다",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "지금 시작하세요",
+          "translation": "Start now",
+          "translit": "jigeum sijakhaseyo"
+        }
+      ],
+      "translit": "sijakhada"
+    },
+    {
+      "id": "ko_0240",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "끝내다",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "일을 끝내다가 잠들었어요",
+          "translation": "I fell asleep while finishing work",
+          "translit": "ireul kkeunnaedaga jamdeureosseoyo"
+        }
+      ],
+      "translit": "kkeunnaeda"
+    },
+    {
+      "id": "ko_0241",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "웃다",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "웃다가 울었어요",
+          "translation": "I laughed until I cried",
+          "translit": "utdaga ureosseoyo"
+        }
+      ],
+      "translit": "utda"
+    },
+    {
+      "id": "ko_0242",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "준비",
+      "translation": "ready, preparation",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "준비됐어요",
+          "translation": "I'm ready",
+          "translit": "junbidwaesseoyo"
+        }
+      ],
+      "translit": "junbi"
+    },
+    {
+      "id": "ko_0243",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "바쁘다",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "오늘은 정말 바쁘다",
+          "translation": "I'm really busy today",
+          "translit": "oneureun jeongmal bappeuda"
+        }
+      ],
+      "translit": "bappeuda"
+    },
+    {
+      "id": "ko_0244",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "젊다",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "이모는 아직 젊다",
+          "translation": "My aunt is still young",
+          "translit": "imoneun ajik jeomda"
+        }
+      ],
+      "translit": "jeomda"
+    },
+    {
+      "id": "ko_0245",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "깨끗하다",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "방이 아주 깨끗하다",
+          "translation": "The room is very clean",
+          "translit": "bangi aju kkaekkeuthada"
+        }
+      ],
+      "translit": "kkaekkeuthada"
+    },
+    {
+      "id": "ko_0246",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "일찍",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 246,
+      "examples": [
+        {
+          "native": "내일 일찍 오세요",
+          "translation": "Come early tomorrow",
+          "translit": "naeil iljjik oseyo"
+        }
+      ],
+      "translit": "iljjik"
+    },
+    {
+      "id": "ko_0247",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "늦다",
+      "translation": "late, to be late",
+      "difficulty": 1,
+      "frequencyRank": 247,
+      "examples": [
+        {
+          "native": "늦다고 연락했어요",
+          "translation": "I let them know I'd be late",
+          "translit": "neutdago yeollakhaesseoyo"
+        }
+      ],
+      "translit": "neutda"
     }
   ],
   "alphabetGroups": [

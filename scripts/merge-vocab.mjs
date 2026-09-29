@@ -41,13 +41,17 @@ for (const [code, words] of Object.entries(ADDITIONS)) {
   const maxRank = Math.max(0, ...pack.vocab.map((w) => w.frequencyRank || 0));
   let rank = maxRank + 1;
 
-  const haveLemma = new Set(pack.vocab.map((w) => String(w.lemma).trim().toLowerCase()));
+  // v109: the key ignores Arabic-script vowel marks. This batch added جَوعان,
+  // سَعيد, جَدّ… to an Arabic pack that already had جوعان, سعيد, جد — the same
+  // words, written with harakat — so eight words were taught twice.
+  const lemmaKey = (l) => String(l).replace(/[\u064B-\u065F\u0670]/g, "").trim().toLowerCase();
+  const haveLemma = new Set(pack.vocab.map((w) => lemmaKey(w.lemma)));
   const unitIds = new Set((pack.units || []).map((u) => u.id));
   const cats = new Set(pack.categories || []);
   const fresh = [];
 
   for (const w of words) {
-    const key = String(w.lemma).trim().toLowerCase();
+    const key = lemmaKey(w.lemma);
     if (haveLemma.has(key)) {
       report.push(`  ${code}: skipped "${w.lemma}" — already in the pack`);
       skipped++;

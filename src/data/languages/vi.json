@@ -2965,6 +2965,366 @@
           "translation": "Call the police!"
         }
       ]
+    },
+    {
+      "id": "vi_0185",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "em bé",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 185,
+      "examples": [
+        {
+          "native": "Em bé đang ngủ",
+          "translation": "The baby is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "vi_0186",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "chồng",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 186,
+      "examples": [
+        {
+          "native": "Chồng tôi là giáo viên",
+          "translation": "My husband is a teacher"
+        }
+      ]
+    },
+    {
+      "id": "vi_0187",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "vợ",
+      "translation": "wife",
+      "difficulty": 1,
+      "frequencyRank": 187,
+      "examples": [
+        {
+          "native": "Vợ tôi là bác sĩ",
+          "translation": "My wife is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "vi_0188",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "khách",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 188,
+      "examples": [
+        {
+          "native": "Hôm nay nhà có khách",
+          "translation": "We have guests today"
+        }
+      ]
+    },
+    {
+      "id": "vi_0189",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "hàng xóm",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 189,
+      "examples": [
+        {
+          "native": "Hàng xóm của tôi rất tốt",
+          "translation": "My neighbour is very nice"
+        }
+      ]
+    },
+    {
+      "id": "vi_0190",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "sinh nhật",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 190,
+      "examples": [
+        {
+          "native": "Chúc mừng sinh nhật",
+          "translation": "Happy birthday"
+        }
+      ]
+    },
+    {
+      "id": "vi_0191",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "đám cưới",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "Đám cưới của chị tôi là ngày mai",
+          "translation": "My sister's wedding is tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "vi_0192",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "quà",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "Đây là quà cho bạn",
+          "translation": "This is a gift for you"
+        }
+      ]
+    },
+    {
+      "id": "vi_0193",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "nhà bếp",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "Mẹ đang ở trong nhà bếp",
+          "translation": "Mother is in the kitchen"
+        }
+      ]
+    },
+    {
+      "id": "vi_0194",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "bàn",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "Cơm ở trên bàn",
+          "translation": "The food is on the table"
+        }
+      ]
+    },
+    {
+      "id": "vi_0195",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "giường",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "Giường này rất êm",
+          "translation": "This bed is very soft"
+        }
+      ]
+    },
+    {
+      "id": "vi_0196",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "rửa",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "Rửa tay đi",
+          "translation": "Wash your hands"
+        }
+      ]
+    },
+    {
+      "id": "vi_0197",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mặc",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "Hôm nay tôi mặc áo dài",
+          "translation": "Today I'm wearing an ao dai"
+        }
+      ]
+    },
+    {
+      "id": "vi_0198",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "quên",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "Đừng quên nhé",
+          "translation": "Don't forget"
+        }
+      ]
+    },
+    {
+      "id": "vi_0199",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "nhớ",
+      "translation": "to remember, to miss",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "Bạn có nhớ tôi không?",
+          "translation": "Do you remember me?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0200",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "bắt đầu",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "Chúng ta bắt đầu nhé",
+          "translation": "Let's start"
+        }
+      ]
+    },
+    {
+      "id": "vi_0201",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "xong",
+      "translation": "to finish, done",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "Tôi làm xong rồi",
+          "translation": "I've finished"
+        }
+      ]
+    },
+    {
+      "id": "vi_0202",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "cười",
+      "translation": "to laugh, to smile",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "Bọn trẻ đang cười",
+          "translation": "The children are laughing"
+        }
+      ]
+    },
+    {
+      "id": "vi_0203",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "sẵn sàng",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "Tôi sẵn sàng rồi",
+          "translation": "I'm ready"
+        }
+      ]
+    },
+    {
+      "id": "vi_0204",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "bận",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "Hôm nay tôi bận",
+          "translation": "I'm busy today"
+        }
+      ]
+    },
+    {
+      "id": "vi_0205",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "trẻ",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "Dì tôi còn trẻ",
+          "translation": "My aunt is still young"
+        }
+      ]
+    },
+    {
+      "id": "vi_0206",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "sạch",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "Phòng này sạch",
+          "translation": "This room is clean"
+        }
+      ]
+    },
+    {
+      "id": "vi_0207",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "sớm",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "Mai đến sớm nhé",
+          "translation": "Come early tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "vi_0208",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "muộn",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "Muộn rồi",
+          "translation": "It's late"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

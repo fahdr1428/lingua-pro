@@ -3077,7 +3077,7 @@
     },
     {
       "id": "fr_0178",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "oncle",
       "translation": "uncle",
       "category": "Family",
@@ -3092,7 +3092,7 @@
     },
     {
       "id": "fr_0179",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "tante",
       "translation": "aunt",
       "category": "Family",
@@ -3107,7 +3107,7 @@
     },
     {
       "id": "fr_0180",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "cousin",
       "translation": "cousin",
       "category": "Family",
@@ -3702,6 +3702,336 @@
         {
           "native": "Appelle la police !",
           "translation": "Call the police!"
+        }
+      ]
+    },
+    {
+      "id": "fr_0220",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "le bébé",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "Le bébé dort",
+          "translation": "The baby is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "fr_0221",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "l'invité",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "L'invité est arrivé",
+          "translation": "The guest has arrived"
+        }
+      ]
+    },
+    {
+      "id": "fr_0222",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "le voisin",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "Le voisin est gentil",
+          "translation": "The neighbour is kind"
+        }
+      ]
+    },
+    {
+      "id": "fr_0223",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "l'anniversaire",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "L'anniversaire est demain",
+          "translation": "The birthday is tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "fr_0224",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "le mariage",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "Le mariage est en juin",
+          "translation": "The wedding is in June"
+        }
+      ]
+    },
+    {
+      "id": "fr_0225",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "le cadeau",
+      "translation": "gift, present",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "Le cadeau est pour toi",
+          "translation": "The gift is for you"
+        }
+      ]
+    },
+    {
+      "id": "fr_0226",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "la cuisine",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "La cuisine est propre",
+          "translation": "The kitchen is clean"
+        }
+      ]
+    },
+    {
+      "id": "fr_0227",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "la table",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "Le repas est sur la table",
+          "translation": "The meal is on the table"
+        }
+      ]
+    },
+    {
+      "id": "fr_0228",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "le lit",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "Le lit est confortable",
+          "translation": "The bed is comfortable"
+        }
+      ]
+    },
+    {
+      "id": "fr_0229",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "laver",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "Je dois laver la vaisselle",
+          "translation": "I have to wash the dishes"
+        }
+      ]
+    },
+    {
+      "id": "fr_0230",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "porter",
+      "translation": "to wear, to carry",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "Elle veut porter sa robe bleue",
+          "translation": "She wants to wear her blue dress"
+        }
+      ]
+    },
+    {
+      "id": "fr_0231",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "oublier",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "Je ne veux pas oublier",
+          "translation": "I don't want to forget"
+        }
+      ]
+    },
+    {
+      "id": "fr_0232",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "se souvenir",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "Il faut se souvenir de tout",
+          "translation": "You have to remember everything"
+        }
+      ]
+    },
+    {
+      "id": "fr_0233",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "commencer",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "On peut commencer",
+          "translation": "We can start"
+        }
+      ]
+    },
+    {
+      "id": "fr_0234",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "finir",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "Je dois finir mon travail",
+          "translation": "I have to finish my work"
+        }
+      ]
+    },
+    {
+      "id": "fr_0235",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "rire",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "Les enfants aiment rire",
+          "translation": "The children love to laugh"
+        }
+      ]
+    },
+    {
+      "id": "fr_0236",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "prêt",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "Le dîner est prêt",
+          "translation": "Dinner is ready"
+        }
+      ]
+    },
+    {
+      "id": "fr_0237",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "occupé",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "Je suis occupé aujourd'hui",
+          "translation": "I'm busy today"
+        }
+      ]
+    },
+    {
+      "id": "fr_0238",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "jeune",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "Ma tante est très jeune",
+          "translation": "My aunt is very young"
+        }
+      ]
+    },
+    {
+      "id": "fr_0239",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "propre",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "La chambre est propre",
+          "translation": "The room is clean"
+        }
+      ]
+    },
+    {
+      "id": "fr_0240",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "tôt",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "Je me lève tôt",
+          "translation": "I get up early"
+        }
+      ]
+    },
+    {
+      "id": "fr_0241",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "tard",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "Il est tard",
+          "translation": "It's late"
         }
       ]
     }

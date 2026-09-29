@@ -2694,7 +2694,7 @@
       "lemma": "جلدی",
       "translit": "jaldi",
       "pronunciation": "JUL-dee",
-      "translation": "quickly, hurry",
+      "translation": "quickly, hurry, early",
       "category": "Travel",
       "difficulty": 1,
       "frequencyRank": 59,
@@ -2703,6 +2703,11 @@
           "native": "جلدی آؤ",
           "translation": "Come quickly",
           "translit": "jaldi aao"
+        },
+        {
+          "native": "کل جلدی آنا",
+          "translation": "Come early tomorrow",
+          "translit": "kal jaldi aana"
         }
       ]
     },
@@ -2868,7 +2873,7 @@
     },
     {
       "id": "ur_0144",
-      "unit": "u8",
+      "unit": "u12",
       "lemma": "دھوپ",
       "translit": "dhoop",
       "translation": "sunlight",
@@ -3476,7 +3481,7 @@
     },
     {
       "id": "ur_0178",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "چچا",
       "translit": "chacha",
       "translation": "uncle (father's younger brother)",
@@ -3494,7 +3499,7 @@
     },
     {
       "id": "ur_0179",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "تایا",
       "translit": "taya",
       "translation": "uncle (father's elder brother)",
@@ -3511,7 +3516,7 @@
     },
     {
       "id": "ur_0180",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "ماموں",
       "translit": "mamu",
       "translation": "uncle (mother's brother)",
@@ -3528,7 +3533,7 @@
     },
     {
       "id": "ur_0181",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "خالہ",
       "translit": "khala",
       "translation": "aunt (mother's sister)",
@@ -3545,7 +3550,7 @@
     },
     {
       "id": "ur_0182",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "پھوپھی",
       "translit": "phuphi",
       "translation": "aunt (father's sister)",
@@ -3562,7 +3567,7 @@
     },
     {
       "id": "ur_0183",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "دادا",
       "translit": "dada",
       "translation": "grandfather (father's father)",
@@ -3579,7 +3584,7 @@
     },
     {
       "id": "ur_0184",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "دادی",
       "translit": "dadi",
       "translation": "grandmother (father's mother)",
@@ -3596,7 +3601,7 @@
     },
     {
       "id": "ur_0185",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "نانا",
       "translit": "nana",
       "translation": "grandfather (mother's father)",
@@ -3613,7 +3618,7 @@
     },
     {
       "id": "ur_0186",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "نانی",
       "translit": "nani",
       "translation": "grandmother (mother's mother)",
@@ -3630,7 +3635,7 @@
     },
     {
       "id": "ur_0187",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "کزن",
       "translit": "cousin",
       "translation": "cousin",
@@ -3648,7 +3653,7 @@
     },
     {
       "id": "ur_0188",
-      "unit": "u5",
+      "unit": "u11",
       "lemma": "تھکا ہوا",
       "translit": "thaka hua",
       "translation": "tired",
@@ -3699,7 +3704,7 @@
     },
     {
       "id": "ur_0191",
-      "unit": "u5",
+      "unit": "u11",
       "lemma": "پریشان",
       "translit": "pareshan",
       "translation": "worried",
@@ -4257,6 +4262,363 @@
         }
       ],
       "translit": "police"
+    },
+    {
+      "id": "ur_0224",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ننھا بچہ",
+      "translation": "baby, little child",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "ننھا بچہ سو رہا ہے",
+          "translation": "The baby is sleeping",
+          "translit": "nanha bachcha so raha hai"
+        }
+      ],
+      "translit": "nanha bachcha"
+    },
+    {
+      "id": "ur_0225",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "مہمان",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "آج گھر میں مہمان ہیں",
+          "translation": "There are guests at home today",
+          "translit": "aaj ghar mein mehmaan hain"
+        }
+      ],
+      "translit": "mehmaan"
+    },
+    {
+      "id": "ur_0226",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "پڑوسی",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "ہمارے پڑوسی اچھے ہیں",
+          "translation": "Our neighbours are nice",
+          "translit": "hamaray parosi achay hain"
+        }
+      ],
+      "translit": "parosi"
+    },
+    {
+      "id": "ur_0227",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "سالگرہ",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "سالگرہ مبارک",
+          "translation": "Happy birthday",
+          "translit": "saalgirah mubarak"
+        }
+      ],
+      "translit": "saalgirah"
+    },
+    {
+      "id": "ur_0228",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "شادی",
+      "translation": "wedding, marriage",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "باجی کی شادی کل ہے",
+          "translation": "My sister's wedding is tomorrow",
+          "translit": "baaji ki shaadi kal hai"
+        }
+      ],
+      "translit": "shaadi"
+    },
+    {
+      "id": "ur_0229",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "تحفہ",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "یہ تحفہ آپ کے لیے ہے",
+          "translation": "This gift is for you",
+          "translit": "yeh tohfa aap ke liye hai"
+        }
+      ],
+      "translit": "tohfa"
+    },
+    {
+      "id": "ur_0230",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "باورچی خانہ",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "امی باورچی خانے میں ہیں",
+          "translation": "Mom is in the kitchen",
+          "translit": "ammi baawarchi khaane mein hain"
+        }
+      ],
+      "translit": "baawarchi khaana"
+    },
+    {
+      "id": "ur_0231",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "میز",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "کھانا میز پر ہے",
+          "translation": "The food is on the table",
+          "translit": "khana mez par hai"
+        }
+      ],
+      "translit": "mez"
+    },
+    {
+      "id": "ur_0232",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "بستر",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "بستر آرام دہ ہے",
+          "translation": "The bed is comfortable",
+          "translit": "bistar aaraam deh hai"
+        }
+      ],
+      "translit": "bistar"
+    },
+    {
+      "id": "ur_0233",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "دھونا",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "مجھے برتن دھونا ہیں",
+          "translation": "I have to wash the dishes",
+          "translit": "mujhe bartan dhona hain"
+        }
+      ],
+      "translit": "dhona"
+    },
+    {
+      "id": "ur_0234",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پہننا",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "آج نئے کپڑے پہننا ہیں",
+          "translation": "I have to wear new clothes today",
+          "translit": "aaj naye kapray pehenna hain"
+        }
+      ],
+      "translit": "pehenna"
+    },
+    {
+      "id": "ur_0235",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "بھولنا",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "میں نام بھول گیا",
+          "translation": "I forgot the name",
+          "translit": "main naam bhool gaya"
+        }
+      ],
+      "translit": "bhoolna"
+    },
+    {
+      "id": "ur_0236",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "یاد رکھنا",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "یہ بات یاد رکھنا",
+          "translation": "Remember this",
+          "translit": "yeh baat yaad rakhna"
+        }
+      ],
+      "translit": "yaad rakhna"
+    },
+    {
+      "id": "ur_0237",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "شروع کرنا",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "کام شروع کرو",
+          "translation": "Start the work",
+          "translit": "kaam shuru karo"
+        }
+      ],
+      "translit": "shuru karna"
+    },
+    {
+      "id": "ur_0238",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ختم کرنا",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "کھانا ختم کرو",
+          "translation": "Finish your food",
+          "translit": "khana khatam karo"
+        }
+      ],
+      "translit": "khatam karna"
+    },
+    {
+      "id": "ur_0239",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ہنسنا",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "بچے ہنس رہے ہیں",
+          "translation": "The children are laughing",
+          "translit": "bachay hans rahay hain"
+        }
+      ],
+      "translit": "hansna"
+    },
+    {
+      "id": "ur_0240",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "تیار",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "کھانا تیار ہے",
+          "translation": "The food is ready",
+          "translit": "khana tayyar hai"
+        }
+      ],
+      "translit": "tayyar"
+    },
+    {
+      "id": "ur_0241",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "مصروف",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "میں آج مصروف ہوں",
+          "translation": "I'm busy today",
+          "translit": "main aaj masroof hoon"
+        }
+      ],
+      "translit": "masroof"
+    },
+    {
+      "id": "ur_0242",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "جوان",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "میری خالہ جوان ہیں",
+          "translation": "My aunt is young",
+          "translit": "meri khala jawan hain"
+        }
+      ],
+      "translit": "jawan"
+    },
+    {
+      "id": "ur_0243",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "صاف",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "کمرہ صاف ہے",
+          "translation": "The room is clean",
+          "translit": "kamra saaf hai"
+        }
+      ],
+      "translit": "saaf"
+    },
+    {
+      "id": "ur_0244",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "دیر",
+      "translation": "late, delay",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "مجھے دیر ہو گئی",
+          "translation": "I'm late",
+          "translit": "mujhe der ho gayi"
+        }
+      ],
+      "translit": "der"
     }
   ],
   "alphabetGroups": [

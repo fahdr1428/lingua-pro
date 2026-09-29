@@ -3488,6 +3488,414 @@
         }
       ],
       "translit": "kaavalthurai"
+    },
+    {
+      "id": "ta_0191",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "பாப்பா",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 191,
+      "examples": [
+        {
+          "native": "பாப்பா தூங்குகிறது",
+          "translation": "The baby is sleeping",
+          "translit": "paappaa thoongugiradhu"
+        }
+      ],
+      "translit": "paappaa"
+    },
+    {
+      "id": "ta_0192",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "கணவர்",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 192,
+      "examples": [
+        {
+          "native": "என் கணவர் ஆசிரியர்",
+          "translation": "My husband is a teacher",
+          "translit": "en kanavar aasiriyar"
+        }
+      ],
+      "translit": "kanavar"
+    },
+    {
+      "id": "ta_0193",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "மனைவி",
+      "translation": "wife",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "என் மனைவி மருத்துவர்",
+          "translation": "My wife is a doctor",
+          "translit": "en manaivi maruththuvar"
+        }
+      ],
+      "translit": "manaivi"
+    },
+    {
+      "id": "ta_0194",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "விருந்தினர்",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "இன்று வீட்டுக்கு விருந்தினர் வருகிறார்கள்",
+          "translation": "Guests are coming home today",
+          "translit": "indru veettukku virundhinar varugiraargal"
+        }
+      ],
+      "translit": "virundhinar"
+    },
+    {
+      "id": "ta_0195",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "பக்கத்து வீட்டுக்காரர்",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "பக்கத்து வீட்டுக்காரர் நல்லவர்",
+          "translation": "The neighbour is a good person",
+          "translit": "pakkaththu veettukkaarar nallavar"
+        }
+      ],
+      "translit": "pakkaththu veettukkaarar"
+    },
+    {
+      "id": "ta_0196",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "பிறந்தநாள்",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "பிறந்தநாள் வாழ்த்துக்கள்",
+          "translation": "Happy birthday",
+          "translit": "pirandhanaal vaazhththukkal"
+        }
+      ],
+      "translit": "pirandhanaal"
+    },
+    {
+      "id": "ta_0197",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "கல்யாணம்",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "அக்காவின் கல்யாணம் நாளை",
+          "translation": "My sister's wedding is tomorrow",
+          "translit": "akkaavin kalyaanam naalai"
+        }
+      ],
+      "translit": "kalyaanam"
+    },
+    {
+      "id": "ta_0198",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "பரிசு",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "இது உனக்கான பரிசு",
+          "translation": "This is a gift for you",
+          "translit": "idhu unakkaana parisu"
+        }
+      ],
+      "translit": "parisu"
+    },
+    {
+      "id": "ta_0199",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "சமையலறை",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "அம்மா சமையலறையில் இருக்கிறார்",
+          "translation": "Mother is in the kitchen",
+          "translit": "amma samaiyalaraiyil irukkiraar"
+        }
+      ],
+      "translit": "samaiyalarai"
+    },
+    {
+      "id": "ta_0200",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "மேசை",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "சாப்பாடு மேசையில் இருக்கிறது",
+          "translation": "The food is on the table",
+          "translit": "saappaadu mesaiyil irukkiradhu"
+        }
+      ],
+      "translit": "mesai"
+    },
+    {
+      "id": "ta_0201",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "படுக்கை",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "படுக்கை வசதியாக இருக்கிறது",
+          "translation": "The bed is comfortable",
+          "translit": "padukkai vasadhiyaaga irukkiradhu"
+        }
+      ],
+      "translit": "padukkai"
+    },
+    {
+      "id": "ta_0202",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "கழுவு",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "கையைக் கழுவு",
+          "translation": "Wash your hands",
+          "translit": "kaiyaik kazhuvu"
+        }
+      ],
+      "translit": "kazhuvu"
+    },
+    {
+      "id": "ta_0203",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "அணி",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "புதிய சட்டை அணி",
+          "translation": "Wear the new shirt",
+          "translit": "pudhiya sattai ani"
+        }
+      ],
+      "translit": "ani"
+    },
+    {
+      "id": "ta_0204",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "மற",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "மறக்காதே",
+          "translation": "Don't forget",
+          "translit": "marakkaadhe"
+        }
+      ],
+      "translit": "mara"
+    },
+    {
+      "id": "ta_0205",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "நினைவில் வை",
+      "translation": "to remember, to keep in mind",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "இதை நினைவில் வை",
+          "translation": "Remember this",
+          "translit": "idhai ninaivil vai"
+        }
+      ],
+      "translit": "ninaivil vai"
+    },
+    {
+      "id": "ta_0206",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "தொடங்கு",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "வேலையைத் தொடங்கு",
+          "translation": "Start the work",
+          "translit": "velaiyaith thodangu"
+        }
+      ],
+      "translit": "thodangu"
+    },
+    {
+      "id": "ta_0207",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "முடி",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "வேலையை முடி",
+          "translation": "Finish the work",
+          "translit": "velaiyai mudi"
+        }
+      ],
+      "translit": "mudi"
+    },
+    {
+      "id": "ta_0208",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "சிரி",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "குழந்தைகள் சிரிக்கிறார்கள்",
+          "translation": "The children are laughing",
+          "translit": "kuzhandhaigal sirikkiraargal"
+        }
+      ],
+      "translit": "siri"
+    },
+    {
+      "id": "ta_0209",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "தயார்",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "சாப்பாடு தயார்",
+          "translation": "The food is ready",
+          "translit": "saappaadu thayaar"
+        }
+      ],
+      "translit": "thayaar"
+    },
+    {
+      "id": "ta_0210",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "பிஸி",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "இன்று நான் பிஸி",
+          "translation": "I'm busy today",
+          "translit": "indru naan bisi"
+        }
+      ],
+      "translit": "bisi"
+    },
+    {
+      "id": "ta_0211",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "இளமை",
+      "translation": "young, youth",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "சித்தி இன்னும் இளமையாக இருக்கிறார்",
+          "translation": "My aunt is still young",
+          "translit": "chiththi innum ilamaiyaaga irukkiraar"
+        }
+      ],
+      "translit": "ilamai"
+    },
+    {
+      "id": "ta_0212",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "சுத்தம்",
+      "translation": "clean, cleanliness",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "அறை சுத்தமாக இருக்கிறது",
+          "translation": "The room is clean",
+          "translit": "arai suththamaaga irukkiradhu"
+        }
+      ],
+      "translit": "suththam"
+    },
+    {
+      "id": "ta_0213",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "சீக்கிரம்",
+      "translation": "early, soon",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "நாளை சீக்கிரம் வா",
+          "translation": "Come early tomorrow",
+          "translit": "naalai seekkiram vaa"
+        }
+      ],
+      "translit": "seekkiram"
+    },
+    {
+      "id": "ta_0214",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "தாமதம்",
+      "translation": "late, delay",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "எனக்கு தாமதமாகிவிட்டது",
+          "translation": "I'm late",
+          "translit": "enakku thaamadhamaagivittadhu"
+        }
+      ],
+      "translit": "thaamadham"
     }
   ],
   "alphabetGroups": [

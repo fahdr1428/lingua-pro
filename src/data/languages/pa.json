@@ -1455,7 +1455,7 @@
       "unit": "u3",
       "lemma": "سویرے",
       "translit": "savere",
-      "translation": "morning",
+      "translation": "morning, early",
       "category": "Time",
       "difficulty": 2,
       "frequencyRank": 96,
@@ -1464,6 +1464,11 @@
           "native": "سویرے ملاں گے",
           "translation": "See you in the morning",
           "translit": "savere milaan ge"
+        },
+        {
+          "native": "کل سویرے آئیں",
+          "translation": "Come early tomorrow",
+          "translit": "kal savere aayin"
         }
       ]
     },
@@ -3734,6 +3739,397 @@
         }
       ],
       "translit": "police"
+    },
+    {
+      "id": "pa_0203",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "نیانا",
+      "translation": "baby, small child",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "نیانا سوں رہیا اے",
+          "translation": "The baby is sleeping",
+          "translit": "nyaana saun rehya ae"
+        }
+      ],
+      "translit": "nyaana"
+    },
+    {
+      "id": "pa_0204",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "گھر والا",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "میرا گھر والا استاد اے",
+          "translation": "My husband is a teacher",
+          "translit": "mera ghar wala ustaad ae"
+        }
+      ],
+      "translit": "ghar wala"
+    },
+    {
+      "id": "pa_0205",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "گھر والی",
+      "translation": "wife",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "میری گھر والی ڈاکٹر اے",
+          "translation": "My wife is a doctor",
+          "translit": "meri ghar wali doctor ae"
+        }
+      ],
+      "translit": "ghar wali"
+    },
+    {
+      "id": "pa_0206",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "پروہنا",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "اج پروہنے آ رہے نیں",
+          "translation": "Guests are coming today",
+          "translit": "aj prauhne aa rahe nein"
+        }
+      ],
+      "translit": "prauhna"
+    },
+    {
+      "id": "pa_0207",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "گوانڈی",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "ساڈے گوانڈی چنگے نیں",
+          "translation": "Our neighbours are good",
+          "translit": "saade guaandi change nein"
+        }
+      ],
+      "translit": "guaandi"
+    },
+    {
+      "id": "pa_0208",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "جنم دن",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "جنم دن مبارک",
+          "translation": "Happy birthday",
+          "translit": "janam din mubarak"
+        }
+      ],
+      "translit": "janam din"
+    },
+    {
+      "id": "pa_0209",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ویاہ",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "بھین دا ویاہ کل اے",
+          "translation": "My sister's wedding is tomorrow",
+          "translit": "bhain da viyah kal ae"
+        }
+      ],
+      "translit": "viyah"
+    },
+    {
+      "id": "pa_0210",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "تحفہ",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "ایہہ تحفہ تیرے لئی اے",
+          "translation": "This gift is for you",
+          "translit": "eh tohfa tere layi ae"
+        }
+      ],
+      "translit": "tohfa"
+    },
+    {
+      "id": "pa_0211",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "رسوئی",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "ماں رسوئی وچ اے",
+          "translation": "Mother is in the kitchen",
+          "translit": "maan rasoi vich ae"
+        }
+      ],
+      "translit": "rasoi"
+    },
+    {
+      "id": "pa_0212",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "میز",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "روٹی میز تے اے",
+          "translation": "The food is on the table",
+          "translit": "roti mez te ae"
+        }
+      ],
+      "translit": "mez"
+    },
+    {
+      "id": "pa_0213",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "منجی",
+      "translation": "bed, cot",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "منجی ڈاہ دیو",
+          "translation": "Set up the bed",
+          "translit": "manji daah deo"
+        }
+      ],
+      "translit": "manji"
+    },
+    {
+      "id": "pa_0214",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "دھونا",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "بھانڈے دھونے نیں",
+          "translation": "The dishes need washing",
+          "translit": "bhaande dhone nein"
+        }
+      ],
+      "translit": "dhona"
+    },
+    {
+      "id": "pa_0215",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "پانا",
+      "translation": "to wear, to put on",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "نویں کپڑے پانے نیں",
+          "translation": "I'm going to wear new clothes",
+          "translit": "naveen kapre paane nein"
+        }
+      ],
+      "translit": "paana"
+    },
+    {
+      "id": "pa_0216",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "بھلنا",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "میں ناں بھل گیا",
+          "translation": "I forgot the name",
+          "translit": "main naan bhul gaya"
+        }
+      ],
+      "translit": "bhulna"
+    },
+    {
+      "id": "pa_0217",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "یاد رکھنا",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "ایہہ گل یاد رکھنا",
+          "translation": "Remember this",
+          "translit": "eh gal yaad rakhna"
+        }
+      ],
+      "translit": "yaad rakhna"
+    },
+    {
+      "id": "pa_0218",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "شروع کرنا",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "کم شروع کرو",
+          "translation": "Start the work",
+          "translit": "kam shuru karo"
+        }
+      ],
+      "translit": "shuru karna"
+    },
+    {
+      "id": "pa_0219",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "مکاؤنا",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "کم مکا لیا",
+          "translation": "I finished the work",
+          "translit": "kam muka liya"
+        }
+      ],
+      "translit": "mukaauna"
+    },
+    {
+      "id": "pa_0220",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ہسنا",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "ہسنا چنگا اے",
+          "translation": "Laughing is good",
+          "translit": "hasna changa ae"
+        }
+      ],
+      "translit": "hasna"
+    },
+    {
+      "id": "pa_0221",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "تیار",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "روٹی تیار اے",
+          "translation": "The food is ready",
+          "translit": "roti tiyaar ae"
+        }
+      ],
+      "translit": "tiyaar"
+    },
+    {
+      "id": "pa_0222",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "مصروف",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "میں اج مصروف ہاں",
+          "translation": "I'm busy today",
+          "translit": "main aj masroof haan"
+        }
+      ],
+      "translit": "masroof"
+    },
+    {
+      "id": "pa_0223",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "جوان",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "میری ماسی جوان اے",
+          "translation": "My aunt is young",
+          "translit": "meri maasi javaan ae"
+        }
+      ],
+      "translit": "javaan"
+    },
+    {
+      "id": "pa_0224",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "صاف",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "کمرہ صاف اے",
+          "translation": "The room is clean",
+          "translit": "kamra saaf ae"
+        }
+      ],
+      "translit": "saaf"
+    },
+    {
+      "id": "pa_0225",
+      "unit": "u4",
+      "category": "Time",
+      "lemma": "دیر",
+      "translation": "late, delay",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "مینوں دیر ہو گئی",
+          "translation": "I'm late",
+          "translit": "mainu der ho gayi"
+        }
+      ],
+      "translit": "der"
     }
   ],
   "alphabetGroups": [

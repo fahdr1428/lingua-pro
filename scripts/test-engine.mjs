@@ -783,6 +783,25 @@ check("every disabled type is genuinely absent, including the two built outside 
   const partialUnlocks = computeUnlocks(partial, { chaptersPassed: {} }, "fr");
   check("a unit merely dabbled in is still gated",
     partialUnlocks[AHEAD] === false, `unlocked=${partialUnlocks[AHEAD]} at pct ${partial[AHEAD].pct}`);
+
+  // v109: in the chapter you're working through, a stop you've started stays
+  // open even if the stop before it drops under 30% — which happens when words
+  // move between units (the v109 refile moved feelings out of Food & Drink).
+  // Chapter 1 passed, so chapter 2 (u4–u6) is the current one.
+  const moved = Array.from({ length: 12 }, (_, i) => ({ id: `u${i + 1}`, pct: 0, learned: 0 }));
+  moved[4] = { id: "u5", pct: 0.2, learned: 3 };   // Food & Drink, now under 30%
+  moved[5] = { id: "u6", pct: 0.1, learned: 2 };   // Common Verbs, already started
+  const movedUnlocks = computeUnlocks(moved, { chaptersPassed: { fr: [1] } }, "fr");
+  check("a started stop in the current chapter stays open when the one before drops under 30%",
+    movedUnlocks[5] === true, `u6 unlocked=${movedUnlocks[5]}`);
+  const notStarted = moved.map((u) => ({ ...u }));
+  notStarted[5] = { id: "u6", pct: 0, learned: 0 };
+  check("...and an unstarted one is still gated by the 30% rule",
+    computeUnlocks(notStarted, { chaptersPassed: { fr: [1] } }, "fr")[5] === false, "u6 opened with u5 at 20% and nothing learned in it");
+  const ahead = Array.from({ length: 12 }, (_, i) => ({ id: `u${i + 1}`, pct: 0, learned: 0 }));
+  ahead[8] = { id: "u9", pct: 0.1, learned: 2 };   // chapter 3, while in chapter 1
+  check("...and a word learned in a LATER chapter doesn't open that chapter's stops",
+    computeUnlocks(ahead, { chaptersPassed: {} }, "fr")[8] === false, "u9 opened from chapter 1");
 }
 
 // =========================================================================

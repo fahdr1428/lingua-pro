@@ -80,6 +80,7 @@ const SCREEN_LOADERS = {
   stream: () => import("./screens/InputStream.jsx"),
   topics: () => import("./screens/Topics.jsx"),
   listen: () => import("./screens/Listen.jsx"),
+  rush: () => import("./screens/Rush.jsx"),
 };
 
 // One tap away from everywhere, so they are warmed first. The rest follow.
@@ -152,6 +153,7 @@ const Decode = named("decode", "Decode");
 const InputStream = named("stream", "InputStream");
 const Topics = named("topics", "Topics");
 const Listen = named("listen", "Listen");
+const Rush = named("rush", "Rush");
 
 // A lazily-imported screen that fails to load is almost never a bug in the
 // screen. It's a deploy: this app splits fifteen screens into content-hashed
@@ -270,6 +272,7 @@ const DEFAULT_APP_STATE = {
   sentenceDropsDone: {}, // v47: { langCode: highestDropNumber } — Sentence Lab progress
   lastCheckpointAt: {}, // { langCode: lessonCount when last checkpoint cleared }
   testedOut: {}, // { langCode: [wordId,...] } — words skipped via placement test
+  gameBest: {}, // v109: { langCode: { "rush-meaning": n, "rush-word": n } } — Word Rush best scores
   scriptCourse: {}, // v99: { langCode: { passed, at, score } } — Chapter 0's reading exam
   passagesRead: {}, // v79: { langCode: [passageId,...] } — so the reading library advances
   voice: null, // v74: { coachVoiceURI, tone, speed, targetVoiceURI } — null = automatic
@@ -649,6 +652,7 @@ export default function App() {
         {screen === "stream" && <InputStream {...screenProps} />}
         {screen === "topics" && <Topics {...screenProps} />}
         {screen === "listen" && <Listen {...screenProps} />}
+        {screen === "rush" && <Rush {...screenProps} />}
         </Suspense>
       </main>
       </div>

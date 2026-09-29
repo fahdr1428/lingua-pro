@@ -1123,33 +1123,70 @@ async function runMistakesTeach() {
   // The wrong option is chosen by elimination against the pack, never from the
   // DOM — the correct answer is deliberately not present in the markup, and a
   // test that read it from there would be proving the wrong thing.
-  const meanings = new Set(pack.vocab.map((v) => v.translation));
+  //
+  // v109: it now really does. It used to click the LAST option and rely on
+  // that being wrong three times in four. About one run in 64 the last option
+  // was right three times running, the lesson moved on to a new-words batch,
+  // and the harness stalled there (see "Start practice" below) — which is how
+  // this check failed once in the v109 gate. Now a miss isn't left to chance,
+  // and a failure prints what the screen showed.
+  const norm = (s) => String(s || "").toLowerCase().replace(/\s+/g, " ").trim();
+  // Could this option be the right answer to this prompt? Either it spells a
+  // word whose meaning the prompt asks for, or it is the meaning of a word the
+  // prompt shows.
+  const couldBeRight = (prompt, option) => {
+    const p = norm(prompt), o = norm(option);
+    return pack.vocab.some((v) => {
+      const spelled = [v.lemma, v.translit].filter(Boolean).map(norm).some((f) => f && o.includes(f));
+      const asked = norm(v.translation) && p.includes(norm(v.translation));
+      const shown = [v.lemma, v.translit].filter(Boolean).map(norm).some((f) => f && p.includes(f));
+      const means = norm(v.translation) && o.includes(norm(v.translation));
+      return (spelled && asked) || (shown && means);
+    });
+  };
   let answeredWrong = false;
+  const seen = [];
   for (let i = 0; i < 16 && !answeredWrong; i++) {
     const opts = page.locator(".opt-btn");
     if (await opts.count() >= 2) {
-      // Pick the LAST option. With four choices that's wrong three times in
-      // four, and the loop simply carries on to the next question if it's right.
-      await opts.last().click();
+      const texts = await opts.allInnerTexts();
+      // The question, without the options' own text in it.
+      let prompt = await page.locator("#main").innerText().catch(() => "");
+      for (const t of texts) prompt = prompt.split(t).join(" ");
+      let pick = texts.findIndex((t) => !couldBeRight(prompt, t));
+      if (pick < 0) pick = texts.length - 1;
+      seen.push(`${i}: [${texts.map((t) => norm(t)).join(" | ")}] → ${pick}`);
+      await opts.nth(pick).click();
       await page.waitForTimeout(200);
       await page.evaluate(() => {
         const go = [...document.querySelectorAll("button")].find(
           (b) => /^check/i.test((b.innerText || "").trim()) && !b.disabled);
         if (go) go.click();
       });
-      await page.waitForTimeout(800);
+      // Give the explanation time to appear rather than a fixed 800 ms; a
+      // right answer (rare now) just costs the wait.
+      await page.waitForFunction(() => /here's what happened|here's the thing/i.test(document.body.innerText), null, { timeout: 2500 }).catch(() => {});
       const body = await page.locator("body").innerText();
       if (/here's what happened|here's the thing/i.test(body)) { answeredWrong = true; break; }
+    } else {
+      seen.push(`${i}: ${norm(await page.locator("#main").innerText().catch(() => "")).slice(0, 70)}`);
     }
+    // "🚀 Start practice" first: on the last new-word card it sits beside
+    // "Done", and the old pattern (anchored at ^start, so the emoji hid it)
+    // clicked Done forever — the harness then stalled on "card 6 of 6" until
+    // the step budget ran out. That is how three lucky right answers in a
+    // row failed this check.
     await page.evaluate(() => {
-      const go = [...document.querySelectorAll("button")].find(
-        (b) => /^(continue|next|got it|i've got these|start practice|done)/i.test((b.innerText || "").trim()) && !b.disabled);
+      const buttons = [...document.querySelectorAll("button")].filter((b) => !b.disabled);
+      const label = (b) => (b.innerText || "").trim();
+      const go = buttons.find((b) => /start practice/i.test(label(b)))
+        || buttons.find((b) => /^\W*(continue|next|got it|i've got these|done)/i.test(label(b)));
       if (go) go.click();
     });
     await page.waitForTimeout(500);
   }
 
-  check("a wrong answer explains itself without being asked", answeredWrong);
+  check("a wrong answer explains itself without being asked", answeredWrong, seen.slice(-6).join(" · "));
 
   if (answeredWrong) {
     check("the explanation is open, not hidden behind a 'Why?' button",

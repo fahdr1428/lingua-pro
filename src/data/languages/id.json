@@ -3413,6 +3413,366 @@
           "translation": "Call the police!"
         }
       ]
+    },
+    {
+      "id": "id_0202",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "bayi",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "Bayi itu sedang tidur",
+          "translation": "The baby is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "id_0203",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "suami",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "Suami saya dokter",
+          "translation": "My husband is a doctor"
+        }
+      ]
+    },
+    {
+      "id": "id_0204",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "istri",
+      "translation": "wife",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "Istri saya guru",
+          "translation": "My wife is a teacher"
+        }
+      ]
+    },
+    {
+      "id": "id_0205",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "tamu",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "Ada tamu di rumah",
+          "translation": "There's a guest at home"
+        }
+      ]
+    },
+    {
+      "id": "id_0206",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "tetangga",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "Tetangga kami baik",
+          "translation": "Our neighbours are kind"
+        }
+      ]
+    },
+    {
+      "id": "id_0207",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "ulang tahun",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "Selamat ulang tahun",
+          "translation": "Happy birthday"
+        }
+      ]
+    },
+    {
+      "id": "id_0208",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "pernikahan",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "Pernikahan kakak saya besok",
+          "translation": "My sister's wedding is tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "id_0209",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "hadiah",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "Ini hadiah untukmu",
+          "translation": "This is a gift for you"
+        }
+      ]
+    },
+    {
+      "id": "id_0210",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "dapur",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "Ibu ada di dapur",
+          "translation": "Mother is in the kitchen"
+        }
+      ]
+    },
+    {
+      "id": "id_0211",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "meja",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "Makanan ada di meja",
+          "translation": "The food is on the table"
+        }
+      ]
+    },
+    {
+      "id": "id_0212",
+      "unit": "u5",
+      "category": "Common",
+      "lemma": "tempat tidur",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "Tempat tidurnya nyaman",
+          "translation": "The bed is comfortable"
+        }
+      ]
+    },
+    {
+      "id": "id_0213",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mencuci",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "Saya mencuci piring",
+          "translation": "I wash the dishes"
+        }
+      ]
+    },
+    {
+      "id": "id_0214",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "memakai",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "Dia memakai baju merah",
+          "translation": "She is wearing a red top"
+        }
+      ]
+    },
+    {
+      "id": "id_0215",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "lupa",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "Saya lupa namanya",
+          "translation": "I forgot his name"
+        }
+      ]
+    },
+    {
+      "id": "id_0216",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ingat",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "Kamu ingat saya?",
+          "translation": "Do you remember me?"
+        }
+      ]
+    },
+    {
+      "id": "id_0217",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mulai",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "Kita mulai sekarang",
+          "translation": "We start now"
+        }
+      ]
+    },
+    {
+      "id": "id_0218",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "selesai",
+      "translation": "to finish, finished",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "Saya sudah selesai",
+          "translation": "I've finished"
+        }
+      ]
+    },
+    {
+      "id": "id_0219",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "tertawa",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "Anak-anak tertawa",
+          "translation": "The children are laughing"
+        }
+      ]
+    },
+    {
+      "id": "id_0220",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "siap",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "Makanan sudah siap",
+          "translation": "The food is ready"
+        }
+      ]
+    },
+    {
+      "id": "id_0221",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "sibuk",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "Saya sibuk hari ini",
+          "translation": "I'm busy today"
+        }
+      ]
+    },
+    {
+      "id": "id_0222",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "muda",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "Tante saya masih muda",
+          "translation": "My aunt is still young"
+        }
+      ]
+    },
+    {
+      "id": "id_0223",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "bersih",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "Kamarnya bersih",
+          "translation": "The room is clean"
+        }
+      ]
+    },
+    {
+      "id": "id_0224",
+      "unit": "u5",
+      "category": "Time",
+      "lemma": "awal",
+      "translation": "early, beginning",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "Besok datang lebih awal",
+          "translation": "Come earlier tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "id_0225",
+      "unit": "u5",
+      "category": "Time",
+      "lemma": "terlambat",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "Maaf, saya terlambat",
+          "translation": "Sorry, I'm late"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

@@ -459,7 +459,6 @@ export const EXTRA_EXAMPLES = {
     "يذهب": [{ native: "متى تذهب؟", translit: "mata tadhhab?", translation: "When do you go?" }],
     "بيت": [{ native: "البيت قريب من السوق", translit: "al-bayt qareeb min as-sooq", translation: "The house is near the market" }],
     "اليوم": [{ native: "اليوم عندي عمل كثير", translit: "al-yawm indi amal katheer", translation: "Today I have a lot of work" }],
-    "غدا": [{ native: "سأسافر غدا", translit: "sa-usafir ghadan", translation: "I will travel tomorrow" }],
     "جوعان": [{ native: "هل أنت جوعان؟", translit: "hal anta jouan?", translation: "Are you hungry?" }],
     "من فضلك": [{ native: "من فضلك، أين المحطة؟", translit: "min fadlik, ayna al-mahatta?", translation: "Please, where is the station?" }],
     "كبير": [{ native: "أخي الكبير", translit: "akhi al-kabeer", translation: "My older brother" }],
@@ -472,7 +471,12 @@ export const EXTRA_EXAMPLES = {
     "السلام عليكم": [{ native: "قال لي السلام عليكم", translit: "qaala li as-salamu alaykum", translation: "He said hello to me" }],
     "أنت": [{ native: "هذا لك أنت", translit: "hadha laka anta", translation: "This is for you" }],
     "اسم": [{ native: "اكتب اسمك هنا", translit: "uktub ismak huna", translation: "Write your name here" }],
-    "غداً": [{ native: "غداً أذهب إلى السوق", translit: "ghadan adhhab ila as-suq", translation: "Tomorrow I'm going to the market" }],
+    // v109: غدا and غداً were the same word taught twice; غداً stays, and
+    // the sentence that hung off غدا comes with it.
+    "غداً": [
+      { native: "غداً أذهب إلى السوق", translit: "ghadan adhhab ila as-suq", translation: "Tomorrow I'm going to the market" },
+      { native: "سأسافر غداً", translit: "sa-usafir ghadan", translation: "I will travel tomorrow" },
+    ],
     "يقول": [{ native: "قل لي الحقيقة", translit: "qul li al-haqiqa", translation: "Tell me the truth" }],
     "من": [{ native: "مع من تأتي؟", translit: "ma'a man ta'ti?", translation: "Who are you coming with?" }],
     "كم": [{ native: "كم أخا لديك؟", translit: "kam akhan ladayk?", translation: "How many brothers do you have?" }],

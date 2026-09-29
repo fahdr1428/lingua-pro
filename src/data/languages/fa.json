@@ -3581,6 +3581,414 @@
         }
       ],
       "translit": "polis"
+    },
+    {
+      "id": "fa_0197",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "نوزاد",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "نوزاد خواب است",
+          "translation": "The baby is asleep",
+          "translit": "nowzâd khâb ast"
+        }
+      ],
+      "translit": "nowzâd"
+    },
+    {
+      "id": "fa_0198",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "شوهر",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "شوهرم معلم است",
+          "translation": "My husband is a teacher",
+          "translit": "showharam mo'allem ast"
+        }
+      ],
+      "translit": "showhar"
+    },
+    {
+      "id": "fa_0199",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "همسر",
+      "translation": "wife, spouse",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "همسرم پزشک است",
+          "translation": "My wife is a doctor",
+          "translit": "hamsaram pezeshk ast"
+        }
+      ],
+      "translit": "hamsar"
+    },
+    {
+      "id": "fa_0200",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "مهمان",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "امشب مهمان داریم",
+          "translation": "We have guests tonight",
+          "translit": "emshab mehmân dârim"
+        }
+      ],
+      "translit": "mehmân"
+    },
+    {
+      "id": "fa_0201",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "همسایه",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "همسایه ما مهربان است",
+          "translation": "Our neighbour is kind",
+          "translit": "hamsâye-ye mâ mehrabân ast"
+        }
+      ],
+      "translit": "hamsâye"
+    },
+    {
+      "id": "fa_0202",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "تولد",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "تولدت مبارک",
+          "translation": "Happy birthday",
+          "translit": "tavallodat mobârak"
+        }
+      ],
+      "translit": "tavallod"
+    },
+    {
+      "id": "fa_0203",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "عروسی",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "عروسی خواهرم فرداست",
+          "translation": "My sister's wedding is tomorrow",
+          "translit": "arusi-ye khâharam fardâst"
+        }
+      ],
+      "translit": "arusi"
+    },
+    {
+      "id": "fa_0204",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "هدیه",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "این هدیه برای توست",
+          "translation": "This gift is for you",
+          "translit": "in hediye barâye tost"
+        }
+      ],
+      "translit": "hediye"
+    },
+    {
+      "id": "fa_0205",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "آشپزخانه",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "مادرم در آشپزخانه است",
+          "translation": "My mother is in the kitchen",
+          "translit": "mâdaram dar âshpazkhâne ast"
+        }
+      ],
+      "translit": "âshpazkhâne"
+    },
+    {
+      "id": "fa_0206",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "میز",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "غذا روی میز است",
+          "translation": "The food is on the table",
+          "translit": "ghazâ ru-ye miz ast"
+        }
+      ],
+      "translit": "miz"
+    },
+    {
+      "id": "fa_0207",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "تخت",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "تخت راحت است",
+          "translation": "The bed is comfortable",
+          "translit": "takht râhat ast"
+        }
+      ],
+      "translit": "takht"
+    },
+    {
+      "id": "fa_0208",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "شستن",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "شستن ظرف‌ها با من",
+          "translation": "Washing the dishes is on me",
+          "translit": "shostan-e zarfhâ bâ man"
+        }
+      ],
+      "translit": "shostan"
+    },
+    {
+      "id": "fa_0209",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "پوشیدن",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "پوشیدن لباس گرم لازم است",
+          "translation": "Wearing warm clothes is necessary",
+          "translit": "pushidan-e lebâs-e garm lâzem ast"
+        }
+      ],
+      "translit": "pushidan"
+    },
+    {
+      "id": "fa_0210",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "فراموش کردن",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "اسمش را فراموش کردم",
+          "translation": "I forgot his name",
+          "translit": "esmash râ farâmush kardam"
+        }
+      ],
+      "translit": "farâmush kardan"
+    },
+    {
+      "id": "fa_0211",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "یاد داشتن",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "یاد داشتن اسم‌ها سخت است",
+          "translation": "Remembering names is hard",
+          "translit": "yâd dâshtan-e esmhâ sakht ast"
+        }
+      ],
+      "translit": "yâd dâshtan"
+    },
+    {
+      "id": "fa_0212",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "شروع کردن",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "کار را شروع کردم",
+          "translation": "I started the work",
+          "translit": "kâr râ shoru' kardam"
+        }
+      ],
+      "translit": "shoru' kardan"
+    },
+    {
+      "id": "fa_0213",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "تمام کردن",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "کارم را تمام کردم",
+          "translation": "I finished my work",
+          "translit": "kâram râ tamâm kardam"
+        }
+      ],
+      "translit": "tamâm kardan"
+    },
+    {
+      "id": "fa_0214",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "خندیدن",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "خندیدن برای سلامتی خوب است",
+          "translation": "Laughing is good for your health",
+          "translit": "khandidan barâye salâmati khub ast"
+        }
+      ],
+      "translit": "khandidan"
+    },
+    {
+      "id": "fa_0215",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "آماده",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "غذا آماده است",
+          "translation": "The food is ready",
+          "translit": "ghazâ âmâde ast"
+        }
+      ],
+      "translit": "âmâde"
+    },
+    {
+      "id": "fa_0216",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "مشغول",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "امروز مشغولم",
+          "translation": "I'm busy today",
+          "translit": "emruz mashghulam"
+        }
+      ],
+      "translit": "mashghul"
+    },
+    {
+      "id": "fa_0217",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "جوان",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "او خیلی جوان است",
+          "translation": "He is very young",
+          "translit": "u kheyli javân ast"
+        }
+      ],
+      "translit": "javân"
+    },
+    {
+      "id": "fa_0218",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "تمیز",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "اتاق تمیز است",
+          "translation": "The room is clean",
+          "translit": "otâgh tamiz ast"
+        }
+      ],
+      "translit": "tamiz"
+    },
+    {
+      "id": "fa_0219",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "زود",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "فردا زود بیا",
+          "translation": "Come early tomorrow",
+          "translit": "fardâ zud biyâ"
+        }
+      ],
+      "translit": "zud"
+    },
+    {
+      "id": "fa_0220",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "دیر",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "دیر شد",
+          "translation": "It got late",
+          "translit": "dir shod"
+        }
+      ],
+      "translit": "dir"
     }
   ],
   "alphabetGroups": [

@@ -620,7 +620,7 @@
       "unit": "u4",
       "category": "Family",
       "lemma": "asawa",
-      "translation": "spouse (husband or wife)",
+      "translation": "spouse, husband, wife",
       "difficulty": 1,
       "examples": [
         {
@@ -3014,6 +3014,336 @@
         {
           "native": "Tumawag ka ng pulis!",
           "translation": "Call the police!"
+        }
+      ]
+    },
+    {
+      "id": "tl_0193",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "sanggol",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 193,
+      "examples": [
+        {
+          "native": "Natutulog ang sanggol",
+          "translation": "The baby is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "tl_0194",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "bisita",
+      "translation": "guest, visitor",
+      "difficulty": 1,
+      "frequencyRank": 194,
+      "examples": [
+        {
+          "native": "May bisita tayo ngayon",
+          "translation": "We have a guest today"
+        }
+      ]
+    },
+    {
+      "id": "tl_0195",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "kapitbahay",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 195,
+      "examples": [
+        {
+          "native": "Mabait ang kapitbahay namin",
+          "translation": "Our neighbour is kind"
+        }
+      ]
+    },
+    {
+      "id": "tl_0196",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "kaarawan",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 196,
+      "examples": [
+        {
+          "native": "Maligayang kaarawan",
+          "translation": "Happy birthday"
+        }
+      ]
+    },
+    {
+      "id": "tl_0197",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "kasal",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 197,
+      "examples": [
+        {
+          "native": "Bukas ang kasal ng ate ko",
+          "translation": "My sister's wedding is tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "tl_0198",
+      "unit": "u4",
+      "category": "Family",
+      "lemma": "regalo",
+      "translation": "gift",
+      "difficulty": 1,
+      "frequencyRank": 198,
+      "examples": [
+        {
+          "native": "Regalo ko ito sa iyo",
+          "translation": "This is my gift to you"
+        }
+      ]
+    },
+    {
+      "id": "tl_0199",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "kusina",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 199,
+      "examples": [
+        {
+          "native": "Nasa kusina si Nanay",
+          "translation": "Mother is in the kitchen"
+        }
+      ]
+    },
+    {
+      "id": "tl_0200",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "mesa",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 200,
+      "examples": [
+        {
+          "native": "Nasa mesa ang pagkain",
+          "translation": "The food is on the table"
+        }
+      ]
+    },
+    {
+      "id": "tl_0201",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "kama",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "Malambot ang kama",
+          "translation": "The bed is soft"
+        }
+      ]
+    },
+    {
+      "id": "tl_0202",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "maghugas",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "Maghugas ka ng kamay",
+          "translation": "Wash your hands"
+        }
+      ]
+    },
+    {
+      "id": "tl_0203",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magsuot",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "Gusto kong magsuot ng bagong damit",
+          "translation": "I want to wear new clothes"
+        }
+      ]
+    },
+    {
+      "id": "tl_0204",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "kalimutan",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "Huwag mong kalimutan",
+          "translation": "Don't forget"
+        }
+      ]
+    },
+    {
+      "id": "tl_0205",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "tandaan",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "Tandaan mo ito",
+          "translation": "Remember this"
+        }
+      ]
+    },
+    {
+      "id": "tl_0206",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magsimula",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "Puwede na tayong magsimula",
+          "translation": "We can start now"
+        }
+      ]
+    },
+    {
+      "id": "tl_0207",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "tapusin",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "Tapusin mo ang trabaho",
+          "translation": "Finish the work"
+        }
+      ]
+    },
+    {
+      "id": "tl_0208",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "tumawa",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "Gusto kong tumawa",
+          "translation": "I want to laugh"
+        }
+      ]
+    },
+    {
+      "id": "tl_0209",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "handa",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "Handa na ang pagkain",
+          "translation": "The food is ready"
+        }
+      ]
+    },
+    {
+      "id": "tl_0210",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "abala",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "Abala ako ngayon",
+          "translation": "I'm busy today"
+        }
+      ]
+    },
+    {
+      "id": "tl_0211",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "bata pa",
+      "translation": "young (bata pa = still young)",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "Bata pa ang tita ko",
+          "translation": "My aunt is still young"
+        }
+      ]
+    },
+    {
+      "id": "tl_0212",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "malinis",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "Malinis ang kuwarto",
+          "translation": "The room is clean"
+        }
+      ]
+    },
+    {
+      "id": "tl_0213",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "maaga",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "Pumunta ka nang maaga bukas",
+          "translation": "Come early tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "tl_0214",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "huli",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "Huli na ako",
+          "translation": "I'm late"
         }
       ]
     }

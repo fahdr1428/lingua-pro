@@ -3106,7 +3106,7 @@
     },
     {
       "id": "zh_0157",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "爷爷",
       "translit": "yéye",
       "translation": "grandfather (father's father)",
@@ -3124,7 +3124,7 @@
     },
     {
       "id": "zh_0158",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "奶奶",
       "translit": "nǎinai",
       "translation": "grandmother (father's mother)",
@@ -3141,7 +3141,7 @@
     },
     {
       "id": "zh_0159",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "外公",
       "translit": "wàigōng",
       "translation": "grandfather (mother's father)",
@@ -3158,7 +3158,7 @@
     },
     {
       "id": "zh_0160",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "外婆",
       "translit": "wàipó",
       "translation": "grandmother (mother's mother)",
@@ -3175,7 +3175,7 @@
     },
     {
       "id": "zh_0161",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "叔叔",
       "translit": "shūshu",
       "translation": "uncle (father's younger brother)",
@@ -3192,7 +3192,7 @@
     },
     {
       "id": "zh_0162",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "舅舅",
       "translit": "jiùjiu",
       "translation": "uncle (mother's brother)",
@@ -3209,7 +3209,7 @@
     },
     {
       "id": "zh_0163",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "姑姑",
       "translit": "gūgu",
       "translation": "aunt (father's sister)",
@@ -3226,7 +3226,7 @@
     },
     {
       "id": "zh_0164",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "阿姨",
       "translit": "āyí",
       "translation": "aunt (mother's sister)",
@@ -3260,7 +3260,7 @@
     },
     {
       "id": "zh_0166",
-      "unit": "u5",
+      "unit": "u11",
       "lemma": "生病",
       "translit": "shēngbìng",
       "translation": "to be ill",
@@ -4039,6 +4039,414 @@
         }
       ],
       "translit": "jǐngchá"
+    },
+    {
+      "id": "zh_0212",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "宝宝",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "宝宝在睡觉",
+          "translation": "The baby is sleeping",
+          "translit": "bǎobao zài shuìjiào"
+        }
+      ],
+      "translit": "bǎobao"
+    },
+    {
+      "id": "zh_0213",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "丈夫",
+      "translation": "husband",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "我丈夫是老师",
+          "translation": "My husband is a teacher",
+          "translit": "wǒ zhàngfu shì lǎoshī"
+        }
+      ],
+      "translit": "zhàngfu"
+    },
+    {
+      "id": "zh_0214",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "妻子",
+      "translation": "wife",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "我妻子是医生",
+          "translation": "My wife is a doctor",
+          "translit": "wǒ qīzi shì yīshēng"
+        }
+      ],
+      "translit": "qīzi"
+    },
+    {
+      "id": "zh_0215",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "客人",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "今天家里有客人",
+          "translation": "We have guests at home today",
+          "translit": "jīntiān jiālǐ yǒu kèrén"
+        }
+      ],
+      "translit": "kèrén"
+    },
+    {
+      "id": "zh_0216",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "邻居",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "我的邻居很好",
+          "translation": "My neighbour is very nice",
+          "translit": "wǒ de línjū hěn hǎo"
+        }
+      ],
+      "translit": "línjū"
+    },
+    {
+      "id": "zh_0217",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "生日",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "生日快乐",
+          "translation": "Happy birthday",
+          "translit": "shēngrì kuàilè"
+        }
+      ],
+      "translit": "shēngrì"
+    },
+    {
+      "id": "zh_0218",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "婚礼",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "姐姐的婚礼是明天",
+          "translation": "My sister's wedding is tomorrow",
+          "translit": "jiějie de hūnlǐ shì míngtiān"
+        }
+      ],
+      "translit": "hūnlǐ"
+    },
+    {
+      "id": "zh_0219",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "礼物",
+      "translation": "gift, present",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "这是给你的礼物",
+          "translation": "This is a gift for you",
+          "translit": "zhè shì gěi nǐ de lǐwù"
+        }
+      ],
+      "translit": "lǐwù"
+    },
+    {
+      "id": "zh_0220",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "厨房",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "妈妈在厨房",
+          "translation": "Mom is in the kitchen",
+          "translit": "māma zài chúfáng"
+        }
+      ],
+      "translit": "chúfáng"
+    },
+    {
+      "id": "zh_0221",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "桌子",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "饭在桌子上",
+          "translation": "The food is on the table",
+          "translit": "fàn zài zhuōzi shang"
+        }
+      ],
+      "translit": "zhuōzi"
+    },
+    {
+      "id": "zh_0222",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "床",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "这张床很舒服",
+          "translation": "This bed is very comfortable",
+          "translit": "zhè zhāng chuáng hěn shūfu"
+        }
+      ],
+      "translit": "chuáng"
+    },
+    {
+      "id": "zh_0223",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "洗",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "快去洗手",
+          "translation": "Go wash your hands",
+          "translit": "kuài qù xǐ shǒu"
+        }
+      ],
+      "translit": "xǐ"
+    },
+    {
+      "id": "zh_0224",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "穿",
+      "translation": "to wear",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "今天穿新衣服",
+          "translation": "I'm wearing new clothes today",
+          "translit": "jīntiān chuān xīn yīfu"
+        }
+      ],
+      "translit": "chuān"
+    },
+    {
+      "id": "zh_0225",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "忘",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "别忘了",
+          "translation": "Don't forget",
+          "translit": "bié wàng le"
+        }
+      ],
+      "translit": "wàng"
+    },
+    {
+      "id": "zh_0226",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "记得",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "你记得我吗？",
+          "translation": "Do you remember me?",
+          "translit": "nǐ jìde wǒ ma?"
+        }
+      ],
+      "translit": "jìde"
+    },
+    {
+      "id": "zh_0227",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "开始",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "我们开始吧",
+          "translation": "Let's start",
+          "translit": "wǒmen kāishǐ ba"
+        }
+      ],
+      "translit": "kāishǐ"
+    },
+    {
+      "id": "zh_0228",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "完成",
+      "translation": "to finish, to complete",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "我完成了作业",
+          "translation": "I finished my homework",
+          "translit": "wǒ wánchéng le zuòyè"
+        }
+      ],
+      "translit": "wánchéng"
+    },
+    {
+      "id": "zh_0229",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "笑",
+      "translation": "to laugh, to smile",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "孩子们在笑",
+          "translation": "The children are laughing",
+          "translit": "háizimen zài xiào"
+        }
+      ],
+      "translit": "xiào"
+    },
+    {
+      "id": "zh_0230",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "准备好",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "我准备好了",
+          "translation": "I'm ready",
+          "translit": "wǒ zhǔnbèi hǎo le"
+        }
+      ],
+      "translit": "zhǔnbèi hǎo"
+    },
+    {
+      "id": "zh_0231",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "忙",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "我今天很忙",
+          "translation": "I'm busy today",
+          "translit": "wǒ jīntiān hěn máng"
+        }
+      ],
+      "translit": "máng"
+    },
+    {
+      "id": "zh_0232",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "年轻",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "阿姨很年轻",
+          "translation": "Auntie is very young",
+          "translit": "āyí hěn niánqīng"
+        }
+      ],
+      "translit": "niánqīng"
+    },
+    {
+      "id": "zh_0233",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "干净",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "房间很干净",
+          "translation": "The room is clean",
+          "translit": "fángjiān hěn gānjìng"
+        }
+      ],
+      "translit": "gānjìng"
+    },
+    {
+      "id": "zh_0234",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "早",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "明天早点来",
+          "translation": "Come early tomorrow",
+          "translit": "míngtiān zǎo diǎn lái"
+        }
+      ],
+      "translit": "zǎo"
+    },
+    {
+      "id": "zh_0235",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "晚",
+      "translation": "late",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "太晚了",
+          "translation": "It's too late",
+          "translit": "tài wǎn le"
+        }
+      ],
+      "translit": "wǎn"
     }
   ],
   "alphabetGroups": [

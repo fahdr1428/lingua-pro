@@ -3255,7 +3255,7 @@
     },
     {
       "id": "es_0189",
-      "unit": "u5",
+      "unit": "u11",
       "lemma": "contento",
       "translation": "happy, pleased",
       "category": "Feelings",
@@ -3270,7 +3270,7 @@
     },
     {
       "id": "es_0190",
-      "unit": "u5",
+      "unit": "u11",
       "lemma": "enojado",
       "translation": "angry",
       "category": "Feelings",
@@ -3285,7 +3285,7 @@
     },
     {
       "id": "es_0191",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "tío",
       "translation": "uncle",
       "category": "Family",
@@ -3300,7 +3300,7 @@
     },
     {
       "id": "es_0192",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "tía",
       "translation": "aunt",
       "category": "Family",
@@ -3315,7 +3315,7 @@
     },
     {
       "id": "es_0193",
-      "unit": "u4",
+      "unit": "u3",
       "lemma": "primo",
       "translation": "cousin",
       "category": "Family",
@@ -3850,6 +3850,321 @@
         {
           "native": "¡Llama a la policía!",
           "translation": "Call the police!"
+        }
+      ]
+    },
+    {
+      "id": "es_0229",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "el bebé",
+      "translation": "baby",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "El bebé está durmiendo",
+          "translation": "The baby is sleeping"
+        }
+      ]
+    },
+    {
+      "id": "es_0230",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "el invitado",
+      "translation": "guest",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "El invitado ya llegó",
+          "translation": "The guest has arrived"
+        }
+      ]
+    },
+    {
+      "id": "es_0231",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "el vecino",
+      "translation": "neighbour",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "El vecino es muy amable",
+          "translation": "The neighbour is very kind"
+        }
+      ]
+    },
+    {
+      "id": "es_0232",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "el cumpleaños",
+      "translation": "birthday",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "El cumpleaños es mañana",
+          "translation": "The birthday is tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "es_0233",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "la boda",
+      "translation": "wedding",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "La boda es en junio",
+          "translation": "The wedding is in June"
+        }
+      ]
+    },
+    {
+      "id": "es_0234",
+      "unit": "u3",
+      "category": "Family",
+      "lemma": "el regalo",
+      "translation": "gift, present",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "El regalo es para ti",
+          "translation": "The gift is for you"
+        }
+      ]
+    },
+    {
+      "id": "es_0235",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "la cocina",
+      "translation": "kitchen",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "La cocina está limpia",
+          "translation": "The kitchen is clean"
+        }
+      ]
+    },
+    {
+      "id": "es_0236",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "la mesa",
+      "translation": "table",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "La comida está en la mesa",
+          "translation": "The food is on the table"
+        }
+      ]
+    },
+    {
+      "id": "es_0237",
+      "unit": "u7",
+      "category": "Places",
+      "lemma": "la cama",
+      "translation": "bed",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "La cama es cómoda",
+          "translation": "The bed is comfortable"
+        }
+      ]
+    },
+    {
+      "id": "es_0238",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "lavar",
+      "translation": "to wash",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "Tengo que lavar los platos",
+          "translation": "I have to wash the dishes"
+        }
+      ]
+    },
+    {
+      "id": "es_0239",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "llevar",
+      "translation": "to wear, to carry",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "Quiero llevar el vestido azul",
+          "translation": "I want to wear the blue dress"
+        }
+      ]
+    },
+    {
+      "id": "es_0240",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "olvidar",
+      "translation": "to forget",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "No quiero olvidar tu cumpleaños",
+          "translation": "I don't want to forget your birthday"
+        }
+      ]
+    },
+    {
+      "id": "es_0241",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "recordar",
+      "translation": "to remember",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "¿Puedes recordar su nombre?",
+          "translation": "Can you remember his name?"
+        }
+      ]
+    },
+    {
+      "id": "es_0242",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "empezar",
+      "translation": "to start, to begin",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "Vamos a empezar",
+          "translation": "Let's start"
+        }
+      ]
+    },
+    {
+      "id": "es_0243",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "terminar",
+      "translation": "to finish",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "Tengo que terminar la tarea",
+          "translation": "I have to finish the homework"
+        }
+      ]
+    },
+    {
+      "id": "es_0244",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "reír",
+      "translation": "to laugh",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "Me gusta reír con mi familia",
+          "translation": "I like laughing with my family"
+        }
+      ]
+    },
+    {
+      "id": "es_0245",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "listo",
+      "translation": "ready",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "¿Estás listo para salir?",
+          "translation": "Are you ready to go out?"
+        }
+      ]
+    },
+    {
+      "id": "es_0246",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "ocupado",
+      "translation": "busy",
+      "difficulty": 1,
+      "frequencyRank": 246,
+      "examples": [
+        {
+          "native": "Estoy ocupado hoy",
+          "translation": "I'm busy today"
+        }
+      ]
+    },
+    {
+      "id": "es_0247",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "joven",
+      "translation": "young",
+      "difficulty": 1,
+      "frequencyRank": 247,
+      "examples": [
+        {
+          "native": "Mi tía es muy joven",
+          "translation": "My aunt is very young"
+        }
+      ]
+    },
+    {
+      "id": "es_0248",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "limpio",
+      "translation": "clean",
+      "difficulty": 1,
+      "frequencyRank": 248,
+      "examples": [
+        {
+          "native": "El cuarto está limpio",
+          "translation": "The room is clean"
+        }
+      ]
+    },
+    {
+      "id": "es_0249",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "temprano",
+      "translation": "early",
+      "difficulty": 1,
+      "frequencyRank": 249,
+      "examples": [
+        {
+          "native": "Me levanto temprano",
+          "translation": "I get up early"
         }
       ]
     }

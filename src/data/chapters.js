@@ -95,8 +95,12 @@ export function computeUnlocks(unitProgress, appState, langCode) {
     } else if (chapter === highestPassed + 1) {
       // The chapter you've just unlocked: first unit always open, the rest
       // follow the normal gentle 30% progression.
+      // v109: and a stop you've already started stays open. Its predecessor's
+      // percentage can fall when words move between units (the v109 refile
+      // took tired and sad out of Food & Drink); that must not shut a stop
+      // the learner is part-way through.
       const isFirstOfChapter = i % UNITS_PER_CHAPTER === 0;
-      unlocked = isFirstOfChapter ? true : (unitProgress[i - 1]?.pct || 0) >= 0.3;
+      unlocked = isFirstOfChapter || (unitProgress[i - 1]?.pct || 0) >= 0.3 || (unitProgress[i]?.learned || 0) > 0;
     } else {
       unlocked = false; // still gated behind a chapter exam
     }

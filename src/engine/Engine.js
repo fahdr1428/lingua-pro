@@ -9,6 +9,7 @@
 import { newCardState, review, masteryLevel, RATING } from "./srs.js";
 import { buildQueue, countDue, countLearned, filterVocab, buildTopicQueue, summariseTopics } from "./selector.js";
 import { generateLesson, gradeAnswer, EXERCISE } from "./generator.js";
+import { buildRushPool } from "./games.js";
 import { loadLanguagePack } from "../data/registry.js";
 
 export class Engine {
@@ -224,6 +225,12 @@ export class Engine {
     return buildTopicQueue(pool, progress, { sessionSize: size, newPerSession: 3 });
   }
 
+  // v109: the words for a Word Rush round — see buildRushPool in games.js.
+  async getRushPool({ min = 12 } = {}) {
+    const progress = await this.getProgress();
+    return buildRushPool(this.pack.vocab || [], progress, { min });
+  }
+
   async getTopics() {
     const progress = await this.getProgress();
     return summariseTopics(this.pack.vocab || [], progress);
@@ -331,6 +338,12 @@ export class Engine {
       if (queue.length === 0) {
         queue = pool.slice(0, sessionSize);
       }
+    } else if (mode === "words" && Array.isArray(filter?.vocabIds) && filter.vocabIds.length) {
+      // v109: a lesson on exactly these words — Word Rush's "practise the ones
+      // I missed". In the order given, all of them (capped by sessionSize).
+      const ids = filter.vocabIds;
+      const byId = new Map((this.pack.vocab || []).map((v) => [v.id, v]));
+      queue = ids.map((id) => byId.get(id)).filter(Boolean).slice(0, Math.max(sessionSize, 1));
     } else if (mode === "topic" && filter?.category) {
       // v105: one topic, chosen by the learner — a few new words and the
       // shakiest learned ones. See buildTopicQueue for why that mix.
