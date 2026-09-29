@@ -2458,3 +2458,29 @@ html:active-view-transition-type(back)::view-transition-new(screen) { z-index: 1
 /* 1–4 key hints only mean something with a keyboard. */
 @media (pointer: coarse) { .desktop-only-key { display: none !important; } }
 
+
+/* v110 — the speaking ladder inside lessons (engine/speaking.js). */
+.speak-level {
+  font-size: 12px; font-weight: 700; color: var(--text-dim);
+  margin-top: 6px; line-height: 1.45;
+}
+.speak-level span { font-weight: 500; }
+.speak-model {
+  margin: 16px auto 0; padding: 18px 16px 16px; max-width: 460px;
+  background: var(--surface-hi); border: 1px solid var(--border); border-radius: 16px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.speak-model-native { font-size: 34px; font-weight: 700; color: var(--ink); line-height: 1.85; overflow-wrap: anywhere; }
+.speak-model-sentence { font-size: 24px; line-height: 1.9; }
+.speak-model-tl { font-size: 15px; color: var(--text-dim); font-style: italic; overflow-wrap: anywhere; }
+.speak-model-en { font-size: 14px; color: var(--text-mute); }
+/* A 44px target: this is the button a learner presses again and again. */
+.speak-model .xchg-play, .verdict-answer .xchg-play { width: 44px; height: 44px; min-height: 44px; margin-top: 4px; }
+.speak-hint {
+  margin: 12px auto 0; max-width: 420px; padding: 10px 14px; border-radius: 12px;
+  background: var(--accent-soft); color: var(--ink); font-size: 14px; line-height: 1.5;
+}
+.speak-levelup {
+  margin-top: 14px; padding: 10px 12px; border-radius: 12px;
+  background: var(--primary-soft); color: var(--ink); font-size: 14px; font-weight: 700; line-height: 1.45;
+}

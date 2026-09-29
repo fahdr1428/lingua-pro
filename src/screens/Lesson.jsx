@@ -9,6 +9,7 @@ import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor, stopSpeaking } from "../audio/tts.js";
 import { playCorrect, playWrong, playLessonComplete } from "../audio/sfx.js";
 import { EXERCISE, generateLesson, buildRecoveryRound } from "../engine/generator.js";
+import { SPEAK_MODE, speakingLevel } from "../engine/speaking.js";
 import { dialectForm, acceptedForms, regionLabel } from "../data/dialects.js";
 import { explainAnswer } from "../engine/explain.js";
 import { getCharacter, getCelebration } from "../data/characters.js";
@@ -168,6 +169,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         goalCategories: goalCategoryOrder(appState?.learningGoal?.[pack.code]),
         // v76: exercise types the learner turned off in Settings.
         disabledExercises: appState?.disabledExercises || null,
+        // v110: how far up the speaking ladder this learner is (speaking.js).
+        speakingPasses: appState?.speaking?.[pack.code]?.passes || 0,
       })
       .then(async (s) => {
         if (cancelled) return;
@@ -207,7 +210,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               let insertAt = 0;
               for (let i = 0; i < exercises.length; i++) {
                 const t = exercises[i].type;
-                if (t === EXERCISE.INTRODUCE || t === EXERCISE.INTRODUCE_BATCH) insertAt = i + 1;
+                // v110: the echo belongs with the introduction — it's the new
+                // word said back while its sound is fresh — so grammar goes after it.
+                const echo = t === EXERCISE.SPEAK_PROMPT && exercises[i].mode === SPEAK_MODE.ECHO;
+                if (t === EXERCISE.INTRODUCE || t === EXERCISE.INTRODUCE_BATCH || echo) insertAt = i + 1;
                 else break;
               }
               exercises.splice(insertAt, 0, { type: "GRAMMAR_MOMENT", grammar: nextG });
@@ -455,7 +461,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   async function finishSession() {
     {
       // Session complete — only count testable exercises (skip INTRODUCE)
-      const testable = session.exercises.filter((e) => e.type !== EXERCISE.INTRODUCE && e.type !== EXERCISE.INTRODUCE_BATCH && e.type !== "GRAMMAR_MOMENT" && !e.pretest).length;
+      const testable = session.exercises.filter((e) => e.type !== EXERCISE.INTRODUCE && e.type !== EXERCISE.INTRODUCE_BATCH && e.type !== "GRAMMAR_MOMENT" && !e.pretest && !e.practice).length;
       const total = testable || session.exercises.length; // fallback in edge case
       const accuracy = total > 0 ? correctCount / total : 1;
       // v36: rebalanced XP economy. Previously 10 XP/correct meant a ~17-exercise
@@ -606,6 +612,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   if (exercise?.type === EXERCISE.SPEAK_PROMPT && exercise.item) {
     return (
       <SpeakMoment
+        // v110: a lesson can now have two speaking steps in a row (shadow,
+        // then recall). Without a key React reuses the component, and the
+        // first step's verdict and mic state leak into the second.
+        key={`speak-${idx}`}
         item={exercise.item}
         // v76: a learner who answers in the dialect they chose is RIGHT. Marking
         // them wrong for it is the fastest way to make the setting feel like a lie.
@@ -614,14 +624,29 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         langCode={pack.code}
         isNonLatin={isNonLatin}
         character={character}
+        mode={exercise.mode || SPEAK_MODE.RECALL}
+        sentence={exercise.sentence || null}
+        speakingPasses={appState?.speaking?.[pack.code]?.passes || 0}
         onDone={async (band) => {
           const passed = band === BAND.GOT || band === BAND.CLOSE;
-          try {
-            await engine.submitAnswer(exercise, passed ? exercise.answer : "\u0000speak-miss");
-          } catch (e) {
-            console.warn("speak grading not recorded:", e);
+          // v110: practice rungs (echo, shadow, build) don't move the schedule
+          // and sit outside the lesson's accuracy — see speaking.js.
+          if (!exercise.practice) {
+            try {
+              await engine.submitAnswer(exercise, passed ? exercise.answer : "\u0000speak-miss");
+            } catch (e) {
+              console.warn("speak grading not recorded:", e);
+            }
+            if (passed) setCorrectCount((c) => c + 1);
           }
-          if (passed) setCorrectCount((c) => c + 1);
+          // Every graded attempt counts toward the speaking ladder; a good one
+          // moves the learner up it. band is null for "I said it" (no mic).
+          if (band) {
+            setAppState((st) => {
+              const cur = st?.speaking?.[pack.code] || { passes: 0, attempts: 0 };
+              return { ...st, speaking: { ...(st?.speaking || {}), [pack.code]: { passes: cur.passes + (passed ? 1 : 0), attempts: cur.attempts + 1 } } };
+            });
+          }
           advance();
         }}
         onSkip={advance}
@@ -2347,13 +2372,19 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
 // accuracy hit) because it isn't the learner's fault, which is the same principle
 // as skipForAudio() above.
 // =============================================================================
-function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSkip, accept = [] }) {
+function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSkip, accept = [], mode = SPEAK_MODE.RECALL, sentence = null, speakingPasses = 0 }) {
   const micSupported = isRecognitionSupported();
+  // v110: which rung of the speaking ladder this is (engine/speaking.js).
+  const isSentence = (mode === SPEAK_MODE.SHADOW || mode === SPEAK_MODE.SENTENCE) && !!sentence;
+  const imitation = mode === SPEAK_MODE.ECHO || mode === SPEAK_MODE.SHADOW; // there's a model to copy
   const [state, setState] = useState("idle");   // idle | listening | judging
   const [heard, setHeard] = useState("");
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
-  const [typing, setTyping] = useState(!micSupported);
+  // Typing is a fair stand-in for producing a word or a sentence from memory,
+  // but not for copying a sound: without a microphone the imitation rungs ask
+  // the learner to say it aloud and tell us they did.
+  const [typing, setTyping] = useState(!micSupported && !imitation);
   const [typed, setTyped] = useState("");
   const handle = useRef(null);
   const settled = useRef(false);
@@ -2361,13 +2392,33 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
 
   useEffect(() => () => { try { handle.current?.abort(); } catch {} }, []);
 
-  const target = {
-    native: item.lemma,
-    translit: item.translit,
-    // `accept` carries the learner's chosen dialect form when the word differs,
-    // so saying إيه instead of ماذا passes rather than failing.
-    accept: [...new Set([item.translit, item.lemma, ...accept])].filter(Boolean),
+  const playModel = () => {
+    try {
+      if (isSentence) speak(sentence.native, lang.ttsCode, { code: lang.code, translit: sentence.translit });
+      else speak(item.lemma, lang.ttsCode, { audioId: item.id, code: lang.code, translit: item.translit });
+    } catch {}
   };
+  // The imitation rungs start with the model: hear it, then say it.
+  useEffect(() => {
+    if (!imitation) return undefined;
+    const t = setTimeout(playModel, 350);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const target = isSentence
+    ? { native: sentence.native, translit: sentence.translit, accept: [sentence.translit].filter(Boolean) }
+    : {
+        native: item.lemma,
+        translit: item.translit,
+        // `accept` carries the learner's chosen dialect form when the word differs,
+        // so saying إيه instead of ماذا passes rather than failing.
+        accept: [...new Set([item.translit, item.lemma, ...accept])].filter(Boolean),
+      };
+
+  const lvl = speakingLevel(speakingPasses);
+  const passedNow = result && result.band !== BAND.MISS;
+  const levelUp = passedNow && lvl.next && speakingPasses + 1 >= lvl.next.at ? lvl.next : null;
 
   async function grade(transcripts) {
     if (settled.current) return;
@@ -2411,27 +2462,94 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
     if (!handle.current) { setState("idle"); setTyping(true); }
   }
 
+  const eyebrow = {
+    [SPEAK_MODE.ECHO]: "Say it after me",
+    [SPEAK_MODE.RECALL]: "Say it out loud",
+    [SPEAK_MODE.SHADOW]: "Say the whole sentence",
+    [SPEAK_MODE.SENTENCE]: `Say it in ${lang.name}`,
+  }[mode] || "Say it out loud";
+  const hint = {
+    [SPEAK_MODE.ECHO]: "Listen, then say it back. Copy the sound, not the spelling.",
+    [SPEAK_MODE.RECALL]: "From memory — no hint until you've had a go.",
+    [SPEAK_MODE.SHADOW]: "Play it, say it along with the voice, then say it on your own. Match the rhythm.",
+    [SPEAK_MODE.SENTENCE]: null,
+  }[mode];
+  // No microphone (or it was refused) on an imitation rung: say it aloud anyway.
+  const typedFallbackOnly = imitation && (!micSupported || typing);
+  const nativeFont = { fontFamily: lang.rtl ? (langCode === "ur" ? '"Noto Nastaliq Urdu", serif' : '"Noto Naskh Arabic", serif') : undefined };
+
+  const PlayButton = ({ label = "Listen" }) => (
+    <button className="xchg-play" onClick={playModel} aria-label={label}>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+        <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+      </svg>
+    </button>
+  );
+
   return (
     <Container style={{ maxWidth: 520, paddingTop: 28, paddingBottom: 60 }}>
       <div style={{ textAlign: "center" }}>
-        <div className="eyebrow" style={{ color: "var(--accent-text)" }}>Say it out loud</div>
-        <div style={{
-          fontFamily: '"Fraunces", Georgia, serif',
-          fontSize: 27, fontWeight: 600, color: "var(--ink)",
-          margin: "10px 0 0", lineHeight: 1.25,
-        }}>
-          How do you say “{item.translation}”?
+        <div className="eyebrow" style={{ color: "var(--accent-text)" }}>{eyebrow}</div>
+        <div className="speak-level" data-testid="speak-level" data-mode={mode}>
+          Speaking level {lvl.level} · {lvl.name}
+          {lvl.next && <span> — {lvl.toNext} more good {lvl.toNext === 1 ? "try" : "tries"} to unlock {lvl.next.name}</span>}
         </div>
-        {!result && (
-          <div style={{ fontSize: 12.5, color: "var(--text-mute)", marginTop: 10, lineHeight: 1.5 }}>
-            From memory — no hint until you've had a go.
+
+        {mode === SPEAK_MODE.RECALL && (
+          <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: 27, fontWeight: 600, color: "var(--ink)", margin: "10px 0 0", lineHeight: 1.25 }}>
+            How do you say “{item.translation}”?
           </div>
+        )}
+
+        {mode === SPEAK_MODE.ECHO && (
+          <div className="speak-model" data-testid="speak-model">
+            <div className="speak-model-native" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode} style={nativeFont}>{item.lemma}</div>
+            {item.translit && <div className="speak-model-tl">{item.translit}</div>}
+            <div className="speak-model-en">“{item.translation}”</div>
+            <PlayButton label="Hear it again" />
+          </div>
+        )}
+
+        {mode === SPEAK_MODE.SHADOW && isSentence && (
+          <div className="speak-model" data-testid="speak-model">
+            <div className="speak-model-native speak-model-sentence" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode} style={nativeFont}>{sentence.native}</div>
+            {sentence.translit && <div className="speak-model-tl">{sentence.translit}</div>}
+            <div className="speak-model-en">“{sentence.translation}”</div>
+            <PlayButton label="Hear the sentence again" />
+          </div>
+        )}
+
+        {mode === SPEAK_MODE.SENTENCE && isSentence && (
+          <>
+            <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: 24, fontWeight: 600, color: "var(--ink)", margin: "10px 0 0", lineHeight: 1.3 }} data-testid="speak-meaning">
+              “{sentence.translation}”
+            </div>
+            {!result && (
+              <div className="speak-hint" data-testid="speak-hint">
+                Use <strong dir={lang.rtl ? "rtl" : "ltr"} lang={langCode} style={nativeFont}>{item.lemma}</strong>
+                {item.translit ? <> ({item.translit})</> : null} — “{item.translation}”
+              </div>
+            )}
+          </>
+        )}
+
+        {!result && hint && (
+          <div style={{ fontSize: 12.5, color: "var(--text-mute)", marginTop: 10, lineHeight: 1.5 }}>{hint}</div>
         )}
       </div>
 
       {!result ? (
         <div className="pad">
-          {!typing ? (
+          {typedFallbackOnly ? (
+            <div className="type-pad">
+              <div style={{ fontSize: 14, color: "var(--text-dim)", textAlign: "center", lineHeight: 1.5, marginBottom: 10 }}>
+                No microphone here — say it out loud anyway, then carry on. Your mouth learns it even when nobody's listening.
+              </div>
+              <button className="type-submit" onClick={() => onDone(null)}>I said it</button>
+              <button className="quiet-link" onClick={onSkip}>skip this one</button>
+            </div>
+          ) : !typing ? (
             <>
               <button
                 className={`mic mic-${state}`}
@@ -2447,11 +2565,11 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
               </button>
               <div className="mic-state">
                 {state === "listening"
-                  ? heard ? `\u201c${heard}\u201d` : "Listening\u2026"
-                  : state === "judging" ? "One moment\u2026" : "Tap, then say it"}
+                  ? heard ? `“${heard}”` : "Listening…"
+                  : state === "judging" ? "One moment…" : "Tap, then say it"}
               </div>
               {error && <div className="mic-error">{error}</div>}
-              <button className="quiet-link" onClick={() => setTyping(true)}>or type it</button>
+              {!imitation && <button className="quiet-link" onClick={() => setTyping(true)}>or type it</button>}
               <button className="quiet-link" onClick={onSkip} style={{ marginTop: 4 }}>
                 skip this one
               </button>
@@ -2463,8 +2581,8 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
                 value={typed}
                 onChange={(e) => setTyped(e.target.value)}
                 onKeyDown={(e) => { if (e.key === "Enter" && typed.trim()) grade([typed]); }}
-                placeholder={isNonLatin ? "Type it in either script\u2026" : "Type the word\u2026"}
-                aria-label={isNonLatin ? "Type it in either script" : "Type the word"}
+                placeholder={isSentence ? "Type the sentence…" : isNonLatin ? "Type it in either script…" : "Type the word…"}
+                aria-label={isSentence ? "Type the sentence" : isNonLatin ? "Type it in either script" : "Type the word"}
                 autoComplete="off" autoCorrect="off" spellCheck={false}
               />
               <button className="type-submit" disabled={!typed.trim()} onClick={() => grade([typed])}>
@@ -2475,7 +2593,7 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
           )}
         </div>
       ) : (
-        <div className={`verdict verdict-${result.band}`} style={{ marginTop: 22 }}>
+        <div className={`verdict verdict-${result.band}`} style={{ marginTop: 22 }} data-testid="speak-verdict">
           <div className="verdict-head">
             <span className="verdict-word">
               {result.band === BAND.GOT ? "Got it" : result.band === BAND.CLOSE ? "Close" : "Not yet"}
@@ -2486,22 +2604,19 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
 
           <div className="verdict-answer">
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div className="eyebrow">The word</div>
-              <div className="verdict-native" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode}>{item.lemma}</div>
-              <div className="verdict-tl">{item.translit}</div>
-              {item.pronunciation && <div className="verdict-pron">say it like: {item.pronunciation}</div>}
+              <div className="eyebrow">{isSentence ? "The sentence" : "The word"}</div>
+              <div className="verdict-native" dir={lang.rtl ? "rtl" : "ltr"} lang={langCode} style={nativeFont}>{isSentence ? sentence.native : item.lemma}</div>
+              <div className="verdict-tl">{isSentence ? sentence.translit : item.translit}</div>
+              {!isSentence && item.pronunciation && <div className="verdict-pron">say it like: {item.pronunciation}</div>}
             </div>
-            <button
-              className="xchg-play"
-              onClick={() => speak(item.lemma, lang.ttsCode, { audioId: item.id, code: lang.code, translit: item.translit })}
-              aria-label="Listen"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                <path d="M15.5 8.5a5 5 0 0 1 0 7" />
-              </svg>
-            </button>
+            <PlayButton />
           </div>
+
+          {levelUp && (
+            <div className="speak-levelup" role="status" data-testid="speak-levelup">
+              🎙️ Speaking level {levelUp.level} · {levelUp.name} — from now on you'll {levelUp.can}.
+            </div>
+          )}
 
           <div className="verdict-actions">
             <button className="station-go" onClick={() => onDone(result.band)}>Continue</button>

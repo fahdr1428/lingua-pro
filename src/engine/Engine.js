@@ -10,6 +10,7 @@ import { newCardState, review, masteryLevel, RATING } from "./srs.js";
 import { buildQueue, countDue, countLearned, filterVocab, buildTopicQueue, summariseTopics } from "./selector.js";
 import { generateLesson, gradeAnswer, EXERCISE } from "./generator.js";
 import { buildRushPool } from "./games.js";
+import { weaveSpeaking } from "./speaking.js";
 import { loadLanguagePack } from "../data/registry.js";
 
 export class Engine {
@@ -236,7 +237,7 @@ export class Engine {
     return summariseTopics(this.pack.vocab || [], progress);
   }
 
-  async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null, disabledExercises = null } = {}) {
+  async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null, disabledExercises = null, speakingPasses = 0 } = {}) {
     const progress = await this.getProgress();
     let pool = this.pack.vocab;
     if (filter) {
@@ -379,19 +380,29 @@ export class Engine {
       import("../data/tenses.js"),
     ]);
 
+    const exercises = generateLesson(
+      queue,
+      this.pack.vocab,
+      progress,
+      this.languageCode,
+      CONJUGATIONS[this.languageCode] || null,
+      TENSES, // v34b: pass the full TENSES map; generator picks the right one
+      mode === "exam", // v38: exam mode = one test question per word, no intros
+      mode === "chapter_exam", // v44: 3-round gated chapter exam
+      disabledExercises, // v76: exercise types the learner switched off
+    );
+    // v110: the speaking ladder — echo, shadow, build — on top of the one
+    // recall the generator already asks for. See speaking.js.
+    const speakingOff = Array.isArray(disabledExercises)
+      ? disabledExercises.includes(EXERCISE.SPEAK_PROMPT)
+      : disabledExercises instanceof Set && disabledExercises.has(EXERCISE.SPEAK_PROMPT);
     return {
       mode,
-      exercises: generateLesson(
-        queue,
-        this.pack.vocab,
-        progress,
-        this.languageCode,
-        CONJUGATIONS[this.languageCode] || null,
-        TENSES, // v34b: pass the full TENSES map; generator picks the right one
-        mode === "exam", // v38: exam mode = one test question per word, no intros
-        mode === "chapter_exam", // v44: 3-round gated chapter exam
-        disabledExercises, // v76: exercise types the learner switched off
-      ),
+      exercises: weaveSpeaking(exercises, {
+        queue, progress, passes: speakingPasses,
+        allowed: !speakingOff,
+        examMode: mode === "exam" || mode === "chapter_exam",
+      }),
     };
   }
 
@@ -411,6 +422,11 @@ export class Engine {
     // in truth it was never introduced — so scheduling stays untouched.
     if (exercise.pretest) {
       return { ...result, rating: null, card: null, mastery: 0, pretest: true };
+    }
+    // v110: speaking practice (echo, shadow, build) is imitation or production
+    // around a word, not a test of remembering it — it never moves the schedule.
+    if (exercise.practice) {
+      return { ...result, rating: null, card: null, mastery: 0, practice: true };
     }
 
     // Map correctness + exercise difficulty into FSRS rating (1..4)

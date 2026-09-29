@@ -33,6 +33,7 @@ import { JourneyMap } from "./JourneyMap.jsx";
 import { hasConversations, hasPassages, hasCulture, hasSentencePatterns, patternSkillForDrop } from "../data/contentIndex.js";
 import { isRecognitionSupported } from "../audio/speech.js";
 import { getLevel } from "../engine/gamification.js";
+import { speakingLevel } from "../engine/speaking.js";
 import { computeFluency } from "../engine/fluency.js";
 import { hasDialectData, regionLabel } from "../data/dialects.js";
 import { MISSIONS } from "../data/missions.js";
@@ -657,6 +658,15 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
                   ? "I'll listen and tell you honestly — accents welcome"
                   : "Practise producing it from memory"}
               </span>
+              {/* v110: the in-lesson speaking ladder, so the growth is visible. */}
+              {(() => {
+                const sl = speakingLevel(appState?.speaking?.[pack.code]?.passes || 0);
+                return (
+                  <span className="speak-invite-sub" data-testid="home-speaking-level" style={{ fontWeight: 700 }}>
+                    Speaking level {sl.level} · {sl.name}{sl.next ? ` — ${sl.toNext} more to ${sl.next.name}` : " — top level"}
+                  </span>
+                );
+              })()}
             </span>
             <span className="speak-invite-arrow" aria-hidden="true">→</span>
           </button>
