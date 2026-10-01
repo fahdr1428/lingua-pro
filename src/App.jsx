@@ -274,6 +274,7 @@ const DEFAULT_APP_STATE = {
   testedOut: {}, // { langCode: [wordId,...] } — words skipped via placement test
   gameBest: {}, // v109: { langCode: { "rush-meaning": n, "rush-word": n } } — Word Rush best scores
   speaking: {}, // v110: { langCode: { passes, attempts } } — the in-lesson speaking ladder (engine/speaking.js)
+  doorsVisited: {}, // v111: { langCode: [doorId,...] } — Practice doors opened (engine/explore.js)
   scriptCourse: {}, // v99: { langCode: { passed, at, score } } — Chapter 0's reading exam
   passagesRead: {}, // v79: { langCode: [passageId,...] } — so the reading library advances
   voice: null, // v74: { coachVoiceURI, tone, speed, targetVoiceURI } — null = automatic

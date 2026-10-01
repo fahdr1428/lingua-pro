@@ -142,3 +142,75 @@ export function weaveSpeaking(exercises, { queue = [], progress = {}, passes = 0
   }
   return out;
 }
+
+/**
+ * v111 — A SPEAKING SESSION: a whole lesson spent out loud, on words the
+ * learner already knows, climbing the ladder inside the session — warm up by
+ * echoing, then recall words, then sentences — so it starts easy and ends at
+ * the hardest thing they're ready for. Six tasks, no word twice.
+ *
+ *   level 1   echo ×2 → recall ×4
+ *   level 2   echo ×1 → recall ×3 → shadow ×2
+ *   level 3   echo ×1 → recall ×2 → shadow ×1 → build ×2
+ *   level 4             recall ×2 → shadow ×2 → build ×2
+ *
+ * A rung with too few ready words hands its slots down to RECALL, so a
+ * session is always six tasks when the learner knows six words. Words come
+ * shakiest-first (least stable, then longest since seen) — the ones that most
+ * need saying. Returns [] when fewer than three words have been met.
+ */
+export const SESSION_PLAN = {
+  1: { echo: 2, recall: 4, shadow: 0, sentence: 0 },
+  2: { echo: 1, recall: 3, shadow: 2, sentence: 0 },
+  3: { echo: 1, recall: 2, shadow: 1, sentence: 2 },
+  4: { echo: 0, recall: 2, shadow: 2, sentence: 2 },
+};
+
+export function buildSpeakingSession(vocab, progress = {}, passes = 0, rand = Math.random) {
+  const card = (v) => progress?.[v.id];
+  const known = (vocab || []).filter((v) => v?.lemma && !v.custom && (card(v)?.reps || 0) >= 1);
+  if (known.length < 3) return [];
+  // Shakiest first; a little shuffle among equals so sessions vary.
+  const order = known
+    .map((v) => ({ v, k: (card(v)?.stability || 0) + rand() * 0.5, seen: card(v)?.lastReview || 0 }))
+    .sort((a, b) => a.k - b.k || a.seen - b.seen)
+    .map((x) => x.v);
+  const { level } = speakingLevel(passes);
+  const plan = { ...SESSION_PLAN[level] };
+  const used = new Set();
+  const take = (pred) => {
+    const v = order.find((w) => !used.has(w.id) && pred(w));
+    if (v) used.add(v.id);
+    return v || null;
+  };
+  const make = (mode, item, extra = {}) => ({
+    type: "speak_prompt", item, answer: item.lemma,
+    ...(mode === SPEAK_MODE.RECALL ? {} : { mode, practice: true }),
+    session: true, ...extra,
+  });
+
+  // Hardest rungs first in the BUILDING (so they get the words with
+  // sentences), then laid out easy → hard.
+  const sentences = [], shadows = [];
+  for (let i = 0; i < plan.sentence; i++) {
+    const v = take((w) => (card(w)?.reps || 0) >= 2 && speakableSentence(w));
+    if (v) sentences.push(make(SPEAK_MODE.SENTENCE, v, { sentence: speakableSentence(v), prompt: "Say it in the language" }));
+    else plan.recall++;
+  }
+  for (let i = 0; i < plan.shadow; i++) {
+    const v = take((w) => speakableSentence(w));
+    if (v) shadows.push(make(SPEAK_MODE.SHADOW, v, { sentence: speakableSentence(v), prompt: "Say the whole sentence" }));
+    else plan.recall++;
+  }
+  const echoes = [];
+  for (let i = 0; i < plan.echo; i++) {
+    const v = take(() => true);
+    if (v) echoes.push(make(SPEAK_MODE.ECHO, v, { prompt: "Say it after me" }));
+  }
+  const recalls = [];
+  for (let i = 0; i < plan.recall; i++) {
+    const v = take(() => true);
+    if (v) recalls.push(make(SPEAK_MODE.RECALL, v, { prompt: "Say it out loud" }));
+  }
+  return [...echoes, ...recalls, ...shadows, ...sentences];
+}

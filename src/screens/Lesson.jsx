@@ -10,6 +10,7 @@ import { speak, hasVoiceFor, stopSpeaking } from "../audio/tts.js";
 import { playCorrect, playWrong, playLessonComplete } from "../audio/sfx.js";
 import { EXERCISE, generateLesson, buildRecoveryRound } from "../engine/generator.js";
 import { SPEAK_MODE, speakingLevel } from "../engine/speaking.js";
+import { sayNow, speakingSummary, crossedMilestone, milestoneLine } from "../engine/encourage.js";
 import { dialectForm, acceptedForms, regionLabel } from "../data/dialects.js";
 import { explainAnswer } from "../engine/explain.js";
 import { getCharacter, getCelebration } from "../data/characters.js";
@@ -93,6 +94,11 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   const [done, setDone] = useState(false);
   const [resultData, setResultData] = useState(null);
   const startedAt = useRef(Date.now());
+  // v111: what the results screen can honestly point at (engine/encourage.js).
+  const rightIds = useRef(new Set());              // words answered right this lesson
+  const spoken = useRef({ passes: 0, attempts: 0, said: 0 }); // speaking this lesson: graded attempts, passes, and "I said it"s
+  const learnedBefore = useRef(null);              // known words when the lesson began
+  const speakingStart = useRef(0);                 // speaking passes when the lesson began
 
   // v104.2 — EVERY PER-SESSION PIECE OF STATE, RESET IN ONE PLACE.
   //
@@ -146,6 +152,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     setDone(false);
     setResultData(null);
     startedAt.current = Date.now();
+    rightIds.current = new Set();
+    spoken.current = { passes: 0, attempts: 0, said: 0 };
+    learnedBefore.current = null;
   }
 
   // Build session on mount — and on every later params change, which is a
@@ -174,6 +183,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       })
       .then(async (s) => {
         if (cancelled) return;
+        // v111: the starting point the results screen measures from.
+        speakingStart.current = appState?.speaking?.[pack.code]?.passes || 0;
+        engine.getStats().then((st) => { if (!cancelled) learnedBefore.current = st?.learned ?? null; }).catch(() => {});
         // v24: weave grammar INTO the lesson, a little at a time. Pick the
         // next unseen grammar lesson for this language and insert one short
         // "grammar moment" right after the intro batch (so: new words first,
@@ -191,7 +203,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           // so the next mode that needs excluding is a one-line change.
           // v105: "topic" too — someone who picked Numbers came to drill numbers,
           // and a grammar lesson about word order in the middle is off-topic.
-          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic", "words"]);
+          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic", "words", "speak"]);
           const isReviewish = NO_TEACHING.has(params?.mode) || s.mode === "review";
           if (!isReviewish) {
             // v107: every language's grammar lessons are ~95KB of source; loaded
@@ -362,6 +374,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     }
     if (result.correct) {
       if (!exercise.pretest) setCorrectCount((c) => c + 1);
+      if (exercise.item?.id) rightIds.current.add(exercise.item.id);
       setStreakInLesson((s) => s + 1);
     } else if (exercise.pretest) {
       // v68: a wrong guess on a word we haven't taught yet is expected — it's
@@ -469,7 +482,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       // a fraction of one lesson (user feedback: "reached daily goal after one
       // exercise"). Now 2 XP/correct + 5 perfect-bonus, so a full ~17-question
       // lesson is ~35-40 XP — roughly one "Regular" (35) daily goal.
-      const xpEarned = correctCount * 2 + (accuracy === 1 && correctCount > 0 ? 5 : 0);
+      // v111: a good spoken attempt earns XP too — practice rungs sit outside
+      // accuracy, but saying it out loud is effort worth paying for.
+      const xpEarned = correctCount * 2 + (accuracy === 1 && correctCount > 0 ? 5 : 0) + spoken.current.passes * 2;
       const today = new Date().toDateString();
       const wasYesterday = appState.lastStudyDate === new Date(Date.now() - 86400000).toDateString();
       const newStreak = appState.lastStudyDate === today ? appState.streak : wasYesterday ? appState.streak + 1 : 1;
@@ -517,7 +532,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           }
           // v39: only NORMAL lessons increment the lesson counter that drives
           // the every-3-lessons milestone. Exams and checkpoints don't count.
-          if (!isCheckpoint && !isExam && !isChapterExam) {
+          // v111: a speaking session isn't a curriculum lesson either — it
+          // re-uses known words, and shouldn't bring a milestone exam closer.
+          if (!isCheckpoint && !isExam && !isChapterExam && params?.mode !== "speak") {
             const lc = { ...(s.lessonsCompleted || {}) };
             lc[pack.code] = (lc[pack.code] || 0) + 1;
             next.lessonsCompleted = lc;
@@ -549,7 +566,30 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
 
       // These two ALWAYS run no matter what failed above — the user sees
       // their result and is never stuck.
-      setResultData({ correct: correctCount, total, xp: xpEarned, accuracy: Math.round(accuracy * 100), examVocabIds: params?.filter?.vocabIds || [], examSize: params?.sessionSize || 8 });
+      // v111: the specific, true things to say about this lesson.
+      let encourage = null;
+      try {
+        const items = [];
+        const introduced = new Set();
+        for (const ex of session?.exercises || []) {
+          if (ex.type === EXERCISE.INTRODUCE_BATCH) for (const it of ex.items || []) { items.push(it); introduced.add(it.id); }
+          else if (ex.item) items.push(ex.item);
+        }
+        let learnedAfter = null;
+        try { learnedAfter = (await engine.getStats())?.learned ?? null; } catch {}
+        const before = learnedBefore.current;
+        encourage = {
+          sayNow: sayNow(items, rightIds.current, { introducedIds: introduced }),
+          speaking: spoken.current.attempts + spoken.current.said
+            ? { ...speakingSummary(speakingStart.current, spoken.current.passes, spoken.current.attempts), said: spoken.current.said }
+            : null,
+          milestone: before != null && learnedAfter != null ? crossedMilestone(before, learnedAfter) : null,
+          learned: learnedAfter,
+        };
+      } catch (e) {
+        console.warn("encouragement skipped:", e);
+      }
+      setResultData({ correct: correctCount, total, xp: xpEarned, accuracy: Math.round(accuracy * 100), examVocabIds: params?.filter?.vocabIds || [], examSize: params?.sessionSize || 8, encourage });
       setDone(true);
       // v30: celebratory chime on lesson completion (if sound effects on)
       if (appState.soundEffects !== false) {
@@ -641,7 +681,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           }
           // Every graded attempt counts toward the speaking ladder; a good one
           // moves the learner up it. band is null for "I said it" (no mic).
+          if (!band) spoken.current = { ...spoken.current, said: spoken.current.said + 1 };
           if (band) {
+            spoken.current = { ...spoken.current, passes: spoken.current.passes + (passed ? 1 : 0), attempts: spoken.current.attempts + 1 };
+            if (passed && exercise.item?.id) rightIds.current.add(exercise.item.id);
             setAppState((st) => {
               const cur = st?.speaking?.[pack.code] || { passes: 0, attempts: 0 };
               return { ...st, speaking: { ...(st?.speaking || {}), [pack.code]: { passes: cur.passes + (passed ? 1 : 0), attempts: cur.attempts + 1 } } };
@@ -1942,6 +1985,58 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
                 <div style={{ fontSize: 14, color: "var(--text)", marginTop: 2, lineHeight: 1.4 }}>{msg}</div>
               </div>
             </Card>
+          );
+        })()}
+        {/* v111 — encouragement that points at something true (engine/encourage.js). */}
+        {data.encourage?.milestone && (
+          <div className="enc-milestone" role="status" data-testid="enc-milestone">
+            <div className="enc-milestone-num">{data.encourage.milestone}</div>
+            <div style={{ textAlign: "left" }}>{milestoneLine(data.encourage.milestone, lang.name)}</div>
+          </div>
+        )}
+        {data.encourage?.sayNow?.length > 0 && (
+          <div className="enc-card" data-testid="enc-saynow">
+            <div className="eyebrow" style={{ color: "var(--primary-text)" }}>Now you can say</div>
+            {data.encourage.sayNow.map(({ item, sentence }) => (
+              <div key={item.id} className="enc-line">
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div className="enc-native" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code}
+                    style={{ fontFamily: lang.rtl ? (pack.code === "ur" ? '"Noto Nastaliq Urdu", serif' : '"Noto Naskh Arabic", serif') : undefined }}>
+                    {sentence.native}
+                  </div>
+                  {sentence.translit && <div className="enc-tl">{sentence.translit}</div>}
+                  <div className="enc-en">“{sentence.translation}”</div>
+                </div>
+                <button className="xchg-play enc-play" aria-label={`Hear “${sentence.translation}”`}
+                  onClick={() => { try { speak(sentence.native, lang.ttsCode, { code: pack.code, translit: sentence.translit }); } catch {} }}>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                    <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+                  </svg>
+                </button>
+              </div>
+            ))}
+            <div className="enc-foot">Say them out loud once more — it's the cheapest practice there is.</div>
+          </div>
+        )}
+        {data.encourage?.speaking && (() => {
+          const sp = data.encourage.speaking;
+          const lv = sp.level;
+          const span = lv.next ? lv.next.at - lv.at : 1;
+          const pct = lv.next ? Math.round(((lv.passes - lv.at) / span) * 100) : 100;
+          return (
+            <div className="enc-card" data-testid="enc-speaking">
+              <div className="eyebrow" style={{ color: "var(--accent-text)" }}>🎙️ Speaking</div>
+              <div style={{ fontSize: 15, fontWeight: 700, margin: "4px 0 8px", textAlign: "left" }}>
+                You spoke {sp.attempts + (sp.said || 0)} {sp.attempts + (sp.said || 0) === 1 ? "time" : "times"}.
+                {sp.attempts > 0 && <> {sp.passed} of the {sp.attempts} I could check landed.</>}
+                {sp.levelUp && <> New level: <strong>{lv.name}</strong>.</>}
+              </div>
+              <div className="enc-bar" aria-hidden="true"><span style={{ transform: `scaleX(${Math.max(4, pct) / 100})` }} /></div>
+              <div className="enc-foot" style={{ textAlign: "left" }}>
+                Speaking level {lv.level} · {lv.name}{lv.next ? ` — ${lv.toNext} more to ${lv.next.name}: ${lv.next.can}` : " — the top of the ladder"}
+              </div>
+            </div>
           );
         })()}
         {/* Big highlight stats */}

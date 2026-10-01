@@ -129,7 +129,9 @@ async function step(page) {
   if (await input.count()) await input.first().fill("answer").catch(() => {});
 
   await page.evaluate(() => {
-    const SKIP = /^(check|continue|next|skip|got it|hear|listen|play|back|close|try again|say it again|or type|✕|🔊|report)/i;
+    // "← Previous" too (v111): clicked alongside "Next →" it undid it, and the
+    // harness spent the rest of every lesson's step budget on new-word card 2.
+    const SKIP = /^(check|continue|next|skip|got it|hear|listen|play|back|close|try again|say it again|or type|✕|🔊|report|← previous|previous)/i;
     const b = [...document.querySelectorAll("button")].filter((x) => {
       if (x.disabled) return false;
       const r = x.getBoundingClientRect();

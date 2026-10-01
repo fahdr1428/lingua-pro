@@ -34,6 +34,7 @@ import { hasConversations, hasPassages, hasCulture, hasSentencePatterns, pattern
 import { isRecognitionSupported } from "../audio/speech.js";
 import { getLevel } from "../engine/gamification.js";
 import { speakingLevel } from "../engine/speaking.js";
+import { organisePractice, markVisited } from "../engine/explore.js";
 import { computeFluency } from "../engine/fluency.js";
 import { hasDialectData, regionLabel } from "../data/dialects.js";
 import { MISSIONS } from "../data/missions.js";
@@ -873,69 +874,60 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
   const lang = LANGUAGES[pack.code];
   const [pickingFocus, setPickingFocus] = useState(false);
 
+  // v111: every door says which section it belongs to and has a stable id, so
+  // the tab can be grouped and remember what's been opened (engine/explore.js).
+  // The comments on individual doors below are their history, kept.
+  const learnedN = stats.learned || 0;
+  const sl = speakingLevel(appState?.speaking?.[pack.code]?.passes || 0);
   const doors = [
+    // v111: a whole session out loud, easy to hard, on words already known.
+    ...(learnedN >= 3 ? [{ id: "speak-session", section: "speak", icon: "🎙️", title: "Speaking session", sub: `Six tasks out loud, easy to hard · level ${sl.level} ${sl.name}`, go: () => onNavigate("lesson", { mode: "speak" }), highlight: true }] : []),
+    // v106: the one drill that needs neither eyes nor thumbs.
+    { id: "listen", section: "speak", icon: "🔁", title: "Listen and repeat", sub: "Hands-free — hear it, say it, hear the meaning", go: () => onNavigate("listen") },
+    ...(learnedN >= 3 ? [{ id: "speak-screen", section: "speak", icon: "💬", title: "Say whole conversations", sub: "Real exchanges, line by line — I'll listen", go: () => onNavigate("speak") }] : []),
+    // v105: drill one topic by choice — the curriculum picks every other session.
+    { id: "topics", section: "words", icon: "🎯", title: "Practise a topic", sub: "Numbers, food, family — drill just one", go: () => onNavigate("topics") },
+    // v109: a game — fast recall against a clock, with the misses turned into a lesson.
+    { id: "rush", section: "words", icon: "⚡", title: "Word Rush", sub: appState?.gameBest?.[pack.code]?.["rush-meaning"] ? `60 seconds · your best is ${appState.gameBest[pack.code]["rush-meaning"]}` : "60 seconds — how many words can you match?", go: () => onNavigate("rush") },
+    { id: "flashcards", section: "words", icon: "📇", title: "Flashcards", sub: "Flip through your words at your own pace", go: () => onNavigate("flashcards") },
+    { id: "vocab", section: "words", icon: "📚", title: "My words", sub: `${learnedN} learned · ${stats.mastered || 0} mastered`, go: () => onNavigate("vocab") },
     // v70: the mic moved to the bottom nav's Speak tab, so reading and
     // conversations — which used to live behind that tab — get a door here.
-    // Without this they'd have become unreachable.
-    // v79: reading gets its own door. It used to be reachable only through the
-    // combined "Read & listen" screen, two taps in — which was defensible when
-    // the library was 13 passages across 14 languages, and isn't now there are
-    // 41 and every language has some. Connected text you can mostly understand
-    // is the best-evidenced way anyone learns a language; it shouldn't be the
-    // hardest thing in the app to find.
-    // v83: those 41 passages are 623 words BETWEEN THEM — a minute of reading
-    // split fourteen ways, and four words of it is Korean. The sentence stream
-    // is several times that in every language, assembled from the example
-    // sentences the curriculum already carries, so it gets its own door rather
-    // than living behind the one that runs out fastest.
-    { icon: "📜", title: `${lang.name} you can read`, sub: "Real sentences, at exactly your level", go: () => onNavigate("stream"), highlight: (stats.learned || 0) >= 15 },
-    // v105: drill one topic by choice — the curriculum picks every other session.
-    { icon: "🎯", title: "Practise a topic", sub: "Numbers, food, family — drill just one", go: () => onNavigate("topics") },
-    // v106: the one drill that needs neither eyes nor thumbs.
-    { icon: "🔁", title: "Listen and repeat", sub: "Hands-free — hear it, say it, hear the meaning", go: () => onNavigate("listen") },
-    // v109: a game — fast recall against a clock, with the misses turned into a lesson.
-    { icon: "⚡", title: "Word Rush", sub: appState?.gameBest?.[pack.code]?.["rush-meaning"] ? `60 seconds · your best is ${appState.gameBest[pack.code]["rush-meaning"]}` : "60 seconds — how many words can you match?", go: () => onNavigate("rush") },
-    { icon: "📇", title: "Flashcards", sub: "Flip through your words at your own pace", go: () => onNavigate("flashcards") },
-    { icon: "🧭", title: "Grammar", sub: `How ${lang.name} actually fits together`, go: () => onNavigate("grammar") },
-    { icon: "📚", title: "My words", sub: `${stats.learned || 0} learned · ${stats.mastered || 0} mastered`, go: () => onNavigate("vocab") },
+    // v79: reading gets its own door; connected text you can mostly
+    // understand is the best-evidenced way anyone learns a language.
+    // v83: the sentence stream is several times the passages in every
+    // language, so it gets its own door rather than living behind the one
+    // that runs out fastest.
+    { id: "stream", section: "read", icon: "📜", title: `${lang.name} you can read`, sub: "Real sentences, at exactly your level", go: () => onNavigate("stream"), highlight: learnedN >= 15 },
+    { id: "grammar", section: "understand", icon: "🧭", title: "Grammar", sub: `How ${lang.name} actually fits together`, go: () => onNavigate("grammar") },
   ];
-  // v95: only offer this door if there is something behind it. Practice shows
-  // reading passages and scripted conversations; five languages had neither, so
-  // the door advertised "Scripted conversations, with subtitles" and opened onto
-  // "no conversation starters yet". An honest empty state is better than a
-  // crash, but not offering an empty room is better than both.
-  // v107: the same rule for reading. Seven languages (fa ml so ta tl vi yo)
-  // have no passages yet — they want a native writer, not a generated
-  // approximation — and this door promised them "short pieces built only from
-  // words you've met", highlighted, and opened onto "no reading passages yet".
-  // Those learners still have the sentence stream just below it.
+  // v95/v107: only offer a door if there is something behind it — an honest
+  // empty state is better than a crash, and not offering an empty room is
+  // better than both.
   if (hasPassages(pack.code)) {
-    doors.unshift({ icon: "📖", title: `Read some ${lang.name}`, sub: "Short pieces built only from words you've met", go: () => onNavigate("reading"), highlight: (stats.learned || 0) >= 10 });
+    doors.push({ id: "reading", section: "read", icon: "📖", title: `Read some ${lang.name}`, sub: "Short pieces built only from words you've met", go: () => onNavigate("reading"), highlight: learnedN >= 10 });
   }
   if (hasConversations(pack.code) || hasPassages(pack.code)) {
-    doors.splice(1, 0, {
-      icon: "🎧", title: "Listen & follow",
-      sub: "Scripted conversations, with subtitles",
-      go: () => onNavigate("practice"),
-    });
-  }
-
-  if (hasCulture(pack.code)) {
-    doors.push({
-      icon: "🫖", title: `Inside ${lang.name}`,
-      sub: "Etiquette, register, and what natives notice",
-      go: () => onNavigate("culture"),
-    });
+    doors.push({ id: "conversations", section: "read", icon: "🎧", title: "Listen & follow", sub: "Scripted conversations, with subtitles", go: () => onNavigate("practice") });
   }
   if (pack.alphabet?.length > 0) {
-    doors.unshift({ icon: "🔤", title: "Letters & sounds", sub: "Learn to read the script itself", go: () => onNavigate("alphabet") });
+    doors.push({ id: "alphabet", section: "understand", icon: "🔤", title: "Letters & sounds", sub: "Learn to read the script itself", go: () => onNavigate("alphabet") });
   }
-  if ((stats.learned || 0) >= 15) {
-    doors.push({ icon: "📝", title: "Big exam", sub: "Everything you know, tested every way", go: () => onNavigate("lesson", { mode: "exam", sessionSize: Math.min(25, stats.learned) }) });
+  if (hasCulture(pack.code)) {
+    doors.push({ id: "culture", section: "understand", icon: "🫖", title: `Inside ${lang.name}`, sub: "Etiquette, register, and what natives notice", go: () => onNavigate("culture") });
+  }
+  if (learnedN >= 15) {
+    doors.push({ id: "exam", section: "test", icon: "📝", title: "Big exam", sub: "Everything you know, tested every way", go: () => onNavigate("lesson", { mode: "exam", sessionSize: Math.min(25, learnedN) }) });
   }
   if ((stats.due || 0) > 0) {
-    doors.unshift({ icon: "🌿", title: `Review ${stats.due} due words`, sub: "Spaced repetition — keep them alive", go: () => onNavigate("lesson", { mode: "due" }), highlight: true });
+    doors.push({ id: "due", section: "review", icon: "🌿", title: `Review ${stats.due} due words`, sub: "Spaced repetition — keep them alive", go: () => onNavigate("lesson", { mode: "due" }), highlight: true });
   }
+  const visited = appState?.doorsVisited?.[pack.code] || [];
+  const practice = organisePractice(doors, visited);
+  const open = (d) => {
+    try { setAppState((st) => markVisited(st, pack.code, d.id)); } catch {}
+    d.go();
+  };
 
   const lessonsDone = appState?.lessonsCompleted?.[pack.code] || 0;
   const currentGoal = getGoal(appState?.learningGoal?.[pack.code]);
@@ -982,33 +974,70 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
         )
       )}
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-        {doors.map((d) => (
-          <button
-            key={d.title}
-            onClick={d.go}
-            className="card-lift"
-            style={{
-              display: "flex", alignItems: "center", gap: 14, textAlign: "left",
-              background: "var(--surface)", borderRadius: "var(--radius-lg)",
-              border: d.highlight ? "2px solid var(--primary)" : "1px solid var(--border)",
-              padding: 16, cursor: "pointer", boxShadow: "var(--shadow-card)",
-            }}
-          >
-            <div style={{
-              fontSize: 24, width: 48, height: 48, borderRadius: 14, flexShrink: 0,
-              background: "var(--surface-hi)", display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-              {d.icon}
-            </div>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 16, fontWeight: 800, color: "var(--text)" }}>{d.title}</div>
-              <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 2 }}>{d.sub}</div>
-            </div>
-            <div style={{ fontSize: 18, color: "var(--text-mute)" }}>→</div>
-          </button>
-        ))}
-      </div>
+      {/* v111: how much of the tab they've explored, and one thing to try. */}
+      {practice.total > 0 && (
+        <div className="explore-head" data-testid="explore-head">
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, fontWeight: 700, color: "var(--text-dim)" }}>
+            <span>You've tried {practice.explored} of {practice.total} ways to practise</span>
+            <span>{Math.round((practice.explored / practice.total) * 100)}%</span>
+          </div>
+          <div className="enc-bar" style={{ marginTop: 6 }} aria-hidden="true">
+            <span style={{ transform: `scaleX(${Math.max(3, Math.round((practice.explored / practice.total) * 100)) / 100})` }} />
+          </div>
+        </div>
+      )}
+      {practice.suggestion && (
+        <button className="explore-next card-lift" data-testid="explore-next" onClick={() => open(practice.suggestion)}>
+          <span className="eyebrow" style={{ color: "var(--accent-text)" }}>Try next</span>
+          <span style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
+            <span style={{ fontSize: 26 }} aria-hidden="true">{practice.suggestion.icon}</span>
+            <span style={{ flex: 1, minWidth: 0, textAlign: "left" }}>
+              <span style={{ display: "block", fontSize: 16, fontWeight: 800, color: "var(--text)" }}>{practice.suggestion.title}</span>
+              <span style={{ display: "block", fontSize: 13, color: "var(--text-dim)", marginTop: 2 }}>{practice.suggestion.sub}</span>
+            </span>
+            <span style={{ fontSize: 18, color: "var(--text-mute)" }} aria-hidden="true">→</span>
+          </span>
+        </button>
+      )}
+
+      {practice.sections.map((sec) => (
+        <section key={sec.id} className="practice-section" data-section={sec.id}>
+          <h3 className="practice-section-title">{sec.title}</h3>
+          {sec.blurb && <p className="practice-section-blurb">{sec.blurb}</p>}
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            {sec.doors.map((d) => (
+              <button
+                key={d.id}
+                data-door={d.id}
+                onClick={() => open(d)}
+                className="card-lift"
+                style={{
+                  display: "flex", alignItems: "center", gap: 14, textAlign: "left",
+                  background: "var(--surface)", borderRadius: "var(--radius-lg)",
+                  border: d.highlight ? "2px solid var(--primary)" : "1px solid var(--border)",
+                  padding: 16, cursor: "pointer", boxShadow: "var(--shadow-card)",
+                }}
+              >
+                <div style={{
+                  fontSize: 24, width: 48, height: 48, borderRadius: 14, flexShrink: 0,
+                  background: "var(--surface-hi)", display: "flex", alignItems: "center", justifyContent: "center",
+                }}>
+                  {d.icon}
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontSize: 16, fontWeight: 800, color: "var(--text)" }}>
+                    {d.title}
+                    {/* Only once they've opened something — before that, every door is new and the pill is noise. */}
+                    {d.isNew && practice.explored > 0 && <span className="new-pill">Not tried yet</span>}
+                  </div>
+                  <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 2 }}>{d.sub}</div>
+                </div>
+                <div style={{ fontSize: 18, color: "var(--text-mute)" }}>→</div>
+              </button>
+            ))}
+          </div>
+        </section>
+      ))}
     </Container>
   );
 }

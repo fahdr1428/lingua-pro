@@ -10,7 +10,7 @@ import { newCardState, review, masteryLevel, RATING } from "./srs.js";
 import { buildQueue, countDue, countLearned, filterVocab, buildTopicQueue, summariseTopics } from "./selector.js";
 import { generateLesson, gradeAnswer, EXERCISE } from "./generator.js";
 import { buildRushPool } from "./games.js";
-import { weaveSpeaking } from "./speaking.js";
+import { weaveSpeaking, buildSpeakingSession } from "./speaking.js";
 import { loadLanguagePack } from "../data/registry.js";
 
 export class Engine {
@@ -239,6 +239,12 @@ export class Engine {
 
   async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null, disabledExercises = null, speakingPasses = 0 } = {}) {
     const progress = await this.getProgress();
+    // v111: a whole session out loud — see buildSpeakingSession. Falls through
+    // to an ordinary lesson when fewer than three words have been met.
+    if (mode === "speak") {
+      const exercises = buildSpeakingSession(this.pack.vocab, progress, speakingPasses);
+      if (exercises.length) return { mode, exercises };
+    }
     let pool = this.pack.vocab;
     if (filter) {
       pool = filterVocab(pool, filter);
