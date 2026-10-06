@@ -4335,6 +4335,346 @@
         }
       ],
       "translit": "osoi"
+    },
+    {
+      "id": "ja_0232",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "質問",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "質問があります",
+          "translation": "I have a question",
+          "translit": "shitsumon ga arimasu"
+        }
+      ],
+      "translit": "shitsumon"
+    },
+    {
+      "id": "ja_0233",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "答え",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "答えは何ですか",
+          "translation": "What is the answer?",
+          "translit": "kotae wa nan desu ka"
+        }
+      ],
+      "translit": "kotae"
+    },
+    {
+      "id": "ja_0234",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "言語",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "日本語は難しい言語です",
+          "translation": "Japanese is a difficult language",
+          "translit": "nihongo wa muzukashii gengo desu"
+        }
+      ],
+      "translit": "gengo"
+    },
+    {
+      "id": "ja_0235",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "人々",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "ここに人々が集まります",
+          "translation": "People gather here",
+          "translit": "koko ni hitobito ga atsumarimasu"
+        }
+      ],
+      "translit": "hitobito"
+    },
+    {
+      "id": "ja_0236",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "先生",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "先生はとても優しいです",
+          "translation": "The teacher is very kind",
+          "translit": "sensei wa totemo yasashii desu"
+        }
+      ],
+      "translit": "sensei"
+    },
+    {
+      "id": "ja_0237",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "会う",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "明日友達に会う",
+          "translation": "I'm meeting a friend tomorrow",
+          "translit": "ashita tomodachi ni au"
+        }
+      ],
+      "translit": "au"
+    },
+    {
+      "id": "ja_0238",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "訪ねる",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "祖母を訪ねる",
+          "translation": "I visit my grandmother",
+          "translit": "sobo wo tazuneru"
+        }
+      ],
+      "translit": "tazuneru"
+    },
+    {
+      "id": "ja_0239",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "旅行する",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "旅行するのが好きです",
+          "translation": "I like to travel",
+          "translit": "ryokou suru no ga suki desu"
+        }
+      ],
+      "translit": "ryokou suru"
+    },
+    {
+      "id": "ja_0240",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "やってみる",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "もう一度やってみる",
+          "translation": "I'll try once more",
+          "translit": "mou ichido yatte miru"
+        }
+      ],
+      "translit": "yatte miru"
+    },
+    {
+      "id": "ja_0241",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "見せる",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "写真を見せる",
+          "translation": "I show the photo",
+          "translit": "shashin wo miseru"
+        }
+      ],
+      "translit": "miseru"
+    },
+    {
+      "id": "ja_0242",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "送る",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "メッセージを送る",
+          "translation": "I send a message",
+          "translit": "messeeji wo okuru"
+        }
+      ],
+      "translit": "okuru"
+    },
+    {
+      "id": "ja_0243",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "感じる",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "寒さを感じる",
+          "translation": "I feel the cold",
+          "translit": "samusa wo kanjiru"
+        }
+      ],
+      "translit": "kanjiru"
+    },
+    {
+      "id": "ja_0244",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "使う",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "この電話を使う",
+          "translation": "I use this phone",
+          "translit": "kono denwa wo tsukau"
+        }
+      ],
+      "translit": "tsukau"
+    },
+    {
+      "id": "ja_0245",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "大切",
+      "translation": "important, precious",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "家族は大切です",
+          "translation": "Family is important",
+          "translit": "kazoku wa taisetsu desu"
+        }
+      ],
+      "translit": "taisetsu"
+    },
+    {
+      "id": "ja_0246",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "違う",
+      "translation": "different, to differ",
+      "difficulty": 1,
+      "frequencyRank": 246,
+      "examples": [
+        {
+          "native": "色が違う",
+          "translation": "The colour is different",
+          "translit": "iro ga chigau"
+        }
+      ],
+      "translit": "chigau"
+    },
+    {
+      "id": "ja_0247",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "同じ",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 247,
+      "examples": [
+        {
+          "native": "二つは同じです",
+          "translation": "The two are the same",
+          "translit": "futatsu wa onaji desu"
+        }
+      ],
+      "translit": "onaji"
+    },
+    {
+      "id": "ja_0248",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "一緒に",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 248,
+      "examples": [
+        {
+          "native": "一緒に行きましょう",
+          "translation": "Let's go together",
+          "translit": "issho ni ikimashou"
+        }
+      ],
+      "translit": "issho ni"
+    },
+    {
+      "id": "ja_0249",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "時々",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 249,
+      "examples": [
+        {
+          "native": "時々お茶を飲みます",
+          "translation": "I sometimes drink tea",
+          "translit": "tokidoki ocha wo nomimasu"
+        }
+      ],
+      "translit": "tokidoki"
+    },
+    {
+      "id": "ja_0250",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "昼ご飯",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 250,
+      "examples": [
+        {
+          "native": "昼ご飯の時間です",
+          "translation": "It's lunchtime",
+          "translit": "hirugohan no jikan desu"
+        }
+      ],
+      "translit": "hirugohan"
+    },
+    {
+      "id": "ja_0251",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "晩ご飯",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 251,
+      "examples": [
+        {
+          "native": "晩ご飯は何ですか",
+          "translation": "What's for dinner?",
+          "translit": "bangohan wa nan desu ka"
+        }
+      ],
+      "translit": "bangohan"
     }
   ],
   "units": [

@@ -790,8 +790,11 @@ button:focus:not(:focus-visible) { outline: none; }
 
 .station-head {
   display: flex; align-items: flex-start; gap: 10px; width: 100%;
-  background: none; border: none; padding: 0; text-align: left; cursor: pointer;
-  min-height: 0;
+  background: none; border: none; text-align: left; cursor: pointer;
+  /* v112: the tap target was the text's own 21px — under even WCAG's 24px
+     floor. Padding grows it to 44px; the equal negative margin keeps every
+     line exactly where it was. */
+  padding: 11px 0; margin: -11px 0; min-height: 44px;
 }
 .station-label { flex: 1; font-size: 14.5px; line-height: 1.42; color: var(--text); }
 .station-now .station-label { font-weight: 700; }

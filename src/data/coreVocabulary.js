@@ -295,6 +295,32 @@ export const CORE = [
   c("clean", "clean", 3, "Common", []),
   c("early", "early", 3, "Time", []),
   c("late", "late", 3, "Time", []),
+  // v112 — talking with people. Measured again across all 21 packs: question,
+  // answer, language, people, teacher, meet, visit, travel, try, show, send,
+  // feel, use, important, different, same, lunch and dinner were taught by
+  // none; together and sometimes by one. They're the words for asking
+  // something, making plans and saying how it went — conversation, not
+  // vocabulary lists.
+  c("question", "question", 3, "Common", []),
+  c("answer", "answer", 3, "Common", ["reply"]),
+  c("language", "language", 3, "Common", []),
+  c("people", "people", 3, "People", []),
+  c("teacher", "teacher", 3, "People", []),
+  c("to_meet", "to meet", 3, "Verbs", ["meet"]),
+  c("to_visit", "to visit", 3, "Verbs", ["visit"]),
+  c("to_travel", "to travel", 3, "Verbs", ["travel"]),
+  c("to_try", "to try", 3, "Verbs", ["try"]),
+  c("to_show", "to show", 3, "Verbs", ["show"]),
+  c("to_send", "to send", 3, "Verbs", ["send"]),
+  c("to_feel", "to feel", 3, "Verbs", ["feel"]),
+  c("to_use", "to use", 3, "Verbs", ["use"]),
+  c("important", "important", 3, "Common", []),
+  c("different", "different", 3, "Common", []),
+  c("same", "same", 3, "Common", ["the same"]),
+  c("together", "together", 3, "Common", []),
+  c("sometimes", "sometimes", 3, "Time", []),
+  c("lunch", "lunch", 3, "Food", []),
+  c("dinner", "dinner", 3, "Food", ["supper"]),
 ];
 
 export const TIER_NAMES = { 1: "survival", 2: "everyday", 3: "reach" };

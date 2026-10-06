@@ -3982,6 +3982,346 @@
         }
       ],
       "translit": "deri"
+    },
+    {
+      "id": "bn_0213",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "প্রশ্ন",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "আমার একটা প্রশ্ন আছে",
+          "translation": "I have a question",
+          "translit": "amar ekta proshno achhe"
+        }
+      ],
+      "translit": "proshno"
+    },
+    {
+      "id": "bn_0214",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "উত্তর",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "উত্তর কী?",
+          "translation": "What is the answer?",
+          "translit": "uttor ki?"
+        }
+      ],
+      "translit": "uttor"
+    },
+    {
+      "id": "bn_0215",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "ভাষা",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "বাংলা আমার ভাষা",
+          "translation": "Bengali is my language",
+          "translit": "bangla amar bhasha"
+        }
+      ],
+      "translit": "bhasha"
+    },
+    {
+      "id": "bn_0216",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "মানুষ",
+      "translation": "people, person",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "এখানে অনেক মানুষ",
+          "translation": "There are many people here",
+          "translit": "ekhane onek manush"
+        }
+      ],
+      "translit": "manush"
+    },
+    {
+      "id": "bn_0217",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "শিক্ষক",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "আমার শিক্ষক খুব ভালো",
+          "translation": "My teacher is very good",
+          "translit": "amar shikkhok khub bhalo"
+        }
+      ],
+      "translit": "shikkhok"
+    },
+    {
+      "id": "bn_0218",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "দেখা করা",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "কাল দেখা করব",
+          "translation": "We'll meet tomorrow",
+          "translit": "kal dekha korbo"
+        }
+      ],
+      "translit": "dekha kora"
+    },
+    {
+      "id": "bn_0219",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "বেড়াতে যাওয়া",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "আমরা দাদুর বাড়ি বেড়াতে যাব",
+          "translation": "We'll go to visit grandfather's house",
+          "translit": "amra dadur bari berate jabo"
+        }
+      ],
+      "translit": "berate jaowa"
+    },
+    {
+      "id": "bn_0220",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ভ্রমণ করা",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "আমি ভ্রমণ করতে ভালোবাসি",
+          "translation": "I love to travel",
+          "translit": "ami bhromon korte bhalobashi"
+        }
+      ],
+      "translit": "bhromon kora"
+    },
+    {
+      "id": "bn_0221",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "চেষ্টা করা",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "আবার চেষ্টা করো",
+          "translation": "Try again",
+          "translit": "abar chesta koro"
+        }
+      ],
+      "translit": "chesta kora"
+    },
+    {
+      "id": "bn_0222",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "দেখানো",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "আমাকে ছবিটা দেখাও",
+          "translation": "Show me the picture",
+          "translit": "amake chobita dekhao"
+        }
+      ],
+      "translit": "dekhano"
+    },
+    {
+      "id": "bn_0223",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "পাঠানো",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "আমাকে বার্তা পাঠাও",
+          "translation": "Send me a message",
+          "translit": "amake barta pathao"
+        }
+      ],
+      "translit": "pathano"
+    },
+    {
+      "id": "bn_0224",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "অনুভব করা",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "আমি ভালো অনুভব করছি",
+          "translation": "I'm feeling good",
+          "translit": "ami bhalo onubhob korchhi"
+        }
+      ],
+      "translit": "onubhob kora"
+    },
+    {
+      "id": "bn_0225",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ব্যবহার করা",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "এই ফোনটা ব্যবহার করো",
+          "translation": "Use this phone",
+          "translit": "ei phonta byabohar koro"
+        }
+      ],
+      "translit": "byabohar kora"
+    },
+    {
+      "id": "bn_0226",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "জরুরি",
+      "translation": "important, urgent",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "এটা খুব জরুরি",
+          "translation": "This is very important",
+          "translit": "eta khub joruri"
+        }
+      ],
+      "translit": "joruri"
+    },
+    {
+      "id": "bn_0227",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "আলাদা",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "এই রংটা আলাদা",
+          "translation": "This colour is different",
+          "translit": "ei rongta alada"
+        }
+      ],
+      "translit": "alada"
+    },
+    {
+      "id": "bn_0228",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "একই",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "দুটো একই রকম",
+          "translation": "Both are the same",
+          "translit": "duto eki rokom"
+        }
+      ],
+      "translit": "eki"
+    },
+    {
+      "id": "bn_0229",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "একসাথে",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "আমরা একসাথে যাব",
+          "translation": "We'll go together",
+          "translit": "amra eksathe jabo"
+        }
+      ],
+      "translit": "eksathe"
+    },
+    {
+      "id": "bn_0230",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "মাঝে মাঝে",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "আমি মাঝে মাঝে চা খাই",
+          "translation": "I sometimes drink tea",
+          "translit": "ami majhe majhe cha khai"
+        }
+      ],
+      "translit": "majhe majhe"
+    },
+    {
+      "id": "bn_0231",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "দুপুরের খাবার",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "দুপুরের খাবার তৈরি",
+          "translation": "Lunch is ready",
+          "translit": "dupurer khabar toiri"
+        }
+      ],
+      "translit": "dupurer khabar"
+    },
+    {
+      "id": "bn_0232",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "রাতের খাবার",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "রাতের খাবার কখন?",
+          "translation": "When is dinner?",
+          "translit": "rater khabar kokhon?"
+        }
+      ],
+      "translit": "rater khabar"
     }
   ],
   "alphabetGroups": [

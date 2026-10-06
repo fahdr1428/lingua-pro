@@ -103,6 +103,12 @@ for (const code of codes) {
       }
     }
 
+    // 2b. (v112) a question in Arabic script ends in ؟, not the Latin ?. Two
+    //     Punjabi sentences did; a reader of Shahmukhi sees the wrong mark.
+    if (/[\u0600-\u06FF]/.test(e.native) && /\?\s*$/.test(e.native)) {
+      errors.push(`${at}: "${e.native}" is a question in Arabic script ending in a Latin "?" — use "؟"`);
+    }
+
     // 3. the romanisation must belong to THIS sentence
     if (e.translit && lemmaTranslit && stemMatch(e.native, lemma)) {
       if (!stemMatch(foldConvention(e.translit), foldConvention(lemmaTranslit))) {

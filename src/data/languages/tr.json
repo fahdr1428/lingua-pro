@@ -4459,6 +4459,306 @@
           "translation": "I'm late"
         }
       ]
+    },
+    {
+      "id": "tr_0258",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "soru",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 258,
+      "examples": [
+        {
+          "native": "Bir sorum var",
+          "translation": "I have a question"
+        }
+      ]
+    },
+    {
+      "id": "tr_0259",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "cevap",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 259,
+      "examples": [
+        {
+          "native": "Cevap ne?",
+          "translation": "What's the answer?"
+        }
+      ]
+    },
+    {
+      "id": "tr_0260",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "dil",
+      "translation": "language, tongue",
+      "difficulty": 1,
+      "frequencyRank": 260,
+      "examples": [
+        {
+          "native": "Türkçe güzel bir dil",
+          "translation": "Turkish is a beautiful language"
+        }
+      ]
+    },
+    {
+      "id": "tr_0261",
+      "unit": "u4",
+      "category": "People",
+      "lemma": "insanlar",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 261,
+      "examples": [
+        {
+          "native": "Burada çok insan var",
+          "translation": "There are many people here"
+        }
+      ]
+    },
+    {
+      "id": "tr_0262",
+      "unit": "u4",
+      "category": "People",
+      "lemma": "öğretmen",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 262,
+      "examples": [
+        {
+          "native": "Öğretmenim çok iyi",
+          "translation": "My teacher is very good"
+        }
+      ]
+    },
+    {
+      "id": "tr_0263",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "buluşmak",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 263,
+      "examples": [
+        {
+          "native": "Yarın buluşalım",
+          "translation": "Let's meet tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "tr_0264",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ziyaret etmek",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 264,
+      "examples": [
+        {
+          "native": "Anneannemi ziyaret etmek istiyorum",
+          "translation": "I want to visit my grandmother"
+        }
+      ]
+    },
+    {
+      "id": "tr_0265",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "seyahat etmek",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 265,
+      "examples": [
+        {
+          "native": "Seyahat etmeyi seviyorum",
+          "translation": "I love to travel"
+        }
+      ]
+    },
+    {
+      "id": "tr_0266",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "denemek",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 266,
+      "examples": [
+        {
+          "native": "Tekrar dene",
+          "translation": "Try again"
+        }
+      ]
+    },
+    {
+      "id": "tr_0267",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "göstermek",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 267,
+      "examples": [
+        {
+          "native": "Fotoğrafı bana göster",
+          "translation": "Show me the photo"
+        }
+      ]
+    },
+    {
+      "id": "tr_0268",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "göndermek",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 268,
+      "examples": [
+        {
+          "native": "Bana mesaj gönder",
+          "translation": "Send me a message"
+        }
+      ]
+    },
+    {
+      "id": "tr_0269",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "hissetmek",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 269,
+      "examples": [
+        {
+          "native": "Kendimi yorgun hissediyorum",
+          "translation": "I feel tired"
+        }
+      ]
+    },
+    {
+      "id": "tr_0270",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "kullanmak",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 270,
+      "examples": [
+        {
+          "native": "Bu telefonu kullan",
+          "translation": "Use this phone"
+        }
+      ]
+    },
+    {
+      "id": "tr_0271",
+      "unit": "u8",
+      "category": "Adjectives",
+      "lemma": "önemli",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 271,
+      "examples": [
+        {
+          "native": "Bu çok önemli",
+          "translation": "This is very important"
+        }
+      ]
+    },
+    {
+      "id": "tr_0272",
+      "unit": "u8",
+      "category": "Adjectives",
+      "lemma": "farklı",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 272,
+      "examples": [
+        {
+          "native": "Bu renk farklı",
+          "translation": "This colour is different"
+        }
+      ]
+    },
+    {
+      "id": "tr_0273",
+      "unit": "u8",
+      "category": "Adjectives",
+      "lemma": "aynı",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 273,
+      "examples": [
+        {
+          "native": "İkisi de aynı",
+          "translation": "Both are the same"
+        }
+      ]
+    },
+    {
+      "id": "tr_0274",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "birlikte",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 274,
+      "examples": [
+        {
+          "native": "Birlikte gidelim",
+          "translation": "Let's go together"
+        }
+      ]
+    },
+    {
+      "id": "tr_0275",
+      "unit": "u9",
+      "category": "Time",
+      "lemma": "bazen",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 275,
+      "examples": [
+        {
+          "native": "Bazen çay içerim",
+          "translation": "I sometimes drink tea"
+        }
+      ]
+    },
+    {
+      "id": "tr_0276",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "öğle yemeği",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 276,
+      "examples": [
+        {
+          "native": "Öğle yemeği hazır",
+          "translation": "Lunch is ready"
+        }
+      ]
+    },
+    {
+      "id": "tr_0277",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "akşam yemeği",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 277,
+      "examples": [
+        {
+          "native": "Akşam yemeği ne zaman?",
+          "translation": "When is dinner?"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

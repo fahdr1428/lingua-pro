@@ -3925,6 +3925,306 @@
           "translation": "I'm late"
         }
       ]
+    },
+    {
+      "id": "pcm_0236",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "question",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "I get one question",
+          "translation": "I have a question"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0237",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "answer",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "Wetin be the answer?",
+          "translation": "What is the answer?"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0238",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "language",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "Pidgin na sweet language",
+          "translation": "Pidgin is a lovely language"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0239",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "people",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "People plenty for here",
+          "translation": "There are many people here"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0240",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "teacher",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "My teacher sabi book well well",
+          "translation": "My teacher really knows her stuff"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0241",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "meet",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "Make we meet tomorrow",
+          "translation": "Let's meet tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0242",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "visit",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "We go visit Mama for village",
+          "translation": "We'll visit Mama in the village"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0243",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "travel",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "I wan travel go Lagos",
+          "translation": "I want to travel to Lagos"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0244",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "try",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "Try am again",
+          "translation": "Try it again"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0245",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "show",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "Show me the foto",
+          "translation": "Show me the photo"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0246",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "send",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 246,
+      "examples": [
+        {
+          "native": "Send me message",
+          "translation": "Send me a message"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0247",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "feel",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 247,
+      "examples": [
+        {
+          "native": "I dey feel cold",
+          "translation": "I'm feeling cold"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0248",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "use",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 248,
+      "examples": [
+        {
+          "native": "Make you use dis phone",
+          "translation": "Use this phone"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0249",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "important",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 249,
+      "examples": [
+        {
+          "native": "Dis one important well well",
+          "translation": "This is very important"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0250",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "different",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 250,
+      "examples": [
+        {
+          "native": "Dis colour different",
+          "translation": "This colour is different"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0251",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "same",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 251,
+      "examples": [
+        {
+          "native": "Both of dem na the same",
+          "translation": "They're both the same"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0252",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "together",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 252,
+      "examples": [
+        {
+          "native": "Make we go together",
+          "translation": "Let's go together"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0253",
+      "unit": "u4",
+      "category": "Time",
+      "lemma": "sometimes",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 253,
+      "examples": [
+        {
+          "native": "Sometimes I dey drink tea",
+          "translation": "I sometimes drink tea"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0254",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "lunch",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 254,
+      "examples": [
+        {
+          "native": "Lunch don ready",
+          "translation": "Lunch is ready"
+        }
+      ]
+    },
+    {
+      "id": "pcm_0255",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "dinner",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 255,
+      "examples": [
+        {
+          "native": "When dinner go ready?",
+          "translation": "When will dinner be ready?"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

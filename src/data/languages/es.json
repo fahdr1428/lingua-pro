@@ -4167,6 +4167,306 @@
           "translation": "I get up early"
         }
       ]
+    },
+    {
+      "id": "es_0250",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "la pregunta",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 250,
+      "examples": [
+        {
+          "native": "La pregunta es fácil",
+          "translation": "The question is easy"
+        }
+      ]
+    },
+    {
+      "id": "es_0251",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "la respuesta",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 251,
+      "examples": [
+        {
+          "native": "La respuesta es correcta",
+          "translation": "The answer is correct"
+        }
+      ]
+    },
+    {
+      "id": "es_0252",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "el idioma",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 252,
+      "examples": [
+        {
+          "native": "El idioma es bonito",
+          "translation": "The language is beautiful"
+        }
+      ]
+    },
+    {
+      "id": "es_0253",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "la gente",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 253,
+      "examples": [
+        {
+          "native": "La gente aquí es amable",
+          "translation": "The people here are kind"
+        }
+      ]
+    },
+    {
+      "id": "es_0254",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "el maestro",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 254,
+      "examples": [
+        {
+          "native": "El maestro es muy bueno",
+          "translation": "The teacher is very good"
+        }
+      ]
+    },
+    {
+      "id": "es_0255",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "encontrarse",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 255,
+      "examples": [
+        {
+          "native": "Nos encontramos mañana",
+          "translation": "We're meeting tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "es_0256",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "visitar",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 256,
+      "examples": [
+        {
+          "native": "Vamos a visitar a la abuela",
+          "translation": "We're going to visit Grandma"
+        }
+      ]
+    },
+    {
+      "id": "es_0257",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "viajar",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 257,
+      "examples": [
+        {
+          "native": "Me gusta viajar",
+          "translation": "I like to travel"
+        }
+      ]
+    },
+    {
+      "id": "es_0258",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "intentar",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 258,
+      "examples": [
+        {
+          "native": "Voy a intentar otra vez",
+          "translation": "I'll try again"
+        }
+      ]
+    },
+    {
+      "id": "es_0259",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mostrar",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 259,
+      "examples": [
+        {
+          "native": "Quiero mostrar la foto",
+          "translation": "I want to show the photo"
+        }
+      ]
+    },
+    {
+      "id": "es_0260",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "enviar",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 260,
+      "examples": [
+        {
+          "native": "Voy a enviar un mensaje",
+          "translation": "I'm going to send a message"
+        }
+      ]
+    },
+    {
+      "id": "es_0261",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "sentir",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 261,
+      "examples": [
+        {
+          "native": "Puedo sentir el frío",
+          "translation": "I can feel the cold"
+        }
+      ]
+    },
+    {
+      "id": "es_0262",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "usar",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 262,
+      "examples": [
+        {
+          "native": "Puedes usar este teléfono",
+          "translation": "You can use this phone"
+        }
+      ]
+    },
+    {
+      "id": "es_0263",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "importante",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 263,
+      "examples": [
+        {
+          "native": "Esto es muy importante",
+          "translation": "This is very important"
+        }
+      ]
+    },
+    {
+      "id": "es_0264",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "diferente",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 264,
+      "examples": [
+        {
+          "native": "Este color es diferente",
+          "translation": "This colour is different"
+        }
+      ]
+    },
+    {
+      "id": "es_0265",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "igual",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 265,
+      "examples": [
+        {
+          "native": "Los dos son iguales",
+          "translation": "Both are the same"
+        }
+      ]
+    },
+    {
+      "id": "es_0266",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "juntos",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 266,
+      "examples": [
+        {
+          "native": "Vamos juntos",
+          "translation": "Let's go together"
+        }
+      ]
+    },
+    {
+      "id": "es_0267",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "a veces",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 267,
+      "examples": [
+        {
+          "native": "A veces tomo té",
+          "translation": "I sometimes drink tea"
+        }
+      ]
+    },
+    {
+      "id": "es_0268",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "el almuerzo",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 268,
+      "examples": [
+        {
+          "native": "El almuerzo está listo",
+          "translation": "Lunch is ready"
+        }
+      ]
+    },
+    {
+      "id": "es_0269",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "la cena",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 269,
+      "examples": [
+        {
+          "native": "La cena es a las ocho",
+          "translation": "Dinner is at eight"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

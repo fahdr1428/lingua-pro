@@ -4439,6 +4439,306 @@
           "translation": "It's already late"
         }
       ]
+    },
+    {
+      "id": "de_0258",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "die Frage",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 258,
+      "examples": [
+        {
+          "native": "Die Frage ist einfach",
+          "translation": "The question is easy"
+        }
+      ]
+    },
+    {
+      "id": "de_0259",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "die Antwort",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 259,
+      "examples": [
+        {
+          "native": "Die Antwort ist richtig",
+          "translation": "The answer is right"
+        }
+      ]
+    },
+    {
+      "id": "de_0260",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "die Sprache",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 260,
+      "examples": [
+        {
+          "native": "Die Sprache ist schön",
+          "translation": "The language is beautiful"
+        }
+      ]
+    },
+    {
+      "id": "de_0261",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "die Leute",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 261,
+      "examples": [
+        {
+          "native": "Die Leute hier sind nett",
+          "translation": "The people here are nice"
+        }
+      ]
+    },
+    {
+      "id": "de_0262",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "der Lehrer",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 262,
+      "examples": [
+        {
+          "native": "Der Lehrer ist sehr gut",
+          "translation": "The teacher is very good"
+        }
+      ]
+    },
+    {
+      "id": "de_0263",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "treffen",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 263,
+      "examples": [
+        {
+          "native": "Wir treffen uns morgen",
+          "translation": "We're meeting tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "de_0264",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "besuchen",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 264,
+      "examples": [
+        {
+          "native": "Wir besuchen Oma",
+          "translation": "We're visiting Grandma"
+        }
+      ]
+    },
+    {
+      "id": "de_0265",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "reisen",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 265,
+      "examples": [
+        {
+          "native": "Ich reise gern",
+          "translation": "I like to travel"
+        }
+      ]
+    },
+    {
+      "id": "de_0266",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "versuchen",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 266,
+      "examples": [
+        {
+          "native": "Versuch es noch einmal",
+          "translation": "Try again"
+        }
+      ]
+    },
+    {
+      "id": "de_0267",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "zeigen",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 267,
+      "examples": [
+        {
+          "native": "Zeig mir das Foto",
+          "translation": "Show me the photo"
+        }
+      ]
+    },
+    {
+      "id": "de_0268",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "schicken",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 268,
+      "examples": [
+        {
+          "native": "Schick mir eine Nachricht",
+          "translation": "Send me a message"
+        }
+      ]
+    },
+    {
+      "id": "de_0269",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "fühlen",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 269,
+      "examples": [
+        {
+          "native": "Ich fühle mich müde",
+          "translation": "I feel tired"
+        }
+      ]
+    },
+    {
+      "id": "de_0270",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "benutzen",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 270,
+      "examples": [
+        {
+          "native": "Benutz dieses Handy",
+          "translation": "Use this phone"
+        }
+      ]
+    },
+    {
+      "id": "de_0271",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "wichtig",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 271,
+      "examples": [
+        {
+          "native": "Das ist sehr wichtig",
+          "translation": "This is very important"
+        }
+      ]
+    },
+    {
+      "id": "de_0272",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "anders",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 272,
+      "examples": [
+        {
+          "native": "Diese Farbe ist anders",
+          "translation": "This colour is different"
+        }
+      ]
+    },
+    {
+      "id": "de_0273",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "gleich",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 273,
+      "examples": [
+        {
+          "native": "Beide sind gleich",
+          "translation": "Both are the same"
+        }
+      ]
+    },
+    {
+      "id": "de_0274",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "zusammen",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 274,
+      "examples": [
+        {
+          "native": "Lass uns zusammen gehen",
+          "translation": "Let's go together"
+        }
+      ]
+    },
+    {
+      "id": "de_0275",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "manchmal",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 275,
+      "examples": [
+        {
+          "native": "Manchmal trinke ich Tee",
+          "translation": "I sometimes drink tea"
+        }
+      ]
+    },
+    {
+      "id": "de_0276",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "das Mittagessen",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 276,
+      "examples": [
+        {
+          "native": "Das Mittagessen ist fertig",
+          "translation": "Lunch is ready"
+        }
+      ]
+    },
+    {
+      "id": "de_0277",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "das Abendessen",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 277,
+      "examples": [
+        {
+          "native": "Das Abendessen ist um sieben",
+          "translation": "Dinner is at seven"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

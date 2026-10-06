@@ -3896,6 +3896,346 @@
         }
       ],
       "translit": "thaamadham"
+    },
+    {
+      "id": "ta_0215",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "கேள்வி",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "எனக்கு ஒரு கேள்வி இருக்கிறது",
+          "translation": "I have a question",
+          "translit": "enakku oru kelvi irukkiradhu"
+        }
+      ],
+      "translit": "kelvi"
+    },
+    {
+      "id": "ta_0216",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "பதில்",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "பதில் என்ன?",
+          "translation": "What is the answer?",
+          "translit": "badhil enna?"
+        }
+      ],
+      "translit": "badhil"
+    },
+    {
+      "id": "ta_0217",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "மொழி",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "தமிழ் என் மொழி",
+          "translation": "Tamil is my language",
+          "translit": "tamizh en mozhi"
+        }
+      ],
+      "translit": "mozhi"
+    },
+    {
+      "id": "ta_0218",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "மக்கள்",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "இங்கே நிறைய மக்கள் இருக்கிறார்கள்",
+          "translation": "There are many people here",
+          "translit": "inge niraiya makkal irukkiraargal"
+        }
+      ],
+      "translit": "makkal"
+    },
+    {
+      "id": "ta_0219",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "ஆசிரியர்",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "என் ஆசிரியர் மிகவும் நல்லவர்",
+          "translation": "My teacher is very good",
+          "translit": "en aasiriyar migavum nallavar"
+        }
+      ],
+      "translit": "aasiriyar"
+    },
+    {
+      "id": "ta_0220",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "சந்தி",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "நாளை சந்திப்போம்",
+          "translation": "Let's meet tomorrow",
+          "translit": "naalai sandhippom"
+        }
+      ],
+      "translit": "sandhi"
+    },
+    {
+      "id": "ta_0221",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "சென்று பார்",
+      "translation": "to visit (go and see)",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "பாட்டியைச் சென்று பார்",
+          "translation": "Go and visit grandmother",
+          "translit": "paattiyaich sendru paar"
+        }
+      ],
+      "translit": "sendru paar"
+    },
+    {
+      "id": "ta_0222",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "பயணம் செய்",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "எனக்குப் பயணம் செய்வது பிடிக்கும்",
+          "translation": "I like travelling",
+          "translit": "enakkup payanam seivadhu pidikkum"
+        }
+      ],
+      "translit": "payanam sei"
+    },
+    {
+      "id": "ta_0223",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "முயற்சி செய்",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "மீண்டும் முயற்சி செய்",
+          "translation": "Try again",
+          "translit": "meendum muyarchi sei"
+        }
+      ],
+      "translit": "muyarchi sei"
+    },
+    {
+      "id": "ta_0224",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "காட்டு",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "அந்தப் படத்தைக் காட்டு",
+          "translation": "Show that picture",
+          "translit": "andhap padaththaik kaattu"
+        }
+      ],
+      "translit": "kaattu"
+    },
+    {
+      "id": "ta_0225",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "அனுப்பு",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "எனக்கு ஒரு செய்தி அனுப்பு",
+          "translation": "Send me a message",
+          "translit": "enakku oru seidhi anuppu"
+        }
+      ],
+      "translit": "anuppu"
+    },
+    {
+      "id": "ta_0226",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "உணர்",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "நான் சோர்வாக உணர்கிறேன்",
+          "translation": "I feel tired",
+          "translit": "naan sorvaaga unargiren"
+        }
+      ],
+      "translit": "unar"
+    },
+    {
+      "id": "ta_0227",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "பயன்படுத்து",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "இந்த போனைப் பயன்படுத்து",
+          "translation": "Use this phone",
+          "translit": "indha phonaip payanpaduththu"
+        }
+      ],
+      "translit": "payanpaduththu"
+    },
+    {
+      "id": "ta_0228",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "முக்கியம்",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "இது மிகவும் முக்கியம்",
+          "translation": "This is very important",
+          "translit": "idhu migavum mukkiyam"
+        }
+      ],
+      "translit": "mukkiyam"
+    },
+    {
+      "id": "ta_0229",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "வேறு",
+      "translation": "different, other",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "இந்த நிறம் வேறு",
+          "translation": "This colour is different",
+          "translit": "indha niram veru"
+        }
+      ],
+      "translit": "veru"
+    },
+    {
+      "id": "ta_0230",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ஒரே",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "இரண்டும் ஒரே மாதிரி",
+          "translation": "Both are the same",
+          "translit": "irandum ore maadhiri"
+        }
+      ],
+      "translit": "ore"
+    },
+    {
+      "id": "ta_0231",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "சேர்ந்து",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "நாம் சேர்ந்து போவோம்",
+          "translation": "Let's go together",
+          "translit": "naam serndhu povom"
+        }
+      ],
+      "translit": "serndhu"
+    },
+    {
+      "id": "ta_0232",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "சில நேரங்களில்",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "நான் சில நேரங்களில் டீ குடிப்பேன்",
+          "translation": "I sometimes drink tea",
+          "translit": "naan sila nerangalil tea kudippen"
+        }
+      ],
+      "translit": "sila nerangalil"
+    },
+    {
+      "id": "ta_0233",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "மதிய உணவு",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "மதிய உணவு தயார்",
+          "translation": "Lunch is ready",
+          "translit": "madhiya unavu thayaar"
+        }
+      ],
+      "translit": "madhiya unavu"
+    },
+    {
+      "id": "ta_0234",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "இரவு உணவு",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "இரவு உணவு எப்போது?",
+          "translation": "When is dinner?",
+          "translit": "iravu unavu eppodhu?"
+        }
+      ],
+      "translit": "iravu unavu"
     }
   ],
   "alphabetGroups": [

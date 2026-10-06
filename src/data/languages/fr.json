@@ -4034,6 +4034,306 @@
           "translation": "It's late"
         }
       ]
+    },
+    {
+      "id": "fr_0242",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "la question",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "La question est simple",
+          "translation": "The question is simple"
+        }
+      ]
+    },
+    {
+      "id": "fr_0243",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "la réponse",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "La réponse est juste",
+          "translation": "The answer is right"
+        }
+      ]
+    },
+    {
+      "id": "fr_0244",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "la langue",
+      "translation": "language, tongue",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "La langue française est belle",
+          "translation": "The French language is beautiful"
+        }
+      ]
+    },
+    {
+      "id": "fr_0245",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "les gens",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "Les gens sont gentils ici",
+          "translation": "People are kind here"
+        }
+      ]
+    },
+    {
+      "id": "fr_0246",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "le professeur",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 246,
+      "examples": [
+        {
+          "native": "Le professeur est très bon",
+          "translation": "The teacher is very good"
+        }
+      ]
+    },
+    {
+      "id": "fr_0247",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "rencontrer",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 247,
+      "examples": [
+        {
+          "native": "On peut se rencontrer demain",
+          "translation": "We can meet tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "fr_0248",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "rendre visite",
+      "translation": "to visit (someone)",
+      "difficulty": 1,
+      "frequencyRank": 248,
+      "examples": [
+        {
+          "native": "Nous allons rendre visite à mamie",
+          "translation": "We're going to visit Grandma"
+        }
+      ]
+    },
+    {
+      "id": "fr_0249",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "voyager",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 249,
+      "examples": [
+        {
+          "native": "J'aime voyager",
+          "translation": "I like to travel"
+        }
+      ]
+    },
+    {
+      "id": "fr_0250",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "essayer",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 250,
+      "examples": [
+        {
+          "native": "Je vais essayer encore",
+          "translation": "I'll try again"
+        }
+      ]
+    },
+    {
+      "id": "fr_0251",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "montrer",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 251,
+      "examples": [
+        {
+          "native": "Je veux te montrer la photo",
+          "translation": "I want to show you the photo"
+        }
+      ]
+    },
+    {
+      "id": "fr_0252",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "envoyer",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 252,
+      "examples": [
+        {
+          "native": "Je vais envoyer un message",
+          "translation": "I'm going to send a message"
+        }
+      ]
+    },
+    {
+      "id": "fr_0253",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "sentir",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 253,
+      "examples": [
+        {
+          "native": "Je me sens fatigué",
+          "translation": "I feel tired"
+        }
+      ]
+    },
+    {
+      "id": "fr_0254",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "utiliser",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 254,
+      "examples": [
+        {
+          "native": "Tu peux utiliser ce téléphone",
+          "translation": "You can use this phone"
+        }
+      ]
+    },
+    {
+      "id": "fr_0255",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "important",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 255,
+      "examples": [
+        {
+          "native": "C'est très important",
+          "translation": "It's very important"
+        }
+      ]
+    },
+    {
+      "id": "fr_0256",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "différent",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 256,
+      "examples": [
+        {
+          "native": "Cette couleur est différente",
+          "translation": "This colour is different"
+        }
+      ]
+    },
+    {
+      "id": "fr_0257",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "pareil",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 257,
+      "examples": [
+        {
+          "native": "Les deux sont pareils",
+          "translation": "Both are the same"
+        }
+      ]
+    },
+    {
+      "id": "fr_0258",
+      "unit": "u13",
+      "category": "Common",
+      "lemma": "ensemble",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 258,
+      "examples": [
+        {
+          "native": "Allons-y ensemble",
+          "translation": "Let's go together"
+        }
+      ]
+    },
+    {
+      "id": "fr_0259",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "parfois",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 259,
+      "examples": [
+        {
+          "native": "Parfois je bois du thé",
+          "translation": "I sometimes drink tea"
+        }
+      ]
+    },
+    {
+      "id": "fr_0260",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "le déjeuner",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 260,
+      "examples": [
+        {
+          "native": "Le déjeuner est prêt",
+          "translation": "Lunch is ready"
+        }
+      ]
+    },
+    {
+      "id": "fr_0261",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "le dîner",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 261,
+      "examples": [
+        {
+          "native": "Le dîner est à huit heures",
+          "translation": "Dinner is at eight"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

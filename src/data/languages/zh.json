@@ -4447,6 +4447,346 @@
         }
       ],
       "translit": "wǎn"
+    },
+    {
+      "id": "zh_0236",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "问题",
+      "translation": "question, problem",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "我有一个问题",
+          "translation": "I have a question",
+          "translit": "wǒ yǒu yí ge wèntí"
+        }
+      ],
+      "translit": "wèntí"
+    },
+    {
+      "id": "zh_0237",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "答案",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "答案是什么？",
+          "translation": "What is the answer?",
+          "translit": "dá'àn shì shénme?"
+        }
+      ],
+      "translit": "dá'àn"
+    },
+    {
+      "id": "zh_0238",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "语言",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "中文是一种美丽的语言",
+          "translation": "Chinese is a beautiful language",
+          "translit": "zhōngwén shì yì zhǒng měilì de yǔyán"
+        }
+      ],
+      "translit": "yǔyán"
+    },
+    {
+      "id": "zh_0239",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "人们",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "人们都很友好",
+          "translation": "People are all very friendly",
+          "translit": "rénmen dōu hěn yǒuhǎo"
+        }
+      ],
+      "translit": "rénmen"
+    },
+    {
+      "id": "zh_0240",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "老师",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "老师很好",
+          "translation": "The teacher is very good",
+          "translit": "lǎoshī hěn hǎo"
+        }
+      ],
+      "translit": "lǎoshī"
+    },
+    {
+      "id": "zh_0241",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "见面",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "明天见面吧",
+          "translation": "Let's meet tomorrow",
+          "translit": "míngtiān jiànmiàn ba"
+        }
+      ],
+      "translit": "jiànmiàn"
+    },
+    {
+      "id": "zh_0242",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "拜访",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "我们去拜访奶奶",
+          "translation": "We're going to visit grandma",
+          "translit": "wǒmen qù bàifǎng nǎinai"
+        }
+      ],
+      "translit": "bàifǎng"
+    },
+    {
+      "id": "zh_0243",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "旅行",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "我喜欢旅行",
+          "translation": "I like to travel",
+          "translit": "wǒ xǐhuan lǚxíng"
+        }
+      ],
+      "translit": "lǚxíng"
+    },
+    {
+      "id": "zh_0244",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "试",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "再试一次",
+          "translation": "Try again",
+          "translit": "zài shì yí cì"
+        }
+      ],
+      "translit": "shì"
+    },
+    {
+      "id": "zh_0245",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "展示",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "请展示你的照片",
+          "translation": "Please show your photos",
+          "translit": "qǐng zhǎnshì nǐ de zhàopiàn"
+        }
+      ],
+      "translit": "zhǎnshì"
+    },
+    {
+      "id": "zh_0246",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "发",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 246,
+      "examples": [
+        {
+          "native": "给我发消息",
+          "translation": "Send me a message",
+          "translit": "gěi wǒ fā xiāoxi"
+        }
+      ],
+      "translit": "fā"
+    },
+    {
+      "id": "zh_0247",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "觉得",
+      "translation": "to feel, to think",
+      "difficulty": 1,
+      "frequencyRank": 247,
+      "examples": [
+        {
+          "native": "我觉得很累",
+          "translation": "I feel very tired",
+          "translit": "wǒ juéde hěn lèi"
+        }
+      ],
+      "translit": "juéde"
+    },
+    {
+      "id": "zh_0248",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "用",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 248,
+      "examples": [
+        {
+          "native": "用这个手机",
+          "translation": "Use this phone",
+          "translit": "yòng zhège shǒujī"
+        }
+      ],
+      "translit": "yòng"
+    },
+    {
+      "id": "zh_0249",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "重要",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 249,
+      "examples": [
+        {
+          "native": "这很重要",
+          "translation": "This is very important",
+          "translit": "zhè hěn zhòngyào"
+        }
+      ],
+      "translit": "zhòngyào"
+    },
+    {
+      "id": "zh_0250",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "不同",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 250,
+      "examples": [
+        {
+          "native": "颜色不同",
+          "translation": "The colours are different",
+          "translit": "yánsè bùtóng"
+        }
+      ],
+      "translit": "bùtóng"
+    },
+    {
+      "id": "zh_0251",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "一样",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 251,
+      "examples": [
+        {
+          "native": "两个一样",
+          "translation": "The two are the same",
+          "translit": "liǎng ge yíyàng"
+        }
+      ],
+      "translit": "yíyàng"
+    },
+    {
+      "id": "zh_0252",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "一起",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 252,
+      "examples": [
+        {
+          "native": "我们一起吃饭吧",
+          "translation": "Let's eat together",
+          "translit": "wǒmen yìqǐ chīfàn ba"
+        }
+      ],
+      "translit": "yìqǐ"
+    },
+    {
+      "id": "zh_0253",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "有时候",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 253,
+      "examples": [
+        {
+          "native": "我有时候喝茶",
+          "translation": "I sometimes drink tea",
+          "translit": "wǒ yǒushíhou hē chá"
+        }
+      ],
+      "translit": "yǒushíhou"
+    },
+    {
+      "id": "zh_0254",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "午饭",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 254,
+      "examples": [
+        {
+          "native": "午饭好了",
+          "translation": "Lunch is ready",
+          "translit": "wǔfàn hǎo le"
+        }
+      ],
+      "translit": "wǔfàn"
+    },
+    {
+      "id": "zh_0255",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "晚饭",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 255,
+      "examples": [
+        {
+          "native": "晚饭吃什么？",
+          "translation": "What's for dinner?",
+          "translit": "wǎnfàn chī shénme?"
+        }
+      ],
+      "translit": "wǎnfàn"
     }
   ],
   "alphabetGroups": [

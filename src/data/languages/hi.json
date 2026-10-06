@@ -4489,6 +4489,346 @@
         }
       ],
       "translit": "der"
+    },
+    {
+      "id": "hi_0237",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "सवाल",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "मेरा एक सवाल है",
+          "translation": "I have a question",
+          "translit": "mera ek sawaal hai"
+        }
+      ],
+      "translit": "sawaal"
+    },
+    {
+      "id": "hi_0238",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "जवाब",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "जवाब क्या है?",
+          "translation": "What is the answer?",
+          "translit": "jawaab kya hai?"
+        }
+      ],
+      "translit": "jawaab"
+    },
+    {
+      "id": "hi_0239",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "भाषा",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "हिंदी मेरी भाषा है",
+          "translation": "Hindi is my language",
+          "translit": "hindi meri bhaasha hai"
+        }
+      ],
+      "translit": "bhaasha"
+    },
+    {
+      "id": "hi_0240",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "लोग",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "यहाँ बहुत लोग हैं",
+          "translation": "There are many people here",
+          "translit": "yahaan bahut log hain"
+        }
+      ],
+      "translit": "log"
+    },
+    {
+      "id": "hi_0241",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "शिक्षक",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "मेरे शिक्षक बहुत अच्छे हैं",
+          "translation": "My teacher is very good",
+          "translit": "mere shikshak bahut achchhe hain"
+        }
+      ],
+      "translit": "shikshak"
+    },
+    {
+      "id": "hi_0242",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "मिलना",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "हमें कल मिलना है",
+          "translation": "We have to meet tomorrow",
+          "translit": "hamen kal milna hai"
+        }
+      ],
+      "translit": "milna"
+    },
+    {
+      "id": "hi_0243",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "मिलने जाना",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "हम नानी से मिलने जाएँगे",
+          "translation": "We will go to visit grandmother",
+          "translit": "ham naani se milne jaayenge"
+        }
+      ],
+      "translit": "milne jaana"
+    },
+    {
+      "id": "hi_0244",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "यात्रा करना",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "मुझे यात्रा करना पसंद है",
+          "translation": "I like to travel",
+          "translit": "mujhe yaatra karna pasand hai"
+        }
+      ],
+      "translit": "yaatra karna"
+    },
+    {
+      "id": "hi_0245",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "कोशिश करना",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "फिर से कोशिश करो",
+          "translation": "Try again",
+          "translit": "phir se koshish karo"
+        }
+      ],
+      "translit": "koshish karna"
+    },
+    {
+      "id": "hi_0246",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "दिखाना",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 246,
+      "examples": [
+        {
+          "native": "मुझे फ़ोटो दिखाओ",
+          "translation": "Show me the photo",
+          "translit": "mujhe photo dikhaao"
+        }
+      ],
+      "translit": "dikhaana"
+    },
+    {
+      "id": "hi_0247",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "भेजना",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 247,
+      "examples": [
+        {
+          "native": "मुझे संदेश भेजो",
+          "translation": "Send me a message",
+          "translit": "mujhe sandesh bhejo"
+        }
+      ],
+      "translit": "bhejna"
+    },
+    {
+      "id": "hi_0248",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "महसूस करना",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 248,
+      "examples": [
+        {
+          "native": "मैं बेहतर महसूस कर रहा हूँ",
+          "translation": "I'm feeling better",
+          "translit": "main behtar mahsoos kar raha hoon"
+        }
+      ],
+      "translit": "mahsoos karna"
+    },
+    {
+      "id": "hi_0249",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "इस्तेमाल करना",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 249,
+      "examples": [
+        {
+          "native": "यह फ़ोन इस्तेमाल करो",
+          "translation": "Use this phone",
+          "translit": "yah phone istemaal karo"
+        }
+      ],
+      "translit": "istemaal karna"
+    },
+    {
+      "id": "hi_0250",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "ज़रूरी",
+      "translation": "important, necessary",
+      "difficulty": 1,
+      "frequencyRank": 250,
+      "examples": [
+        {
+          "native": "यह बहुत ज़रूरी है",
+          "translation": "This is very important",
+          "translit": "yah bahut zaroori hai"
+        }
+      ],
+      "translit": "zaroori"
+    },
+    {
+      "id": "hi_0251",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "अलग",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 251,
+      "examples": [
+        {
+          "native": "यह रंग अलग है",
+          "translation": "This colour is different",
+          "translit": "yah rang alag hai"
+        }
+      ],
+      "translit": "alag"
+    },
+    {
+      "id": "hi_0252",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "एक जैसा",
+      "translation": "the same, alike",
+      "difficulty": 1,
+      "frequencyRank": 252,
+      "examples": [
+        {
+          "native": "दोनों एक जैसे हैं",
+          "translation": "Both are the same",
+          "translit": "donon ek jaise hain"
+        }
+      ],
+      "translit": "ek jaisa"
+    },
+    {
+      "id": "hi_0253",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "साथ",
+      "translation": "together, with",
+      "difficulty": 1,
+      "frequencyRank": 253,
+      "examples": [
+        {
+          "native": "हम साथ चलेंगे",
+          "translation": "We'll go together",
+          "translit": "ham saath chalenge"
+        }
+      ],
+      "translit": "saath"
+    },
+    {
+      "id": "hi_0254",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "कभी-कभी",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 254,
+      "examples": [
+        {
+          "native": "मैं कभी-कभी चाय पीता हूँ",
+          "translation": "I sometimes drink tea",
+          "translit": "main kabhi-kabhi chaay peeta hoon"
+        }
+      ],
+      "translit": "kabhi-kabhi"
+    },
+    {
+      "id": "hi_0255",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "दोपहर का खाना",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 255,
+      "examples": [
+        {
+          "native": "दोपहर का खाना तैयार है",
+          "translation": "Lunch is ready",
+          "translit": "dopahar ka khaana taiyaar hai"
+        }
+      ],
+      "translit": "dopahar ka khaana"
+    },
+    {
+      "id": "hi_0256",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "रात का खाना",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 256,
+      "examples": [
+        {
+          "native": "रात का खाना कब है?",
+          "translation": "When is dinner?",
+          "translit": "raat ka khaana kab hai?"
+        }
+      ],
+      "translit": "raat ka khaana"
     }
   ],
   "units": [

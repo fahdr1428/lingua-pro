@@ -4130,6 +4130,346 @@
         }
       ],
       "translit": "der"
+    },
+    {
+      "id": "pa_0226",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "سوال",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "میرا اک سوال اے",
+          "translation": "I have a question",
+          "translit": "mera ik savaal ae"
+        }
+      ],
+      "translit": "savaal"
+    },
+    {
+      "id": "pa_0227",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "جواب",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "جواب کیہ اے؟",
+          "translation": "What is the answer?",
+          "translit": "javaab kee ae?"
+        }
+      ],
+      "translit": "javaab"
+    },
+    {
+      "id": "pa_0228",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "بولی",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "پنجابی ساڈی بولی اے",
+          "translation": "Punjabi is our language",
+          "translit": "panjabi saadi boli ae"
+        }
+      ],
+      "translit": "boli"
+    },
+    {
+      "id": "pa_0229",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "لوک",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "ایتھے بڑے لوک نیں",
+          "translation": "There are many people here",
+          "translit": "ethe bade lok nen"
+        }
+      ],
+      "translit": "lok"
+    },
+    {
+      "id": "pa_0230",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "استاد",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "میرا استاد بہت چنگا اے",
+          "translation": "My teacher is very good",
+          "translit": "mera ustaad bahut changa ae"
+        }
+      ],
+      "translit": "ustaad"
+    },
+    {
+      "id": "pa_0231",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ملنا",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "کل ملنا اے",
+          "translation": "We're meeting tomorrow",
+          "translit": "kal milna ae"
+        }
+      ],
+      "translit": "milna"
+    },
+    {
+      "id": "pa_0232",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ملن جانا",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "اسیں نانی نوں ملن جاواں گے",
+          "translation": "We'll go to visit grandmother",
+          "translit": "aseen naani nu milan jaavaan ge"
+        }
+      ],
+      "translit": "milan jaana"
+    },
+    {
+      "id": "pa_0233",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "سفر کرنا",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "مینوں سفر کرنا چنگا لگدا اے",
+          "translation": "I like to travel",
+          "translit": "mainu safar karna changa lagda ae"
+        }
+      ],
+      "translit": "safar karna"
+    },
+    {
+      "id": "pa_0234",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "کوشش کرنا",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "فیر کوشش کرو",
+          "translation": "Try again",
+          "translit": "pher koshish karo"
+        }
+      ],
+      "translit": "koshish karna"
+    },
+    {
+      "id": "pa_0235",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "وکھانا",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "مینوں تصویر وکھاؤ",
+          "translation": "Show me the picture",
+          "translit": "mainu tasveer vikhaao"
+        }
+      ],
+      "translit": "vikhaana"
+    },
+    {
+      "id": "pa_0236",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "بھیجنا",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "مینوں سنیہا بھیجو",
+          "translation": "Send me a message",
+          "translit": "mainu suneha bhejo"
+        }
+      ],
+      "translit": "bhejna"
+    },
+    {
+      "id": "pa_0237",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "محسوس کرنا",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "میں چنگا محسوس کر رہیا واں",
+          "translation": "I'm feeling good",
+          "translit": "main changa mehsoos kar rehya vaan"
+        }
+      ],
+      "translit": "mehsoos karna"
+    },
+    {
+      "id": "pa_0238",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ورتنا",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "ایہہ فون ورتو",
+          "translation": "Use this phone",
+          "translit": "eh phone varto"
+        }
+      ],
+      "translit": "vartna"
+    },
+    {
+      "id": "pa_0239",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "ضروری",
+      "translation": "important, necessary",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "ایہہ بہت ضروری اے",
+          "translation": "This is very important",
+          "translit": "eh bahut zaroori ae"
+        }
+      ],
+      "translit": "zaroori"
+    },
+    {
+      "id": "pa_0240",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "وکھرا",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "ایہہ رنگ وکھرا اے",
+          "translation": "This colour is different",
+          "translit": "eh rang vakhra ae"
+        }
+      ],
+      "translit": "vakhra"
+    },
+    {
+      "id": "pa_0241",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "اکو جیہا",
+      "translation": "the same, alike",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "دوویں اکو جیہے نیں",
+          "translation": "Both are the same",
+          "translit": "dovein iko jehe nen"
+        }
+      ],
+      "translit": "iko jeha"
+    },
+    {
+      "id": "pa_0242",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "اکٹھے",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "اسیں اکٹھے چلاں گے",
+          "translation": "We'll go together",
+          "translit": "aseen ikatthe chalaan ge"
+        }
+      ],
+      "translit": "ikatthe"
+    },
+    {
+      "id": "pa_0243",
+      "unit": "u4",
+      "category": "Time",
+      "lemma": "کدی کدی",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "میں کدی کدی چاہ پیندا واں",
+          "translation": "I sometimes drink tea",
+          "translit": "main kadi kadi chaah peenda vaan"
+        }
+      ],
+      "translit": "kadi kadi"
+    },
+    {
+      "id": "pa_0244",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "دوپہر دی روٹی",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "دوپہر دی روٹی تیار اے",
+          "translation": "Lunch is ready",
+          "translit": "dupahar di roti tiyaar ae"
+        }
+      ],
+      "translit": "dupahar di roti"
+    },
+    {
+      "id": "pa_0245",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "رات دی روٹی",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "رات دی روٹی کدوں اے؟",
+          "translation": "When is dinner?",
+          "translit": "raat di roti kadon ae?"
+        }
+      ],
+      "translit": "raat di roti"
     }
   ],
   "alphabetGroups": [

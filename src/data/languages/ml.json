@@ -3997,6 +3997,346 @@
         }
       ],
       "translit": "vaiki"
+    },
+    {
+      "id": "ml_0218",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ചോദ്യം",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "എനിക്ക് ഒരു ചോദ്യം ഉണ്ട്",
+          "translation": "I have a question",
+          "translit": "enikku oru chodyam undu"
+        }
+      ],
+      "translit": "chodyam"
+    },
+    {
+      "id": "ml_0219",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ഉത്തരം",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "ഉത്തരം എന്താണ്?",
+          "translation": "What is the answer?",
+          "translit": "utharam enthaanu?"
+        }
+      ],
+      "translit": "utharam"
+    },
+    {
+      "id": "ml_0220",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ഭാഷ",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "മലയാളം എന്റെ ഭാഷയാണ്",
+          "translation": "Malayalam is my language",
+          "translit": "malayaalam ente bhaashayaanu"
+        }
+      ],
+      "translit": "bhaasha"
+    },
+    {
+      "id": "ml_0221",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "ആളുകൾ",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "ഇവിടെ ധാരാളം ആളുകൾ ഉണ്ട്",
+          "translation": "There are many people here",
+          "translit": "ivide dhaaraalam aalukal undu"
+        }
+      ],
+      "translit": "aalukal"
+    },
+    {
+      "id": "ml_0222",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "അധ്യാപകൻ",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "എന്റെ അധ്യാപകൻ വളരെ നല്ലതാണ്",
+          "translation": "My teacher is very good",
+          "translit": "ente adhyaapakan valare nallathaanu"
+        }
+      ],
+      "translit": "adhyaapakan"
+    },
+    {
+      "id": "ml_0223",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "കണ്ടുമുട്ടുക",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "നാളെ കണ്ടുമുട്ടാം",
+          "translation": "Let's meet tomorrow",
+          "translit": "naale kandumuttaam"
+        }
+      ],
+      "translit": "kandumuttuka"
+    },
+    {
+      "id": "ml_0224",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "സന്ദർശിക്കുക",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "ഞങ്ങൾ മുത്തശ്ശിയെ സന്ദർശിക്കും",
+          "translation": "We will visit grandmother",
+          "translit": "njangal muthashshiye sandarshikkum"
+        }
+      ],
+      "translit": "sandarshikkuka"
+    },
+    {
+      "id": "ml_0225",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "യാത്ര ചെയ്യുക",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "എനിക്ക് യാത്ര ചെയ്യാൻ ഇഷ്ടമാണ്",
+          "translation": "I like to travel",
+          "translit": "enikku yaathra cheyyaan ishtamaanu"
+        }
+      ],
+      "translit": "yaathra cheyyuka"
+    },
+    {
+      "id": "ml_0226",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ശ്രമിക്കുക",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "വീണ്ടും ശ്രമിക്കൂ",
+          "translation": "Try again",
+          "translit": "veendum shramikkoo"
+        }
+      ],
+      "translit": "shramikkuka"
+    },
+    {
+      "id": "ml_0227",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "കാണിക്കുക",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "ആ ഫോട്ടോ എന്നെ കാണിക്കൂ",
+          "translation": "Show me that photo",
+          "translit": "aa photo enne kaanikkoo"
+        }
+      ],
+      "translit": "kaanikkuka"
+    },
+    {
+      "id": "ml_0228",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "അയക്കുക",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "എനിക്ക് ഒരു സന്ദേശം അയക്കൂ",
+          "translation": "Send me a message",
+          "translit": "enikku oru sandesham ayakkoo"
+        }
+      ],
+      "translit": "ayakkuka"
+    },
+    {
+      "id": "ml_0229",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "തോന്നുക",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "എനിക്ക് ക്ഷീണം തോന്നുന്നു",
+          "translation": "I feel tired",
+          "translit": "enikku ksheenam thonnunnu"
+        }
+      ],
+      "translit": "thonnuka"
+    },
+    {
+      "id": "ml_0230",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ഉപയോഗിക്കുക",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "ഈ ഫോൺ ഉപയോഗിക്കൂ",
+          "translation": "Use this phone",
+          "translit": "ee phone upayogikkoo"
+        }
+      ],
+      "translit": "upayogikkuka"
+    },
+    {
+      "id": "ml_0231",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "പ്രധാനം",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "ഇത് വളരെ പ്രധാനമാണ്",
+          "translation": "This is very important",
+          "translit": "ithu valare pradhaanamaanu"
+        }
+      ],
+      "translit": "pradhaanam"
+    },
+    {
+      "id": "ml_0232",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "വ്യത്യസ്തം",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "ഈ നിറം വ്യത്യസ്തമാണ്",
+          "translation": "This colour is different",
+          "translit": "ee niram vyathyasthamaanu"
+        }
+      ],
+      "translit": "vyathyastham"
+    },
+    {
+      "id": "ml_0233",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ഒരേ",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "രണ്ടും ഒരേ പോലെയാണ്",
+          "translation": "Both are the same",
+          "translit": "randum ore poleyaanu"
+        }
+      ],
+      "translit": "ore"
+    },
+    {
+      "id": "ml_0234",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "ഒരുമിച്ച്",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "നമുക്ക് ഒരുമിച്ച് പോകാം",
+          "translation": "Let's go together",
+          "translit": "namukku orumichu pokaam"
+        }
+      ],
+      "translit": "orumichu"
+    },
+    {
+      "id": "ml_0235",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "ചിലപ്പോൾ",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "ഞാൻ ചിലപ്പോൾ ചായ കുടിക്കും",
+          "translation": "I sometimes drink tea",
+          "translit": "njaan chilappol chaaya kudikkum"
+        }
+      ],
+      "translit": "chilappol"
+    },
+    {
+      "id": "ml_0236",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "ഉച്ചഭക്ഷണം",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "ഉച്ചഭക്ഷണം തയ്യാറാണ്",
+          "translation": "Lunch is ready",
+          "translit": "uchabhakshanam thayyaaraanu"
+        }
+      ],
+      "translit": "uchabhakshanam"
+    },
+    {
+      "id": "ml_0237",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "അത്താഴം",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "അത്താഴം എപ്പോഴാണ്?",
+          "translation": "When is dinner?",
+          "translit": "athaazham eppozhaanu?"
+        }
+      ],
+      "translit": "athaazham"
     }
   ],
   "alphabetGroups": [

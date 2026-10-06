@@ -3346,6 +3346,306 @@
           "translation": "I'm late"
         }
       ]
+    },
+    {
+      "id": "tl_0215",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "tanong",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "May tanong ako",
+          "translation": "I have a question"
+        }
+      ]
+    },
+    {
+      "id": "tl_0216",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "sagot",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "Ano ang sagot?",
+          "translation": "What is the answer?"
+        }
+      ]
+    },
+    {
+      "id": "tl_0217",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "wika",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "Tagalog ang wika ko",
+          "translation": "Tagalog is my language"
+        }
+      ]
+    },
+    {
+      "id": "tl_0218",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "mga tao",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "Mababait ang mga tao dito",
+          "translation": "The people here are kind"
+        }
+      ]
+    },
+    {
+      "id": "tl_0219",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "guro",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "Mabait ang guro namin",
+          "translation": "Our teacher is kind"
+        }
+      ]
+    },
+    {
+      "id": "tl_0220",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magkita",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "Magkita tayo bukas",
+          "translation": "Let's meet tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "tl_0221",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "dumalaw",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "Gusto kong dumalaw kay Lola",
+          "translation": "I want to visit Grandma"
+        }
+      ]
+    },
+    {
+      "id": "tl_0222",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "maglakbay",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "Gusto kong maglakbay",
+          "translation": "I want to travel"
+        }
+      ]
+    },
+    {
+      "id": "tl_0223",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "subukan",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "Subukan mo ulit",
+          "translation": "Try again"
+        }
+      ]
+    },
+    {
+      "id": "tl_0224",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ipakita",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "Ipakita mo sa akin ang litrato",
+          "translation": "Show me the photo"
+        }
+      ]
+    },
+    {
+      "id": "tl_0225",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "magpadala",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "Magpadala ka ng mensahe",
+          "translation": "Send a message"
+        }
+      ]
+    },
+    {
+      "id": "tl_0226",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "pakiramdam",
+      "translation": "feeling, to feel",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "Masama ang pakiramdam ko",
+          "translation": "I don't feel well"
+        }
+      ]
+    },
+    {
+      "id": "tl_0227",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "gamitin",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "Gamitin mo ang teleponong ito",
+          "translation": "Use this phone"
+        }
+      ]
+    },
+    {
+      "id": "tl_0228",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "mahalaga",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "Mahalaga ito",
+          "translation": "This is important"
+        }
+      ]
+    },
+    {
+      "id": "tl_0229",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "iba",
+      "translation": "different, other",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "Iba ang kulay na ito",
+          "translation": "This colour is different"
+        }
+      ]
+    },
+    {
+      "id": "tl_0230",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "pareho",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "Pareho silang dalawa",
+          "translation": "They're both the same"
+        }
+      ]
+    },
+    {
+      "id": "tl_0231",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "magkasama",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "Magkasama tayong pupunta",
+          "translation": "We'll go together"
+        }
+      ]
+    },
+    {
+      "id": "tl_0232",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "minsan",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "Minsan umiinom ako ng tsaa",
+          "translation": "I sometimes drink tea"
+        }
+      ]
+    },
+    {
+      "id": "tl_0233",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "tanghalian",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "Handa na ang tanghalian",
+          "translation": "Lunch is ready"
+        }
+      ]
+    },
+    {
+      "id": "tl_0234",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "hapunan",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "Anong oras ang hapunan?",
+          "translation": "What time is dinner?"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

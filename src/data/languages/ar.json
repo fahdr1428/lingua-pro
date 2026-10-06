@@ -5804,6 +5804,329 @@
         }
       ],
       "translit": "muta'akhkhir"
+    },
+    {
+      "id": "ar_0268",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "سؤال",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 268,
+      "examples": [
+        {
+          "native": "عندي سؤال",
+          "translation": "I have a question",
+          "translit": "indi su'aal"
+        }
+      ],
+      "translit": "su'aal"
+    },
+    {
+      "id": "ar_0269",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "جواب",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 269,
+      "examples": [
+        {
+          "native": "ما الجواب؟",
+          "translation": "What is the answer?",
+          "translit": "ma al-jawaab?"
+        }
+      ],
+      "translit": "jawaab"
+    },
+    {
+      "id": "ar_0270",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "لغة",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 270,
+      "examples": [
+        {
+          "native": "العربية لغة جميلة",
+          "translation": "Arabic is a beautiful language",
+          "translit": "al-arabiyya lugha jamila"
+        }
+      ],
+      "translit": "lugha"
+    },
+    {
+      "id": "ar_0271",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "ناس",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 271,
+      "examples": [
+        {
+          "native": "هنا ناس كثيرون",
+          "translation": "There are many people here",
+          "translit": "huna naas kathiroon"
+        }
+      ],
+      "translit": "naas"
+    },
+    {
+      "id": "ar_0272",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "معلم",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 272,
+      "examples": [
+        {
+          "native": "المعلم في الصف",
+          "translation": "The teacher is in the classroom",
+          "translit": "al-mu'allim fi as-saff"
+        }
+      ],
+      "translit": "mu'allim"
+    },
+    {
+      "id": "ar_0273",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يقابل",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 273,
+      "examples": [
+        {
+          "native": "هو يقابل صديقه",
+          "translation": "He meets his friend",
+          "translit": "huwa yuqaabil sadiqahu"
+        }
+      ],
+      "translit": "yuqaabil"
+    },
+    {
+      "id": "ar_0274",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يزور",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 274,
+      "examples": [
+        {
+          "native": "يزور جدته كل أسبوع",
+          "translation": "He visits his grandmother every week",
+          "translit": "yazoor jaddatahu kull usboo'"
+        }
+      ],
+      "translit": "yazoor"
+    },
+    {
+      "id": "ar_0275",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يسافر",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 275,
+      "examples": [
+        {
+          "native": "يسافر إلى مصر غداً",
+          "translation": "He is travelling to Egypt tomorrow",
+          "translit": "yusaafir ila misr ghadan"
+        }
+      ],
+      "translit": "yusaafir"
+    },
+    {
+      "id": "ar_0276",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يحاول",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 276,
+      "examples": [
+        {
+          "native": "يحاول مرة أخرى",
+          "translation": "He tries again",
+          "translit": "yuhaawil marra ukhra"
+        }
+      ],
+      "translit": "yuhaawil"
+    },
+    {
+      "id": "ar_0277",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يعرض",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 277,
+      "examples": [
+        {
+          "native": "يعرض الصور على أمه",
+          "translation": "He shows the photos to his mother",
+          "translit": "ya'rid as-suwar ala ummihi"
+        }
+      ],
+      "translit": "ya'rid"
+    },
+    {
+      "id": "ar_0278",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يرسل",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 278,
+      "examples": [
+        {
+          "native": "يرسل رسالة لأخيه",
+          "translation": "He sends a message to his brother",
+          "translit": "yursil risaala li-akhihi"
+        }
+      ],
+      "translit": "yursil"
+    },
+    {
+      "id": "ar_0279",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يشعر",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 279,
+      "examples": [
+        {
+          "native": "يشعر بالتعب",
+          "translation": "He feels tired",
+          "translit": "yash'ur bit-ta'ab"
+        }
+      ],
+      "translit": "yash'ur"
+    },
+    {
+      "id": "ar_0280",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "يستخدم",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 280,
+      "examples": [
+        {
+          "native": "يستخدم الهاتف كثيراً",
+          "translation": "He uses the phone a lot",
+          "translit": "yastakhdim al-haatif kathiran"
+        }
+      ],
+      "translit": "yastakhdim"
+    },
+    {
+      "id": "ar_0281",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "مهم",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 281,
+      "examples": [
+        {
+          "native": "هذا مهم جداً",
+          "translation": "This is very important",
+          "translit": "haadha muhimm jiddan"
+        }
+      ],
+      "translit": "muhimm"
+    },
+    {
+      "id": "ar_0282",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "مختلف",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 282,
+      "examples": [
+        {
+          "native": "هذا اللون مختلف",
+          "translation": "This colour is different",
+          "translit": "haadha al-lawn mukhtalif"
+        }
+      ],
+      "translit": "mukhtalif"
+    },
+    {
+      "id": "ar_0283",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "نفس",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 283,
+      "examples": [
+        {
+          "native": "هذا نفس الشيء",
+          "translation": "This is the same thing",
+          "translit": "haadha nafs ash-shay'"
+        }
+      ],
+      "translit": "nafs"
+    },
+    {
+      "id": "ar_0284",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "معاً",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 284,
+      "examples": [
+        {
+          "native": "نذهب معاً",
+          "translation": "We go together",
+          "translit": "nadh-hab ma'an"
+        }
+      ],
+      "translit": "ma'an"
+    },
+    {
+      "id": "ar_0285",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "غداء",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 285,
+      "examples": [
+        {
+          "native": "الغداء جاهز",
+          "translation": "Lunch is ready",
+          "translit": "al-ghadaa' jaahiz"
+        }
+      ],
+      "translit": "ghadaa'"
+    },
+    {
+      "id": "ar_0286",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "عشاء",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 286,
+      "examples": [
+        {
+          "native": "متى العشاء؟",
+          "translation": "When is dinner?",
+          "translit": "mata al-ashaa'?"
+        }
+      ],
+      "translit": "ashaa'"
     }
   ],
   "units": [

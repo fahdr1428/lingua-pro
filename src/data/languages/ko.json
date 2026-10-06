@@ -4662,6 +4662,329 @@
         }
       ],
       "translit": "neutda"
+    },
+    {
+      "id": "ko_0248",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "질문",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 248,
+      "examples": [
+        {
+          "native": "질문이 있어요",
+          "translation": "I have a question",
+          "translit": "jilmuni isseoyo"
+        }
+      ],
+      "translit": "jilmun"
+    },
+    {
+      "id": "ko_0249",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "대답",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 249,
+      "examples": [
+        {
+          "native": "대답해 주세요",
+          "translation": "Please answer",
+          "translit": "daedaphae juseyo"
+        }
+      ],
+      "translit": "daedap"
+    },
+    {
+      "id": "ko_0250",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "언어",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 250,
+      "examples": [
+        {
+          "native": "한국어는 아름다운 언어예요",
+          "translation": "Korean is a beautiful language",
+          "translit": "hangugeoneun areumdaun eoneoyeyo"
+        }
+      ],
+      "translit": "eoneo"
+    },
+    {
+      "id": "ko_0251",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "사람들",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 251,
+      "examples": [
+        {
+          "native": "여기 사람들이 많아요",
+          "translation": "There are many people here",
+          "translit": "yeogi saramdeuri manayo"
+        }
+      ],
+      "translit": "saramdeul"
+    },
+    {
+      "id": "ko_0252",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "선생님",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 252,
+      "examples": [
+        {
+          "native": "선생님이 정말 좋아요",
+          "translation": "The teacher is really good",
+          "translit": "seonsaengnimi jeongmal joayo"
+        }
+      ],
+      "translit": "seonsaengnim"
+    },
+    {
+      "id": "ko_0253",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "만나다",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 253,
+      "examples": [
+        {
+          "native": "친구를 만나다가 시간을 잊었어요",
+          "translation": "I lost track of time meeting my friend",
+          "translit": "chingureul mannadaga siganeul ijeosseoyo"
+        }
+      ],
+      "translit": "mannada"
+    },
+    {
+      "id": "ko_0254",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "방문하다",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 254,
+      "examples": [
+        {
+          "native": "할머니 댁을 방문하고 싶어요",
+          "translation": "I want to visit grandmother's house",
+          "translit": "halmeoni daegeul bangmunhago sipeoyo"
+        }
+      ],
+      "translit": "bangmunhada"
+    },
+    {
+      "id": "ko_0255",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "여행하다",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 255,
+      "examples": [
+        {
+          "native": "여행하는 것을 좋아해요",
+          "translation": "I like travelling",
+          "translit": "yeohaenghaneun geoseul joahaeyo"
+        }
+      ],
+      "translit": "yeohaenghada"
+    },
+    {
+      "id": "ko_0256",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "시도하다",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 256,
+      "examples": [
+        {
+          "native": "다시 시도하세요",
+          "translation": "Try again",
+          "translit": "dasi sidohaseyo"
+        }
+      ],
+      "translit": "sidohada"
+    },
+    {
+      "id": "ko_0257",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "보여주다",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 257,
+      "examples": [
+        {
+          "native": "사진을 보여주세요",
+          "translation": "Please show me the photo",
+          "translit": "sajineul boyeojuseyo"
+        }
+      ],
+      "translit": "boyeojuda"
+    },
+    {
+      "id": "ko_0258",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "보내다",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 258,
+      "examples": [
+        {
+          "native": "문자를 보내다가 실수했어요",
+          "translation": "I made a mistake while sending a text",
+          "translit": "munjareul bonaedaga silsuhaesseoyo"
+        }
+      ],
+      "translit": "bonaeda"
+    },
+    {
+      "id": "ko_0259",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "느끼다",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 259,
+      "examples": [
+        {
+          "native": "피곤함을 느끼다가 잠이 들었어요",
+          "translation": "I felt tired and fell asleep",
+          "translit": "pigonhameul neukkidaga jami deureosseoyo"
+        }
+      ],
+      "translit": "neukkida"
+    },
+    {
+      "id": "ko_0260",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "사용하다",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 260,
+      "examples": [
+        {
+          "native": "이 전화를 사용하세요",
+          "translation": "Use this phone",
+          "translit": "i jeonhwareul sayonghaseyo"
+        }
+      ],
+      "translit": "sayonghada"
+    },
+    {
+      "id": "ko_0261",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "중요하다",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 261,
+      "examples": [
+        {
+          "native": "건강이 중요하다",
+          "translation": "Health is important",
+          "translit": "geongangi jungyohada"
+        }
+      ],
+      "translit": "jungyohada"
+    },
+    {
+      "id": "ko_0262",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "다르다",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 262,
+      "examples": [
+        {
+          "native": "우리는 서로 다르다",
+          "translation": "We are different from each other",
+          "translit": "urineun seoro dareuda"
+        }
+      ],
+      "translit": "dareuda"
+    },
+    {
+      "id": "ko_0263",
+      "unit": "u10",
+      "category": "Common",
+      "lemma": "같다",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 263,
+      "examples": [
+        {
+          "native": "맛이 같다",
+          "translation": "The taste is the same",
+          "translit": "masi gatda"
+        }
+      ],
+      "translit": "gatda"
+    },
+    {
+      "id": "ko_0264",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "가끔",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 264,
+      "examples": [
+        {
+          "native": "가끔 차를 마셔요",
+          "translation": "I sometimes drink tea",
+          "translit": "gakkeum chareul masyeoyo"
+        }
+      ],
+      "translit": "gakkeum"
+    },
+    {
+      "id": "ko_0265",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "점심",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 265,
+      "examples": [
+        {
+          "native": "점심 먹었어요?",
+          "translation": "Did you have lunch?",
+          "translit": "jeomsim meogeosseoyo?"
+        }
+      ],
+      "translit": "jeomsim"
+    },
+    {
+      "id": "ko_0266",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "저녁",
+      "translation": "dinner, evening",
+      "difficulty": 1,
+      "frequencyRank": 266,
+      "examples": [
+        {
+          "native": "저녁 먹었어요?",
+          "translation": "Did you have dinner?",
+          "translit": "jeonyeok meogeosseoyo?"
+        }
+      ],
+      "translit": "jeonyeok"
     }
   ],
   "alphabetGroups": [

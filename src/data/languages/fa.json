@@ -3989,6 +3989,346 @@
         }
       ],
       "translit": "dir"
+    },
+    {
+      "id": "fa_0221",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "سؤال",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "یک سؤال دارم",
+          "translation": "I have a question",
+          "translit": "yek so'aal daaram"
+        }
+      ],
+      "translit": "so'aal"
+    },
+    {
+      "id": "fa_0222",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "جواب",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "جواب چیست؟",
+          "translation": "What is the answer?",
+          "translit": "javaab chist?"
+        }
+      ],
+      "translit": "javaab"
+    },
+    {
+      "id": "fa_0223",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "زبان",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "فارسی زبان شیرینی است",
+          "translation": "Persian is a sweet language",
+          "translit": "faarsi zabaan-e shirini ast"
+        }
+      ],
+      "translit": "zabaan"
+    },
+    {
+      "id": "fa_0224",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "مردم",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "مردم اینجا مهربان هستند",
+          "translation": "The people here are kind",
+          "translit": "mardom injaa mehrabaan hastand"
+        }
+      ],
+      "translit": "mardom"
+    },
+    {
+      "id": "fa_0225",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "معلم",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "معلم ما خیلی خوب است",
+          "translation": "Our teacher is very good",
+          "translit": "mo'allem-e maa kheyli khub ast"
+        }
+      ],
+      "translit": "mo'allem"
+    },
+    {
+      "id": "fa_0226",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "ملاقات کردن",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "فردا با او ملاقات می‌کنم",
+          "translation": "I'll meet him tomorrow",
+          "translit": "fardaa baa u molaaqaat mikonam"
+        }
+      ],
+      "translit": "molaaqaat kardan"
+    },
+    {
+      "id": "fa_0227",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "دیدن کردن",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "از تهران دیدن کردیم",
+          "translation": "We visited Tehran",
+          "translit": "az tehraan didan kardim"
+        }
+      ],
+      "translit": "didan kardan"
+    },
+    {
+      "id": "fa_0228",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "سفر کردن",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "دوست دارم سفر کنم",
+          "translation": "I'd like to travel",
+          "translit": "dust daaram safar konam"
+        }
+      ],
+      "translit": "safar kardan"
+    },
+    {
+      "id": "fa_0229",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "سعی کردن",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "دوباره سعی کن",
+          "translation": "Try again",
+          "translit": "dobaare sa'y kon"
+        }
+      ],
+      "translit": "sa'y kardan"
+    },
+    {
+      "id": "fa_0230",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "نشان دادن",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "عکس را به من نشان بده",
+          "translation": "Show me the picture",
+          "translit": "aks raa be man neshaan bede"
+        }
+      ],
+      "translit": "neshaan daadan"
+    },
+    {
+      "id": "fa_0231",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "فرستادن",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "نامه را فرستادم",
+          "translation": "I sent the letter",
+          "translit": "naame raa ferestaadam"
+        }
+      ],
+      "translit": "ferestaadan"
+    },
+    {
+      "id": "fa_0232",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "احساس کردن",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "احساس کردم که هوا سرد است",
+          "translation": "I felt that the weather was cold",
+          "translit": "ehsaas kardam ke havaa sard ast"
+        }
+      ],
+      "translit": "ehsaas kardan"
+    },
+    {
+      "id": "fa_0233",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "استفاده کردن",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "از این گوشی استفاده کن",
+          "translation": "Use this phone",
+          "translit": "az in gushi estefaade kon"
+        }
+      ],
+      "translit": "estefaade kardan"
+    },
+    {
+      "id": "fa_0234",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "مهم",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "این خیلی مهم است",
+          "translation": "This is very important",
+          "translit": "in kheyli mohem ast"
+        }
+      ],
+      "translit": "mohem"
+    },
+    {
+      "id": "fa_0235",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "متفاوت",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "این رنگ متفاوت است",
+          "translation": "This colour is different",
+          "translit": "in rang motefaavet ast"
+        }
+      ],
+      "translit": "motefaavet"
+    },
+    {
+      "id": "fa_0236",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "یکسان",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "هر دو یکسان هستند",
+          "translation": "Both are the same",
+          "translit": "har do yeksaan hastand"
+        }
+      ],
+      "translit": "yeksaan"
+    },
+    {
+      "id": "fa_0237",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "با هم",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "با هم می‌رویم",
+          "translation": "We'll go together",
+          "translit": "baa ham miravim"
+        }
+      ],
+      "translit": "baa ham"
+    },
+    {
+      "id": "fa_0238",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "گاهی",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "گاهی چای می‌نوشم",
+          "translation": "I sometimes drink tea",
+          "translit": "gaahi chaay minusham"
+        }
+      ],
+      "translit": "gaahi"
+    },
+    {
+      "id": "fa_0239",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "ناهار",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "ناهار آماده است",
+          "translation": "Lunch is ready",
+          "translit": "naahaar aamaade ast"
+        }
+      ],
+      "translit": "naahaar"
+    },
+    {
+      "id": "fa_0240",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "شام",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "شام کی است؟",
+          "translation": "When is dinner?",
+          "translit": "shaam key ast?"
+        }
+      ],
+      "translit": "shaam"
     }
   ],
   "alphabetGroups": [

@@ -3325,6 +3325,306 @@
           "translation": "It's late"
         }
       ]
+    },
+    {
+      "id": "vi_0209",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "câu hỏi",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "Tôi có một câu hỏi",
+          "translation": "I have a question"
+        }
+      ]
+    },
+    {
+      "id": "vi_0210",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "câu trả lời",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "Câu trả lời là gì?",
+          "translation": "What is the answer?"
+        }
+      ]
+    },
+    {
+      "id": "vi_0211",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ngôn ngữ",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "Tiếng Việt là một ngôn ngữ đẹp",
+          "translation": "Vietnamese is a beautiful language"
+        }
+      ]
+    },
+    {
+      "id": "vi_0212",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "mọi người",
+      "translation": "people, everyone",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "Mọi người ở đây rất thân thiện",
+          "translation": "People here are very friendly"
+        }
+      ]
+    },
+    {
+      "id": "vi_0213",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "giáo viên",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "Giáo viên của tôi rất tốt",
+          "translation": "My teacher is very good"
+        }
+      ]
+    },
+    {
+      "id": "vi_0214",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "gặp",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "Mai gặp nhé",
+          "translation": "Let's meet tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "vi_0215",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "thăm",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "Chúng tôi đi thăm bà",
+          "translation": "We're going to visit grandma"
+        }
+      ]
+    },
+    {
+      "id": "vi_0216",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "du lịch",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "Tôi thích đi du lịch",
+          "translation": "I like to travel"
+        }
+      ]
+    },
+    {
+      "id": "vi_0217",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "thử",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "Thử lại đi",
+          "translation": "Try again"
+        }
+      ]
+    },
+    {
+      "id": "vi_0218",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "cho xem",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "Cho tôi xem ảnh",
+          "translation": "Show me the photo"
+        }
+      ]
+    },
+    {
+      "id": "vi_0219",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "gửi",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "Gửi tin nhắn cho tôi",
+          "translation": "Send me a message"
+        }
+      ]
+    },
+    {
+      "id": "vi_0220",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "cảm thấy",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "Tôi cảm thấy mệt",
+          "translation": "I feel tired"
+        }
+      ]
+    },
+    {
+      "id": "vi_0221",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "dùng",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "Dùng điện thoại này đi",
+          "translation": "Use this phone"
+        }
+      ]
+    },
+    {
+      "id": "vi_0222",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "quan trọng",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "Cái này rất quan trọng",
+          "translation": "This is very important"
+        }
+      ]
+    },
+    {
+      "id": "vi_0223",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "khác",
+      "translation": "different, other",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "Màu này khác",
+          "translation": "This colour is different"
+        }
+      ]
+    },
+    {
+      "id": "vi_0224",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "giống nhau",
+      "translation": "the same, alike",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "Hai cái giống nhau",
+          "translation": "The two are the same"
+        }
+      ]
+    },
+    {
+      "id": "vi_0225",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "cùng nhau",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "Chúng ta đi cùng nhau nhé",
+          "translation": "Let's go together"
+        }
+      ]
+    },
+    {
+      "id": "vi_0226",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "thỉnh thoảng",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "Thỉnh thoảng tôi uống trà",
+          "translation": "I sometimes drink tea"
+        }
+      ]
+    },
+    {
+      "id": "vi_0227",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "bữa trưa",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "Bữa trưa xong rồi",
+          "translation": "Lunch is ready"
+        }
+      ]
+    },
+    {
+      "id": "vi_0228",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "bữa tối",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "Mấy giờ ăn bữa tối?",
+          "translation": "What time is dinner?"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

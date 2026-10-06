@@ -3773,6 +3773,306 @@
           "translation": "Sorry, I'm late"
         }
       ]
+    },
+    {
+      "id": "id_0226",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "pertanyaan",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "Saya punya pertanyaan",
+          "translation": "I have a question"
+        }
+      ]
+    },
+    {
+      "id": "id_0227",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "jawaban",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "Apa jawabannya?",
+          "translation": "What's the answer?"
+        }
+      ]
+    },
+    {
+      "id": "id_0228",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "bahasa",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "Bahasa Indonesia mudah",
+          "translation": "The Indonesian language is easy"
+        }
+      ]
+    },
+    {
+      "id": "id_0229",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "orang-orang",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "Orang-orang di sini ramah",
+          "translation": "The people here are friendly"
+        }
+      ]
+    },
+    {
+      "id": "id_0230",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "guru",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "Guru saya baik sekali",
+          "translation": "My teacher is very kind"
+        }
+      ]
+    },
+    {
+      "id": "id_0231",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "bertemu",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "Kita bertemu besok",
+          "translation": "We'll meet tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "id_0232",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mengunjungi",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "Kami mengunjungi nenek",
+          "translation": "We are visiting grandma"
+        }
+      ]
+    },
+    {
+      "id": "id_0233",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "bepergian",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "Saya suka bepergian",
+          "translation": "I like to travel"
+        }
+      ]
+    },
+    {
+      "id": "id_0234",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mencoba",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "Saya mau mencoba lagi",
+          "translation": "I want to try again"
+        }
+      ]
+    },
+    {
+      "id": "id_0235",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "menunjukkan",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "Dia menunjukkan fotonya",
+          "translation": "She shows her photo"
+        }
+      ]
+    },
+    {
+      "id": "id_0236",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "mengirim",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "Saya mengirim pesan",
+          "translation": "I'm sending a message"
+        }
+      ]
+    },
+    {
+      "id": "id_0237",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "merasa",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "Saya merasa lelah",
+          "translation": "I feel tired"
+        }
+      ]
+    },
+    {
+      "id": "id_0238",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "menggunakan",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 238,
+      "examples": [
+        {
+          "native": "Saya menggunakan telepon ini",
+          "translation": "I use this phone"
+        }
+      ]
+    },
+    {
+      "id": "id_0239",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "penting",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 239,
+      "examples": [
+        {
+          "native": "Ini sangat penting",
+          "translation": "This is very important"
+        }
+      ]
+    },
+    {
+      "id": "id_0240",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "berbeda",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 240,
+      "examples": [
+        {
+          "native": "Warnanya berbeda",
+          "translation": "The colour is different"
+        }
+      ]
+    },
+    {
+      "id": "id_0241",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "sama",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 241,
+      "examples": [
+        {
+          "native": "Keduanya sama",
+          "translation": "Both are the same"
+        }
+      ]
+    },
+    {
+      "id": "id_0242",
+      "unit": "u6",
+      "category": "Common",
+      "lemma": "bersama",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 242,
+      "examples": [
+        {
+          "native": "Ayo pergi bersama",
+          "translation": "Let's go together"
+        }
+      ]
+    },
+    {
+      "id": "id_0243",
+      "unit": "u5",
+      "category": "Time",
+      "lemma": "kadang-kadang",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 243,
+      "examples": [
+        {
+          "native": "Kadang-kadang saya minum teh",
+          "translation": "I sometimes drink tea"
+        }
+      ]
+    },
+    {
+      "id": "id_0244",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "makan siang",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 244,
+      "examples": [
+        {
+          "native": "Makan siang sudah siap",
+          "translation": "Lunch is ready"
+        }
+      ]
+    },
+    {
+      "id": "id_0245",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "makan malam",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 245,
+      "examples": [
+        {
+          "native": "Kapan makan malam?",
+          "translation": "When is dinner?"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

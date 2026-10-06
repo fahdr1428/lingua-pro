@@ -3184,6 +3184,306 @@
           "translation": "I'm late"
         }
       ]
+    },
+    {
+      "id": "yo_0201",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ìbéèrè",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 201,
+      "examples": [
+        {
+          "native": "Mo ní ìbéèrè kan",
+          "translation": "I have a question"
+        }
+      ]
+    },
+    {
+      "id": "yo_0202",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "ìdáhùn",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 202,
+      "examples": [
+        {
+          "native": "Kí ni ìdáhùn?",
+          "translation": "What is the answer?"
+        }
+      ]
+    },
+    {
+      "id": "yo_0203",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "èdè",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 203,
+      "examples": [
+        {
+          "native": "Yorùbá ni èdè mi",
+          "translation": "Yoruba is my language"
+        }
+      ]
+    },
+    {
+      "id": "yo_0204",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "àwọn ènìyàn",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 204,
+      "examples": [
+        {
+          "native": "Àwọn ènìyàn pọ̀ níbí",
+          "translation": "There are many people here"
+        }
+      ]
+    },
+    {
+      "id": "yo_0205",
+      "unit": "u2",
+      "category": "People",
+      "lemma": "olùkọ́",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 205,
+      "examples": [
+        {
+          "native": "Olùkọ́ mi dára gan-an",
+          "translation": "My teacher is very good"
+        }
+      ]
+    },
+    {
+      "id": "yo_0206",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "pàdé",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 206,
+      "examples": [
+        {
+          "native": "Ẹ jẹ́ ká pàdé lọ́la",
+          "translation": "Let's meet tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "yo_0207",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "ṣe àbẹ̀wò",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 207,
+      "examples": [
+        {
+          "native": "A máa ṣe àbẹ̀wò sí ìyá àgbà",
+          "translation": "We will visit grandmother"
+        }
+      ]
+    },
+    {
+      "id": "yo_0208",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "rìnrìn àjò",
+      "translation": "to travel",
+      "difficulty": 1,
+      "frequencyRank": 208,
+      "examples": [
+        {
+          "native": "Mo fẹ́ràn láti rìnrìn àjò",
+          "translation": "I love to travel"
+        }
+      ]
+    },
+    {
+      "id": "yo_0209",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "gbìyànjú",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 209,
+      "examples": [
+        {
+          "native": "Gbìyànjú lẹ́ẹ̀kan sí i",
+          "translation": "Try again"
+        }
+      ]
+    },
+    {
+      "id": "yo_0210",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "fi hàn",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 210,
+      "examples": [
+        {
+          "native": "Fi àwòrán náà hàn mí",
+          "translation": "Show me the picture"
+        }
+      ]
+    },
+    {
+      "id": "yo_0211",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "fi ránṣẹ́",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 211,
+      "examples": [
+        {
+          "native": "Fi ránṣẹ́ sí mi",
+          "translation": "Send it to me"
+        }
+      ]
+    },
+    {
+      "id": "yo_0212",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "nímọ̀lára",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 212,
+      "examples": [
+        {
+          "native": "Mo nímọ̀lára ìtura",
+          "translation": "I feel relieved"
+        }
+      ]
+    },
+    {
+      "id": "yo_0213",
+      "unit": "u6",
+      "category": "Verbs",
+      "lemma": "lò",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 213,
+      "examples": [
+        {
+          "native": "Mo máa ń lò ó",
+          "translation": "I use it often"
+        }
+      ]
+    },
+    {
+      "id": "yo_0214",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "pàtàkì",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 214,
+      "examples": [
+        {
+          "native": "Èyí ṣe pàtàkì gan-an",
+          "translation": "This is very important"
+        }
+      ]
+    },
+    {
+      "id": "yo_0215",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "yàtọ̀",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 215,
+      "examples": [
+        {
+          "native": "Àwọ̀ yìí yàtọ̀",
+          "translation": "This colour is different"
+        }
+      ]
+    },
+    {
+      "id": "yo_0216",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "bákan náà",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 216,
+      "examples": [
+        {
+          "native": "Méjèèjì jẹ́ bákan náà",
+          "translation": "Both are the same"
+        }
+      ]
+    },
+    {
+      "id": "yo_0217",
+      "unit": "u8",
+      "category": "Common",
+      "lemma": "papọ̀",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 217,
+      "examples": [
+        {
+          "native": "Ẹ jẹ́ ká lọ papọ̀",
+          "translation": "Let's go together"
+        }
+      ]
+    },
+    {
+      "id": "yo_0218",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "nígbà míì",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "Nígbà míì mo máa ń mu tíì",
+          "translation": "I sometimes drink tea"
+        }
+      ]
+    },
+    {
+      "id": "yo_0219",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "oúnjẹ ọ̀sán",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "Oúnjẹ ọ̀sán ti ṣetán",
+          "translation": "Lunch is ready"
+        }
+      ]
+    },
+    {
+      "id": "yo_0220",
+      "unit": "u5",
+      "category": "Food",
+      "lemma": "oúnjẹ alẹ́",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "Ìgbà wo ni oúnjẹ alẹ́?",
+          "translation": "When is dinner?"
+        }
+      ]
     }
   ],
   "alphabetGroups": [

@@ -3455,6 +3455,306 @@
           "translation": "I'm late"
         }
       ]
+    },
+    {
+      "id": "so_0218",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "su'aal",
+      "translation": "question",
+      "difficulty": 1,
+      "frequencyRank": 218,
+      "examples": [
+        {
+          "native": "Su'aal baan qabaa",
+          "translation": "I have a question"
+        }
+      ]
+    },
+    {
+      "id": "so_0219",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "jawaab",
+      "translation": "answer",
+      "difficulty": 1,
+      "frequencyRank": 219,
+      "examples": [
+        {
+          "native": "Jawaabtu waa maxay?",
+          "translation": "What is the answer?"
+        }
+      ]
+    },
+    {
+      "id": "so_0220",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "luqad",
+      "translation": "language",
+      "difficulty": 1,
+      "frequencyRank": 220,
+      "examples": [
+        {
+          "native": "Af-Soomaaligu waa luqad qurux badan",
+          "translation": "Somali is a beautiful language"
+        }
+      ]
+    },
+    {
+      "id": "so_0221",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "dad",
+      "translation": "people",
+      "difficulty": 1,
+      "frequencyRank": 221,
+      "examples": [
+        {
+          "native": "Halkan dad badan baa jooga",
+          "translation": "There are many people here"
+        }
+      ]
+    },
+    {
+      "id": "so_0222",
+      "unit": "u3",
+      "category": "People",
+      "lemma": "macallin",
+      "translation": "teacher",
+      "difficulty": 1,
+      "frequencyRank": 222,
+      "examples": [
+        {
+          "native": "Macallinkaygu aad buu u fiican yahay",
+          "translation": "My teacher is very good"
+        }
+      ]
+    },
+    {
+      "id": "so_0223",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "kulan",
+      "translation": "to meet",
+      "difficulty": 1,
+      "frequencyRank": 223,
+      "examples": [
+        {
+          "native": "Berri aan kulanno",
+          "translation": "Let's meet tomorrow"
+        }
+      ]
+    },
+    {
+      "id": "so_0224",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "booqo",
+      "translation": "to visit",
+      "difficulty": 1,
+      "frequencyRank": 224,
+      "examples": [
+        {
+          "native": "Ayeeyo ayaan booqanaynaa",
+          "translation": "We are visiting grandmother"
+        }
+      ]
+    },
+    {
+      "id": "so_0225",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "safar",
+      "translation": "to travel, journey",
+      "difficulty": 1,
+      "frequencyRank": 225,
+      "examples": [
+        {
+          "native": "Waxaan jeclahay inaan safro",
+          "translation": "I like to travel"
+        }
+      ]
+    },
+    {
+      "id": "so_0226",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "isku day",
+      "translation": "to try",
+      "difficulty": 1,
+      "frequencyRank": 226,
+      "examples": [
+        {
+          "native": "Mar kale isku day",
+          "translation": "Try again"
+        }
+      ]
+    },
+    {
+      "id": "so_0227",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "tus",
+      "translation": "to show",
+      "difficulty": 1,
+      "frequencyRank": 227,
+      "examples": [
+        {
+          "native": "Sawirka i tus",
+          "translation": "Show me the picture"
+        }
+      ]
+    },
+    {
+      "id": "so_0228",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "dir",
+      "translation": "to send",
+      "difficulty": 1,
+      "frequencyRank": 228,
+      "examples": [
+        {
+          "native": "Fariin ii dir",
+          "translation": "Send me a message"
+        }
+      ]
+    },
+    {
+      "id": "so_0229",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "dareen",
+      "translation": "to feel",
+      "difficulty": 1,
+      "frequencyRank": 229,
+      "examples": [
+        {
+          "native": "Waxaan dareemayaa daal",
+          "translation": "I feel tired"
+        }
+      ]
+    },
+    {
+      "id": "so_0230",
+      "unit": "u7",
+      "category": "Verbs",
+      "lemma": "isticmaal",
+      "translation": "to use",
+      "difficulty": 1,
+      "frequencyRank": 230,
+      "examples": [
+        {
+          "native": "Telefoonkan isticmaal",
+          "translation": "Use this phone"
+        }
+      ]
+    },
+    {
+      "id": "so_0231",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "muhiim",
+      "translation": "important",
+      "difficulty": 1,
+      "frequencyRank": 231,
+      "examples": [
+        {
+          "native": "Tani waa muhiim",
+          "translation": "This is important"
+        }
+      ]
+    },
+    {
+      "id": "so_0232",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "duwan",
+      "translation": "different",
+      "difficulty": 1,
+      "frequencyRank": 232,
+      "examples": [
+        {
+          "native": "Labadan waa kala duwan yihiin",
+          "translation": "These two are different"
+        }
+      ]
+    },
+    {
+      "id": "so_0233",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "isku mid",
+      "translation": "the same",
+      "difficulty": 1,
+      "frequencyRank": 233,
+      "examples": [
+        {
+          "native": "Labadu waa isku mid",
+          "translation": "The two are the same"
+        }
+      ]
+    },
+    {
+      "id": "so_0234",
+      "unit": "u7",
+      "category": "Common",
+      "lemma": "wada",
+      "translation": "together",
+      "difficulty": 1,
+      "frequencyRank": 234,
+      "examples": [
+        {
+          "native": "Aan wada tagno",
+          "translation": "Let's go together"
+        }
+      ]
+    },
+    {
+      "id": "so_0235",
+      "unit": "u8",
+      "category": "Time",
+      "lemma": "mararka qaarkood",
+      "translation": "sometimes",
+      "difficulty": 1,
+      "frequencyRank": 235,
+      "examples": [
+        {
+          "native": "Mararka qaarkood shaah ayaan cabbaa",
+          "translation": "I sometimes drink tea"
+        }
+      ]
+    },
+    {
+      "id": "so_0236",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "qado",
+      "translation": "lunch",
+      "difficulty": 1,
+      "frequencyRank": 236,
+      "examples": [
+        {
+          "native": "Qadadu waa diyaar",
+          "translation": "Lunch is ready"
+        }
+      ]
+    },
+    {
+      "id": "so_0237",
+      "unit": "u6",
+      "category": "Food",
+      "lemma": "casho",
+      "translation": "dinner",
+      "difficulty": 1,
+      "frequencyRank": 237,
+      "examples": [
+        {
+          "native": "Goormaa cashadu tahay?",
+          "translation": "When is dinner?"
+        }
+      ]
     }
   ],
   "alphabetGroups": [
