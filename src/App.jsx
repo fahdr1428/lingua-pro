@@ -92,6 +92,7 @@ const PREFETCH_FIRST = ["speak", "missions", "practice", "flashcards"];
 // lesson should never be the thing that waits on the network. Same import
 // specifiers as Lesson.jsx / Engine.js, so they resolve to the same chunks.
 const DATA_WARM = [
+  () => import("./data/wordPronunciation.js"),
   () => import("./data/grammar.js"),
   () => import("./data/conjugations.js"),
   () => import("./data/tenses.js"),

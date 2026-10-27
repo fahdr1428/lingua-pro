@@ -8,9 +8,11 @@ import { Button, Card, ProgressBar, Container } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { speak, hasVoiceFor, stopSpeaking } from "../audio/tts.js";
 import { playCorrect, playWrong, playLessonComplete } from "../audio/sfx.js";
-import { EXERCISE, generateLesson, buildRecoveryRound } from "../engine/generator.js";
+import { EXERCISE, generateLesson, buildRecoveryRound, reshapeExercise } from "../engine/generator.js";
+import { recallHint } from "../engine/recall.js";
+import { afterAnswer } from "../engine/challenge.js";
 import { SPEAK_MODE, speakingLevel } from "../engine/speaking.js";
-import { sayNow, speakingSummary, crossedMilestone, milestoneLine } from "../engine/encourage.js";
+import { sayNow, speakingSummary, crossedMilestone, milestoneLine, memoryLine } from "../engine/encourage.js";
 import { dialectForm, acceptedForms, regionLabel } from "../data/dialects.js";
 import { explainAnswer } from "../engine/explain.js";
 import { getCharacter, getCelebration } from "../data/characters.js";
@@ -19,7 +21,6 @@ import { InContext } from "../ui/InContext.jsx";
 import { isRecognitionSupported, startListening, judge, displayScore, BAND } from "../audio/speech.js";
 import { pickFunFact } from "../data/funFacts.js";
 import { goalCategoryOrder } from "../data/goals.js";
-import { WORD_PRONUNCIATION } from "../data/wordPronunciation.js";
 
 // Languages that don't use the Latin alphabet — for these, romanization is the
 // hero (so beginners can read it) and the native script is a smaller reference.
@@ -39,10 +40,39 @@ const HAS_KEYBOARD =
   typeof window.matchMedia === "function" &&
   window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+// v113: the first line after a from-memory answer, by what the grader made of it.
+function recallTitle(r, idx) {
+  if (!r) return "";
+  if (r.verdict === "gave-up") return "Here it is";
+  if (r.verdict === "other-word") return "That's a real word — just a different one";
+  if (!r.correct) return ["Not this one — here's the word", "Have a good look at this one", "This is the one to remember"][idx % 3];
+  if (r.verdict === "alternative") return "✓ Also right";
+  if (r.verdict === "close") return "✓ Right word — one small thing";
+  if (r.hints > 0) return "✓ Got it, with a hint";
+  return ["✓ From memory — nicely done", "✓ You remembered it", "✓ Straight from memory"][idx % 3];
+}
+
+// v113: sessions whose difficulty must stay as built. Exams and checkpoints
+// measure, so they never coach; a "make it yours" session exists to prove
+// words from memory, so it is never stepped down to choosing.
+const FIXED_DIFFICULTY = new Set(["exam", "chapter_exam", "checkpoint", "recall"]);
+
 export function Lesson({ engine, pack, appState, setAppState, params, onNavigate, refreshStats, profile }) {
   const lang = LANGUAGES[pack.code];
   const isNonLatin = isNonLatinScript(pack.code);
   const character = getCharacter(pack.code);
+
+  // v113: the supplementary romanisations (layer 2 below) load with the lesson
+  // rather than in the first download — every language's table, for the one
+  // being learned. Until they arrive, layer 1 covers every taught word.
+  const [suppPron, setSuppPron] = useState(null);
+  useEffect(() => {
+    let live = true;
+    import("../data/wordPronunciation.js")
+      .then((m) => { if (live) setSuppPron(m.WORD_PRONUNCIATION[pack.code] || {}); })
+      .catch(() => {});
+    return () => { live = false; };
+  }, [pack.code]);
 
   // Map each individual native word → its romanization, so word-bank tiles
   // (TAP_WORDS / BUILD_SENTENCE) can show pronunciation. This is a READING
@@ -63,12 +93,12 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     }
     // Layer 2: supplementary hand-written dictionary for sentence words that
     // aren't standalone vocab (example sentences carry no pronunciation field).
-    const supp = WORD_PRONUNCIATION[pack.code] || {};
+    const supp = suppPron || {};
     for (const [w, p] of Object.entries(supp)) {
       if (!m[w]) m[w] = p;
     }
     return m;
-  }, [pack.vocab, pack.code]);
+  }, [pack.vocab, pack.code, suppPron]);
 
   const [session, setSession] = useState(null);
   const [idx, setIdx] = useState(0);
@@ -95,10 +125,16 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   const [resultData, setResultData] = useState(null);
   const startedAt = useRef(Date.now());
   // v111: what the results screen can honestly point at (engine/encourage.js).
-  const rightIds = useRef(new Set());              // words answered right this lesson
+  const producedIds = useRef(new Set());           // v113: words PRODUCED this lesson — written or said from memory, unaided
   const spoken = useRef({ passes: 0, attempts: 0, said: 0 }); // speaking this lesson: graded attempts, passes, and "I said it"s
   const learnedBefore = useRef(null);              // known words when the lesson began
   const speakingStart = useRef(0);                 // speaking passes when the lesson began
+  // v113: writing from memory, and keeping the lesson at the right difficulty.
+  const [recallHints, setRecallHints] = useState(0);   // hint level used on this from-memory question (0–2)
+  const [lastResult, setLastResult] = useState(null);  // the grader's verdict on the last answer
+  const fromMemory = useRef({ asked: 0, right: 0, words: [] }); // from-memory answers this lesson
+  const challenge = useRef({ results: [], quietUntil: 0 });     // challenge.js state
+  const progressAtStart = useRef({});                           // which words were met before this lesson
 
   // v104.2 — EVERY PER-SESSION PIECE OF STATE, RESET IN ONE PLACE.
   //
@@ -152,9 +188,14 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     setDone(false);
     setResultData(null);
     startedAt.current = Date.now();
-    rightIds.current = new Set();
+    producedIds.current = new Set();
     spoken.current = { passes: 0, attempts: 0, said: 0 };
     learnedBefore.current = null;
+    setRecallHints(0);
+    setLastResult(null);
+    fromMemory.current = { asked: 0, right: 0, words: [] };
+    challenge.current = { results: [], quietUntil: 0 };
+    progressAtStart.current = {};
   }
 
   // Build session on mount — and on every later params change, which is a
@@ -186,6 +227,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         // v111: the starting point the results screen measures from.
         speakingStart.current = appState?.speaking?.[pack.code]?.passes || 0;
         engine.getStats().then((st) => { if (!cancelled) learnedBefore.current = st?.learned ?? null; }).catch(() => {});
+        engine.getProgress().then((p) => { if (!cancelled) progressAtStart.current = p || {}; }).catch(() => {});
         // v24: weave grammar INTO the lesson, a little at a time. Pick the
         // next unseen grammar lesson for this language and insert one short
         // "grammar moment" right after the intro batch (so: new words first,
@@ -203,7 +245,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           // so the next mode that needs excluding is a one-line change.
           // v105: "topic" too — someone who picked Numbers came to drill numbers,
           // and a grammar lesson about word order in the middle is off-topic.
-          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic", "words", "speak"]);
+          // v113: "recall" too — a session of proving words from memory.
+          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic", "words", "speak", "recall"]);
           const isReviewish = NO_TEACHING.has(params?.mode) || s.mode === "review";
           if (!isReviewish) {
             // v107: every language's grammar lessons are ~95KB of source; loaded
@@ -320,13 +363,18 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     setShowExplain(false);
     setHintActive(false);
     setHintOffered(false);
+    setRecallHints(0);
+    setLastResult(null);
   }
 
-  async function check() {
+  // `opts.gaveUp`: "Show me" on a from-memory question. (Called as an onClick
+  // handler too, where opts is the click event — hence the strict === true.)
+  async function check(opts) {
     let given;
     if (exercise.type === EXERCISE.TAP_WORDS || exercise.type === EXERCISE.BUILD_SENTENCE) given = tapped.join(" ");
     else if (exercise.type === EXERCISE.LETTER_SCRAMBLE) given = tapped.join(""); // v59: letters join with no space
     else if (exercise.type === EXERCISE.TYPE_TRANSLATION) given = typed;
+    else if (exercise.type === EXERCISE.RECALL_WRITE) given = { text: typed, hints: recallHints, gaveUp: opts?.gaveUp === true };
     else if (exercise.type === EXERCISE.MATCH_PAIRS) {
       // Build the id:meaning|... string from matched pairs, sorted, to compare
       // against the exercise's canonical answer.
@@ -342,13 +390,15 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       // user can still progress instead of the question freezing.
       console.warn("submitAnswer failed, using local fallback:", e);
       const norm = (s) => String(s || "").trim().toLowerCase();
-      const isCorrect = norm(given) === norm(exercise.answer);
+      const text = given && typeof given === "object" ? (given.gaveUp ? "" : given.text) : given;
+      const isCorrect = norm(text) === norm(exercise.answer);
       result = { correct: isCorrect, intro: false };
     }
 
     // INTRODUCE is informational — don't count it in correct/total
     if (result.intro) return;
 
+    setLastResult(result);
     setFeedback(result.correct ? "correct" : "wrong");
     // v79: a wrong answer opens its own explanation. It used to sit behind a
     // "Why?" chip, which meant the one moment a learner is most willing to be
@@ -372,9 +422,36 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         : character.reactions.wrong;
       if (pool?.length) setReaction(pool[Math.floor(Math.random() * pool.length)]);
     }
+    // v113: what the results screen can say about writing from memory —
+    // counted only when it came with no hint.
+    if (exercise.type === EXERCISE.RECALL_WRITE) {
+      const m = fromMemory.current, clean = result.correct && !result.hints;
+      // A synonym is listed as the word they actually wrote.
+      const wrote = result.verdict === "alternative" && result.other ? { ...result.other, id: `${exercise.item.id}~alt` } : exercise.item;
+      fromMemory.current = { asked: m.asked + 1, right: m.right + (clean ? 1 : 0), words: clean ? [...m.words, wrote] : m.words };
+      if (clean && result.verdict !== "alternative") producedIds.current.add(exercise.item.id);
+    }
+    // v113 — KEEP THE LESSON AT THE DIFFICULTY WHERE PEOPLE LEARN (challenge.js).
+    // Breezing through: the next choose-from-options question about a word
+    // they've met becomes from-memory. Struggling: the next from-memory question
+    // becomes a choice, so they get a win to rebuild from. Never in an exam,
+    // never on a guess before teaching, never in the gentle second-chance round.
+    if (!exercise.pretest && !exercise.practice && !inRecovery && !FIXED_DIFFICULTY.has(params?.mode)) {
+      const { state, change } = afterAnswer(challenge.current, result.correct, session.exercises, idx, {
+        progress: progressAtStart.current, disabled: appState?.disabledExercises,
+      });
+      challenge.current = state;
+      const swapped = change && reshapeExercise(session.exercises[change.index], change.to, pack.vocab || [], progressAtStart.current);
+      if (swapped) {
+        setSession((prev) => {
+          const exercises = [...prev.exercises];
+          exercises[change.index] = { ...swapped, challenge: change.direction };
+          return { ...prev, exercises };
+        });
+      }
+    }
     if (result.correct) {
       if (!exercise.pretest) setCorrectCount((c) => c + 1);
-      if (exercise.item?.id) rightIds.current.add(exercise.item.id);
       setStreakInLesson((s) => s + 1);
     } else if (exercise.pretest) {
       // v68: a wrong guess on a word we haven't taught yet is expected — it's
@@ -534,7 +611,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           // the every-3-lessons milestone. Exams and checkpoints don't count.
           // v111: a speaking session isn't a curriculum lesson either — it
           // re-uses known words, and shouldn't bring a milestone exam closer.
-          if (!isCheckpoint && !isExam && !isChapterExam && params?.mode !== "speak") {
+          // v113: nor is proving known words from memory ("recall").
+          if (!isCheckpoint && !isExam && !isChapterExam && params?.mode !== "speak" && params?.mode !== "recall") {
             const lc = { ...(s.lessonsCompleted || {}) };
             lc[pack.code] = (lc[pack.code] || 0) + 1;
             next.lessonsCompleted = lc;
@@ -579,12 +657,17 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         try { learnedAfter = (await engine.getStats())?.learned ?? null; } catch {}
         const before = learnedBefore.current;
         encourage = {
-          sayNow: sayNow(items, rightIds.current, { introducedIds: introduced }),
+          // v113: only words PRODUCED this lesson. "Now you can say" used to
+          // follow any right answer — a lucky guess among four options
+          // included — and listed two sentences after an 18% lesson.
+          sayNow: sayNow(items, producedIds.current, { introducedIds: introduced }),
           speaking: spoken.current.attempts + spoken.current.said
             ? { ...speakingSummary(speakingStart.current, spoken.current.passes, spoken.current.attempts), said: spoken.current.said }
             : null,
           milestone: before != null && learnedAfter != null ? crossedMilestone(before, learnedAfter) : null,
           learned: learnedAfter,
+          // v113: words written from memory, with no hint.
+          memory: fromMemory.current.asked ? { ...fromMemory.current } : null,
         };
       } catch (e) {
         console.warn("encouragement skipped:", e);
@@ -625,19 +708,87 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     margin: "20px 0 12px",
   };
 
+  // The lesson's top bar: the way out, how far along, and what kind of round
+  // this is. v113: on EVERY step — the grammar moment and the speaking steps
+  // used to return their own screens without it, so a lesson with three
+  // speaking steps in it lost its progress bar and its ✕ three times.
+  const topBar = (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        padding: "16px 20px",
+        background: "var(--bg-alt)",
+        borderBottom: "1px solid var(--border)",
+        position: "sticky",
+        top: 0,
+        zIndex: 10,
+      }}
+    >
+      <button onClick={() => onNavigate("home")} aria-label="Leave the lesson" style={{ background: "transparent", border: "none", color: "var(--text-dim)", fontSize: 22, cursor: "pointer" }}>✕</button>
+      <div style={{ flex: 1, margin: "0 16px" }}>
+        <ProgressBar value={idx + (feedback ? 1 : 0)} max={session.exercises.length} />
+        {/* v63: warm framing for the recovery round — never punitive */}
+        {/* v68: pretest framing — makes the guess feel purposeful, not like a trap */}
+        {exercise?.pretest && (
+          <div style={{
+            marginTop: 10, background: "var(--surface-hi)", border: "1px solid var(--border)",
+            borderRadius: 12, padding: "10px 14px", fontSize: 13, color: "var(--text-dim)",
+            textAlign: "center", lineHeight: 1.5,
+          }}>
+            🤔 You haven't learnt this one yet — have a guess anyway.
+            <span style={{ color: "var(--text-mute)" }}> Guessing first makes it stick better.</span>
+          </div>
+        )}
+
+        {inRecovery && (
+          <div style={{
+            marginTop: 10, background: "var(--primary-soft)", border: "1px solid var(--primary)",
+            borderRadius: 12, padding: "10px 14px", fontSize: 13, color: "var(--primary-dark)",
+            fontWeight: 700, textAlign: "center",
+          }}>
+            🌱 Let's lock in the tricky ones — one more look, no pressure
+          </div>
+        )}
+      </div>
+      {streakInLesson >= 3 && (
+        <div
+          className="pop"
+          key={streakInLesson}
+          style={{
+            color: "var(--accent-text)",
+            fontWeight: 800,
+            fontSize: 13,
+            marginRight: 10,
+            whiteSpace: "nowrap",
+          }}
+        >
+          🔥 {streakInLesson} in a row
+        </div>
+      )}
+      {/* v79: the heart counter is gone from the lesson. A number in danger
+          red, counting down while you work, is a running commentary on how
+          badly you're doing — and it never gated anything. What replaced it
+          is the progress bar to the left, which counts up. */}
+    </div>
+  );
+
   // GRAMMAR MOMENT — a short in-lesson teaching card (v24). Handled BEFORE the
   // item guard below because it intentionally has no `.item`. One concept,
   // its examples, and one optional check, then continue. Never blocks.
   if (exercise?.type === "GRAMMAR_MOMENT") {
     const g = exercise.grammar;
     return (
-      <GrammarMoment
-        g={g}
-        lang={lang}
-        isNonLatin={isNonLatin}
-        voiceAvailable={hasVoiceFor(lang.ttsCode)}
-        onContinue={advance}
-      />
+      <div>
+        {topBar}
+        <GrammarMoment
+          g={g}
+          lang={lang}
+          isNonLatin={isNonLatin}
+          voiceAvailable={hasVoiceFor(lang.ttsCode)}
+          onContinue={advance}
+        />
+      </div>
     );
   }
 
@@ -651,6 +802,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   // is rescheduled exactly as any other exercise would reschedule it.
   if (exercise?.type === EXERCISE.SPEAK_PROMPT && exercise.item) {
     return (
+      <div>
+      {topBar}
       <SpeakMoment
         // v110: a lesson can now have two speaking steps in a row (shadow,
         // then recall). Without a key React reuses the component, and the
@@ -684,7 +837,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           if (!band) spoken.current = { ...spoken.current, said: spoken.current.said + 1 };
           if (band) {
             spoken.current = { ...spoken.current, passes: spoken.current.passes + (passed ? 1 : 0), attempts: spoken.current.attempts + 1 };
-            if (passed && exercise.item?.id) rightIds.current.add(exercise.item.id);
+            // Said from memory (the recall rung), not echoed or shadowed after a model.
+            if (passed && !exercise.practice && exercise.item?.id) producedIds.current.add(exercise.item.id);
             setAppState((st) => {
               const cur = st?.speaking?.[pack.code] || { passes: 0, attempts: 0 };
               return { ...st, speaking: { ...(st?.speaking || {}), [pack.code]: { passes: cur.passes + (passed ? 1 : 0), attempts: cur.attempts + 1 } } };
@@ -694,6 +848,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         }}
         onSkip={advance}
       />
+      </div>
     );
   }
 
@@ -731,6 +886,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     exercise.type === EXERCISE.INTRODUCE_BATCH ||
     (exercise.type.includes("pick") && picked) ||
     (exercise.type === EXERCISE.TYPE_TRANSLATION && typed.trim()) ||
+    (exercise.type === EXERCISE.RECALL_WRITE && typed.trim()) ||
     (exercise.type === EXERCISE.TAP_WORDS && tapped.length > 0) ||
     (exercise.type === EXERCISE.BUILD_SENTENCE && tapped.length > 0) ||
     (exercise.type === EXERCISE.COMPLETE_SENTENCE && picked) ||
@@ -751,69 +907,11 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
 
   return (
     <div>
-      {/* Lesson topbar */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          padding: "16px 20px",
-          background: "var(--bg-alt)",
-          borderBottom: "1px solid var(--border)",
-          position: "sticky",
-          top: 0,
-          zIndex: 10,
-        }}
-      >
-        <button onClick={() => onNavigate("home")} style={{ background: "transparent", border: "none", color: "var(--text-dim)", fontSize: 22, cursor: "pointer" }}>✕</button>
-        <div style={{ flex: 1, margin: "0 16px" }}>
-          <ProgressBar value={idx + (feedback ? 1 : 0)} max={session.exercises.length} />
-          {/* v63: warm framing for the recovery round — never punitive */}
-          {/* v68: pretest framing — makes the guess feel purposeful, not like a trap */}
-          {exercise?.pretest && (
-            <div style={{
-              marginTop: 10, background: "var(--surface-hi)", border: "1px solid var(--border)",
-              borderRadius: 12, padding: "10px 14px", fontSize: 13, color: "var(--text-dim)",
-              textAlign: "center", lineHeight: 1.5,
-            }}>
-              🤔 You haven't learnt this one yet — have a guess anyway.
-              <span style={{ color: "var(--text-mute)" }}> Guessing first makes it stick better.</span>
-            </div>
-          )}
-
-          {inRecovery && (
-            <div style={{
-              marginTop: 10, background: "var(--primary-soft)", border: "1px solid var(--primary)",
-              borderRadius: 12, padding: "10px 14px", fontSize: 13, color: "var(--primary-dark)",
-              fontWeight: 700, textAlign: "center",
-            }}>
-              🌱 Let's lock in the tricky ones — one more look, no pressure
-            </div>
-          )}
-        </div>
-        {streakInLesson >= 3 && (
-          <div
-            className="pop"
-            key={streakInLesson}
-            style={{
-              color: "var(--accent-text)",
-              fontWeight: 800,
-              fontSize: 13,
-              marginRight: 10,
-              whiteSpace: "nowrap",
-            }}
-          >
-            🔥 {streakInLesson} in a row
-          </div>
-        )}
-        {/* v79: the heart counter is gone from the lesson. A number in danger
-            red, counting down while you work, is a running commentary on how
-            badly you're doing — and it never gated anything. What replaced it
-            is the progress bar to the left, which counts up. */}
-      </div>
+      {topBar}
 
       <Container style={{ paddingBottom: 200 }}>
         <div className="slide-up" key={idx}>
-          {exercise.type !== EXERCISE.INTRODUCE && exercise.type !== EXERCISE.INTRODUCE_BATCH && (
+          {exercise.type !== EXERCISE.INTRODUCE && exercise.type !== EXERCISE.INTRODUCE_BATCH && exercise.type !== EXERCISE.RECALL_WRITE && (
             <div style={{ fontSize: 12, color: "var(--text-dim)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>
               {exercise.prompt}
             </div>
@@ -1356,7 +1454,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             <input
               value={typed}
               onChange={(e) => !feedback && setTyped(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && canCheck && !feedback && check()}
+              // v113: Enter checks, and Enter again moves on — type, read, go.
+              onKeyDown={(e) => { if (e.key !== "Enter") return; if (feedback) next(); else if (canCheck) check(); }}
               placeholder="Type your answer…"
               aria-label="Type your answer"
               autoFocus={HAS_KEYBOARD}
@@ -1373,6 +1472,78 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               }}
             />
           )}
+
+          {/* v113 — WRITE IT FROM MEMORY. The meaning, an empty box, nothing to
+              choose from: the question that proves a word can be produced, not
+              just recognised. Script or romanisation both count (recall.js), so
+              nobody needs an Urdu keyboard to answer an Urdu question. The hint
+              gives a letter, then about half — never the word — and "Show me"
+              is an honest way out that beats a wild guess. */}
+          {exercise.type === EXERCISE.RECALL_WRITE && (() => {
+            const item = exercise.item;
+            // "First time" only if it is: a lesson going well may already have
+            // asked this word from memory (challenge.js steps questions up).
+            const firstTime = exercise.firstRecall &&
+              !session.exercises.slice(0, idx).some((x) => x.type === EXERCISE.RECALL_WRITE && x.item?.id === item.id);
+            const hint = recallHints > 0 ? recallHint(item, recallHints, { vocab: pack.vocab }) : null;
+            const canHint = (() => { const h = recallHint(item, 1, { vocab: pack.vocab }); return !!(h.native || h.translit); })();
+            return (
+              <div className="recall" data-testid="recall">
+                {exercise.challenge === "up" && !feedback && (
+                  <div className="challenge-chip" data-testid="challenge-up">⚡ You're on a roll — no options on this one</div>
+                )}
+                <div className="recall-ask">
+                  <div className="eyebrow">{firstTime ? "First time from memory" : "From memory"}</div>
+                  <div className="recall-meaning">“{item.translation}”</div>
+                  <div className="recall-how">
+                    {isNonLatin ? `Write it in ${lang.name} — the script, or how it sounds in English letters` : `Write it in ${lang.name}`}
+                  </div>
+                  {firstTime && !feedback && (
+                    <div className="recall-why">You met it a few minutes ago. Bring it back without looking.</div>
+                  )}
+                </div>
+                <input
+                  className="recall-input"
+                  type="text"
+                  value={typed}
+                  onChange={(e) => !feedback && setTyped(e.target.value)}
+                  onKeyDown={(e) => { if (e.key !== "Enter") return; if (feedback) next(); else if (canCheck) check(); }}
+                  readOnly={!!feedback}
+                  placeholder={isNonLatin ? "Script or as it sounds…" : `Type it in ${lang.name}…`}
+                  aria-label={`Write the ${lang.name} for “${item.translation}”`}
+                  autoFocus={HAS_KEYBOARD}
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck={false}
+                  enterKeyHint="done"
+                  dir="auto"
+                />
+                {hint && !feedback && (
+                  <div className="recall-hint" aria-live="polite" data-testid="recall-hint">
+                    Starts{" "}
+                    {hint.native && (
+                      <span className="recall-hint-native" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code}
+                        style={{ fontFamily: lang.rtl ? (pack.code === "ur" ? '"Noto Nastaliq Urdu", serif' : '"Noto Naskh Arabic", serif') : undefined }}>
+                        {hint.native}
+                      </span>
+                    )}
+                    {isNonLatin && hint.translit && <>{hint.native ? " · " : ""}<span className="recall-hint-tl">{hint.translit}</span></>}
+                  </div>
+                )}
+                {!feedback && (
+                  <div className="recall-tools">
+                    {canHint && (
+                      <button className="recall-tool" onClick={() => setRecallHints((h) => Math.min(2, h + 1))} disabled={recallHints >= 2}>
+                        💡 {recallHints === 0 ? "Hint" : recallHints === 1 ? "A bit more" : "That's all the hint"}
+                      </button>
+                    )}
+                    <button className="recall-tool" onClick={() => check({ gaveUp: true })}>Show me</button>
+                  </div>
+                )}
+              </div>
+            );
+          })()}
 
           {/* TAP WORDS, BUILD SENTENCE, or LETTER SCRAMBLE — all use the bank UI */}
           {(exercise.type === EXERCISE.TAP_WORDS || exercise.type === EXERCISE.BUILD_SENTENCE || exercise.type === EXERCISE.LETTER_SCRAMBLE) && (
@@ -1473,6 +1644,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   told nothing at all. */}
               <Card
                 role="status"
+                data-testid="answer-feedback"
                 style={{
                   marginTop: 24,
                   // v79: a missed answer is no longer alarm-red. The learner
@@ -1491,6 +1663,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                       ? (feedback === "correct"
                           ? "✓ Good instinct — you guessed it"
                           : "That's the one to remember — now let's learn it")
+                      : exercise.type === EXERCISE.RECALL_WRITE
+                      ? recallTitle(lastResult, idx)
                       : feedback === "correct"
                       ? ["✓ Correct!", "✓ Nice one", "✓ That was clean", "✓ Exactly right", "✓ You've got this"][idx % 5]
                       /* v79: no ✗. A cross is a mark on schoolwork — it says
@@ -1551,10 +1725,37 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     <span style={{ fontStyle: "italic" }}>“{reaction}”</span>
                   </div>
                 )}
-                {feedback === "wrong" && (
+                {feedback === "wrong" && exercise.type !== EXERCISE.RECALL_WRITE && (
                   <div style={{ marginTop: 8 }}>
                     Correct answer: <strong>{exercise.answer}</strong>
                   </div>
+                )}
+                {exercise.type === EXERCISE.RECALL_WRITE && (
+                  <>
+                    <div className="recall-answer" data-testid="recall-answer">
+                      <div style={{ minWidth: 0 }}>
+                        <div className="recall-answer-native" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code}
+                          style={{ fontFamily: lang.rtl ? (pack.code === "ur" ? '"Noto Nastaliq Urdu", serif' : '"Noto Naskh Arabic", serif') : undefined }}>
+                          {exercise.item.lemma}
+                        </div>
+                        {isNonLatin && exercise.item.translit && <div className="recall-answer-tl">{exercise.item.translit}</div>}
+                      </div>
+                      {voiceAvailable && (
+                        <button className="xchg-play" aria-label={`Hear ${exercise.item.translit || exercise.item.lemma}`}
+                          onClick={() => speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id, code: pack.code, translit: exercise.item.translit })}>
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+                          </svg>
+                        </button>
+                      )}
+                    </div>
+                    {(lastResult?.note || (lastResult?.correct && lastResult?.hints > 0)) && (
+                      <div className="recall-note" data-testid="recall-note">
+                        {lastResult.note || "Next time, try it without the hint — that's when it's yours."}
+                      </div>
+                    )}
+                  </>
                 )}
                 {/* v103 — THE LINE EVERY LEARNER SEES MOST.
                     This rendered `<em>{native}</em> — {translation}` with no
@@ -1594,13 +1795,14 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               {showExplain && (() => {
                 const userGiven = exercise.type === EXERCISE.TAP_WORDS || exercise.type === EXERCISE.BUILD_SENTENCE
                   ? tapped.join(" ")
-                  : exercise.type === EXERCISE.TYPE_TRANSLATION
+                  : exercise.type === EXERCISE.TYPE_TRANSLATION || exercise.type === EXERCISE.RECALL_WRITE
                   ? typed
                   : picked;
                 const exp = explainAnswer(exercise, userGiven, pack.code, {
                   correct: feedback === "correct",
                   options: exercise.options || null,
                   vocab: pack.vocab,
+                  result: lastResult,
                 });
                 return (
                   <Card
@@ -1672,7 +1874,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         </div>
       </Container>
 
-      {/* Sticky footer button */}
+      {/* Sticky footer button.
+          v113: not drawn at all under the new-word cards, which have their own
+          buttons — it was an empty bar along the bottom of the screen. */}
+      {exercise.type !== EXERCISE.INTRODUCE_BATCH && (
       <div
         style={{
           position: "fixed",
@@ -1684,8 +1889,35 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           borderTop: "1px solid var(--border)",
         }}
       >
-        <div style={{ maxWidth: 720, margin: "0 auto" }}>
-          {exercise.type === EXERCISE.INTRODUCE_BATCH ? null : exercise.type === EXERCISE.INTRODUCE ? (
+        <div style={{ maxWidth: 720, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 }}>
+          {/* v113 — THE GUIDE SITS BESIDE THE BUTTON. It used to float over the
+              lesson at the bottom-left, and with the bar fixed to the screen
+              again it covered the answer's example sentence on every miss —
+              the one thing on screen worth reading. Its reaction is already in
+              the feedback card, so here it only reacts: a bounce when right, a
+              wobble when not. */}
+          {character && (
+            <div
+              key={`mood-${feedback || "idle"}-${idx}`}
+              className={feedback === "correct" ? "tutor-happy" : feedback === "wrong" ? "tutor-sad" : undefined}
+              aria-hidden="true"
+              style={{
+                width: 48,
+                height: 48,
+                flexShrink: 0,
+                borderRadius: "50%",
+                background: `radial-gradient(circle at 35% 30%, var(--raised), ${character.accent || "var(--surface-hi)"})`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 3px 10px rgba(0,0,0,0.10)",
+              }}
+            >
+              <GuideMark code={pack.code} size={42} />
+            </div>
+          )}
+          <div style={{ flex: 1, minWidth: 0 }}>
+          {exercise.type === EXERCISE.INTRODUCE ? (
             <Button onClick={async () => { await check(); next(); }}>Got it →</Button>
           ) : !feedback ? (
             <>
@@ -1750,93 +1982,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           ) : (
             <Button onClick={next}>{idx + 1 >= session.exercises.length ? "Finish" : "Continue"}</Button>
           )}
+          </div>
         </div>
       </div>
-
-      {/* v30: improved persistent tutor avatar — bigger, named, more present.
-          Idle-bobs gently. Bounces happily on correct, wobbles sadly on wrong.
-          Hidden during the flashcard intro (full-screen flow). Shows a small
-          speech-bubble reaction briefly when one is set. pointerEvents:none on
-          the wrapper so it can never block taps. */}
-      {!isBatch && character && (
-        <div
-          style={{
-            position: "fixed",
-            left: 16,
-            bottom: 100,
-            zIndex: 5,
-            pointerEvents: "none",
-            display: "flex",
-            alignItems: "flex-end",
-            gap: 10,
-            maxWidth: "calc(100vw - 110px)", // leave room for any side button
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-            <div
-              key={`mood-${feedback || "idle"}-${idx}`}
-              className={
-                feedback === "correct" ? "tutor-happy"
-                : feedback === "wrong" ? "tutor-sad"
-                : "tutor-idle"
-              }
-              style={{
-                width: 60,
-                height: 60,
-                borderRadius: "50%",
-                background: `radial-gradient(circle at 35% 30%, var(--raised), ${character.accent || "var(--surface-hi)"})`,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 4px 14px rgba(0,0,0,0.10)",
-              }}
-              aria-label={`${character.name}, your guide`}
-            >
-              <GuideMark code={pack.code} size={54} />
-            </div>
-            {/* Tutor name label, soft pill */}
-            <div style={{
-              fontSize: 10,
-              fontWeight: 800,
-              letterSpacing: 0.5,
-              padding: "2px 8px",
-              background: "var(--raised)",
-              color: "var(--text)",
-              borderRadius: 999,
-              boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
-              whiteSpace: "nowrap",
-              maxWidth: 90,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}>
-              {character.name}
-            </div>
-          </div>
-          {/* Speech bubble — only when there's a reaction this turn */}
-          {reaction && feedback && (
-            <div
-              key={`bub-${idx}-${feedback}`}
-              className="slide-up"
-              style={{
-                background: "#fff",
-                color: "#111",
-                border: "1px solid var(--border)",
-                borderRadius: 16,
-                padding: "10px 14px",
-                fontSize: 13,
-                fontWeight: 700,
-                fontStyle: "italic",
-                maxWidth: 200,
-                boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-                marginBottom: 18, // align top of bubble with avatar emoji
-                position: "relative",
-                lineHeight: 1.35,
-              }}
-            >
-              {reaction}
-            </div>
-          )}
-        </div>
       )}
     </div>
   );
@@ -1915,7 +2063,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
 
   return (
     <div style={{ minHeight: "100vh", background: `linear-gradient(180deg, ${lang.color}22, var(--bg))` }}>
-      <Container style={{ textAlign: "center", paddingTop: 40 }}>
+      <Container style={{ textAlign: "center", paddingTop: 40, paddingBottom: 120 }}>
         <div className="slide-up" style={{ fontSize: 90, marginBottom: 8 }}>
           {celeb.emoji}
         </div>
@@ -2019,6 +2167,26 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
             <div className="enc-foot">Say them out loud once more — it's the cheapest practice there is.</div>
           </div>
         )}
+        {/* v113: words written from memory — no options, no hint. */}
+        {data.encourage?.memory && (() => {
+          const m = data.encourage.memory;
+          return (
+            <div className="enc-card" data-testid="enc-memory">
+              <div className="eyebrow" style={{ color: "var(--primary-text)" }}>✍️ From memory</div>
+              <div style={{ fontSize: 15, fontWeight: 700, margin: "4px 0 8px", textAlign: "left" }}>{memoryLine(m.right, m.asked)}</div>
+              {m.words.length > 0 && (
+                <div className="enc-words">
+                  {m.words.slice(0, 8).map((w) => (
+                    <span key={w.id} className="enc-word">
+                      <span dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code} className="enc-word-native">{w.lemma}</span>
+                      <span className="enc-word-en">{w.translation}</span>
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })()}
         {data.encourage?.speaking && (() => {
           const sp = data.encourage.speaking;
           const lv = sp.level;
@@ -2039,21 +2207,40 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
             </div>
           );
         })()}
-        {/* Big highlight stats */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 24 }}>
-          <Card style={{ marginBottom: 0, background: "var(--surface)" }}>
+        {/* Big highlight stats.
+            v113: minmax(0, 1fr), lighter padding and a size that scales —
+            at 320px the Streak card stuck 17px off the screen ("100%" alone
+            is wider than a third of it at 32px). It had always been cut off;
+            `contain: layout` on <main> hid it from the sideways scroll. */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 10, marginBottom: 24 }}>
+          <Card style={{ marginBottom: 0, background: "var(--surface)", padding: "16px 6px" }}>
             <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1 }}>XP</div>
-            <div style={{ fontSize: 32, fontWeight: 900, color: "var(--accent-text)" }}>+{data.xp}</div>
+            <div style={{ fontSize: "clamp(22px, 7vw, 32px)", fontWeight: 900, color: "var(--accent-text)" }}>+{data.xp}</div>
           </Card>
-          <Card style={{ marginBottom: 0, background: "var(--surface)" }}>
+          <Card style={{ marginBottom: 0, background: "var(--surface)", padding: "16px 6px" }}>
             <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1 }}>Accuracy</div>
-            <div style={{ fontSize: 32, fontWeight: 900, color: "var(--primary-text)" }}>{data.accuracy}%</div>
+            <div style={{ fontSize: "clamp(22px, 7vw, 32px)", fontWeight: 900, color: "var(--primary-text)" }}>{data.accuracy}%</div>
           </Card>
-          <Card style={{ marginBottom: 0, background: "var(--surface)" }}>
+          <Card style={{ marginBottom: 0, background: "var(--surface)", padding: "16px 6px" }}>
             <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1 }}>Streak</div>
-            <div style={{ fontSize: 32, fontWeight: 900, color: "var(--danger)" }}>{appState.streak}🔥</div>
+            <div style={{ fontSize: "clamp(22px, 7vw, 32px)", fontWeight: 900, color: "var(--danger)" }}>{appState.streak}🔥</div>
           </Card>
         </div>
+
+        {/* v113: before the reading below — it's the one thing here to DO. */}
+        {missedItems.length > 0 && onReviewMistakes && (
+          <Card style={{ background: "var(--surface-hi)", border: "2px solid var(--accent)", marginTop: 8 }}>
+            <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 4 }}>
+              You missed {missedItems.length} word{missedItems.length === 1 ? "" : "s"}
+            </div>
+            <div style={{ fontSize: 13, color: "var(--text-dim)", marginBottom: 12 }}>
+              Reviewing mistakes right away is the fastest way to lock them in.
+            </div>
+            <Button onClick={onReviewMistakes} style={{ background: "var(--accent)", color: "#000" }}>
+              🔁 Review my mistakes
+            </Button>
+          </Card>
+        )}
 
         {framework && (
           <Card style={{ textAlign: "left", background: "var(--surface-hi)", border: "2px dashed var(--accent)" }}>
@@ -2083,20 +2270,6 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
           </Card>
         )}
 
-        {missedItems.length > 0 && onReviewMistakes && (
-          <Card style={{ background: "var(--surface-hi)", border: "2px solid var(--accent)", marginTop: 8 }}>
-            <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 4 }}>
-              You missed {missedItems.length} word{missedItems.length === 1 ? "" : "s"}
-            </div>
-            <div style={{ fontSize: 13, color: "var(--text-dim)", marginBottom: 12 }}>
-              Reviewing mistakes right away is the fastest way to lock them in.
-            </div>
-            <Button onClick={onReviewMistakes} style={{ background: "var(--accent)", color: "#000" }}>
-              🔁 Review my mistakes
-            </Button>
-          </Card>
-        )}
-
         {/* v105: a topic session is one the learner chose; offer the same
             again (a fresh mix from that topic) and the way back to the list. */}
         {topic && (
@@ -2108,11 +2281,16 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
           </div>
         )}
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: topic ? 10 : 24 }}>
+      </Container>
+      {/* v113 — THE WAY ON, ALWAYS ON SCREEN. It sat at the foot of the page,
+          under the stats, the insight and the fun fact: two screens of
+          scrolling on a phone at the end of every lesson. */}
+      <div className="result-bar">
+        <div style={{ maxWidth: 720, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
           <Button variant="secondary" onClick={shareResult}>📤 Share</Button>
           <Button variant={topic ? "secondary" : undefined} onClick={() => onNavigate("home")}>Continue</Button>
         </div>
-      </Container>
+      </div>
     </div>
   );
 }
@@ -2122,6 +2300,10 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
 // there are new words. User flips each card and swipes through. After the last
 // card, "Start practice" appears. This batch-introduction is much better
 // pedagogy than testing each word right after introducing it.
+//
+// v113: the last card's own button IS "Start practice". It used to say "Done",
+// which only revealed a second button saying "Start practice" underneath — two
+// presses, and a moment of "did that work?", between the words and using them.
 // =============================================================================
 
 function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }) {
@@ -2142,9 +2324,12 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
     }
   }, [card?.id, voiceAvailable, lang.ttsCode]);
 
+  // Having reached the last card, the way into practice stays open from any card.
+  useEffect(() => { if (isLast) setSeenAll(true); }, [isLast]);
+
   function next() {
     if (isLast) {
-      setSeenAll(true);
+      onComplete();
       return;
     }
     setIdx(idx + 1);
@@ -2315,12 +2500,12 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
           ← Previous
         </Button>
         <Button onClick={next}>
-          {isLast ? "Done" : "Next →"}
+          {isLast ? "🚀 Start practice" : "Next →"}
         </Button>
       </div>
 
-      {/* Once seen all, show Start Practice */}
-      {seenAll && (
+      {/* Paged back after seeing them all: the way on is still one tap. */}
+      {seenAll && !isLast && (
         <Button
           style={{ marginTop: 16, background: "var(--accent)", color: "#000", boxShadow: "0 4px 0 #b56305" }}
           onClick={onComplete}

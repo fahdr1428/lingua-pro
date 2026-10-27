@@ -109,6 +109,9 @@ export const PATTERN_SKILLS = {
   zh: ["Subject + Verb + Object (same order as English)","Saying you have something — and counting it","Ordering something (我要)","Asking 'where' — the question word goes where the answer goes","Yes/no questions with 吗"],
 };
 
+// How many missions there are. The missions themselves load with their screen.
+export const MISSION_COUNT = 10;
+
 export const hasConversations = (code) => (CONVERSATION_COUNT[code] || 0) > 0;
 export const hasPassages = (code) => (PASSAGE_COUNT[code] || 0) > 0;
 export const hasCulture = (code) => (CULTURE_COUNT[code] || 0) > 0;

@@ -30,14 +30,13 @@ import { JourneyMap } from "./JourneyMap.jsx";
 // question was holding 104KB in the payload every learner downloads before
 // their first word. contentIndex.js is the answer to that question and nothing
 // else, and it is generated, so it cannot drift from the libraries it counts.
-import { hasConversations, hasPassages, hasCulture, hasSentencePatterns, patternSkillForDrop } from "../data/contentIndex.js";
+import { hasConversations, hasPassages, hasCulture, hasSentencePatterns, patternSkillForDrop, MISSION_COUNT } from "../data/contentIndex.js";
 import { isRecognitionSupported } from "../audio/speech.js";
 import { getLevel } from "../engine/gamification.js";
 import { speakingLevel } from "../engine/speaking.js";
 import { organisePractice, markVisited } from "../engine/explore.js";
 import { computeFluency } from "../engine/fluency.js";
 import { hasDialectData, regionLabel } from "../data/dialects.js";
-import { MISSIONS } from "../data/missions.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 import {
   UNITS_PER_CHAPTER, computeUnlocks, isChapterExamAvailable,
@@ -46,7 +45,7 @@ import {
 import { hasScriptCourse, scriptStops, hasPassedScript, hasAttemptedScript } from "../data/scriptCourse.js";
 import {
   todayKey, weakestWords, streakStage, nextMilestone, coachLine, daypart,
-  goalLabel, estMinutes,
+  goalLabel, estMinutes, isOwned, unitToMakeYours,
 } from "../engine/coach.js";
 
 // =============================================================================
@@ -303,6 +302,23 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         go: () => onNavigate("lesson", { mode: "due" }),
       };
     }
+    // 2b. v113 — MAKE IT YOURS. A unit walked past whose words can't yet be
+    // produced from memory. Before new words: these are half learned, and one
+    // round of bringing them back is what turns "seen" into "can say".
+    const recentModes = (appState.sessions || []).filter((x) => x.language === pack.code).map((x) => x.mode);
+    const toOwn = unitToMakeYours(unitProgress, { currentUnitId: currentUnit?.id, recentModes });
+    if (toOwn) {
+      const left = (toOwn.learned || 0) - (toOwn.recalled || 0);
+      return {
+        kind: "recall",
+        eyebrow: "Make it yours",
+        title: goalLabel(toOwn),
+        sub: `You've met these words, and ${left} of them haven't come from memory yet. Write them without options and they're yours.`,
+        mins: estMinutes(Math.min(left, 8)),
+        progress: { value: toOwn.recalled || 0, max: toOwn.total || 1, label: "from memory" },
+        go: () => onNavigate("lesson", { mode: "recall", filter: { unit: toOwn.id } }),
+      };
+    }
     // 3. Sentence Lab drop earned
     if (hasSentencePatterns(pack.code)) {
       const dropsDone = appState?.sentenceDropsDone?.[pack.code] || 0;
@@ -336,7 +352,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
       };
     }
     return null;
-  }, [appState, pack, pack.code, lang, stats, currentUnit]);
+  }, [appState, pack, pack.code, lang, stats, currentUnit, unitProgress]);
 
   // v65: adapt the chosen plan's wording to the learner's current situation.
   const signals = useLearnerSignals(appState, stats, pack.code);
@@ -488,7 +504,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
                   <div className="hairline-fill progress-fill" style={{ "--fill": `${Math.round((smartAction.progress.value / smartAction.progress.max) * 100)}%` }} />
                 </div>
                 <div style={{ fontSize: 12, color: "var(--text-mute)", marginTop: 6 }}>
-                  {smartAction.progress.value} of {smartAction.progress.max} words
+                  {smartAction.progress.value} of {smartAction.progress.max} words{smartAction.progress.label ? ` ${smartAction.progress.label}` : ""}
                 </div>
               </div>
             )}
@@ -586,6 +602,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
                   isCurrent={currentUnit?.id === unit.id}
                   onTap={() => unit.unlocked && onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
                   onTestOut={() => onNavigate("testout", { fromUnit: unit.id })}
+                  onMakeYours={() => onNavigate("lesson", { mode: "recall", filter: { unit: unit.id } })}
                 />,
               ];
               const isChapterEnd = (i + 1) % UNITS_PER_CHAPTER === 0;
@@ -1360,9 +1377,12 @@ export function JourneySpine({ stops, reached, unitProgress, appState, pack, onN
   return <div className="stagger">{rows}</div>;
 }
 
-function UnitNode({ unit, index, isCurrent, onTap, onTestOut }) {
+function UnitNode({ unit, index, isCurrent, onTap, onTestOut, onMakeYours }) {
   const isComplete = unit.pct >= 1;
   const isLocked = !unit.unlocked;
+  // v113: walked past (most words met) but not yet from memory — see coach.js.
+  const owned = isOwned(unit);
+  const almost = !isLocked && unit.pct >= 0.6 && !owned && (unit.learned || 0) > (unit.recalled || 0);
 
   let bg, fg, border;
   if (isLocked) {
@@ -1406,7 +1426,7 @@ function UnitNode({ unit, index, isCurrent, onTap, onTestOut }) {
             fontSize: 22, flexShrink: 0, position: "relative",
           }}
         >
-          {isLocked ? "🔒" : isComplete ? "✓" : unit.emoji}
+          {isLocked ? "🔒" : isComplete && owned ? "✓" : unit.emoji}
           {!isLocked && !isComplete && unit.pct > 0 && (
             <svg style={{ position: "absolute", inset: 0, transform: "rotate(-90deg)" }} width="46" height="46">
               <circle cx="23" cy="23" r="21" fill="none" stroke={isCurrent ? "rgba(255,255,255,0.25)" : "var(--border)"} strokeWidth="2.5" />
@@ -1424,8 +1444,10 @@ function UnitNode({ unit, index, isCurrent, onTap, onTestOut }) {
           <div style={{ fontSize: 12, opacity: 0.7, marginTop: 2 }}>
             {isLocked
               ? "Finish the previous goal"
-              : isComplete
+              : isComplete && owned
               ? `Done · ${unit.mastered} mastered`
+              : isComplete
+              ? `All met · ${unit.recalled || 0} / ${unit.total} from memory`
               : `${unit.learned} / ${unit.total} words`}
           </div>
         </div>
@@ -1434,6 +1456,17 @@ function UnitNode({ unit, index, isCurrent, onTap, onTestOut }) {
           <div style={{ fontSize: 16, opacity: 0.7, flexShrink: 0 }}>→</div>
         )}
       </button>
+
+      {almost && onMakeYours && (
+        <div className="unit-own-row">
+          <span style={{ fontSize: 12, color: isCurrent ? "inherit" : "var(--text-dim)", opacity: isCurrent ? 0.8 : 1 }}>
+            {unit.recalled || 0} of {unit.total} from memory
+          </span>
+          <button className="unit-own-btn" data-recall={unit.id} onClick={(e) => { e.stopPropagation(); onMakeYours(); }}>
+            Make it yours
+          </button>
+        </div>
+      )}
 
       {isLocked && onTestOut && index > 0 && (
         <div
@@ -1566,7 +1599,7 @@ function FluencyStrip({ profile, lang, onNavigate }) {
       </button>
 
       <button className="strip-card" onClick={() => onNavigate("missions")}>
-        <span className="strip-value">{passed}<span className="strip-of">/{MISSIONS.length}</span></span>
+        <span className="strip-value">{passed}<span className="strip-of">/{MISSION_COUNT}</span></span>
         <span className="strip-label">Missions passed</span>
         <span className="strip-sub">
           {passed === 0

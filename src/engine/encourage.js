@@ -5,10 +5,13 @@
 // learn to skim it. Encouragement that works points at something TRUE and
 // SPECIFIC the learner can now do. So the results screen shows:
 //
-//   · NOW YOU CAN SAY — real sentences built on words they answered right in
-//     this lesson, with sound: evidence, not praise
+//   · NOW YOU CAN SAY — real sentences built on words they produced in this
+//     lesson (v113: written or said from memory, not merely chosen), with
+//     sound: evidence, not praise
 //   · their speaking this lesson, and how close the next speaking level is
 //   · a milestone when their known words cross 10, 25, 50, 100…
+//   · v113: the words they wrote from memory, with no hint — the strongest
+//     evidence a lesson can produce that a word is theirs
 //
 // Everything here is pure, so the claims it makes can be tested.
 // =============================================================================
@@ -34,9 +37,9 @@ export function milestoneLine(m, langName) {
 }
 
 /**
- * Up to `max` sentences the learner can now say: from words answered right in
- * this lesson, new words first (that's what today added), one per word, no
- * sentence twice.
+ * Up to `max` sentences the learner can now say: from the words in `rightIds`
+ * (the lesson passes the ones produced from memory), new words first (that's
+ * what today added), one per word, no sentence twice.
  */
 export function sayNow(items, rightIds, { introducedIds = new Set(), max = 2 } = {}) {
   const right = (items || []).filter((it) => it?.id && rightIds?.has(it.id));
@@ -52,6 +55,21 @@ export function sayNow(items, rightIds, { introducedIds = new Set(), max = 2 } =
     if (out.length >= max) break;
   }
   return out;
+}
+
+/**
+ * v113: what writing words from memory this lesson adds up to. Only answers
+ * given with no hint count as "from memory" — `right` is those, out of `asked`.
+ */
+export function memoryLine(right, asked) {
+  if (!asked) return null;
+  if (right === asked) {
+    return asked === 1
+      ? "You wrote it from memory, with nothing on screen to choose from."
+      : `You wrote all ${asked} from memory, with nothing on screen to choose from.`;
+  }
+  if (right > 0) return `You wrote ${right} of ${asked} from memory. The others will be back soon, and each try makes the next one easier.`;
+  return "None came from memory this time, which is normal while words are new. They'll be back soon, and each try makes the next one easier.";
 }
 
 /** This lesson's speaking, against the ladder. */

@@ -520,7 +520,8 @@ async function runExerciseToggles() {
   await page.waitForTimeout(1600);
 
   const toggles = await page.locator(".ex-toggle").count();
-  check("every optional question type has a switch", toggles >= 8, String(toggles));
+  // v113: nine — writing from memory joined the list.
+  check("every optional question type has a switch", toggles >= 9, String(toggles));
   check("they all start on", (await page.locator(".ex-toggle.ex-on").count()) === toggles);
 
   await page.locator(".ex-toggle").first().click();
@@ -1148,7 +1149,13 @@ async function runMistakesTeach() {
   const seen = [];
   for (let i = 0; i < 16 && !answeredWrong; i++) {
     const opts = page.locator(".opt-btn");
-    if (await opts.count() >= 2) {
+    // v113: a from-memory question — a word that is no word is always wrong.
+    if (await page.locator(".recall-input").count()) {
+      await page.locator(".recall-input").fill("zzzz");
+      await page.locator("button", { hasText: /^Check$/ }).click();
+      await page.waitForFunction(() => /here's what happened|here's the thing/i.test(document.body.innerText), null, { timeout: 2500 }).catch(() => {});
+      if (/here's what happened|here's the thing/i.test(await page.locator("body").innerText())) { answeredWrong = true; seen.push(`${i}: from memory → wrong`); break; }
+    } else if (await opts.count() >= 2) {
       const texts = await opts.allInnerTexts();
       // The question, without the options' own text in it.
       let prompt = await page.locator("#main").innerText().catch(() => "");

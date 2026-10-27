@@ -79,6 +79,8 @@ async function playLesson(code, passes) {
     log.overflow = Math.max(log.overflow, await page.evaluate(() => document.scrollingElement.scrollWidth - window.innerWidth));
     if (/\b\d+ of \d+ right\b|📤 Share|Lesson complete/i.test(main)) { log.finished = true; break; }
     const lvlStrip = await page.locator("[data-testid=speak-level]").count();
+    // v113: a speaking step is still a lesson step — the way out and the progress bar stay.
+    if (lvlStrip && !(await page.locator('button[aria-label="Leave the lesson"]').count())) log.noTopBar = (log.noTopBar || 0) + 1;
     if (lvlStrip) {
       const mode = await page.locator("[data-testid=speak-level]").getAttribute("data-mode");
       if (mode === "echo") {
@@ -129,6 +131,14 @@ async function playLesson(code, passes) {
       await page.waitForTimeout(400);
       continue;
     }
+    // v113: a from-memory question — write the word as it sounds, then go on.
+    if (await page.locator("[data-testid=recall]").count()) {
+      const meaning = (await page.locator(".recall-meaning").innerText()).replace(/[“”]/g, "").trim();
+      const w = byMeaning.get(meaning);
+      await page.locator(".recall-input").fill(w ? (w.translit || w.lemma) : "?");
+      await page.evaluate(() => [...document.querySelectorAll("button")].find((b) => /^check/i.test((b.innerText || "").trim()) && !b.disabled)?.click());
+      await page.waitForTimeout(500);
+    }
     // Everything else: new-word cards, grammar, multiple choice.
     if (/tap to flip|card \d+ of \d+/i.test(main)) introIdx = step;
     const opts = page.locator(".opt-btn");
@@ -173,6 +183,8 @@ for (const code of CODES) {
   if (!a.home.includes(expectLevel)) fail(`${code}: Home says "${a.home}", expected "${expectLevel}"`);
   else ok(`Home: “${a.home}”`);
   if (a.overflow > 1) fail(`${code} L2: scrolls sideways by ${a.overflow}px`);
+  if (a.noTopBar) fail(`${code} L2: ${a.noTopBar} speaking steps had no ✕ or progress bar`);
+  else ok("every speaking step keeps the lesson's ✕ and progress bar");
   if (a.errors.length) fail(`${code} L2: page errors: ${a.errors.slice(0, 2).join(" | ")}`);
 
   // Level 4.

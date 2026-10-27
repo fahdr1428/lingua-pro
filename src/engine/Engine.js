@@ -8,9 +8,10 @@
 
 import { newCardState, review, masteryLevel, RATING } from "./srs.js";
 import { buildQueue, countDue, countLearned, filterVocab, buildTopicQueue, summariseTopics } from "./selector.js";
-import { generateLesson, gradeAnswer, EXERCISE } from "./generator.js";
+import { generateLesson, gradeAnswer, buildRecallSession, EXERCISE } from "./generator.js";
 import { buildRushPool } from "./games.js";
 import { weaveSpeaking, buildSpeakingSession } from "./speaking.js";
+import { canRecall } from "./recall.js";
 import { loadLanguagePack } from "../data/registry.js";
 
 export class Engine {
@@ -185,6 +186,7 @@ export class Engine {
       learned: countLearned(vocab, progress),
       due: countDue(vocab, progress),
       mastered: vocab.filter((v) => progress[v.id] && masteryLevel(progress[v.id]) >= 4).length,
+      recalled: vocab.filter((v) => canRecall(progress[v.id])).length, // v113: produced from memory
     };
   }
 
@@ -197,6 +199,10 @@ export class Engine {
       const items = vocab.filter((v) => v.unit === u.id);
       const learned = items.filter((v) => progress[v.id]?.reps > 0).length;
       const mastered = items.filter((v) => progress[v.id] && masteryLevel(progress[v.id]) >= 4).length;
+      // v113: met is not the same as known. `recalled` counts the words this
+      // learner has produced from memory (recall.js canRecall) — what a stop
+      // on the path is allowed to claim "you can" about.
+      const recalled = items.filter((v) => canRecall(progress[v.id])).length;
       const total = items.length;
       const pct = total > 0 ? learned / total : 0;
       return {
@@ -204,6 +210,8 @@ export class Engine {
         total,
         learned,
         mastered,
+        recalled,
+        recalledPct: total > 0 ? recalled / total : 0,
         pct,
         // 'available' = previous unit at least 30% learned, or first unit always available
         // Will be set in caller using order
@@ -239,6 +247,21 @@ export class Engine {
 
   async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null, disabledExercises = null, speakingPasses = 0 } = {}) {
     const progress = await this.getProgress();
+    // v113: "make it yours" — every question from memory, on words this learner
+    // has met but never produced (in one unit when asked, otherwise anywhere).
+    // Shakiest first. Falls through to an ordinary lesson when there's nothing
+    // to consolidate.
+    if (mode === "recall") {
+      const scope = filter?.unit ? this.pack.vocab.filter((v) => v.unit === filter.unit) : this.pack.vocab;
+      const toProve = scope
+        .filter((v) => !v.custom && v.lemma && (progress[v.id]?.reps || 0) > 0 && !canRecall(progress[v.id]))
+        .sort((a, b) => (progress[a.id]?.stability || 0) - (progress[b.id]?.stability || 0))
+        .slice(0, Math.max(3, sessionSize));
+      if (toProve.length) {
+        const exercises = buildRecallSession(toProve, this.pack.vocab, progress, disabledExercises);
+        if (exercises.length) return { mode, exercises };
+      }
+    }
     // v111: a whole session out loud — see buildSpeakingSession. Falls through
     // to an ordinary lesson when fewer than three words have been met.
     if (mode === "speak") {
@@ -416,7 +439,7 @@ export class Engine {
   // Submitting an answer — single source of truth for SRS updates
   // ---------------------------------------------------------------------------
   async submitAnswer(exercise, given) {
-    const result = gradeAnswer(exercise, given);
+    const result = gradeAnswer(exercise, given, { vocab: this.pack?.vocab || [] });
 
     // INTRODUCE step: just acknowledge, don't update SRS state
     if (result.intro) {
@@ -435,13 +458,19 @@ export class Engine {
       return { ...result, rating: null, card: null, mastery: 0, practice: true };
     }
 
-    // Map correctness + exercise difficulty into FSRS rating (1..4)
-    const rating = inferRating(exercise, result.correct);
+    // Map correctness + the strength of the evidence into an FSRS rating (1..4)
+    const rating = inferRating(exercise, result);
 
     const id = exercise.item.id;
     const progress = await this.getProgress();
     const oldCard = progress[id] || newCardState();
     const newCard = review(oldCard, rating);
+    // v113: how many times this word has been PRODUCED from memory — the
+    // evidence behind "you can say it" (recall.js canRecall). review() builds
+    // a fresh object, so the count is carried over here. A card from before
+    // v113 that had already earned a week's stability brings that in as one.
+    const priorRecalls = typeof oldCard.recalls === "number" ? oldCard.recalls : (canRecall(oldCard) ? 1 : 0);
+    newCard.recalls = priorRecalls + (isFreeRecallSuccess(exercise, result) ? 1 : 0);
     await this.setCard(id, newCard);
 
     return {
@@ -481,12 +510,44 @@ export class Engine {
   }
 }
 
-// Heuristic: a correct production exercise = stronger evidence than a correct
-// recognition exercise. A typed answer that's slightly off could be HARD.
-function inferRating(exercise, correct) {
+// =============================================================================
+// v113 — HOW MUCH A RIGHT ANSWER PROVES.
+//
+// Every correct answer used to be rated GOOD, so a lucky true/false (right half
+// the time knowing nothing) or a pick-one-of-four (a quarter of the time) told
+// the scheduler exactly what producing the word from memory did. The scheduler
+// then believed the learner knew words they had only recognised, and spaced
+// them out accordingly — the review came after the word was gone.
+//
+// FSRS ratings mean "how hard was this to RECALL". So:
+//   · produced from memory (written, typed, said)         → GOOD
+//   · put together from given pieces (tiles, words)        → GOOD
+//   · chosen from options — the answer was on screen       → HARD
+//   · from memory but with a hint, or close but misspelled → HARD
+//   · wrong, or "show me"                                 → AGAIN
+// HARD still counts as a success and still grows the memory; it just grows it
+// less and brings the word back sooner, which is right for a word the learner
+// has only been shown to recognise.
+// =============================================================================
+const CHOSEN_FROM_OPTIONS = new Set([
+  EXERCISE.PICK_MEANING, EXERCISE.PICK_WORD, EXERCISE.LISTEN_PICK, EXERCISE.TRUE_FALSE,
+  EXERCISE.COMPLETE_SENTENCE, EXERCISE.CONJUGATE, EXERCISE.CONJUGATE_TENSE,
+  EXERCISE.MATCH_PAIRS, EXERCISE.ODD_ONE_OUT,
+]);
+
+function inferRating(exercise, result) {
+  const correct = typeof result === "object" ? result.correct : !!result;
   if (!correct) return RATING.AGAIN;
-  const productionTypes = [EXERCISE.TYPE_TRANSLATION, EXERCISE.TAP_WORDS];
-  if (productionTypes.includes(exercise.type)) return RATING.GOOD;
-  // Recognition = lower-evidence success
-  return RATING.GOOD; // could downgrade to HARD with timing data later
+  if (typeof result === "object" && ((result.hints || 0) > 0 || result.verdict === "close" || result.verdict === "alternative")) return RATING.HARD;
+  if (CHOSEN_FROM_OPTIONS.has(exercise.type)) return RATING.HARD;
+  return RATING.GOOD;
 }
+
+/** Did this answer produce the word itself from memory, unaided? Spoken recall and written recall count. */
+function isFreeRecallSuccess(exercise, result) {
+  if (!result?.correct) return false;
+  if (exercise.type !== EXERCISE.RECALL_WRITE && exercise.type !== EXERCISE.SPEAK_PROMPT) return false;
+  if ((result.hints || 0) > 0 || result.verdict === "alternative") return false;
+  return true;
+}
+export { inferRating as _inferRatingForTests };

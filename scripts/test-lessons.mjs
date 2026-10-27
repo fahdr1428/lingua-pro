@@ -19,7 +19,8 @@
  */
 
 import { readFileSync, readdirSync } from "node:fs";
-import { generateLesson, buildRecoveryRound, EXERCISE } from "../src/engine/generator.js";
+import { generateLesson, buildRecoveryRound, reshapeExercise, EXERCISE } from "../src/engine/generator.js";
+import { sameMeaning } from "../src/engine/games.js";
 
 const results = [];
 function check(name, cond, detail = "") {
@@ -46,6 +47,7 @@ const REQUIRED = {
   [EXERCISE.LETTER_SCRAMBLE]: { arrays: ["bank"], item: true },
   [EXERCISE.TRUE_FALSE]: { arrays: [], item: true },
   [EXERCISE.SPEAK_PROMPT]: { arrays: [], item: true },
+  [EXERCISE.RECALL_WRITE]: { arrays: [], item: true }, // v113: from memory — nothing to choose from
 };
 
 const packs = readdirSync("src/data/languages")
@@ -262,6 +264,41 @@ for (const [label, fn] of degenerate) {
     detail = `threw ${e?.message || e}`;
   }
   check(`survives ${label}`, ok, detail);
+}
+
+// =========================================================================
+// v113 — ONE RIGHT ANSWER. Every word of every pack, asked both ways three
+// times over: no wrong option may also mean it. (It did: "Perdón", sorry /
+// excuse me, was offered as wrong for "Pick the word for 'sorry'".)
+// PROVEN CAPABLE OF FAILING: with the sameMeaning filter taken out of
+// pickDistractors, 119 of 31,566 questions offered a second right answer —
+// Arabic آسف beside عفوا "sorry / you're welcome", Bengali, and more.
+// =========================================================================
+{
+  let asked = 0;
+  const clashes = [];
+  for (const pack of packs) {
+    const byLemma = new Map();
+    for (const v of pack.vocab) { if (!byLemma.has(v.lemma)) byLemma.set(v.lemma, []); byLemma.get(v.lemma).push(v); }
+    for (const w of pack.vocab) {
+      if (!w.lemma || !w.translation) continue;
+      for (let round = 0; round < 3; round++) {
+        const word = reshapeExercise({ item: w }, EXERCISE.PICK_WORD, pack.vocab, {});
+        const meaning = reshapeExercise({ item: w }, EXERCISE.PICK_MEANING, pack.vocab, {});
+        asked += 2;
+        for (const o of word?.options || []) {
+          if (o === word.answer) continue;
+          const also = (byLemma.get(o) || []).find((v) => sameMeaning(v.translation, w.translation));
+          if (also) clashes.push(`${pack.code} "${w.translation}": the wrong option ${o} (${also.translation}) means it too`);
+        }
+        for (const o of meaning?.options || []) {
+          if (o !== meaning.answer && sameMeaning(o, w.translation)) clashes.push(`${pack.code} ${w.lemma}: the wrong option "${o}" also means "${w.translation}"`);
+        }
+      }
+    }
+  }
+  check(`no choice question offers a second right answer (${asked} questions, every word of every pack)`,
+    clashes.length === 0, `${clashes.length}: ${[...new Set(clashes)].slice(0, 4).join(" · ")}`);
 }
 
 // =========================================================================

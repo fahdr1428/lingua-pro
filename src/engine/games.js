@@ -60,6 +60,11 @@ function clash(a, b) {
   return meanings(a).some((x) => mb.some((y) => x.core === y.core && !(x.marked && y.marked)));
 }
 
+/** v113: the same test, for anything else that needs to know whether two glosses could both be right (recall.js). */
+export function sameMeaning(a, b) {
+  return clash(a, b);
+}
+
 /**
  * The words to play. Learned words (reps > 0) first; if that's fewer than
  * `min`, the next words in curriculum order fill it, so a beginner can play too.

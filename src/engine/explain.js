@@ -26,6 +26,7 @@
 // =============================================================================
 
 import { EXERCISE } from "./generator.js";
+import { isLatinWord } from "./recall.js";
 
 // -----------------------------------------------------------------------------
 // Special cases keyed by language code + a pair of words
@@ -176,8 +177,12 @@ const SPECIAL_CASES = {
  *          an English paragraph renders as a mess.
  */
 export function explainAnswer(exercise, userAnswer, langCode, opts = {}) {
-  const { correct = false, options = null, vocab = null } = opts;
+  const { correct = false, options = null, vocab = null, result = null } = opts;
   const item = exercise.item;
+  // v113: on a from-memory question the grader has already recognised a
+  // different real word if that's what was typed — and by its proper spelling,
+  // so "estar" typed in lower case still finds the "Ser→Estar" explanation.
+  const chosen = exercise.type === EXERCISE.RECALL_WRITE && result?.other ? result.other.lemma : userAnswer;
 
   // The example sentence, in the language being learned. This is the payload —
   // everything else is framing around it.
@@ -202,10 +207,10 @@ export function explainAnswer(exercise, userAnswer, langCode, opts = {}) {
   // 1. Hand-written explanations for the famous confusions, where a template
   //    would miss the actual teaching point (ser vs estar, tú vs usted).
   const specialMap = SPECIAL_CASES[langCode] || {};
-  const specialExplanation = specialMap[`${item.lemma}→${userAnswer}`];
+  const specialExplanation = specialMap[`${item.lemma}→${chosen}`];
   if (specialExplanation) {
     return {
-      title: `${item.lemma} vs ${userAnswer}`,
+      title: `${item.lemma} vs ${chosen}`,
       body: specialExplanation,
       special: true,
       sentence,
@@ -280,6 +285,29 @@ export function explainAnswer(exercise, userAnswer, langCode, opts = {}) {
       parts.push(`The form you want is **${exercise.answer}**.`);
       if (item.lemma) parts.push(`It comes from **${item.lemma}** — "${item.translation}".`);
       break;
+    // v113 — WRITTEN FROM MEMORY. The grader has already said what kind of
+    // answer it was; this says it in words.
+    case EXERCISE.RECALL_WRITE: {
+      const verdict = result?.verdict;
+      // How it sounds, for a script the learner may not read — not "Hola (hola)".
+      const sounds = item.translit && !isLatinWord(item.lemma) ? ` (${item.translit})` : "";
+      if (verdict === "other-word" && result.other) {
+        parts.push(`You wrote **${result.other.lemma}**, which is a real word — it means "${result.other.translation}".`);
+      }
+      parts.push(`The word for "${item.translation}" is **${item.lemma}**${sounds}.`);
+      if (verdict === "close" && result.note) parts.push(result.note);
+      if (verdict === "alternative" && result.other) {
+        parts.push(`**${result.other.lemma}** is right too: it also means "${result.other.translation}".`);
+      }
+      if (verdict === "gave-up") {
+        parts.push("Saying you don't know beats a wild guess. You'll get this word again soon, and seeing it right after trying is what makes it stick.");
+      } else if (!correct) {
+        // Kornell, Hays & Bjork (2009): a retrieval attempt that fails, followed
+        // by the answer, still improves memory for it.
+        parts.push("Trying to bring it back, even when it doesn't come, makes the answer stick better now you've seen it.");
+      }
+      break;
+    }
     default:
       parts.push(`The answer is **${exercise.answer || item.translation}**.`);
   }

@@ -159,7 +159,7 @@ for (const code of CODES) for (let attempt = 1; attempt <= 3; attempt++) {
       const opts = [...document.querySelectorAll("button")].filter(
         (b) => !b.disabled && /option|choice|opt-/i.test(b.className || ""));
       if (opts.length) { opts[opts.length - 1].click(); return; }
-      const input = document.querySelector("input[type=text], .type-input");
+      const input = document.querySelector("input[type=text]:not([readonly]), .type-input");
       if (input) {
         const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
         setter.call(input, "zzzz");

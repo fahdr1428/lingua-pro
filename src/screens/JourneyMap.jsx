@@ -25,6 +25,12 @@
 // shows as reached when its unit is genuinely 60% learned (stopsReached), and a
 // locked station says plainly that it's locked. The map can't overstate what
 // someone knows.
+//
+// v113: and reached is not the same as able. "You can greet someone" with a ✓
+// used to appear as soon as 60% of a stop's words had been MET — chosen from
+// four options a few times. Now it waits until 60% have been written from
+// memory (coach.js isOwned). A stop walked past before then says "Almost
+// yours" and offers the session that finishes the job.
 // =============================================================================
 
 import React, { useState } from "react";
@@ -36,6 +42,7 @@ import {
   UNITS_PER_CHAPTER, isChapterExamAvailable, hasPassedChapter, chapterVocabIds,
 } from "../data/chapters.js";
 import { isRecognitionSupported } from "../audio/speech.js";
+import { isOwned } from "../engine/coach.js";
 
 export function JourneyMap({
   langCode, lang, stops, reached, unitProgress, appState, pack, onNavigate,
@@ -137,14 +144,15 @@ export function JourneyMap({
               const isLast = si === chapter.stops.length - 1;
               const open = openStop === stop.id || isNow;
 
-              const state = isDone ? "done" : isNow ? "now" : unlocked ? "next" : "locked";
+              const owned = isDone && isOwned(unit);
+              const state = isDone ? (owned ? "done" : "almost") : isNow ? "now" : unlocked ? "next" : "locked";
 
               return (
                 <div className={`station station-${state}`} key={stop.id}>
                   {/* gutter: the line and the marker */}
                   <div className="station-gutter">
                     <span className={`station-dot dot-${state}`}>
-                      {isDone ? "✓" : isNow ? "" : ""}
+                      {owned ? "✓" : ""}
                     </span>
                     {(!isLast || showCheckpoint) && (
                       <span className={`station-line ${isDone ? "line-done" : "line-todo"}`} />
@@ -169,8 +177,10 @@ export function JourneyMap({
                           follow a lead-in ("…you'll be able to greet someone"),
                           so rendering it bare leaves a lowercase fragment. */}
                       <span className="station-label">
-                        {isDone
+                        {owned
                           ? stop.done
+                          : isDone
+                          ? <><strong>Almost yours</strong> — {stop.next}</>
                           : isNow
                           ? <><strong>Next</strong> — {stop.next}</>
                           : <>Then {stop.next}</>}
@@ -182,8 +192,10 @@ export function JourneyMap({
 
                     {!open && (
                       <div className="station-hint">
-                        {isDone
+                        {owned
                           ? stop.you.translit
+                          : isDone
+                          ? `${unit?.recalled || 0} of ${unit?.total || 0} words from memory`
                           : unlocked
                           ? `${stop.they.translit} → ${stop.you.translit}`
                           : "Locked — finish the stop before it"}
@@ -195,7 +207,29 @@ export function JourneyMap({
                         <Exchange stop={stop} lang={lang} langCode={langCode} />
 
                         <div className="station-actions">
-                          {unlocked ? (
+                          {isDone && !owned && unit ? (
+                            <>
+                              {/* data-recall, not data-unit: this opens a session of
+                                  writing this stop's words from memory, not its lesson. */}
+                              <button
+                                className="station-go"
+                                data-recall={unit.id}
+                                onClick={() => onNavigate("lesson", { mode: "recall", filter: { unit: unit.id } })}
+                              >
+                                Make it yours · {unit.recalled || 0}/{unit.total || 0} from memory
+                              </button>
+                              {/* …and the stop's ordinary lesson stays one tap away. The
+                                  lesson fuzz found it gone: for a learner who had walked
+                                  past every stop, the map offered no lesson at all. */}
+                              <button
+                                className="station-speak"
+                                data-unit={unit.id}
+                                onClick={() => onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
+                              >
+                                Practise again
+                              </button>
+                            </>
+                          ) : unlocked ? (
                             <button
                               className="station-go"
                               data-unit={unit?.id}

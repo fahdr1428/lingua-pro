@@ -545,6 +545,7 @@ const noneOfIt = typesOver(new Set([
   EXERCISE.LISTEN_PICK, EXERCISE.SPEAK_PROMPT, EXERCISE.TYPE_TRANSLATION, EXERCISE.LETTER_SCRAMBLE,
   EXERCISE.BUILD_SENTENCE, EXERCISE.MATCH_PAIRS, EXERCISE.ODD_ONE_OUT, EXERCISE.CONJUGATE,
   EXERCISE.CONJUGATE_TENSE, EXERCISE.TAP_WORDS, EXERCISE.TRUE_FALSE, EXERCISE.COMPLETE_SENTENCE,
+  EXERCISE.RECALL_WRITE, // v113: switchable like the rest — off, its questions fall back to pick-the-word
 ]));
 check("switching everything off still produces a usable lesson rather than an empty one",
   noneOfIt.size > 0 && [...noneOfIt].every((t) =>
@@ -802,6 +803,87 @@ check("every disabled type is genuinely absent, including the two built outside 
   ahead[8] = { id: "u9", pct: 0.1, learned: 2 };   // chapter 3, while in chapter 1
   check("...and a word learned in a LATER chapter doesn't open that chapter's stops",
     computeUnlocks(ahead, { chaptersPassed: {} }, "fr")[8] === false, "u9 opened from chapter 1");
+}
+
+// =========================================================================
+// v113 — WHAT A RIGHT ANSWER PROVES, AND WHAT "YOU CAN" MEANS
+//
+// PROVEN CAPABLE OF FAILING: rating a choose-from-options answer GOOD fails
+// two checks below; counting a hinted recall as produced fails four; offering
+// "make it yours" straight after one fails one.
+// =========================================================================
+console.log("\n— v113: evidence of remembering —");
+{
+  const { Engine, _inferRatingForTests: rate } = await import("../src/engine/Engine.js");
+  const { RATING } = await import("../src/engine/srs.js");
+  const { isOwned, unitToMakeYours } = await import("../src/engine/coach.js");
+  const { canRecall } = await import("../src/engine/recall.js");
+  const memStore = () => { const m = new Map(); return { async get(k) { return m.has(k) ? JSON.parse(m.get(k)) : null; }, async set(k, v) { m.set(k, JSON.stringify(v)); }, async remove(k) { m.delete(k); }, async update(k, fn) { const v = fn(await this.get(k)); await this.set(k, v); return v; }, async keys() { return [...m.keys()]; }, async clear() { m.clear(); } }; };
+
+  // The rating policy.
+  const ok = { correct: true };
+  check("written from memory, unaided → GOOD", rate({ type: EXERCISE.RECALL_WRITE }, { ...ok, verdict: "exact", hints: 0 }) === RATING.GOOD);
+  check("chosen from four options → HARD (the answer was on screen)", rate({ type: EXERCISE.PICK_WORD }, ok) === RATING.HARD);
+  check("true/false → HARD (right half the time knowing nothing)", rate({ type: EXERCISE.TRUE_FALSE }, ok) === RATING.HARD);
+  check("from memory with a hint → HARD", rate({ type: EXERCISE.RECALL_WRITE }, { ...ok, verdict: "exact", hints: 1 }) === RATING.HARD);
+  check("from memory, accents missing → HARD", rate({ type: EXERCISE.RECALL_WRITE }, { ...ok, verdict: "close" }) === RATING.HARD);
+  check("\"show me\" → AGAIN", rate({ type: EXERCISE.RECALL_WRITE }, { correct: false, verdict: "gave-up" }) === RATING.AGAIN);
+  check("a sentence put together from tiles → GOOD", rate({ type: EXERCISE.BUILD_SENTENCE }, ok) === RATING.GOOD);
+
+  // Recall counting, through the real submitAnswer.
+  const code = "es";
+  const pack = JSON.parse(readFileSync(`src/data/languages/${code}.json`, "utf8"));
+  const e = new Engine(memStore()); e.pack = pack; e.languageCode = code;
+  const unitId = pack.units[0].id;
+  const words = pack.vocab.filter((v) => v.unit === unitId);
+  const [w1, w2, w3] = words;
+  await e.submitAnswer({ type: EXERCISE.PICK_WORD, item: w1, answer: w1.lemma }, w1.lemma);
+  let p = await e.getProgress();
+  check("choosing a word right does not count as producing it", p[w1.id].recalls === 0 && !canRecall(p[w1.id]), JSON.stringify(p[w1.id]));
+  await e.submitAnswer({ type: EXERCISE.RECALL_WRITE, item: w1, answer: w1.lemma }, { text: w1.lemma, hints: 0 });
+  p = await e.getProgress();
+  check("writing it from memory counts once", p[w1.id].recalls === 1 && canRecall(p[w1.id]), JSON.stringify(p[w1.id]));
+  await e.submitAnswer({ type: EXERCISE.RECALL_WRITE, item: w2, answer: w2.lemma }, { text: w2.lemma, hints: 2 });
+  p = await e.getProgress();
+  check("…but not with a hint", p[w2.id].recalls === 0, JSON.stringify(p[w2.id]));
+  await e.submitAnswer({ type: EXERCISE.RECALL_WRITE, item: w1, answer: w1.lemma }, { text: "", gaveUp: true });
+  p = await e.getProgress();
+  check("missing it later means it isn't producible right now", !canRecall(p[w1.id]) && p[w1.id].recalls === 1, JSON.stringify(p[w1.id]));
+  await e.submitAnswer({ type: EXERCISE.RECALL_WRITE, item: w3, answer: w3.lemma }, { text: "qqqzzz" });
+  p = await e.getProgress();
+  check("a wrong answer from memory is AGAIN, and no recall", p[w3.id].lastRating === RATING.AGAIN && p[w3.id].recalls === 0);
+
+  // The unit progress the map reads.
+  const up = await e.getUnitProgress();
+  const u0 = up.find((u) => u.id === unitId);
+  check("unit progress counts words recalled separately from words met", u0.learned === 3 && u0.recalled === 0, `met ${u0.learned}, recalled ${u0.recalled}`);
+
+  // "Make it yours": only met-but-not-recalled words, every one from memory.
+  const sess = await e.generateSession({ mode: "recall", filter: { unit: unitId }, sessionSize: 6 });
+  check("a make-it-yours session asks only words that were met and can't yet be produced",
+    sess.mode === "recall" && sess.exercises.length === 3 && sess.exercises.every((x) => x.type === EXERCISE.RECALL_WRITE && [w1.id, w2.id, w3.id].includes(x.item.id)),
+    sess.exercises.map((x) => `${x.type}:${x.item?.id}`).join(" "));
+  const spoken = await e.generateSession({ mode: "recall", filter: { unit: unitId }, sessionSize: 6, disabledExercises: [EXERCISE.RECALL_WRITE] });
+  check("writing switched off: the words are said from memory instead",
+    spoken.exercises.length === 3 && spoken.exercises.every((x) => x.type === EXERCISE.SPEAK_PROMPT && x.mode === "recall" && !x.practice),
+    spoken.exercises.map((x) => `${x.type}/${x.mode}`).join(" "));
+  const empty = new Engine(memStore()); empty.pack = pack; empty.languageCode = code;
+  const fresh = await empty.generateSession({ mode: "recall", filter: { unit: unitId }, sessionSize: 6 });
+  check("nothing met yet: it falls through to an ordinary lesson", fresh.exercises.length > 0 && fresh.exercises.some((x) => x.type === EXERCISE.INTRODUCE_BATCH || x.type === EXERCISE.INTRODUCE));
+
+  // What the path may claim.
+  check("a unit is yours at 60% written from memory", isOwned({ recalledPct: 0.6 }) && !isOwned({ recalledPct: 0.59, pct: 1 }));
+  const units = [
+    { id: "u1", pct: 1, learned: 10, recalled: 7, recalledPct: 0.7 },   // yours
+    { id: "u2", pct: 0.8, learned: 8, recalled: 2, recalledPct: 0.2 },  // walked past, not yours
+    { id: "u3", pct: 0.3, learned: 3, recalled: 0, recalledPct: 0 },    // current
+  ];
+  check("make-it-yours picks the earliest walked-past unit that isn't yours", unitToMakeYours(units, { currentUnitId: "u3" })?.id === "u2");
+  check("…never the unit being worked on now", unitToMakeYours(units, { currentUnitId: "u2" }) === null);
+  check("…and not again straight after one", unitToMakeYours(units, { currentUnitId: "u3", recentModes: ["unit", "recall"] }) === null
+    && unitToMakeYours(units, { currentUnitId: "u3", recentModes: ["recall", "unit", "unit"] })?.id === "u2");
+  check("…and not for a unit with fewer than three words left to produce",
+    unitToMakeYours([{ id: "u1", pct: 0.7, learned: 7, recalled: 5, recalledPct: 0.5 }, { id: "u2", pct: 0 }], { currentUnitId: "u2" }) === null);
 }
 
 // =========================================================================

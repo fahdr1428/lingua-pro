@@ -107,6 +107,14 @@ async function playThrough(page, pack) {
       await page.waitForTimeout(350);
       continue;
     }
+    // v113: a from-memory question — write the word as it sounds.
+    if (await page.locator("[data-testid=recall]").count()) {
+      const meaning = (await page.locator(".recall-meaning").innerText()).replace(/[“”]/g, "").trim();
+      const w = byMeaning.get(meaning);
+      await page.locator(".recall-input").fill(w ? (w.translit || w.lemma) : "?");
+      await page.evaluate(() => [...document.querySelectorAll("button")].find((b) => /^check/i.test((b.innerText || "").trim()) && !b.disabled)?.click());
+      await page.waitForTimeout(500);
+    }
     // Multiple choice: answer from the pack so the lesson is mostly right.
     const opts = page.locator(".opt-btn");
     if (await opts.count() >= 2) {

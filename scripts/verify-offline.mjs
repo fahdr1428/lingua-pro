@@ -128,6 +128,13 @@ for (let i = 0; i < 10; i++) {
   const moved = await page.evaluate(() => {
     const opts = [...document.querySelectorAll(".opt-btn")];
     if (opts.length >= 2) { opts[0].click(); return "answered"; }
+    // v113: a from-memory question — type anything, so Check can be pressed.
+    const input = document.querySelector(".recall-input:not([readonly])");
+    if (input && !input.value) {
+      Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set.call(input, "zzzz");
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      return "answered";
+    }
     const go = [...document.querySelectorAll("button")].find(
       (b) => /^(check|continue|next|got it|i've got these|start practice|done)/i.test((b.innerText || "").trim()) && !b.disabled);
     if (go) { go.click(); return "advanced"; }

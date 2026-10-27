@@ -132,6 +132,41 @@ export function goalLabel(unit) {
   return t;
 }
 
+// ---------------------------------------------------------------------------
+// v113 — MET IS NOT KNOWN.
+//
+// A unit is "yours" once most of its words have been written from memory
+// (recall.js canRecall). That is the bar a stop on the path has to clear before
+// it may say "You can…": recognising a word among four options is not being
+// able to say it. A unit the learner has walked past — most words met — but
+// can't yet produce is the best thing to practise next: the words are half
+// built, and one round of bringing them back finishes the job.
+// ---------------------------------------------------------------------------
+export const OWNED_AT = 0.6;
+
+/** Have most of this unit's words been produced from memory? */
+export function isOwned(unit) {
+  return (unit?.recalledPct || 0) >= OWNED_AT;
+}
+
+/**
+ * The unit most worth making yours now, or null: the earliest one BEFORE the
+ * current unit that the learner has mostly met but not made theirs, with at
+ * least three met words still to write from memory. (The current unit's own
+ * lessons already ask its met words from memory.) Not offered again within two
+ * sessions of the last one, so someone who keeps missing can move on and come
+ * back, rather than being held at the same words.
+ */
+export function unitToMakeYours(units = [], { currentUnitId = null, recentModes = [] } = {}) {
+  if (recentModes.slice(-2).includes("recall")) return null;
+  for (const u of units) {
+    if (u.id === currentUnitId) break;
+    if ((u.pct || 0) < OWNED_AT || isOwned(u)) continue;
+    if ((u.learned || 0) - (u.recalled || 0) >= 3) return u;
+  }
+  return null;
+}
+
 // Rough honest time estimate: ~3 quiz items a minute, minimum 1 minute.
 export function estMinutes(items = 6) {
   return Math.max(1, Math.round(items / 3));

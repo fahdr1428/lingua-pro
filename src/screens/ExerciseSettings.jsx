@@ -32,6 +32,12 @@ const TOGGLEABLE = [
     offNote: "Turn off when you can't talk. It's the fastest way to learn, so turn it back on when you can.",
   },
   {
+    id: EXERCISE.RECALL_WRITE,
+    label: "Writing from memory",
+    blurb: "Write the word with nothing to choose from — in its script, or as it sounds",
+    offNote: "This is the question that shows you can produce a word, not just recognise it. Any keyboard works, so turn it back on when you can.",
+  },
+  {
     id: EXERCISE.TYPE_TRANSLATION,
     label: "Typing",
     blurb: "Type the meaning in English",

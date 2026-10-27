@@ -50,6 +50,10 @@ const HEAVY = {
   "src/data/grammar.js": "the grammar lessons",
   "src/data/conjugations.js": "the verb tables",
   "src/data/tenses.js": "the tense tables",
+  // v113 — Home needed only how many missions there are (contentIndex), and a
+  // lesson's supplementary romanisations load with the lesson.
+  "src/data/missions.js": "the mission library",
+  "src/data/wordPronunciation.js": "the supplementary romanisations",
 };
 
 function resolveSpec(from, spec) {

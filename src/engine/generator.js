@@ -14,6 +14,10 @@
 //   4. Inject the occasional "listening" exercise (TTS-only prompt).
 // =============================================================================
 
+import { canRecall, gradeRecall } from "./recall.js";
+import { sameMeaning } from "./games.js";
+import { SPEAK_MODE } from "./speaking.js";
+
 export const EXERCISE = {
   INTRODUCE_BATCH: "introduce_batch", // show all new words as flashcards FIRST
   INTRODUCE: "introduce",           // (legacy, kept for backwards compat)
@@ -31,6 +35,7 @@ export const EXERCISE = {
   LETTER_SCRAMBLE: "letter_scramble", // v59: spell the word from shuffled letter tiles
   TRUE_FALSE: "true_false",         // v59: quick judgement — does this word mean X?
   SPEAK_PROMPT: "speak_prompt",     // v70: say it out loud; graded leniently by ear
+  RECALL_WRITE: "recall_write",     // v113: see the meaning → write the word FROM MEMORY (no options; see recall.js)
 };
 
 const NUM_DISTRACTORS = 3;
@@ -85,7 +90,9 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
   if (chapterExam) {
     const rounds = [
       { n: 1, label: "Round 1 · Recognise", type: EXERCISE.PICK_MEANING },
-      { n: 2, label: "Round 2 · Recall", type: EXERCISE.PICK_WORD },
+      // v113: the "recall" round used to be pick-from-four. A checkpoint that
+      // decides whether you move on should ask whether you can produce it.
+      { n: 2, label: "Round 2 · From memory", type: EXERCISE.RECALL_WRITE },
       { n: 3, label: "Round 3 · Listen & Produce", type: "MIXED_HARD" },
     ];
     for (const round of rounds) {
@@ -125,7 +132,7 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
     // Question types to rotate through. COMPLETE_SENTENCE only works when the
     // word has a usable example sentence, so we check per-word and fall back.
     const examTypes = [
-      EXERCISE.PICK_WORD,        // recall: meaning → word (hardest, most weight)
+      EXERCISE.RECALL_WRITE,     // v113: recall that IS recall — meaning → write the word, no options
       EXERCISE.PICK_MEANING,     // recognition: word → meaning
       EXERCISE.LISTEN_PICK,      // listening: hear → meaning
       EXERCISE.COMPLETE_SENTENCE,// production: fill the gap
@@ -352,6 +359,22 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
 
   exercises.push(...finalMix);
 
+  // Phase 4d (v113) THE FIRST RECALL, AT THE END. Each word met in this lesson
+  // is asked once more, from memory, with no options — after everything else,
+  // so the other words have pushed it out of working memory and the learner has
+  // to genuinely reach for it. Expanding retrieval: recognise it soon after
+  // meeting it, produce it at a longer lag. Getting it wrong here is fine and
+  // expected; the answer follows at once, and a retrieval attempt that fails
+  // still strengthens the memory of the answer shown after it (Kornell, Hays &
+  // Bjork 2009).
+  for (const item of newWords) {
+    const ex = buildExerciseOfType(item, EXERCISE.RECALL_WRITE, pool, progress[item.id], 0, progress);
+    if (ex) {
+      ex.firstRecall = true;
+      exercises.push(ex);
+    }
+  }
+
   // Phase 5 (v70) SAY IT OUT LOUD — one spoken production exercise per lesson.
   //
   // WHY IT'S LAST AND WHY IT'S ONE. Speaking is the highest-effort retrieval the
@@ -536,6 +559,20 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
         playAudio: true,
         options: safeOptions(shuffle([item.translation, ...byMeaning.map((d) => d.translation)])),
         answer: item.translation,
+      };
+
+    // v113: FROM MEMORY. The meaning, an empty box, and no options. Graded by
+    // recall.js: the script or its romanisation, keyboard variants, accents
+    // and articles handled fairly, and a different real word named as such.
+    case EXERCISE.RECALL_WRITE:
+      return {
+        type,
+        item,
+        prompt: `From memory: how do you write “${item.translation}”?`,
+        translation: item.translation,
+        showWord: false,
+        playAudio: false,
+        answer: item.lemma,
       };
 
     case EXERCISE.TYPE_TRANSLATION:
@@ -999,21 +1036,47 @@ function buildGraduatedSet(item, pool, card, progress = {}) {
         : EXERCISE.PICK_MEANING        // a win to build from
     );
   } else if (reps === 0) {
-    levels.push(EXERCISE.PICK_MEANING); // recognise
-    // v59: sometimes swap plain recognition for a fast true/false judgement
-    if (Math.random() < 0.3) levels.push(EXERCISE.TRUE_FALSE);
-    levels.push(EXERCISE.PICK_WORD);     // recall
-    if (hasShortSentence) levels.push(EXERCISE.COMPLETE_SENTENCE); // produce
-  } else if (reps < 3) {
-    levels.push(EXERCISE.PICK_WORD);     // recall
-    // v59: spell it yourself — letter-level production for Latin-script words
-    if (canScramble(item) && Math.random() < 0.4) levels.push(EXERCISE.LETTER_SCRAMBLE);
-    if (hasShortSentence) levels.push(EXERCISE.COMPLETE_SENTENCE);
+    // v113 — A NEW WORD: meet it (the intro card), recognise it, then pick it
+    // out by its meaning. Its first recall WITHOUT options comes at the end of
+    // the lesson (generateLesson, phase 4d), once other words have pushed
+    // it out of working memory — a retrieval that has to reach for it is the
+    // one that makes it stay.
+    //
+    // True/false is gone from here: a coin flip is right half the time, which
+    // makes it the weakest evidence the app can collect about a word it has
+    // just met.
+    levels.push(EXERCISE.PICK_MEANING);  // recognise
+    levels.push(EXERCISE.PICK_WORD);     // recall, with the answer on screen
+    if (hasShortSentence && Math.random() < 0.5) levels.push(EXERCISE.COMPLETE_SENTENCE); // see it in use
+  } else if (!canRecall(card)) {
+    // v113 — SEEN, NEVER PRODUCED. Ask for it from memory FIRST, before any
+    // cue can do the work, then (while it's still early days for the word)
+    // hold it up in its own sentence. Before v113 this rung was "pick the word
+    // from four", so a learner could reach the end of the course recognising
+    // every word and able to say none of them.
+    //
+    // A word met three times or more gets the one question, not two: the
+    // second rung made review lessons a third longer, and the length of a
+    // lesson is its own way of losing people.
+    levels.push(EXERCISE.RECALL_WRITE);
+    if (reps < 3) {
+      if (hasShortSentence) levels.push(EXERCISE.COMPLETE_SENTENCE);
+      else if (canScramble(item) && Math.random() < 0.4) levels.push(EXERCISE.LETTER_SCRAMBLE);
+    }
+  } else if ((card?.stability || 0) < 14) {
+    // Produced before, not yet durable: from memory again, and early on put it
+    // to work in a sentence too; later, one or the other.
+    const inUse = hasShortSentence ? (Math.random() < 0.5 ? EXERCISE.TAP_WORDS : EXERCISE.COMPLETE_SENTENCE) : null;
+    if (reps < 3) {
+      levels.push(EXERCISE.RECALL_WRITE);
+      if (inUse) levels.push(inUse);
+    } else {
+      levels.push(inUse && Math.random() < 0.5 ? inUse : EXERCISE.RECALL_WRITE);
+    }
   } else {
-    // Mature: production only (or recall if no sentence available)
-    if (canScramble(item) && Math.random() < 0.25) levels.push(EXERCISE.LETTER_SCRAMBLE);
-    if (hasShortSentence) levels.push(EXERCISE.COMPLETE_SENTENCE);
-    else levels.push(EXERCISE.PICK_WORD);
+    // Durable: use it — build its sentence, or produce it cold.
+    const longest = examples.reduce((n, ex) => Math.max(n, String(ex?.native || "").split(/\s+/).filter(Boolean).length), 0);
+    levels.push(longest >= 3 && Math.random() < 0.6 ? EXERCISE.BUILD_SENTENCE : EXERCISE.RECALL_WRITE);
   }
 
   // Build the exercises
@@ -1112,26 +1175,63 @@ function chooseExerciseType(reps, item, lapses = 0) {
 
   // Building familiarity (reps 1-2): real mix of recognition AND production.
   // Sentence work now appears ~40% of the time, not just for mature words.
+  // v113: "pick the word from four" became "write it from memory" here — the
+  // same question with the answer no longer on screen.
   if (reps < 3) {
     const r = Math.random();
-    if (r < 0.22) return EXERCISE.PICK_MEANING;
-    if (r < 0.32 && canScramble(item)) return EXERCISE.LETTER_SCRAMBLE; // v59: spell it yourself
-    if (r < 0.42) return EXERCISE.PICK_WORD;
-    if (r < 0.5) return EXERCISE.LISTEN_PICK;
-    if (r < 0.72 && hasShortSentence) return EXERCISE.COMPLETE_SENTENCE;
-    if (r < 0.9 && hasRealSentence) return EXERCISE.TAP_WORDS;
-    return EXERCISE.PICK_WORD;
+    if (r < 0.15) return EXERCISE.PICK_MEANING;
+    if (r < 0.25 && canScramble(item)) return EXERCISE.LETTER_SCRAMBLE; // v59: spell it yourself
+    if (r < 0.5) return EXERCISE.RECALL_WRITE;
+    if (r < 0.58) return EXERCISE.LISTEN_PICK;
+    if (r < 0.76 && hasShortSentence) return EXERCISE.COMPLETE_SENTENCE;
+    if (r < 0.92 && hasRealSentence) return EXERCISE.TAP_WORDS;
+    return EXERCISE.RECALL_WRITE;
   }
 
   // Mature (reps 3+): production-heavy. Building full sentences is the
   // priority — that's the actual skill, not word recognition.
   const r = Math.random();
   if (r < 0.4 && hasRealSentence) return EXERCISE.BUILD_SENTENCE;   // up from 0.3
-  if (r < 0.62 && hasShortSentence) return EXERCISE.TAP_WORDS;
-  if (r < 0.72 && canScramble(item)) return EXERCISE.LETTER_SCRAMBLE; // v59: spelling under pressure
-  if (r < 0.8) return EXERCISE.TYPE_TRANSLATION;
-  if (r < 0.92 && hasShortSentence) return EXERCISE.COMPLETE_SENTENCE;
-  return EXERCISE.PICK_WORD;
+  if (r < 0.55 && hasShortSentence) return EXERCISE.TAP_WORDS;
+  if (r < 0.62 && canScramble(item)) return EXERCISE.LETTER_SCRAMBLE; // v59: spelling under pressure
+  if (r < 0.7) return EXERCISE.TYPE_TRANSLATION;
+  if (r < 0.8 && hasShortSentence) return EXERCISE.COMPLETE_SENTENCE;
+  return EXERCISE.RECALL_WRITE;
+}
+
+/**
+ * v113: a "make it yours" session — every word asked from memory, nothing to
+ * pick from. Honours the learner's switched-off types like any lesson: with
+ * writing off, each word is said from memory instead; with speaking off too,
+ * pick-the-word is what's left.
+ */
+export function buildRecallSession(items, pool, progress = {}, disabled = null) {
+  DISABLED = disabled instanceof Set ? disabled : (Array.isArray(disabled) ? new Set(disabled) : null);
+  // Writing switched off: say each word from memory instead — the other way to
+  // produce a word with nothing to choose from. (With both off, choosing is all
+  // that's left, and buildExerciseOfType falls back to it.)
+  if (!allowed(EXERCISE.RECALL_WRITE) && allowed(EXERCISE.SPEAK_PROMPT)) {
+    return (items || []).filter((item) => item?.lemma)
+      .map((item) => ({ type: EXERCISE.SPEAK_PROMPT, item, answer: item.lemma, prompt: "Say it from memory", mode: SPEAK_MODE.RECALL }));
+  }
+  return (items || [])
+    .map((item) => buildExerciseOfType(item, EXERCISE.RECALL_WRITE, pool || [], progress[item.id], 0, progress))
+    .filter(Boolean);
+}
+
+/**
+ * v113: rebuild an exercise as a different type for the same word — how the
+ * lesson steps a question up (to from-memory) or down (to supported) as it goes.
+ * Keeps the flags that say where the exercise came from.
+ */
+export function reshapeExercise(exercise, type, pool, progress = {}) {
+  if (!exercise?.item) return null;
+  const ex = buildExerciseOfType(exercise.item, type, pool || [], progress[exercise.item.id], 0, progress);
+  if (!ex) return null;
+  for (const k of ["firstRecall", "interleaved", "struggling", "round", "roundLabel"]) {
+    if (exercise[k] !== undefined) ex[k] = exercise[k];
+  }
+  return ex;
 }
 
 /** Prefer distractors from the same category — feels less random. */
@@ -1147,11 +1247,18 @@ function pickDistractors(item, pool, n, labelOf = null) {
   // wrong identical option was marked wrong and cost a heart. There is no way
   // to be right in that question. The label the option RENDERS with is the only
   // thing that can be compared, so that is what's deduped.
+  // v113 — AND NEVER A SECOND RIGHT ANSWER. Deduping by label still let
+  // "Perdón" (sorry / excuse me) in as a WRONG option for "Pick the word for
+  // 'sorry'", beside "lo siento" — pick it and be marked wrong for being right.
+  // sameMeaning is the test Word Rush already uses for exactly this: any
+  // meaning the two share, unless both sides are qualified ("you (formal)"
+  // beside "you (familiar)" stays — telling those apart is the lesson).
   const label = labelOf || ((p) => p.id);
   const taken = new Set([label(item)]);
   const chosen = [];
   const consider = (d) => {
     if (chosen.length >= n) return;
+    if (d.translation && item.translation && sameMeaning(d.translation, item.translation)) return;
     const l = label(d);
     if (l == null || l === "" || taken.has(l)) return;
     taken.add(l);
@@ -1228,8 +1335,12 @@ function shuffle(arr) {
   return a;
 }
 
-/** Score the user's answer to an exercise. Returns { correct, expected, given } */
-export function gradeAnswer(exercise, given) {
+/**
+ * Score the user's answer to an exercise. Returns { correct, expected, given }.
+ * `ctx.vocab` (v113) lets a from-memory answer that is a DIFFERENT real word be
+ * named as such; Engine.submitAnswer passes the pack.
+ */
+export function gradeAnswer(exercise, given, ctx = {}) {
   // INTRODUCE / INTRODUCE_BATCH are informational — no answer to grade
   if (exercise.type === EXERCISE.INTRODUCE || exercise.type === EXERCISE.INTRODUCE_BATCH) {
     return { correct: true, expected: null, given: null, intro: true };
@@ -1242,6 +1353,13 @@ export function gradeAnswer(exercise, given) {
     correct = String(given || "").split("|").sort().join("|") === exercise.answer;
   } else if (exercise.type === EXERCISE.TAP_WORDS || exercise.type === EXERCISE.BUILD_SENTENCE) {
     correct = norm(Array.isArray(given) ? given.join(" ") : given) === norm(exercise.answer);
+  } else if (exercise.type === EXERCISE.RECALL_WRITE) {
+    // `given` is the text, or { text, hints, gaveUp } from the lesson screen.
+    const g = given && typeof given === "object" ? given : { text: given };
+    const hints = Number(g.hints) || 0;
+    if (g.gaveUp) return { correct: false, expected: exercise.answer, given: g.text || "", verdict: "gave-up", hints };
+    const r = gradeRecall(g.text, exercise.item, { vocab: ctx.vocab || [], accept: exercise.accept || [] });
+    return { correct: r.correct, expected: exercise.answer, given: g.text, verdict: r.verdict, via: r.via, note: r.note, other: r.other, hints };
   } else if (exercise.type === EXERCISE.TYPE_TRANSLATION) {
     // Forgiving: accept any of the translations if the answer has comma-separated alts
     const accepted = exercise.answer.split(/[,/]/).map(norm);

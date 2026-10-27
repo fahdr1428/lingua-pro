@@ -25,6 +25,7 @@ import { PASSAGES } from "../src/data/passages.js";
 import { CULTURE } from "../src/data/culture.js";
 import { SENTENCE_PATTERNS } from "../src/data/sentencePatterns.js";
 import { LANGUAGES } from "../src/data/registry.js";
+import { MISSIONS } from "../src/data/missions.js";
 
 export function buildIndex() {
   const conversations = {};
@@ -42,10 +43,12 @@ export function buildIndex() {
     culture[code] = Array.isArray(CULTURE[code]) ? CULTURE[code].length : 0;
     patternSkills[code] = (SENTENCE_PATTERNS[code] || []).map((x) => x.skill || "");
   }
-  return { conversations, passages, culture, patternSkills };
+  // v113: Home shows "N missions passed / M" and imported the whole mission
+  // library (11KB of source) into the first download to get M.
+  return { conversations, passages, culture, patternSkills, missions: MISSIONS.length };
 }
 
-export function render({ conversations, passages, culture, patternSkills }) {
+export function render({ conversations, passages, culture, patternSkills, missions }) {
   const table = (obj) =>
     Object.entries(obj).map(([k, v]) => `  ${k}: ${v},`).join("\n");
 
@@ -79,6 +82,9 @@ ${table(culture)}
 export const PATTERN_SKILLS = {
 ${Object.entries(patternSkills).map(([k, v]) => `  ${k}: ${JSON.stringify(v)},`).join("\n")}
 };
+
+// How many missions there are. The missions themselves load with their screen.
+export const MISSION_COUNT = ${missions};
 
 export const hasConversations = (code) => (CONVERSATION_COUNT[code] || 0) > 0;
 export const hasPassages = (code) => (PASSAGE_COUNT[code] || 0) > 0;
