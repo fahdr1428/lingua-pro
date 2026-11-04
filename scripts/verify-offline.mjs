@@ -40,7 +40,7 @@ const SEED = {
   aiConsent: { accepted: true, at: 0, ageConfirmed: 16, version: 1 },
 };
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
 const page = await ctx.newPage();
 const errors = [];

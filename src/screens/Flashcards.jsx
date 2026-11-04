@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
-import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { InContext } from "../ui/InContext.jsx";
 import { goBack } from "../ui/navigation.js";
@@ -219,7 +219,7 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
                   fontSize: lang.rtl ? 30 : 26,
                   lineHeight: 1.4,
                   direction: lang.rtl ? "rtl" : "ltr",
-                  fontFamily: lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit",
+                  fontFamily: scriptFont(lang.code),
                   color: "var(--text-dim)",
                   paddingTop: 4,
                   paddingBottom: 4,

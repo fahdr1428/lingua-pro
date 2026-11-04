@@ -20,7 +20,7 @@
 // =============================================================================
 
 import React, { useState } from "react";
-import { AI_MIN_AGE, AI_DISCLOSURE } from "../legal/policies.js";
+import { AI_MIN_AGE, AI_DISCLOSURE_ID } from "../legal/basics.js";
 
 /** Has this person seen the disclosure and accepted? */
 export function aiAccepted(appState) {
@@ -93,7 +93,7 @@ export function AiGate({ appState, setAppState, guideName, langName, onDecline, 
           Start talking
         </button>
         <button className="btn-quiet" onClick={decline}>No thanks — keep the rest</button>
-        <button className="quiet-link" onClick={() => onNavigate?.("legal", { policy: AI_DISCLOSURE.id, back: "speak" })}>
+        <button className="quiet-link" onClick={() => onNavigate?.("legal", { policy: AI_DISCLOSURE_ID, back: "speak" })}>
           read the full AI disclosure
         </button>
       </div>

@@ -26,12 +26,14 @@ import { CULTURE } from "../src/data/culture.js";
 import { SENTENCE_PATTERNS } from "../src/data/sentencePatterns.js";
 import { LANGUAGES } from "../src/data/registry.js";
 import { MISSIONS } from "../src/data/missions.js";
+import { GRAMMAR } from "../src/data/grammar.js";
 
 export function buildIndex() {
   const conversations = {};
   const passages = {};
   const culture = {};
   const patternSkills = {};
+  const grammarTitles = {};
   for (const code of Object.keys(LANGUAGES).sort()) {
     const c = CONVERSATIONS[code];
     const p = PASSAGES[code];
@@ -42,13 +44,17 @@ export function buildIndex() {
     // (culture.js, sentencePatterns.js) into the first download.
     culture[code] = Array.isArray(CULTURE[code]) ? CULTURE[code].length : 0;
     patternSkills[code] = (SENTENCE_PATTERNS[code] || []).map((x) => x.skill || "");
+    // Zaban: the structured course (curriculum.js) needs each grammar lesson's
+    // id and title to place it in a module. Home builds the course; it was
+    // downloading every language's grammar lessons (74KB) to read 5 titles.
+    grammarTitles[code] = (GRAMMAR[code] || []).map((g) => [g.id, g.title]);
   }
   // v113: Home shows "N missions passed / M" and imported the whole mission
   // library (11KB of source) into the first download to get M.
-  return { conversations, passages, culture, patternSkills, missions: MISSIONS.length };
+  return { conversations, passages, culture, patternSkills, grammarTitles, missions: MISSIONS.length };
 }
 
-export function render({ conversations, passages, culture, patternSkills, missions }) {
+export function render({ conversations, passages, culture, patternSkills, grammarTitles, missions }) {
   const table = (obj) =>
     Object.entries(obj).map(([k, v]) => `  ${k}: ${v},`).join("\n");
 
@@ -81,6 +87,12 @@ ${table(culture)}
 // the patterns themselves are loaded by the Sentence Lab screen.
 export const PATTERN_SKILLS = {
 ${Object.entries(patternSkills).map(([k, v]) => `  ${k}: ${JSON.stringify(v)},`).join("\n")}
+};
+
+// Each grammar lesson's [id, title], in order — what the structured course needs
+// to place grammar in its modules. The lessons themselves load with a lesson.
+export const GRAMMAR_TITLES = {
+${Object.entries(grammarTitles).map(([k, v]) => `  ${k}: ${JSON.stringify(v)},`).join("\n")}
 };
 
 // How many missions there are. The missions themselves load with their screen.

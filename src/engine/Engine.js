@@ -247,6 +247,17 @@ export class Engine {
 
   async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null, disabledExercises = null, speakingPasses = 0 } = {}) {
     const progress = await this.getProgress();
+    // Zaban: a structured lesson from the course (curriculum.js) — seven phases
+    // with objectives. Built in its own chunk; falls through to a unit lesson
+    // if the lesson can't be found.
+    if (mode === "guided" && filter?.lesson) {
+      const { buildGuidedSession } = await import("./guided.js");
+      const s = await buildGuidedSession(this.pack, filter.lesson, {
+        progress, attempts: await this.getAttempts(), disabled: disabledExercises, speakingPasses,
+      });
+      if (s?.exercises?.length) return s;
+      if (s?.unit) { mode = "unit"; filter = { unit: s.unit }; }
+    }
     // v113: "make it yours" — every question from memory, on words this learner
     // has met but never produced (in one unit when asked, otherwise anywhere).
     // Shakiest first. Falls through to an ordinary lesson when there's nothing
@@ -445,6 +456,14 @@ export class Engine {
     if (result.intro) {
       return { ...result, rating: null, card: null, mastery: 0 };
     }
+    // Zaban: practising a whole exchange (the course's conversation task). It is
+    // evidence about the learner — logged for the skill profile, and the words
+    // in the reply count as used in a sentence — but it is not a review of one
+    // word, so no card moves.
+    if (exercise.noSchedule) {
+      await this.recordAttempt(exercise, result);
+      return { ...result, rating: null, card: null, mastery: 0, practice: true };
+    }
 
     // v68 PRETEST: the learner is guessing at a word they haven't been taught
     // yet. Grading it as a failed review would tell FSRS the word is hard when
@@ -472,6 +491,7 @@ export class Engine {
     const priorRecalls = typeof oldCard.recalls === "number" ? oldCard.recalls : (canRecall(oldCard) ? 1 : 0);
     newCard.recalls = priorRecalls + (isFreeRecallSuccess(exercise, result) ? 1 : 0);
     await this.setCard(id, newCard);
+    await this.recordAttempt(exercise, result);
 
     return {
       ...result,
@@ -508,7 +528,82 @@ export class Engine {
   async getSessions() {
     return (await this.storage.get("sessions")) || [];
   }
+
+  // ---------------------------------------------------------------------------
+  // Zaban — the answer log and the course record.
+  //
+  // `attempts` keeps the last ATTEMPT_CAP graded answers per language: which
+  // exercise type, which word(s), right or wrong, with a hint or not. The skill
+  // profile (skills.js) is computed from it, so it can always be recomputed and
+  // goes out with the data export like everything else. It holds no free text.
+  //
+  // `course` holds what the structured course needs to remember: lessons
+  // finished (with their per-objective results) and conversations practised.
+  // ---------------------------------------------------------------------------
+  async recordAttempt(exercise, result, extra = {}) {
+    try {
+      const t = exercise.logAs || exercise.type;
+      if (!t) return;
+      const all = (await this.storage.get("attempts")) || {};
+      const mine = all[this.languageCode] || [];
+      const entry = { t, ts: Date.now(), ok: !!result?.correct };
+      const id = exercise.wordIds || exercise.item?.id;
+      if (id) entry.id = id;
+      if (result?.hints) entry.h = result.hints;
+      if (result?.verdict && result.verdict !== "exact") entry.v = result.verdict;
+      if (exercise.phase) entry.ph = exercise.phase;
+      Object.assign(entry, extra);
+      mine.push(entry);
+      all[this.languageCode] = mine.slice(-ATTEMPT_CAP);
+      await this.storage.set("attempts", all);
+    } catch {
+      // The log is evidence, not state the lesson depends on: never break a lesson over it.
+    }
+  }
+
+  /** Log evidence that isn't an exercise answer (a grammar check, a reading question, a mission). */
+  async recordEvidence(t, ok, extra = {}) {
+    return this.recordAttempt({ type: t }, { correct: ok }, extra);
+  }
+
+  async getAttempts() {
+    const all = (await this.storage.get("attempts")) || {};
+    return all[this.languageCode] || [];
+  }
+
+  async getCourseState() {
+    const all = (await this.storage.get("course")) || {};
+    const mine = all[this.languageCode] || {};
+    return { done: mine.done || {}, results: mine.results || {}, exchanges: mine.exchanges || {} };
+  }
+
+  async _updateCourseState(fn) {
+    const all = (await this.storage.get("course")) || {};
+    const mine = all[this.languageCode] || {};
+    all[this.languageCode] = fn({ done: {}, results: {}, exchanges: {}, ...mine });
+    await this.storage.set("course", all);
+    return all[this.languageCode];
+  }
+
+  /** A structured lesson was finished. `objectives` is { [objectiveId]: {met, score} }. */
+  async saveLessonResult(lessonId, { objectives = {}, exchange = null } = {}) {
+    return this._updateCourseState((s) => ({
+      ...s,
+      done: { ...s.done, [lessonId]: Date.now() },
+      results: { ...s.results, [lessonId]: { ts: Date.now(), objectives } },
+      exchanges: exchange ? { ...s.exchanges, [exchange]: Date.now() } : s.exchanges,
+    }));
+  }
+
+  /** A journey exchange was produced unaided (course task or Speak). */
+  async recordExchange(stopId) {
+    if (!stopId) return null;
+    return this._updateCourseState((s) => ({ ...s, exchanges: { ...s.exchanges, [stopId]: Date.now() } }));
+  }
 }
+
+// Last N graded answers kept per language for the skill profile.
+const ATTEMPT_CAP = 800;
 
 // =============================================================================
 // v113 — HOW MUCH A RIGHT ANSWER PROVES.

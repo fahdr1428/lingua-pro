@@ -9,7 +9,7 @@ import { CoachError } from "./coach.js";
 const ENDPOINT = "/api/scenario";
 const TIMEOUT_MS = 40_000;
 
-export async function buildScenario({ description, langName, level = "beginner" }) {
+export async function buildScenario({ description, langName, level = "beginner", langCode = "" }) {
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS);
 
@@ -19,7 +19,7 @@ export async function buildScenario({ description, langName, level = "beginner" 
       method: "POST",
       headers: { "content-type": "application/json" },
       signal: ctl.signal,
-      body: JSON.stringify({ description, langName, level }),
+      body: JSON.stringify({ description, langName, level, langCode }),
     });
   } catch (e) {
     clearTimeout(timer);

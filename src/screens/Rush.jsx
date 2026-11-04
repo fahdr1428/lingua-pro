@@ -17,7 +17,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
-import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak } from "../audio/tts.js";
 import { playCorrect, playWrong } from "../audio/sfx.js";
 import { rushQuestion, comboMultiplier, createRushDeck, rushXp } from "../engine/games.js";
@@ -25,10 +25,7 @@ import { goBack } from "../ui/navigation.js";
 
 const DEFAULT_SECONDS = 60;
 
-const nativeFont = (code, rtl) =>
-  !rtl ? "inherit"
-    : code === "ur" ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif'
-      : '"Noto Naskh Arabic", "Noto Nastaliq Urdu", serif';
+const nativeFont = (code, rtl) => (rtl ? scriptFont(code) : "inherit");
 
 export function Rush({ engine, pack, appState, setAppState, params, onNavigate }) {
   const lang = LANGUAGES[pack.code];

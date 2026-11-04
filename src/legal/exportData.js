@@ -20,7 +20,7 @@
 // =============================================================================
 
 import { getStorage } from "../storage/index.js";
-import { LAST_UPDATED } from "./policies.js";
+import { LAST_UPDATED } from "./basics.js";
 
 export const EXPORT_VERSION = 1;
 

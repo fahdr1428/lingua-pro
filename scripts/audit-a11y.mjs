@@ -292,7 +292,7 @@ const SCREENS = [
   }],
 ];
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 let totals = { unnamed: 0, contrast: 0, images: 0, inputs: 0 };
 
 for (const theme of ["cream", "dark", "ocean"]) {

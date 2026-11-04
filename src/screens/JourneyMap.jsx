@@ -37,7 +37,7 @@ import React, { useState } from "react";
 import { speak } from "../audio/tts.js";
 import { GuideMark } from "../ui/GuideMark.jsx";
 import { getCharacter } from "../data/characters.js";
-import { getChapters } from "../data/journey.js";
+import { chaptersOf, taskLessonId, nthOnUnit } from "../data/journeyChapters.js";
 import {
   UNITS_PER_CHAPTER, isChapterExamAvailable, hasPassedChapter, chapterVocabIds,
 } from "../data/chapters.js";
@@ -45,9 +45,9 @@ import { isRecognitionSupported } from "../audio/speech.js";
 import { isOwned } from "../engine/coach.js";
 
 export function JourneyMap({
-  langCode, lang, stops, reached, unitProgress, appState, pack, onNavigate,
+  langCode, lang, stops, reached, unitProgress, appState, pack, onNavigate, exchanges = {},
 }) {
-  const chapters = getChapters(langCode);
+  const chapters = chaptersOf(stops);
   const guide = getCharacter(langCode);
   const [openStop, setOpenStop] = useState(null);
 
@@ -144,7 +144,16 @@ export function JourneyMap({
               const isLast = si === chapter.stops.length - 1;
               const open = openStop === stop.id || isNow;
 
-              const owned = isDone && isOwned(unit);
+              // Zaban — "You can …" is a claim about a CONVERSATION. Producing
+              // the unit's words from memory (v113) is half of it; the other
+              // half is having produced this exchange's reply, unaided, in the
+              // module's conversation task (or out loud on the Speak screen).
+              // In Arabic, Spanish, French, Hindi and Urdu only 2–3 of 12
+              // stops' exchanges use their own unit's words, so the words
+              // alone never proved the claim.
+              const wordsOwned = isOwned(unit);
+              const talked = !!exchanges[stop.id];
+              const owned = isDone && wordsOwned && talked;
               const state = isDone ? (owned ? "done" : "almost") : isNow ? "now" : unlocked ? "next" : "locked";
 
               return (
@@ -194,8 +203,10 @@ export function JourneyMap({
                       <div className="station-hint">
                         {owned
                           ? stop.you.translit
-                          : isDone
+                          : isDone && !wordsOwned
                           ? `${unit?.recalled || 0} of ${unit?.total || 0} words from memory`
+                          : isDone
+                          ? "Words from memory ✓ · now practise the conversation"
                           : unlocked
                           ? `${stop.they.translit} → ${stop.you.translit}`
                           : "Locked — finish the stop before it"}
@@ -207,7 +218,24 @@ export function JourneyMap({
                         <Exchange stop={stop} lang={lang} langCode={langCode} />
 
                         <div className="station-actions">
-                          {isDone && !owned && unit ? (
+                          {isDone && !owned && unit && wordsOwned ? (
+                            <>
+                              <button
+                                className="station-go"
+                                data-task={stop.id}
+                                onClick={() => onNavigate("lesson", { mode: "guided", filter: { lesson: taskLessonId(langCode, stop.unitIndex, Math.max(0, nthOnUnit(stops, stop))) } })}
+                              >
+                                Practise the conversation
+                              </button>
+                              <button
+                                className="station-speak"
+                                data-unit={unit.id}
+                                onClick={() => onNavigate("lesson", { mode: "unit", filter: { unit: unit.id } })}
+                              >
+                                Practise again
+                              </button>
+                            </>
+                          ) : isDone && !owned && unit ? (
                             <>
                               {/* data-recall, not data-unit: this opens a session of
                                   writing this stop's words from memory, not its lesson. */}

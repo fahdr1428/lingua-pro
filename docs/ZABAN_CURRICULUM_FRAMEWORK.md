@@ -100,7 +100,22 @@ Objectives are typed so the engine knows what evidence they need
 | `use` | Order a meal in a simulated conversation | task success in conversation / roleplay |
 | `understand` | Understand a short restaurant exchange | listening/reading comprehension, unseen |
 
-## 5. Pilot course: Urdu A1 (proposed module map, **draft**)
+## 5. Every language today, and an authored course to come
+
+**Built (v114), for all 21 languages:** `src/engine/curriculum.js` builds this
+hierarchy from each language's existing content: one module per unit, word
+lessons of at most 7 words, one conversation task per journey exchange, and
+objectives typed and worded from the items they cover. Each language's course
+profile (variety, script, register, difficulties) is in `src/data/courses.js`.
+The [language inventory](ZABAN_LANGUAGE_INVENTORY.md) lists every language's
+modules, objectives and the content still to write. These generated courses
+are `legacy-unreviewed`.
+
+**To come:** authored modules, written and reviewed to the standard below. The
+Urdu A1 map that follows is the first proposal. The same process applies to every
+language.
+
+### Urdu A1 (proposed module map, **draft**)
 
 *Proposal for discussion. It reuses existing units, journey exchanges and grammar
 cards wherever they fit, and fixes the misalignment found in the audit. To be

@@ -18,7 +18,7 @@
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
-import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, stopSpeaking, speechModeFor } from "../audio/tts.js";
 import { sayCoach, cancelVoice, voiceSupported } from "../audio/voice.js";
 import { goBack } from "../ui/navigation.js";
@@ -30,10 +30,7 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // Urdu is read in Nastaliq; Arabic, Persian and Shahmukhi in Naskh — the same
 // split GuideMark uses. Nastaliq's tall descenders need the extra line height.
-const nativeFont = (code, rtl) =>
-  !rtl ? "inherit"
-    : code === "ur" ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif'
-      : '"Noto Naskh Arabic", "Noto Nastaliq Urdu", serif';
+const nativeFont = (code, rtl) => (rtl ? scriptFont(code) : "inherit");
 
 // Media glyphs (⏮ ⏸ ⏭) render as tofu or at a third of the size in half the
 // system fonts on Android and Windows. Drawn icons look the same everywhere.

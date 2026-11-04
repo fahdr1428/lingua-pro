@@ -13,6 +13,31 @@ They are estimates for planning, not commitments.
 
 ---
 
+## Status: what is built, in all 21 languages (v114)
+
+The owner widened the scope: **every supported language is in scope**, not an
+Urdu-only pilot (see decision 6 below). The shared architecture from Phases 2–3
+is implemented for all 21 languages, built from the content each one already
+has. Content is still **legacy-unreviewed**. The per-language detail is in the
+generated [language inventory](ZABAN_LANGUAGE_INVENTORY.md).
+
+| Built | Where | Roadmap item |
+|---|---|---|
+| A course profile per language: variety, register, script and direction, romanisation, word order, features, learner difficulties, tutor rules, known content issues | `src/data/courses.js` | 2.1 (in part) |
+| A structured course per language: modules from units, lessons of ≤7 words, typed objectives quoting real items, grammar and Sentence Lab placed in order, every journey exchange as a module's conversation task | `src/engine/curriculum.js` | 2.1, 2.8 |
+| Seven-phase lessons with an assessment that has no options and no hints, and per-objective feedback | `src/engine/guided.js`, `src/screens/GuidedParts.jsx` | 2.4, 2.7 |
+| New activity types: choose the reply, build the reply (conversation); sentence tiles for Mandarin and Japanese from taught words | `guided.js`, `src/engine/segment.js` | 2.5 (in part) |
+| An answer log, seven-skill profile with evidence minimums, and word stages (introduced → secure) | `Engine.recordAttempt`, `src/engine/skills.js` | 2.3, 3.2 |
+| The map claims "You can …" only when the stop's words are produced from memory **and** its conversation has been practised | `JourneyMap.jsx` | 2.8 |
+| Home: the course's next lesson, the course panel (module progress, skills, what to work on); a Course screen per language | `Home.jsx`, `CoursePanel.jsx`, `CourseScreen.jsx` | 3.2 |
+| The tutor knows the course: per-language rules looked up on the server; module, objectives, known and weak words, and skill focus sent as data in the user turn; tutor turns and missions logged as conversation evidence | `api/coach.js`, `src/ai/learnerContext.js` | 3.3, 3.5 |
+| RTL scripts drawn in the right typeface everywhere (Nastaliq for Urdu; Naskh for Arabic, Persian, Shahmukhi) | `scriptFont` in `registry.js` | — |
+| Tests in every language: `test-curriculum` (node, in `npm run check`), `verify-course` (browser) | `scripts/` | — |
+
+Not built yet: accounts and sync (3.1), diagnostic placement (3.7), the analytics
+dashboard (3.8), authored lessons (Phase 4), error-correction exercises (they need
+authored errors), and any level above A1.
+
 ## Phase 1 · Educational foundation — *this document set*
 
 **Deliverable:** the complete educational architecture. ✔ written:
@@ -102,7 +127,7 @@ only. Nothing AI-drafted is approved without both reviews.
 | 3 | **Reviewer** | One qualified Urdu teacher for linguistic and pedagogical review (two people if possible). Budget is needed. Phase 4 cannot be approved without them. |
 | 4 | **Backend** | Supabase for auth and learner data, behind the existing adapter |
 | 5 | **AI access** | Tutor requires sign-in; free quota plus paid tier; quotas enforced server-side |
-| 6 | **The other 20 languages** | Keep working as practice courses (no CEFR labels). No new content for them until the pilot is validated. The map-claims fix (2.8) applies to all. |
+| 6 | **The other 20 languages** | **Decided by the owner: all 21 languages are in scope.** The shared architecture, structured course, skills, tutor context and map fix apply to every language (v114). Each language's remaining content work is listed in the [inventory](ZABAN_LANGUAGE_INVENTORY.md). An authored, reviewed course is still built one level at a time, and no level is published as reviewed until a qualified reviewer signs it off. |
 | 7 | **Native apps** | Defer to Phase 5; keep the core framework-free so either route works |
 | 8 | **Analytics consent** | Opt-in, own database only, no third-party SDK |
 

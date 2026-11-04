@@ -17,6 +17,7 @@
 import { canRecall, gradeRecall } from "./recall.js";
 import { sameMeaning } from "./games.js";
 import { SPEAK_MODE } from "./speaking.js";
+import { NO_SPACE, segment, lemmaSet } from "./segment.js";
 
 export const EXERCISE = {
   INTRODUCE_BATCH: "introduce_batch", // show all new words as flashcards FIRST
@@ -79,6 +80,7 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
   if (!Array.isArray(queue)) queue = [];
   if (!Array.isArray(pool)) pool = [];
   DISABLED = disabled instanceof Set ? disabled : (Array.isArray(disabled) ? new Set(disabled) : null);
+  usePool(pool);
   const exercises = [];
 
   // v44 CHAPTER EXAM — a gated, 3-round exam (easy → medium → hard). Each word
@@ -104,7 +106,7 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
         if (type === "MIXED_HARD") {
           // Alternate listening and fill-the-blank; fall back if no sentence.
           const hasSentence = (item.examples || []).some((ex) => {
-            const w = (ex?.native || "").split(/\s+/).filter(Boolean).length;
+            const w = tilesOf(ex?.native, item).length;
             return w >= 2;
           });
           if (i % 2 === 0 && hasSentence) type = EXERCISE.COMPLETE_SENTENCE;
@@ -144,7 +146,7 @@ export function generateLesson(queue, pool, progress = {}, langCode = null, conj
       // COMPLETE_SENTENCE needs a sentence; if absent, fall back to PICK_WORD.
       if (type === EXERCISE.COMPLETE_SENTENCE) {
         const hasSentence = (item.examples || []).some((ex) => {
-          const w = (ex?.native || "").split(/\s+/).filter(Boolean).length;
+          const w = tilesOf(ex?.native, item).length;
           return w >= 2;
         });
         if (!hasSentence) type = EXERCISE.PICK_WORD;
@@ -437,6 +439,32 @@ function buildExercise(item, pool, card, _depth = 0, progress = {}) {
 // than threaded through nine call sites; generateLesson sets it on entry.
 let DISABLED = null;
 
+// Zaban: the tiles of a sentence. Spaced languages split on spaces; Chinese and
+// Japanese are split into taught words (segment.js), so their learners get
+// sentences to build too. The lemma set comes from the pool the current lesson
+// was built from (usePool), and is rebuilt only when that pool changes.
+let LEMMA_POOL = null;
+let LEMMAS = null;
+function usePool(pool) {
+  if (pool !== LEMMA_POOL) { LEMMA_POOL = pool; LEMMAS = null; }
+}
+function codeOf(item) {
+  const m = String(item?.id || "").match(/^([a-z]{2,3})_\d/);
+  return m ? m[1] : null;
+}
+function tilesOf(native, item) {
+  const text = String(native || "");
+  const code = codeOf(item);
+  if (!NO_SPACE.has(code)) return text.split(/\s+/).filter(Boolean);
+  if (!LEMMAS) LEMMAS = lemmaSet(LEMMA_POOL || []);
+  return segment(text, code, LEMMAS) || (text ? [text] : []);
+}
+/** Wrong tiles for a word bank: another word's sentence, split the same way. */
+function distractorTiles(d) {
+  const t = tilesOf(d.examples?.[0]?.native || d.lemma, d);
+  return t.length > 1 ? t : [d.lemma];
+}
+
 /** Is this exercise type available to build right now? */
 function allowed(type) {
   return !DISABLED || !DISABLED.has(type);
@@ -488,7 +516,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
 
     let usable = all;
     if (minWords > 1) {
-      const longEnough = usable.filter((ex) => ex.native.split(/\s+/).filter(Boolean).length >= minWords);
+      const longEnough = usable.filter((ex) => tilesOf(ex.native, item).length >= minWords);
       if (longEnough.length) usable = longEnough;
     }
     if (mustContain) {
@@ -511,7 +539,7 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
     let best = examples[0];
     let bestScore = -1;
     for (const ex of examples) {
-      const words = ex.native.split(/\s+/);
+      const words = tilesOf(ex.native, item);
       let score = 0;
       for (const w of words) {
         if (learnedLemmas.has(w)) score++;
@@ -631,12 +659,12 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
 
     case EXERCISE.TAP_WORDS: {
       const ex = pickBestExample(2);
-      if (!ex || !ex.native || ex.native.split(" ").length < 2) {
+      if (!ex || !ex.native || tilesOf(ex.native, item).length < 2) {
         return buildExercise(item, pool, { ...card, reps: 1 }, _depth + 1, progress);
       }
-      const words = ex.native.split(" ").filter(Boolean);
+      const words = tilesOf(ex.native, item);
       const distractorWords = distractors
-        .flatMap((d) => (d.examples?.[0]?.native || d.lemma).split(" "))
+        .flatMap((d) => distractorTiles(d))
         .filter((w) => w && !words.includes(w))
         .slice(0, 2);
       return {
@@ -684,13 +712,13 @@ function buildExerciseOfType(item, type, pool, card, _depth = 0, progress = {}) 
       // Uses pickBestExample to prefer sentences with words user has learned,
       // among those long enough to be worth building.
       const ex = pickBestExample(3);
-      if (!ex || !ex.native || ex.native.split(" ").length < 2) {
+      if (!ex || !ex.native || tilesOf(ex.native, item).length < 2) {
         return buildExercise(item, pool, { ...card, reps: 2 }, _depth + 1, progress);
       }
-      const words = ex.native.split(" ").filter(Boolean);
+      const words = tilesOf(ex.native, item);
       // Add 2-3 distractor words that don't appear in the answer
       const distractorWords = distractors
-        .flatMap((d) => (d.examples?.[0]?.native || d.lemma).split(" "))
+        .flatMap((d) => distractorTiles(d))
         .filter((w) => w && !words.includes(w))
         .slice(0, 3);
       return {
@@ -1014,7 +1042,7 @@ function buildGraduatedSet(item, pool, card, progress = {}) {
   const lapses = card?.lapses || 0;
   const examples = item.examples || [];
   const hasShortSentence = examples.some((ex) => {
-    const w = (ex?.native || "").split(/\s+/).filter(Boolean).length;
+    const w = tilesOf(ex?.native, item).length;
     return w >= 2;
   });
 
@@ -1075,7 +1103,7 @@ function buildGraduatedSet(item, pool, card, progress = {}) {
     }
   } else {
     // Durable: use it — build its sentence, or produce it cold.
-    const longest = examples.reduce((n, ex) => Math.max(n, String(ex?.native || "").split(/\s+/).filter(Boolean).length), 0);
+    const longest = examples.reduce((n, ex) => Math.max(n, tilesOf(ex?.native, item).length), 0);
     levels.push(longest >= 3 && Math.random() < 0.6 ? EXERCISE.BUILD_SENTENCE : EXERCISE.RECALL_WRITE);
   }
 
@@ -1143,7 +1171,7 @@ function chooseExerciseType(reps, item, lapses = 0) {
   // sentence. The gate now asks the whole set the question the builders will
   // actually ask.
   const longest = (item.examples || []).reduce((n, e) =>
-    Math.max(n, String(e?.native || "").split(" ").filter(Boolean).length), 0);
+    Math.max(n, tilesOf(e?.native, item).length), 0);
   const hasShortSentence = longest >= 2;        // enough for TAP_WORDS / COMPLETE
   const hasRealSentence = longest >= 3;         // enough for a meaningful BUILD
 
@@ -1207,6 +1235,7 @@ function chooseExerciseType(reps, item, lapses = 0) {
  */
 export function buildRecallSession(items, pool, progress = {}, disabled = null) {
   DISABLED = disabled instanceof Set ? disabled : (Array.isArray(disabled) ? new Set(disabled) : null);
+  usePool(pool);
   // Writing switched off: say each word from memory instead — the other way to
   // produce a word with nothing to choose from. (With both off, choosing is all
   // that's left, and buildExerciseOfType falls back to it.)
@@ -1220,6 +1249,30 @@ export function buildRecallSession(items, pool, progress = {}, disabled = null) 
 }
 
 /**
+ * Zaban: one exercise of a given type for one word — what the structured lesson
+ * (guided.js) composes its phases from. Same builders, same fallbacks, same
+ * respect for the learner's switched-off types as every other lesson.
+ */
+export function buildOfType(item, type, pool, progress = {}, disabled = null) {
+  DISABLED = disabled instanceof Set ? disabled : (Array.isArray(disabled) ? new Set(disabled) : null);
+  usePool(pool);
+  if (!item) return null;
+  if (type === EXERCISE.MATCH_PAIRS) return null;
+  return buildExerciseOfType(item, type, pool || [], progress[item.id], 0, progress);
+}
+
+/** Zaban: the four-pair matching round for a group of words. */
+export function buildPairs(items) {
+  return items.length >= 4 ? buildMatchPairs(items.slice(0, 4)) : null;
+}
+
+/** Zaban: the tiles of a sentence in this language (see tilesOf). */
+export function sentenceTiles(native, item, pool) {
+  usePool(pool);
+  return tilesOf(native, item);
+}
+
+/**
  * v113: rebuild an exercise as a different type for the same word — how the
  * lesson steps a question up (to from-memory) or down (to supported) as it goes.
  * Keeps the flags that say where the exercise came from.
@@ -1228,7 +1281,9 @@ export function reshapeExercise(exercise, type, pool, progress = {}) {
   if (!exercise?.item) return null;
   const ex = buildExerciseOfType(exercise.item, type, pool || [], progress[exercise.item.id], 0, progress);
   if (!ex) return null;
-  for (const k of ["firstRecall", "interleaved", "struggling", "round", "roundLabel"]) {
+  // Zaban: a structured lesson's phase and objective go with it, so a reshaped
+  // guided-practice question still counts as guided practice.
+  for (const k of ["firstRecall", "interleaved", "struggling", "round", "roundLabel", "phase", "objective"]) {
     if (exercise[k] !== undefined) ex[k] = exercise[k];
   }
   return ex;

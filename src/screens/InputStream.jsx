@@ -28,7 +28,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
-import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { readableSentences } from "../engine/inputStream.js";
 import { goBack } from "../ui/navigation.js";
@@ -198,7 +198,7 @@ function Section({ label, note, sentences, lang, pack, isNonLatin, showRoman, vo
                     style={{
                       fontSize: isNonLatin && lang.rtl ? 21 : 17, fontWeight: 700,
                       lineHeight: 1.6,
-                      fontFamily: lang.rtl ? '"Noto Nastaliq Urdu","Noto Naskh Arabic",serif' : "inherit",
+                      fontFamily: scriptFont(lang.code),
                     }}
                   >
                     {s.native}

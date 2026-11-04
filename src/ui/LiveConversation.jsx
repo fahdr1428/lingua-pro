@@ -50,6 +50,9 @@ export function LiveConversation({
   emptyHint = "",
   // v77 — the report control writes into app state, so the conversation needs it.
   appState = null, setAppState = null, onNavigate = null,
+  // Zaban — the course this conversation belongs to (for the tutor's context
+  // and the skill profile). Optional: without them it works as before.
+  engine = null, pack = null,
 }) {
   const [turns, setTurns] = useState([]);
   const [pending, setPending] = useState(false);
@@ -68,6 +71,20 @@ export function LiveConversation({
 
   // Latency clock. `readyAt` is set the instant the guide stops talking; the
   // learner's turn is timed from there to their first audible word.
+  // Zaban — the learner's course, for the tutor (learnerContext.js). Built once
+  // per conversation; the conversation works without it while it loads.
+  const courseContext = useRef(null);
+  useEffect(() => {
+    let live = true;
+    if (engine && pack) {
+      import("../ai/learnerContext.js")
+        .then((m) => m.buildLearnerContext(engine, pack))
+        .then((c) => { if (live) courseContext.current = c; })
+        .catch(() => {});
+    }
+    return () => { live = false; };
+  }, [engine, pack]);
+
   const readyAt = useRef(null);
   const startedSpeakingAt = useRef(null);
 
@@ -93,6 +110,7 @@ export function LiveConversation({
         level, history, learnerText, opening,
         persona, region, mission, scenario, learnerBrief,
         pressure: mission ? mission.pressure : persona?.pressure ?? 0,
+        langCode, context: courseContext.current,
       });
       if (data.refused) { setError(data.coaching); return; }
 
@@ -112,6 +130,10 @@ export function LiveConversation({
           coaching: data.coaching, verdict: data.verdict, suggestion: data.suggestion,
         }];
       });
+
+      // Zaban — a tutor turn is evidence too: "conversation" for the skill
+      // profile, judged by the tutor's own verdict (understood or not).
+      if (learnerText) engine?.recordEvidence?.("dialogue", data.verdict !== "retry", { src: "tutor" });
 
       if (learnerText) {
         onTurn?.({
@@ -151,7 +173,7 @@ export function LiveConversation({
     // voice is derived from langCode; listing its fields keeps the dep array stable
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [turns, lang.name, lang.ttsCode, langCode, guide, level, persona, region, mission,
-      scenario, learnerBrief, onTurn, onObjectivesMet, onEnd]);
+      scenario, learnerBrief, onTurn, onObjectivesMet, onEnd, engine]);
 
   useEffect(() => {
     if (started.current) return;

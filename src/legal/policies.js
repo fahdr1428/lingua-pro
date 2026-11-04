@@ -19,20 +19,10 @@
 // defaults, so they cannot ship unnoticed.
 // =============================================================================
 
-export const LAST_UPDATED = "2026-08-06";
-
-/** Filled in by the operator before publishing. Rendered literally if left. */
-export const OPERATOR = {
-  entity: "[LEGAL ENTITY NAME]",
-  contactEmail: "[CONTACT EMAIL]",
-  address: "[POSTAL ADDRESS]",
-  jurisdiction: "[COUNTRY / STATE OF ESTABLISHMENT]",
-};
-
-/** True when the operator hasn't filled the placeholders in yet. */
-export function policiesIncomplete() {
-  return Object.values(OPERATOR).some((v) => /^\[.*\]$/.test(v));
-}
+// The dates, ages and operator placeholders live in basics.js so the first
+// screen can use them without downloading the texts below.
+import { LAST_UPDATED, OPERATOR, policiesIncomplete, AI_DISCLOSURE_ID, AI_MIN_AGE, APP_MIN_AGE } from "./basics.js";
+export { LAST_UPDATED, OPERATOR, policiesIncomplete, AI_MIN_AGE, APP_MIN_AGE };
 
 // ---------------------------------------------------------------------------
 // The AI disclosure. This is the one with a specific regulatory hook: the EU AI
@@ -42,7 +32,7 @@ export function policiesIncomplete() {
 // about, so the disclosure has to be prominent rather than buried.
 // ---------------------------------------------------------------------------
 export const AI_DISCLOSURE = {
-  id: "ai",
+  id: AI_DISCLOSURE_ID,
   title: "About the AI in this app",
   summary: "Your guide is an AI. It is often wrong. Here's exactly what it does and what leaves your device.",
   sections: [
@@ -225,6 +215,5 @@ export function getPolicy(id) {
 //
 // This is a self-declared check, which is what the overwhelming majority of
 // consumer apps use. It is not verification. COMPLIANCE.md says so plainly.
+// The numbers themselves are AI_MIN_AGE and APP_MIN_AGE in basics.js.
 // ---------------------------------------------------------------------------
-export const AI_MIN_AGE = 16;
-export const APP_MIN_AGE = 13;

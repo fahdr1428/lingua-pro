@@ -77,7 +77,7 @@ function seedProgress(code, pack) {
   return JSON.stringify(out);
 }
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 
 for (const code of codes) {
   const pack = JSON.parse(readFileSync(`src/data/languages/${code}.json`, "utf8"));

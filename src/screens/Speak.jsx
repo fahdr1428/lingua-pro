@@ -188,7 +188,14 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate,
       said: entry.said,
       spoken: entry.spoken,
     }));
-  }, [mutateProfile]);
+    // Zaban — the same attempt is evidence for the skill profile (speaking
+    // only when it was actually spoken), and a journey line produced cleanly
+    // counts as that conversation practised, which the map's ✓ asks for.
+    if (entry.spoken) engine?.recordEvidence?.("speak_prompt", entry.band === BAND.GOT || entry.band === BAND.CLOSE, { src: "speak" });
+    if (entry.band === BAND.GOT && String(entry.key || "").startsWith("stop-")) {
+      engine?.recordExchange?.(String(entry.key).slice(5));
+    }
+  }, [mutateProfile, engine]);
 
   const shared = { lang, langCode: pack.code, guide, micSupported };
 
@@ -250,6 +257,8 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate,
       {phase === "talk" && aiAccepted(appState) && (
         <TalkToGuide
           {...shared}
+          engine={engine}
+          pack={pack}
           level={levelFor(appState?.lessonsCompleted?.[pack.code] || 0, learnedIds?.size || 0)}
           profile={profile}
           mutateProfile={mutateProfile}
@@ -397,6 +406,7 @@ function SpeakRound({ lang, langCode, guide, micSupported, session, onFinish, on
       spoken: !!meta.spoken,
       said: r.heard || "",
       topic: drill.kind === "line" ? "conversation lines" : "vocabulary",
+      key: drill.key,
     });
   }
 
@@ -795,7 +805,7 @@ function SpeakResult({ lang, langCode, guide, scored, coachReady, onAgain, onTal
 // TALK — the live coach. The conversation itself now lives in
 // ui/LiveConversation.jsx, shared with Missions; this is the framing around it.
 // =============================================================================
-function TalkToGuide({ lang, langCode, guide, micSupported, level, profile, mutateProfile, appState, setAppState, onNavigate, onBack }) {
+function TalkToGuide({ lang, langCode, guide, micSupported, level, profile, mutateProfile, appState, setAppState, onNavigate, onBack, engine = null, pack = null }) {
   const learnerBrief = useMemo(() => summariseForPrompt(profile), [profile]);
   const personaId = profile?.persona || "friendly";
   const persona = getPersona(personaId);
@@ -835,6 +845,8 @@ function TalkToGuide({ lang, langCode, guide, micSupported, level, profile, muta
         persona={persona}
         region={region}
         learnerBrief={learnerBrief}
+        engine={engine}
+        pack={pack}
         onTurn={onTurn}
         appState={appState}
         setAppState={setAppState}

@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { Button, Card, ProgressBar, TopBar, Container } from "../ui/primitives.jsx";
-import { listLanguages, LANGUAGES } from "../data/registry.js";
+import { listLanguages, LANGUAGES, scriptFont } from "../data/registry.js";
 import { speak } from "../audio/tts.js";
 import { pickFunFact } from "../data/funFacts.js";
 import { HeroBackdrop } from "../ui/HeroBackdrop.jsx";
@@ -18,7 +18,7 @@ import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilesto
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 import { foldForSearch } from "../data/searchText.js";
 import { UNITS_PER_CHAPTER, computeUnlocks, isChapterExamAvailable, hasPassedChapter, chapterOfUnitIndex, chapterVocabIds } from "../data/chapters.js";
-import { APP_MIN_AGE, AI_MIN_AGE, LAST_UPDATED, policiesIncomplete } from "../legal/policies.js";
+import { APP_MIN_AGE, AI_MIN_AGE, LAST_UPDATED, policiesIncomplete } from "../legal/basics.js";
 // v104 — LAZY, because App.jsx already declares it lazy and this static
 // import was quietly cancelling that. Rollup says so out loud:
 //
@@ -59,6 +59,14 @@ export function Onboarding({ onComplete }) {
   const [ageOk, setAgeOk] = useState(false);
   const [terms, setTerms] = useState(false);
   const [reading, setReading] = useState(null); // policy id, or null
+  // Zaban — each course's script (and its direction) on the picker. The
+  // profiles load with this screen rather than with the app.
+  const [courseInfo, setCourseInfo] = useState(null);
+  useEffect(() => {
+    let live = true;
+    import("../data/courses.js").then((m) => { if (live) setCourseInfo(m); }).catch(() => {});
+    return () => { live = false; };
+  }, []);
 
   // The router doesn't exist yet at onboarding, so the policy reader is shown
   // inline. Better than a link that leaves the flow and loses the answers.
@@ -119,7 +127,12 @@ export function Onboarding({ onComplete }) {
                 >
                   <div style={{ fontSize: 32, marginBottom: 6 }}>{lang.flag}</div>
                   <div style={{ fontWeight: 800, fontSize: 15, color: "var(--ink)" }}>{lang.name}</div>
-                  <div style={{ fontSize: 12.5, color: "var(--text-dim)" }}>{lang.nativeName}</div>
+                  <div lang={lang.code} dir={lang.rtl ? "rtl" : "ltr"} style={{ fontSize: 13, color: "var(--text-dim)", fontFamily: scriptFont(lang.code), textAlign: lang.rtl ? "right" : "left" }}>{lang.nativeName}</div>
+                  {courseInfo?.COURSES?.[lang.code] && (
+                    <div className="lang-script" style={{ fontSize: 11.5, color: "var(--text-mute)", marginTop: 4, lineHeight: 1.35 }}>
+                      {courseInfo.SCRIPTS[courseInfo.COURSES[lang.code].script]?.name}{lang.rtl ? " · right to left" : ""}
+                    </div>
+                  )}
                   {lang.niche && (
                     <div
                       style={{
@@ -140,6 +153,11 @@ export function Onboarding({ onComplete }) {
               );
             })}
           </div>
+          <p style={{ color: "var(--text-mute)", fontSize: 12.5, lineHeight: 1.5, marginTop: 16 }}>
+            Every course follows the same lesson structure, built from its own words, grammar and
+            conversations. None has been reviewed by a qualified teacher yet; each course's page says
+            what it covers and what's missing.
+          </p>
           <div style={{ marginTop: 22, paddingBottom: 24 }}>
             <Button style={{ opacity: language ? 1 : 0.4 }} disabled={!language} onClick={() => setStep(2)}>
               Continue

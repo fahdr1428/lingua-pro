@@ -6,7 +6,7 @@
 
 import React, { useState } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
-import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getGrammar } from "../data/grammar.js";
 import { checksFor } from "../engine/grammarChecks.js";
@@ -112,7 +112,7 @@ export function Grammar({ pack, appState, onNavigate }) {
                         <div style={{
                           fontSize: isNonLatin && lang.rtl ? 20 : 17, fontWeight: 700,
                           direction: lang.rtl ? "rtl" : "ltr",
-                          fontFamily: lang.rtl ? '"Noto Nastaliq Urdu","Noto Naskh Arabic",serif' : "inherit",
+                          fontFamily: scriptFont(lang.code),
                         }}>
                           {ex.native}
                           {voiceAvailable && <span style={{ fontSize: 12, opacity: 0.4, marginLeft: 8 }}>🔊</span>}
@@ -173,7 +173,7 @@ export function Grammar({ pack, appState, onNavigate }) {
                                   lang={c.applied ? pack.code : undefined}
                                   style={c.applied ? {
                                     fontSize: isNonLatin && lang.rtl ? 18 : 15,
-                                    fontFamily: lang.rtl ? '"Noto Nastaliq Urdu","Noto Naskh Arabic",serif' : "inherit",
+                                    fontFamily: scriptFont(lang.code),
                                     display: "inline-block",
                                   } : undefined}
                                 >

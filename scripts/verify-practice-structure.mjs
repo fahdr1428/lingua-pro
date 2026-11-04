@@ -34,7 +34,7 @@ const RANK = { echo: 0, recall: 1, shadow: 2, sentence: 3 };
 let problems = 0;
 const fail = (m) => { console.log("    ✗ " + m); problems++; };
 const ok = (m) => console.log("    ✓ " + m);
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 
 function loadPack(code) {
   const pack = JSON.parse(readFileSync(`src/data/languages/${code}.json`, "utf8"));

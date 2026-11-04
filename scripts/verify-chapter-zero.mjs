@@ -59,7 +59,7 @@ async function open(page, code, extra) {
   await page.waitForTimeout(1000);
 }
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 const page = await browser.newPage({ viewport: { width: 420, height: 900 } });
 
 for (const pack of packs) {

@@ -44,6 +44,10 @@ const SCREENS = [
   ["stream"], ["topics"], ["listen"],
   ["lesson", { mode: "smart" }],
   ["lesson", { mode: "topic", filter: { category: "Food" }, sessionSize: 8, topic: "Food" }],
+  // Zaban — the whole course, and a structured lesson from it ({code} is the
+  // language being visited).
+  ["course"],
+  ["lesson", { mode: "guided", filter: { lesson: "{code}.m01.l1" } }],
 ].filter(([s]) => !process.env.SCREENS || process.env.SCREENS.split(",").includes(s));
 
 const DAY = 86400000;
@@ -172,14 +176,15 @@ async function run(browser, code, viewport, theme, size) {
     localStorage.setItem("lingua:app", JSON.stringify(a));
     localStorage.setItem("lingua:progress", JSON.stringify(p));
   }, [seedApp(code, theme), seedProgress(pack)]);
-  for (const [screen, params] of SCREENS) {
+  for (const [screen, raw] of SCREENS) {
+    const params = raw ? JSON.parse(JSON.stringify(raw).replaceAll("{code}", code)) : raw;
     try { await visit(page, code, viewport, screen, params, errors); }
     catch (e) { problems.push(`${code} ${viewport} ${screen}: harness error ${e.message}`); }
   }
   await ctx.close();
 }
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 const jobs = [];
 for (const code of ALL.filter((c) => !ONLY || ONLY.includes(c))) jobs.push([code, "phone", "cream", { width: 390, height: 844 }]);
 for (const code of DESKTOP.filter((c) => !ONLY || ONLY.includes(c))) jobs.push([code, "desktop", "dark", { width: 1440, height: 900 }]);

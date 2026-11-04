@@ -160,7 +160,7 @@ async function playThrough(page, where, label) {
   return false;
 }
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 for (const code of CODES) {
   const name = LANGUAGES[code].name;
   for (const [dev, size] of DEVICES) {

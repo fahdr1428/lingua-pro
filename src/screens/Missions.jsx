@@ -43,7 +43,7 @@ import { isRecognitionSupported, startListening, judge, BAND } from "../audio/sp
 import { speak } from "../audio/tts.js";
 import { cancelVoice, idle as voiceIdle } from "../audio/voice.js";
 
-export function Missions({ pack, appState, setAppState, params, onNavigate, profile, mutateProfile }) {
+export function Missions({ engine, pack, appState, setAppState, params, onNavigate, profile, mutateProfile }) {
   const offline = useOffline();
   const lang = LANGUAGES[pack.code];
   const guide = getCharacter(pack.code);
@@ -131,6 +131,8 @@ export function Missions({ pack, appState, setAppState, params, onNavigate, prof
     const passed = met.length >= need;
     const spoke = transcript.filter((t) => t.role === "learner").length;
     mutateProfile((p) => recordMission(p, mission.id, { passed, score: met.length / mission.objectives.length }));
+    // Zaban — a finished scene is evidence of real interaction, for the skill profile.
+    engine?.recordEvidence?.("mission", !!passed, { src: mission.id });
     if (spoke > 0) {
       const xp = spoke * 4 + (passed ? 20 : 0);
       setAppState((s) => ({
@@ -242,6 +244,8 @@ export function Missions({ pack, appState, setAppState, params, onNavigate, prof
             region={region}
             mission={mission}
             learnerBrief={learnerBrief}
+            engine={engine}
+            pack={pack}
             onTurn={onTurn}
             onObjectivesMet={onObjectivesMet}
             onEnd={finish}
@@ -359,7 +363,7 @@ function CustomScenario({ lang, level, coachReady, onBuilt, aiOk = true, onNeedA
     setBusy(true);
     setError(null);
     try {
-      const mission = await buildScenario({ description: text.trim(), langName: lang.name, level });
+      const mission = await buildScenario({ description: text.trim(), langName: lang.name, level, langCode: lang.code });
       onBuilt(mission);
     } catch (e) {
       setError(e instanceof CoachError ? e.message : "Couldn't build that one.");

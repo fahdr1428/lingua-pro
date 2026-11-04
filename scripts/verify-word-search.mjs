@@ -81,7 +81,7 @@ for (const [code, query, atLeast] of CASES) {
   }
 }
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 
 const byLanguage = new Map();
 for (const c of CASES) {

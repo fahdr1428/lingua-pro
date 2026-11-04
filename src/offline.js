@@ -49,6 +49,21 @@ export function registerServiceWorker() {
       // exactly as it did before; there is nothing to tell the learner.
     }
   });
+
+  // Zaban: once a worker is in charge, hand it what this page already loaded
+  // (see CACHE_LOADED in public/sw.js). On a first visit that is the language
+  // pack and everything else fetched before the worker took control, which it
+  // would otherwise never see.
+  const handOver = () => {
+    try {
+      const urls = performance.getEntriesByType("resource")
+        .map((e) => e.name)
+        .filter((u) => u.startsWith(location.origin + "/assets/"));
+      if (urls.length) navigator.serviceWorker.controller?.postMessage({ type: "CACHE_LOADED", urls });
+    } catch { /* nothing to hand over */ }
+  };
+  navigator.serviceWorker.addEventListener("controllerchange", handOver);
+  if (navigator.serviceWorker.controller) window.addEventListener("load", () => setTimeout(handOver, 3000));
 }
 
 /** Is this build cached well enough to open without a connection? */

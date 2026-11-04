@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Button, Card, ProgressBar, Container } from "../ui/primitives.jsx";
-import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor, stopSpeaking } from "../audio/tts.js";
 import { playCorrect, playWrong, playLessonComplete } from "../audio/sfx.js";
 import { EXERCISE, generateLesson, buildRecoveryRound, reshapeExercise } from "../engine/generator.js";
@@ -21,6 +21,15 @@ import { InContext } from "../ui/InContext.jsx";
 import { isRecognitionSupported, startListening, judge, displayScore, BAND } from "../audio/speech.js";
 import { pickFunFact } from "../data/funFacts.js";
 import { goalCategoryOrder } from "../data/goals.js";
+
+// Zaban — the pieces only a structured lesson ("guided" mode) shows. They load
+// with the first such lesson, not with the app.
+const guidedParts = () => import("./GuidedParts.jsx");
+const ObjectivesCard = React.lazy(() => guidedParts().then((m) => ({ default: m.ObjectivesCard })));
+const ExchangeCard = React.lazy(() => guidedParts().then((m) => ({ default: m.ExchangeCard })));
+const ContextBubble = React.lazy(() => guidedParts().then((m) => ({ default: m.ContextBubble })));
+const PhaseStrip = React.lazy(() => guidedParts().then((m) => ({ default: m.PhaseStrip })));
+const ObjectiveResults = React.lazy(() => guidedParts().then((m) => ({ default: m.ObjectiveResults })));
 
 // Languages that don't use the Latin alphabet — for these, romanization is the
 // hero (so beginners can read it) and the native script is a smaller reference.
@@ -135,6 +144,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   const fromMemory = useRef({ asked: 0, right: 0, words: [] }); // from-memory answers this lesson
   const challenge = useRef({ results: [], quietUntil: 0 });     // challenge.js state
   const progressAtStart = useRef({});                           // which words were met before this lesson
+  // Zaban: every answer in a structured lesson, with its phase and objective —
+  // what the per-objective feedback is computed from (guided.js scoreObjectives).
+  const answersLog = useRef([]);
 
   // v104.2 — EVERY PER-SESSION PIECE OF STATE, RESET IN ONE PLACE.
   //
@@ -196,6 +208,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     fromMemory.current = { asked: 0, right: 0, words: [] };
     challenge.current = { results: [], quietUntil: 0 };
     progressAtStart.current = {};
+    answersLog.current = [];
   }
 
   // Build session on mount — and on every later params change, which is a
@@ -246,7 +259,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           // v105: "topic" too — someone who picked Numbers came to drill numbers,
           // and a grammar lesson about word order in the middle is off-topic.
           // v113: "recall" too — a session of proving words from memory.
-          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic", "words", "speak", "recall"]);
+          // Zaban: "guided" too — a structured lesson teaches its own module's grammar
+          // in its Teaching phase (guided.js), so nothing is spliced in here.
+          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic", "words", "speak", "recall", "guided"]);
           const isReviewish = NO_TEACHING.has(params?.mode) || s.mode === "review";
           if (!isReviewish) {
             // v107: every language's grammar lessons are ~95KB of source; loaded
@@ -398,6 +413,13 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     // INTRODUCE is informational — don't count it in correct/total
     if (result.intro) return;
 
+    if (session?.guided && exercise.phase) {
+      answersLog.current.push({
+        phase: exercise.phase, t: exercise.logAs || exercise.type, ok: !!result.correct,
+        h: result.hints || 0, id: exercise.item?.id, objective: exercise.objective || null,
+      });
+    }
+
     setLastResult(result);
     setFeedback(result.correct ? "correct" : "wrong");
     // v79: a wrong answer opens its own explanation. It used to sit behind a
@@ -436,12 +458,19 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     // they've met becomes from-memory. Struggling: the next from-memory question
     // becomes a choice, so they get a win to rebuild from. Never in an exam,
     // never on a guess before teaching, never in the gentle second-chance round.
-    if (!exercise.pretest && !exercise.practice && !inRecovery && !FIXED_DIFFICULTY.has(params?.mode)) {
+    // Zaban: never in a structured lesson's assessment (no help means no help),
+    // and never on a conversation exercise (it isn't one word to reshape).
+    if (!exercise.pretest && !exercise.practice && !exercise.assess && !exercise.noSchedule && !inRecovery && !FIXED_DIFFICULTY.has(params?.mode)) {
       const { state, change } = afterAnswer(challenge.current, result.correct, session.exercises, idx, {
         progress: progressAtStart.current, disabled: appState?.disabledExercises,
       });
       challenge.current = state;
-      const swapped = change && reshapeExercise(session.exercises[change.index], change.to, pack.vocab || [], progressAtStart.current);
+      // Zaban: the question being reshaped is a LATER one. A structured lesson's
+      // assessment is "no options, no hints" by definition, and a conversation
+      // exercise isn't one word — neither is ever stepped up or down.
+      const target = change ? session.exercises[change.index] : null;
+      const swapped = change && !target?.assess && !target?.noSchedule && !target?.phase?.startsWith?.("assess")
+        && reshapeExercise(target, change.to, pack.vocab || [], progressAtStart.current);
       if (swapped) {
         setSession((prev) => {
           const exercises = [...prev.exercises];
@@ -460,8 +489,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       setStreakInLesson((s) => s);
     } else {
       setStreakInLesson(0);
-      // Record the missed item so we can offer a focused review at the end
-      if (exercise.item) {
+      // Record the missed item so we can offer a focused review at the end.
+      // Not a conversation reply: it isn't a word, and must never get a card.
+      if (exercise.item && !exercise.noSchedule) {
         setMissedItems((prev) =>
           prev.find((m) => m.id === exercise.item.id) ? prev : [...prev, exercise.item]
         );
@@ -672,7 +702,28 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       } catch (e) {
         console.warn("encouragement skipped:", e);
       }
-      setResultData({ correct: correctCount, total, xp: xpEarned, accuracy: Math.round(accuracy * 100), examVocabIds: params?.filter?.vocabIds || [], examSize: params?.sessionSize || 8, encourage });
+      // Zaban — a structured lesson's feedback phase: what the answers say about
+      // each objective, the words coming back for review, and the record that
+      // the lesson (and, if its conversation was produced, the exchange) is done.
+      let guided = null;
+      if (session?.guided) {
+        try {
+          const { scoreObjectives, toRevise, loadCourse } = await import("../engine/guided.js");
+          const { nextLesson } = await import("../engine/curriculum.js");
+          const results = scoreObjectives(session.guided, answersLog.current);
+          const useMet = session.guided.objectives.some((o) => o.type === "use" && results[o.id]?.status === "met");
+          const state = await engine.saveLessonResult(session.guided.lessonId, {
+            objectives: results,
+            exchange: useMet ? session.guided.stop : null,
+          });
+          const course = await loadCourse(pack);
+          const nx = nextLesson(course, state || {}, await engine.getProgress());
+          guided = { ...session.guided, results, revise: toRevise(answersLog.current), next: nx ? { id: nx.lesson.id, title: nx.lesson.title } : null };
+        } catch (e) {
+          console.warn("structured lesson feedback skipped:", e);
+        }
+      }
+      setResultData({ correct: correctCount, total, xp: xpEarned, accuracy: Math.round(accuracy * 100), examVocabIds: params?.filter?.vocabIds || [], examSize: params?.sessionSize || 8, encourage, guided });
       setDone(true);
       // v30: celebratory chime on lesson completion (if sound effects on)
       if (appState.soundEffects !== false) {
@@ -704,7 +755,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     fontWeight: 800,
     lineHeight: lang.rtl ? 1.5 : 1.2,
     direction: lang.rtl ? "rtl" : "ltr",
-    fontFamily: lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit",
+    fontFamily: scriptFont(lang.code),
     margin: "20px 0 12px",
   };
 
@@ -728,6 +779,11 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       <button onClick={() => onNavigate("home")} aria-label="Leave the lesson" style={{ background: "transparent", border: "none", color: "var(--text-dim)", fontSize: 22, cursor: "pointer" }}>✕</button>
       <div style={{ flex: 1, margin: "0 16px" }}>
         <ProgressBar value={idx + (feedback ? 1 : 0)} max={session.exercises.length} />
+        {session.guided && exercise?.phase && (
+          <React.Suspense fallback={null}>
+            <PhaseStrip phases={session.guided.phases} current={exercise.phase} />
+          </React.Suspense>
+        )}
         {/* v63: warm framing for the recovery round — never punitive */}
         {/* v68: pretest framing — makes the guess feel purposeful, not like a trap */}
         {exercise?.pretest && (
@@ -786,8 +842,28 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           lang={lang}
           isNonLatin={isNonLatin}
           voiceAvailable={hasVoiceFor(lang.ttsCode)}
-          onContinue={advance}
+          onContinue={() => {
+            if (exercise.objective) answersLog.current.push({ phase: exercise.phase, t: "grammar", ok: true, objective: exercise.objective });
+            advance();
+          }}
         />
+      </div>
+    );
+  }
+
+  // Zaban — a structured lesson's Introduction (its objectives) and a module
+  // task's Teaching (the conversation). Like the grammar moment, no `.item`.
+  if (exercise?.type === "OBJECTIVES" || exercise?.type === "EXCHANGE") {
+    return (
+      <div>
+        {topBar}
+        <Container style={{ paddingBottom: 120 }}>
+          <React.Suspense fallback={<div style={{ padding: 40, textAlign: "center", color: "var(--text-dim)" }}>…</div>}>
+            {exercise.type === "OBJECTIVES"
+              ? <ObjectivesCard ex={exercise} code={pack.code} onContinue={advance} />
+              : <ExchangeCard ex={exercise} code={pack.code} onContinue={advance} />}
+          </React.Suspense>
+        </Container>
       </div>
     );
   }
@@ -825,6 +901,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           // v110: practice rungs (echo, shadow, build) don't move the schedule
           // and sit outside the lesson's accuracy — see speaking.js.
           if (!exercise.practice) {
+            if (session?.guided && exercise.phase) {
+              answersLog.current.push({ phase: exercise.phase, t: exercise.type, ok: passed, h: 0, id: exercise.item?.id, objective: exercise.objective || null });
+            }
             try {
               await engine.submitAnswer(exercise, passed ? exercise.answer : "\u0000speak-miss");
             } catch (e) {
@@ -916,6 +995,12 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               {exercise.prompt}
             </div>
           )}
+          {/* Zaban: a conversation exercise shows what was said to you. */}
+          {exercise.context && (
+            <React.Suspense fallback={null}>
+              <ContextBubble context={exercise.context} code={pack.code} />
+            </React.Suspense>
+          )}
 
           {/* INTRODUCE_BATCH — flashcard carousel: see all new words first, then test */}
           {exercise.type === EXERCISE.INTRODUCE_BATCH && (
@@ -957,7 +1042,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     fontSize: lang.rtl ? 32 : 28,
                     lineHeight: 1.4,
                     direction: lang.rtl ? "rtl" : "ltr",
-                    fontFamily: lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit",
+                    fontFamily: scriptFont(lang.code),
                     color: "var(--text-dim)",
                     marginTop: 8,
                     marginBottom: 8,
@@ -1036,7 +1121,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                       <div style={{
                         fontSize: 18,
                         direction: lang.rtl ? "rtl" : "ltr",
-                        fontFamily: lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit",
+                        fontFamily: scriptFont(lang.code),
                         color: "var(--text-dim)",
                       }}>
                         {exercise.item.examples[0].native}
@@ -1087,7 +1172,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   <div style={{
                     fontSize: lang.rtl ? 24 : 22,
                     direction: lang.rtl ? "rtl" : "ltr",
-                    fontFamily: lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit",
+                    fontFamily: scriptFont(lang.code),
                     color: "var(--text-dim)",
                     marginTop: 4,
                   }}>
@@ -1137,7 +1222,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   fontSize: 24,
                   fontWeight: 700,
                   direction: lang.rtl ? "rtl" : "ltr",
-                  fontFamily: lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit",
+                  fontFamily: scriptFont(lang.code),
                   padding: "16px",
                   background: "var(--surface)",
                   border: "2px dashed var(--border)",
@@ -1191,7 +1276,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                         <div style={{ fontSize: 20, fontWeight: 800 }}>{opt.translit}</div>
                         <div style={{ fontSize: 16, opacity: isAnswer || isWrong ? 0.95 : 0.7, marginTop: 2,
                           direction: lang.rtl ? "rtl" : "ltr",
-                          fontFamily: lang.rtl ? '"Noto Nastaliq Urdu","Noto Naskh Arabic",serif' : "inherit" }}>
+                          fontFamily: scriptFont(lang.code) }}>
                           {opt.lemma}
                         </div>
                       </>
@@ -1231,7 +1316,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                           color: isMatched ? "#fff" : "var(--text)",
                           cursor: isMatched ? "default" : "pointer",
                           direction: lang.rtl ? "rtl" : "ltr",
-                          fontFamily: (isNonLatin && lang.rtl) ? '"Noto Nastaliq Urdu","Noto Naskh Arabic",serif' : "inherit",
+                          fontFamily: scriptFont(lang.code),
                           fontWeight: 700,
                         }}
                       >
@@ -1331,7 +1416,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                           <div style={{
                             fontSize: 17, opacity: 0.7,
                             direction: lang.rtl ? "rtl" : "ltr",
-                            fontFamily: lang.rtl ? '"Noto Nastaliq Urdu","Noto Naskh Arabic",serif' : "inherit",
+                            fontFamily: scriptFont(lang.code),
                           }}>
                             {opt.form}
                           </div>
@@ -1379,7 +1464,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 const optMeaning = null; // intentionally never set in this block
                 if (showNative && isNonLatin) {
                   const matchingItem = pack.vocab.find((v) => v.lemma === opt);
-                  optTranslit = matchingItem?.translit;
+                  // A whole reply (structured lessons) carries its own romanisation.
+                  optTranslit = matchingItem?.translit || exercise.optionTranslit?.[opt];
                 }
 
                 return (
@@ -1413,7 +1499,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                         <div style={{
                           fontSize: 16,
                           direction: lang.rtl ? "rtl" : "ltr",
-                          fontFamily: lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit",
+                          fontFamily: scriptFont(lang.code),
                           opacity: 0.75,
                           fontWeight: 500,
                         }}>
@@ -1436,7 +1522,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                       <div style={{
                         fontSize: 22,
                         direction: lang.rtl ? "rtl" : "ltr",
-                        fontFamily: lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit",
+                        fontFamily: scriptFont(lang.code),
                       }}>
                         {opt}
                       </div>
@@ -1524,7 +1610,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     Starts{" "}
                     {hint.native && (
                       <span className="recall-hint-native" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code}
-                        style={{ fontFamily: lang.rtl ? (pack.code === "ur" ? '"Noto Nastaliq Urdu", serif' : '"Noto Naskh Arabic", serif') : undefined }}>
+                        style={{ fontFamily: scriptFont(lang.code, undefined) }}>
                         {hint.native}
                       </span>
                     )}
@@ -1533,7 +1619,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 )}
                 {!feedback && (
                   <div className="recall-tools">
-                    {canHint && (
+                    {/* Zaban: no hints in a structured lesson's assessment. */}
+                    {canHint && !exercise.assess && (
                       <button className="recall-tool" onClick={() => setRecallHints((h) => Math.min(2, h + 1))} disabled={recallHints >= 2}>
                         💡 {recallHints === 0 ? "Hint" : recallHints === 1 ? "A bit more" : "That's all the hint"}
                       </button>
@@ -1735,7 +1822,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     <div className="recall-answer" data-testid="recall-answer">
                       <div style={{ minWidth: 0 }}>
                         <div className="recall-answer-native" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code}
-                          style={{ fontFamily: lang.rtl ? (pack.code === "ur" ? '"Noto Nastaliq Urdu", serif' : '"Noto Naskh Arabic", serif') : undefined }}>
+                          style={{ fontFamily: scriptFont(lang.code, undefined) }}>
                           {exercise.item.lemma}
                         </div>
                         {isNonLatin && exercise.item.translit && <div className="recall-answer-tl">{exercise.item.translit}</div>}
@@ -2072,6 +2159,20 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
         </h1>
         <p style={{ color: "var(--text-dim)", marginBottom: 24, fontSize: 16 }}>{celeb.subtitle}</p>
 
+        {/* Zaban — feedback on each of the lesson's objectives. */}
+        {data.guided && (
+          <React.Suspense fallback={null}>
+            <ObjectiveResults
+              guided={data.guided}
+              results={data.guided.results}
+              revise={data.guided.revise}
+              pack={pack}
+              next={data.guided.next}
+              onNext={() => onNavigate("lesson", { mode: "guided", filter: { lesson: data.guided.next.id } })}
+            />
+          </React.Suspense>
+        )}
+
         {/* v44: CHAPTER EXAM gate result — clear pass/fail with the threshold. */}
         {isChapterExam && (
           <div style={{
@@ -2149,7 +2250,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
               <div key={item.id} className="enc-line">
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div className="enc-native" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code}
-                    style={{ fontFamily: lang.rtl ? (pack.code === "ur" ? '"Noto Nastaliq Urdu", serif' : '"Noto Naskh Arabic", serif') : undefined }}>
+                    style={{ fontFamily: scriptFont(lang.code, undefined) }}>
                     {sentence.native}
                   </div>
                   {sentence.translit && <div className="enc-tl">{sentence.translit}</div>}
@@ -2431,7 +2532,7 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
                   fontSize: lang.rtl ? 30 : 26,
                   lineHeight: 1.4,
                   direction: lang.rtl ? "rtl" : "ltr",
-                  fontFamily: lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit",
+                  fontFamily: scriptFont(lang.code),
                   color: "var(--text-dim)",
                   paddingTop: 4,
                   paddingBottom: 4,
@@ -2580,7 +2681,7 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
             <div style={{
               fontSize: isNonLatin && lang.rtl ? 20 : 17, fontWeight: 700,
               direction: lang.rtl ? "rtl" : "ltr",
-              fontFamily: lang.rtl ? '"Noto Nastaliq Urdu","Noto Naskh Arabic",serif' : "inherit",
+              fontFamily: scriptFont(lang.code),
             }}>
               {ex.native}
               {voiceAvailable && <span style={{ fontSize: 12, opacity: 0.4, marginLeft: 8 }}>🔊</span>}
@@ -2756,7 +2857,7 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
   }[mode];
   // No microphone (or it was refused) on an imitation rung: say it aloud anyway.
   const typedFallbackOnly = imitation && (!micSupported || typing);
-  const nativeFont = { fontFamily: lang.rtl ? (langCode === "ur" ? '"Noto Nastaliq Urdu", serif' : '"Noto Naskh Arabic", serif') : undefined };
+  const nativeFont = { fontFamily: scriptFont(lang.code, undefined) };
 
   const PlayButton = ({ label = "Listen" }) => (
     <button className="xchg-play" onClick={playModel} aria-label={label}>

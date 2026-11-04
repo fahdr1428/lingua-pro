@@ -80,7 +80,9 @@ export function planAdjustment(exercises, fromIdx, decision, { progress = {}, lo
   }
   for (let i = fromIdx; i < exercises.length && i < fromIdx + lookahead; i++) {
     const ex = exercises[i];
-    if (!ex?.item || ex.pretest || ex.practice || ex.round || ex.challenge) continue;
+    // Zaban: a structured lesson's assessment (no options, no hints, by
+    // definition) and its conversation exercises are never reshaped.
+    if (!ex?.item || ex.pretest || ex.practice || ex.round || ex.challenge || ex.assess || ex.noSchedule) continue;
     if (ex.type === "introduce_batch" || ex.type === "introduce") continue;
     const met = metInLesson.has(ex.item.id) || (progress[ex.item.id]?.reps || 0) > 0;
     if (decision === "up" && SUPPORTED.has(ex.type) && met && !recalledInLesson.has(ex.item.id)) return { index: i, to: FROM_MEMORY };

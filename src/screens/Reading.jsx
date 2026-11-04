@@ -7,7 +7,7 @@
 
 import React, { useState, useMemo } from "react";
 import { Button, Card, Container } from "../ui/primitives.jsx";
-import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getPassage, PASSAGES } from "../data/passages.js";
 import { goBack } from "../ui/navigation.js";
@@ -184,7 +184,7 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
                 fontWeight: 700,
                 lineHeight: 1.5,
                 direction: lang.rtl ? "rtl" : "ltr",
-                fontFamily: lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit",
+                fontFamily: scriptFont(lang.code),
                 marginBottom: showRomanization || showTranslation ? 6 : 0,
               }}>
                 {line.native}

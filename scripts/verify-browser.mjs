@@ -25,7 +25,7 @@ const COACH_REPLY = {
 };
 
 async function run(width, height, label) {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   const ctx = await browser.newContext({ viewport: { width, height } });
   const page = await ctx.newPage();
   const errors = [];
@@ -220,7 +220,7 @@ async function run(width, height, label) {
 // A deployment with no API key must still work — the missions screen has to
 // explain itself rather than silently break.
 async function runUnconfigured() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
   const page = await ctx.newPage();
   const errors = [];
@@ -283,7 +283,7 @@ const FAKE_VOICES = `
 `;
 
 async function runVoiceSettings({ withVoices }) {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
   const page = await ctx.newPage();
   const errors = [];
@@ -372,7 +372,7 @@ async function seeded(browser, code, extra = {}) {
 }
 
 async function runSkipAhead() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   console.log("\n=== skip ahead (German) ===\n");
   const { ctx, page, errors } = await seeded(browser, "de");
 
@@ -439,7 +439,7 @@ async function runSkipAhead() {
 }
 
 async function runDialects() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   console.log("\n=== Arabic dialects ===\n");
   const { ctx, page, errors } = await seeded(browser, "ar");
 
@@ -471,7 +471,7 @@ async function runDialects() {
 // v76 — the dialect drill and the exercise-type toggles.
 // ---------------------------------------------------------------------------
 async function runDialectDrill() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   console.log("\n=== dialect drill (Arabic) ===\n");
   const { ctx, page, errors } = await seeded(browser, "ar");
 
@@ -510,7 +510,7 @@ async function runDialectDrill() {
 }
 
 async function runExerciseToggles() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   console.log("\n=== exercise-type toggles ===\n");
   const { ctx, page, errors } = await seeded(browser, "es");
 
@@ -549,7 +549,7 @@ async function runExerciseToggles() {
 // anything that breaks the lesson screen outright.
 // ---------------------------------------------------------------------------
 async function runLessonSmoke() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   console.log("\n=== lesson smoke test ===\n");
 
   for (const code of ["ar", "es", "ur"]) {
@@ -606,7 +606,7 @@ async function runLessonSmoke() {
 // rewording a policy doesn't turn them red.
 // ---------------------------------------------------------------------------
 async function runOnboardingGate() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
   const page = await ctx.newPage();
   const errors = [];
@@ -677,7 +677,7 @@ async function runOnboardingGate() {
 }
 
 async function runAiGate() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
   const page = await ctx.newPage();
   const errors = [];
@@ -780,7 +780,7 @@ async function runAiGate() {
 }
 
 async function runDataRights() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   const ctx = await browser.newContext({ viewport: { width: 414, height: 896 }, acceptDownloads: true });
   const page = await ctx.newPage();
   const errors = [];
@@ -902,7 +902,7 @@ const DECODE_REPLY = {
 };
 
 async function runDecode() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   const ctx = await browser.newContext({ viewport: { width: 414, height: 896 } });
   const page = await ctx.newPage();
   const errors = [];
@@ -1027,7 +1027,7 @@ async function runDecode() {
 // tapped, which the old screen got wrong: it quizzed the whole language at random.
 // ---------------------------------------------------------------------------
 async function runUnitTestOut() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   console.log("\n=== testing out of one stop (Urdu) ===\n");
   const { ctx, page, errors } = await seeded(browser, "ur");
 
@@ -1089,7 +1089,7 @@ async function runUnitTestOut() {
 // nothing is taken away for having attempted.
 // ---------------------------------------------------------------------------
 async function runMistakesTeach() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   console.log("\n=== what happens when you get it wrong ===\n");
   // Narrow the lesson to plain multiple choice, using the app's own exercise
   // toggles. Not a workaround: match-pairs and sentence-building have no single
@@ -1224,7 +1224,7 @@ async function runMistakesTeach() {
 // 14 languages, 5 of them with none at all.
 // ---------------------------------------------------------------------------
 async function runReading() {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   console.log("\n=== reading: connected text you can follow ===\n");
 
   const { PASSAGES } = await import("../src/data/passages.js");

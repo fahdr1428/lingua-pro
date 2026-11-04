@@ -109,6 +109,32 @@ export const PATTERN_SKILLS = {
   zh: ["Subject + Verb + Object (same order as English)","Saying you have something — and counting it","Ordering something (我要)","Asking 'where' — the question word goes where the answer goes","Yes/no questions with 吗"],
 };
 
+// Each grammar lesson's [id, title], in order — what the structured course needs
+// to place grammar in its modules. The lessons themselves load with a lesson.
+export const GRAMMAR_TITLES = {
+  ar: [["ar_g1","The definite article: al-"],["ar_g2","Sun & moon letters"],["ar_g3","Gender: masculine & feminine"],["ar_g4","Pronoun endings"],["ar_g5","Nominal sentences (no 'is')"]],
+  bn: [["bn_g1","Word order: verb LAST"],["bn_g2","No grammatical gender"],["bn_g3","Politeness: tumi, apni, tui"],["bn_g4","Postpositions"]],
+  de: [["de_g1","Three genders, and why you can't skip them"],["de_g2","The verb goes second. Always."],["de_g3","Accusative — when der becomes den"],["de_g4","Verbs that come apart"],["de_g5","du and Sie — getting it wrong is worse than a grammar slip"]],
+  es: [["es_g1","Word order: the basics"],["es_g2","Ser vs Estar — two ways to 'be'"],["es_g3","Gender: el and la"],["es_g4","Adjectives agree"],["es_g5","Present tense -ar verbs"],["es_g6","Asking questions"]],
+  fa: [["fa_g1","No gender, anywhere"],["fa_g2","Ezafe — the little -e that links everything"],["fa_g3","The verb waits at the end"],["fa_g4","شما and تو — respect is not optional"],["fa_g5","می‌ makes it habitual or ongoing"]],
+  fr: [["fr_g1","Word order & subject pronouns"],["fr_g2","Gender: le, la, un, une"],["fr_g3","C'est vs Il/Elle est"],["fr_g4","Adjectives agree & often follow"],["fr_g5","Negation: ne … pas"],["fr_g6","Asking questions (3 ways)"]],
+  hi: [["hi_g1","Word order: verb goes LAST"],["hi_g2","Postpositions, not prepositions"],["hi_g3","Politeness: aap, tum, tu"],["hi_g4","Gender shapes the verb"],["hi_g5","Making it negative: नहीं"],["hi_g6","Questions: kya"]],
+  id: [["id_g1","No tenses — just say when"],["id_g2","Plurals by saying it twice"],["id_g3","Word order like English"],["id_g4","The me- and ber- prefixes"]],
+  ja: [["ja_g1","Word order: verb LAST"],["ja_g2","Particles は and を"],["ja_g3","です (desu) — polite 'is'"],["ja_g4","Questions with か (ka)"],["ja_g5","No articles, no plurals"]],
+  ko: [["ko_g1","Word order: verb LAST"],["ko_g2","Topic & object particles"],["ko_g3","Politeness levels"],["ko_g4","Questions: same words, rising tone"]],
+  ml: [["ml_g1","The verb comes last"],["ml_g2","Respect is the plural"],["ml_g3","'And' attaches to the end"],["ml_g4","Chettan and chechi — titles for strangers"]],
+  pa: [["pa_g1","The verb comes last"],["pa_g2","Postpositions — 'in' comes after"],["pa_g3","The verb agrees with gender"],["pa_g4","Respect is built into the plural"]],
+  pcm: [["pcm_g1","Verbs never change"],["pcm_g2","'dey' means it's happening"],["pcm_g3","'don' means it's finished"],["pcm_g4","'na' points at things"]],
+  so: [["so_g1","'waa' marks a statement"],["so_g2","The article sticks to the end"],["so_g3","Greeting is a sequence, not a word"],["so_g4","'walaal' — everyone is a sibling"]],
+  ta: [["ta_g1","The verb comes last"],["ta_g2","Respect is the plural"],["ta_g3","Two Tamils: written and spoken"],["ta_g4","Anna and akka — titles for strangers"]],
+  tl: [["tl_g1","po — the word that makes it respectful"],["tl_g2","ang and ng — what the sentence is about"],["tl_g3","The verb changes to match the focus"],["tl_g4","The linker: na and -ng"]],
+  tr: [["tr_g1","Words are built by stacking"],["tr_g2","Vowel harmony — endings copy the word"],["tr_g3","The verb waits until the end"],["tr_g4","No gender, no 'the'"],["tr_g5","Turning anything into a question"]],
+  ur: [["ur_g1","Word order: verb goes LAST"],["ur_g2","Postpositions, not prepositions"],["ur_g3","Politeness: aap, tum, tu"],["ur_g4","Gender shapes the verb"],["ur_g5","Making it negative: نہیں"],["ur_g6","Yes/no questions: just ask کیا"]],
+  vi: [],
+  yo: [],
+  zh: [["zh_g1","No conjugation, ever"],["zh_g2","Word order: SVO"],["zh_g3","Measure words"],["zh_g4","Questions with 吗 (ma)"],["zh_g5","Negation: 不 and 没"]],
+};
+
 // How many missions there are. The missions themselves load with their screen.
 export const MISSION_COUNT = 10;
 

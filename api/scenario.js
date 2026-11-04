@@ -20,6 +20,8 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 import { rateLimit } from "./_guard.js";
+// Zaban — the variety and register the course teaches, looked up by code.
+import { COURSES } from "../src/data/courses.js";
 
 const MODEL = process.env.COACH_MODEL || "claude-opus-5";
 const MAX_BODY_BYTES = 8 * 1024;
@@ -119,6 +121,11 @@ export default async function handler(req, res) {
   if (description.length < 8) return res.status(400).json({ error: "too_short", message: "Describe the situation in a bit more detail." });
   const langName = String(body.langName || "").slice(0, 40) || "the target language";
   const level = ["beginner", "early intermediate", "intermediate"].includes(body.level) ? body.level : "beginner";
+  // Zaban — set the scene in the variety and register the learner is being
+  // taught (Modern Standard Arabic, Pakistani Urdu, Northern Vietnamese…).
+  const course = typeof body.langCode === "string" && Object.prototype.hasOwnProperty.call(COURSES, body.langCode)
+    ? COURSES[body.langCode] : null;
+  const variety = course ? ` (${course.variety}; register: ${course.register})` : "";
 
   const client = new Anthropic();
   const request = {
@@ -128,7 +135,7 @@ export default async function handler(req, res) {
     messages: [{
       // The learner's text is a user turn, never spliced into the system prompt.
       role: "user",
-      content: `Target language: ${langName}. Learner level: ${level}.\n\nSituation they want to practise:\n${description}`,
+      content: `Target language: ${langName}${variety}. Learner level: ${level}.\n\nSituation they want to practise:\n${description}`,
     }],
     output_config: {
       effort: "low",

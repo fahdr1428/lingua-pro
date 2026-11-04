@@ -34,7 +34,7 @@ let problems = 0;
 const fail = (m) => { console.log("    ✗ " + m); problems++; };
 const ok = (m) => console.log("    ✓ " + m);
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 
 async function playLesson(code, passes) {
   const pack = JSON.parse(readFileSync(`src/data/languages/${code}.json`, "utf8"));

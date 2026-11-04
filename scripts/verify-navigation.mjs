@@ -53,7 +53,7 @@ const seed = JSON.stringify({
 });
 
 const problems = [];
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 
 /** A page with startViewTransition wrapped so every call is recorded. */
 async function openApp(context) {

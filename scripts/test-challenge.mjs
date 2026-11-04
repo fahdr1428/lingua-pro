@@ -72,6 +72,20 @@ check(challengeDecision([false, false, true, false]) === "down", "1 of 4 steps d
   check(planAdjustment(lesson, 4, "down")?.index === 5, "speaking practice is skipped over");
   check(planAdjustment([{ type: "pick_word", item: item("b"), round: 2 }], 0, "up", { progress: { b: { reps: 3 } } }) === null, "an exam round is never changed");
   check(planAdjustment(lesson, 2, "up", { disabled: ["recall_write"] }) === null, "writing from memory switched off in Settings: never stepped up into it");
+  // Zaban: a structured lesson's assessment and its conversation exercises are
+  // never reshaped — the browser test found a struggling learner's assessment
+  // turned into choose-from-options questions (and losing its phase).
+  {
+    const guided = [
+      { type: "pick_meaning", item: item("g"), phase: "guided" },
+      { type: "recall_write", item: item("g"), phase: "assess", assess: true },
+      { type: "build_sentence", item: item("r"), noSchedule: true },
+      { type: "recall_write", item: item("h"), phase: "apply" },
+    ];
+    const d = planAdjustment(guided, 1, "down", { progress: { g: { reps: 1 }, h: { reps: 1 } } });
+    check(d?.index === 3, `step down skips the assessment and the conversation, takes the next one: ${JSON.stringify(d)}`);
+    check(planAdjustment(guided.slice(0, 3), 1, "down") === null, "with only assessment and conversation ahead, nothing is stepped down");
+  }
   {
     const again = [
       { type: "introduce_batch", items: [item("n")] },

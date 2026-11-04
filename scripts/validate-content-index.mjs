@@ -54,6 +54,14 @@ const HEAVY = {
   // lesson's supplementary romanisations load with the lesson.
   "src/data/missions.js": "the mission library",
   "src/data/wordPronunciation.js": "the supplementary romanisations",
+  // Zaban — the journey's exchanges (21 languages) load with Home; the map's
+  // grouping lives in journeyChapters.js. The course layer loads with the
+  // screens that use it.
+  "src/data/journey.js": "the journey exchanges",
+  "src/data/courses.js": "the course profiles",
+  "src/engine/curriculum.js": "the curriculum builder",
+  "src/engine/guided.js": "the structured lesson builder",
+  "src/engine/skills.js": "the skill profile",
 };
 
 function resolveSpec(from, spec) {

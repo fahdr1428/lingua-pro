@@ -313,6 +313,37 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener("message", (event) => {
   const data = event.data || {};
   if (data.type === "SKIP_WAITING") { self.skipWaiting(); return; }
+  // Zaban — WHAT THE PAGE LOADED BEFORE THIS WORKER WAS IN CHARGE.
+  //
+  // Build assets are cached as they pass through here. But on a first visit
+  // the page loads its language pack, its pronunciation table and its course
+  // before this worker has taken control, so none of them pass through — and
+  // "open it once with a connection and it works offline" was only true if
+  // the worker happened to win that race. verify-offline lost it on both this
+  // build and the last: the language pack wasn't there offline. The page now
+  // sends what it has already loaded, and anything not cached yet is fetched
+  // and kept. Same-origin /assets/ only, capped like the rest of the cache.
+  if (data.type === "CACHE_LOADED" && Array.isArray(data.urls)) {
+    event.waitUntil(
+      (async () => {
+        const cache = await caches.open(ASSETS);
+        const urls = data.urls
+          .filter((u) => typeof u === "string")
+          .map((u) => { try { return new URL(u, self.location.origin); } catch { return null; } })
+          .filter((u) => u && u.origin === self.location.origin && u.pathname.startsWith("/assets/"))
+          .slice(0, ASSETS_MAX_ENTRIES);
+        for (const u of urls) {
+          try {
+            if (await cache.match(u.pathname, { ignoreVary: true })) continue;
+            const res = await fetch(u.pathname);
+            if (res.ok) await cache.put(u.pathname, res);
+          } catch { /* offline again, or gone in a new deploy: nothing to keep */ }
+        }
+        await trim(ASSETS, ASSETS_MAX_ENTRIES);
+      })()
+    );
+    return;
+  }
   if (data.type !== "PRECACHE_AUDIO" || !Array.isArray(data.urls)) return;
 
   const port = event.ports && event.ports[0];

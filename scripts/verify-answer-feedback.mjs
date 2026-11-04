@@ -42,6 +42,8 @@
 import { chromium } from "playwright";
 import { readdirSync, readFileSync } from "node:fs";
 import { LATIN_SCRIPT_LANGUAGES } from "../src/data/registry.js";
+import { mergeExamples } from "../src/data/extraExamples.js";
+import { getStops } from "../src/data/journey.js";
 
 const BASE = process.env.BASE || "http://localhost:4173";
 const ONLY = process.env.ONLY ? process.env.ONLY.split(",") : null;
@@ -158,7 +160,7 @@ async function step(page) {
   return "stuck";
 }
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 
 for (const code of codes) {
   const pack = JSON.parse(readFileSync(`src/data/languages/${code}.json`, "utf8"));
@@ -223,13 +225,20 @@ for (const code of codes) {
     // The sentence on screen must be one the pack actually contains for the
     // word under test; a mismatch means the footer is showing examples[0] while
     // the question was built from another frame.
+    // "The pack" is what the app actually loads: the pack file's examples
+    // plus the extraExamples it merges in at load (registry.loadLanguagePack),
+    // and — for a structured lesson's conversation task — the journey lines it
+    // practises. The structured lessons build sentences from the longer frames,
+    // which are often the merged ones, so counting only the file reported real,
+    // shipped sentences ("أنا لا أفهم") as unknown. A sentence from none of
+    // these is still a footer showing the wrong thing.
     const known = new Set();
-    for (const w of pack.vocab || []) for (const e of w.examples || []) known.add(e.native);
+    for (const w of pack.vocab || []) {
+      for (const e of mergeExamples(code, w.lemma, w.examples || [])) known.add(e.native);
+    }
+    for (const st of getStops(code)) { known.add(st.you?.text); known.add(st.they?.text); }
     if (!known.has(line.native) && !line.native.includes("…")) {
-      // Not necessarily wrong — extraExamples sentences are merged in at load
-      // and are not in the pack file — so this is reported, never counted as a
-      // pass, and read by hand.
-      problems.push(`${code}: feedback sentence "${line.native}" is not in the pack file (extra frame, or the wrong sentence)`);
+      problems.push(`${code}: feedback sentence "${line.native}" is in neither the pack, its merged examples nor its journey (extra frame, or the wrong sentence)`);
     }
   }
   }

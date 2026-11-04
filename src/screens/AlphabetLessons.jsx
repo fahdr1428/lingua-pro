@@ -22,7 +22,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
-import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
+import { LANGUAGES, isNonLatinScript, scriptFont as registryScriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { goBack } from "../ui/navigation.js";
 
@@ -65,7 +65,7 @@ function joinedForms(char, nonConnectors) {
 }
 
 function scriptFont(lang) {
-  return lang.rtl ? '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif' : "inherit";
+  return registryScriptFont(lang.code);
 }
 
 // Nastaliq and naskh hang dots and tails well below the baseline — far below

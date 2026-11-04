@@ -73,6 +73,10 @@ export function resetCoachProbe() {
  * @param {number} [args.pressure]  0–3; defaults to the persona's own pressure
  * @param {object} [args.mission]   from src/data/missions.js
  * @param {string} [args.learnerBrief] summariseForPrompt(profile) — the memory
+ * @param {string} [args.langCode]   the course's language code: the server
+ *   looks up that language's teaching profile (src/data/courses.js) itself
+ * @param {object} [args.context]    learnerContext.js — the learner's course
+ *   (module, objectives, known and weak words, skill to practise)
  * @returns {Promise<{
  *   reply:{native,translit,en}, verdict, coaching, suggestion,
  *   corrections:Array, fluentVersion:object|null, objectivesMet:string[],
@@ -83,6 +87,7 @@ export async function coachTurn({
   langName, guide, level = "beginner", history = [], learnerText = "",
   opening = false, scenario = "",
   persona = null, region = null, pressure = null, mission = null, learnerBrief = "",
+  langCode = "", context = null,
 }) {
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS);
@@ -103,6 +108,8 @@ export async function coachTurn({
         pressurePrompt: PRESSURE_PROMPT[level0to3] || "",
         regionPrompt: region?.prompt || "",
         learnerBrief: learnerBrief || "",
+        langCode: langCode || "",
+        context: context || null,
         // Only the fields the server actually reads — sending the whole mission
         // object would just burn body budget on copy the model never sees.
         mission: mission

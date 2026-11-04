@@ -38,15 +38,11 @@
 // the journey never asks for a word the course hasn't taught.
 // =============================================================================
 
-// Fallback region names, used when the caller can't supply real unit titles.
-// The map prefers titles derived from the language pack's own units (which vary
-// per language), so these only show if that data hasn't loaded yet.
-export const CHAPTER_TITLES = [
-  "Meeting people",
-  "Everyday needs",
-  "Out in the world",
-  "Saying more",
-];
+// Region names and the grouping of stops into regions live in
+// journeyChapters.js, so the map can draw without this file in the first
+// download. Re-exported here for existing importers.
+import { CHAPTER_TITLES, chaptersOf, reachedOf } from "./journeyChapters.js";
+export { CHAPTER_TITLES };
 
 export const JOURNEY = {
   // v102 — Vietnamese. Every stop is a real exchange: the phrase you'd hear and
@@ -1258,53 +1254,14 @@ export function getChapterTitle(langCode) {
 // A stop counts as reached when its mapped unit is at least 60% learned —
 // enough that the phrase genuinely belongs to them, not just seen once.
 export function stopsReached(langCode, unitProgress = []) {
-  const stops = getStops(langCode);
-  let reached = 0;
-  for (const s of stops) {
-    const u = unitProgress[s.unitIndex];
-    if (u && (u.pct || 0) >= 0.6) reached++;
-    else break; // stops are sequential — stop counting at the first gap
-  }
-  return reached;
+  return reachedOf(getStops(langCode), unitProgress);
 }
 
 // ---------------------------------------------------------------------------
-// v70 — chapter grouping for the map.
+// v70 — chapter grouping for the map (see journeyChapters.js).
 // ---------------------------------------------------------------------------
-
-// Must stay equal to UNITS_PER_CHAPTER in chapters.js — see the header note.
-// Imported rather than redeclared so the two can't drift apart.
-import { UNITS_PER_CHAPTER } from "./chapters.js";
-
-/**
- * Group a language's stops into the regions the map draws.
- *
- * Grouped in UNITS_PER_CHAPTER-sized runs so journey chapter N is exactly
- * chapters.js chapter N, and the checkpoint at the end of a region on the map is
- * the real chapter exam that gates the next one.
- *
- * Returns [{ number, title, stops: [{...stop, globalIndex}], startsAt, endsAtUnit }].
- */
 export function getChapters(langCode) {
-  const stops = getStops(langCode);
-  if (!stops.length) return [];
-
-  const chapters = [];
-  for (let i = 0, number = 1; i < stops.length; i += UNITS_PER_CHAPTER, number++) {
-    const slice = stops
-      .slice(i, i + UNITS_PER_CHAPTER)
-      .map((s, j) => ({ ...s, globalIndex: i + j }));
-    if (!slice.length) break;
-    chapters.push({
-      number,
-      title: CHAPTER_TITLES[number - 1] || `Chapter ${number}`,
-      stops: slice,
-      startsAt: i,
-      // The unit index this region ends on — where its checkpoint sits.
-      endsAtUnit: slice[slice.length - 1].unitIndex,
-    });
-  }
-  return chapters;
+  return chaptersOf(getStops(langCode));
 }
 
 /** Which chapter the learner is currently standing in (1-based). */

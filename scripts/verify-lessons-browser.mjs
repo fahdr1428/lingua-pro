@@ -263,7 +263,7 @@ async function runLanguage(browser, pack, level) {
   await ctx.close();
 }
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 
 for (const pack of packs) {
   for (const level of ["new", "few", "half", "mature"]) {

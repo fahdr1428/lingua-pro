@@ -32,7 +32,7 @@ const seed = (code) => ({
   aiConsent: { accepted: true, at: 0, ageConfirmed: 16, version: 1 },
 });
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 let problems = 0;
 const fail = (m) => { console.log("    ✗ " + m); problems++; };
 

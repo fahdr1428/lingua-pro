@@ -316,3 +316,15 @@ export const LATIN_SCRIPT_LANGUAGES = new Set([
 export function isNonLatinScript(code) {
   return !LATIN_SCRIPT_LANGUAGES.has(code);
 }
+
+// The typeface a right-to-left language's script is drawn in. Urdu is read in
+// Nastaliq; Arabic, Persian and Shahmukhi Punjabi in Naskh — the split GuideMark,
+// Listen and Rush already used. Lesson, Grammar, Reading, Flashcards,
+// Conversations, InputStream and the letters course drew EVERY right-to-left
+// language in Nastaliq, so Arabic and Persian appeared in Urdu's calligraphic
+// style. One function now, so the screens can't disagree again.
+export function scriptFont(code, fallback = "inherit") {
+  if (code === "ur") return '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif';
+  if (LANGUAGES[code]?.rtl) return '"Noto Naskh Arabic", "Noto Nastaliq Urdu", serif';
+  return fallback;
+}

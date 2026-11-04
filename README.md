@@ -3,7 +3,9 @@
 > **Product and educational architecture:** see [`docs/`](docs/). Start with the
 > [current-state audit](docs/ZABAN_CURRENT_STATE_AUDIT.md), which links the vision,
 > educational architecture, curriculum framework, learning engine, AI tutor,
-> technical architecture, roadmap and an example lesson.
+> technical architecture, roadmap and an example lesson. What each of the 21
+> languages has, its structured course, and the content still to write are in the
+> generated [language inventory](docs/ZABAN_LANGUAGE_INVENTORY.md).
 
 A production-grade language learning platform. FSRS spaced repetition, dynamic lesson generation, modular architecture designed to scale to 100k+ words per language. Built single-handedly to be Duolingo for the languages Duolingo ignores — Urdu, Persian, Hindi, Arabic and friends, alongside the usual suspects.
 

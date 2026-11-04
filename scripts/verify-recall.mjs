@@ -57,7 +57,7 @@ const expect = (cond, good, bad) => (cond ? ok(good) : fail(bad));
 // "Done" on the last new-word card, and pressing Done again forever is a stall.
 const ADVANCE = [/start practice/i, /^Got it/, /^Continue/, /^Finish/, /^Next →/, /^Done/];
 
-const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome" });
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 const pack = (code) => JSON.parse(readFileSync(`src/data/languages/${code}.json`, "utf8"));
 
 function appState(code, extra = {}) {
@@ -250,6 +250,12 @@ async function goHome(page) {
   for (const v of es.vocab.filter((v) => v.unit === u2.id)) progress[v.id] = met();
   for (const v of es.vocab.filter((v) => v.unit === u3.id).slice(0, 2)) progress[v.id] = met();
   const { ctx, page, errors } = await open("es", appState("es", { sessions: [{ ts: now - DAY, language: "es", mode: "recall", correct: 3, total: 3, xp: 6 }] }), progress, [{ screen: "home" }]);
+  // Zaban: "You can …" is a claim about a conversation, so it also needs the
+  // stop's exchange practised (its module task, or said on the Speak screen).
+  // Stop 1's has been; verify-course checks the case where it hasn't.
+  await page.evaluate(() => localStorage.setItem("lingua:course", JSON.stringify({ es: { done: {}, results: {}, exchanges: { "es-c1-s1": Date.now() } } })));
+  await page.reload();
+  await page.waitForTimeout(1800);
 
   const stations = page.locator(".route .station");
   const first = await stations.nth(0).locator(".station-label").innerText();

@@ -25,7 +25,7 @@ import {
   Upgrade,
 } from "./screens/screens.jsx";
 import { Lesson } from "./screens/Lesson.jsx";
-import { APP_MIN_AGE, LAST_UPDATED } from "./legal/policies.js";
+import { APP_MIN_AGE, LAST_UPDATED } from "./legal/basics.js";
 import { OfflineBar } from "./ui/Offline.jsx";
 
 // v78 — CODE SPLITTING.
@@ -81,6 +81,8 @@ const SCREEN_LOADERS = {
   topics: () => import("./screens/Topics.jsx"),
   listen: () => import("./screens/Listen.jsx"),
   rush: () => import("./screens/Rush.jsx"),
+  // Zaban — the whole structured course for the current language.
+  course: () => import("./screens/CourseScreen.jsx"),
 };
 
 // One tap away from everywhere, so they are warmed first. The rest follow.
@@ -155,6 +157,7 @@ const InputStream = named("stream", "InputStream");
 const Topics = named("topics", "Topics");
 const Listen = named("listen", "Listen");
 const Rush = named("rush", "Rush");
+const CourseScreen = named("course", "CourseScreen");
 
 // A lazily-imported screen that fails to load is almost never a bug in the
 // screen. It's a deploy: this app splits fifteen screens into content-hashed
@@ -656,6 +659,7 @@ export default function App() {
         {screen === "topics" && <Topics {...screenProps} />}
         {screen === "listen" && <Listen {...screenProps} />}
         {screen === "rush" && <Rush {...screenProps} />}
+        {screen === "course" && <CourseScreen {...screenProps} />}
         </Suspense>
       </main>
       </div>

@@ -18,11 +18,16 @@
 
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { TopBar, Container } from "../ui/primitives.jsx";
-import { LANGUAGES } from "../data/registry.js";
-import { hasJourney, getStops, getChapterTitle, stopsReached } from "../data/journey.js";
+import { LANGUAGES, scriptFont } from "../data/registry.js";
+// The journey content (every language's exchanges) loads with Home rather
+// than in the first download; the map's grouping helpers are small and eager.
+import { reachedOf } from "../data/journeyChapters.js";
 import { getCharacter } from "../data/characters.js";
 import { GuideMark } from "../ui/GuideMark.jsx";
 import { JourneyMap } from "./JourneyMap.jsx";
+
+// Zaban — the course panel (structure, skills, focus) loads after Home paints.
+const CoursePanel = React.lazy(() => import("./CoursePanel.jsx").then((m) => ({ default: m.CoursePanel })));
 // v103 — these two used to be `getConversations` from conversations.js (75KB
 // of source) and `PASSAGES` from passages.js (29KB), imported into the eager
 // bundle so that one line below could ask whether either had anything in it.
@@ -178,6 +183,36 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
   const [unitProgress, setUnitProgress] = useState([]);
   const [loadingUnits, setLoadingUnits] = useState(true);
   const [weakList, setWeakList] = useState([]);
+  // Zaban — the journey content and the structured course, both loaded here.
+  const [journey, setJourney] = useState(null);
+  const [course, setCourse] = useState(null);
+
+  useEffect(() => {
+    let live = true;
+    import("../data/journey.js")
+      .then((m) => { if (live) setJourney(m); })
+      .catch(() => { if (live) setJourney({ hasJourney: () => false, getStops: () => [], getChapterTitle: () => null }); });
+    return () => { live = false; };
+  }, []);
+
+  // The course (curriculum.js), what's been done in it, and the next lesson.
+  // Recomputed when stats change, i.e. after every lesson.
+  useEffect(() => {
+    let live = true;
+    Promise.all([import("../engine/guided.js"), import("../engine/curriculum.js"), engine.getCourseState(), engine.getProgress()])
+      .then(async ([g, c, state, progress]) => {
+        const full = await g.loadCourse(pack);
+        if (!live) return;
+        const next = c.nextLesson(full, state, progress);
+        const standing = c.moduleStanding(full, state, progress);
+        setCourse({ full, state, progress, next, standing });
+      })
+      .catch((e) => {
+        console.warn("course unavailable:", e);
+        if (live) setCourse({ failed: true, state: { exchanges: {} } });
+      });
+    return () => { live = false; };
+  }, [engine, stats, pack]);
 
   // Character intro bookkeeping — the guide introduces itself once.
   useEffect(() => {
@@ -339,7 +374,29 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         }
       }
     }
-    // 4. The current lesson
+    // 4. The course's next structured lesson (curriculum.js): its module, its
+    // title, what it will let you do. The unit lesson stays as the fallback
+    // while the course loads or if it can't be built.
+    if (course?.next) {
+      const { module: m, lesson: l } = course.next;
+      const st = course.standing?.[m.index];
+      return {
+        kind: "lesson",
+        guided: true,
+        eyebrow: `Module ${m.index + 1} · ${m.title}`,
+        title: l.title,
+        sub: l.objectives.find((o) => o.type !== "recognise")?.text || l.objectives[0]?.text || m.description,
+        mins: Math.max(3, Math.round((l.items.length * 4 + 4) / 3)),
+        progress: st ? { value: st.complete, max: st.total, noun: "lessons", label: "in this module" } : null,
+        // A conversation task shows ITS exchange (Yoruba's Greetings has two).
+        exchange: (() => {
+          const ex = (l.kind === "task" && (m.exchanges || []).find((e) => e.id === l.stop)) || m.exchange;
+          return ex ? { they: ex.they, you: ex.you } : null;
+        })(),
+        go: () => onNavigate("lesson", { mode: "guided", filter: { lesson: l.id } }),
+      };
+    }
+    // 4b. The current unit lesson
     if (currentUnit) {
       return {
         kind: "lesson",
@@ -352,15 +409,15 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
       };
     }
     return null;
-  }, [appState, pack, pack.code, lang, stats, currentUnit, unitProgress]);
+  }, [appState, pack, pack.code, lang, stats, currentUnit, unitProgress, course]);
 
   // v65: adapt the chosen plan's wording to the learner's current situation.
   const signals = useLearnerSignals(appState, stats, pack.code);
 
   // v66 JOURNEY — capability stops for languages that have verified content.
   // Languages without it keep the existing unit path untouched.
-  const stops = hasJourney(pack.code) ? getStops(pack.code) : [];
-  const reached = stops.length ? stopsReached(pack.code, unitProgress) : 0;
+  const stops = journey?.hasJourney(pack.code) ? journey.getStops(pack.code) : [];
+  const reached = stops.length ? reachedOf(stops, unitProgress) : 0;
   const currentStop = stops.length ? stops[Math.min(reached, stops.length - 1)] : null;
   const smartAction = useMemo(() => adaptCopy(nextAction, signals), [nextAction, signals]);
 
@@ -483,20 +540,26 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             </div>
 
             {/* v66: the conversation this stop unlocks — shown on lesson steps */}
-            {currentStop && smartAction.kind === "lesson" && (
-              <div className="exchange">
-                <div>
-                  <div className="exchange-label">They say</div>
-                  <div className="exchange-line" dir={lang.rtl ? "rtl" : "ltr"}>{currentStop.they.text}</div>
-                  <div className="exchange-en">{currentStop.they.translit} — {currentStop.they.en}</div>
+            {(() => {
+              // A structured lesson shows its own module's conversation; the
+              // unit lesson shows the route's current stop, as before.
+              const ex = smartAction.kind === "lesson" ? smartAction.exchange || currentStop : null;
+              if (!ex) return null;
+              return (
+                <div className="exchange">
+                  <div>
+                    <div className="exchange-label">They say</div>
+                    <div className="exchange-line" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code} style={{ fontFamily: scriptFont(pack.code) }}>{ex.they.text}</div>
+                    <div className="exchange-en">{ex.they.translit} — {ex.they.en}</div>
+                  </div>
+                  <div>
+                    <div className="exchange-label">You answer</div>
+                    <div className="exchange-line" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code} style={{ fontFamily: scriptFont(pack.code) }}>{ex.you.text}</div>
+                    <div className="exchange-en">{ex.you.translit} — {ex.you.en}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="exchange-label">You answer</div>
-                  <div className="exchange-line" dir={lang.rtl ? "rtl" : "ltr"}>{currentStop.you.text}</div>
-                  <div className="exchange-en">{currentStop.you.translit} — {currentStop.you.en}</div>
-                </div>
-              </div>
-            )}
+              );
+            })()}
 
             {smartAction.progress && (
               <div style={{ marginTop: 16 }}>
@@ -504,7 +567,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
                   <div className="hairline-fill progress-fill" style={{ "--fill": `${Math.round((smartAction.progress.value / smartAction.progress.max) * 100)}%` }} />
                 </div>
                 <div style={{ fontSize: 12, color: "var(--text-mute)", marginTop: 6 }}>
-                  {smartAction.progress.value} of {smartAction.progress.max} words{smartAction.progress.label ? ` ${smartAction.progress.label}` : ""}
+                  {smartAction.progress.value} of {smartAction.progress.max} {smartAction.progress.noun || "words"}{smartAction.progress.label ? ` ${smartAction.progress.label}` : ""}
                 </div>
               </div>
             )}
@@ -528,6 +591,13 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
               </button>
             )}
           </div>
+        )}
+
+        {/* ===== Zaban · YOUR COURSE — the structure, your skills, what to work on ===== */}
+        {course && !course.failed && (
+          <React.Suspense fallback={null}>
+            <CoursePanel course={course} engine={engine} pack={pack} stats={stats} onNavigate={onNavigate} />
+          </React.Suspense>
         )}
 
         {/* ===== 3 · STAT STRIP — retention, visible but quiet ===== */}
@@ -578,7 +648,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           onNavigate={onNavigate}
         />
 
-        {loadingUnits ? (
+        {loadingUnits || !journey || !course ? (
           <div style={{ textAlign: "center", padding: 40, color: "var(--text-dim)" }}>Loading…</div>
         ) : stops.length > 0 ? (
           <JourneyMap
@@ -590,6 +660,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             appState={appState}
             pack={pack}
             onNavigate={onNavigate}
+            exchanges={course.state?.exchanges || {}}
           />
         ) : (
           <div className="journey-row stagger">
@@ -748,7 +819,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           <ReachPanel
             stops={stops}
             reached={reached}
-            chapterTitle={getChapterTitle(pack.code)}
+            chapterTitle={journey?.getChapterTitle(pack.code) || null}
             due={stats.due || 0}
             onReview={() => onNavigate("lesson", { mode: "due" })}
           />
