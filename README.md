@@ -1,5 +1,10 @@
 # Lingua Pro
 
+> **Product and educational architecture:** see [`docs/`](docs/). Start with the
+> [current-state audit](docs/ZABAN_CURRENT_STATE_AUDIT.md), which links the vision,
+> educational architecture, curriculum framework, learning engine, AI tutor,
+> technical architecture, roadmap and an example lesson.
+
 A production-grade language learning platform. FSRS spaced repetition, dynamic lesson generation, modular architecture designed to scale to 100k+ words per language. Built single-handedly to be Duolingo for the languages Duolingo ignores — Urdu, Persian, Hindi, Arabic and friends, alongside the usual suspects.
 
 ---
