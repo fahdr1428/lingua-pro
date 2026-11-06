@@ -20,7 +20,7 @@
 import { readFileSync } from "node:fs";
 
 const css = readFileSync("src/index.css", "utf8");
-const { THEMES } = await import("../src/ui/themes.js");
+const { THEMES, DEFAULT_THEME, resolveTheme } = await import("../src/ui/themes.js");
 
 const errors = [];
 const warnings = [];
@@ -61,6 +61,23 @@ for (const m of css.matchAll(HARDCODED)) {
 }
 
 // ---- report -----------------------------------------------------------------
+// ---- v115: the default palette and the fallbacks -----------------------------
+// :root in index.css is what paints before applyTheme runs, so it must BE the
+// default theme, or every first paint flashes a different palette. A saved
+// "dark" (the palette Ink replaced) and anything unknown resolve to the default
+// rather than leaving the page on :root's values by accident.
+{
+  const rootBg = (declared.find(([k]) => k === "--bg") || [])[1];
+  if (!THEMES[DEFAULT_THEME]) errors.push(`DEFAULT_THEME "${DEFAULT_THEME}" is not a theme`);
+  else if (rootBg && rootBg.toLowerCase() !== THEMES[DEFAULT_THEME].vars["--bg"].toLowerCase())
+    errors.push(`:root --bg is ${rootBg} but the default theme (${DEFAULT_THEME}) paints ${THEMES[DEFAULT_THEME].vars["--bg"]}`);
+  const cases = [["dark", DEFAULT_THEME], ["no-such-theme", DEFAULT_THEME], [undefined, DEFAULT_THEME], ...Object.keys(THEMES).map((k) => [k, k])];
+  for (const [given, want] of cases) {
+    const got = resolveTheme(given);
+    if (got !== want) errors.push(`resolveTheme(${JSON.stringify(given)}) gave "${got}", expected "${want}"`);
+  }
+}
+
 console.log(`\n  ${Object.keys(THEMES).length} themes · ${colourTokens.length} colour tokens · ${errors.length} errors · ${warnings.length} warnings`);
 for (const w of warnings.slice(0, 12)) console.log(`  [!] ${w}`);
 if (warnings.length > 12) console.log(`  [!] …and ${warnings.length - 12} more`);

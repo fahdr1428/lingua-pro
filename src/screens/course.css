@@ -98,7 +98,7 @@
   flex: 0 0 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 800;
   border: 2px solid var(--border); color: var(--text-dim); background: var(--surface);
 }
-.zc-lesson-done .zc-lesson-mark { background: var(--primary); border-color: var(--primary); color: #fff; }
+.zc-lesson-done .zc-lesson-mark { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
 .zc-lesson-next .zc-lesson-mark { border-color: var(--accent); color: var(--accent-text); }
 .zc-lesson-title { flex: 1; min-width: 0; }
 .zc-lesson-go {

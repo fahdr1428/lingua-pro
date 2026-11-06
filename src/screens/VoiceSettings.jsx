@@ -267,7 +267,7 @@ export function DialectSettings({ langCode, profile, mutateProfile }) {
               className={`chip${chosen === r.id ? " chip-on" : ""}`}
               onClick={() => mutateProfile?.((p) => ({ ...p, region: chosen === r.id ? null : r.id }))}
             >
-              {r.flag ? `${r.flag} ` : ""}{r.name}
+              {r.name}
             </button>
           ))}
         </div>

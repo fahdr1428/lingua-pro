@@ -21,7 +21,7 @@
 // =============================================================================
 
 import React, { useState, useEffect, useMemo } from "react";
-import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
+import { Button, Card, Container, ProgressBar, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript, scriptFont as registryScriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { goBack } from "../ui/navigation.js";
@@ -175,8 +175,8 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
           </Button>
         </div>
 
-        <h1 style={{ fontSize: 28, fontWeight: 900, margin: "0 0 6px" }}>
-          🔤 Letters &amp; Sounds
+        <h1 style={{ fontSize: 30, margin: "0 0 6px" }}>
+          Letters &amp; sounds
         </h1>
         <p style={{ color: "var(--text-dim)", marginBottom: 24, fontSize: 14 }}>
           Learn the script first. Start with how the writing system works, then take
@@ -193,7 +193,6 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
              It now checks whether the language is actually Latin-script, and
              says the honest thing when it isn't. */
           <Card style={{ textAlign: "center", padding: 30 }}>
-            <div style={{ fontSize: 50, marginBottom: 12 }}>📚</div>
             {!isNonLatinScript(pack.code) ? (
               <>
                 <div style={{ fontWeight: 800, marginBottom: 6 }}>{lang.name} uses letters you already read</div>
@@ -218,7 +217,7 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
             {/* --- The primer, always open, always first --------------------- */}
             {sys?.primer && (
               <LessonTile
-                emoji="🧭"
+                icon="compass"
                 kicker="Start here"
                 title={sys.primer.title}
                 subtitle={langProgress[PRIMER] ? "Read · tap to read again" : sys.primer.tagline}
@@ -236,7 +235,8 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
               return (
                 <LessonTile
                   key={g.id}
-                  emoji={g.emoji}
+                  glyph={(pack.alphabet || []).find((a) => a.group === g.id)?.char}
+                  glyphLang={pack.code}
                   kicker={`Lesson ${i + 1}`}
                   title={g.title}
                   subtitle={
@@ -256,7 +256,7 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
                 the learner has by then actually met. */}
             {sys?.vowelSigns && (
               <LessonTile
-                emoji="✏️"
+                icon="pen"
                 kicker="Putting it together"
                 title="Vowel signs"
                 subtitle={
@@ -272,7 +272,7 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
 
             {sys?.blocks && (
               <LessonTile
-                emoji="🧱"
+                icon="grid"
                 kicker="Putting it together"
                 title="Building syllable blocks"
                 subtitle={
@@ -327,7 +327,7 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
         </div>
 
         <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 8, textAlign: "center" }}>
-          ✨ {activeGroup.title.toUpperCase()}
+          {activeGroup.title}
         </div>
 
         {/* The letter card — letter sits in a fixed-height container so
@@ -411,7 +411,7 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
         {confusable && (
           <Card style={{ marginTop: 14, padding: "16px 14px", borderColor: "var(--accent)" }}>
             <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: 1.5, color: "var(--accent-text)", textTransform: "uppercase", marginBottom: 10 }}>
-              ⚠️ Don't mix these up
+              Don't mix these up
             </div>
             <div style={{
               display: "flex",
@@ -447,7 +447,7 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
             style={{ marginTop: 14, marginBottom: 14 }}
             onClick={() => speak(letter.char, lang.ttsCode, { code: pack.code, translit: letter.name })}
           >
-            🔊 Hear it
+            <Icon name="speaker" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />Hear it
           </Button>
         )}
 
@@ -490,10 +490,11 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
     const nextGroup = groups[groupIdx + 1];
     return (
       <Container style={{ textAlign: "center", paddingTop: 40 }}>
-        <div className="pop" style={{ fontSize: 90, marginBottom: 12 }}>🎉</div>
-        <h1 style={{ fontSize: 32, fontWeight: 900 }}>Lesson complete!</h1>
+        <div className="eyebrow" style={{ color: "var(--accent-text)" }}>Lesson complete</div>
+        <div className="results-score"><span className="results-num">{groupLetters.length}</span></div>
+        <h1 style={{ fontSize: 26, margin: "6px 0 10px" }}>{groupLetters.length === 1 ? "letter" : "letters"} learnt</h1>
         <p style={{ color: "var(--text-dim)", marginBottom: 30 }}>
-          You learned <strong>{groupLetters.length} letter{groupLetters.length === 1 ? "" : "s"}</strong>. Keep going!
+          They come back in the next lessons, so they stay learnt.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
           <Button variant="secondary" onClick={() => { setActiveGroup(null); setPhase("learn"); }}>
@@ -519,7 +520,7 @@ export function AlphabetLessons({ pack, appState, params, onNavigate }) {
 // =============================================================================
 // LessonTile — one row in the lesson list
 // =============================================================================
-function LessonTile({ emoji, kicker, title, subtitle, completed, unlocked, onClick }) {
+function LessonTile({ icon, glyph, glyphLang, kicker, title, subtitle, completed, unlocked, onClick }) {
   return (
     <button
       disabled={!unlocked}
@@ -543,14 +544,17 @@ function LessonTile({ emoji, kicker, title, subtitle, completed, unlocked, onCli
         height: 56,
         borderRadius: "50%",
         background: completed ? "var(--primary)" : "var(--surface-hi)",
-        color: completed ? "#fff" : "var(--text)",
+        color: completed ? "var(--on-primary)" : "var(--text)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         fontSize: 28,
         flexShrink: 0,
       }}>
-        {!unlocked ? "🔒" : completed ? "✓" : emoji}
+        {!unlocked ? <Icon name="lock" size={19} />
+          : completed ? <Icon name="check" size={22} />
+          : glyph ? <span lang={glyphLang} style={{ fontFamily: registryScriptFont(glyphLang, '"Fraunces", Georgia, serif'), fontSize: 24, lineHeight: 1 }}>{glyph}</span>
+          : <Icon name={icon} size={22} />}
       </div>
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ fontSize: 11, fontWeight: 700, opacity: 0.7, textTransform: "uppercase", letterSpacing: 1 }}>
@@ -581,9 +585,9 @@ function ScriptPrimer({ primer, lang, onDone, onBack }) {
       </div>
 
       <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 8 }}>
-        🧭 START HERE
+        Start here
       </div>
-      <h1 style={{ fontSize: 28, fontWeight: 900, margin: "0 0 6px" }}>{primer.title}</h1>
+      <h1 style={{ fontSize: 28, margin: "0 0 6px" }}>{primer.title}</h1>
       <p style={{ color: "var(--text-dim)", marginBottom: 22, fontSize: 15, lineHeight: 1.5 }}>
         {primer.tagline}
       </p>
@@ -677,7 +681,7 @@ function VowelSignLesson({ data, lang, voiceAvailable, onDone, onBack }) {
       </div>
 
       <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 8, textAlign: "center" }}>
-        ✏️ VOWEL SIGNS
+        Vowel signs
       </div>
 
       {idx === 0 && (
@@ -728,7 +732,7 @@ function VowelSignLesson({ data, lang, voiceAvailable, onDone, onBack }) {
           style={{ marginTop: 14 }}
           onClick={() => speak(sign.combined, lang.ttsCode, { code: lang.code, translit: sign.reads })}
         >
-          🔊 Hear {sign.reads}
+          <Icon name="speaker" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />Hear {sign.reads}
         </Button>
       )}
 
@@ -788,7 +792,7 @@ function BlockLesson({ data, lang, voiceAvailable, onDone, onBack }) {
       </div>
 
       <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 8, textAlign: "center" }}>
-        🧱 SYLLABLE BLOCKS
+        Syllable blocks
       </div>
 
       {idx === 0 && (
@@ -823,7 +827,7 @@ function BlockLesson({ data, lang, voiceAvailable, onDone, onBack }) {
 
       {voiceAvailable && (
         <Button variant="secondary" style={{ marginTop: 14 }} onClick={() => speak(b.result, lang.ttsCode, { code: lang.code, translit: b.reads })}>
-          🔊 Hear it
+          <Icon name="speaker" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />Hear it
         </Button>
       )}
 
@@ -853,7 +857,7 @@ function CombinedQuiz({ signs, demo, lang, voiceAvailable, onComplete, onBack })
       questions={questions}
       lang={lang}
       voiceAvailable={voiceAvailable}
-      kicker="⚡ READ IT"
+      kicker="Read it"
       prompt="What does this syllable read as?"
       renderStimulus={(q) => q.answer.combined}
       speakText={(q) => q.answer.combined}
@@ -898,7 +902,7 @@ function AlphabetQuiz({ letters, lang, voiceAvailable, onComplete, onBack }) {
       questions={questions}
       lang={lang}
       voiceAvailable={voiceAvailable}
-      kicker="⚡ QUIZ"
+      kicker="Quiz"
       prompt={(q) => (q.reverse ? "Which letter makes this sound?" : "What sound does this letter make?")}
       renderStimulus={(q) => (q.reverse ? null : q.answer.char)}
       renderStimulusText={(q) => (q.reverse ? q.answer.sound : null)}
@@ -1001,7 +1005,7 @@ function QuizRunner({
             style={{ marginTop: 8, fontSize: 14 }}
             onClick={() => speak(speakText(q), lang.ttsCode, { code: lang.code, translit: speakTranslit?.(q) })}
           >
-            🔊 Hear it
+            <Icon name="speaker" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />Hear it
           </Button>
         )}
       </Card>
@@ -1036,11 +1040,11 @@ function QuizRunner({
       {feedback && (
         <Card style={{
           marginTop: 16,
-          background: feedback === "correct" ? "rgba(34,197,94,0.15)" : "rgba(239,68,68,0.15)",
+          background: feedback === "correct" ? "var(--primary-soft)" : "var(--surface-hi)",
           border: `2px solid ${feedback === "correct" ? "var(--primary)" : "var(--danger)"}`,
         }}>
-          <div style={{ fontWeight: 800, fontSize: 18, color: feedback === "correct" ? "var(--primary)" : "var(--danger)" }}>
-            {feedback === "correct" ? "✓ Correct!" : `✗ The answer was ${answerLabel(q.answer)}`}
+          <div style={{ fontWeight: 800, fontSize: 18, color: feedback === "correct" ? "var(--primary-text)" : "var(--miss)" }}>
+            {feedback === "correct" ? "✓ Correct" : `The answer was ${answerLabel(q.answer)}`}
           </div>
         </Card>
       )}

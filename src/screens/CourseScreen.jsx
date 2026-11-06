@@ -12,7 +12,7 @@
 // =============================================================================
 
 import React, { useEffect, useMemo, useState } from "react";
-import { Container } from "../ui/primitives.jsx";
+import { Container, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, scriptFont } from "../data/registry.js";
 import { computeUnlocks } from "../data/chapters.js";
 import { goBack } from "../ui/navigation.js";
@@ -135,7 +135,7 @@ export function CourseScreen({ engine, pack, appState, stats, onNavigate }) {
           return (
             <div className="zc-module" key={m.id} data-module={m.id}>
               <div className="zc-mod-head">
-                <h3 className="zc-mod-title">{m.emoji} {m.index + 1}. {m.title}</h3>
+                <h3 className="zc-mod-title">{m.index + 1}. {m.title}</h3>
                 <span className="zc-mod-count">{st?.complete || 0}/{st?.total || 0} lessons</span>
               </div>
               <div className="zc-mod-outcome">{m.exchange ? `Leads to: ${m.exchange.outcome.toLowerCase()}` : m.description}</div>
@@ -145,7 +145,7 @@ export function CourseScreen({ engine, pack, appState, stats, onNavigate }) {
                   const isNext = next?.lesson.id === l.id;
                   return (
                     <li key={l.id} className={`zc-lesson${done ? " zc-lesson-done" : isNext ? " zc-lesson-next" : ""}`}>
-                      <span className="zc-lesson-mark" aria-hidden="true">{done ? "✓" : l.kind === "task" ? "💬" : ""}</span>
+                      <span className="zc-lesson-mark" aria-hidden="true">{done ? "✓" : l.kind === "task" ? <Icon name="chat" size={13} /> : ""}</span>
                       <span className="zc-lesson-title">
                         {l.title}
                         {done && <span className="sr-only"> (done)</span>}

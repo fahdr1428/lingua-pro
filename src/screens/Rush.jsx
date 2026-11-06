@@ -16,7 +16,7 @@
 // =============================================================================
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Button, Card, Container } from "../ui/primitives.jsx";
+import { Button, Card, Container, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak } from "../audio/tts.js";
 import { playCorrect, playWrong } from "../audio/sfx.js";
@@ -200,7 +200,7 @@ export function Rush({ engine, pack, appState, setAppState, params, onNavigate }
     return (
       <Container style={{ paddingBottom: 120, maxWidth: 560 }}>
         {header}
-        <h1 style={{ fontSize: 26, fontWeight: 900, margin: "0 0 6px" }}>⚡ Word Rush</h1>
+        <h1 style={{ fontSize: 30, margin: "0 0 6px" }}>Word Rush</h1>
         <p style={{ color: "var(--text-dim)", fontSize: 14, marginBottom: 20, lineHeight: 1.5 }}>
           {seconds} seconds. Match as many {lang.name} words as you can — three right in a row doubles your points.
           A word you miss comes back so you can get it.
@@ -241,11 +241,10 @@ export function Rush({ engine, pack, appState, setAppState, params, onNavigate }
     return (
       <Container style={{ paddingBottom: 120, maxWidth: 560, textAlign: "center" }}>
         {header}
-        <div style={{ fontSize: 56 }} aria-hidden="true">{result.newBest ? "🏆" : "⚡"}</div>
-        <div className="eyebrow" style={{ marginTop: 6 }}>{result.newBest ? "New best!" : "Time!"}</div>
-        <div data-testid="rush-score" style={{ fontSize: 48, fontWeight: 900, lineHeight: 1.1 }}>{result.score}</div>
+        <div className="eyebrow" style={{ marginTop: 18, color: "var(--accent-text)" }}>{result.newBest ? "A new best" : "Time"}</div>
+        <div data-testid="rush-score" className="results-num" style={{ fontFamily: '"Fraunces", Georgia, serif', display: "block", margin: "10px 0 8px", color: "var(--ink)" }}>{result.score}</div>
         <div style={{ fontSize: 14, color: "var(--text-dim)", marginBottom: 18 }} role="status">
-          {result.correct} of {result.attempts} right · {acc}% · best run {result.bestStreak} · +{result.xp} XP
+          {result.correct} of {result.attempts} right · {acc}% · best run {result.bestStreak}
           {!result.newBest && result.prevBest ? ` · best ${result.prevBest}` : ""}
         </div>
 
@@ -258,8 +257,8 @@ export function Rush({ engine, pack, appState, setAppState, params, onNavigate }
                   <button
                     onClick={() => speak(w.lemma, lang.ttsCode, { audioId: w.id, code: pack.code, translit: w.translit })}
                     aria-label={`Hear ${w.translit || w.lemma}`}
-                    style={{ border: "1px solid var(--border)", background: "var(--surface-hi)", borderRadius: 999, width: 34, height: 34, cursor: "pointer", flexShrink: 0 }}
-                  >🔊</button>
+                    style={{ border: "1px solid var(--border)", background: "var(--surface-hi)", color: "var(--text-dim)", borderRadius: 999, width: 34, height: 34, cursor: "pointer", flexShrink: 0, display: "inline-flex", alignItems: "center", justifyContent: "center" }}
+                  ><Icon name="speaker" size={15} /></button>
                   <div style={{ minWidth: 0 }}>
                     <span dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code} style={{ fontWeight: 800, fontFamily: nativeFont(pack.code, lang.rtl) }}>{w.lemma}</span>
                     {nonLatin && w.translit && <span style={{ color: "var(--text-dim)", marginLeft: 8 }}>{w.translit}</span>}
@@ -293,7 +292,7 @@ export function Rush({ engine, pack, appState, setAppState, params, onNavigate }
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
         <div data-testid="rush-live-score" style={{ fontSize: 22, fontWeight: 900 }}>{score}</div>
         <div aria-live="polite" style={{ fontSize: 13, fontWeight: 800, color: mult > 1 ? "var(--accent-text)" : "var(--text-dim)" }}>
-          {mult > 1 ? `🔥 ×${mult}` : streak > 0 ? `${streak} in a row` : ""}
+          {mult > 1 ? `×${mult} points` : streak > 0 ? `${streak} in a row` : ""}
         </div>
         <div data-testid="rush-clock" style={{ fontSize: 15, fontWeight: 800, fontVariantNumeric: "tabular-nums", color: left <= 10 ? "var(--miss)" : "var(--text)" }}>
           {left}s

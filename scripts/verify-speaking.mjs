@@ -77,7 +77,7 @@ async function playLesson(code, passes) {
     log.steps = step;
     const main = await page.evaluate(() => document.querySelector("#main")?.innerText || "");
     log.overflow = Math.max(log.overflow, await page.evaluate(() => document.scrollingElement.scrollWidth - window.innerWidth));
-    if (/\b\d+ of \d+ right\b|📤 Share|Lesson complete/i.test(main)) { log.finished = true; break; }
+    if (/\b\d+ of \d+ right\b|Lesson complete/i.test(main)) { log.finished = true; break; }
     const lvlStrip = await page.locator("[data-testid=speak-level]").count();
     // v113: a speaking step is still a lesson step — the way out and the progress bar stay.
     if (lvlStrip && !(await page.locator('button[aria-label="Leave the lesson"]').count())) log.noTopBar = (log.noTopBar || 0) + 1;

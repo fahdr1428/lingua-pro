@@ -123,7 +123,7 @@ export function DialectDrill({ pack, appState, setAppState, onNavigate, profile,
             {coverage.map((r) => (
               <button key={r.id} className="mission-card" onClick={() => choose(r.id)} disabled={r.changes === 0}>
                 <div className="mission-card-top">
-                  <span className="mission-title">{r.flag ? `${r.flag} ` : ""}{r.name}</span>
+                  <span className="mission-title">{r.name}</span>
                 </div>
                 {r.blurb && <div className="mission-stake">{r.blurb}</div>}
                 <div className="mission-meta">

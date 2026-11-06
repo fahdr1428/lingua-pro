@@ -15,12 +15,9 @@ import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
 import { LANGUAGES } from "../data/registry.js";
 import { goBack } from "../ui/navigation.js";
 
-const ICONS = {
-  Greetings: "👋", Politeness: "🙏", "About You": "🙋", Family: "👪", People: "🧑‍🤝‍🧑",
-  Numbers: "🔢", Food: "🍲", Verbs: "🏃", Places: "🏠", Time: "⏰", Feelings: "💛",
-  Body: "🩺", Colors: "🎨", Weather: "⛅", Nature: "🌿", Travel: "🧳", Transport: "🚌",
-  Useful: "🧰", Common: "💬", Connectors: "🔗", Questions: "❓", Adjectives: "✨", Survival: "🆘",
-};
+// v115: topics are numbered, not decorated — a picture per topic was an
+// emoji per topic, and a list reads better as a list.
+const mark = (i) => String(i + 1).padStart(2, "0");
 
 // Roughly the order someone would reach for them: the first conversation,
 // then the people in it, then the day around them. Unknown topics sort last.
@@ -71,7 +68,7 @@ export function Topics({ engine, pack, onNavigate }) {
           Topics
         </div>
       </div>
-      <h1 style={{ fontSize: 24, fontWeight: 900, margin: "0 0 4px" }}>🎯 Practise a topic</h1>
+      <h1 style={{ fontSize: 28, margin: "0 0 4px" }}>Practise a topic</h1>
       <p style={{ color: "var(--text-dim)", fontSize: 13, marginBottom: 20 }}>
         Pick one corner of {lang.name} and drill just that — a few new words, and the ones you're closest to forgetting.
       </p>
@@ -111,11 +108,8 @@ export function Topics({ engine, pack, onNavigate }) {
             padding: 16, cursor: "pointer", boxShadow: "var(--shadow-card)", marginBottom: 20,
           }}
         >
-          <div style={{
-            fontSize: 26, width: 52, height: 52, borderRadius: 14, flexShrink: 0,
-            background: "var(--surface-hi)", display: "flex", alignItems: "center", justifyContent: "center",
-          }}>
-            {ICONS[suggestion.topic.category] || "📘"}
+          <div aria-hidden="true" className="topic-mark topic-mark-lg">
+            {mark(Math.max(0, topics.indexOf(suggestion.topic)))}
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div className="eyebrow">Suggested</div>
@@ -127,7 +121,7 @@ export function Topics({ engine, pack, onNavigate }) {
       )}
 
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }} data-testid="topic-list">
-        {topics.map((t) => {
+        {topics.map((t, ti) => {
           const done = t.learned === t.total && t.total > 0;
           return (
             <button
@@ -141,11 +135,8 @@ export function Topics({ engine, pack, onNavigate }) {
                 padding: 14, cursor: "pointer", boxShadow: "var(--shadow-card)",
               }}
             >
-              <div style={{
-                fontSize: 22, width: 44, height: 44, borderRadius: 12, flexShrink: 0,
-                background: "var(--surface-hi)", display: "flex", alignItems: "center", justifyContent: "center",
-              }}>
-                {ICONS[t.category] || "📘"}
+              <div aria-hidden="true" className="topic-mark">
+                {mark(ti)}
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 2 }}>

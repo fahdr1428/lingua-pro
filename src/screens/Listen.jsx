@@ -151,7 +151,7 @@ export function Listen({ engine, pack, appState, params, onNavigate }) {
           Hands-free
         </div>
       </div>
-      <h1 style={{ fontSize: 24, fontWeight: 900, margin: "0 0 4px" }}>🔁 Listen and repeat</h1>
+      <h1 style={{ fontSize: 28, margin: "0 0 4px" }}>Listen and repeat</h1>
       <p style={{ color: "var(--text-dim)", fontSize: 13, marginBottom: 18 }}>
         Hear each word, say it aloud in the pause, hear what it means, then hear it once more. Put the phone down — this works with your eyes closed.
       </p>

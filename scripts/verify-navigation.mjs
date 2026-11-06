@@ -105,7 +105,7 @@ async function toPractice(page) {
 
 async function toFlashcards(page) {
   await page.evaluate(() => {
-    const b = [...document.querySelectorAll("button")].find((x) => /📇/.test(x.innerText || ""));
+    const b = document.querySelector('[data-door="flashcards"]');
     if (b) b.click();
   });
   await page.waitForTimeout(700);
@@ -385,7 +385,7 @@ async function toFlashcards(page) {
   await toPractice(page);
   await page.waitForTimeout(500);
   await page.evaluate(() => {
-    const b = [...document.querySelectorAll("button")].find((x) => /📇/.test(x.innerText || ""));
+    const b = document.querySelector('[data-door="flashcards"]');
     if (b) b.focus();
   });
   const before = await page.evaluate(() => document.activeElement?.textContent?.slice(0, 20));
@@ -454,12 +454,12 @@ async function toFlashcards(page) {
   // (see screens.jsx); the word "Profile" exists only as the bottom-nav tab
   // label, which sits well past that 60-character cut. The settings gear
   // (aria-label="Settings") is unique to Profile; the language-picker button
-  // (aria-label="Switch language") is unique to Home's TopBar, since only
+  // (aria-label starting "Switch language") is unique to Home's TopBar, since only
   // Home passes onPickLanguage to it. Caught by running this exact check
   // against the truncated-text version first: it reported Profile as
   // unreachable even though the click had worked correctly.
   const onProfile = (page) => page.evaluate(() => !!document.querySelector('button[aria-label="Settings"]'));
-  const onHome = (page) => page.evaluate(() => !!document.querySelector('button[aria-label="Switch language"]'));
+  const onHome = (page) => page.evaluate(() => !!document.querySelector('button[aria-label^="Switch language"]'));
 
   await toPractice(page);
   await page.evaluate(() => {
@@ -643,7 +643,7 @@ async function toFlashcards(page) {
   }, re.source);
   const onHub = () => page.evaluate(() => /Every drill in one place/.test(document.querySelector("#main")?.innerText || ""));
 
-  for (const [door, label] of [[/🧭\s*Grammar/, "Grammar"], [/📜\s*Urdu you can read/, "sentence stream"], [/🎯\s*Practise a topic/, "Topics"]]) {
+  for (const [door, label] of [[/^Grammar\b/, "Grammar"], [/^Urdu you can read/, "sentence stream"], [/^Practise a topic/, "Topics"]]) {
     await toPractice(page);
     if (!(await onHub(page))) { problems.push(`[back button] couldn't reach Practice before testing ${label}`); continue; }
     if (!(await clickDoor(door))) { problems.push(`[back button] no ${label} door in Practice`); continue; }

@@ -17,7 +17,7 @@
 // =============================================================================
 
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { TopBar, Container } from "../ui/primitives.jsx";
+import { TopBar, Container, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, scriptFont } from "../data/registry.js";
 // The journey content (every language's exchanges) loads with Home rather
 // than in the first download; the map's grouping helpers are small and eager.
@@ -49,7 +49,7 @@ import {
 } from "../data/chapters.js";
 import { hasScriptCourse, scriptStops, hasPassedScript, hasAttemptedScript } from "../data/scriptCourse.js";
 import {
-  todayKey, weakestWords, streakStage, nextMilestone, coachLine, daypart,
+  todayKey, weakestWords, nextMilestone, coachLine, daypart,
   goalLabel, estMinutes, isOwned, unitToMakeYours,
 } from "../engine/coach.js";
 
@@ -442,7 +442,6 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
       });
 
   const lv = getLevel(appState.totalXp || 0);
-  const flame = streakStage(appState.streak || 0);
   const dailyPct = Math.min(1, todayXp / (appState.dailyGoalXp || 35));
 
   // v70: tied to the unit they're actually on, so the note is contextual rather
@@ -490,9 +489,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             marketing page; on the screen you open every day to do a lesson, the
             lesson is what should be visible. */}
         <div className="home-greet">
-          {character
-            ? <GuideMark code={pack.code} size={34} />
-            : <span style={{ fontSize: 22, lineHeight: "30px" }}>🌿</span>}
+          {character ? <GuideMark code={pack.code} size={34} /> : null}
           <div style={{ flex: 1, minWidth: 0 }}>
             <div className="eyebrow" style={{ marginBottom: 2 }}>
               {daypart()}{appState.userName ? `, ${appState.userName}` : ""}
@@ -515,7 +512,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             borderRadius: 14, padding: "12px 16px", marginBottom: 14,
             fontSize: 13, color: "var(--primary-dark)", fontWeight: 700,
           }}>
-            🌱 Good to see you back{signals.streak > 0 ? "" : " — streaks restart easily"}. A two-minute session is enough today.
+            Good to see you back{signals.streak > 0 ? "" : " — streaks restart easily"}. A two-minute session is enough today.
           </div>
         )}
 
@@ -604,9 +601,9 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         <div className="stat-strip desktop-hide">
           <div className="stat-cell">
             <div className="stat-value">
-              <span className={appState.streak >= 3 ? "flame-alive" : ""}>{flame.emoji}</span> {appState.streak || 0}
+              {appState.streak || 0}
             </div>
-            <div className="stat-label">day streak</div>
+            <div className="stat-label">{appState.streak === 1 ? "day" : "days"} in a row</div>
           </div>
           <div className="stat-cell">
             <div className="stat-value">Level {lv.level}</div>
@@ -943,8 +940,8 @@ function NameCapture({ onSave }) {
         onClick={() => name.trim() && onSave(name.trim())}
         disabled={!name.trim()}
         style={{
-          background: name.trim() ? "var(--ink)" : "var(--surface-hi)",
-          color: name.trim() ? "#fff" : "var(--text-mute)",
+          background: name.trim() ? "var(--ink-solid)" : "var(--surface-hi)",
+          color: name.trim() ? "var(--ink-on)" : "var(--text-mute)",
           border: "none", borderRadius: 999, padding: "8px 16px",
           fontSize: 13, fontWeight: 700, cursor: name.trim() ? "pointer" : "default",
         }}
@@ -969,16 +966,16 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
   const sl = speakingLevel(appState?.speaking?.[pack.code]?.passes || 0);
   const doors = [
     // v111: a whole session out loud, easy to hard, on words already known.
-    ...(learnedN >= 3 ? [{ id: "speak-session", section: "speak", icon: "🎙️", title: "Speaking session", sub: `Six tasks out loud, easy to hard · level ${sl.level} ${sl.name}`, go: () => onNavigate("lesson", { mode: "speak" }), highlight: true }] : []),
+    ...(learnedN >= 3 ? [{ id: "speak-session", section: "speak", icon: "mic", title: "Speaking session", sub: `Six tasks out loud, easy to hard · level ${sl.level} ${sl.name}`, go: () => onNavigate("lesson", { mode: "speak" }), highlight: true }] : []),
     // v106: the one drill that needs neither eyes nor thumbs.
-    { id: "listen", section: "speak", icon: "🔁", title: "Listen and repeat", sub: "Hands-free — hear it, say it, hear the meaning", go: () => onNavigate("listen") },
-    ...(learnedN >= 3 ? [{ id: "speak-screen", section: "speak", icon: "💬", title: "Say whole conversations", sub: "Real exchanges, line by line — I'll listen", go: () => onNavigate("speak") }] : []),
+    { id: "listen", section: "speak", icon: "speaker", title: "Listen and repeat", sub: "Hands-free — hear it, say it, hear the meaning", go: () => onNavigate("listen") },
+    ...(learnedN >= 3 ? [{ id: "speak-screen", section: "speak", icon: "chat", title: "Say whole conversations", sub: "Real exchanges, line by line — I'll listen", go: () => onNavigate("speak") }] : []),
     // v105: drill one topic by choice — the curriculum picks every other session.
-    { id: "topics", section: "words", icon: "🎯", title: "Practise a topic", sub: "Numbers, food, family — drill just one", go: () => onNavigate("topics") },
+    { id: "topics", section: "words", icon: "grid", title: "Practise a topic", sub: "Numbers, food, family — drill just one", go: () => onNavigate("topics") },
     // v109: a game — fast recall against a clock, with the misses turned into a lesson.
-    { id: "rush", section: "words", icon: "⚡", title: "Word Rush", sub: appState?.gameBest?.[pack.code]?.["rush-meaning"] ? `60 seconds · your best is ${appState.gameBest[pack.code]["rush-meaning"]}` : "60 seconds — how many words can you match?", go: () => onNavigate("rush") },
-    { id: "flashcards", section: "words", icon: "📇", title: "Flashcards", sub: "Flip through your words at your own pace", go: () => onNavigate("flashcards") },
-    { id: "vocab", section: "words", icon: "📚", title: "My words", sub: `${learnedN} learned · ${stats.mastered || 0} mastered`, go: () => onNavigate("vocab") },
+    { id: "rush", section: "words", icon: "bolt", title: "Word Rush", sub: appState?.gameBest?.[pack.code]?.["rush-meaning"] ? `60 seconds · your best is ${appState.gameBest[pack.code]["rush-meaning"]}` : "60 seconds — how many words can you match?", go: () => onNavigate("rush") },
+    { id: "flashcards", section: "words", icon: "cards", title: "Flashcards", sub: "Flip through your words at your own pace", go: () => onNavigate("flashcards") },
+    { id: "vocab", section: "words", icon: "list", title: "My words", sub: `${learnedN} learned · ${stats.mastered || 0} mastered`, go: () => onNavigate("vocab") },
     // v70: the mic moved to the bottom nav's Speak tab, so reading and
     // conversations — which used to live behind that tab — get a door here.
     // v79: reading gets its own door; connected text you can mostly
@@ -986,29 +983,29 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
     // v83: the sentence stream is several times the passages in every
     // language, so it gets its own door rather than living behind the one
     // that runs out fastest.
-    { id: "stream", section: "read", icon: "📜", title: `${lang.name} you can read`, sub: "Real sentences, at exactly your level", go: () => onNavigate("stream"), highlight: learnedN >= 15 },
-    { id: "grammar", section: "understand", icon: "🧭", title: "Grammar", sub: `How ${lang.name} actually fits together`, go: () => onNavigate("grammar") },
+    { id: "stream", section: "read", icon: "book", title: `${lang.name} you can read`, sub: "Real sentences, at exactly your level", go: () => onNavigate("stream"), highlight: learnedN >= 15 },
+    { id: "grammar", section: "understand", icon: "compass", title: "Grammar", sub: `How ${lang.name} actually fits together`, go: () => onNavigate("grammar") },
   ];
   // v95/v107: only offer a door if there is something behind it — an honest
   // empty state is better than a crash, and not offering an empty room is
   // better than both.
   if (hasPassages(pack.code)) {
-    doors.push({ id: "reading", section: "read", icon: "📖", title: `Read some ${lang.name}`, sub: "Short pieces built only from words you've met", go: () => onNavigate("reading"), highlight: learnedN >= 10 });
+    doors.push({ id: "reading", section: "read", icon: "book", title: `Read some ${lang.name}`, sub: "Short pieces built only from words you've met", go: () => onNavigate("reading"), highlight: learnedN >= 10 });
   }
   if (hasConversations(pack.code) || hasPassages(pack.code)) {
-    doors.push({ id: "conversations", section: "read", icon: "🎧", title: "Listen & follow", sub: "Scripted conversations, with subtitles", go: () => onNavigate("practice") });
+    doors.push({ id: "conversations", section: "read", icon: "speaker", title: "Listen & follow", sub: "Scripted conversations, with subtitles", go: () => onNavigate("practice") });
   }
   if (pack.alphabet?.length > 0) {
-    doors.push({ id: "alphabet", section: "understand", icon: "🔤", title: "Letters & sounds", sub: "Learn to read the script itself", go: () => onNavigate("alphabet") });
+    doors.push({ id: "alphabet", section: "understand", icon: "type", title: "Letters & sounds", sub: "Learn to read the script itself", go: () => onNavigate("alphabet") });
   }
   if (hasCulture(pack.code)) {
-    doors.push({ id: "culture", section: "understand", icon: "🫖", title: `Inside ${lang.name}`, sub: "Etiquette, register, and what natives notice", go: () => onNavigate("culture") });
+    doors.push({ id: "culture", section: "understand", icon: "globe", title: `Inside ${lang.name}`, sub: "Etiquette, register, and what natives notice", go: () => onNavigate("culture") });
   }
   if (learnedN >= 15) {
-    doors.push({ id: "exam", section: "test", icon: "📝", title: "Big exam", sub: "Everything you know, tested every way", go: () => onNavigate("lesson", { mode: "exam", sessionSize: Math.min(25, learnedN) }) });
+    doors.push({ id: "exam", section: "test", icon: "pen", title: "Big exam", sub: "Everything you know, tested every way", go: () => onNavigate("lesson", { mode: "exam", sessionSize: Math.min(25, learnedN) }) });
   }
   if ((stats.due || 0) > 0) {
-    doors.push({ id: "due", section: "review", icon: "🌿", title: `Review ${stats.due} due words`, sub: "Spaced repetition — keep them alive", go: () => onNavigate("lesson", { mode: "due" }), highlight: true });
+    doors.push({ id: "due", section: "review", icon: "refresh", title: `Review ${stats.due} due words`, sub: "Spaced repetition — keep them alive", go: () => onNavigate("lesson", { mode: "due" }), highlight: true });
   }
   const visited = appState?.doorsVisited?.[pack.code] || [];
   const practice = organisePractice(doors, visited);
@@ -1022,7 +1019,7 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
 
   return (
     <Container style={{ maxWidth: 560 }}>
-      <h2 style={{ fontSize: 26, fontWeight: 600, marginTop: 12, marginBottom: 4 }}>Practice</h2>
+      <h2 style={{ fontSize: 26, marginTop: 12, marginBottom: 4 }}>Practice</h2>
       <p style={{ color: "var(--text-dim)", marginBottom: 20, fontSize: 14 }}>
         Every drill in one place. Dip in wherever you like — none of this is graded.
       </p>
@@ -1043,7 +1040,6 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
             background: "var(--surface)", borderRadius: "var(--radius-lg)", padding: 14,
             border: "1px solid var(--border)", display: "flex", alignItems: "center", gap: 12, marginBottom: 14,
           }}>
-            <div style={{ fontSize: 24 }}>{currentGoal.emoji}</div>
             <div style={{ flex: 1 }}>
               <div className="eyebrow">Your focus</div>
               <div style={{ fontSize: 15, fontWeight: 800, color: "var(--text)" }}>{currentGoal.title}</div>
@@ -1078,7 +1074,7 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
         <button className="explore-next card-lift" data-testid="explore-next" onClick={() => open(practice.suggestion)}>
           <span className="eyebrow" style={{ color: "var(--accent-text)" }}>Try next</span>
           <span style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
-            <span style={{ fontSize: 26 }} aria-hidden="true">{practice.suggestion.icon}</span>
+            <span style={{ color: "var(--accent-text)", display: "flex" }} aria-hidden="true"><Icon name={practice.suggestion.icon} size={22} /></span>
             <span style={{ flex: 1, minWidth: 0, textAlign: "left" }}>
               <span style={{ display: "block", fontSize: 16, fontWeight: 800, color: "var(--text)" }}>{practice.suggestion.title}</span>
               <span style={{ display: "block", fontSize: 13, color: "var(--text-dim)", marginTop: 2 }}>{practice.suggestion.sub}</span>
@@ -1106,11 +1102,11 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
                   padding: 16, cursor: "pointer", boxShadow: "var(--shadow-card)",
                 }}
               >
-                <div style={{
-                  fontSize: 24, width: 48, height: 48, borderRadius: 14, flexShrink: 0,
+                <div aria-hidden="true" style={{
+                  width: 44, height: 44, borderRadius: 12, flexShrink: 0, color: "var(--accent-text)",
                   background: "var(--surface-hi)", display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
-                  {d.icon}
+                  <Icon name={d.icon} size={20} />
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 16, fontWeight: 800, color: "var(--text)" }}>
@@ -1296,7 +1292,7 @@ function ScriptChapterZero({ pack, lang, appState, onNavigate }) {
             a wall — what kind of system it is, the letters, and the marks that turn letters into words.
           </div>
         </div>
-        <div style={{ fontSize: 30 }} aria-hidden="true">🔤</div>
+        <div style={{ color: "var(--accent-text)", display: "flex" }} aria-hidden="true"><Icon name="type" size={26} /></div>
       </div>
 
       {/* The exam first, and said plainly. Someone who reads already should not
@@ -1461,7 +1457,7 @@ function UnitNode({ unit, index, isCurrent, onTap, onTestOut, onMakeYours }) {
   } else if (isComplete) {
     bg = "var(--primary-soft)"; fg = "var(--primary-dark)"; border = "var(--border)";
   } else if (isCurrent) {
-    bg = "var(--ink)"; fg = "#fff"; border = "var(--ink)";
+    bg = "var(--ink-solid)"; fg = "var(--ink-on)"; border = "var(--ink-solid)";
   } else {
     bg = "var(--surface)"; fg = "var(--text)"; border = "var(--border)";
   }
@@ -1492,16 +1488,16 @@ function UnitNode({ unit, index, isCurrent, onTap, onTestOut, onMakeYours }) {
         <div
           style={{
             width: 46, height: 46, borderRadius: "50%",
-            background: isLocked ? "var(--surface-hi)" : isCurrent ? "rgba(255,255,255,0.14)" : "var(--surface-hi)",
+            background: isLocked ? "var(--surface-hi)" : isCurrent ? "color-mix(in srgb, currentColor 10%, transparent)" : "var(--surface-hi)",
             display: "flex", alignItems: "center", justifyContent: "center",
             fontSize: 22, flexShrink: 0, position: "relative",
           }}
         >
-          {isLocked ? "🔒" : isComplete && owned ? "✓" : unit.emoji}
+          {isLocked ? <Icon name="lock" size={17} /> : isComplete && owned ? "✓" : <span className="unit-num">{index + 1}</span>}
           {!isLocked && !isComplete && unit.pct > 0 && (
             <svg style={{ position: "absolute", inset: 0, transform: "rotate(-90deg)" }} width="46" height="46">
-              <circle cx="23" cy="23" r="21" fill="none" stroke={isCurrent ? "rgba(255,255,255,0.25)" : "var(--border)"} strokeWidth="2.5" />
-              <circle cx="23" cy="23" r="21" fill="none" stroke={isCurrent ? "#fff" : "var(--root)"} strokeWidth="2.5"
+              <circle cx="23" cy="23" r="21" fill="none" stroke={isCurrent ? "color-mix(in srgb, currentColor 22%, transparent)" : "var(--border)"} strokeWidth="2.5" />
+              <circle cx="23" cy="23" r="21" fill="none" stroke={isCurrent ? "currentColor" : "var(--root)"} strokeWidth="2.5"
                 strokeDasharray={`${unit.pct * 132} 132`} strokeLinecap="round" />
             </svg>
           )}
@@ -1590,7 +1586,7 @@ function ChapterExamCard({ chapterNum, available, passed, onStart }) {
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        <div style={{ fontSize: 26 }}>{passed ? "🏆" : available ? "📝" : "🔒"}</div>
+        <div style={{ color: passed ? "var(--primary-text)" : "var(--accent-text)", display: "flex" }} aria-hidden="true"><Icon name={passed ? "check" : available ? "pen" : "lock"} size={22} /></div>
         <div style={{ flex: 1 }}>
           <div className="eyebrow">Chapter {chapterNum} exam</div>
           <div style={{ fontSize: 15, fontWeight: 800, color: passed ? "var(--primary-dark)" : "var(--text)", marginTop: 1 }}>
@@ -1632,7 +1628,6 @@ function PathChooser({ onPick }) {
               borderRadius: 12, padding: 13, cursor: "pointer", textAlign: "left",
             }}
           >
-            <div style={{ fontSize: 26, flexShrink: 0 }}>{g.emoji}</div>
             <div style={{ flex: 1 }}>
               <div style={{ fontWeight: 800, fontSize: 15, color: "var(--text)" }}>{g.title}</div>
               <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 2, lineHeight: 1.4 }}>{g.blurb}</div>

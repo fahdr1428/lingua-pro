@@ -67,8 +67,10 @@ export function GuideMark({ code, size = 44, speaking = false, muted = false, st
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         <defs>
           <radialGradient id={ringId} cx="35%" cy="28%" r="78%">
-            <stop offset="0%" stopColor="#fff" stopOpacity="0.95" />
-            <stop offset="100%" stopColor={accent} stopOpacity="0.13" />
+            {/* v115: the wash starts from the surface colour, not white — on
+                Ink a white disc was the brightest thing on the screen. */}
+            <stop offset="0%" style={{ stopColor: "var(--surface-hi)", stopOpacity: 1 }} />
+            <stop offset="100%" stopColor={accent} stopOpacity="0.16" />
           </radialGradient>
         </defs>
 

@@ -5,7 +5,7 @@
 // =============================================================================
 
 import React, { useState } from "react";
-import { Button, Card, Container } from "../ui/primitives.jsx";
+import { Button, Card, Container, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getGrammar } from "../data/grammar.js";
@@ -32,10 +32,9 @@ export function Grammar({ pack, appState, onNavigate }) {
           </Button>
         </div>
         <Card style={{ textAlign: "center", padding: 40 }}>
-          <div style={{ fontSize: 50, marginBottom: 12 }}>📐</div>
           <div style={{ fontWeight: 800, marginBottom: 6 }}>No grammar guide for {lang.name} yet</div>
           <div style={{ fontSize: 13, color: "var(--text-dim)" }}>
-            We're writing careful grammar lessons for every language. Keep practicing vocabulary meanwhile!
+            This course has no grammar lessons yet. They're on the list of content still to write.
           </div>
         </Card>
       </Container>
@@ -53,7 +52,7 @@ export function Grammar({ pack, appState, onNavigate }) {
         </div>
       </div>
 
-      <h1 style={{ fontSize: 24, fontWeight: 900, margin: "0 0 4px" }}>📐 How {lang.name} works</h1>
+      <h1 style={{ fontSize: 28, margin: "0 0 4px" }}>How {lang.name} works</h1>
       <p style={{ color: "var(--text-dim)", fontSize: 13, marginBottom: 20 }}>
         Short lessons on the patterns behind the language. Read them in any order, any time — this is here when you want it, never required.
       </p>
@@ -71,7 +70,7 @@ export function Grammar({ pack, appState, onNavigate }) {
                   cursor: "pointer", textAlign: "left", color: "var(--text)",
                 }}
               >
-                <div style={{ fontSize: 24 }}>{L.emoji}</div>
+                <div aria-hidden="true" className="topic-mark">{String(li + 1).padStart(2, "0")}</div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: 12, color: "var(--text-dim)", fontWeight: 700 }}>Lesson {li + 1}</div>
                   <div style={{ fontSize: 15, fontWeight: 800 }}>{L.title}</div>
@@ -115,7 +114,7 @@ export function Grammar({ pack, appState, onNavigate }) {
                           fontFamily: scriptFont(lang.code),
                         }}>
                           {ex.native}
-                          {voiceAvailable && <span style={{ fontSize: 12, opacity: 0.4, marginLeft: 8 }}>🔊</span>}
+                          {voiceAvailable && <Icon name="speaker" size={13} style={{ opacity: 0.45, marginInlineStart: 8, verticalAlign: "-1px" }} />}
                         </div>
                         <div style={{ fontSize: 13, color: "var(--accent-text)", fontStyle: "italic", marginTop: 3 }}>{ex.translit}</div>
                         <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 2 }}>{ex.gloss}</div>
@@ -188,7 +187,7 @@ export function Grammar({ pack, appState, onNavigate }) {
                             fontSize: 13, color: "var(--text-dim)", marginTop: 8,
                             background: "var(--surface-hi)", borderRadius: 8, padding: "8px 10px", lineHeight: 1.5,
                           }}>
-                            💡 {c.explain}
+                            {c.explain}
                           </div>
                         )}
                       </div>

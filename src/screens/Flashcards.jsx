@@ -4,7 +4,7 @@
 // =============================================================================
 
 import React, { useState, useEffect, useMemo } from "react";
-import { Button, Card, Container } from "../ui/primitives.jsx";
+import { Button, Card, Container, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { InContext } from "../ui/InContext.jsx";
@@ -76,8 +76,8 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
           </Button>
         </div>
 
-        <h1 style={{ fontSize: 28, fontWeight: 900, margin: "0 0 6px" }}>
-          📇 Flashcards
+        <h1 style={{ fontSize: 30, margin: "0 0 6px" }}>
+          Flashcards
         </h1>
         <p style={{ color: "var(--text-dim)", marginBottom: 24, fontSize: 14 }}>
           Browse words at your own pace. Tap a card to flip it.
@@ -107,7 +107,6 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
               onMouseEnter={(e) => { if (u.count > 0) e.currentTarget.style.transform = "translateY(-2px)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; }}
             >
-              <div style={{ fontSize: 32, marginBottom: 6 }}>{u.emoji}</div>
               <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 2 }}>{u.title}</div>
               <div style={{ fontSize: 11, color: "var(--text-dim)" }}>
                 {u.count} card{u.count === 1 ? "" : "s"}
@@ -125,7 +124,6 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
   if (cards.length === 0) {
     return (
       <Container style={{ textAlign: "center", paddingTop: 60 }}>
-        <div style={{ fontSize: 50, marginBottom: 16 }}>🤷</div>
         <h2>No cards in this topic yet</h2>
         <Button style={{ marginTop: 20 }} onClick={() => setSelectedUnit(null)}>Pick another topic</Button>
       </Container>
@@ -170,7 +168,7 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
       </div>
 
       <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 12, textAlign: "center" }}>
-        {unit?.emoji} {unit?.title}
+        {unit?.title}
       </div>
 
       {/* The card itself — tap to flip */}
@@ -273,7 +271,7 @@ export function Flashcards({ pack, appState, onNavigate, params }) {
           style={{ marginBottom: 12 }}
           onClick={(e) => { e.stopPropagation(); speak(card.lemma, lang.ttsCode, { audioId: card.id, code: pack.code, translit: card.translit }); }}
         >
-          🔊 Listen
+          <Icon name="speaker" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />Listen
         </Button>
       )}
 

@@ -131,7 +131,7 @@ async function goHome(page) {
   let asked = 0, cleanRight = 0, seenNonRecall = 0, hintChecked = false, otherChecked = false, gaveUpChecked = false, arabicKbChecked = false, romanChecked = false;
   for (let step = 0; step < 60; step++) {
     const main = await text(page, "#main");
-    if (/📤 Share|PERFECT!|Great job!|Lesson complete|Keep growing/.test(main) && (await page.locator("[data-testid=enc-memory]").count())) break;
+    if (/\b\d+ of \d+ right\b/.test(main) && (await page.locator("[data-testid=enc-memory]").count())) break;
     if (await page.locator("[data-testid=recall]").count()) {
       asked++;
       const meaning = (await text(page, ".recall-meaning")).replace(/[“”]/g, "").trim();
@@ -295,7 +295,7 @@ async function goHome(page) {
     for (let step = 0; step < 70; step++) {
       const main = await text(page, "#main");
       if (process.env.DEBUG) console.log(`      [${step}] ${main.replace(/\n/g, " / ").slice(0, 150)}`);
-      if (/📤 Share|PERFECT!|Great job!|Lesson complete|Keep growing/.test(main)) break;
+      if (/\b\d+ of \d+ right\b/.test(main)) break;
       if (await page.locator("[data-testid=challenge-up]").count()) { chips++; if (await page.locator("[data-testid=recall]").count()) chipWasRecall++; }
       const card = /Card (\d+) of (\d+)/.exec(main);
       if (card && card[1] === card[2] && lastCard === null) {

@@ -52,8 +52,7 @@ export function ScriptExam({ pack, appState, setAppState, onNavigate }) {
   if (!q) {
     return (
       <Container style={{ paddingTop: 60, textAlign: "center" }}>
-        <div style={{ fontSize: 56 }}>🔤</div>
-        <h2 style={{ fontWeight: 900 }}>Not enough script data yet</h2>
+        <h2>Not enough script data yet</h2>
         <p style={{ color: "var(--text-dim)", lineHeight: 1.5 }}>
           This language doesn't have enough letters and words in the pack to set a fair reading test.
           Work through Chapter 0 instead — nothing is locked.
@@ -113,8 +112,8 @@ export function ScriptExam({ pack, appState, setAppState, onNavigate }) {
     const passed = score >= SCRIPT_PASS;
     return (
       <Container style={{ paddingTop: 40, textAlign: "center" }}>
-        <div style={{ fontSize: 64, marginBottom: 8 }} aria-hidden="true">{passed ? "🗝️" : "📖"}</div>
-        <h2 style={{ fontSize: 26, fontWeight: 900, margin: "0 0 8px" }}>
+        <div className="eyebrow" style={{ color: "var(--accent-text)", marginBottom: 10 }}>Reading test</div>
+        <h2 style={{ fontSize: 28, margin: "0 0 8px" }}>
           {passed ? "You can read it." : "Not yet — and that's the normal answer"}
         </h2>
         <div role="status" style={{ color: "var(--text-dim)", marginBottom: 16, lineHeight: 1.5 }}>
@@ -152,7 +151,7 @@ export function ScriptExam({ pack, appState, setAppState, onNavigate }) {
         textAlign: "center", fontSize: 12, fontWeight: 800, color: "var(--accent-text)",
         letterSpacing: 1, textTransform: "uppercase", marginBottom: 16,
       }}>
-        🔤 Reading test · {idx + 1} of {questions.length}
+        Reading test · {idx + 1} of {questions.length}
       </div>
 
       <Card style={{ textAlign: "center" }}>
@@ -189,9 +188,9 @@ export function ScriptExam({ pack, appState, setAppState, onNavigate }) {
                   borderRadius: 12,
                   cursor: picked ? "default" : "pointer",
                   textAlign: "center",
-                  color: state === "idle" ? "var(--text)" : "#fff",
+                  color: state === "idle" ? "var(--text)" : state === "right" ? "var(--on-primary-dark)" : "var(--on-danger)",
                   background:
-                    state === "right" ? "var(--success, #10b981)"
+                    state === "right" ? "var(--primary-dark)"
                     : state === "wrong" ? "var(--danger)"
                     : "var(--surface)",
                   border: `2px solid ${state === "idle" ? "var(--border)" : "transparent"}`,

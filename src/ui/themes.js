@@ -1,13 +1,66 @@
 // =============================================================================
 // THEMES — three palettes, applied via CSS custom properties on document root.
 // Adding a new theme = add an entry to THEMES below + an option in Settings UI.
+//
+// v115 — INK IS THE DEFAULT. The cream palette read as a friendly game, not as
+// somewhere serious learning happens. Ink is a near-black with a green cast,
+// ivory type, and ONE accent: a muted brass, used sparingly for what matters
+// (the current step, a romanisation, a focus). Green stays only as "right",
+// amber only as "look at this again". Paper (the old cream) and Ocean remain
+// for anyone who prefers light; "dark" was the old dark palette and now maps
+// to Ink (see resolveTheme).
 // =============================================================================
 
 export const THEMES = {
+  ink: {
+    name: "Ink",
+    description: "Dark, quiet, made for concentration",
+    vars: {
+      "--bg": "#0d1211",
+      "--bg-alt": "#111816",
+      "--surface": "#151d1b",
+      "--surface-hi": "#1c2522",
+      "--glass": "rgba(17,24,22,0.86)",
+      "--raised": "#18211e",
+      "--raised-soft": "rgba(24,33,30,0.72)",
+      "--border": "#26312d",
+      "--text": "#ece6d8",
+      "--text-dim": "#b3ac9d",
+      "--text-mute": "#958f82",
+      "--accent-text": "#d4b47a",
+      "--ink": "#f2ecde",
+      "--ink-solid": "#ece4d0",
+      "--ink-on": "#0d1211",
+      "--root": "#cbb08a",
+      "--miss": "#d9a25e",
+      "--on-miss": "#0d1211",
+      "--primary": "#79b28f",
+      "--on-primary": "#0d1211",
+      "--primary-text": "#8fc3a2",
+      "--primary-dark": "#2c5a42",
+      "--on-primary-dark": "#f2ecde",
+      "--primary-soft": "rgba(121,178,143,0.12)",
+      "--accent": "#c4a167",
+      "--accent-soft": "rgba(196,161,103,0.13)",
+      "--danger": "#df6f5f",
+      "--on-danger": "#0d1211",
+      "--danger-text": "#ee8f80",
+      "--blue": "#86a9c7",
+      "--purple": "#a99dcc",
+      "--pink": "#d396a9",
+      // Ink's depth: a faint brass light from above, film grain, deep shadows.
+      "--glow": "rgba(196,161,103,0.09)",
+      "--grain": "0.045",
+      // The logo is dark ink artwork; on Ink it is drawn as an ivory silhouette.
+      "--mark-filter": "brightness(0) invert(0.9) sepia(0.12)",
+      "--shadow-card": "0 1px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28)",
+      "--shadow-deep": "0 1px 0 rgba(255,255,255,0.04) inset, 0 18px 48px rgba(0,0,0,0.42)",
+    },
+    colorScheme: "dark",
+  },
   cream: {
-    name: "Cream",
-    emoji: "☕",
-    description: "Warm, minimalist, easy on the eyes",
+    name: "Paper",
+    description: "Light and warm, like a printed page",
     vars: {
       "--bg": "#fbf7f0",
       "--bg-alt": "#f5efe2",
@@ -47,60 +100,22 @@ export const THEMES = {
       "--accent": "#d97706",
       "--accent-soft": "#fef3c7",
       "--danger": "#c0392b",
+      "--on-danger": "#ffffff",
       "--danger-text": "#a5281b",
       "--blue": "#2b6cb0",
       "--purple": "#7c3aed",
       "--pink": "#d6336c",
+      "--glow": "transparent",
+      "--grain": "0",
+      "--mark-filter": "none",
+      "--shadow-card": "0 1px 2px rgba(46,36,20,0.04), 0 6px 24px rgba(46,36,20,0.06)",
+      "--shadow-deep": "0 2px 4px rgba(35,43,61,0.06), 0 14px 44px rgba(35,43,61,0.12)",
     },
     colorScheme: "light",
   },
 
-  dark: {
-    name: "Dark",
-    emoji: "🌙",
-    description: "Easy on the eyes at night",
-    vars: {
-      "--bg": "#0b0d12",
-      "--bg-alt": "#11141d",
-      "--surface": "#181c28",
-      "--surface-hi": "#232839",
-      "--glass": "rgba(30,35,50,0.82)",
-      "--raised": "#1e2332",
-      "--raised-soft": "rgba(30,35,50,0.7)",
-      "--border": "#2a3148",
-      "--text": "#f1f3f8",
-      "--text-dim": "#9aa3b8",
-      "--text-mute": "#949aac",
-      "--accent-text": "#fbbf24",
-      // Inverted for a dark ground: 11.6:1 and 7.8:1 respectively.
-      "--ink": "#dfe5f2",
-      "--ink-solid": "#dfe5f2",
-      "--ink-on": "#0b0d12",
-      "--root": "#d9b79a",
-      "--miss": "#f59e0b",
-      // Bright amber on Dark: white on it is 2.15:1, dark is 8.9:1.
-      "--on-miss": "#0b0d12",
-      "--primary": "#22c55e",
-      // Bright green: white on it is 2.28:1. Dark text on it is 8.9:1.
-      "--on-primary": "#0b0d12",
-      "--primary-text": "#22c55e",
-      "--primary-dark": "#15803d",
-      "--on-primary-dark": "#ffffff",
-      "--primary-soft": "rgba(34,197,94,0.12)",
-      "--accent": "#fbbf24",
-      "--accent-soft": "rgba(251,191,36,0.12)",
-      "--danger": "#ef4444",
-      "--danger-text": "#f87171",
-      "--blue": "#3b82f6",
-      "--purple": "#a855f7",
-      "--pink": "#ec4899",
-    },
-    colorScheme: "dark",
-  },
-
   ocean: {
     name: "Ocean",
-    emoji: "🌊",
     description: "Calm, focused, deep blue",
     vars: {
       "--bg": "#f0f7fb",
@@ -130,19 +145,35 @@ export const THEMES = {
       "--accent": "#e8830f",
       "--accent-soft": "#fdebd2",
       "--danger": "#c0392b",
+      "--on-danger": "#ffffff",
       "--danger-text": "#a5281b",
       "--blue": "#1d6fcc",
       "--purple": "#6645b8",
       "--pink": "#d6336c",
+      "--glow": "transparent",
+      "--grain": "0",
+      "--mark-filter": "none",
+      "--shadow-card": "0 1px 2px rgba(12,34,51,0.05), 0 6px 24px rgba(12,34,51,0.07)",
+      "--shadow-deep": "0 2px 4px rgba(12,34,51,0.06), 0 14px 44px rgba(12,34,51,0.13)",
     },
     colorScheme: "light",
   },
 };
 
 /** Apply a theme by injecting CSS variables onto :root. */
+/** The default palette, and where retired theme keys now point. */
+export const DEFAULT_THEME = "ink";
+const ALIASES = { dark: "ink" };
+
+/** A stored theme key, as the theme to show. Unknown keys get the default. */
+export function resolveTheme(themeKey) {
+  const key = ALIASES[themeKey] || themeKey;
+  return THEMES[key] ? key : DEFAULT_THEME;
+}
+
 export function applyTheme(themeKey) {
   if (typeof document === "undefined") return;
-  const theme = THEMES[themeKey] || THEMES.cream;
+  const theme = THEMES[resolveTheme(themeKey)];
   const root = document.documentElement;
   for (const [key, value] of Object.entries(theme.vars)) {
     root.style.setProperty(key, value);

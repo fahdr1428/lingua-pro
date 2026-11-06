@@ -27,7 +27,7 @@
 // =============================================================================
 
 import React, { useEffect, useMemo, useState } from "react";
-import { Button, Card, Container } from "../ui/primitives.jsx";
+import { Button, Card, Container, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { readableSentences } from "../engine/inputStream.js";
@@ -90,7 +90,6 @@ export function InputStream({ pack, engine, appState, onNavigate }) {
       <Container>
         {header}
         <Card style={{ textAlign: "center", padding: 40 }}>
-          <div style={{ fontSize: 44, marginBottom: 12 }}>🌱</div>
           <div style={{ fontWeight: 800, marginBottom: 6 }}>Not quite yet</div>
           <div style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>
             A few more words and there'll be real {lang.name} here to read — whole
@@ -105,7 +104,7 @@ export function InputStream({ pack, engine, appState, onNavigate }) {
     <Container style={{ paddingBottom: 140 }}>
       {header}
 
-      <h1 style={{ fontSize: 24, fontWeight: 900, margin: "0 0 4px" }}>
+      <h1 style={{ fontSize: 24, margin: "0 0 4px" }}>
         {lang.name} you can read
       </h1>
       <p style={{ color: "var(--text-dim)", fontSize: 13, lineHeight: 1.6, marginBottom: 18 }}>
@@ -133,7 +132,7 @@ export function InputStream({ pack, engine, appState, onNavigate }) {
           borderRadius: 10, padding: "10px 12px", marginBottom: 16,
         }}>
           Most of these don't have a written pronunciation yet — we'd rather leave
-          it blank than guess at it. Tap 🔊 on any line to hear how it goes.
+          it blank than guess at it. Tap the speaker on any line to hear how it goes.
         </div>
       )}
 
@@ -226,9 +225,10 @@ function Section({ label, note, sentences, lang, pack, isNonLatin, showRoman, vo
                       background: "transparent", border: "1px solid var(--border)",
                       borderRadius: 999, width: 34, height: 34, minWidth: 34,
                       cursor: "pointer", color: "var(--text-dim)", fontSize: 14,
+                      display: "inline-flex", alignItems: "center", justifyContent: "center",
                     }}
                   >
-                    🔊
+                    <Icon name="speaker" size={16} />
                   </button>
                 )}
               </div>

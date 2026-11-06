@@ -89,7 +89,7 @@ async function play(page, where, seen = new Set()) {
       const m = document.querySelector("#main");
       const t = m?.innerText || "";
       return {
-        done: /📤 Share/.test(t),
+        done: /\b\d+ of \d+ right\b/.test(t),
         phase: document.querySelector("[data-testid=guided-phase]")?.getAttribute("data-phase") || null,
         objectives: !!document.querySelector("[data-testid=guided-objectives]"),
         exchange: !!document.querySelector("[data-testid=guided-exchange]"),
@@ -126,7 +126,7 @@ async function play(page, where, seen = new Set()) {
       });
       buttons.slice(0, 8).forEach((b) => b.click());
     });
-    if (await page.evaluate(() => /📤 Share/.test(document.querySelector("#main")?.innerText || ""))) return true;
+    if (await page.evaluate(() => /\b\d+ of \d+ right\b/.test(document.querySelector("#main")?.innerText || ""))) return true;
     let moved = false;
     for (const label of ["Check", "Continue", "Finish", "Next", "Done", "Got it", "Start practice", "skip this one"]) {
       const b = page.locator(`#main button:has-text("${label}")`).first();

@@ -77,10 +77,18 @@ thing to be bad at. Every decision below is downstream of that.
 
 ## Overview
 
-**Warm, literary, unhurried.** Not a productivity tool and not a game. The
-nearest reference is a well-made paperback rather than a dashboard — cream
-paper, a serif for the things that matter, generous line height, and no
-scoreboard shouting at you.
+**Quiet, literary, serious.** Not a productivity tool and not a game. The
+default theme, Ink, is a near-black with a green cast, ivory type and one
+muted brass accent, under a faint film grain — closer to a well-bound book
+read at night than to a dashboard. A serif for the things that matter,
+generous line height, and no scoreboard shouting at you. Paper (the old
+cream) and Ocean remain as light themes.
+
+**No emoji in the interface.** Icons are one line-drawn set
+(\`Icon\` in \`src/ui/primitives.jsx\`, 1.75 stroke, \`currentColor\`); a
+language is shown by its own name in its own script, never a flag; results
+are set in type (a score, a sentence), not trophies. Typographic marks
+(✓, ✕, →) are text, not pictures, and stay.
 
 **What this is not.** No streak-shaming, no red crosses, no leaderboard, no
 confetti for its own sake. The app deliberately removed the ✗ mark on wrong
@@ -123,8 +131,8 @@ needs a **light** button with **dark** text, which is the exact opposite of what
 
 | Role | Family | Notes |
 |---|---|---|
-| Body & UI | \`${pick("font-family") || "Nunito"}\` | Rounded, friendly, wide language coverage |
-| Display | \`"Fraunces", Georgia, serif\` | Headings and the wordmark — warm and literary |
+| Body & UI | \`${pick("font-family") || "Instrument Sans"}\` | Clean, slightly condensed grotesque; 400–700 |
+| Display | \`"Fraunces", Georgia, serif\` | Headings (weight 500, optical sizing), scores and the wordmark |
 | Target language | System script fonts | Never overridden; a learner must see the script as it really looks |
 
 - Base size **16px**. Never smaller than 12px for body text.

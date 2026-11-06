@@ -77,7 +77,7 @@ async function playThrough(page, pack) {
   for (let step = 0; step < 90; step++) {
     const main = await page.evaluate(() => document.querySelector("#main")?.innerText || "");
     overflow = Math.max(overflow, await page.evaluate(() => document.scrollingElement.scrollWidth - window.innerWidth));
-    if (/\b\d+ of \d+ right\b|📤 Share|data-testid=enc/i.test(main) || await page.locator("[data-testid=enc-speaking], [data-testid=enc-saynow]").count() || /XP\s*\+\d+/.test(main)) {
+    if (/\b\d+ of \d+ right\b|data-testid=enc/i.test(main) || await page.locator("[data-testid=enc-speaking], [data-testid=enc-saynow]").count() || /XP\s*\+\d+/.test(main)) {
       return { modes, overflow, finished: true };
     }
     if (await page.locator("[data-testid=speak-level]").count()) {

@@ -7,50 +7,59 @@
      of is not committing an error; they are doing the one thing that makes the
      word stick. Amber says "look at this", which is the actual instruction, and
      leaves red for things that are genuinely destructive. */
-  --miss: #9a4708;
+  --miss: #d9a25e;
 
   /* Warm heritage palette — matched to the Zaban logo (deep ink + root-brown) */
-  --bg: #fbf7f0;
-  --bg-alt: #f5efe2;
-  --surface: #ffffff;
-  --surface-hi: #f7f1e3;
-  --border: #e8dfca;
-  --text: #211d16;
-  --text-dim: #6b6356;
-  --text-mute: #655f52;
+  --bg: #0d1211;
+  --bg-alt: #111816;
+  --surface: #151d1b;
+  --surface-hi: #1c2522;
+  --border: #26312d;
+  --text: #ece6d8;
+  --text-dim: #b3ac9d;
+  --text-mute: #958f82;
   /* v80: accent is amber. Amber on cream is 2.83:1 — a well-known contrast
      trap, and it was the colour of every transliteration in the app: the
      pronunciation guide was the least readable text on the screen, for the
      readers who need it most. --accent keeps its brightness for fills and
      borders; --accent-text is the same hue darkened until it passes. */
-  --accent-text: #a55a05;
-  --ink: #232b3d;          /* the logo's deep navy-ink */
-  --root: #6f5540;         /* the logo's root-brown, darkened to pass 4.5:1 */
-  --primary: #2f7d4f;
-  --primary-dark: #1d5635;
-  --primary-soft: #eaf3ec;
-  --accent: #d97706;
-  --accent-soft: #fef3c7;
-  --danger: #c0392b;
-  --blue: #2b6cb0;
-  --purple: #7c3aed;
-  --pink: #d6336c;
+  --accent-text: #d4b47a;
+  --ink: #f2ecde;          /* the logo's deep navy-ink */
+  --root: #cbb08a;         /* the logo's root-brown, darkened to pass 4.5:1 */
+  --primary: #79b28f;
+  --primary-dark: #2c5a42;
+  --primary-soft: rgba(121,178,143,0.12);
+  --accent: #c4a167;
+  --accent-soft: rgba(196,161,103,0.13);
+  --danger: #df6f5f;
+  --on-danger: #0d1211;
+  --blue: #86a9c7;
+  --purple: #a99dcc;
+  --pink: #d396a9;
 
   --radius: 16px;
   --radius-lg: 22px;
   --shadow-btn: 0 4px 0 var(--primary-dark);
+  /* v115: the ambient light and the grain are per theme (themes.js). Ink has
+     a faint brass glow at the top and a fine grain; the light themes none. */
+  --glow: rgba(196,161,103,0.09);
+  --grain: 0.045;
+  --mark-filter: brightness(0) invert(0.9) sepia(0.12);
   --shadow-card: 0 1px 2px rgba(46, 36, 20, 0.05), 0 4px 16px rgba(46, 36, 20, 0.05);
 
-  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 /* Serif display headings — ties the app to the Zaban wordmark's character.
    Fraunces has the same warm, literary, "heritage" feel as the logo. */
 h1, h2 {
   font-family: "Fraunces", Georgia, serif;
-  letter-spacing: -0.5px;
+  font-weight: 500;
+  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
   color: var(--ink);
 }
 .brand-serif { font-family: "Fraunces", Georgia, serif; }
@@ -65,7 +74,31 @@ html, body, #root {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-variant-numeric: tabular-nums;
 }
+
+/* v115 — DEPTH WITHOUT DECORATION. A faint light from the top of the screen
+   and a fine film grain, so the dark ground reads as a material rather than a
+   flat fill. Both come from the theme (--glow, --grain) and are off on the
+   light themes. The grain is a fixed, non-interactive layer: it never moves,
+   never catches a tap, and costs one composited texture. */
+body {
+  background:
+    radial-gradient(1100px 520px at 50% -180px, var(--glow, transparent), transparent 72%),
+    var(--bg);
+  background-attachment: fixed;
+}
+#root { background: transparent; }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--grain, 0);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+#root { position: relative; z-index: 1; }
 
 button {
   font-family: inherit;
@@ -132,7 +165,7 @@ input, select, textarea {
 
 ::selection {
   background: var(--accent);
-  color: #fff;
+  color: var(--ink-on);
 }
 
 /* ===== v51 mobile-first polish ===== */
@@ -260,7 +293,7 @@ button:active { transform: translateY(1px) scale(0.98); }
 @keyframes sceneFade {
   0% { opacity: 0; } 6% { opacity: 0.5; } 33% { opacity: 0.5; } 40% { opacity: 0; } 100% { opacity: 0; }
 }
-.hero-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(251,247,240,0.55) 0%, rgba(251,247,240,0.75) 55%, var(--bg) 100%); }
+.hero-veil { position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 55%, transparent) 0%, color-mix(in srgb, var(--bg) 75%, transparent) 55%, var(--bg) 100%); }
 @media (prefers-reduced-motion: reduce) {
   .hero-scene { animation: none; }
   .hero-scene-1 { opacity: 0.5; }
@@ -417,9 +450,11 @@ button:active { transform: translateY(1px) scale(0.98); }
    ============================================================ */
 :root {
   --radius-lg: 24px;
-  --border: #eadfc9;
-  --shadow-card: 0 1px 2px rgba(46,36,20,0.04), 0 6px 24px rgba(46,36,20,0.06);
-  --shadow-deep: 0 2px 4px rgba(35,43,61,0.06), 0 14px 44px rgba(35,43,61,0.12);
+  --border: #26312d;
+  /* Shadows are per theme too (themes.js): warm-tinted on the light ones,
+     a deep ink on Ink, where a light shadow would read as a glow. */
+  --shadow-card: 0 1px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
+  --shadow-deep: 0 1px 0 rgba(255,255,255,0.04) inset, 0 18px 48px rgba(0,0,0,0.42);
 }
 
 /* Soft light wash instead of the busy painted backdrop */
@@ -1211,7 +1246,7 @@ button:focus:not(:focus-visible) { outline: none; }
 /* --- the mic: deliberately the largest control on the screen --- */
 .pad { display: flex; flex-direction: column; align-items: center; margin-top: 30px; }
 .mic {
-  border-radius: 50%; border: none; cursor: pointer; color: #fff;
+  border-radius: 50%; border: none; cursor: pointer; color: var(--ink-on);
   background: var(--ink-solid);
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 3px 0 #161d2c, 0 14px 34px rgba(35,43,61,0.30);
@@ -1389,7 +1424,7 @@ button:focus:not(:focus-visible) { outline: none; }
   letter-spacing: 0.06em; padding: 3px 8px; border-radius: 999px;
   background: var(--border); color: var(--text);
 }
-.mission-badge-done { background: var(--good, #16a34a); color: #fff; }
+.mission-badge-done { background: var(--primary-dark); color: var(--on-primary-dark); }
 
 .mission-stake { font-size: 13px; color: var(--text-dim); line-height: 1.55; }
 .mission-meta {
@@ -1700,8 +1735,8 @@ button:focus:not(:focus-visible) { outline: none; }
 .skip-option:disabled { cursor: default; }
 .skip-option-main { font-size: 17px; font-weight: 800; line-height: 1.3; }
 .skip-option-sub { font-size: 12.5px; color: var(--text-dim); }
-.skip-right { background: var(--primary-dark); border-color: var(--primary); color: #fff; }
-.skip-right .skip-option-sub { color: var(--on-primary); opacity: 0.82; }
+.skip-right { background: var(--primary-dark); border-color: var(--primary); color: var(--on-primary-dark); }
+.skip-right .skip-option-sub { color: var(--on-primary-dark); opacity: 0.82; }
 .skip-wrong { background: var(--miss); border-color: var(--miss); color: var(--on-miss); }
 .skip-wrong .skip-option-sub { color: var(--on-miss); opacity: 0.82; }
 .dialect-settings { margin-top: 4px; }
@@ -1772,7 +1807,7 @@ button:focus:not(:focus-visible) { outline: none; }
 
 .ai-badge {
   display: inline-flex; align-items: center; justify-content: center;
-  background: var(--ink, #111); color: #fff; border-radius: 999px;
+  background: var(--ink-solid, #111); color: var(--ink-on, #fff); border-radius: 999px;
   font-size: 10px; font-weight: 900; letter-spacing: 0.08em;
   padding: 2px 7px; min-width: 24px; flex-shrink: 0;
 }
@@ -2601,3 +2636,72 @@ html:active-view-transition-type(back)::view-transition-new(screen) { z-index: 1
   padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
   background: var(--bg-alt); border-top: 1px solid var(--border);
 }
+
+/* ============================================================
+   v115 — INK. The type-led pieces of the redesign.
+   ============================================================ */
+.wordmark {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1;
+}
+.icon { display: inline-block; }
+.brand-mark { filter: var(--mark-filter, none); }
+.step-count {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: var(--accent-text);
+  margin-bottom: 18px;
+}
+.step-count span { color: var(--text-mute); }
+/* The language's own name stands where flags used to. */
+.lang-native { font-size: 22px; line-height: 1.5; color: var(--ink); min-height: 34px; overflow-wrap: anywhere; }
+.lang-native[lang="ur"] { line-height: 2; font-size: 20px; }
+.profile-native { font-size: 40px; line-height: 1.35; color: var(--ink); overflow-wrap: anywhere; }
+.profile-native[lang="ur"] { line-height: 1.9; }
+
+/* Results: a score set in type, not a trophy. */
+.results-head { margin-bottom: 28px; }
+.results-head .eyebrow { color: var(--accent-text); }
+.results-score {
+  font-family: "Fraunces", Georgia, serif;
+  margin: 14px 0 6px;
+  color: var(--ink);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.results-num { font-size: clamp(64px, 20vw, 92px); font-weight: 400; line-height: 1; letter-spacing: -0.03em; }
+.results-of { font-size: 19px; color: var(--text-dim); font-style: italic; }
+.results-title { font-size: 26px; margin: 10px 0 6px; }
+.results-sub { color: var(--text-dim); font-size: 15px; line-height: 1.55; max-width: 34ch; margin: 0 auto; text-wrap: pretty; }
+.result-stats {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0 0 24px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.result-stats > div { padding: 14px 8px; }
+.result-stats > div + div { border-inline-start: 1px solid var(--border); }
+.result-stats dt { font-size: 12px; color: var(--text-mute); letter-spacing: 0.02em; }
+.result-stats dd {
+  margin: 4px 0 0; font-family: "Fraunces", Georgia, serif; font-size: 30px; font-weight: 400;
+  color: var(--ink); font-variant-numeric: lining-nums tabular-nums;
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.level-numeral {
+  font-family: "Fraunces", Georgia, serif; font-size: 34px; font-weight: 400; line-height: 1;
+  width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--accent);
+  display: flex; align-items: center; justify-content: center; color: var(--accent-text);
+  flex-shrink: 0; font-variant-numeric: lining-nums;
+}
+.topic-mark {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  border: 1px solid var(--border); color: var(--accent-text);
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Fraunces", Georgia, serif; font-size: 17px; font-variant-numeric: lining-nums tabular-nums;
+}
+.topic-mark-lg { width: 52px; height: 52px; border-radius: 14px; font-size: 20px; border-color: var(--accent); }

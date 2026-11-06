@@ -6,7 +6,7 @@
 // =============================================================================
 
 import React, { useState, useMemo } from "react";
-import { Button, Card, Container } from "../ui/primitives.jsx";
+import { Button, Card, Container, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getPassage, PASSAGES } from "../data/passages.js";
@@ -49,7 +49,6 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
           </Button>
         </div>
         <Card style={{ textAlign: "center", padding: 40 }}>
-          <div style={{ fontSize: 50, marginBottom: 12 }}>📖</div>
           <div style={{ fontWeight: 800, marginBottom: 6 }}>No reading passages for {lang.name} yet</div>
           <div style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>
             We're adding written passages for every language. In the meantime there
@@ -135,7 +134,7 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
           </div>
         </div>
 
-        <h1 style={{ fontSize: 24, fontWeight: 900, margin: "0 0 4px" }}>{passage.title}</h1>
+        <h1 style={{ fontSize: 24, margin: "0 0 4px" }}>{passage.title}</h1>
         <p style={{ color: "var(--text-dim)", fontSize: 13, marginBottom: 16 }}>
           Read the passage. {voiceAvailable ? "Tap a line to hear it." : "Use the toggles below if you need help."}
         </p>
@@ -144,7 +143,7 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
         <div style={{ display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" }}>
           {voiceAvailable && (
             <button onClick={playAll} style={pillStyle(true)}>
-              🔊 Play all
+              <Icon name="speaker" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />Play all
             </button>
           )}
           <button onClick={() => setShowRomanization((v) => !v)} style={pillStyle(showRomanization)}>
@@ -188,7 +187,7 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
                 marginBottom: showRomanization || showTranslation ? 6 : 0,
               }}>
                 {line.native}
-                {voiceAvailable && <span style={{ fontSize: 13, opacity: 0.5, marginLeft: 8 }}>🔊</span>}
+                {voiceAvailable && <Icon name="speaker" size={13} style={{ opacity: 0.45, marginInlineStart: 8, verticalAlign: "-1px" }} />}
               </div>
               {showRomanization && (
                 <div style={{ fontSize: 14, color: "var(--accent-text)", fontStyle: "italic", marginBottom: 2 }}>
@@ -255,7 +254,7 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
                   border: `2px solid ${isAnswer ? "var(--primary)" : isWrong ? "var(--danger)" : isPicked ? "var(--primary)" : "var(--border)"}`,
                   borderRadius: 12,
                   padding: 16,
-                  color: isAnswer || isWrong ? "#fff" : "var(--text)",
+                  color: isAnswer ? "var(--on-primary-dark)" : isWrong ? "var(--on-danger)" : "var(--text)",
                   fontSize: 16,
                   fontWeight: 700,
                   cursor: feedback ? "default" : "pointer",
@@ -271,11 +270,11 @@ export function Reading({ pack, appState, setAppState, onNavigate }) {
         {feedback && (
           <Card style={{
             marginTop: 16,
-            background: feedback === "correct" ? "rgba(34,197,94,0.15)" : "rgba(239,68,68,0.15)",
-            border: `2px solid ${feedback === "correct" ? "var(--primary)" : "var(--danger)"}`,
+            background: feedback === "correct" ? "var(--primary-soft)" : "var(--surface-hi)",
+            border: `1px solid ${feedback === "correct" ? "var(--primary)" : "var(--miss)"}`,
           }}>
-            <div style={{ fontWeight: 800, fontSize: 18, color: feedback === "correct" ? "var(--primary)" : "var(--danger)" }}>
-              {feedback === "correct" ? "✓ You understood it!" : `✗ The answer was: ${passage.answer}`}
+            <div style={{ fontWeight: 700, fontSize: 18, color: feedback === "correct" ? "var(--primary-text)" : "var(--miss)" }}>
+              {feedback === "correct" ? "✓ You understood it" : `The answer was: ${passage.answer}`}
             </div>
             {feedback === "wrong" && (
               <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 6 }}>

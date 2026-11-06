@@ -5,7 +5,7 @@
 // =============================================================================
 
 import React, { useState } from "react";
-import { Button, Card, Container } from "../ui/primitives.jsx";
+import { Button, Card, Container, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { getConversations } from "../data/conversations.js";
@@ -32,10 +32,9 @@ export function Conversations({ pack, appState, onNavigate }) {
           </Button>
         </div>
         <Card style={{ textAlign: "center", padding: 40 }}>
-          <div style={{ fontSize: 50, marginBottom: 12 }}>💬</div>
           <div style={{ fontWeight: 800, marginBottom: 6 }}>No conversation starters for {lang.name} yet</div>
           <div style={{ fontSize: 13, color: "var(--text-dim)" }}>
-            We're adding practical phrases for every language. Check back soon!
+            This course doesn't have scripted conversations yet.
           </div>
         </Card>
       </Container>
@@ -53,7 +52,7 @@ export function Conversations({ pack, appState, onNavigate }) {
         </div>
       </div>
 
-      <h1 style={{ fontSize: 24, fontWeight: 900, margin: "0 0 4px" }}>💬 Real conversations</h1>
+      <h1 style={{ fontSize: 28, margin: "0 0 4px" }}>Conversations</h1>
       <p style={{ color: "var(--text-dim)", fontSize: 13, marginBottom: 16 }}>
         Practical exchanges you'll actually use. Tap any one to open it. Browse freely — nothing is tested here.
       </p>
@@ -89,7 +88,6 @@ export function Conversations({ pack, appState, onNavigate }) {
                   color: "var(--text)",
                 }}
               >
-                <div style={{ fontSize: 26 }}>{conv.emoji}</div>
                 <div style={{ flex: 1, fontSize: 15, fontWeight: 800 }}>{conv.situation}</div>
                 <div style={{ fontSize: 16, color: "var(--text-dim)", transform: isOpen ? "rotate(90deg)" : "none", transition: "transform 0.2s" }}>›</div>
               </button>
@@ -122,7 +120,7 @@ export function Conversations({ pack, appState, onNavigate }) {
                         marginBottom: showRoman || showTrans ? 5 : 0,
                       }}>
                         {line.native}
-                        {voiceAvailable && <span style={{ fontSize: 12, opacity: 0.45, marginLeft: 8 }}>🔊</span>}
+                        {voiceAvailable && <Icon name="speaker" size={13} style={{ opacity: 0.45, marginInlineStart: 8, verticalAlign: "-1px" }} />}
                       </div>
                       {showRoman && (
                         <div style={{ fontSize: 13, color: "var(--accent-text)", fontStyle: "italic", marginBottom: 2 }}>
@@ -144,7 +142,7 @@ export function Conversations({ pack, appState, onNavigate }) {
                           marginTop: 8,
                           lineHeight: 1.4,
                         }}>
-                          💡 {line.note}
+                          {line.note}
                         </div>
                       )}
                     </div>

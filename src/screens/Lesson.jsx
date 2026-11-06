@@ -4,7 +4,7 @@
 // =============================================================================
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { Button, Card, ProgressBar, Container } from "../ui/primitives.jsx";
+import { Button, Card, ProgressBar, Container, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor, stopSpeaking } from "../audio/tts.js";
 import { playCorrect, playWrong, playLessonComplete } from "../audio/sfx.js";
@@ -15,7 +15,7 @@ import { SPEAK_MODE, speakingLevel } from "../engine/speaking.js";
 import { sayNow, speakingSummary, crossedMilestone, milestoneLine, memoryLine } from "../engine/encourage.js";
 import { dialectForm, acceptedForms, regionLabel } from "../data/dialects.js";
 import { explainAnswer } from "../engine/explain.js";
-import { getCharacter, getCelebration } from "../data/characters.js";
+import { getCharacter } from "../data/characters.js";
 import { GuideMark } from "../ui/GuideMark.jsx";
 import { InContext } from "../ui/InContext.jsx";
 import { isRecognitionSupported, startListening, judge, displayScore, BAND } from "../audio/speech.js";
@@ -325,9 +325,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   if (session.exercises.length === 0) {
     return (
       <Container style={{ textAlign: "center", paddingTop: 60 }}>
-        <div style={{ fontSize: 60 }}>🎉</div>
-        <h2>All caught up!</h2>
-        <p style={{ color: "var(--text-dim)" }}>Nothing to review right now. Try Smart Mix or come back later.</p>
+        <h2>Nothing due right now</h2>
+        <p style={{ color: "var(--text-dim)" }}>Every word you've met is up to date. Start a new lesson, or come back later for review.</p>
         <Button style={{ marginTop: 20 }} onClick={() => onNavigate("home")}>Back home</Button>
       </Container>
     );
@@ -792,7 +791,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             borderRadius: 12, padding: "10px 14px", fontSize: 13, color: "var(--text-dim)",
             textAlign: "center", lineHeight: 1.5,
           }}>
-            🤔 You haven't learnt this one yet — have a guess anyway.
+            You haven't learnt this one yet — have a guess anyway.
             <span style={{ color: "var(--text-mute)" }}> Guessing first makes it stick better.</span>
           </div>
         )}
@@ -803,7 +802,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             borderRadius: 12, padding: "10px 14px", fontSize: 13, color: "var(--primary-dark)",
             fontWeight: 700, textAlign: "center",
           }}>
-            🌱 Let's lock in the tricky ones — one more look, no pressure
+            One more look at the ones that were tricky
           </div>
         )}
       </div>
@@ -819,7 +818,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             whiteSpace: "nowrap",
           }}
         >
-          🔥 {streakInLesson} in a row
+          {streakInLesson} in a row
         </div>
       )}
       {/* v79: the heart counter is gone from the lesson. A number in danger
@@ -951,9 +950,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   if (malformed) {
     return (
       <Container style={{ textAlign: "center", paddingTop: 60 }}>
-        <div style={{ fontSize: 50, marginBottom: 16 }}>🤔</div>
-        <h2>Hmm, something odd happened</h2>
-        <p style={{ color: "var(--text-dim)", marginBottom: 20 }}>This exercise didn't load properly. Let's skip it.</p>
+        <h2>This exercise didn't load</h2>
+        <p style={{ color: "var(--text-dim)", marginBottom: 20 }}>Something in it was missing, so it can't be shown. Skip to the next one — nothing is lost.</p>
         <Button onClick={() => { reset(); setIdx(i => i + 1); }}>Skip & continue</Button>
         <Button variant="ghost" style={{ marginTop: 12 }} onClick={() => onNavigate("home")}>Back home</Button>
       </Container>
@@ -1017,8 +1015,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               For non-Latin scripts, romanization is the HERO so beginners can read it. */}
           {exercise.type === EXERCISE.INTRODUCE && (
             <div className="pop" style={{ textAlign: "center", marginTop: 20 }}>
-              <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 12 }}>
-                ✨ NEW WORD
+              <div className="eyebrow" style={{ color: "var(--accent-text)", marginBottom: 12 }}>
+                New word
               </div>
 
               {isNonLatin ? (
@@ -1078,7 +1076,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   style={{ marginTop: 12, marginBottom: 16, width: "auto", padding: "12px 24px" }}
                   onClick={() => speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id, code: pack.code, translit: exercise.item.translit })}
                 >
-                  🔊 Hear it again
+                  <Icon name="speaker" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />Hear it again
                 </Button>
               )}
 
@@ -1188,7 +1186,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   style={{ marginTop: 8, fontSize: 18 }}
                   onClick={() => speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id, code: pack.code, translit: exercise.item.translit })}
                 >
-                  🔊 Listen
+                  <Icon name="speaker" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />Listen
                 </Button>
               )}
             </div>
@@ -1198,17 +1196,20 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             <div style={{ textAlign: "center", margin: "20px 0" }}>
               <button
                 onClick={() => speak(exercise.item.lemma, lang.ttsCode, { audioId: exercise.item.id, code: pack.code, translit: exercise.item.translit })}
+                aria-label="Play the word again"
                 style={{
-                  background: "var(--blue)",
+                  background: "var(--ink-solid)",
+                  color: "var(--ink-on)",
                   border: "none",
                   borderRadius: "50%",
-                  width: 100,
-                  height: 100,
-                  fontSize: 48,
+                  width: 96,
+                  height: 96,
                   cursor: "pointer",
+                  display: "inline-flex", alignItems: "center", justifyContent: "center",
+                  boxShadow: "var(--shadow-deep)",
                 }}
               >
-                🔊
+                <Icon name="speaker" size={38} />
               </button>
               <div style={{ marginTop: 8, fontSize: 13, color: "var(--text-dim)" }}>Tap to play again</div>
             </div>
@@ -1313,7 +1314,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                           background: isMatched ? "var(--primary-dark)" : isSelected ? "var(--surface-hi)" : "var(--surface)",
                           border: `2px solid ${isMatched ? "var(--primary)" : isSelected ? "var(--primary)" : "var(--border)"}`,
                           borderRadius: 10, padding: 12, opacity: isMatched ? 0.6 : 1,
-                          color: isMatched ? "#fff" : "var(--text)",
+                          color: isMatched ? "var(--on-primary-dark)" : "var(--text)",
                           cursor: isMatched ? "default" : "pointer",
                           direction: lang.rtl ? "rtl" : "ltr",
                           fontFamily: scriptFont(lang.code),
@@ -1349,7 +1350,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                           background: isMatched ? "var(--primary-dark)" : "var(--surface)",
                           border: `2px solid ${isMatched ? "var(--primary)" : "var(--border)"}`,
                           borderRadius: 10, padding: 12, opacity: isMatched ? 0.6 : 1,
-                          color: isMatched ? "#fff" : "var(--text)",
+                          color: isMatched ? "var(--on-primary-dark)" : "var(--text)",
                           cursor: isMatched ? "default" : "pointer", fontWeight: 600,
                         }}
                       >
@@ -1373,7 +1374,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                 <div style={{
                   display: "inline-block",
                   fontSize: 11, fontWeight: 800, letterSpacing: 1,
-                  background: exercise.tense === "past" ? "#6b3a8e" : "#1e6091",
+                  background: exercise.tense === "past" ? "#66578a" : "#3f6a8c",
                   color: "#fff", padding: "4px 10px", borderRadius: 999,
                   marginBottom: 10, textTransform: "uppercase",
                 }}>
@@ -1386,7 +1387,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   background: "var(--surface)", borderRadius: 10, padding: 10,
                   marginBottom: 12, fontStyle: "italic",
                 }}>
-                  💡 {exercise.note}
+                  {exercise.note}
                 </div>
               )}
               <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 12 }}>
@@ -1576,7 +1577,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             return (
               <div className="recall" data-testid="recall">
                 {exercise.challenge === "up" && !feedback && (
-                  <div className="challenge-chip" data-testid="challenge-up">⚡ You're on a roll — no options on this one</div>
+                  <div className="challenge-chip" data-testid="challenge-up">You're on a roll — no options on this one</div>
                 )}
                 <div className="recall-ask">
                   <div className="eyebrow">{firstTime ? "First time from memory" : "From memory"}</div>
@@ -1622,7 +1623,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     {/* Zaban: no hints in a structured lesson's assessment. */}
                     {canHint && !exercise.assess && (
                       <button className="recall-tool" onClick={() => setRecallHints((h) => Math.min(2, h + 1))} disabled={recallHints >= 2}>
-                        💡 {recallHints === 0 ? "Hint" : recallHints === 1 ? "A bit more" : "That's all the hint"}
+                        {recallHints === 0 ? "Hint" : recallHints === 1 ? "A bit more" : "That's all the hint"}
                       </button>
                     )}
                     <button className="recall-tool" onClick={() => check({ gaveUp: true })}>Show me</button>
@@ -1699,7 +1700,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                       onClick={() => !feedback && setTapped((t) => [...t, w])}
                       style={{
                         background: "var(--primary)",
-                        color: "#fff",
+                        color: "var(--on-primary)",
                         border: "none",
                         borderRadius: 8,
                         padding: "10px 14px",
@@ -1753,7 +1754,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                       : exercise.type === EXERCISE.RECALL_WRITE
                       ? recallTitle(lastResult, idx)
                       : feedback === "correct"
-                      ? ["✓ Correct!", "✓ Nice one", "✓ That was clean", "✓ Exactly right", "✓ You've got this"][idx % 5]
+                      ? ["✓ Correct", "✓ That's it", "✓ Clean", "✓ Exactly right", "✓ Right"][idx % 5]
                       /* v79: no ✗. A cross is a mark on schoolwork — it says
                          "you failed" and stops there. What a learner needs at
                          this exact moment is to look at the right answer, which
@@ -1762,7 +1763,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                       : ["Not this one — here's why", "Have a look at this one", "This one's worth a second look"][idx % 3]}
                     {feedback === "correct" && combo >= 2 && (
                       <span className="pop" style={{ marginLeft: 10, fontSize: 14, background: "var(--accent-soft)", color: "var(--accent-text)", borderRadius: 999, padding: "3px 10px", verticalAlign: "middle" }}>
-                        🔥 {combo} in a row
+                        {combo} in a row
                       </span>
                     )}
                     {/* v82: reclaiming a word you keep losing is the best thing
@@ -1793,7 +1794,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                         cursor: "pointer",
                       }}
                     >
-                      💡 Why?
+                      Why?
                     </button>
                   )}
                 </div>
@@ -1908,7 +1909,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                         letterSpacing: 1,
                         textTransform: "uppercase",
                       }}>
-                        {exp.special ? "⚡ Worth knowing" : "💡 Here's the thing"}
+                        {exp.special ? "Worth knowing" : "Why"}
                       </div>
                     </div>
                     <div style={{ fontSize: 15, fontWeight: 800, marginBottom: 8 }}>{exp.title}</div>
@@ -1977,32 +1978,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         }}
       >
         <div style={{ maxWidth: 720, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 }}>
-          {/* v113 — THE GUIDE SITS BESIDE THE BUTTON. It used to float over the
-              lesson at the bottom-left, and with the bar fixed to the screen
-              again it covered the answer's example sentence on every miss —
-              the one thing on screen worth reading. Its reaction is already in
-              the feedback card, so here it only reacts: a bounce when right, a
-              wobble when not. */}
-          {character && (
-            <div
-              key={`mood-${feedback || "idle"}-${idx}`}
-              className={feedback === "correct" ? "tutor-happy" : feedback === "wrong" ? "tutor-sad" : undefined}
-              aria-hidden="true"
-              style={{
-                width: 48,
-                height: 48,
-                flexShrink: 0,
-                borderRadius: "50%",
-                background: `radial-gradient(circle at 35% 30%, var(--raised), ${character.accent || "var(--surface-hi)"})`,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 3px 10px rgba(0,0,0,0.10)",
-              }}
-            >
-              <GuideMark code={pack.code} size={42} />
-            </div>
-          )}
+          {/* v115 — the guide no longer bounces beside the button: a mascot
+              reacting to each answer is a game's device, and the feedback
+              card above already says what happened. */}
           <div style={{ flex: 1, minWidth: 0 }}>
           {exercise.type === EXERCISE.INTRODUCE ? (
             <Button onClick={async () => { await check(); next(); }}>Got it →</Button>
@@ -2029,7 +2007,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                         textDecoration: "underline",
                       }}
                     >
-                      💡 Stuck? Tap for a hint
+                      Stuck? Tap for a hint
                     </button>
                   </div>
                 )}
@@ -2062,7 +2040,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     cursor: "pointer",
                   }}
                 >
-                  🔇 Can't hear it? Skip this one
+                  Can't hear it? Skip this one
                 </button>
               )}
             </>
@@ -2120,44 +2098,51 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
   const examGrade =
     data.accuracy >= 95 ? "A+" : data.accuracy >= 90 ? "A" : data.accuracy >= 80 ? "B" :
     data.accuracy >= 70 ? "C" : data.accuracy >= 60 ? "D" : "Keep practising";
+  // v115: what the screen says is a plain statement of the result — no
+  // trophies, no "PERFECT!", no claims the session can't back up.
   const examCelebrations = {
-    perfect: { emoji: "🏆", title: `Exam grade: ${examGrade}`, subtitle: "Flawless — you really know these" },
-    great:   { emoji: "🎓", title: `Exam grade: ${examGrade}`, subtitle: "Strong result across your vocabulary" },
-    good:    { emoji: "📘", title: `Exam grade: ${examGrade}`, subtitle: "Solid — a few to firm up" },
-    keep_going: { emoji: "📚", title: `Exam grade: ${examGrade}`, subtitle: "Good honest checkpoint — now you know what to review" },
+    perfect: { title: `Grade ${examGrade}`, subtitle: "Every one right." },
+    great:   { title: `Grade ${examGrade}`, subtitle: "Strong across the words this covered." },
+    good:    { title: `Grade ${examGrade}`, subtitle: "Solid. A few to firm up — they're listed below." },
+    keep_going: { title: `Grade ${examGrade}`, subtitle: "An honest checkpoint: now you know what to review." },
   };
   const celebrations = isExam ? examCelebrations : {
-    perfect: { emoji: "🏆", title: "PERFECT!", subtitle: "Flawless — bonus heart earned ❤️" },
-    great: { emoji: "🎉", title: "Great job!", subtitle: "You're getting really good at this" },
-    good: { emoji: "💪", title: "Lesson complete", subtitle: "Every rep makes the next one easier" },
-    keep_going: { emoji: "🌱", title: "Keep growing", subtitle: "Mistakes are how the brain learns" },
+    perfect: { title: "Every answer right", subtitle: "Not one missed." },
+    great: { title: "A strong session", subtitle: "Most of this is sticking. What you missed comes back in review." },
+    good: { title: "Done for now", subtitle: "What you missed comes back in review, a little sooner than the rest." },
+    keep_going: { title: "Done for now", subtitle: "These were hard. The ones you missed come back soon — that's how they stick." },
   };
   const celeb = celebrations[tier];
+  const [shareNote, setShareNote] = useState("");
 
   async function shareResult() {
-    const text = `Just learned ${data.correct} ${lang.name} words on Zaban! 🌍\n${data.accuracy}% accuracy · ${appState.streak}-day streak 🔥\nLearn languages the world ignores.`;
+    const text = `${data.correct} of ${data.total} right in a ${lang.name} lesson on Zaban (${data.accuracy}%). ${appState.streak} ${appState.streak === 1 ? "day" : "days"} in a row.`;
     if (navigator.share) {
       try {
-        await navigator.share({ title: "My Zaban progress", text });
+        await navigator.share({ title: "Zaban", text });
       } catch {}
     } else {
       try {
         await navigator.clipboard.writeText(text);
-        alert("Copied! Paste it anywhere to share.");
-      } catch {}
+        setShareNote("Copied");
+      } catch {
+        setShareNote("Couldn't copy");
+      }
     }
   }
 
   return (
-    <div style={{ minHeight: "100vh", background: `linear-gradient(180deg, ${lang.color}22, var(--bg))` }}>
-      <Container style={{ textAlign: "center", paddingTop: 40, paddingBottom: 120 }}>
-        <div className="slide-up" style={{ fontSize: 90, marginBottom: 8 }}>
-          {celeb.emoji}
+    <div style={{ minHeight: "100vh" }} data-testid="lesson-results">
+      <Container style={{ textAlign: "center", paddingTop: 44, paddingBottom: 120 }}>
+        <div className="results-head slide-up">
+          <div className="eyebrow">{isExam ? "Checkpoint" : "Lesson complete"}</div>
+          <div className="results-score">
+            <span className="results-num">{data.correct}</span>
+            <span className="results-of"> of {data.total} right</span>
+          </div>
+          <h1 className="results-title">{celeb.title}</h1>
+          <p className="results-sub">{celeb.subtitle}</p>
         </div>
-        <h1 style={{ fontSize: 40, fontWeight: 900, margin: "0 0 8px", letterSpacing: -1 }}>
-          {celeb.title}
-        </h1>
-        <p style={{ color: "var(--text-dim)", marginBottom: 24, fontSize: 16 }}>{celeb.subtitle}</p>
 
         {/* Zaban — feedback on each of the lesson's objectives. */}
         {data.guided && (
@@ -2180,13 +2165,12 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
             border: `2px solid ${chapterPassed ? "var(--primary)" : "var(--danger)"}`,
             borderRadius: 16, padding: 20, marginBottom: 24,
           }}>
-            <div style={{ fontSize: 40, marginBottom: 6 }}>{chapterPassed ? "🔓" : "🔒"}</div>
-            <div style={{ fontSize: 22, fontWeight: 900, color: chapterPassed ? "#fff" : "var(--text)" }}>
-              {chapterPassed ? `Chapter ${chapterNum} passed!` : "Not this time — and you can take it as many times as you like"}
+            <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: 22, fontWeight: 500, color: chapterPassed ? "var(--on-primary-dark)" : "var(--text)" }}>
+              {chapterPassed ? `Chapter ${chapterNum} passed` : "Not this time — and you can take it as many times as you like"}
             </div>
-            <div style={{ fontSize: 15, color: chapterPassed ? "rgba(255,255,255,0.85)" : "var(--text-dim)", marginTop: 6, lineHeight: 1.5 }}>
+            <div style={{ fontSize: 15, color: chapterPassed ? "var(--on-primary-dark)" : "var(--text-dim)", opacity: chapterPassed ? 0.85 : 1, marginTop: 6, lineHeight: 1.5 }}>
               {chapterPassed
-                ? `You scored ${data.accuracy}%. The next chapter is now unlocked — keep going!`
+                ? `You scored ${data.accuracy}%. The next chapter is open.`
                 : `${data.accuracy}%, and the bar is ${passThreshold}% — the words below are the ones between you and it. Have a look at those and come back; there is no limit on retakes and nothing is lost by trying.`}
             </div>
             {!chapterPassed && (
@@ -2212,30 +2196,6 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
           </div>
         )}
 
-        {/* The cultural guide reacts — culturally-specific warmth, not generic */}
-        {(() => {
-          const character = getCharacter(pack.code);
-          if (!character) return null;
-          const msg = getCelebration(pack.code, tier);
-          return (
-            <Card style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              textAlign: "left",
-              background: "var(--surface)",
-              border: `1px solid var(--border)`,
-              borderLeft: `4px solid ${character.accent}`,
-              marginBottom: 24,
-            }}>
-              <GuideMark code={pack.code} size={46} />
-              <div>
-                <div style={{ fontSize: 12, fontWeight: 800, color: "var(--ink)" }}>{character.name}</div>
-                <div style={{ fontSize: 14, color: "var(--text)", marginTop: 2, lineHeight: 1.4 }}>{msg}</div>
-              </div>
-            </Card>
-          );
-        })()}
         {/* v111 — encouragement that points at something true (engine/encourage.js). */}
         {data.encourage?.milestone && (
           <div className="enc-milestone" role="status" data-testid="enc-milestone">
@@ -2273,7 +2233,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
           const m = data.encourage.memory;
           return (
             <div className="enc-card" data-testid="enc-memory">
-              <div className="eyebrow" style={{ color: "var(--primary-text)" }}>✍️ From memory</div>
+              <div className="eyebrow" style={{ color: "var(--primary-text)" }}>From memory</div>
               <div style={{ fontSize: 15, fontWeight: 700, margin: "4px 0 8px", textAlign: "left" }}>{memoryLine(m.right, m.asked)}</div>
               {m.words.length > 0 && (
                 <div className="enc-words">
@@ -2295,7 +2255,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
           const pct = lv.next ? Math.round(((lv.passes - lv.at) / span) * 100) : 100;
           return (
             <div className="enc-card" data-testid="enc-speaking">
-              <div className="eyebrow" style={{ color: "var(--accent-text)" }}>🎙️ Speaking</div>
+              <div className="eyebrow" style={{ color: "var(--accent-text)" }}>Speaking</div>
               <div style={{ fontSize: 15, fontWeight: 700, margin: "4px 0 8px", textAlign: "left" }}>
                 You spoke {sp.attempts + (sp.said || 0)} {sp.attempts + (sp.said || 0) === 1 ? "time" : "times"}.
                 {sp.attempts > 0 && <> {sp.passed} of the {sp.attempts} I could check landed.</>}
@@ -2313,42 +2273,38 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
             at 320px the Streak card stuck 17px off the screen ("100%" alone
             is wider than a third of it at 32px). It had always been cut off;
             `contain: layout` on <main> hid it from the sideways scroll. */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 10, marginBottom: 24 }}>
-          <Card style={{ marginBottom: 0, background: "var(--surface)", padding: "16px 6px" }}>
-            <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1 }}>XP</div>
-            <div style={{ fontSize: "clamp(22px, 7vw, 32px)", fontWeight: 900, color: "var(--accent-text)" }}>+{data.xp}</div>
-          </Card>
-          <Card style={{ marginBottom: 0, background: "var(--surface)", padding: "16px 6px" }}>
-            <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1 }}>Accuracy</div>
-            <div style={{ fontSize: "clamp(22px, 7vw, 32px)", fontWeight: 900, color: "var(--primary-text)" }}>{data.accuracy}%</div>
-          </Card>
-          <Card style={{ marginBottom: 0, background: "var(--surface)", padding: "16px 6px" }}>
-            <div style={{ fontSize: 11, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: 1 }}>Streak</div>
-            <div style={{ fontSize: "clamp(22px, 7vw, 32px)", fontWeight: 900, color: "var(--danger)" }}>{appState.streak}🔥</div>
-          </Card>
-        </div>
+        <dl className="result-stats">
+          <div>
+            <dt>Accuracy</dt>
+            <dd>{data.accuracy}%</dd>
+          </div>
+          <div>
+            <dt>Days in a row</dt>
+            <dd>{appState.streak}</dd>
+          </div>
+        </dl>
 
         {/* v113: before the reading below — it's the one thing here to DO. */}
         {missedItems.length > 0 && onReviewMistakes && (
-          <Card style={{ background: "var(--surface-hi)", border: "2px solid var(--accent)", marginTop: 8 }}>
+          <Card style={{ background: "var(--surface-hi)", border: "1px solid var(--accent)", marginTop: 8, textAlign: "left" }}>
             <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 4 }}>
               You missed {missedItems.length} word{missedItems.length === 1 ? "" : "s"}
             </div>
             <div style={{ fontSize: 13, color: "var(--text-dim)", marginBottom: 12 }}>
               Reviewing mistakes right away is the fastest way to lock them in.
             </div>
-            <Button onClick={onReviewMistakes} style={{ background: "var(--accent)", color: "#000" }}>
-              🔁 Review my mistakes
+            <Button onClick={onReviewMistakes}>
+              Review my mistakes
             </Button>
           </Card>
         )}
 
         {framework && (
-          <Card style={{ textAlign: "left", background: "var(--surface-hi)", border: "2px dashed var(--accent)" }}>
-            <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 1, marginBottom: 6 }}>
-              ⚡ FRAMEWORK INSIGHT
+          <Card style={{ textAlign: "left", background: "var(--surface)", border: "1px solid var(--border)" }}>
+            <div className="eyebrow" style={{ color: "var(--accent-text)", marginBottom: 6 }}>
+              How {lang.name} works
             </div>
-            <div style={{ fontSize: 16, fontWeight: 800, marginBottom: 6 }}>{framework.title}</div>
+            <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: 18, fontWeight: 500, marginBottom: 6 }}>{framework.title}</div>
             <div style={{ fontSize: 14, color: "var(--text-dim)", lineHeight: 1.5 }}>{framework.body}</div>
           </Card>
         )}
@@ -2358,12 +2314,12 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
         {funFact && (
           <Card style={{
             textAlign: "left",
-            background: "linear-gradient(135deg, rgba(139,127,214,0.10), var(--surface))",
+            background: "var(--surface)",
             border: "1px solid var(--border)",
             marginTop: 12,
           }}>
-            <div style={{ fontSize: 11, color: "var(--purple, #8b7fd6)", fontWeight: 800, letterSpacing: 1, marginBottom: 6 }}>
-              🌍 DID YOU KNOW
+            <div className="eyebrow" style={{ color: "var(--text-mute)", marginBottom: 6 }}>
+              About {lang.name}
             </div>
             <div style={{ fontSize: 14, lineHeight: 1.6, color: "var(--text)" }}>
               {funFact.fact}
@@ -2375,7 +2331,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
             again (a fresh mix from that topic) and the way back to the list. */}
         {topic && (
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 24 }}>
-            <Button variant="secondary" onClick={() => onNavigate("topics")}>🎯 Other topics</Button>
+            <Button variant="secondary" onClick={() => onNavigate("topics")}>Other topics</Button>
             <Button onClick={() => onNavigate("lesson", { mode: "topic", filter: { category: topic }, sessionSize: data.examSize || 8, topic })}>
               Another round of {topic}
             </Button>
@@ -2388,7 +2344,9 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
           scrolling on a phone at the end of every lesson. */}
       <div className="result-bar">
         <div style={{ maxWidth: 720, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-          <Button variant="secondary" onClick={shareResult}>📤 Share</Button>
+          <Button variant="secondary" onClick={shareResult} aria-live="polite">
+            <Icon name="share" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />{shareNote || "Share"}
+          </Button>
           <Button variant={topic ? "secondary" : undefined} onClick={() => onNavigate("home")}>Continue</Button>
         </div>
       </div>
@@ -2479,7 +2437,7 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
     <div className="slide-up" style={{ marginTop: 12 }}>
       <div style={{ textAlign: "center", marginBottom: 12 }}>
         <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 4 }}>
-          ✨ NEW WORDS — TAP TO FLIP
+          New words · tap to flip
         </div>
         <div style={{ fontSize: 12, color: "var(--text-dim)" }}>
           Card {idx + 1} of {items.length}
@@ -2586,7 +2544,7 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
           style={{ marginBottom: 12 }}
           onClick={(e) => { e.stopPropagation(); speak(card.lemma, lang.ttsCode, { audioId: card.id, code: lang.code, translit: card.translit }); }}
         >
-          🔊 Hear it again
+          <Icon name="speaker" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />Hear it again
         </Button>
       )}
 
@@ -2601,17 +2559,17 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
           ← Previous
         </Button>
         <Button onClick={next}>
-          {isLast ? "🚀 Start practice" : "Next →"}
+          {isLast ? "Start practice" : "Next →"}
         </Button>
       </div>
 
       {/* Paged back after seeing them all: the way on is still one tap. */}
       {seenAll && !isLast && (
         <Button
-          style={{ marginTop: 16, background: "var(--accent)", color: "#000", boxShadow: "0 4px 0 #b56305" }}
+          style={{ marginTop: 16 }}
           onClick={onComplete}
         >
-          🚀 Start practice
+          Start practice
         </Button>
       )}
     </div>
@@ -2651,8 +2609,7 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
         </span>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
-        <div style={{ fontSize: 38 }}>{g.emoji}</div>
-        <h1 style={{ fontSize: 22, fontWeight: 900, margin: 0 }}>{g.title}</h1>
+        <h1 style={{ fontSize: 26, margin: 0 }}>{g.title}</h1>
       </div>
 
       <Card style={{ padding: 18, marginBottom: 14 }}>
@@ -2684,7 +2641,7 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
               fontFamily: scriptFont(lang.code),
             }}>
               {ex.native}
-              {voiceAvailable && <span style={{ fontSize: 12, opacity: 0.4, marginLeft: 8 }}>🔊</span>}
+              {voiceAvailable && <Icon name="speaker" size={13} style={{ opacity: 0.45, marginInlineStart: 8, verticalAlign: "-1px" }} />}
             </div>
             <div style={{ fontSize: 13, color: "var(--accent-text)", fontStyle: "italic", marginTop: 3 }}>{ex.translit}</div>
             <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 2 }}>{ex.gloss}</div>
@@ -2728,7 +2685,7 @@ function GrammarMoment({ g, lang, isNonLatin, voiceAvailable, onContinue }) {
               fontSize: 13, color: "var(--text-dim)", marginBottom: 8,
               background: "var(--surface-hi)", borderRadius: 8, padding: "8px 10px", lineHeight: 1.5,
             }}>
-              💡 {check.explain}
+              {check.explain}
             </div>
           )}
         </>
@@ -2995,7 +2952,7 @@ function SpeakMoment({ item, lang, langCode, isNonLatin, character, onDone, onSk
 
           {levelUp && (
             <div className="speak-levelup" role="status" data-testid="speak-levelup">
-              🎙️ Speaking level {levelUp.level} · {levelUp.name} — from now on you'll {levelUp.can}.
+              Speaking level {levelUp.level} · {levelUp.name} — from now on you'll {levelUp.can}.
             </div>
           )}
 

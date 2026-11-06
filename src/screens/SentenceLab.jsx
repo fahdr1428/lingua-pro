@@ -13,7 +13,7 @@
 // =============================================================================
 
 import React, { useState, useMemo } from "react";
-import { Button, Card, Container, ProgressBar } from "../ui/primitives.jsx";
+import { Button, Card, Container, ProgressBar, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript } from "../data/registry.js";
 import { ROLE_COLORS, getPatternForDrop } from "../data/sentencePatterns.js";
 import { speak } from "../audio/tts.js";
@@ -33,7 +33,7 @@ function ChunkTile({ chunk, isNonLatin, rtl, onClick, faded, small }) {
       aria-label={onClick ? `${shown} — ${chunk.gloss}` : undefined}
       style={{
         background: faded ? "var(--surface)" : color.bg,
-        color: faded ? "var(--text-dim)" : "#fff",
+        color: faded ? "var(--text-dim)" : "#f7f3ea",
         border: faded ? "2px dashed var(--border)" : "none",
         borderRadius: 12,
         padding: small ? "8px 12px" : "12px 16px",
@@ -95,7 +95,6 @@ export function SentenceLab({ pack, params, onNavigate, appState, setAppState })
   if (!pattern) {
     return (
       <Container style={{ paddingTop: 60, textAlign: "center" }}>
-        <div style={{ fontSize: 60 }}>🧱</div>
         <h2>Sentence Lab</h2>
         <p style={{ color: "var(--text-dim)" }}>No pattern available right now.</p>
         <Button onClick={() => onNavigate("home")}>Back home</Button>
@@ -127,14 +126,14 @@ export function SentenceLab({ pack, params, onNavigate, appState, setAppState })
   // ends there is no seam — the "extra" cream below it was always going to
   // look identical whether this div drew it or the page did.
   return (
-    <div style={{ background: `linear-gradient(180deg, ${lang.color}18, var(--bg))` }}>
+    <div>
       <Container style={{ paddingTop: 24, paddingBottom: 40 }}>
         {/* progress */}
         <div style={{ marginBottom: 8 }}>
           <ProgressBar value={(stepIdx / (steps.length - 1)) * 100} />
         </div>
         <div style={{ textAlign: "center", fontSize: 12, fontWeight: 800, color: "var(--accent-text)", letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>
-          🧱 Sentence Lab · Drop {dropNumber}
+          Sentence Lab · Drop {dropNumber}
         </div>
         <div style={{ textAlign: "center", fontSize: 14, color: "var(--text-dim)", marginBottom: 20 }}>
           {pattern.skill}
@@ -158,7 +157,7 @@ function SeeStep({ pattern, lang, isNonLatin, rtl, onNext, isExtend }) {
   return (
     <Card style={{ textAlign: "center" }}>
       <div style={{ fontSize: 13, fontWeight: 800, color: "var(--accent-text)", marginBottom: 12 }}>
-        {isExtend ? "✨ Now let's make it longer" : "👀 Look how this sentence is built"}
+        {isExtend ? "Now make it longer" : "How this sentence is built"}
       </div>
       {/* the chunks, in order, color-coded */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", marginBottom: 16, direction: rtl ? "rtl" : "ltr" }}>
@@ -173,11 +172,11 @@ function SeeStep({ pattern, lang, isNonLatin, rtl, onNext, isExtend }) {
         onClick={() => speak(full, lang.ttsCode, { code: lang.code, translit: fullTranslit })}
         style={{ background: "none", border: "1px solid var(--border)", borderRadius: 999, padding: "6px 14px", cursor: "pointer", color: "var(--text)", fontSize: 14, marginTop: 8 }}
       >
-        🔊 Hear it
+        <Icon name="speaker" size={17} style={{ marginRight: 8, verticalAlign: "-3px" }} />Hear it
       </button>
       {pattern.note && (
         <div style={{ marginTop: 16, background: "var(--surface-hi)", borderRadius: 10, padding: 12, fontSize: 13, color: "var(--text-dim)", lineHeight: 1.5 }}>
-          💡 {pattern.note}
+          {pattern.note}
         </div>
       )}
       <RoleLegend roles={pattern.chunks.map((c) => c.role)} />
@@ -219,7 +218,7 @@ function BuildStep({ pattern, lang, isNonLatin, rtl, scaffold, onNext }) {
   return (
     <Card style={{ textAlign: "center" }}>
       <div style={{ fontSize: 13, fontWeight: 800, color: "var(--accent-text)", marginBottom: 6 }}>
-        {scaffold ? "🪜 Build it — tap in order" : "💪 Now build it yourself"}
+        {scaffold ? "Build it — tap in order" : "Now build it yourself"}
       </div>
       <div style={{ fontSize: 15, color: "var(--text-dim)", marginBottom: 16 }}>"{pattern.translation}"</div>
 
@@ -239,7 +238,7 @@ function BuildStep({ pattern, lang, isNonLatin, rtl, scaffold, onNext }) {
           const col = ROLE_COLORS[c.role] || ROLE_COLORS.particle;
           return (
             <div key={`ghost-${i}`} style={{ border: `2px dashed ${col.bg}`, borderRadius: 12, padding: "8px 12px", minWidth: 60, opacity: 0.6 }}>
-              <div style={{ fontSize: 11, color: col.bg, fontWeight: 700 }}>{col.label}</div>
+              <div style={{ fontSize: 11, color: "var(--text-dim)", fontWeight: 700 }}>{col.label}</div>
             </div>
           );
         })}
@@ -265,8 +264,7 @@ function BuildStep({ pattern, lang, isNonLatin, rtl, scaffold, onNext }) {
 
       {complete && (
         <div style={{ marginTop: 8 }} role="status" aria-live="polite">
-          <div style={{ fontSize: 32 }} aria-hidden="true">🎉</div>
-          <div style={{ fontWeight: 800, color: "var(--accent-text)", marginBottom: 12 }}>Perfect word order!</div>
+          <div style={{ fontWeight: 700, color: "var(--primary-text)", marginBottom: 12 }}>✓ Perfect word order</div>
           <Button onClick={onNext}>Continue →</Button>
         </div>
       )}
@@ -296,7 +294,7 @@ function TwistStep({ twist, lang, isNonLatin, rtl, onNext }) {
 
   return (
     <Card style={{ textAlign: "center" }}>
-      <div style={{ fontSize: 13, fontWeight: 800, color: "var(--accent-text)", marginBottom: 6 }}>🎯 Make it your own</div>
+      <div style={{ fontSize: 13, fontWeight: 800, color: "var(--accent-text)", marginBottom: 6 }}>Make it your own</div>
       <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 16, lineHeight: 1.5 }}>{twist.prompt}</div>
       <div style={{
         display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", minHeight: 56, alignItems: "center",
@@ -316,8 +314,7 @@ function TwistStep({ twist, lang, isNonLatin, rtl, onNext }) {
       </div>
       {complete && (
         <div style={{ marginTop: 8 }} role="status" aria-live="polite">
-          <div style={{ fontSize: 32 }} aria-hidden="true">🌟</div>
-          <div style={{ fontWeight: 800, color: "var(--accent-text)", marginBottom: 4 }}>You built that yourself!</div>
+          <div style={{ fontWeight: 700, color: "var(--primary-text)", marginBottom: 4 }}>✓ You built that yourself</div>
           <div style={{ fontSize: 14, color: "var(--text-dim)", marginBottom: 12 }}>"{twist.translation}"</div>
           <Button onClick={onNext}>Finish →</Button>
         </div>
@@ -330,13 +327,13 @@ function TwistStep({ twist, lang, isNonLatin, rtl, onNext }) {
 function DoneStep({ onFinish, skill }) {
   return (
     <Card style={{ textAlign: "center" }}>
-      <div style={{ fontSize: 64, marginBottom: 8 }}>🏗️</div>
-      <h2 style={{ fontSize: 26, fontWeight: 900, margin: "0 0 8px" }}>Sentence built!</h2>
+      <div className="eyebrow" style={{ color: "var(--accent-text)", marginBottom: 10 }}>Sentence Lab</div>
+      <h2 style={{ fontSize: 28, margin: "0 0 8px" }}>Sentence built</h2>
       <p style={{ color: "var(--text-dim)", marginBottom: 8, lineHeight: 1.5 }}>
         You just learned to build: <strong style={{ color: "var(--text)" }}>{skill}</strong>
       </p>
       <p style={{ color: "var(--text-dim)", fontSize: 14, marginBottom: 20 }}>
-        Each Sentence Lab builds on the last — they get a little more complex as you go. +15 XP
+        Each Sentence Lab builds on the last — they get a little more complex as you go.
       </p>
       <Button onClick={onFinish}>Back to learning →</Button>
     </Card>

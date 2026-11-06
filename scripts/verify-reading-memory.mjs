@@ -108,7 +108,7 @@ for (const code of codes) {
     });
     await page.waitForTimeout(700);
     const opened = await page.evaluate(() => {
-      const b = [...document.querySelectorAll("button")].find((x) => /📖/.test(x.innerText || "") && /read some/i.test(x.innerText || ""));
+      const b = document.querySelector('[data-door="reading"]');
       if (b) { b.click(); return true; }
       return false;
     });

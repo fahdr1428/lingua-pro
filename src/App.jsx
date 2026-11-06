@@ -204,8 +204,7 @@ class ErrorBoundary extends React.Component {
       const stale = isChunkError(this.state.error);
       return (
         <div style={{ padding: 40, textAlign: "center", color: "var(--text)" }}>
-          <div style={{ fontSize: 60, marginBottom: 16 }}>{stale ? "🔄" : "😵"}</div>
-          <h2 style={{ fontSize: 24, fontWeight: 800 }}>
+          <h2 style={{ fontSize: 24 }}>
             {stale ? "Zaban just updated" : "Something went wrong"}
           </h2>
           <p style={{ color: "var(--text-dim)", marginBottom: 24, fontSize: 14 }}>
@@ -266,7 +265,10 @@ const DEFAULT_APP_STATE = {
   showRomanization: true,
   sound: true,
   soundEffects: true,  // v30: positive/negative chimes on answers (toggleable)
-  theme: "cream",
+  theme: "ink",
+  // v115: set once the learner has been moved onto Ink (or has picked a theme
+  // themselves), so the move happens exactly once — see the effect below.
+  themeSettled: false,
   sessionSize: 6,
   tutorialSeen: false,
   grammarSeen: {}, // { langCode: [grammarLessonId, ...] } — for in-lesson rotation
@@ -302,6 +304,20 @@ export default function App() {
   const [appState, setAppState, loaded] = usePersistentState("app", DEFAULT_APP_STATE, (saved) => {
     const { state, repaired } = normalizeAppState(saved, DEFAULT_APP_STATE);
     normalizeLanguageLists(state, repaired);
+    // v115 — ONE MOVE TO INK. Cream was the default, so almost everyone "on"
+    // it never chose it; the old Dark palette is retired. Both move to Ink,
+    // once. Anyone who picks a theme in Settings afterwards keeps it.
+    //
+    // It happens HERE, while the save is read, and never as an effect. An
+    // effect calls setAppState, which writes straight to storage: the first
+    // version ran before the save had loaded and wrote a default state over
+    // the learner's real one (back to the welcome screen, streak and language
+    // gone). Done here it writes nothing; the next real save carries it.
+    // verify-theme-migration replays that.
+    if (!state.themeSettled) {
+      state.theme = !state.theme || state.theme === "cream" || state.theme === "dark" ? "ink" : state.theme;
+      state.themeSettled = true;
+    }
     if (repaired.length) {
       console.warn(`[state] reconciled ${repaired.length} field(s) from an older or damaged save:`, repaired.join(", "));
     }
@@ -347,6 +363,7 @@ export default function App() {
   useEffect(() => {
     if (appState?.theme) applyTheme(appState.theme);
   }, [appState?.theme]);
+
 
   // v74: push the learner's voice choice into the audio layer. It lives in
   // module state rather than context so audio can be called from anywhere, so
@@ -672,7 +689,7 @@ export default function App() {
 function CenterMsg({ children }) {
   return (
     <div style={{ textAlign: "center", paddingTop: 100, color: "var(--text-dim)" }}>
-      <img src="/mark-160.webp" alt="Zaban" width="72" height="72" style={{ width: 72, height: 72, objectFit: "contain", margin: "0 auto 20px", display: "block", opacity: 0.9 }} />
+      <img className="brand-mark" src="/mark-160.webp" alt="Zaban" width="72" height="72" style={{ width: 72, height: 72, objectFit: "contain", margin: "0 auto 20px", display: "block", opacity: 0.9 }} />
       {children}
     </div>
   );
@@ -696,32 +713,26 @@ function Tutorial({ onDone, langName }) {
   const [step, setStep] = React.useState(0);
   const steps = [
     {
-      emoji: "📚",
       title: "Short lessons, every day",
       body: `Each lesson introduces a few new words, then tests them several ways — picking, listening, spelling, building sentences. The most useful ${langName} words come first, so even a week gets you something you can actually use.`,
     },
     {
-      emoji: "⏩",
       title: "Already know some? Skip it",
       body: "You don't have to start at hello. From the home screen you can take a chapter test and jump straight past anything you already know — pass it and those words are marked as known instead of taught from scratch.",
     },
     {
-      emoji: "🗣️",
       title: "Say things out loud",
       body: "The app listens. It's deliberately lenient: if a native speaker would understand you, that's a pass, and an accent is never a mistake. No microphone, or not somewhere you can talk? Type instead — it's graded the same.",
     },
     {
-      emoji: "🎭",
       title: "Real situations, not just words",
       body: "Missions are conversations with something at stake — order without switching to English, argue a refund, get through an interview. You choose who you're up against, and afterwards you get every line you said with a native version beside it.",
     },
     {
-      emoji: "🌍",
       title: "The version people actually speak",
       body: `Courses teach the standard form. Streets don't use it. Pick the variety you're learning for and ${langName === "Arabic" ? "you'll see what Cairo or Beirut or the Gulf actually says" : "you'll see the local forms alongside the standard ones"} — and your guide will speak it too.`,
     },
     {
-      emoji: "⚙️",
       title: "Make it fit you",
       body: "In Settings you can change the voice that talks to you and how fast it speaks, choose your dialect, set the daily goal and lesson length, and switch off any question type that gets in your way rather than pushing you.",
     },
@@ -732,8 +743,8 @@ function Tutorial({ onDone, langName }) {
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: 24, maxWidth: 480, margin: "0 auto" }}>
       <div style={{ textAlign: "center" }}>
-        <div style={{ fontSize: 64, marginBottom: 16 }}>{s.emoji}</div>
-        <h1 style={{ fontSize: 26, fontWeight: 900, marginBottom: 12 }}>{s.title}</h1>
+        <div className="step-count" aria-hidden="true">{String(step + 1).padStart(2, "0")} <span>/ {String(steps.length).padStart(2, "0")}</span></div>
+        <h1 style={{ fontSize: 30, marginBottom: 12, lineHeight: 1.15 }}>{s.title}</h1>
         <p style={{ fontSize: 15, color: "var(--text-dim)", lineHeight: 1.6, marginBottom: 28 }}>{s.body}</p>
       </div>
 
@@ -755,7 +766,7 @@ function Tutorial({ onDone, langName }) {
         onClick={() => (isLast ? onDone() : setStep(step + 1))}
         style={{
           background: "var(--primary)",
-          color: "#fff",
+          color: "var(--on-primary)",
           border: "none",
           borderRadius: 14,
           padding: "16px",

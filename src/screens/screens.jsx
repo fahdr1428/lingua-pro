@@ -4,13 +4,13 @@
 // =============================================================================
 
 import React, { useState, useEffect, useMemo } from "react";
-import { Button, Card, ProgressBar, TopBar, Container } from "../ui/primitives.jsx";
+import { Button, Card, ProgressBar, TopBar, Container, Icon, NativeName } from "../ui/primitives.jsx";
 import { listLanguages, LANGUAGES, scriptFont } from "../data/registry.js";
 import { speak } from "../audio/tts.js";
 import { pickFunFact } from "../data/funFacts.js";
 import { HeroBackdrop } from "../ui/HeroBackdrop.jsx";
 import { masteryLevel, retrievability } from "../engine/srs.js";
-import { THEMES } from "../ui/themes.js";
+import { THEMES, resolveTheme } from "../ui/themes.js";
 import { VoiceSettings, DialectSettings } from "./VoiceSettings.jsx";
 import { ExerciseSettings } from "./ExerciseSettings.jsx";
 import { getCharacter, getGreeting } from "../data/characters.js";
@@ -83,6 +83,7 @@ export function Onboarding({ onComplete }) {
       <div className="home-wash">
         <Container style={{ paddingTop: "14vh", textAlign: "center" }}>
           <img
+            className="brand-mark"
             src="/logo-560.webp"
             alt="Zaban"
             width="551"
@@ -91,7 +92,7 @@ export function Onboarding({ onComplete }) {
             style={{ width: "min(260px, 66vw)", height: "auto", margin: "0 auto 8px", display: "block" }}
           />
           <p style={{ fontSize: 17, color: "var(--text-dim)", maxWidth: 380, margin: "0 auto 36px", lineHeight: 1.6 }}>
-            Learn the languages the world ignores. Real grammar frameworks. Adaptive spaced repetition. No fluff.
+            Twenty-one languages, from the first words to a real conversation. Words come back just before you'd forget them. Free, and it works offline.
           </p>
           <Button onClick={() => setStep(1)}>Get started</Button>
         </Container>
@@ -104,7 +105,7 @@ export function Onboarding({ onComplete }) {
       <div className="home-wash">
         <Container>
           <div className="eyebrow" style={{ marginTop: 24 }}>Step 1 of 3</div>
-          <h2 style={{ fontSize: 27, fontWeight: 600, marginTop: 6, marginBottom: 4 }}>Pick a language</h2>
+          <h2 style={{ fontSize: 27, marginTop: 6, marginBottom: 4 }}>Pick a language</h2>
           <p style={{ color: "var(--text-dim)", marginBottom: 22, fontSize: 14 }}>Start with one. Add more later.</p>
           <div className="stagger" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
             {listLanguages().map((lang) => {
@@ -125,9 +126,11 @@ export function Onboarding({ onComplete }) {
                     boxShadow: selected ? "var(--shadow-deep)" : "var(--shadow-card)",
                   }}
                 >
-                  <div style={{ fontSize: 32, marginBottom: 6 }}>{lang.flag}</div>
-                  <div style={{ fontWeight: 800, fontSize: 15, color: "var(--ink)" }}>{lang.name}</div>
-                  <div lang={lang.code} dir={lang.rtl ? "rtl" : "ltr"} style={{ fontSize: 13, color: "var(--text-dim)", fontFamily: scriptFont(lang.code), textAlign: lang.rtl ? "right" : "left" }}>{lang.nativeName}</div>
+                  {/* The language's own name, in its own script, is the picture —
+                      not a flag: Urdu, Arabic, Tamil and Punjabi are each the
+                      language of more than one country. */}
+                  <div className="lang-native" lang={lang.code} dir={lang.rtl ? "rtl" : "ltr"} style={{ fontFamily: scriptFont(lang.code, '"Fraunces", Georgia, serif'), textAlign: lang.rtl ? "right" : "left" }}>{lang.nativeName}</div>
+                  <div style={{ fontWeight: 600, fontSize: 14.5, color: "var(--text)", marginTop: 6 }}>{lang.name}</div>
                   {courseInfo?.COURSES?.[lang.code] && (
                     <div className="lang-script" style={{ fontSize: 11.5, color: "var(--text-mute)", marginTop: 4, lineHeight: 1.35 }}>
                       {courseInfo.SCRIPTS[courseInfo.COURSES[lang.code].script]?.name}{lang.rtl ? " · right to left" : ""}
@@ -146,7 +149,7 @@ export function Onboarding({ onComplete }) {
                         fontWeight: 800,
                       }}
                     >
-                      ✦ Rare find
+                      Rarely taught
                     </div>
                   )}
                 </button>
@@ -177,7 +180,7 @@ export function Onboarding({ onComplete }) {
       <div className="home-wash">
         <Container>
           <div className="eyebrow" style={{ marginTop: 24 }}>Step 3 of 3</div>
-          <h2 style={{ fontSize: 27, fontWeight: 600, marginTop: 6, marginBottom: 4 }}>Before you start</h2>
+          <h2 style={{ fontSize: 27, marginTop: 6, marginBottom: 4 }}>Before you start</h2>
           <p style={{ color: "var(--text-dim)", marginBottom: 20, fontSize: 14, lineHeight: 1.6 }}>
             Two quick things. Your progress is stored on this device only — there's
             no account, we don't have a copy of it, and we never ask for your name
@@ -241,7 +244,7 @@ export function Onboarding({ onComplete }) {
     <div className="home-wash">
       <Container>
         <div className="eyebrow" style={{ marginTop: 24 }}>Step 2 of 3</div>
-        <h2 style={{ fontSize: 27, fontWeight: 600, marginTop: 6, marginBottom: 4 }}>Daily goal</h2>
+        <h2 style={{ fontSize: 27, marginTop: 6, marginBottom: 4 }}>Daily goal</h2>
         <p style={{ color: "var(--text-dim)", marginBottom: 22, fontSize: 14 }}>You can change this anytime.</p>
         <div className="stagger">
           {goals.map((g) => {
@@ -303,7 +306,7 @@ export function Letters({ pack, appState, onNavigate }) {
       <TopBar streak={appState.streak} gems={appState.gems} hearts={appState.hearts} totalXp={appState.totalXp} premium={appState.isPremium} />
       <Container>
         <Button variant="ghost" onClick={() => goBack(onNavigate, "home")}>← Back</Button>
-        <h2 style={{ fontSize: 28, fontWeight: 900, margin: "8px 0 4px" }}>Letters & Sounds</h2>
+        <h2 style={{ fontSize: 28, margin: "8px 0 4px" }}>Letters & Sounds</h2>
         <p style={{ color: "var(--text-dim)", marginBottom: 20 }}>
           Tap any letter to hear it. Listen, repeat, master the sounds before words.
         </p>
@@ -342,7 +345,7 @@ export function Letters({ pack, appState, onNavigate }) {
             <div style={{ fontSize: 22, fontWeight: 800 }}>{selected.name} ({selected.char})</div>
             <div style={{ marginTop: 8, fontSize: 14 }}><strong>Sound:</strong> {selected.sound}</div>
             <Button style={{ marginTop: 14 }} onClick={() => speak(selected.char, lang.ttsCode, { code: pack.code, translit: selected.name })}>
-              🔊 Hear again
+              <Icon name="speaker" /> Hear again
             </Button>
           </Card>
         )}
@@ -419,7 +422,7 @@ export function Vocab({ engine, pack, appState, onNavigate }) {
     <div>
       <TopBar streak={appState.streak} gems={appState.gems} hearts={appState.hearts} totalXp={appState.totalXp} premium={appState.isPremium} />
       <Container style={{ maxWidth: 560 }}>
-        <h2 style={{ fontSize: 26, fontWeight: 600, marginTop: 8, marginBottom: 2 }}>Vocabulary</h2>
+        <h2 style={{ fontSize: 26, marginTop: 8, marginBottom: 2 }}>Vocabulary</h2>
         <p style={{ fontSize: 13, color: "var(--text-dim)", marginBottom: 16 }}>{all.length} words · {filtered.length} shown</p>
         <input
           value={search}
@@ -486,7 +489,7 @@ export function Vocab({ engine, pack, appState, onNavigate }) {
                         flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center",
                       }}
                     >
-                      🔊
+                      <Icon name="speaker" size={16} />
                     </button>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
@@ -604,13 +607,14 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
             style={{
               position: "absolute", top: 14, right: 14,
               background: "var(--surface-hi)", border: "1px solid var(--border)",
-              borderRadius: 999, width: 38, height: 38, fontSize: 16, cursor: "pointer",
+              borderRadius: 999, width: 44, height: 44, cursor: "pointer", color: "var(--text-dim)",
+              display: "flex", alignItems: "center", justifyContent: "center",
             }}
           >
-            ⚙️
+            <Icon name="settings" size={18} />
           </button>
-          <div style={{ fontSize: 52 }}>{lang.flag}</div>
-          <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: 22, fontWeight: 600, marginTop: 8, color: "var(--ink)" }}>Learning {lang.name}</div>
+          <div className="profile-native" lang={pack.code} dir={lang.rtl ? "rtl" : "ltr"} style={{ fontFamily: scriptFont(pack.code, '"Fraunces", Georgia, serif') }}>{lang.nativeName}</div>
+          <div style={{ fontFamily: '"Fraunces", Georgia, serif', fontSize: 20, fontWeight: 500, marginTop: 8, color: "var(--ink)" }}>Learning {lang.name}</div>
           <div style={{ color: "var(--text-dim)", fontSize: 13.5, marginTop: 2 }}>{lang.tagline}</div>
         </div>
 
@@ -626,7 +630,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
             <div className="stat-label">Minutes</div>
           </div>
           <div className="stat-cell">
-            <div className="stat-value">{appState.streak} <span className={appState.streak >= 3 ? "flame-alive" : ""}>🔥</span></div>
+            <div className="stat-value">{appState.streak}</div>
             <div className="stat-label">Day streak</div>
           </div>
         </div>
@@ -691,7 +695,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
               <div key={u.id} style={{ marginBottom: 10 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
                   <div style={{ fontSize: 13, fontWeight: 700 }}>
-                    {u.emoji} {u.title}
+                    {u.title}
                   </div>
                   <div style={{ fontSize: 12, color: "var(--text-dim)" }}>
                     {u.learned}/{u.total}
@@ -711,7 +715,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
           return (
             <Card>
               <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 12 }}>
-                <div style={{ fontSize: 40 }}>{lv.emoji}</div>
+                <div className="level-numeral" aria-hidden="true">{lv.level}</div>
                 <div style={{ flex: 1 }}>
                   <div className="eyebrow">Level {lv.level}</div>
                   <div style={{ fontSize: 20, fontWeight: 800, color: "var(--ink)" }}>{lv.name}</div>
@@ -726,7 +730,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
                 </>
               ) : (
                 <div style={{ fontSize: 13, color: "var(--accent-text)", fontWeight: 700 }}>
-                  Top level reached — remarkable dedication.
+                  The top of the ladder.
                 </div>
               )}
             </Card>
@@ -745,7 +749,7 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
               borderBottom: i < arr.length - 1 ? "1px solid var(--border)" : "none",
               opacity: m.done ? 0.6 : 1,
             }}>
-              <div style={{ fontSize: 22 }}>{m.done ? "✅" : m.emoji}</div>
+              <div style={{ width: 22, display: "flex", justifyContent: "center", color: m.done ? "var(--primary-text)" : "var(--text-mute)" }}>{m.done ? <Icon name="check" size={18} /> : <Icon name="dot" size={14} />}</div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 14, fontWeight: 700, textDecoration: m.done ? "line-through" : "none" }}>
                   {m.label}
@@ -762,23 +766,31 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
         </Card>
 
         {/* BADGES — real capabilities & honest consistency */}
-        <h3 className="eyebrow" style={{ marginTop: 8, marginBottom: 12 }}>Badges</h3>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+        <h3 className="eyebrow" style={{ marginTop: 8, marginBottom: 12 }}>Milestones</h3>
+        <Card style={{ padding: "4px 16px" }}>
           {(() => {
             const ctx = { stats, appState, pack };
             const earned = new Set(earnedBadges(ctx).map((b) => b.id));
-            return BADGES.map((b) => {
+            return BADGES.map((b, i) => {
               const has = earned.has(b.id);
               return (
-                <Card key={b.id} style={{ marginBottom: 0, textAlign: "center", opacity: has ? 1 : 0.3, padding: 14 }}>
-                  <div style={{ fontSize: 30, filter: has ? "none" : "grayscale(1)" }}>{b.emoji}</div>
-                  <div style={{ fontSize: 11, fontWeight: 800, marginTop: 4 }}>{b.name}</div>
-                  <div style={{ fontSize: 9, color: "var(--text-dim)", marginTop: 2, lineHeight: 1.3 }}>{b.desc}</div>
-                </Card>
+                <div key={b.id} style={{
+                  display: "flex", alignItems: "center", gap: 12, padding: "11px 0",
+                  borderBottom: i < BADGES.length - 1 ? "1px solid var(--border)" : "none",
+                }}>
+                  <div style={{ width: 22, display: "flex", justifyContent: "center", color: has ? "var(--accent-text)" : "var(--text-mute)" }}>
+                    {has ? <Icon name="check" size={18} /> : <Icon name="dot" size={14} />}
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: has ? "var(--text)" : "var(--text-dim)" }}>{b.name}</div>
+                    <div style={{ fontSize: 12.5, color: "var(--text-mute)", marginTop: 2, lineHeight: 1.4 }}>{b.desc}</div>
+                  </div>
+                  <span className="sr-only">{has ? "done" : "not yet"}</span>
+                </div>
               );
             });
           })()}
-        </div>
+        </Card>
 
         {/* PROGRESSION PATH — capability journey, not just numbers.
             Shows what the learner can now actually DO. Healthy motivation. */}
@@ -831,13 +843,13 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
                     fontSize: 20,
                     filter: m.reached ? "none" : "grayscale(1)",
                   }}>
-                    {m.reached ? m.emoji : "🔒"}
+                    {m.reached ? <Icon name="check" size={18} /> : <Icon name="lock" size={16} />}
                   </div>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                       <span style={{ fontSize: 14, fontWeight: 800 }}>{m.label}</span>
                       {m.reached && (
-                        <span style={{ fontSize: 11, color: "var(--primary-text)", fontWeight: 700 }}>✓ reached</span>
+                        <span style={{ fontSize: 11, color: "var(--primary-text)", fontWeight: 600 }}>reached</span>
                       )}
                     </div>
                     <div style={{ fontSize: 12, color: "var(--text-dim)", marginTop: 2, lineHeight: 1.4 }}>
@@ -851,49 +863,9 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
         </Card>
 
         <Button variant="secondary" style={{ marginTop: 16 }} onClick={onSwitchLanguage}>
-          🔁 Switch language
+          Switch language
         </Button>
 
-        {!appState.isPremium && (
-          <Card className="glass-gradient" style={{ marginTop: 16, color: "#000" }}>
-            {/* v79: this used to lead with "Unlimited hearts". Hearts are no
-                longer spent on wrong answers, so that was selling relief from a
-                penalty that doesn't exist — and it was never true even before,
-                because hearts gated nothing. Nothing here is charged for a
-                mistake, and the pitch shouldn't imply otherwise. */}
-            <div style={{ fontSize: 18, fontWeight: 900 }}>✨ Zaban Plus</div>
-            <div style={{ fontSize: 14, marginTop: 4, marginBottom: 12 }}>
-              No ads • Support the languages nobody else builds for
-            </div>
-            {/* v81: "Offline mode" used to lead this list, and there was no
-                service worker — the app was entirely online-only. It works
-                offline for everyone now, which means it is not something to
-                sell; it has moved to the line below, as a fact. */}
-            <div style={{ fontSize: 11.5, marginBottom: 12, opacity: 0.8 }}>
-              Every lesson, every word and every exercise stays free — and works
-              offline. We don't charge you for getting something wrong.
-            </div>
-            <button
-              style={{
-                background: "#000",
-                // --accent, not --accent-text: this one sits on BLACK, where the
-                // bright amber is the readable choice and the darkened text
-                // variant is the unreadable one. The v80 sweep swapped it
-                // blindly and made this button worse; the audit caught it.
-                color: "var(--accent)",
-                border: "none",
-                borderRadius: 10,
-                padding: "10px 20px",
-                fontWeight: 800,
-                cursor: "pointer",
-                width: "100%",
-              }}
-              onClick={() => onNavigate("upgrade")}
-            >
-              Try free for 7 days
-            </button>
-          </Card>
-        )}
       </Container>
     </div>
   );
@@ -918,7 +890,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
     <div>
       <TopBar streak={appState.streak} gems={appState.gems} hearts={appState.hearts} totalXp={appState.totalXp} premium={appState.isPremium} />
       <Container>
-        <h2 style={{ fontSize: 26, fontWeight: 900, marginTop: 8 }}>Settings</h2>
+        <h2 style={{ fontSize: 26, marginTop: 8 }}>Settings</h2>
         <Card>
           <Row
             label="Daily goal"
@@ -1003,11 +975,12 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
         <h3 className="eyebrow" style={{ marginTop: 24, marginBottom: 12 }}>Theme</h3>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 16 }}>
           {Object.entries(THEMES).map(([key, theme]) => {
-            const isSelected = (appState.theme || "cream") === key;
+            const isSelected = resolveTheme(appState.theme) === key;
             return (
               <button
                 key={key}
-                onClick={() => setAppState((s) => ({ ...s, theme: key }))}
+                aria-pressed={isSelected}
+                onClick={() => setAppState((s) => ({ ...s, theme: key, themeSettled: true }))}
                 style={{
                   background: theme.vars["--surface"],
                   border: `1.5px solid ${isSelected ? theme.vars["--primary"] : theme.vars["--border"]}`,
@@ -1021,7 +994,12 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
                   boxShadow: isSelected ? theme.vars["--shadow-deep"] || "var(--shadow-card)" : "none",
                 }}
               >
-                <div style={{ fontSize: 28, marginBottom: 4 }}>{theme.emoji}</div>
+                {/* The palette itself, not a picture of a mood: ground, surface, accent. */}
+                <div aria-hidden="true" style={{ display: "flex", justifyContent: "center", gap: 4, marginBottom: 8 }}>
+                  {["--bg", "--surface-hi", "--accent"].map((v) => (
+                    <span key={v} style={{ width: 18, height: 18, borderRadius: 6, background: theme.vars[v], border: `1px solid ${theme.vars["--border"]}` }} />
+                  ))}
+                </div>
                 <div style={{ fontSize: 13, fontWeight: 800, marginBottom: 2 }}>{theme.name}</div>
                 <div style={{ fontSize: 10, opacity: 0.7, lineHeight: 1.3 }}>{theme.description}</div>
                 {isSelected && (
@@ -1030,7 +1008,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
                     top: 6,
                     right: 6,
                     background: theme.vars["--primary"],
-                    color: "#fff",
+                    color: theme.vars["--on-primary"],
                     borderRadius: "50%",
                     width: 20,
                     height: 20,
@@ -1040,7 +1018,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
                     justifyContent: "center",
                     fontWeight: 800,
                   }}>
-                    ✓
+                    <Icon name="check" size={13} />
                   </div>
                 )}
               </button>
@@ -1053,7 +1031,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
           style={{ marginBottom: 12 }}
           onClick={() => setAppState((s) => ({ ...s, tutorialSeen: false }))}
         >
-          📖 Show the tutorial again
+          Show the tutorial again
         </Button>
 
         <Button
@@ -1061,7 +1039,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
           style={{ marginBottom: 12 }}
           onClick={() => onNavigate && onNavigate("testout")}
         >
-          🎯 Test out (skip ahead if you already know it)
+          Test out (skip ahead if you already know it)
         </Button>
 
         {/* v81 — offline. The course is already local; this makes the audio local
@@ -1075,7 +1053,7 @@ export function Settings({ appState, setAppState, onResetAll, onNavigate, pack, 
             without a tour. */}
         <PrivacyAndAi appState={appState} setAppState={setAppState} onNavigate={onNavigate} onResetAll={onResetAll} />
         <Card style={{ marginTop: 16, fontSize: 12, color: "var(--text-mute)", textAlign: "center" }}>
-          <img src="/mark-160.webp" alt="Zaban" width="48" height="48" style={{ width: 48, height: 48, objectFit: "contain", margin: "0 auto 8px", display: "block", opacity: 0.85 }} />
+          <img className="brand-mark" src="/mark-160.webp" alt="Zaban" width="48" height="48" style={{ width: 48, height: 48, objectFit: "contain", margin: "0 auto 8px", display: "block", opacity: 0.85 }} />
           <div style={{ fontWeight: 800, fontSize: 15, color: "var(--text-dim)", marginBottom: 2 }}>Zaban</div>
           Built with love for the languages the world forgets.
           <div style={{ marginTop: 4, fontStyle: "italic" }}>Language connects us.</div>
@@ -1227,89 +1205,26 @@ function Row({ label, sub, control }) {
 // UPGRADE
 // =============================================================================
 
-export function Upgrade({ appState, setAppState, onNavigate }) {
+export function Upgrade({ appState, onNavigate }) {
+  // v115 — THIS SCREEN USED TO SELL THINGS THAT DON'T EXIST. Its price buttons
+  // set isPremium without taking a payment, under "Unlimited hearts — never get
+  // blocked mid-lesson" (hearts block nothing), "No ads" (there are none),
+  // "Advanced stats" and "Custom study lists" (neither exists). There is no paid
+  // plan, so the screen says so, and what is true instead.
   return (
     <div>
-      <TopBar streak={appState.streak} gems={appState.gems} hearts={appState.hearts} totalXp={appState.totalXp} premium={appState.isPremium} />
+      <TopBar streak={appState.streak} />
       <Container>
         <Button variant="ghost" onClick={() => goBack(onNavigate, "profile")}>← Back</Button>
-        <div style={{ textAlign: "center", marginTop: 20 }}>
-          <div style={{ fontSize: 60 }}>✨</div>
-          <h1 style={{ fontSize: 32, fontWeight: 900, margin: "8px 0" }}>Zaban Plus</h1>
-          <p style={{ color: "var(--text-dim)" }}>Unlock everything. Support development.</p>
+        <div style={{ marginTop: 24, maxWidth: 560 }}>
+          <div className="eyebrow">Zaban</div>
+          <h1 style={{ fontSize: 32, margin: "8px 0 12px", lineHeight: 1.15 }}>Everything here is free</h1>
+          <p style={{ color: "var(--text-dim)", lineHeight: 1.6 }}>
+            There's no paid plan. Every course, lesson and exercise is open, works offline, and nothing is
+            taken away for a wrong answer. The AI conversations depend on whether this deployment has them
+            switched on; where it does, they're free too.
+          </p>
         </div>
-        <Card style={{ background: "linear-gradient(135deg, var(--purple), var(--surface))", marginTop: 24 }}>
-          {[
-            ["❤️", "Unlimited hearts", "Never get blocked mid-lesson"],
-            // v81: offline is free for everyone, so it is no longer a premium
-            // line. It was listed here for releases while no service worker
-            // existed at all.
-            ["🎧", "Every recording, saved", "Download a language for a journey"],
-            ["🚫", "No ads", "Pure focus"],
-            ["📊", "Advanced stats", "See exactly where you're improving"],
-            ["🎯", "Custom study lists", "Build vocab decks for trips, exams, work"],
-            ["💖", "Support a tiny indie team", "You make this exist"],
-          ].map(([emoji, title, desc]) => (
-            <div key={title} style={{ display: "flex", gap: 14, marginBottom: 14, alignItems: "flex-start" }}>
-              <div style={{ fontSize: 24 }}>{emoji}</div>
-              <div>
-                <div style={{ fontWeight: 800 }}>{title}</div>
-                <div style={{ fontSize: 13, opacity: 0.85 }}>{desc}</div>
-              </div>
-            </div>
-          ))}
-        </Card>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 16 }}>
-          <button
-            style={{
-              background: "var(--surface)",
-              border: "2px solid var(--border)",
-              borderRadius: "var(--radius-lg)",
-              padding: 20,
-              cursor: "pointer",
-              color: "var(--text)",
-            }}
-            onClick={() => setAppState((s) => ({ ...s, isPremium: true }))}
-          >
-            <div style={{ fontSize: 12, color: "var(--text-dim)" }}>Monthly</div>
-            <div style={{ fontSize: 22, fontWeight: 900 }}>£6.99</div>
-            <div style={{ fontSize: 11, color: "var(--text-dim)" }}>Cancel anytime</div>
-          </button>
-          <button
-            style={{
-              background: "linear-gradient(135deg, rgba(251,191,36,0.15), var(--surface))",
-              border: "2px solid var(--accent)",
-              borderRadius: "var(--radius-lg)",
-              padding: 20,
-              cursor: "pointer",
-              color: "var(--text)",
-              position: "relative",
-            }}
-            onClick={() => setAppState((s) => ({ ...s, isPremium: true }))}
-          >
-            <div
-              style={{
-                position: "absolute",
-                top: -10,
-                right: 10,
-                background: "var(--accent)",
-                color: "#000",
-                fontSize: 10,
-                padding: "3px 8px",
-                borderRadius: 999,
-                fontWeight: 800,
-              }}
-            >
-              SAVE 40%
-            </div>
-            <div style={{ fontSize: 12, color: "var(--text-dim)" }}>Yearly</div>
-            <div style={{ fontSize: 22, fontWeight: 900 }}>£49.99</div>
-            <div style={{ fontSize: 11, color: "var(--text-dim)" }}>£4.16/month</div>
-          </button>
-        </div>
-        <p style={{ fontSize: 11, color: "var(--text-mute)", textAlign: "center", marginTop: 20 }}>
-          (Demo button — wire to Stripe/RevenueCat for real billing. See README.)
-        </p>
       </Container>
     </div>
   );

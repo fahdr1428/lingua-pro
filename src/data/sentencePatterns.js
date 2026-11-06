@@ -2437,15 +2437,15 @@ export const SENTENCE_PATTERNS = {
 
 // Color for each grammatical role (used by the Sentence Lab UI for chunks).
 export const ROLE_COLORS = {
-  subject:   { bg: "#3b82f6", label: "who" },       // blue
-  verb:      { bg: "#ef4444", label: "action" },    // red
-  object:    { bg: "#10b981", label: "what" },      // green
-  time:      { bg: "#f59e0b", label: "when" },      // amber
-  negation:  { bg: "#8b5cf6", label: "not" },       // purple
-  question:  { bg: "#ec4899", label: "question" },  // pink
-  particle:  { bg: "#6b7280", label: "particle" },  // gray
-  adjective: { bg: "#14b8a6", label: "describe" },  // teal
-  connector: { bg: "#a16207", label: "connector" }, // brown
+  subject:   { bg: "#3f6a8c", label: "who" },       // blue
+  verb:      { bg: "#9c4a42", label: "action" },    // red
+  object:    { bg: "#3b7357", label: "what" },      // green
+  time:      { bg: "#7f6128", label: "when" },      // amber
+  negation:  { bg: "#66578a", label: "not" },       // purple
+  question:  { bg: "#8a4a66", label: "question" },  // pink
+  particle:  { bg: "#59605c", label: "particle" },  // gray
+  adjective: { bg: "#33716c", label: "describe" },  // teal
+  connector: { bg: "#7a5a34", label: "connector" }, // brown
 };
 
 // Does a language have sentence patterns yet?

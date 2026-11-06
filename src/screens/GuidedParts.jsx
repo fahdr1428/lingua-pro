@@ -11,7 +11,7 @@
 // =============================================================================
 
 import React from "react";
-import { Button } from "../ui/primitives.jsx";
+import { Button, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
 import { speak, hasVoiceFor } from "../audio/tts.js";
 import { PHASES } from "../engine/guided.js";
@@ -47,7 +47,7 @@ export function NativeLine({ code, line, who = null, size = "md" }) {
           aria-label={`Hear: ${line.en || line.translit || "this line"}`}
           onClick={() => speak(line.text, lang.ttsCode, { code, translit: line.translit })}
         >
-          🔊
+          <Icon name="speaker" size={16} />
         </button>
       )}
     </div>
@@ -79,7 +79,7 @@ export function ObjectivesCard({ ex, code, onContinue }) {
   return (
     <div className="g-card" data-testid="guided-objectives">
       <div className="g-eyebrow">
-        {ex.module.emoji ? `${ex.module.emoji} ` : ""}Module {ex.module.index + 1} · {ex.module.title}
+        Module {ex.module.index + 1} · {ex.module.title}
       </div>
       <h2 className="g-title">{ex.lesson.title}</h2>
       <p className="g-lead">By the end of this lesson you'll be able to:</p>

@@ -12,10 +12,18 @@ thing to be bad at. Every decision below is downstream of that.
 
 ## Overview
 
-**Warm, literary, unhurried.** Not a productivity tool and not a game. The
-nearest reference is a well-made paperback rather than a dashboard — cream
-paper, a serif for the things that matter, generous line height, and no
-scoreboard shouting at you.
+**Quiet, literary, serious.** Not a productivity tool and not a game. The
+default theme, Ink, is a near-black with a green cast, ivory type and one
+muted brass accent, under a faint film grain — closer to a well-bound book
+read at night than to a dashboard. A serif for the things that matter,
+generous line height, and no scoreboard shouting at you. Paper (the old
+cream) and Ocean remain as light themes.
+
+**No emoji in the interface.** Icons are one line-drawn set
+(`Icon` in `src/ui/primitives.jsx`, 1.75 stroke, `currentColor`); a
+language is shown by its own name in its own script, never a flag; results
+are set in type (a score, a sentence), not trophies. Typographic marks
+(✓, ✕, →) are text, not pictures, and stay.
 
 **What this is not.** No streak-shaming, no red crosses, no leaderboard, no
 confetti for its own sake. The app deliberately removed the ✗ mark on wrong
@@ -41,64 +49,73 @@ gradient grounds rather than skipping them.
 
 #### Ground & surfaces
 
-| Token | cream | dark | ocean |
+| Token | ink | cream | ocean |
 |---|---|---|---|
-| `--bg` | `#fbf7f0` | `#0b0d12` | `#f0f7fb` |
-| `--bg-alt` | `#f5efe2` | `#11141d` | `#e1eef6` |
-| `--surface` | `#ffffff` | `#181c28` | `#ffffff` |
-| `--surface-hi` | `#f7f1e3` | `#232839` | `#dceaf3` |
-| `--glass` | `rgba(255,255,255,0.78)` | `rgba(30,35,50,0.82)` | `rgba(255,255,255,0.80)` |
-| `--raised` | `#ffffff` | `#1e2332` | `#ffffff` |
-| `--raised-soft` | `rgba(255,255,255,0.7)` | `rgba(30,35,50,0.7)` | `rgba(255,255,255,0.72)` |
-| `--border` | `#e8dfca` | `#2a3148` | `#bdd7e7` |
+| `--bg` | `#0d1211` | `#fbf7f0` | `#f0f7fb` |
+| `--bg-alt` | `#111816` | `#f5efe2` | `#e1eef6` |
+| `--surface` | `#151d1b` | `#ffffff` | `#ffffff` |
+| `--surface-hi` | `#1c2522` | `#f7f1e3` | `#dceaf3` |
+| `--glass` | `rgba(17,24,22,0.86)` | `rgba(255,255,255,0.78)` | `rgba(255,255,255,0.80)` |
+| `--raised` | `#18211e` | `#ffffff` | `#ffffff` |
+| `--raised-soft` | `rgba(24,33,30,0.72)` | `rgba(255,255,255,0.7)` | `rgba(255,255,255,0.72)` |
+| `--border` | `#26312d` | `#e8dfca` | `#bdd7e7` |
 
 #### Text
 
-| Token | cream | dark | ocean |
+| Token | ink | cream | ocean |
 |---|---|---|---|
-| `--text` | `#1d1a14` | `#f1f3f8` | `#0c2233` |
-| `--text-dim` | `#6b6356` | `#9aa3b8` | `#456678` |
-| `--text-mute` | `#655f52` | `#949aac` | `#4e6270` |
-| `--accent-text` | `#a55a05` | `#fbbf24` | `#9b580a` |
-| `--primary-text` | `#2e794d` | `#22c55e` | `#0e6e8c` |
-| `--danger-text` | `#a5281b` | `#f87171` | `#a5281b` |
+| `--text` | `#ece6d8` | `#1d1a14` | `#0c2233` |
+| `--text-dim` | `#b3ac9d` | `#6b6356` | `#456678` |
+| `--text-mute` | `#958f82` | `#655f52` | `#4e6270` |
+| `--accent-text` | `#d4b47a` | `#a55a05` | `#9b580a` |
+| `--primary-text` | `#8fc3a2` | `#2e794d` | `#0e6e8c` |
+| `--danger-text` | `#ee8f80` | `#a5281b` | `#a5281b` |
 
 #### Primary action
 
-| Token | cream | dark | ocean |
+| Token | ink | cream | ocean |
 |---|---|---|---|
-| `--primary` | `#2f7d4f` | `#22c55e` | `#0e6e8c` |
-| `--on-primary` | `#ffffff` | `#0b0d12` | `#ffffff` |
-| `--primary-dark` | `#1d5635` | `#15803d` | `#075066` |
-| `--on-primary-dark` | `#ffffff` | `#ffffff` | `#ffffff` |
-| `--primary-soft` | `#eaf3ec` | `rgba(34,197,94,0.12)` | `#dceaf3` |
+| `--primary` | `#79b28f` | `#2f7d4f` | `#0e6e8c` |
+| `--on-primary` | `#0d1211` | `#ffffff` | `#ffffff` |
+| `--primary-dark` | `#2c5a42` | `#1d5635` | `#075066` |
+| `--on-primary-dark` | `#f2ecde` | `#ffffff` | `#ffffff` |
+| `--primary-soft` | `rgba(121,178,143,0.12)` | `#eaf3ec` | `#dceaf3` |
 
 #### Solid / inverted
 
-| Token | cream | dark | ocean |
+| Token | ink | cream | ocean |
 |---|---|---|---|
-| `--ink` | `#232b3d` | `#dfe5f2` | `#0c2233` |
-| `--ink-solid` | `#232b3d` | `#dfe5f2` | `#0c2233` |
-| `--ink-on` | `#ffffff` | `#0b0d12` | `#ffffff` |
+| `--ink` | `#f2ecde` | `#232b3d` | `#0c2233` |
+| `--ink-solid` | `#ece4d0` | `#232b3d` | `#0c2233` |
+| `--ink-on` | `#0d1211` | `#ffffff` | `#ffffff` |
 
 #### Semantic
 
-| Token | cream | dark | ocean |
+| Token | ink | cream | ocean |
 |---|---|---|---|
-| `--accent` | `#d97706` | `#fbbf24` | `#e8830f` |
-| `--accent-soft` | `#fef3c7` | `rgba(251,191,36,0.12)` | `#fdebd2` |
-| `--danger` | `#c0392b` | `#ef4444` | `#c0392b` |
-| `--miss` | `#9a4708` | `#f59e0b` | `#a04a08` |
-| `--on-miss` | `#ffffff` | `#0b0d12` | `#ffffff` |
-| `--root` | `#6f5540` | `#d9b79a` | `#6b5340` |
+| `--accent` | `#c4a167` | `#d97706` | `#e8830f` |
+| `--accent-soft` | `rgba(196,161,103,0.13)` | `#fef3c7` | `#fdebd2` |
+| `--danger` | `#df6f5f` | `#c0392b` | `#c0392b` |
+| `--miss` | `#d9a25e` | `#9a4708` | `#a04a08` |
+| `--on-miss` | `#0d1211` | `#ffffff` | `#ffffff` |
+| `--root` | `#cbb08a` | `#6f5540` | `#6b5340` |
 
 #### Data & decoration
 
-| Token | cream | dark | ocean |
+| Token | ink | cream | ocean |
 |---|---|---|---|
-| `--blue` | `#2b6cb0` | `#3b82f6` | `#1d6fcc` |
-| `--purple` | `#7c3aed` | `#a855f7` | `#6645b8` |
-| `--pink` | `#d6336c` | `#ec4899` | `#d6336c` |
+| `--blue` | `#86a9c7` | `#2b6cb0` | `#1d6fcc` |
+| `--purple` | `#a99dcc` | `#7c3aed` | `#6645b8` |
+| `--pink` | `#d396a9` | `#d6336c` | `#d6336c` |
+
+#### Ungrouped
+
+- `--on-danger`
+- `--glow`
+- `--grain`
+- `--mark-filter`
+- `--shadow-card`
+- `--shadow-deep`
 
 ### The one rule that keeps being learned the hard way
 
@@ -118,8 +135,8 @@ needs a **light** button with **dark** text, which is the exact opposite of what
 
 | Role | Family | Notes |
 |---|---|---|
-| Body & UI | `"Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif` | Rounded, friendly, wide language coverage |
-| Display | `"Fraunces", Georgia, serif` | Headings and the wordmark — warm and literary |
+| Body & UI | `"Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif` | Clean, slightly condensed grotesque; 400–700 |
+| Display | `"Fraunces", Georgia, serif` | Headings (weight 500, optical sizing), scores and the wordmark |
 | Target language | System script fonts | Never overridden; a learner must see the script as it really looks |
 
 - Base size **16px**. Never smaller than 12px for body text.

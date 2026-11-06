@@ -42,14 +42,14 @@ export function Practice(props) {
             disabled={!hasPassages}
             style={tabStyle(tab === "read", !hasPassages)}
           >
-            📖 Read &amp; Understand
+            Read &amp; understand
           </button>
           <button
             onClick={() => setTab("talk")}
             disabled={!hasConvos}
             style={tabStyle(tab === "talk", !hasConvos)}
           >
-            💬 Conversations
+            Conversations
           </button>
         </div>
       </Container>
@@ -65,7 +65,7 @@ function tabStyle(active, disabled) {
   return {
     flex: 1,
     background: active ? "var(--primary)" : "transparent",
-    color: active ? "#fff" : disabled ? "var(--text-mute)" : "var(--text-dim)",
+    color: active ? "var(--on-primary)" : disabled ? "var(--text-mute)" : "var(--text-dim)",
     border: "none",
     borderRadius: 999,
     padding: "10px 12px",

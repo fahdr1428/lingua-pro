@@ -50,7 +50,7 @@ async function playStep(page) {
   // the lesson is how this harness used to stop half-way through.
   const finished = await page.evaluate(() => {
     const t = document.querySelector("#main")?.innerText || document.body.innerText;
-    return /\b\d+ of \d+ right\b/.test(t) || /📤 Share/.test(t);
+    return /\b\d+ of \d+ right\b/.test(t);
   });
   if (finished) return "done";
 
@@ -113,7 +113,7 @@ async function playStep(page) {
 
   // A bulk click above can itself finish the lesson; don't then press the
   // results screen's own Continue and walk off it.
-  if (await page.evaluate(() => /\b\d+ of \d+ right\b|📤 Share/.test(document.querySelector("#main")?.innerText || ""))) return "done";
+  if (await page.evaluate(() => /\b\d+ of \d+ right\b/.test(document.querySelector("#main")?.innerText || ""))) return "done";
   // 6. Advance. "skip this one" is last: it's the app's own escape hatch and a
   //    legitimate way through a speaking prompt you can't answer.
   for (const label of ["Check", "Continue", "Finish", "Next", "Done", "Got it", "I've got these", "skip this one"]) {
