@@ -245,7 +245,7 @@ export class Engine {
     return summariseTopics(this.pack.vocab || [], progress);
   }
 
-  async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null, disabledExercises = null, speakingPasses = 0 } = {}) {
+  async generateSession({ mode = "smart", filter = null, sessionSize = 8, newPerSession = 4, goalCategories = null, disabledExercises = null, speakingPasses = 0, canHear = null } = {}) {
     const progress = await this.getProgress();
     // Zaban: a structured lesson from the course (curriculum.js) — seven phases
     // with objectives. Built in its own chunk; falls through to a unit lesson
@@ -253,7 +253,7 @@ export class Engine {
     if (mode === "guided" && filter?.lesson) {
       const { buildGuidedSession } = await import("./guided.js");
       const s = await buildGuidedSession(this.pack, filter.lesson, {
-        progress, attempts: await this.getAttempts(), disabled: disabledExercises, speakingPasses,
+        progress, attempts: await this.getAttempts(), disabled: disabledExercises, speakingPasses, canHear,
       });
       if (s?.exercises?.length) return s;
       if (s?.unit) { mode = "unit"; filter = { unit: s.unit }; }
@@ -628,6 +628,7 @@ const CHOSEN_FROM_OPTIONS = new Set([
   EXERCISE.PICK_MEANING, EXERCISE.PICK_WORD, EXERCISE.LISTEN_PICK, EXERCISE.TRUE_FALSE,
   EXERCISE.COMPLETE_SENTENCE, EXERCISE.CONJUGATE, EXERCISE.CONJUGATE_TENSE,
   EXERCISE.MATCH_PAIRS, EXERCISE.ODD_ONE_OUT,
+  EXERCISE.FIX_SENTENCE, // v116: found and fixed from the choices on screen
 ]);
 
 function inferRating(exercise, result) {
@@ -642,6 +643,8 @@ function inferRating(exercise, result) {
 function isFreeRecallSuccess(exercise, result) {
   if (!result?.correct) return false;
   if (exercise.type !== EXERCISE.RECALL_WRITE && exercise.type !== EXERCISE.SPEAK_PROMPT) return false;
+  // v116: dictation is written recall of a word just HEARD — the sound gave it away.
+  if (exercise.cue === "audio") return false;
   if ((result.hints || 0) > 0 || result.verdict === "alternative") return false;
   return true;
 }

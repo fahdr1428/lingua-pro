@@ -92,7 +92,16 @@ export function withTransition(direction, update, extraTypes = []) {
     return null;
   }
   try {
-    return document.startViewTransition({ update, types: ["screen", direction, ...extraTypes] });
+    const vt = document.startViewTransition({ update, types: ["screen", direction, ...extraTypes] });
+    // v116 — TWO TAPS, ONE SCREEN. A second navigation while one is still
+    // animating skips the first transition, and its `ready` and `finished`
+    // promises reject ("Transition was skipped"). The screen change itself
+    // has already happened; only the animation was dropped. Left unhandled,
+    // that surfaced as an uncaught error — verify-lessons-browser hit it when
+    // two buttons on the results screen were tapped in the same instant.
+    vt?.ready?.catch?.(() => {});
+    vt?.finished?.catch?.(() => {});
+    return vt;
   } catch {
     // Any refusal — a duplicate view-transition-name is the usual one — must
     // not cost the navigation itself. The screen change is the point; the

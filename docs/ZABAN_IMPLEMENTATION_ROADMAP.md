@@ -33,10 +33,15 @@ generated [language inventory](ZABAN_LANGUAGE_INVENTORY.md).
 | The tutor knows the course: per-language rules looked up on the server; module, objectives, known and weak words, and skill focus sent as data in the user turn; tutor turns and missions logged as conversation evidence | `api/coach.js`, `src/ai/learnerContext.js` | 3.3, 3.5 |
 | RTL scripts drawn in the right typeface everywhere (Nastaliq for Urdu; Naskh for Arabic, Persian, Shahmukhi) | `scriptFont` in `registry.js` | — |
 | Tests in every language: `test-curriculum` (node, in `npm run check`), `verify-course` (browser) | `scripts/` | — |
+| v116 · Spot the mistake: a met sentence with one word swapped for one of a different meaning; find it, then fix it (application phase, practice) | `src/engine/teach.js`, `Lesson.jsx` | 2.5 |
+| v116 · Dictation: hear a new word, write it in the script or romanisation; listening + writing evidence, never counted as recall or scheduled | `teach.js`, `guided.js` | 2.5 |
+| v116 · Your mistakes: words missed in the last 30 days until put right, with a one-tap lesson on them | `teach.js`, `Mistakes.jsx` | 2.6 |
+| Tests: `test-teaching` (every word, every language; in `npm run check`), `verify-teaching` (browser, four scripts) | `scripts/` | — |
 
 Not built yet: accounts and sync (3.1), diagnostic placement (3.7), the analytics
-dashboard (3.8), authored lessons (Phase 4), error-correction exercises (they need
-authored errors), and any level above A1.
+dashboard (3.8), authored lessons (Phase 4), grammar error-correction (spot the
+mistake checks meaning, which the content can prove; a grammatical error needs
+authored, reviewed wrong forms), and any level above A1.
 
 ## Phase 1 · Educational foundation — *this document set*
 

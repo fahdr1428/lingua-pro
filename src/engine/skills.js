@@ -46,6 +46,8 @@ export const SKILLS_OF = {
   type_translation: ["vocabulary", "reading"],
   listen_pick: ["listening", "vocabulary"],
   recall_write: ["vocabulary", "writing"],
+  dictation: ["listening", "writing"],
+  fix_sentence: ["reading", "vocabulary"],
   letter_scramble: ["writing"],
   complete_sentence: ["reading", "grammar"],
   tap_words: ["reading", "grammar"],
@@ -63,7 +65,7 @@ export const SKILLS_OF = {
 /** Exercise types where the answer was on the screen to choose. */
 export const CHOSEN = new Set([
   "pick_meaning", "pick_word", "true_false", "match_pairs", "odd_one_out", "listen_pick",
-  "complete_sentence", "conjugate", "conjugate_tense", "grammar_check", "dialogue_pick", "passage",
+  "complete_sentence", "conjugate", "conjugate_tense", "grammar_check", "dialogue_pick", "passage", "fix_sentence",
 ]);
 
 export const MIN_EVIDENCE = 12;   // answers before a skill shows a score

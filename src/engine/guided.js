@@ -25,6 +25,7 @@ import { buildOfType, buildPairs, sentenceTiles, EXERCISE } from "./generator.js
 import { canRecall } from "./recall.js";
 import { retrievability } from "./srs.js";
 import { SPEAK_MODE } from "./speaking.js";
+import { buildFixSentence, buildDictation } from "./teach.js";
 
 // Answers that produce the word with nothing to choose from.
 const PRODUCED = new Set([EXERCISE.RECALL_WRITE, EXERCISE.SPEAK_PROMPT]);
@@ -147,7 +148,7 @@ export function dialogueBuild(module, course, code, pool, ex = module.exchange) 
 // ---------------------------------------------------------------------------
 // The session.
 // ---------------------------------------------------------------------------
-export async function buildGuidedSession(pack, lessonId, { progress = {}, attempts = [], disabled = null } = {}) {
+export async function buildGuidedSession(pack, lessonId, { progress = {}, attempts = [], disabled = null, canHear = null, rand = Math.random } = {}) {
   void attempts;
   const course = await loadCourse(pack);
   const found = findLesson(course, lessonId);
@@ -214,6 +215,13 @@ export async function buildGuidedSession(pack, lessonId, { progress = {}, attemp
       add(ofType(v, listen ? EXERCISE.LISTEN_PICK : EXERCISE.PICK_MEANING), "guided", { objective: `${module.id}.recognise` });
     });
     if (items.length >= 4 && !off.has(EXERCISE.MATCH_PAIRS)) add(buildPairs(items), "guided");
+    // v116 — DICTATION (teach.js): one of the new words, heard and written.
+    // Only where it can actually be heard, and not for anyone who has turned
+    // off listening or writing.
+    if (typeof canHear === "function" && !off.has(EXERCISE.LISTEN_PICK) && !off.has(EXERCISE.RECALL_WRITE)) {
+      const heard = [...items].reverse().find((v) => v.lemma && v.lemma.length <= 24 && canHear(v));
+      if (heard) add(buildDictation(heard), "guided");
+    }
   } else {
     add(dialoguePick(module, course, code, exchange), "guided");
     // Two of the module's words, picked out, to warm up the reply.
@@ -230,6 +238,13 @@ export async function buildGuidedSession(pack, lessonId, { progress = {}, attemp
       // A builder that fell back to a word question is not sentence evidence.
       if (e && kinds.includes(e.type)) add(e, "apply", { objective: `${module.id}.construct` });
     });
+    // v116 — SPOT THE MISTAKE (teach.js): one of this lesson's words, in a
+    // sentence where another word has taken its place. Practice, not
+    // assessment: it is not counted toward an objective.
+    for (const v of [...items].sort(() => rand() - 0.5)) {
+      const fix = buildFixSentence(v, pool, { rand });
+      if (fix) { add(fix, "apply"); break; }
+    }
   } else {
     const built = dialogueBuild(module, course, code, pool, exchange);
     if (built) add(built, "apply");

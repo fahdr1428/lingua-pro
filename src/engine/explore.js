@@ -24,7 +24,7 @@ export const PRACTICE_SECTIONS = [
 // Untried doors are suggested in this order: the next most useful habit first.
 export const EXPLORE_ORDER = [
   "speak-session", "listen", "rush", "topics", "stream", "reading", "conversations",
-  "speak-screen", "grammar", "culture", "flashcards", "alphabet", "vocab", "exam",
+  "speak-screen", "grammar", "culture", "flashcards", "alphabet", "vocab", "mistakes", "exam",
 ];
 
 /**

@@ -6,7 +6,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Button, Card, ProgressBar, Container, Icon } from "../ui/primitives.jsx";
 import { LANGUAGES, isNonLatinScript, scriptFont } from "../data/registry.js";
-import { speak, hasVoiceFor, stopSpeaking } from "../audio/tts.js";
+import { speak, hasVoiceFor, hasAudioFor, stopSpeaking } from "../audio/tts.js";
 import { playCorrect, playWrong, playLessonComplete } from "../audio/sfx.js";
 import { EXERCISE, generateLesson, buildRecoveryRound, reshapeExercise } from "../engine/generator.js";
 import { recallHint } from "../engine/recall.js";
@@ -140,6 +140,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   const speakingStart = useRef(0);                 // speaking passes when the lesson began
   // v113: writing from memory, and keeping the lesson at the right difficulty.
   const [recallHints, setRecallHints] = useState(0);   // hint level used on this from-memory question (0–2)
+  const [fixTile, setFixTile] = useState(null);         // v116: spot the mistake — the word the learner says is wrong
   const [lastResult, setLastResult] = useState(null);  // the grader's verdict on the last answer
   const fromMemory = useRef({ asked: 0, right: 0, words: [] }); // from-memory answers this lesson
   const challenge = useRef({ results: [], quietUntil: 0 });     // challenge.js state
@@ -234,6 +235,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
         disabledExercises: appState?.disabledExercises || null,
         // v110: how far up the speaking ladder this learner is (speaking.js).
         speakingPasses: appState?.speaking?.[pack.code]?.passes || 0,
+        // v116: dictation only for words that can actually be heard here.
+        canHear: (v) => { try { return hasAudioFor(lang.ttsCode, v.id); } catch { return false; } },
       })
       .then(async (s) => {
         if (cancelled) return;
@@ -378,6 +381,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     setHintActive(false);
     setHintOffered(false);
     setRecallHints(0);
+    setFixTile(null);
     setLastResult(null);
   }
 
@@ -389,6 +393,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     else if (exercise.type === EXERCISE.LETTER_SCRAMBLE) given = tapped.join(""); // v59: letters join with no space
     else if (exercise.type === EXERCISE.TYPE_TRANSLATION) given = typed;
     else if (exercise.type === EXERCISE.RECALL_WRITE) given = { text: typed, hints: recallHints, gaveUp: opts?.gaveUp === true };
+    else if (exercise.type === EXERCISE.FIX_SENTENCE) given = { tile: fixTile, fix: picked };
     else if (exercise.type === EXERCISE.MATCH_PAIRS) {
       // Build the id:meaning|... string from matched pairs, sorted, to compare
       // against the exercise's canonical answer.
@@ -427,7 +432,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     // silence unless they went looking. Getting it right still leaves the
     // explanation collapsed: they don't need it, and stopping to read one
     // after every correct answer makes a six-question lesson feel like twelve.
-    if (!result.correct && !result.intro) setShowExplain(true);
+    // v116: spot the mistake explains itself in the feedback card (the word,
+    // what it means, the sentence put right), so nothing opens on top of it.
+    if (!result.correct && !result.intro && exercise.type !== EXERCISE.FIX_SENTENCE) setShowExplain(true);
     setCombo((c) => (result.correct ? c + 1 : 0));
     // v30: play a short positive/negative chime (honours user setting)
     if (appState.soundEffects !== false) {
@@ -445,7 +452,8 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     }
     // v113: what the results screen can say about writing from memory —
     // counted only when it came with no hint.
-    if (exercise.type === EXERCISE.RECALL_WRITE) {
+    // v116: not dictation — the word was heard, not remembered.
+    if (exercise.type === EXERCISE.RECALL_WRITE && exercise.cue !== "audio") {
       const m = fromMemory.current, clean = result.correct && !result.hints;
       // A synonym is listed as the word they actually wrote.
       const wrote = result.verdict === "alternative" && result.other ? { ...result.other, id: `${exercise.item.id}~alt` } : exercise.item;
@@ -469,6 +477,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       // exercise isn't one word — neither is ever stepped up or down.
       const target = change ? session.exercises[change.index] : null;
       const swapped = change && !target?.assess && !target?.noSchedule && !target?.phase?.startsWith?.("assess")
+        && target?.type !== EXERCISE.FIX_SENTENCE
         && reshapeExercise(target, change.to, pack.vocab || [], progressAtStart.current);
       if (swapped) {
         setSession((prev) => {
@@ -967,6 +976,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     (exercise.type === EXERCISE.TAP_WORDS && tapped.length > 0) ||
     (exercise.type === EXERCISE.BUILD_SENTENCE && tapped.length > 0) ||
     (exercise.type === EXERCISE.COMPLETE_SENTENCE && picked) ||
+    (exercise.type === EXERCISE.FIX_SENTENCE && fixTile !== null && picked) ||
     (exercise.type === EXERCISE.LISTEN_PICK && picked) ||
     // v34c CRITICAL FIX: CONJUGATE and CONJUGATE_TENSE were missing from this
     // list, meaning the Check button stayed disabled even when the user picked
@@ -1216,6 +1226,54 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           )}
 
           {/* Sentence with blank */}
+          {/* v116 — SPOT THE MISTAKE (teach.js). Tap the word that breaks the
+              meaning, then choose the word that belongs. Nothing on screen
+              says which word is wrong until Check. */}
+          {exercise.type === EXERCISE.FIX_SENTENCE && (
+            <div className="fix" data-testid="fix-sentence">
+              <div className="fix-meaning">
+                <div className="eyebrow">It should mean</div>
+                <div className="fix-en">“{exercise.translation}”</div>
+              </div>
+              <div className="fix-label">{feedback ? "The sentence" : "1 · Tap the word that's wrong"}</div>
+              <div className="fix-tiles" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code}>
+                {exercise.tiles.map((t, i) => {
+                  const chosen = fixTile === i;
+                  const isWrong = feedback && i === exercise.wrongIndex;
+                  const tl = isNonLatin ? (wordTranslit[t] || wordTranslit[t.replace(/^[\p{P}\p{S}]+|[\p{P}\p{S}]+$/gu, "")]) : null;
+                  return (
+                    <button key={i} type="button"
+                      className={`fix-tile${chosen ? " fix-tile-on" : ""}${isWrong ? " fix-tile-wrong" : ""}`}
+                      aria-pressed={chosen}
+                      disabled={!!feedback}
+                      onClick={() => !feedback && setFixTile(chosen ? null : i)}>
+                      <span className="fix-tile-native" style={{ fontFamily: scriptFont(lang.code, undefined) }}>{t}</span>
+                      {tl && <span className="fix-tile-tl">{tl}</span>}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="fix-label">{feedback ? "The word that belongs" : "2 · Choose the word that belongs there"}</div>
+              <div className="fix-options">
+                {exercise.options.map((o) => {
+                  const on = picked === o;
+                  const right = feedback && o === exercise.answer;
+                  return (
+                    <button key={o} type="button"
+                      className={`fix-option${on ? " fix-option-on" : ""}${right ? " fix-option-right" : ""}`}
+                      aria-pressed={on}
+                      disabled={!!feedback}
+                      onClick={() => !feedback && setPicked(on ? null : o)}>
+                      <span className="fix-option-native" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code}
+                        style={{ fontFamily: scriptFont(lang.code, undefined) }}>{o}</span>
+                      {isNonLatin && exercise.optionTranslit?.[o] && <span className="fix-option-tl">{exercise.optionTranslit[o]}</span>}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {exercise.type === EXERCISE.COMPLETE_SENTENCE && (
             <div style={{ marginTop: 20 }}>
               <div
@@ -1574,18 +1632,29 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               !session.exercises.slice(0, idx).some((x) => x.type === EXERCISE.RECALL_WRITE && x.item?.id === item.id);
             const hint = recallHints > 0 ? recallHint(item, recallHints, { vocab: pack.vocab }) : null;
             const canHint = (() => { const h = recallHint(item, 1, { vocab: pack.vocab }); return !!(h.native || h.translit); })();
+            // v116: dictation (teach.js) — the word is heard, not shown.
+            const dictation = exercise.cue === "audio";
             return (
-              <div className="recall" data-testid="recall">
+              <div className="recall" data-testid={dictation ? "dictation" : "recall"}>
                 {exercise.challenge === "up" && !feedback && (
                   <div className="challenge-chip" data-testid="challenge-up">You're on a roll — no options on this one</div>
                 )}
                 <div className="recall-ask">
-                  <div className="eyebrow">{firstTime ? "First time from memory" : "From memory"}</div>
-                  <div className="recall-meaning">“{item.translation}”</div>
+                  <div className="eyebrow">{dictation ? "Dictation" : firstTime ? "First time from memory" : "From memory"}</div>
+                  {dictation ? (
+                    <button type="button" className="dictation-play" aria-label="Play the word again"
+                      onClick={() => speak(item.lemma, lang.ttsCode, { audioId: item.id, code: pack.code, translit: item.translit })}>
+                      <Icon name="speaker" size={30} />
+                    </button>
+                  ) : (
+                    <div className="recall-meaning">“{item.translation}”</div>
+                  )}
                   <div className="recall-how">
-                    {isNonLatin ? `Write it in ${lang.name} — the script, or how it sounds in English letters` : `Write it in ${lang.name}`}
+                    {dictation
+                      ? (isNonLatin ? "Write the word you hear — in the script, or as it sounds in English letters" : "Write the word you hear")
+                      : isNonLatin ? `Write it in ${lang.name} — the script, or how it sounds in English letters` : `Write it in ${lang.name}`}
                   </div>
-                  {firstTime && !feedback && (
+                  {firstTime && !dictation && !feedback && (
                     <div className="recall-why">You met it a few minutes ago. Bring it back without looking.</div>
                   )}
                 </div>
@@ -1597,7 +1666,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                   onKeyDown={(e) => { if (e.key !== "Enter") return; if (feedback) next(); else if (canCheck) check(); }}
                   readOnly={!!feedback}
                   placeholder={isNonLatin ? "Script or as it sounds…" : `Type it in ${lang.name}…`}
-                  aria-label={`Write the ${lang.name} for “${item.translation}”`}
+                  aria-label={dictation ? `Write the ${lang.name} word you heard` : `Write the ${lang.name} for “${item.translation}”`}
                   autoFocus={HAS_KEYBOARD}
                   autoComplete="off"
                   autoCorrect="off"
@@ -1780,7 +1849,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     )}
                   </div>
                   {/* Why? button — only shown if not already expanded */}
-                  {!showExplain && (
+                  {!showExplain && exercise.type !== EXERCISE.FIX_SENTENCE && (
                     <button
                       onClick={() => setShowExplain(true)}
                       style={{
@@ -1813,7 +1882,18 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     <span style={{ fontStyle: "italic" }}>“{reaction}”</span>
                   </div>
                 )}
-                {feedback === "wrong" && exercise.type !== EXERCISE.RECALL_WRITE && (
+                {exercise.type === EXERCISE.FIX_SENTENCE && (
+                  <div className="fix-why" data-testid="fix-why">
+                    {feedback === "wrong" && lastResult && !lastResult.foundIt && (
+                      <div>The word that breaks it is <strong dir="auto">{exercise.wrong.lemma}</strong>{isNonLatin && exercise.wrong.translit ? ` (${exercise.wrong.translit})` : ""}.</div>
+                    )}
+                    <div>
+                      <strong dir="auto">{exercise.wrong.lemma}</strong>{isNonLatin && exercise.wrong.translit ? ` (${exercise.wrong.translit})` : ""} means “{exercise.wrong.translation}”.
+                      {" "}The sentence needs <strong dir="auto">{exercise.answer}</strong>{isNonLatin && exercise.item.translit ? ` (${exercise.item.translit})` : ""}, “{exercise.item.translation}”.
+                    </div>
+                  </div>
+                )}
+                {feedback === "wrong" && exercise.type !== EXERCISE.RECALL_WRITE && exercise.type !== EXERCISE.FIX_SENTENCE && (
                   <div style={{ marginTop: 8 }}>
                     Correct answer: <strong>{exercise.answer}</strong>
                   </div>
@@ -1827,6 +1907,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                           {exercise.item.lemma}
                         </div>
                         {isNonLatin && exercise.item.translit && <div className="recall-answer-tl">{exercise.item.translit}</div>}
+                        {exercise.cue === "audio" && <div className="recall-answer-en">“{exercise.item.translation}”</div>}
                       </div>
                       {voiceAvailable && (
                         <button className="xchg-play" aria-label={`Hear ${exercise.item.translit || exercise.item.lemma}`}
@@ -2014,7 +2095,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
 
               {hintActive && (
                 <div style={{ textAlign: "center", marginBottom: 12, fontSize: 12, color: "var(--text-dim)" }}>
-                  Two wrong answers removed — you've got this.
+                  Two wrong answers removed.
                 </div>
               )}
 
@@ -2024,7 +2105,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
 
               {/* Audio-failure escape hatch — ONLY on listening exercises.
                   Not a general skip; it forgives broken audio, not difficulty. */}
-              {exercise.type === EXERCISE.LISTEN_PICK && (
+              {(exercise.type === EXERCISE.LISTEN_PICK || exercise.cue === "audio") && (
                 <button
                   onClick={skipForAudio}
                   style={{
@@ -2296,6 +2377,9 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
             <Button onClick={onReviewMistakes}>
               Review my mistakes
             </Button>
+            <button type="button" className="text-link" onClick={() => onNavigate("mistakes")} style={{ marginTop: 12 }}>
+              All the words you keep missing →
+            </button>
           </Card>
         )}
 

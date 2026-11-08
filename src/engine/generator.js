@@ -37,6 +37,7 @@ export const EXERCISE = {
   TRUE_FALSE: "true_false",         // v59: quick judgement — does this word mean X?
   SPEAK_PROMPT: "speak_prompt",     // v70: say it out loud; graded leniently by ear
   RECALL_WRITE: "recall_write",     // v113: see the meaning → write the word FROM MEMORY (no options; see recall.js)
+  FIX_SENTENCE: "fix_sentence",     // v116: one word breaks the sentence's meaning — find it, fix it (teach.js)
 };
 
 const NUM_DISTRACTORS = 3;
@@ -1415,6 +1416,14 @@ export function gradeAnswer(exercise, given, ctx = {}) {
     if (g.gaveUp) return { correct: false, expected: exercise.answer, given: g.text || "", verdict: "gave-up", hints };
     const r = gradeRecall(g.text, exercise.item, { vocab: ctx.vocab || [], accept: exercise.accept || [] });
     return { correct: r.correct, expected: exercise.answer, given: g.text, verdict: r.verdict, via: r.via, note: r.note, other: r.other, hints };
+  } else if (exercise.type === EXERCISE.FIX_SENTENCE) {
+    // v116 (teach.js): `given` is { tile, fix } — which word they found, and
+    // what they put in its place. Right only when both are.
+    const g = given && typeof given === "object" ? given : {};
+    const w = (x) => String(x || "").normalize("NFC").replace(/^[\p{P}\p{S}]+|[\p{P}\p{S}]+$/gu, "").toLocaleLowerCase();
+    const foundIt = g.tile === exercise.wrongIndex;
+    const fixedIt = !!g.fix && w(g.fix) === w(exercise.answer);
+    return { correct: foundIt && fixedIt, foundIt, fixedIt, expected: exercise.answer, given: g.fix || "" };
   } else if (exercise.type === EXERCISE.TYPE_TRANSLATION) {
     // Forgiving: accept any of the translations if the answer has comma-separated alts
     const accepted = exercise.answer.split(/[,/]/).map(norm);

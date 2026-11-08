@@ -1004,6 +1004,9 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
   if (learnedN >= 15) {
     doors.push({ id: "exam", section: "test", icon: "pen", title: "Big exam", sub: "Everything you know, tested every way", go: () => onNavigate("lesson", { mode: "exam", sessionSize: Math.min(25, learnedN) }) });
   }
+  // v116 — the words this learner keeps missing, until they're put right.
+  // Always there: the first miss can come in the first lesson.
+  doors.push({ id: "mistakes", section: "words", icon: "pen", title: "Your mistakes", sub: "The words you keep missing, with the right answer — until they stick", go: () => onNavigate("mistakes") });
   if ((stats.due || 0) > 0) {
     doors.push({ id: "due", section: "review", icon: "refresh", title: `Review ${stats.due} due words`, sub: "Spaced repetition — keep them alive", go: () => onNavigate("lesson", { mode: "due" }), highlight: true });
   }

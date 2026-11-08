@@ -2705,3 +2705,63 @@ html:active-view-transition-type(back)::view-transition-new(screen) { z-index: 1
   font-family: "Fraunces", Georgia, serif; font-size: 17px; font-variant-numeric: lining-nums tabular-nums;
 }
 .topic-mark-lg { width: 52px; height: 52px; border-radius: 14px; font-size: 20px; border-color: var(--accent); }
+
+/* v116 — spot the mistake (teach.js) */
+.fix { margin-top: 18px; }
+.fix-meaning {
+  background: var(--surface-hi); border: 1px solid var(--border); border-radius: 14px;
+  padding: 14px 16px; text-align: center; margin-bottom: 18px;
+}
+.fix-en { font-family: "Fraunces", Georgia, serif; font-size: 21px; color: var(--ink); margin-top: 4px; line-height: 1.35; text-wrap: balance; }
+.fix-label { font-size: 12.5px; color: var(--text-mute); margin: 0 0 8px; }
+.fix-tiles, .fix-options { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.fix-tile, .fix-option {
+  min-height: 48px; padding: 8px 14px; border-radius: 10px; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text);
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  transition: border-color 160ms ease, background 160ms ease, transform 120ms ease;
+}
+.fix-tile:hover:not(:disabled), .fix-option:hover:not(:disabled) { border-color: var(--accent); }
+.fix-tile:active:not(:disabled), .fix-option:active:not(:disabled) { transform: translateY(1px); }
+.fix-tile:disabled, .fix-option:disabled { cursor: default; }
+.fix-tile-native, .fix-option-native { font-size: 19px; line-height: 1.5; }
+.fix-tile-tl, .fix-option-tl { font-size: 11.5px; color: var(--text-dim); font-weight: 600; }
+.fix-tile-on { border-color: var(--miss); background: color-mix(in srgb, var(--miss) 14%, var(--surface)); }
+.fix-option-on { border-color: var(--accent); background: var(--accent-soft); }
+.fix-tile-wrong { border-color: var(--miss); text-decoration: line-through; text-decoration-color: var(--miss); }
+.fix-option-right { border-color: var(--primary); background: var(--primary-soft); }
+.fix-why { margin-top: 10px; font-size: 14.5px; line-height: 1.55; color: var(--text); display: grid; gap: 6px; }
+/* v116 — dictation */
+.dictation-play {
+  width: 76px; height: 76px; border-radius: 50%; border: none; cursor: pointer; margin: 10px auto 6px;
+  background: var(--ink-solid); color: var(--ink-on); display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-card); transition: transform 160ms ease;
+}
+.dictation-play:active { transform: scale(0.96); }
+.recall-answer-en { font-size: 13.5px; color: var(--text-dim); margin-top: 2px; }
+
+/* v116 — your mistakes */
+.mistakes { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.mistake { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px 18px; }
+.mistake-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.mistake-native { font-size: 26px; line-height: 1.5; color: var(--ink); overflow-wrap: anywhere; }
+.mistake-tl { font-size: 13.5px; color: var(--accent-text); font-style: italic; }
+.mistake-en { font-size: 14px; color: var(--text-dim); margin-top: 2px; }
+.mistake-play {
+  width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface-hi); color: var(--text-dim);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.mistake-meta { font-size: 12.5px; color: var(--text-mute); margin-top: 8px; }
+.mistake-ex { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 15px; line-height: 1.6; overflow-wrap: anywhere; }
+.text-link {
+  background: none; border: none; padding: 6px 0; min-height: 44px; cursor: pointer;
+  color: var(--accent-text); font: inherit; font-size: 14px; font-weight: 600; text-align: start;
+  text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent-text) 40%, transparent); text-underline-offset: 3px;
+}
+.text-link:hover { text-decoration-color: currentColor; }
+/* Nastaliq hangs far below its baseline; Naskh less so. Room for both. */
+.mistake-native[lang="ur"] { line-height: 2.25; font-size: 25px; }
+.mistake-native[lang="ar"], .mistake-native[lang="fa"], .mistake-native[lang="pa"] { line-height: 1.9; }
+.mistake-ex [lang="ur"] { line-height: 2.2; }
+.fix-tile-native[lang="ur"], .fix-tiles[lang="ur"] .fix-tile-native, .fix-option-native[lang="ur"] { line-height: 2; }

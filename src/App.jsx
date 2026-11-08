@@ -83,6 +83,8 @@ const SCREEN_LOADERS = {
   rush: () => import("./screens/Rush.jsx"),
   // Zaban — the whole structured course for the current language.
   course: () => import("./screens/CourseScreen.jsx"),
+  // v116 — the words this learner keeps missing (teach.js).
+  mistakes: () => import("./screens/Mistakes.jsx"),
 };
 
 // One tap away from everywhere, so they are warmed first. The rest follow.
@@ -158,6 +160,7 @@ const Topics = named("topics", "Topics");
 const Listen = named("listen", "Listen");
 const Rush = named("rush", "Rush");
 const CourseScreen = named("course", "CourseScreen");
+const Mistakes = named("mistakes", "Mistakes");
 
 // A lazily-imported screen that fails to load is almost never a bug in the
 // screen. It's a deploy: this app splits fifteen screens into content-hashed
@@ -677,6 +680,7 @@ export default function App() {
         {screen === "listen" && <Listen {...screenProps} />}
         {screen === "rush" && <Rush {...screenProps} />}
         {screen === "course" && <CourseScreen {...screenProps} />}
+        {screen === "mistakes" && <Mistakes {...screenProps} />}
         </Suspense>
       </main>
       </div>
