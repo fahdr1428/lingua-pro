@@ -64,7 +64,9 @@ function recallTitle(r, idx) {
 // v113: sessions whose difficulty must stay as built. Exams and checkpoints
 // measure, so they never coach; a "make it yours" session exists to prove
 // words from memory, so it is never stepped down to choosing.
-const FIXED_DIFFICULTY = new Set(["exam", "chapter_exam", "checkpoint", "recall"]);
+// v117: a second pass and a skill drill are made of fixed exercise types on
+// purpose (adapt.js) — stepping them up or down would undo what they are.
+const FIXED_DIFFICULTY = new Set(["exam", "chapter_exam", "checkpoint", "recall", "second", "skill"]);
 
 export function Lesson({ engine, pack, appState, setAppState, params, onNavigate, refreshStats, profile }) {
   const lang = LANGUAGES[pack.code];
@@ -264,7 +266,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           // v113: "recall" too — a session of proving words from memory.
           // Zaban: "guided" too — a structured lesson teaches its own module's grammar
           // in its Teaching phase (guided.js), so nothing is spliced in here.
-          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic", "words", "speak", "recall", "guided"]);
+          // v117: "second" and "skill" too — a second pass is those words and
+          // nothing else, and a writing drill that opened on a grammar card
+          // wasn't a writing drill (verify-adaptive caught exactly that).
+          const NO_TEACHING = new Set(["due", "review", "checkpoint", "exam", "chapter_exam", "topic", "words", "speak", "recall", "guided", "second", "skill"]);
           const isReviewish = NO_TEACHING.has(params?.mode) || s.mode === "review";
           if (!isReviewish) {
             // v107: every language's grammar lessons are ~95KB of source; loaded
@@ -302,6 +307,32 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
     return () => { cancelled = true; };
   }, [engine, params]);
 
+  // v117 — KEYBOARD ANSWERS. On a laptop every answer needed the mouse: 1–9
+  // now choose an option, and Enter does what the button at the foot does
+  // (Check, then Continue). It presses the real buttons, so it can never do
+  // something the screen doesn't offer; it stays out of the way while typing,
+  // and when a button already has focus (Enter is that button's own).
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey || e.repeat) return;
+      const root = document.getElementById("main");
+      if (!root) return;
+      const el = document.activeElement;
+      if (el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.tagName === "SELECT" || el.isContentEditable)) return;
+      if (/^[1-9]$/.test(e.key)) {
+        const b = root.querySelectorAll(".opt-btn")[Number(e.key) - 1];
+        if (b && !b.disabled) { e.preventDefault(); b.click(); }
+        return;
+      }
+      if (e.key !== "Enter") return;
+      if (el && (el.tagName === "BUTTON" || el.tagName === "A")) return;
+      const go = [...root.querySelectorAll("button")].find((b) => !b.disabled && /^(Check|Continue|Finish)$/.test((b.innerText || "").trim()));
+      if (go) { e.preventDefault(); go.click(); }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   // Auto-play audio for listening exercises — must be at top with other hooks
   const exercise = session?.exercises?.[idx];
   useEffect(() => {
@@ -328,8 +359,22 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
   if (session.exercises.length === 0) {
     return (
       <Container style={{ textAlign: "center", paddingTop: 60 }}>
-        <h2>Nothing due right now</h2>
-        <p style={{ color: "var(--text-dim)" }}>Every word you've met is up to date. Start a new lesson, or come back later for review.</p>
+        {params?.mode === "second" ? (
+          <>
+            <h2>Nothing left for a second pass</h2>
+            <p style={{ color: "var(--text-dim)" }}>Those words have come from memory since. On to the next lesson.</p>
+          </>
+        ) : params?.mode === "skill" ? (
+          <>
+            <h2>Not enough words for this drill yet</h2>
+            <p style={{ color: "var(--text-dim)" }}>A drill is built from words you've already met. A lesson or two more and there'll be enough.</p>
+          </>
+        ) : (
+          <>
+            <h2>Nothing due right now</h2>
+            <p style={{ color: "var(--text-dim)" }}>Every word you've met is up to date. Start a new lesson, or come back later for review.</p>
+          </>
+        )}
         <Button style={{ marginTop: 20 }} onClick={() => onNavigate("home")}>Back home</Button>
       </Container>
     );
@@ -557,6 +602,12 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       missedItems.length > 0 &&
       params?.mode !== "exam" &&
       params?.mode !== "chapter_exam" &&
+      // v117: a second pass IS the re-teach-and-ask-again round, so another
+      // one on top would be a third pass in one sitting; and a skill drill is
+      // only its skill's questions. What's still missed goes to Your mistakes
+      // and to review.
+      params?.mode !== "second" &&
+      params?.mode !== "skill" &&
       params?.milestone == null
     ) {
       try {
@@ -725,13 +776,35 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
             exchange: useMet ? session.guided.stop : null,
           });
           const course = await loadCourse(pack);
-          const nx = nextLesson(course, state || {}, await engine.getProgress());
-          guided = { ...session.guided, results, revise: toRevise(answersLog.current), next: nx ? { id: nx.lesson.id, title: nx.lesson.title } : null };
+          const progressNow = await engine.getProgress();
+          const nx = nextLesson(course, state || {}, progressNow);
+          // v117 (adapt.js): the words didn't come from memory — a second
+          // pass on exactly those is the next step, ahead of the next lesson.
+          const { secondPass } = await import("../engine/adapt.js");
+          const sp = secondPass(course, state || {}, progressNow);
+          guided = {
+            ...session.guided, results, revise: toRevise(answersLog.current),
+            next: nx ? { id: nx.lesson.id, title: nx.lesson.title } : null,
+            second: sp ? { lessonId: sp.lesson.id, count: sp.ids.length } : null,
+          };
         } catch (e) {
           console.warn("structured lesson feedback skipped:", e);
         }
       }
-      setResultData({ correct: correctCount, total, xp: xpEarned, accuracy: Math.round(accuracy * 100), examVocabIds: params?.filter?.vocabIds || [], examSize: params?.sessionSize || 8, encourage, guided });
+      // v117: a second pass is recorded as soon as it is finished, however it
+      // went — it is offered once. What comes next is the course's next lesson.
+      let after = null;
+      if (session?.secondPass) {
+        try {
+          const state = await engine.saveSecondPass(session.secondPass.lessonId);
+          const [{ loadCourse }, { nextLesson }] = await Promise.all([import("../engine/guided.js"), import("../engine/curriculum.js")]);
+          const nx = nextLesson(await loadCourse(pack), state || {}, await engine.getProgress());
+          after = { title: session.secondPass.title, next: nx ? { id: nx.lesson.id, title: nx.lesson.title } : null };
+        } catch (e) {
+          console.warn("second pass not recorded:", e);
+        }
+      }
+      setResultData({ correct: correctCount, total, xp: xpEarned, accuracy: Math.round(accuracy * 100), examVocabIds: params?.filter?.vocabIds || [], examSize: params?.sessionSize || 8, encourage, guided, after });
       setDone(true);
       // v30: celebratory chime on lesson completion (if sound effects on)
       if (appState.soundEffects !== false) {
@@ -1014,6 +1087,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
           {exercise.type === EXERCISE.INTRODUCE_BATCH && (
             <IntroBatchCards
               items={exercise.items}
+              again={!!exercise.again}
               lang={lang}
               isNonLatin={isNonLatin}
               voiceAvailable={voiceAvailable}
@@ -2235,8 +2309,25 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
               pack={pack}
               next={data.guided.next}
               onNext={() => onNavigate("lesson", { mode: "guided", filter: { lesson: data.guided.next.id } })}
+              second={data.guided.second}
+              onSecond={() => onNavigate("lesson", { mode: "second", filter: { lesson: data.guided.second.lessonId } })}
             />
           </React.Suspense>
+        )}
+
+        {/* v117: after a second pass — what it was for, and the way on. */}
+        {data.after && (
+          <div className="g-card" data-testid="second-done" style={{ textAlign: "left", marginBottom: 24 }}>
+            <div className="g-eyebrow">Second pass · {data.after.title}</div>
+            <p style={{ margin: "6px 0 12px", fontSize: 14.5, lineHeight: 1.55, color: "var(--text-dim)" }}>
+              Anything that still didn't come from memory is in Your mistakes and will come back in review.
+            </p>
+            {data.after.next && (
+              <Button onClick={() => onNavigate("lesson", { mode: "guided", filter: { lesson: data.after.next.id } })} data-testid="second-next">
+                Next lesson: {data.after.next.title}
+              </Button>
+            )}
+          </div>
         )}
 
         {/* v44: CHAPTER EXAM gate result — clear pass/fail with the threshold. */}
@@ -2449,7 +2540,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
 // presses, and a moment of "did that work?", between the words and using them.
 // =============================================================================
 
-function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }) {
+function IntroBatchCards({ items, again = false, lang, isNonLatin, voiceAvailable, onComplete }) {
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [seenAll, setSeenAll] = useState(false);
@@ -2521,7 +2612,7 @@ function IntroBatchCards({ items, lang, isNonLatin, voiceAvailable, onComplete }
     <div className="slide-up" style={{ marginTop: 12 }}>
       <div style={{ textAlign: "center", marginBottom: 12 }}>
         <div style={{ fontSize: 11, color: "var(--accent-text)", fontWeight: 800, letterSpacing: 2, marginBottom: 4 }}>
-          New words · tap to flip
+          {again ? "Look again · tap to flip" : "New words · tap to flip"}
         </div>
         <div style={{ fontSize: 12, color: "var(--text-dim)" }}>
           Card {idx + 1} of {items.length}

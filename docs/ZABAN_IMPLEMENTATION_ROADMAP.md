@@ -37,8 +37,13 @@ generated [language inventory](ZABAN_LANGUAGE_INVENTORY.md).
 | v116 · Dictation: hear a new word, write it in the script or romanisation; listening + writing evidence, never counted as recall or scheduled | `teach.js`, `guided.js` | 2.5 |
 | v116 · Your mistakes: words missed in the last 30 days until put right, with a one-tap lesson on them | `teach.js`, `Mistakes.jsx` | 2.6 |
 | Tests: `test-teaching` (every word, every language; in `npm run check`), `verify-teaching` (browser, four scripts) | `scripts/` | — |
+| v117 · Second pass: a word lesson whose from-memory objective is "not yet" is followed by a short round on exactly the words that didn't come from memory (look again → find → write), once, declinable | `src/engine/adapt.js`, `Home.jsx`, `Lesson.jsx` | 3.4 |
+| v117 · Skill drills: each skill on Home and the Course screen is a button; a drill is only that skill's exercise types, on learned words, weakest first | `adapt.js`, `CoursePanel.jsx` | 3.2 |
+| v117 · Find your level: chapter-by-chapter probe, 11 of 12 to pass (no easier than the chapter test), stops at the first chapter not passed; passing moves the course itself on (lessons recorded as skipped, not done) | `adapt.js`, `Placement.jsx`, `Engine.skipKnownModules` | 3.7 |
+| v117 · Keyboard answers: 1–9 choose, Enter checks and continues | `Lesson.jsx` | — |
+| Tests: `test-adaptive` (all 21 languages, every probe answer pattern; in `npm run check`), `verify-adaptive` (browser, LTR and RTL) | `scripts/` | — |
 
-Not built yet: accounts and sync (3.1), diagnostic placement (3.7), the analytics
+Not built yet: accounts and sync (3.1), the analytics
 dashboard (3.8), authored lessons (Phase 4), grammar error-correction (spot the
 mistake checks meaning, which the content can prove; a grammatical error needs
 authored, reviewed wrong forms), and any level above A1.

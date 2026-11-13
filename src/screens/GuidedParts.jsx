@@ -154,7 +154,7 @@ const STATUS = {
 };
 
 /** Phase 7 — what the answers say about each objective. */
-export function ObjectiveResults({ guided, results = {}, revise = [], pack, next = null, onNext }) {
+export function ObjectiveResults({ guided, results = {}, revise = [], pack, next = null, onNext, second = null, onSecond }) {
   const byId = new Map((pack?.vocab || []).map((v) => [v.id, v]));
   const words = revise.map((id) => byId.get(id)).filter(Boolean);
   return (
@@ -188,9 +188,23 @@ export function ObjectiveResults({ guided, results = {}, revise = [], pack, next
           </div>
         </div>
       )}
+      {/* v117 (adapt.js): the words didn't come from memory, so the step that
+          helps is a short round on those words — offered first, never forced. */}
+      {second && onSecond && (
+        <div className="g-second" data-testid="guided-second">
+          <div className="g-eyebrow">Before the next lesson</div>
+          <p className="g-second-text">
+            {second.count === 1 ? "One word" : `${second.count} words`} didn't come from memory yet. A second pass is
+            a short round on just {second.count === 1 ? "that one" : "those"}: look again, find {second.count === 1 ? "it" : "them"}, write {second.count === 1 ? "it" : "them"}.
+          </p>
+          <Button onClick={onSecond} data-testid="guided-second-go">
+            Second pass · {second.count === 1 ? "1 word" : `${second.count} words`}
+          </Button>
+        </div>
+      )}
       {next && onNext && (
-        <Button variant="secondary" onClick={onNext} data-testid="guided-next">
-          Next lesson: {next.title}
+        <Button variant="secondary" onClick={onNext} data-testid="guided-next" style={second ? { marginTop: 10 } : undefined}>
+          {second ? "Skip to the next lesson" : "Next lesson"}: {next.title}
         </Button>
       )}
     </div>

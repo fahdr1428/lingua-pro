@@ -2765,3 +2765,29 @@ html:active-view-transition-type(back)::view-transition-new(screen) { z-index: 1
 .mistake-native[lang="ar"], .mistake-native[lang="fa"], .mistake-native[lang="pa"] { line-height: 1.9; }
 .mistake-ex [lang="ur"] { line-height: 2.2; }
 .fix-tile-native[lang="ur"], .fix-tiles[lang="ur"] .fix-tile-native, .fix-option-native[lang="ur"] { line-height: 2; }
+
+/* v117 — keyboard answers: on a device with a keyboard and mouse, each option
+   shows the number key that chooses it. Not drawn on touch screens. */
+@media (hover: hover) and (pointer: fine) {
+  main#main { counter-reset: opt; }
+  .opt-btn { counter-increment: opt; position: relative; }
+  .opt-btn::after {
+    content: counter(opt);
+    position: absolute; inset-inline-start: 12px; top: 50%; transform: translateY(-50%);
+    width: 22px; height: 22px; border-radius: 6px; border: 1px solid var(--border);
+    font: 600 11px/20px "Instrument Sans", -apple-system, sans-serif;
+    color: var(--text-mute); text-align: center; pointer-events: none;
+  }
+}
+
+/* v117 — find your level */
+.place-points { margin: 0; padding: 0 0 0 18px; display: grid; gap: 6px; font-size: 14px; line-height: 1.5; color: var(--text-dim); }
+.place-stage { cursor: default; }
+.place-tl { font-size: 14px; color: var(--accent-text); font-style: italic; margin-top: 2px; }
+.place-verdict { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px 20px; text-align: center; }
+.place-big { font-family: "Fraunces", Georgia, serif; font-size: clamp(34px, 10vw, 46px); line-height: 1.15; color: var(--ink); margin-top: 8px; font-variant-numeric: lining-nums; }
+.place-missed { margin-top: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px 18px; }
+.place-missed-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 7px 0; border-top: 1px solid var(--border); }
+.place-missed-row:first-of-type { border-top: none; }
+.place-missed-native { font-size: 19px; line-height: 1.6; color: var(--ink); }
+.place-missed-en { font-size: 14px; color: var(--text-dim); margin-inline-start: auto; }

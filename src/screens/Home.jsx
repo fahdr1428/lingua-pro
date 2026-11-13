@@ -199,13 +199,18 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
   // Recomputed when stats change, i.e. after every lesson.
   useEffect(() => {
     let live = true;
-    Promise.all([import("../engine/guided.js"), import("../engine/curriculum.js"), engine.getCourseState(), engine.getProgress()])
-      .then(async ([g, c, state, progress]) => {
+    Promise.all([import("../engine/guided.js"), import("../engine/curriculum.js"), engine.getCourseState(), engine.getProgress(), import("../engine/adapt.js")])
+      .then(async ([g, c, state, progress, a]) => {
         const full = await g.loadCourse(pack);
         if (!live) return;
         const next = c.nextLesson(full, state, progress);
         const standing = c.moduleStanding(full, state, progress);
-        setCourse({ full, state, progress, next, standing });
+        // v117 (adapt.js): the lesson just finished didn't come from memory —
+        // a second pass on its words comes before the next lesson. And whether
+        // there is a level to find at all (a chapter big enough to probe).
+        const second = a.secondPass(full, state, progress);
+        const canPlace = a.placementStages(pack).length > 0;
+        setCourse({ full, state, progress, next, standing, second, canPlace });
       })
       .catch((e) => {
         console.warn("course unavailable:", e);
@@ -313,6 +318,32 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
       };
     }
 
+    // 0b. v117 — SECOND PASS (adapt.js). The lesson just finished went badly:
+    // its words didn't come from memory. Ahead of an exam, a review or new
+    // words, because all three assume those words; a short round on exactly
+    // them is the step that helps. Offered once, and it can be declined.
+    if (course?.second) {
+      const { lesson: l, ids } = course.second;
+      const n = ids.length;
+      const onward = course.next && course.next.lesson.id !== l.id ? course.next.lesson : null;
+      return {
+        kind: "second",
+        eyebrow: `Second pass · ${l.title}`,
+        title: n === 1 ? "One word that didn't come from memory" : `${n} words that didn't come from memory`,
+        sub: `A short round on just ${n === 1 ? "that one" : "those"}: look again, find ${n === 1 ? "it" : "them"}, then write ${n === 1 ? "it" : "them"}. Then on to the next lesson.`,
+        mins: Math.max(2, Math.round((n * 2 + 1) / 3)),
+        go: () => onNavigate("lesson", { mode: "second", filter: { lesson: l.id } }),
+        alt: {
+          label: onward ? "or go on to the next lesson" : "or leave these for review",
+          go: async () => {
+            try { await engine.saveSecondPass(l.id, { declined: true }); } catch {}
+            if (onward) onNavigate("lesson", { mode: "guided", filter: { lesson: onward.id } });
+            else setCourse((c) => (c ? { ...c, second: null } : c));
+          },
+        },
+      };
+    }
+
     // 1. Milestone exam due (every 3 lessons)
     const lastCleared = appState?.lastCheckpointAt?.[pack.code] ?? -1;
     if (done >= 3 && done % 3 === 0 && lastCleared !== done && (stats.learned || 0) >= 6) {
@@ -394,6 +425,11 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           return ex ? { they: ex.they, you: ex.you } : null;
         })(),
         go: () => onNavigate("lesson", { mode: "guided", filter: { lesson: l.id } }),
+        // v117: someone opening the course's very first lesson may not be a
+        // beginner. One line under the button, and only then.
+        alt: done === 0 && m.index === 0 && l === m.lessons[0] && (stats.learned || 0) === 0 && course.canPlace
+          ? { label: `Already know some ${lang.name}? Find your level`, go: () => onNavigate("placement") }
+          : undefined,
       };
     }
     // 4b. The current unit lesson

@@ -11,10 +11,28 @@ import React, { useEffect, useState } from "react";
 import { LANGUAGES } from "../data/registry.js";
 import { hasPassages } from "../data/contentIndex.js";
 import { skillProfile, focusReason, SKILLS, SKILL_LABEL, MIN_EVIDENCE, stageCounts, STAGE_LABEL } from "../engine/skills.js";
+import { hasAudioFor } from "../audio/tts.js";
 import "./course.css";
 
-/** Where to go to work on a skill. */
-export function skillAction(skill, code) {
+// v117 — what a drill of each skill is called (adapt.js DRILLS, kept here so
+// the label doesn't wait on the engine chunk).
+const DRILL_LABEL = {
+  listening: "Listening drill", writing: "Writing drill", reading: "Reading drill",
+  grammar: "Sentence drill", vocabulary: "Word drill",
+};
+
+/**
+ * Where to go to work on a skill.
+ *
+ * v117: when a DRILL of that skill can be built from this learner's own words
+ * (adapt.js buildSkillDrill — `drills` lists the ones that can), that is the
+ * action: a session made only of that skill's exercise types. Otherwise the
+ * nearest screen, as before.
+ */
+export function skillAction(skill, code, drills = null) {
+  if (drills?.includes(skill) && DRILL_LABEL[skill]) {
+    return { label: DRILL_LABEL[skill], screen: "lesson", params: { mode: "skill", filter: { skill } }, drill: true };
+  }
   switch (skill) {
     case "speaking": return { label: "Practise speaking", screen: "speak", params: {} };
     case "listening": return { label: "Listen and repeat", screen: "listen", params: {} };
@@ -29,28 +47,61 @@ export function skillAction(skill, code) {
   }
 }
 
-export function useSkills(engine, deps = []) {
+/**
+ * The learner's answers, cards and skill profile — and (v117, when `pack` is
+ * given) which skills have a drill that can be built right now.
+ */
+export function useSkills(engine, deps = [], pack = null) {
   const [state, setState] = useState(null);
   useEffect(() => {
     let live = true;
     Promise.all([engine.getAttempts(), engine.getProgress()])
-      .then(([attempts, progress]) => { if (live) setState({ attempts, progress, profile: skillProfile(attempts) }); })
-      .catch(() => { if (live) setState({ attempts: [], progress: {}, profile: skillProfile([]) }); });
+      .then(async ([attempts, progress]) => {
+        if (!live) return;
+        setState({ attempts, progress, profile: skillProfile(attempts), drills: [] });
+        if (!pack) return;
+        try {
+          const { availableDrills } = await import("../engine/adapt.js");
+          const ttsCode = LANGUAGES[pack.code]?.ttsCode;
+          const canHear = (v) => { try { return hasAudioFor(ttsCode, v.id); } catch { return false; } };
+          const drills = availableDrills(pack, progress, { canHear });
+          if (live) setState((st) => (st ? { ...st, drills } : st));
+        } catch {
+          // No drills is a smaller panel, not an error.
+        }
+      })
+      .catch(() => { if (live) setState({ attempts: [], progress: {}, profile: skillProfile([]), drills: [] }); });
     return () => { live = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [engine, ...deps]);
+  }, [engine, pack, ...deps]);
   return state;
 }
 
-export function SkillBars({ profile, compact = false }) {
+/**
+ * What tapping each skill does: its drill when one can be built; for speaking
+ * and conversation, the screens that practise them. A skill with nothing to
+ * practise on yet has no action and is drawn as a plain row.
+ */
+export function skillActions(code, drills = [], learned = 0) {
+  const out = {};
+  for (const s of SKILLS) {
+    if (drills.includes(s)) out[s] = skillAction(s, code, drills);
+    else if (s === "speaking" && learned >= 3) out[s] = { label: "Speaking session", screen: "lesson", params: { mode: "speak" } };
+    else if (s === "interaction" && learned >= 3) out[s] = { label: "Real-world missions", screen: "missions", params: {} };
+  }
+  return out;
+}
+
+export function SkillBars({ profile, compact = false, actions = null, onPractise = null }) {
   if (!profile) return null;
   return (
     <ul className={`zs-skills${compact ? " zs-compact" : ""}`} data-testid="skill-profile">
       {SKILLS.map((s) => {
         const k = profile.skills[s];
         const none = k.score === null;
-        return (
-          <li key={s} data-skill={s} data-score={none ? "" : k.score}>
+        const act = onPractise && actions?.[s];
+        const cells = (
+          <>
             <span className="zs-skill-name">{SKILL_LABEL[s]}</span>
             {none ? (
               <span className="zs-skill-none">
@@ -64,6 +115,18 @@ export function SkillBars({ profile, compact = false }) {
                 <span className="zs-skill-score">{k.score}</span>
               </>
             )}
+          </>
+        );
+        return (
+          <li key={s} data-skill={s} data-score={none ? "" : k.score} className={act ? "zs-can" : undefined}>
+            {act ? (
+              <button type="button" className="zs-skill-go" data-testid={`practise-${s}`} data-drill={act.drill ? s : undefined}
+                aria-label={`${SKILL_LABEL[s]}: ${none ? "no score yet" : `${k.score} out of 100`}. ${act.label}`}
+                onClick={() => onPractise(act, s)}>
+                {cells}
+                <span className="zs-skill-chev" aria-hidden="true">›</span>
+              </button>
+            ) : cells}
           </li>
         );
       })}
@@ -73,7 +136,7 @@ export function SkillBars({ profile, compact = false }) {
 
 export function CoursePanel({ course, engine, pack, stats, onNavigate }) {
   const lang = LANGUAGES[pack.code] || {};
-  const skills = useSkills(engine, [stats]);
+  const skills = useSkills(engine, [stats], pack);
   const full = course.full;
   const profile = full?.profile;
   const next = course.next;
@@ -81,7 +144,9 @@ export function CoursePanel({ course, engine, pack, stats, onNavigate }) {
   const finishedModules = standing.filter((m) => m.finished).length;
   const currentIdx = next ? next.module.index : full.modules.length - 1;
   const focus = skills?.profile?.focus || null;
-  const action = focus ? skillAction(focus, pack.code) : null;
+  const action = focus ? skillAction(focus, pack.code, skills?.drills) : null;
+  const actions = skills ? skillActions(pack.code, skills.drills, stats?.learned || 0) : null;
+  const tappable = !!actions && Object.keys(actions).length > 0;
 
   const allIds = full.modules.flatMap((m) => m.items);
   const stages = skills ? stageCounts(allIds, skills.progress, skills.attempts) : null;
@@ -129,8 +194,9 @@ export function CoursePanel({ course, engine, pack, stats, onNavigate }) {
       )}
 
       <h4 className="zs-h4">Your skills</h4>
-      <SkillBars profile={skills?.profile} compact />
+      <SkillBars profile={skills?.profile} compact actions={actions} onPractise={(a) => onNavigate(a.screen, a.params)} />
       <p className="zs-fine">
+        {tappable && <>Tap a skill to practise it. </>}
         From memory counts fully; choosing from options counts 70%. Estimates from your answers here, not a certificate.
       </p>
 

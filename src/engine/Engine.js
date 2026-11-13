@@ -258,6 +258,25 @@ export class Engine {
       if (s?.exercises?.length) return s;
       if (s?.unit) { mode = "unit"; filter = { unit: s.unit }; }
     }
+    // v117 (adapt.js) — a SECOND PASS on the words of a lesson that didn't come
+    // from memory, and a DRILL of one skill. Both are built only from what
+    // they are for; when they can't be built the caller gets nothing rather
+    // than some other lesson passed off under their name.
+    if (mode === "second" && filter?.lesson) {
+      const [{ secondPass, buildSecondPass }, { loadCourse }] = await Promise.all([import("./adapt.js"), import("./guided.js")]);
+      const course = await loadCourse(this.pack);
+      const due = secondPass(course, await this.getCourseState(), progress);
+      if (due && due.lesson.id === filter.lesson) {
+        const s = buildSecondPass(this.pack, due.lesson, due.ids, { progress, disabled: disabledExercises });
+        if (s?.exercises?.length) return s;
+      }
+      return { mode, exercises: [] };
+    }
+    if (mode === "skill" && filter?.skill) {
+      const { buildSkillDrill } = await import("./adapt.js");
+      const s = buildSkillDrill(filter.skill, this.pack, progress, { size: Math.max(4, Math.min(12, sessionSize)), disabled: disabledExercises, canHear });
+      return s || { mode, exercises: [] };
+    }
     // v113: "make it yours" — every question from memory, on words this learner
     // has met but never produced (in one unit when asked, otherwise anywhere).
     // Shakiest first. Falls through to an ordinary lesson when there's nothing
@@ -574,7 +593,9 @@ export class Engine {
   async getCourseState() {
     const all = (await this.storage.get("course")) || {};
     const mine = all[this.languageCode] || {};
-    return { done: mine.done || {}, results: mine.results || {}, exchanges: mine.exchanges || {} };
+    // `second` (v117): lessons whose second pass has been done or declined (adapt.js).
+    // `skipped` (v117): lessons passed by test rather than done (curriculum.js lessonSatisfied).
+    return { done: mine.done || {}, results: mine.results || {}, exchanges: mine.exchanges || {}, second: mine.second || {}, skipped: mine.skipped || {} };
   }
 
   async _updateCourseState(fn) {
@@ -592,6 +613,43 @@ export class Engine {
       done: { ...s.done, [lessonId]: Date.now() },
       results: { ...s.results, [lessonId]: { ts: Date.now(), objectives } },
       exchanges: exchange ? { ...s.exchanges, [exchange]: Date.now() } : s.exchanges,
+    }));
+  }
+
+  /**
+   * v117 — PASSED BY TEST MEANS THE COURSE MOVES ON. seedKnown marks the words
+   * known, which puts a module's word lessons behind the learner — but not its
+   * conversation task, and not a word lesson holding a card seedKnown left
+   * alone. So after skipping Chapter 1 the course's next lesson was still in
+   * Module 1. Every lesson of a module whose words were ALL in the test is
+   * recorded as skipped (not done: nothing is claimed that wasn't shown).
+   */
+  async skipKnownModules(vocabIds = []) {
+    const known = new Set(vocabIds || []);
+    if (!known.size) return null;
+    const { loadCourse } = await import("./guided.js");
+    const course = await loadCourse(this.pack);
+    const ids = [];
+    for (const m of course?.modules || []) {
+      if (m.items?.length && m.items.every((id) => known.has(id))) for (const l of m.lessons) ids.push(l.id);
+    }
+    if (!ids.length) return null;
+    const now = Date.now();
+    return this._updateCourseState((s) => ({
+      ...s,
+      skipped: { ...(s.skipped || {}), ...Object.fromEntries(ids.map((id) => [id, now])) },
+    }));
+  }
+
+  /**
+   * v117: a lesson's second pass was finished, or declined (adapt.js). Recorded
+   * either way, so it is offered once and never becomes a loop.
+   */
+  async saveSecondPass(lessonId, { declined = false } = {}) {
+    if (!lessonId) return null;
+    return this._updateCourseState((s) => ({
+      ...s,
+      second: { ...(s.second || {}), [lessonId]: { ts: Date.now(), ...(declined ? { declined: true } : {}) } },
     }));
   }
 

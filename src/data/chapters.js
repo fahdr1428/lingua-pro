@@ -119,3 +119,24 @@ export function chapterVocabIds(vocab, chapterNum) {
   const unitIds = idxs.map((i) => `u${i + 1}`);
   return vocab.filter((v) => unitIds.includes(v.unit)).map((v) => v.id);
 }
+
+/**
+ * v117 — what passing a chapter by test does to the saved state: its words are
+ * recorded as tested out, and every chapter up to and including it is marked
+ * passed (you cannot meaningfully skip chapter 3 while chapter 1 is gated).
+ * One function, used by the chapter test (SkipAhead) and by Find your level
+ * (Placement), so the two can never come to mean different things. The words
+ * themselves are seeded by Engine.seedKnown, separately. Pure.
+ */
+export function withChapterPassed(appState, langCode, chapterNum, ids = []) {
+  const s = appState || {};
+  const testedOut = new Set(s.testedOut?.[langCode] || []);
+  for (const id of ids) testedOut.add(id);
+  const passed = new Set(s.chaptersPassed?.[langCode] || []);
+  for (let c = 1; c <= chapterNum; c++) passed.add(c);
+  return {
+    ...s,
+    testedOut: { ...s.testedOut, [langCode]: [...testedOut] },
+    chaptersPassed: { ...s.chaptersPassed, [langCode]: [...passed].sort((a, b) => a - b) },
+  };
+}

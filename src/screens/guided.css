@@ -84,3 +84,7 @@
   background: var(--surface-hi); max-width: 100%;
 }
 .g-results { margin-bottom: 20px; }
+
+/* v117 — the second pass offer on the results card */
+.g-second { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+.g-second-text { margin: 6px 0 12px; font-size: 14.5px; line-height: 1.55; color: var(--text); }

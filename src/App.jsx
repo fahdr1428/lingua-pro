@@ -85,6 +85,8 @@ const SCREEN_LOADERS = {
   course: () => import("./screens/CourseScreen.jsx"),
   // v116 — the words this learner keeps missing (teach.js).
   mistakes: () => import("./screens/Mistakes.jsx"),
+  // v117 — find where in the course to start (adapt.js).
+  placement: () => import("./screens/Placement.jsx"),
 };
 
 // One tap away from everywhere, so they are warmed first. The rest follow.
@@ -161,6 +163,7 @@ const Listen = named("listen", "Listen");
 const Rush = named("rush", "Rush");
 const CourseScreen = named("course", "CourseScreen");
 const Mistakes = named("mistakes", "Mistakes");
+const Placement = named("placement", "Placement");
 
 // A lazily-imported screen that fails to load is almost never a bug in the
 // screen. It's a deploy: this app splits fifteen screens into content-hashed
@@ -681,6 +684,7 @@ export default function App() {
         {screen === "rush" && <Rush {...screenProps} />}
         {screen === "course" && <CourseScreen {...screenProps} />}
         {screen === "mistakes" && <Mistakes {...screenProps} />}
+        {screen === "placement" && <Placement {...screenProps} />}
         </Suspense>
       </main>
       </div>

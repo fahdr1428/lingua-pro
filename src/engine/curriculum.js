@@ -365,6 +365,11 @@ export function findLesson(course, lessonId) {
  */
 export function lessonSatisfied(lesson, state = {}, progress = {}) {
   if (state.done?.[lesson.id]) return true;
+  // v117: passed by test (the chapter test, or Find your level). The lesson
+  // was not done and is not recorded as done — it is behind the learner. A
+  // skipped conversation still reads "practise the conversation" on the map,
+  // which goes by state.exchanges, so nothing is claimed that wasn't shown.
+  if (state.skipped?.[lesson.id]) return true;
   if (lesson.kind === "task") return !!(lesson.stop && state.exchanges?.[lesson.stop]);
   return lesson.items.length > 0 && lesson.items.every((id) => canRecall(progress[id]));
 }

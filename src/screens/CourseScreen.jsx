@@ -19,7 +19,7 @@ import { goBack } from "../ui/navigation.js";
 import { loadCourse } from "../engine/guided.js";
 import { moduleStanding, nextLesson, lessonSatisfied } from "../engine/curriculum.js";
 import { FEATURES, SCRIPTS } from "../data/courses.js";
-import { SkillBars, useSkills, skillAction } from "./CoursePanel.jsx";
+import { SkillBars, useSkills, skillAction, skillActions } from "./CoursePanel.jsx";
 import { focusReason, SKILL_LABEL } from "../engine/skills.js";
 import { OBJECTIVE_LABEL } from "./GuidedParts.jsx";
 import "./course.css";
@@ -28,7 +28,7 @@ export function CourseScreen({ engine, pack, appState, stats, onNavigate }) {
   const lang = LANGUAGES[pack.code] || {};
   const [data, setData] = useState(null);
   const [open, setOpen] = useState(() => new Set());
-  const skills = useSkills(engine, [stats]);
+  const skills = useSkills(engine, [stats], pack);
 
   useEffect(() => {
     let live = true;
@@ -46,7 +46,8 @@ export function CourseScreen({ engine, pack, appState, stats, onNavigate }) {
   const script = profile ? SCRIPTS[profile.script] : null;
   const toggle = (id) => setOpen((s) => { const n = new Set(s); n.has(id) ? n.delete(id) : n.add(id); return n; });
   const focus = skills?.profile?.focus;
-  const action = useMemo(() => (focus ? skillAction(focus, pack.code) : null), [focus, pack.code]);
+  const action = useMemo(() => (focus ? skillAction(focus, pack.code, skills?.drills) : null), [focus, pack.code, skills?.drills]);
+  const actions = skills ? skillActions(pack.code, skills.drills, stats?.learned || 0) : null;
 
   if (!data) return <Container><div className="zc-note" style={{ padding: 40, textAlign: "center" }}>Loading the course…</div></Container>;
   if (data.failed) return <Container><div className="zc-note" style={{ padding: 40 }}>The course couldn't be built just now. Your lessons on Home still work.</div></Container>;
@@ -109,7 +110,10 @@ export function CourseScreen({ engine, pack, appState, stats, onNavigate }) {
           Each skill is scored from your last answers that use it. Writing or saying something from memory counts fully,
           choosing it from options counts 70%, and a hint or a near miss counts half. Under 12 answers there's no score yet.
         </p>
-        <SkillBars profile={skills?.profile} />
+        <SkillBars profile={skills?.profile} actions={actions} onPractise={(a) => onNavigate(a.screen, a.params)} />
+        {actions && Object.keys(actions).length > 0 && (
+          <p className="zc-note">Tap a skill to practise it: a short session made only of that skill's kind of question, on words you've already met.</p>
+        )}
         {focus && action && (
           <div className="zs-focus">
             <div>

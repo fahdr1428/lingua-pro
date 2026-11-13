@@ -41,7 +41,7 @@ const SCREENS = [
   ["practice"], ["speak"], ["culture"], ["missions"], ["fluency"], ["skipahead"],
   ["dialect"], ["reading"], ["conversations"], ["sentencelab"], ["grammar"],
   ["vocab"], ["profile"], ["settings"], ["upgrade"], ["legal"], ["decode"],
-  ["stream"], ["topics"], ["listen"], ["mistakes"],
+  ["stream"], ["topics"], ["listen"], ["mistakes"], ["placement"],
   ["lesson", { mode: "smart" }],
   ["lesson", { mode: "topic", filter: { category: "Food" }, sessionSize: 8, topic: "Food" }],
   // Zaban — the whole course, and a structured lesson from it ({code} is the

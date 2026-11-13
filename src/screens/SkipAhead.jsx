@@ -31,7 +31,7 @@ import { GuideMark } from "../ui/GuideMark.jsx";
 import { speak } from "../audio/tts.js";
 import {
   UNITS_PER_CHAPTER, unitIndicesForChapter, chapterVocabIds,
-  hasPassedChapter, completeChapterCount,
+  hasPassedChapter, completeChapterCount, withChapterPassed,
 } from "../data/chapters.js";
 
 // Higher than the 70% a normal chapter exam needs. See the header.
@@ -110,19 +110,15 @@ export function SkipAhead({ engine, pack, appState, setAppState, params, onNavig
     // NOT clear a chapter gate — the chapter exam still stands, because proving
     // one unit is not proving six.
     await engine.seedKnown(chapter.ids);
+    // v117: and the course moves past the modules those words make up.
+    try { await engine.skipKnownModules(chapter.ids); } catch {}
     setAppState((s) => {
+      // v117: a chapter pass is one shared rule (chapters.js withChapterPassed),
+      // also used by Find your level.
+      if (chapter.kind === "chapter") return withChapterPassed(s, pack.code, chapter.num, chapter.ids);
       const testedOut = new Set(s.testedOut?.[pack.code] || []);
       chapter.ids.forEach((id) => testedOut.add(id));
-      const next = { ...s, testedOut: { ...s.testedOut, [pack.code]: [...testedOut] } };
-
-      if (chapter.kind === "chapter") {
-        const passed = new Set(s.chaptersPassed?.[pack.code] || []);
-        // Everything up to and including this chapter — you cannot meaningfully
-        // skip chapter 3 while chapter 1 is still gated.
-        for (let c = 1; c <= chapter.num; c++) passed.add(c);
-        next.chaptersPassed = { ...s.chaptersPassed, [pack.code]: [...passed].sort((a, b) => a - b) };
-      }
-      return next;
+      return { ...s, testedOut: { ...s.testedOut, [pack.code]: [...testedOut] } };
     });
     refreshStats?.();
   }, [chapter, engine, pack.code, setAppState, refreshStats]);
@@ -199,6 +195,15 @@ function ChapterPicker({ chapters, lang, onStart, onNavigate }) {
         deliberately high: skipping something you don't know makes everything
         after it harder.
       </p>
+
+      {/* v117 — not sure which chapter to ask about? Let the app find it. */}
+      <button className="skip-invite" data-testid="open-placement" onClick={() => onNavigate("placement")} style={{ marginBottom: 16 }}>
+        <span style={{ flex: 1, minWidth: 0 }}>
+          <span className="speak-invite-title">Not sure where you stand? Find your level</span>
+          <span className="speak-invite-sub">One chapter at a time from the start; it stops where you do</span>
+        </span>
+        <span className="speak-invite-arrow" aria-hidden="true">→</span>
+      </button>
 
       <div className="mission-list">
         {chapters.map((c) => (
