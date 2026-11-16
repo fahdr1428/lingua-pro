@@ -19,12 +19,13 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { TopBar, Container, Icon } from "../ui/primitives.jsx";
 import { KeepSafeNote } from "../ui/KeepSafe.jsx";
-import { LANGUAGES, scriptFont } from "../data/registry.js";
+import { LANGUAGES, scriptFont, isNonLatinScript } from "../data/registry.js";
 // The journey content (every language's exchanges) loads with Home rather
 // than in the first download; the map's grouping helpers are small and eager.
 import { reachedOf } from "../data/journeyChapters.js";
 import { getCharacter } from "../data/characters.js";
-import { GuideMark } from "../ui/GuideMark.jsx";
+import { GuideSays, useGuideVoice } from "../ui/GuideMark.jsx";
+import { splitSkill, firstSentences } from "../ui/textShape.js";
 import { JourneyMap } from "./JourneyMap.jsx";
 
 // Zaban — the course panel (structure, skills, focus) loads after Home paints.
@@ -456,8 +457,12 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           return {
             kind: "lab",
             eyebrow: "Sentence Lab",
-            title: `Build: ${skill}`,
-            sub: "Construct a real sentence, one piece at a time.",
+            // v119: "Subject + Verb (note: verb comes LAST in Urdu)" was the
+            // whole title. The note is the useful part — it goes underneath.
+            title: `Build: ${splitSkill(skill).head}`,
+            sub: splitSkill(skill).note
+              ? `${splitSkill(skill).note}. Built one piece at a time.`
+              : "Construct a real sentence, one piece at a time.",
             mins: 2,
             go: () => onNavigate("sentencelab", { dropNumber: nextDrop }),
           };
@@ -525,12 +530,31 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
   // The coach line
   // ---------------------------------------------------------------------------
   const character = getCharacter(pack.code);
-  const hasMet = (appState.metCharacters || []).includes(pack.code);
+  // v119: the guide talks. Tapping their face plays their own line in their
+  // voice (the mouth moves while it plays); while the greeting is being
+  // written out, the mouth moves too.
+  const [talking, say] = useGuideVoice(pack.code, lang.ttsCode);
+  const [typing, setTyping] = useState(true);
+  const [heard, setHeard] = useState(false);
+  async function sayHello() {
+    const sig = character?.signature;
+    if (!sig) return;
+    setHeard(true);
+    await say(sig.text, sig.translit);
+  }
+  // v119: whether the guide had been met when this visit began. Home records
+  // the meeting after 5 seconds, and reading it live swapped the introduction
+  // for another line mid-sentence while it was being read.
+  const hasMet = useMemo(
+    () => (appState.metCharacters || []).includes(pack.code),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [pack.code]
+  );
   const milestone = nextMilestone(appState, pack.code);
   const goalMet = todayXp >= (appState.dailyGoalXp || 35);
   const weakWord = weakList.length ? weakList[0].word : null;
   const line = character && !hasMet
-    ? character.intro
+    ? firstSentences(character.intro)
     : coachLine({
         langName: lang.name,
         due: stats.due || 0,
@@ -588,18 +612,48 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             single compact row. The headline earns its place at the top of a
             marketing page; on the screen you open every day to do a lesson, the
             lesson is what should be visible. */}
-        <div className="home-greet">
-          {character ? <GuideMark code={pack.code} size={34} /> : null}
-          <div style={{ flex: 1, minWidth: 0 }}>
+        {/* v119: the guide, drawn, saying hello in a speech bubble. The seal
+            that was here — an initial in a ring — said nothing to anyone who
+            can't read the script yet. */}
+        {character ? (
+          <GuideSays
+            code={pack.code}
+            size={56}
+            mood={heard && !talking ? "happy" : "idle"}
+            // Typing only counts while the typed line is showing: tapping the
+            // face mid-greeting replaces it, and its "done" never comes.
+            speaking={talking || (typing && !heard)}
+            onFace={sayHello}
+            faceLabel={`Hear ${character.name} say “${character.signature?.en || "hello"}”`}
+            testid="home-guide"
+            className="home-guide"
+          >
+            <div className="guide-bubble-who">
+              {daypart()}{appState.userName ? `, ${appState.userName}` : ""} · {character.name}, {character.city}
+            </div>
+            {heard && character.signature ? (
+              <div data-testid="home-guide-said">
+                <div className="guide-bubble-said" dir={lang.rtl ? "rtl" : "ltr"} lang={pack.code} style={{ fontFamily: scriptFont(pack.code) }}>
+                  {character.signature.text}
+                </div>
+                <div className="guide-bubble-gloss">
+                  {isNonLatinScript(pack.code) && character.signature.translit ? <>{character.signature.translit} · </> : null}
+                  “{character.signature.en}”
+                </div>
+              </div>
+            ) : (
+              <Typewriter key={line} text={line} onDone={() => setTyping(false)} onStart={() => setTyping(true)} style={{
+                fontSize: 14.5, color: "var(--text-dim)", lineHeight: 1.45, minHeight: 21,
+              }} />
+            )}
+          </GuideSays>
+        ) : (
+          <div className="home-greet">
             <div className="eyebrow" style={{ marginBottom: 2 }}>
               {daypart()}{appState.userName ? `, ${appState.userName}` : ""}
-              {character ? ` · ${character.name}` : ""}
             </div>
-            <Typewriter key={line} text={line} style={{
-              fontSize: 14.5, color: "var(--text-dim)", lineHeight: 1.45, minHeight: 21,
-            }} />
           </div>
-        </div>
+        )}
         {!appState.userName && (
           <NameCapture onSave={(n) => setAppState((s) => ({ ...s, userName: n }))} />
         )}
@@ -993,21 +1047,25 @@ function DailyRing({ pct = 0, met = false, today = 0, goal = 0 }) {
 // =============================================================================
 // TYPEWRITER — the coach "thinks and types". Respects reduced motion.
 // =============================================================================
-function Typewriter({ text, style }) {
+function Typewriter({ text, style, onStart, onDone }) {
   const reduced = useMemo(
     () => typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches,
     []
   );
   const [shown, setShown] = useState(reduced ? text : "");
+  // v119: the guide's mouth moves while the line is written out.
+  const cb = useRef({ onStart, onDone });
+  cb.current = { onStart, onDone };
 
   useEffect(() => {
-    if (reduced) { setShown(text); return; }
+    if (reduced) { setShown(text); cb.current.onDone?.(); return; }
     setShown("");
+    cb.current.onStart?.();
     let i = 0;
     const id = setInterval(() => {
       i += 2;
       setShown(text.slice(0, i));
-      if (i >= text.length) clearInterval(id);
+      if (i >= text.length) { clearInterval(id); cb.current.onDone?.(); }
     }, 24);
     return () => clearInterval(id);
   }, [text, reduced]);

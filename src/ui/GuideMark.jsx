@@ -1,105 +1,60 @@
 // =============================================================================
-// GuideMark (v70) — the guide's face, without an emoji in sight.
+// GuideMark — the guide's face, wherever the guide appears.
 //
-// THE PROBLEM IT SOLVES: guides were rendered as `character.emoji` — 👩🏼, 🧕🏽,
-// 🧔🏽. Three things wrong with that. It renders differently on every platform
-// (so the guide literally isn't the same person on iOS and Android), it can't be
-// coloured or sized to the design, and it reads as a sticker. Flat.
-//
-// THE ANSWER: a seal. The guide's initial IN THEIR OWN SCRIPT — آ for Amina,
-// 林 for Lin, ن for Nasreen — set in a hairline ring in their accent colour over
-// a soft wash. It borrows from the stamp/tughra/chop tradition rather than from
-// cartoon mascots, which is both more culturally rooted and more adult.
-//
-// It also does something an emoji can't: `speaking` makes the ring breathe while
-// the guide's voice is playing, so the seal is visibly the thing that's talking.
-//
-// Rendered as SVG so it's crisp at any size and needs no image assets.
+// v70 drew a seal: the guide's initial, in their script, in a hairline ring.
+// v119 draws the guide (GuideAvatar.jsx): a portrait that blinks, talks while
+// the guide's voice plays, and reacts to answers. The drawing is its own chunk
+// — 28KB of source that would otherwise be in every first download — fetched
+// as soon as the app starts, so it is normally there before Home is.
 // =============================================================================
 
-import React from "react";
-import { getCharacter } from "../data/characters.js";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { getCharacter, guideVoice } from "../data/characters.js";
+import { speak, stopSpeaking } from "../audio/tts.js";
 
-// Scripts that need a serif/naskh face for the initial to look printed rather
-// than like UI chrome. Latin initials look better in the display serif.
-const SCRIPT_FONT = {
-  ur: '"Noto Nastaliq Urdu", "Noto Naskh Arabic", serif',
-  ar: '"Noto Naskh Arabic", "Noto Nastaliq Urdu", serif',
-  pa: '"Noto Naskh Arabic", "Noto Nastaliq Urdu", serif',
-  hi: '"Noto Serif Devanagari", Georgia, serif',
-  bn: '"Noto Serif Bengali", Georgia, serif',
-  ja: '"Hiragino Mincho ProN", "Yu Mincho", serif',
-  zh: '"Songti SC", "Noto Serif SC", serif',
-  ko: '"Apple SD Gothic Neo", "Noto Serif KR", serif',
-};
-
-/**
- * @param {string} code      language code — picks the guide and the script font
- * @param {number} size      diameter in px (28 / 44 / 72 are the used sizes)
- * @param {boolean} speaking animate the ring while the guide's voice plays
- * @param {boolean} muted    de-emphasise (used behind dimmed content)
- */
-export function GuideMark({ code, size = 44, speaking = false, muted = false, style, title }) {
-  const guide = getCharacter(code);
-  if (!guide) return null;
-
-  const accent = guide.accent || "var(--ink)";
-  const initial = guide.initial || guide.name?.[0] || "?";
-  const font = SCRIPT_FONT[code] || '"Fraunces", Georgia, serif';
-
-  // Nastaliq and Naskh sit high in their em box and need a nudge down plus a
-  // smaller size to stay inside the ring; Latin/CJK centre cleanly.
-  const arabicish = code === "ur" || code === "ar" || code === "pa";
-  const fontSize = size * (arabicish ? 0.4 : 0.42);
-  const baseline = size * (arabicish ? 0.62 : 0.605);
-
-  const ringId = `gm-wash-${code}`;
-
+// The guide's colour in the face's circle: shown while the drawing loads, and
+// for good if it can't (offline before it was ever fetched, or a tab older
+// than the deploy that replaced the file). A face that fails to load must
+// never take the screen it sits on down with it.
+function AvatarDisc({ accent = "#5a8f7b", size = 44, muted = false, style }) {
   return (
     <span
-      className={`guide-mark${speaking ? " guide-mark-speaking" : ""}`}
-      style={{ width: size, height: size, flexShrink: 0, display: "inline-flex", opacity: muted ? 0.55 : 1, ...style }}
-      title={title || `${guide.name} — ${guide.role}`}
-      aria-hidden={title ? undefined : "true"}
-      role={title ? "img" : undefined}
-      aria-label={title || undefined}
-    >
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-        <defs>
-          <radialGradient id={ringId} cx="35%" cy="28%" r="78%">
-            {/* v115: the wash starts from the surface colour, not white — on
-                Ink a white disc was the brightest thing on the screen. */}
-            <stop offset="0%" style={{ stopColor: "var(--surface-hi)", stopOpacity: 1 }} />
-            <stop offset="100%" stopColor={accent} stopOpacity="0.16" />
-          </radialGradient>
-        </defs>
+      className="guide-mark guide-avatar-wait"
+      style={{ width: size, height: size, flexShrink: 0, display: "inline-block", borderRadius: "50%", background: `radial-gradient(circle at 32% 24%, ${accent}55, ${accent}22)`, opacity: muted ? 0.55 : 1, ...style }}
+      aria-hidden="true"
+    />
+  );
+}
 
-        {/* the wash */}
-        <circle cx={size / 2} cy={size / 2} r={size / 2 - 1} fill={`url(#${ringId})`} />
-        {/* the hairline ring, in the guide's own colour */}
-        <circle
-          cx={size / 2} cy={size / 2} r={size / 2 - 1}
-          fill="none" stroke={accent} strokeOpacity="0.5"
-          strokeWidth={size >= 60 ? 1.4 : 1.1}
-        />
-        {/* the seal: their initial, in their script */}
-        <text
-          x="50%" y={baseline}
-          textAnchor="middle"
-          fill={accent}
-          fontSize={fontSize}
-          fontFamily={font}
-          fontWeight="600"
-        >
-          {initial}
-        </text>
-      </svg>
-    </span>
+const avatarChunk = import("./GuideAvatar.jsx");
+avatarChunk.catch(() => {});
+const LazyAvatar = React.lazy(() =>
+  avatarChunk.then((m) => ({ default: m.GuideAvatar })).catch(() => ({ default: AvatarDisc })));
+
+/**
+ * @param {string}  code      language code — picks the guide
+ * @param {number}  size      diameter in px
+ * @param {string}  mood      "idle" | "happy" | "encourage"
+ * @param {boolean} speaking  the mouth moves while the guide's voice plays
+ * @param {boolean} muted     de-emphasise (used behind dimmed content)
+ */
+export function GuideMark({ code, size = 44, speaking = false, muted = false, style, title, mood = "idle", blink }) {
+  const guide = getCharacter(code);
+  if (!guide) return null;
+  // While the drawing's chunk arrives (it is fetched at start-up, so this is
+  // rarely seen): the guide's own colour in the same circle, so nothing moves.
+  return (
+    <React.Suspense fallback={<AvatarDisc accent={guide.accent} size={size} muted={muted} style={style} />}>
+      <LazyAvatar
+        code={code} accent={guide.accent} size={size} mood={mood} speaking={speaking} blink={blink}
+        muted={muted} style={style} title={title} className="guide-mark"
+      />
+    </React.Suspense>
   );
 }
 
 /**
- * The guide's byline — seal, name, and what they actually do. Used where there's
+ * The guide's byline — face, name, and what they actually do. Used where there's
  * room to introduce them as a person rather than a decoration.
  */
 export function GuideByline({ code, size = 44, speaking = false, showCraft = true, style }) {
@@ -118,4 +73,56 @@ export function GuideByline({ code, size = 44, speaking = false, showCraft = tru
       </div>
     </div>
   );
+}
+
+// =============================================================================
+// v119 — THE GUIDE SAYS SOMETHING. A face and a speech bubble: Home's greeting,
+// a reaction to an answer, the line at the end of a lesson. With `onFace` the
+// face is a button (Home: tap to hear the guide).
+// =============================================================================
+export function GuideSays({ code, mood = "idle", size = 44, speaking = false, onFace, faceLabel, testid, className = "", children }) {
+  const guide = getCharacter(code);
+  if (!guide) return null;
+  const face = <GuideMark code={code} size={size} mood={mood} speaking={speaking} />;
+  return (
+    <div className={`guide-says ${className}`.trim()} data-testid={testid} data-mood={mood}>
+      {onFace ? (
+        <button type="button" className="guide-says-face" onClick={onFace} aria-label={faceLabel} data-testid={testid ? `${testid}-face` : undefined}>
+          {face}
+          <span className="guide-says-play" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M11 5 6 9H3v6h3l5 4V5Z" /><path d="M15.5 8.5a5 5 0 0 1 0 7" />
+            </svg>
+          </span>
+        </button>
+      ) : face}
+      <div className="guide-bubble">{children}</div>
+    </div>
+  );
+}
+
+/**
+ * The guide's voice, with the mouth moving while it plays.
+ * Returns [talking, say]; say(text, translit) resolves to whether audio played.
+ * A voice that never reports finishing stops the mouth after 7 seconds.
+ */
+export function useGuideVoice(code, ttsCode) {
+  const [talking, setTalking] = useState(false);
+  const live = useRef(true);
+  useEffect(() => () => { live.current = false; }, []);
+  const say = useCallback(async (text, translit) => {
+    if (!text || !ttsCode) return false;
+    setTalking(true);
+    let played = false;
+    try {
+      played = await Promise.race([
+        speak(text, ttsCode, { ...guideVoice(code), translit }),
+        new Promise((r) => setTimeout(() => r("timeout"), 7000)),
+      ]);
+      if (played === "timeout") { stopSpeaking(); played = true; }
+    } catch { played = false; }
+    if (live.current) setTalking(false);
+    return !!played;
+  }, [code, ttsCode]);
+  return [talking, say];
 }

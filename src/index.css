@@ -973,6 +973,32 @@ button:focus:not(:focus-visible) { outline: none; }
   .dot-now, .guide-mark-speaking svg, .station-open { animation: none !important; }
 }
 
+/* the guide says something: a face and a speech bubble */
+.guide-says { display: flex; align-items: flex-start; gap: 12px; min-width: 0; }
+.guide-says-face {
+  position: relative; flex-shrink: 0; padding: 0; border: 0; background: none;
+  border-radius: 50%; cursor: pointer; transition: transform 160ms ease;
+}
+.guide-says-face:hover { transform: translateY(-1px); }
+.guide-says-face:active { transform: scale(0.95); }
+.guide-says-face:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.guide-says-play {
+  position: absolute; right: -2px; bottom: -2px; width: 20px; height: 20px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.guide-bubble {
+  position: relative; flex: 1; min-width: 0; text-align: left;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 4px 18px 18px 18px; padding: 10px 14px;
+  color: var(--text); font-size: 14.5px; line-height: 1.5;
+}
+.guide-bubble-who { font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 3px; }
+.guide-bubble-said { font-size: 19px; line-height: 1.5; color: var(--text); }
+.guide-bubble-gloss { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+.guide-says-sm .guide-bubble { padding: 7px 12px; font-size: 14px; border-radius: 4px 14px 14px 14px; }
+.home-guide { margin: 8px 0 16px; }
+
 /* ============================================================
    v70 CULTURE NOTE — the "why we say it that way" block.
    ============================================================ */
@@ -2825,3 +2851,8 @@ html:active-view-transition-type(back)::view-transition-new(screen) { z-index: 1
 }
 .start-choice:hover { border-color: var(--accent); }
 .start-choice-on { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); }
+.lesson-guide-react { margin-top: 12px; }
+.results-guide { max-width: 440px; margin: 4px auto 22px; }
+/* v119: the guide on each language card, and asking the first questions */
+.lang-guide { display: flex; align-items: center; gap: 7px; margin-top: 9px; font-size: 12px; font-weight: 600; color: var(--text-mute); }
+.start-guide { margin-bottom: 18px; }

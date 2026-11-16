@@ -110,12 +110,12 @@ async function visit(page, code, viewport, screen, params, errors) {
   await page.waitForFunction((isHome) => {
     const main = document.querySelector("#main");
     const t = (main?.innerText || "").trim();
-    return t.length > 15 && t !== "Loading…" && (isHome || !main.querySelector(".home-greet"));
+    return t.length > 15 && t !== "Loading…" && (isHome || !main.querySelector(".home-greet, [data-testid=home-guide]"));
   }, screen === "home", { timeout: 8000 }).catch(() => {});
   await page.waitForTimeout(300);
   // Home is recognised by its structure, not its words — a Japanese reading
   // passage titled "Good morning" is not the home screen's greeting.
-  const stillHome = await page.evaluate(() => !!document.querySelector("#main .home-greet"));
+  const stillHome = await page.evaluate(() => !!document.querySelector("#main .home-greet, #main [data-testid=home-guide]"));
   if (screen !== "home" && stillHome) {
     problems.push(`${code} ${viewport} ${screen}: harness never left Home — this visit checked nothing`);
   }

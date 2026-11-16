@@ -15,8 +15,8 @@ import { SPEAK_MODE, speakingLevel } from "../engine/speaking.js";
 import { sayNow, speakingSummary, crossedMilestone, milestoneLine, memoryLine } from "../engine/encourage.js";
 import { dialectForm, acceptedForms, regionLabel } from "../data/dialects.js";
 import { explainAnswer } from "../engine/explain.js";
-import { getCharacter } from "../data/characters.js";
-import { GuideMark } from "../ui/GuideMark.jsx";
+import { getCharacter, getCelebration } from "../data/characters.js";
+import { GuideSays } from "../ui/GuideMark.jsx";
 import { InContext } from "../ui/InContext.jsx";
 import { isRecognitionSupported, startListening, judge, displayScore, BAND } from "../audio/speech.js";
 import { pickFunFact } from "../data/funFacts.js";
@@ -1887,6 +1887,7 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               <Card
                 role="status"
                 data-testid="answer-feedback"
+                data-result={feedback}
                 style={{
                   marginTop: 24,
                   // v79: a missed answer is no longer alarm-red. The learner
@@ -1952,20 +1953,20 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
                     </button>
                   )}
                 </div>
-                {/* Tutor's in-lesson reaction — makes the guide feel present */}
+                {/* The guide reacts — v119: their face, pleased or encouraging,
+                    instead of a 22px initial beside an italic line. Keyed by
+                    the question so the reaction plays for each answer. */}
                 {reaction && character && (
-                  <div style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8,
-                    marginTop: 10,
-                    fontSize: 14,
-                    fontWeight: 700,
-                    color: "var(--text)",
-                  }}>
-                    <GuideMark code={pack.code} size={22} />
-                    <span style={{ fontStyle: "italic" }}>“{reaction}”</span>
-                  </div>
+                  <GuideSays
+                    key={`react-${idx}`}
+                    code={pack.code}
+                    size={40}
+                    mood={feedback === "correct" ? "happy" : "encourage"}
+                    testid="guide-reaction"
+                    className="guide-says-sm lesson-guide-react"
+                  >
+                    {reaction}
+                  </GuideSays>
                 )}
                 {exercise.type === EXERCISE.FIX_SENTENCE && (
                   <div className="fix-why" data-testid="fix-why">
@@ -2279,6 +2280,7 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
     keep_going: { title: "Done for now", subtitle: "These were hard. The ones you missed come back soon — that's how they stick." },
   };
   const celeb = celebrations[tier];
+  const guideLine = getCelebration(pack.code, tier);
   const [shareNote, setShareNote] = useState("");
 
   async function shareResult() {
@@ -2309,6 +2311,20 @@ function Result({ data, pack, appState, setAppState, onNavigate, missedItems = [
           <h1 className="results-title">{celeb.title}</h1>
           <p className="results-sub">{celeb.subtitle}</p>
         </div>
+
+        {/* v119: the guide's word on how it went — pleased, or encouraging. */}
+        {guideLine && (
+          <GuideSays
+            code={pack.code}
+            size={56}
+            mood={tier === "keep_going" ? "encourage" : tier === "good" ? "idle" : "happy"}
+            testid="results-guide"
+            className="results-guide"
+          >
+            <div className="guide-bubble-who">{getCharacter(pack.code)?.name}</div>
+            {guideLine}
+          </GuideSays>
+        )}
 
         {/* Zaban — feedback on each of the lesson's objectives. */}
         {data.guided && (

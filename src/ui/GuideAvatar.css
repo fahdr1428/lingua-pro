@@ -1,0 +1,33 @@
+/* =============================================================================
+   GuideAvatar.css (v119) — loaded with the portrait's chunk, not up front.
+   Blink, talk, and a small reaction — all transform/opacity, all switched
+   off by the blanket prefers-reduced-motion rule in index.css.
+   ============================================================================= */
+/* the face arrives (its chunk loads after the first paint, rarely visibly) */
+.guide-avatar { animation: gaIn 220ms ease-out 1; }
+@keyframes gaIn { from { opacity: 0; } to { opacity: 1; } }
+.guide-avatar svg { display: block; border-radius: 50%; }
+.guide-avatar .ga-eyes { transform-box: fill-box; transform-origin: center; }
+.ga-blink .ga-eyes { animation: gaBlink 5.8s ease-in-out infinite; }
+@keyframes gaBlink {
+  0%, 92.5%, 100% { transform: scaleY(1); }
+  95%             { transform: scaleY(0.1); }
+}
+.guide-avatar .ga-talk-a { opacity: 0; }
+.ga-talking .ga-talk-a { animation: gaTalkA 0.34s steps(1, end) infinite; }
+.ga-talking .ga-talk-b { animation: gaTalkB 0.34s steps(1, end) infinite; }
+@keyframes gaTalkA { 0% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes gaTalkB { 0% { opacity: 0; } 50% { opacity: 1; } }
+.guide-avatar .ga-figure { transform-box: view-box; transform-origin: 50% 100%; }
+.ga-mood-happy .ga-figure { animation: gaHop 560ms cubic-bezier(0.3, 1.4, 0.5, 1) 1; }
+@keyframes gaHop {
+  0%   { transform: translateY(0); }
+  40%  { transform: translateY(-4%); }
+  100% { transform: translateY(0); }
+}
+.ga-mood-encourage .ga-figure { animation: gaNod 620ms ease-out 1; }
+@keyframes gaNod {
+  0%   { transform: rotate(0deg); }
+  35%  { transform: rotate(-3.5deg); }
+  100% { transform: rotate(0deg); }
+}

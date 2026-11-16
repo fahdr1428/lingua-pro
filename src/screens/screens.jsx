@@ -14,6 +14,7 @@ import { THEMES, resolveTheme } from "../ui/themes.js";
 import { VoiceSettings, DialectSettings } from "./VoiceSettings.jsx";
 import { ExerciseSettings } from "./ExerciseSettings.jsx";
 import { getCharacter, getGreeting } from "../data/characters.js";
+import { GuideMark, GuideSays } from "../ui/GuideMark.jsx";
 import { getLevel, earnedBadges, BADGES, getDailyMissions, getProgressionMilestones, countPassagesRead } from "../engine/gamification.js";
 import { LEARNING_GOALS, getGoal } from "../data/goals.js";
 import { foldForSearch } from "../data/searchText.js";
@@ -37,8 +38,6 @@ import { APP_MIN_AGE, AI_MIN_AGE, LAST_UPDATED, policiesIncomplete } from "../le
 // answers), so it gets its own lazy handle and its own Suspense.
 const LegalReader = React.lazy(() => import("./Legal.jsx").then((m) => ({ default: m.Legal })));
 import { aiAccepted, aiDeclined } from "../ui/AiDisclosure.jsx";
-import { downloadExport } from "../legal/exportData.js";
-import { readBackup, restoreBackup } from "../legal/importData.js";
 import { getStorage } from "../storage/index.js";
 import { DownloadLanguage } from "../ui/Offline.jsx";
 import { goBack } from "../ui/navigation.js";
@@ -70,6 +69,16 @@ export function Onboarding({ onComplete }) {
   // lesson 1 with romanisation.
   const [hears, setHears] = useState(null);   // "none" | "some" | "lots"
   const [reads, setReads] = useState(null);   // "no" | "little" | "yes" (non-Latin scripts only)
+  // v119: the questions appear under all 21 cards — off screen on a phone.
+  // Picking a language brings them (and the guide asking them) into view.
+  useEffect(() => {
+    if (step !== 1 || !language) return;
+    const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    const id = requestAnimationFrame(() => {
+      document.querySelector("[data-testid=start-questions]")?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    });
+    return () => cancelAnimationFrame(id);
+  }, [language, step]);
   // v77 — the two things we have to establish before anyone starts, and a
   // reader for the policies so "I accept" isn't a claim about something the
   // person had no way of seeing.
@@ -153,6 +162,13 @@ export function Onboarding({ onComplete }) {
                       {courseInfo.SCRIPTS[courseInfo.COURSES[lang.code].script]?.name}{lang.rtl ? " · right to left" : ""}
                     </div>
                   )}
+                  {/* v119: who teaches it — the guide's face and name. */}
+                  {getCharacter(lang.code) && (
+                    <div className="lang-guide" data-testid={`lang-guide-${lang.code}`}>
+                      <GuideMark code={lang.code} size={26} blink={false} />
+                      <span>with {getCharacter(lang.code).name}</span>
+                    </div>
+                  )}
                   {lang.niche && (
                     <div
                       style={{
@@ -184,6 +200,13 @@ export function Onboarding({ onComplete }) {
             const askRead = isNonLatinScript(language);
             return (
               <div className="start-q" data-testid="start-questions">
+                {/* v119: the guide asks — the first time the learner meets them. */}
+                {getCharacter(language) && (
+                  <GuideSays key={language} code={language} size={52} mood="happy" testid="start-guide" className="start-guide">
+                    <div className="guide-bubble-who">{getCharacter(language).name} · {getCharacter(language).city}</div>
+                    I'll be teaching you {name}. First, two questions, so we start in the right place.
+                  </GuideSays>
+                )}
                 <h3 className="start-q-head">How much {name} do you understand?</h3>
                 <div className="start-choices" role="group" aria-label={`How much ${name} do you understand?`}>
                   <StartChoice value="none" current={hears} set={setHears} label="None yet" testid="hears-none" />
@@ -1141,13 +1164,15 @@ function PrivacyAndAi({ appState, setAppState, onNavigate, onResetAll }) {
     const file = e.target.files?.[0];
     e.target.value = "";
     if (!file) return;
-    try { setBackup(readBackup(await file.text())); }
+    // v119: loaded when used — it's in nobody's first download.
+    try { const { readBackup } = await import("../legal/importData.js"); setBackup(readBackup(await file.text())); }
     catch { setBackup({ ok: false, reason: "That file couldn't be read." }); }
   }
   async function doRestore() {
     if (!backup?.ok) return;
     setRestoring(true);
     try {
+      const { restoreBackup } = await import("../legal/importData.js");
       await restoreBackup(backup.data, getStorage());
       // Reload so every screen reads the restored state through the normal loader.
       window.location.reload();
@@ -1160,6 +1185,7 @@ function PrivacyAndAi({ appState, setAppState, onNavigate, onResetAll }) {
   async function doExport() {
     setBusy(true);
     try {
+      const { downloadExport } = await import("../legal/exportData.js");
       const n = await downloadExport();
       setExported(n);
     } catch {
