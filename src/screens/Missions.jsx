@@ -67,7 +67,7 @@ export function Missions({ engine, pack, appState, setAppState, params, onNaviga
 
   useEffect(() => {
     let cancelled = false;
-    probeCoach().then((p) => { if (!cancelled) setCoachReady(!!p.configured); });
+    probeCoach().then((p) => { if (!cancelled) setCoachReady(p.unreachable ? null : !!p.configured); });
     return () => { cancelled = true; };
   }, []);
 
@@ -292,9 +292,8 @@ function MissionPicker({ profile, goalId, coachReady, lang, level, onPick, aiOk,
     <div className="speak-body">
       {coachReady === false && (
         <div className="result-locked" style={{ marginBottom: 14 }}>
-          <b>Missions need the AI coach.</b> They're live conversations with someone
-          who plays the other side, so they need an Anthropic API key set on the
-          deployment (<code>ANTHROPIC_API_KEY</code>); see <code>docs/ai-coach.md</code>.
+          <b>Missions aren't switched on yet.</b> They're live conversations with an AI
+          that plays the other side, and the AI isn't set up on this version of Zaban.
           Everything else in the app works without it.
         </div>
       )}

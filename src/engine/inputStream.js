@@ -46,6 +46,7 @@
 // there, so coverage is measured over characters and lemmas are matched as
 // substrings rather than as whole words.
 import { mergeExamples } from "../data/extraExamples.js";
+import { segment, lemmaSet } from "./segment.js";
 
 const UNSPACED = new Set(["zh", "ja"]);
 
@@ -107,17 +108,44 @@ function lengthOf(sentence, code) {
  * @param {Object} opts       { maxUnknown } how far past their level to go
  * @returns {Array} [{ native, translit, translation, unknown, known, total, wordId }]
  */
+/**
+ * v118 — IS EVERY WORD OF THIS SENTENCE ONE THE LEARNER KNOWS?
+ *
+ * `unknown: 0` only ever meant "no COURSE word in it is unknown". A sentence
+ * can also hold words the course never teaches — "ہاں بالکل" is half made of
+ * one — and the screen filed those under "You know every word of these".
+ * This is the stricter test that heading needs: every token is a known word
+ * (or part of a known phrase that is in the sentence). For Chinese and
+ * Japanese, the sentence must split completely into known words (segment.js;
+ * Japanese particles count as known, as they do for sentence tiles).
+ */
+export function everyWordKnown(sentence, knownItems, code) {
+  if (UNSPACED.has(code)) return !!segment(sentence, code, lemmaSet(knownItems)) || lemmaSet(knownItems).has(clean(sentence).replace(/\s/g, ""));
+  const hay = clean(sentence).toLowerCase();
+  const tokens = hay.split(" ").filter(Boolean);
+  if (!tokens.length) return false;
+  const covered = new Set();
+  for (const v of knownItems) {
+    const c = clean(v.lemma).toLowerCase();
+    if (!c) continue;
+    if (!c.includes(" ")) covered.add(c);
+    else if (` ${hay} `.includes(` ${c} `)) for (const w of c.split(" ")) covered.add(w);
+  }
+  return tokens.every((t) => covered.has(t));
+}
+
 export function readableSentences(pack, progress = {}, { maxUnknown = 1, preferTranslit = false } = {}) {
   const code = pack?.code;
   const vocab = pack?.vocab || [];
   if (!vocab.length) return [];
 
   const knownLemmas = [];
+  const knownItems = [];
   const allLemmas = [];
   for (const v of vocab) {
     if (!v.lemma) continue;
     allLemmas.push(v.lemma);
-    if ((progress[v.id]?.reps || 0) > 0) knownLemmas.push(v.lemma);
+    if ((progress[v.id]?.reps || 0) > 0) { knownLemmas.push(v.lemma); knownItems.push(v); }
   }
 
   const seen = new Set();
@@ -176,6 +204,9 @@ export function readableSentences(pack, progress = {}, { maxUnknown = 1, preferT
         translit: ex.translit || "",
         translation: ex.translation || ex.gloss || "",
         unknown,
+        // v118: true only when every word in it is a known word — what
+        // "You know every word of these" may be said about.
+        full: unknown === 0 && everyWordKnown(ex.native, knownItems, code),
         known: knownHere.length,
         coverage,
         total,

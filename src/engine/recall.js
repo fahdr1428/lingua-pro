@@ -71,6 +71,55 @@ export function romanKey(s) {
   return foldVowels(marklessKey(s).replace(/[\s'’-]/g, ""));
 }
 
+// -----------------------------------------------------------------------------
+// v118 — ROMANISATION HAS NO STANDARD SPELLING, AND THE GRADER HAD ONE.
+//
+// A heritage speaker types Urdu in English letters the way their family does
+// in messages: "shukria", "nahi", "acha". Each was graded "Nearly — it's
+// shukriya / nahin": right, but corrected, rated as a struggle and not counted
+// as produced from memory — for spelling a word with no correct spelling.
+//
+// For Urdu, Hindi and Punjabi a romanised answer is now also compared on a
+// SOUND key, which treats as the same what are only conventions:
+//   · the glide          shukriya = shukria, kijiye = kijie
+//   · a final h          shukriyah = shukriya
+//   · w and v            (one letter, و / व)
+//   · ch and chh, and a doubled consonant   acha = accha = achha
+//   · a final nasal n — but ONLY where the script shows the word ends in a
+//     nasal vowel (ں, ं, ँ): nahin = nahi, haan = haa. "din" keeps its n.
+// It is checked AFTER "did they type a different course word exactly", so
+// "hai" is still "is" and never passes for "hain". Other languages are left
+// alone: in Japanese "kite" and "kitte" are different words, and this is not
+// a rule to apply where I can't vouch for it.
+// -----------------------------------------------------------------------------
+const LOOSE_ROMAN = new Set(["ur", "hi", "pa"]);
+const NASAL_END = /[ںंँ]$/;
+const codeOf = (word) => String(word?.id || "").split("_")[0];
+
+/** One romanised word on its sound key. `nasalEnd`: the script says it ends in a nasal vowel. */
+function soundWord(w, nasalEnd) {
+  let k = foldVowels(marklessKey(w).replace(/['’-]/g, ""));
+  if (nasalEnd) k = k.replace(/([aeiou])n$/, "$1");
+  return k
+    .replace(/w/g, "v")
+    .replace(/iy(?=[aeiou])/g, "i")
+    .replace(/([b-df-hj-np-tv-z])\1+/g, "$1")
+    .replace(/chh/g, "ch")
+    .replace(/([aeiou])h$/, "$1");
+}
+
+/**
+ * The sound key of a romanisation. With the script form, each word's final n
+ * is optional exactly where the script word ends in a nasal vowel; without it
+ * (what a learner typed) a final n is kept, and `soundKeys` supplies both.
+ */
+export function soundKey(translit, lemma = "") {
+  const words = String(translit || "").trim().split(/[\s-]+/).filter(Boolean);
+  const script = String(lemma || "").trim().split(/\s+/).filter(Boolean);
+  const aligned = script.length === words.length;
+  return words.map((w, i) => soundWord(w, aligned && NASAL_END.test(script[i]))).join("");
+}
+
 const LATIN_LETTER = /\p{Script=Latin}/u;
 const OTHER_LETTER = /[\p{L}]/u;
 /** Is this word written in the Latin alphabet (accented or not)? */
@@ -118,6 +167,12 @@ function keysOf(word) {
     native: nativeKey(lemma),
     roman: !latin && translit ? romanKey(translit) : null,
     script: scriptOf(lemma),
+    // v118: the sound keys (Urdu, Hindi, Punjabi) — with the nasal n and without.
+    sound: !latin && translit && LOOSE_ROMAN.has(word?.code || codeOf(word))
+      ? [...new Set([soundKey(translit, lemma), soundKey(translit, "")])]
+      : null,
+    // v118: other romanisations of the SAME word, written into the pack.
+    romanAlt: !latin && Array.isArray(word?.romanAlt) ? word.romanAlt.map((r) => romanKey(r)) : null,
   };
   if (word && typeof word === "object") KEYS.set(word, keys);
   return keys;
@@ -135,6 +190,7 @@ function matchVia(gk, keys) {
   if (!keys.roman) return null;
   // Romanisation counts for words in non-Latin scripts.
   if (gk.script === "latin" && gk.roman === keys.roman) return "romanisation";
+  if (gk.script === "latin" && keys.romanAlt?.includes(gk.roman)) return "romanisation";
   // An answer in ANOTHER non-Latin script (a Hindi keyboard for an Urdu word)
   // is compared by its rough phonetic skeleton. Never within the same script:
   // the skeleton is far too coarse for that — it took Arabic مع "with" for
@@ -147,14 +203,15 @@ function matchVia(gk, keys) {
 const INDEX = new WeakMap();
 function indexOf(vocab) {
   if (INDEX.has(vocab)) return INDEX.get(vocab);
-  const byNative = new Map(), byRoman = new Map();
+  const byNative = new Map(), byRoman = new Map(), bySound = new Map();
   for (const w of vocab) {
     if (!w?.lemma) continue;
     const k = keysOf(w);
     (byNative.get(k.native) || byNative.set(k.native, []).get(k.native)).push(w);
     if (k.roman) (byRoman.get(k.roman) || byRoman.set(k.roman, []).get(k.roman)).push(w);
+    for (const sk of k.sound || []) (bySound.get(sk) || bySound.set(sk, []).get(sk)).push(w);
   }
-  const idx = { byNative, byRoman };
+  const idx = { byNative, byRoman, bySound };
   INDEX.set(vocab, idx);
   return idx;
 }
@@ -180,6 +237,18 @@ export function gradeRecall(given, item, { vocab = [], accept = [] } = {}) {
   if (via) return { verdict: "exact", correct: true, via, expected };
   for (const form of accept) {
     if (form && matchVia(gk, keysOf({ lemma: form, translit: "" }))) return { verdict: "exact", correct: true, via: "native", expected };
+  }
+  // v118: another phrase that is right for the same meaning, written into the
+  // pack (Urdu "goodbye" is خدا حافظ here; اللہ حافظ is what half of Pakistan
+  // says). Right — and the lesson's own word is named, as for any synonym.
+  const code = codeOf(item);
+  for (const alt of Array.isArray(item?.accept) ? item.accept : []) {
+    if (!alt?.lemma) continue;
+    const ak = keysOf({ lemma: alt.lemma, translit: alt.translit || "", code });
+    if (matchVia(gk, ak) || (gk.script === "latin" && ak.sound?.includes(soundWord(text.replace(/[\s-]+/g, ""), false)))) {
+      return { verdict: "alternative", correct: true, expected, other: { lemma: alt.lemma, translit: alt.translit || "", translation: item.translation },
+        note: `Also right. The word this lesson is practising is ${expected}.` };
+    }
   }
 
   // Another real word of this pack, typed exactly. Checked before "close", so a
@@ -219,6 +288,17 @@ export function gradeRecall(given, item, { vocab = [], accept = [] } = {}) {
       return { verdict: "close", correct: true, via: "native", expected, note: `Nearly — it's spelled ${expected}.` };
     }
     return { verdict: "wrong", correct: false, expected };
+  }
+
+  // v118: the same word in another common romanisation (see soundKey). Only
+  // now — a different course word typed exactly has already been named above.
+  const own = keysOf(item);
+  if (gk.script === "latin" && own.sound) {
+    const typed = String(text).trim().split(/[\s-]+/).filter(Boolean).map((w) => soundWord(w, false)).join("");
+    // Never when the same spelling could as well be a different course word
+    // (Punjabi "te", and, beside "teh", thirst): that stays a near miss.
+    const rival = (idx.bySound.get(typed) || []).some((w) => w.id !== item.id && keysOf(w).native !== ownKey && !sameMeaning(w.translation, item.translation));
+    if (typed && !rival && own.sound.includes(typed)) return { verdict: "exact", correct: true, via: "romanisation", expected };
   }
 
   // Non-Latin: a slip in the script itself, or in the romanisation.

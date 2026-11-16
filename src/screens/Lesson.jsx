@@ -326,7 +326,9 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       }
       if (e.key !== "Enter") return;
       if (el && (el.tagName === "BUTTON" || el.tagName === "A")) return;
-      const go = [...root.querySelectorAll("button")].find((b) => !b.disabled && /^(Check|Continue|Finish)$/.test((b.innerText || "").trim()));
+      // v118: the cards that only teach ("Got it", "Start", "I'm ready") too —
+      // Enter stopped dead at the first one.
+      const go = [...root.querySelectorAll("button")].find((b) => !b.disabled && /^(Check|Continue|Finish|Got it( →| — continue →)?|Next →|Start|Start practice|I'm ready)$/.test((b.innerText || "").trim()));
       if (go) { e.preventDefault(); go.click(); }
     };
     window.addEventListener("keydown", onKey);
@@ -502,7 +504,14 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
       const m = fromMemory.current, clean = result.correct && !result.hints;
       // A synonym is listed as the word they actually wrote.
       const wrote = result.verdict === "alternative" && result.other ? { ...result.other, id: `${exercise.item.id}~alt` } : exercise.item;
-      fromMemory.current = { asked: m.asked + 1, right: m.right + (clean ? 1 : 0), words: clean ? [...m.words, wrote] : m.words };
+      // v118 — COUNTED BY WORD, NOT BY QUESTION. A word asked from memory
+      // twice (the lesson steps questions up, and re-asks a miss) was listed
+      // twice, and "9 of 11" counted questions beside a list of words. A word
+      // counts once: asked, and written cleanly at least once or not.
+      const got = { ...(m.got || {}) };
+      got[exercise.item.id] = !!got[exercise.item.id] || clean;
+      const words = clean && !m.words.some((w) => String(w.id).split("~")[0] === exercise.item.id) ? [...m.words, wrote] : m.words;
+      fromMemory.current = { asked: Object.keys(got).length, right: Object.values(got).filter(Boolean).length, words, got };
       if (clean && result.verdict !== "alternative") producedIds.current.add(exercise.item.id);
     }
     // v113 — KEEP THE LESSON AT THE DIFFICULTY WHERE PEOPLE LEARN (challenge.js).
@@ -1099,8 +1108,10 @@ export function Lesson({ engine, pack, appState, setAppState, params, onNavigate
               For non-Latin scripts, romanization is the HERO so beginners can read it. */}
           {exercise.type === EXERCISE.INTRODUCE && (
             <div className="pop" style={{ textAlign: "center", marginTop: 20 }}>
-              <div className="eyebrow" style={{ color: "var(--accent-text)", marginBottom: 12 }}>
-                New word
+              {/* v118: only a word not met before is "new". The round that
+                  re-teaches a miss showed "New word" over words just studied. */}
+              <div className="eyebrow" data-testid="intro-kind" style={{ color: "var(--accent-text)", marginBottom: 12 }}>
+                {inRecovery || (progressAtStart.current?.[exercise.item.id]?.reps || 0) > 0 ? "Look again" : "New word"}
               </div>
 
               {isNonLatin ? (

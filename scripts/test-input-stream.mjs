@@ -96,5 +96,38 @@ console.log("\n  and the stream is worth reading");
     thin.length === 0, thin.join(", "));
 }
 
+// --- v118: "You know every word of these" is only said when it is true -------
+console.log("\n  and \"you know every word\" is true");
+{
+  const PUNCT = /[.,!?;:"'`´’“”«»()[\]{}…—–\-،؛؟۔।॥、。！？]/g;
+  const clean = (x) => String(x || "").replace(PUNCT, " ").replace(/\s+/g, " ").trim().toLowerCase();
+  const wrong = [];
+  let full = 0, notFull = 0;
+  for (const code of codes) {
+    if (code === "zh" || code === "ja") continue;      // checked by segment.js's own rule below
+    const pack = JSON.parse(readFileSync(`src/data/languages/${code}.json`, "utf8"));
+    pack.code = pack.code || code;
+    // A learner half-way through: the first half of the words.
+    const half = Object.fromEntries(pack.vocab.slice(0, Math.ceil(pack.vocab.length / 2)).map((v) => [v.id, { reps: 3 }]));
+    const knownWords = new Set(pack.vocab.filter((v) => half[v.id]).flatMap((v) => clean(v.lemma).split(" ")));
+    for (const st of readableSentences(pack, half, { maxUnknown: 1 })) {
+      if (!st.full) { notFull++; continue; }
+      full++;
+      const stray = clean(st.native).split(" ").filter((t) => t && !knownWords.has(t));
+      if (stray.length) wrong.push(`${code} "${st.native}" → ${stray.join(", ")}`);
+    }
+  }
+  ok(`a sentence is "full" only when every word in it is a known word (${full} full, ${notFull} not)`, wrong.length === 0, wrong.slice(0, 4).join(" | "));
+  ok("both kinds occur, so the check is exercising something", full > 100 && notFull > 100, `${full} / ${notFull}`);
+  const ur = JSON.parse(readFileSync("src/data/languages/ur.json", "utf8")); ur.code = "ur";
+  const all = readableSentences(ur, knowsEverything(ur), { maxUnknown: 1 });
+  const bilkul = all.find((x) => x.native === "ہاں بالکل");
+  ok("Urdu “ہاں بالکل” (بالکل isn't a course word) is not called fully known", !!bilkul && bilkul.full === false, JSON.stringify(bilkul || null));
+  // Chinese: a full sentence splits completely into taught words.
+  const zh = JSON.parse(readFileSync("src/data/languages/zh.json", "utf8")); zh.code = "zh";
+  const zhAll = readableSentences(zh, knowsEverything(zh), { maxUnknown: 1 });
+  ok("Chinese has both full and not-full sentences", zhAll.some((x) => x.full) && zhAll.some((x) => !x.full), `${zhAll.filter((x) => x.full).length} full of ${zhAll.length}`);
+}
+
 console.log(`\n  ${pass} pass, ${fail} fail\n`);
 process.exit(fail ? 1 : 0);

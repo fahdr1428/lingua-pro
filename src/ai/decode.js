@@ -21,9 +21,18 @@ let probe = null;
 export function probeDecode() {
   if (probe) return probe;
   probe = (async () => {
+    // v118: a network failure isn't an answer. It isn't kept for the rest of
+    // the page load (or coming back online would still read "not set up"),
+    // and it's reported as unreachable, not as "no".
+    let res;
     try {
-      const res = await fetch(ENDPOINT, { method: "GET" });
-      if (!res.ok) return { configured: false };
+      res = await fetch(ENDPOINT, { method: "GET" });
+    } catch {
+      probe = null;
+      return { configured: false, unreachable: true };
+    }
+    if (!res.ok) return { configured: false };
+    try {
       return await res.json();
     } catch {
       return { configured: false };

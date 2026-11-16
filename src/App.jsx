@@ -8,6 +8,7 @@ import { useEngine } from "./hooks/useEngine.js";
 import { usePersistentState } from "./hooks/usePersistentState.js";
 import { normalizeAppState, normalizeLanguageLists } from "./data/appStateShape.js";
 import { createNavigator, withTransition, canViewTransition, prefersReducedMotion } from "./ui/navigation.js";
+import { requestPersistence } from "./ui/KeepSafe.jsx";
 import { useProfile } from "./hooks/useProfile.js";
 import { getStorage } from "./storage/index.js";
 import { BottomNav, SideRail, Button, Container } from "./ui/primitives.jsx";
@@ -275,6 +276,9 @@ const DEFAULT_APP_STATE = {
   // v115: set once the learner has been moved onto Ink (or has picked a theme
   // themselves), so the move happens exactly once — see the effect below.
   themeSettled: false,
+  keepSafeDismissed: false, // v118: the one-time "add to Home Screen" note on iPhone (ui/KeepSafe.jsx)
+  startingPoint: {}, // v118: { langCode: { hears, reads } } — what sign-up was told; decides Home's first card
+  placementDone: {}, // v118: { langCode: ts } — Find your level finished or declined; not offered first again
   sessionSize: 6,
   tutorialSeen: false,
   grammarSeen: {}, // { langCode: [grammarLessonId, ...] } — for in-lesson rotation
@@ -370,6 +374,13 @@ export default function App() {
     if (appState?.theme) applyTheme(appState.theme);
   }, [appState?.theme]);
 
+
+  // v118: once a lesson is done there is progress worth keeping — ask the
+  // browser not to clear this site's data under storage pressure.
+  const lessonsDone = Object.values(appState?.lessonsCompleted || {}).reduce((a, b) => a + (Number(b) || 0), 0);
+  useEffect(() => {
+    if (loaded && lessonsDone > 0) requestPersistence();
+  }, [loaded, lessonsDone]);
 
   // v74: push the learner's voice choice into the audio layer. It lives in
   // module state rather than context so audio can be called from anywhere, so
@@ -543,12 +554,13 @@ export default function App() {
   if (!appState.onboarded || !appState.currentLanguage) {
     return (
       <Onboarding
-        onComplete={({ language, goal, consent }) =>
+        onComplete={({ language, goal, consent, start }) =>
           setAppState((s) => ({
             ...s,
             onboarded: true,
             currentLanguage: language,
             dailyGoalXp: goal,
+            startingPoint: start ? { ...(s.startingPoint || {}), [language]: start } : s.startingPoint,
             // v77 — recorded so the app can prove what was agreed and when, and
             // re-ask if the policies change. Separate from aiConsent, which is a
             // higher bar for a narrower thing.
@@ -719,30 +731,21 @@ function CenterMsg({ children }) {
 // =============================================================================
 function Tutorial({ onDone, langName }) {
   const [step, setStep] = React.useState(0);
+  // v118: three cards, each true on every deployment. There were six, and
+  // one sold Missions — an AI feature that is off unless the AI is set up.
+  // Sign-up now asks where to start, so "Already know some?" isn't needed here.
   const steps = [
     {
       title: "Short lessons, every day",
-      body: `Each lesson introduces a few new words, then tests them several ways — picking, listening, spelling, building sentences. The most useful ${langName} words come first, so even a week gets you something you can actually use.`,
+      body: `Each lesson teaches a few ${langName} words, then asks for them several ways: picking, listening, writing them from memory, building sentences. The most useful words come first.`,
     },
     {
-      title: "Already know some? Skip it",
-      body: "You don't have to start at hello. From the home screen you can take a chapter test and jump straight past anything you already know — pass it and those words are marked as known instead of taught from scratch.",
+      title: "Words come back before you forget them",
+      body: "Every word you learn returns for review just as it starts to fade. Get one wrong and it comes back sooner; the words you keep missing are listed under Your mistakes until they stick.",
     },
     {
-      title: "Say things out loud",
-      body: "The app listens. It's deliberately lenient: if a native speaker would understand you, that's a pass, and an accent is never a mistake. No microphone, or not somewhere you can talk? Type instead — it's graded the same.",
-    },
-    {
-      title: "Real situations, not just words",
-      body: "Missions are conversations with something at stake — order without switching to English, argue a refund, get through an interview. You choose who you're up against, and afterwards you get every line you said with a native version beside it.",
-    },
-    {
-      title: "The version people actually speak",
-      body: `Courses teach the standard form. Streets don't use it. Pick the variety you're learning for and ${langName === "Arabic" ? "you'll see what Cairo or Beirut or the Gulf actually says" : "you'll see the local forms alongside the standard ones"} — and your guide will speak it too.`,
-    },
-    {
-      title: "Make it fit you",
-      body: "In Settings you can change the voice that talks to you and how fast it speaks, choose your dialect, set the daily goal and lesson length, and switch off any question type that gets in your way rather than pushing you.",
+      title: "Say it out loud, or type it",
+      body: "Where your browser can listen, you can answer by speaking; an accent is never a mistake. Romanised spelling counts too: “shukria” and “shukriya” are both right.",
     },
   ];
   const s = steps[step];

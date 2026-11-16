@@ -15,7 +15,7 @@
 export const WORD_PRONUNCIATION = {
   ur: {
     "السلام": "as-salaam", "علیکم": "alaikum", "بہت": "bahut", "بالکل": "bilkul",
-    "جناب": "janaab", "بیٹھیں": "baithein", "طالب": "taalib", "علم": "ilm",
+    "جناب": "janab", "بیٹھیں": "baithein", "طالب": "taalib", "علم": "ilm",
     "ہوں": "hoon", "سے": "se", "ہیں": "hain", "کرتے": "karte", "ہو": "ho",
     "ڈاکٹر": "doctor", "ہے": "hai", "کتاب": "kitaab", "میری": "meri",
     "میرا": "mera", "گھنٹے": "ghantay", "بجے": "bajay", "روپے": "rupay",

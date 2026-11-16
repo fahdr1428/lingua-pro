@@ -67,7 +67,7 @@ export function Decode({ engine, pack, appState, setAppState, profile, onNavigat
 
   useEffect(() => {
     let live = true;
-    probeDecode().then((p) => { if (live) setReady(!!p.configured); });
+    probeDecode().then((p) => { if (live) setReady(p.unreachable ? null : !!p.configured); });
     return () => { live = false; };
   }, []);
 
@@ -172,6 +172,38 @@ export function Decode({ engine, pack, appState, setAppState, profile, onNavigat
     });
   }
 
+  // v81: said up front rather than after a request that was never going to work.
+  // v118: first of all — offline, the availability probe can't reach the
+  // server, so "not set up" below would be a guess, and the wrong one.
+  if (offline) {
+    return (
+      <Shell lang={lang} guide={guide} code={pack.code} onNavigate={onNavigate}>
+        <div className="speak-body"><NeedsConnection what="Decoding" /></div>
+      </Shell>
+    );
+  }
+
+  // v118 — AVAILABILITY BEFORE CONSENT. This used to ask the learner to agree
+  // to the AI terms first and only then say the AI isn't set up. Asking for
+  // consent to something that can't happen is a wasted and slightly
+  // dishonest step; and the notice was a developer's ("set ANTHROPIC_API_KEY").
+  if (ready === false) {
+    return (
+      <Shell lang={lang} guide={guide} code={pack.code} onNavigate={onNavigate}>
+        <div className="speak-body">
+          <div className="result-locked" data-testid="ai-off">
+            <b>This isn't switched on yet.</b> Reading a piece of real {lang.name} for
+            you needs an AI, and the AI isn't set up on this version of Zaban.
+            Everything else in the app works without it.
+          </div>
+          <div className="result-actions">
+            <button className="btn-quiet" onClick={() => onNavigate("home")}>Back</button>
+          </div>
+        </div>
+      </Shell>
+    );
+  }
+
   // ---------------------------------------------------------------------------
   // Gates. This is an AI feature and sends the learner's pasted text off the
   // device, so it sits behind exactly the same consent as the conversation.
@@ -191,29 +223,7 @@ export function Decode({ engine, pack, appState, setAppState, profile, onNavigat
     );
   }
 
-  // v81: said up front rather than after a request that was never going to work.
-  if (offline) {
-    return (
-      <Shell lang={lang} guide={guide} code={pack.code} onNavigate={onNavigate}>
-        <div className="speak-body"><NeedsConnection what="Decoding" /></div>
-      </Shell>
-    );
-  }
 
-  if (ready === false) {
-    return (
-      <Shell lang={lang} guide={guide} code={pack.code} onNavigate={onNavigate}>
-        <div className="speak-body">
-          <div className="result-locked">
-            <b>Decoding needs the AI to be set up.</b> It reads a piece of real
-            {" "}{lang.name} and breaks it down, which needs an Anthropic API key
-            on the deployment (<code>ANTHROPIC_API_KEY</code>). Everything else in
-            the app works without it.
-          </div>
-        </div>
-      </Shell>
-    );
-  }
 
   return (
     <Shell lang={lang} guide={guide} code={pack.code} onNavigate={onNavigate}>

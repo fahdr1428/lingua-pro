@@ -88,6 +88,13 @@ export function Placement({ engine, pack, appState, setAppState, onNavigate, ref
 
   const startStage = phase === "result" ? stages[passedNow] || null : null;
 
+  // v118: once a result has been shown, Find your level is done for this
+  // language — Home stops offering it first (Home.jsx, "placeFirst").
+  React.useEffect(() => {
+    if (phase !== "result") return;
+    setAppState((s) => (s?.placementDone?.[pack.code] ? s : { ...s, placementDone: { ...(s?.placementDone || {}), [pack.code]: Date.now() } }));
+  }, [phase, pack.code, setAppState]);
+
   return (
     <div className="speak-screen" data-testid="placement" data-phase={phase}>
       <header className="speak-bar">

@@ -123,6 +123,11 @@ export function focusReason(profile) {
   if (!f) return null;
   const s = profile.skills[f];
   if (s.score === null) return `You haven't practised ${SKILL_LABEL[f].toLowerCase()} much yet.`;
+  // v118: "your lowest score" was said of the ONLY score. With one skill
+  // scored there is no lowest, and saying so read as a criticism of the one
+  // thing the learner had done.
+  const scored = SKILLS.filter((k) => profile.skills[k]?.score !== null && profile.skills[k]?.score !== undefined).length;
+  if (scored <= 1) return `${SKILL_LABEL[f]} is the only skill with a score so far (${s.score}). The others need more answers.`;
   return `${SKILL_LABEL[f]} is your lowest score (${s.score}).`;
 }
 

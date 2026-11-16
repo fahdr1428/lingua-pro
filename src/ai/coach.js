@@ -37,12 +37,22 @@ let probe = null; // cached promise: { configured, model }
 export function probeCoach() {
   if (probe) return probe;
   probe = (async () => {
+    // v118: "couldn't reach the server" (offline, timed out) is not the same
+    // answer as "the server says no". The first isn't kept for the page load
+    // and is reported as unreachable, so nobody offline is told the AI
+    // "isn't set up".
+    let res;
     try {
       const ctl = new AbortController();
       const t = setTimeout(() => ctl.abort(), 6000);
-      const res = await fetch(ENDPOINT, { method: "GET", signal: ctl.signal });
+      res = await fetch(ENDPOINT, { method: "GET", signal: ctl.signal });
       clearTimeout(t);
-      if (!res.ok) return { configured: false };
+    } catch {
+      probe = null;
+      return { configured: false, unreachable: true };
+    }
+    if (!res.ok) return { configured: false };
+    try {
       const data = await res.json();
       return { configured: !!data.configured, model: data.model || null };
     } catch {

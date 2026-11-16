@@ -153,10 +153,12 @@ function chunk(items, size) {
  * don't wait for every example word to be taught — and placing them by words
  * would push "the verb goes last" to the end of the course, which is backwards.
  */
-function placeInOrder(entries, moduleCount) {
+function placeInOrder(entries, moduleCount, { from = 0 } = {}) {
+  const first = Math.min(from, Math.max(0, moduleCount - 1));
+  const span = Math.max(1, moduleCount - first);
   return entries.map((entry, i) => ({
     entry,
-    module: Math.min(moduleCount - 1, Math.floor((i * moduleCount) / Math.max(1, entries.length))),
+    module: Math.min(moduleCount - 1, first + Math.floor((i * span) / Math.max(1, entries.length))),
   }));
 }
 
@@ -175,7 +177,12 @@ export function buildCourse(pack, { grammar = [], patterns = [], stops = [], pro
   const lemmas = lemmaSet(vocab);
   const moduleCount = Math.max(1, units.length);
 
-  const grammarAt = placeInOrder(grammar, moduleCount);
+  // v118: grammar starts in the SECOND module. The first is greetings, and
+  // its first lesson opened on "Word order: the basics" ('Yo como pan') —
+  // nothing to do with saying hello, which is what the stop promised. A
+  // greeting is learned as a phrase; word order is worth explaining once
+  // there are sentences to see it in.
+  const grammarAt = placeInOrder(grammar, moduleCount, { from: 1 });
   const patternAt = placeInOrder(patterns, moduleCount);
 
   const modules = units.map((u, mi) => {

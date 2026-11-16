@@ -36,14 +36,18 @@
 import React from "react";
 import { speak } from "../audio/tts.js";
 
+// v118: highlightRange lives in highlight.js (plain JS, so a node test reaches it).
+import { highlightRange } from "./highlight.js";
+export { highlightRange };
+
 export function InContext({ example, lemma, lang, isNonLatin, voiceAvailable }) {
   const native = example.native || "";
-  const at = lemma && lemma.length > 1
-    ? native.toLowerCase().indexOf(lemma.toLowerCase())
-    : -1;
-  const found = at >= 0;
+  const range = highlightRange(native, lemma, { nonLatin: !!isNonLatin, code: lang?.code });
+  const found = !!range;
+  const at = found ? range[0] : -1;
+  const stop = found ? range[1] : -1;
   // Sliced out of the sentence, so the casing shown is the sentence's own.
-  const asWritten = found ? native.slice(at, at + lemma.length) : "";
+  const asWritten = found ? native.slice(at, stop) : "";
 
   return (
     <button
@@ -62,7 +66,7 @@ export function InContext({ example, lemma, lang, isNonLatin, voiceAvailable }) 
           <>
             {native.slice(0, at)}
             <mark className="in-context-mark">{asWritten}</mark>
-            {native.slice(at + lemma.length)}
+            {native.slice(stop)}
           </>
         ) : (
           native

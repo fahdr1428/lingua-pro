@@ -18,14 +18,25 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
     <link rel="apple-touch-icon" href="/icon-180.png" />
     <title>Zaban — Learn the languages the world forgets</title>
-    <meta name="description" content="Zaban is a free app for learning heritage and niche languages — Urdu, Punjabi, Bengali, Arabic, Nigerian Pidgin, and more. Real native audio, real conversations, built to help you reconnect with your roots." />
+    <meta name="description" content="Zaban is a free app for learning heritage languages: Urdu, Punjabi, Bengali, Arabic, Nigerian Pidgin and 16 more. Short lessons, words that come back before you forget them, and real conversations to practise. Works offline; your progress stays on your device." />
     <!-- Social sharing (TikTok bio, link previews) -->
     <meta property="og:title" content="Zaban — reconnect with your language" />
-    <meta property="og:description" content="A free app for the heritage languages most apps ignore. Real audio, real conversations, 12 languages." />
+    <meta property="og:description" content="A free app for the heritage languages most apps ignore. 21 languages, short lessons, real conversations to practise." />
+    <meta property="og:site_name" content="Zaban" />
+    <!-- v118: a share image. Link previews (WhatsApp, a TikTok bio) had none.
+         Crawlers need an absolute URL, so this names the live address; change
+         it here (and twitter:image below) when the app moves to its own domain. -->
+    <meta property="og:url" content="https://lingua-pro-six.vercel.app/" />
+    <link rel="canonical" href="https://lingua-pro-six.vercel.app/" />
+    <meta property="og:image" content="https://lingua-pro-six.vercel.app/icon-512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Zaban: a Z with roots" />
     <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content="https://lingua-pro-six.vercel.app/icon-512.png" />
     <meta name="twitter:title" content="Zaban — reconnect with your language" />
-    <meta name="twitter:description" content="A free app for the heritage languages most apps ignore. 12 languages, real audio." />
+    <meta name="twitter:description" content="A free app for the heritage languages most apps ignore. 21 languages, short lessons, real conversations to practise." />
     <!-- v77: fonts are served from this origin, not fonts.googleapis.com.
          The CDN version sent every visitor's IP to Google before a single line
          of the app had run — no consent, no way to decline, and a German court
@@ -48,6 +59,20 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- v118: what a search engine or a link preview that doesn't run
+         JavaScript sees. It was an empty page. The same facts as the
+         description above, and nothing the app doesn't do. -->
+    <noscript>
+      <div style="max-width:640px;margin:48px auto;padding:0 16px;font:16px/1.6 system-ui,sans-serif;color:#e8e4da;background:#0d1211">
+        <h1 style="font-size:28px;line-height:1.2">Zaban: learn the language your family speaks</h1>
+        <p>Zaban is a free app for learning heritage languages. Short lessons teach the most useful words first;
+          each word comes back for review just before you'd forget it; and every few lessons you practise a real
+          conversation. It works offline, and your progress stays on your device: there's no account.</p>
+        <p>Languages: Urdu, Punjabi, Hindi, Bengali, Arabic, Persian, Tamil, Malayalam, Nigerian Pidgin, Somali,
+          Yoruba, Tagalog, Vietnamese, Indonesian, Turkish, Korean, Japanese, Mandarin, Spanish, French and German.</p>
+        <p>Zaban runs in your browser and needs JavaScript turned on.</p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -2791,3 +2791,37 @@ html:active-view-transition-type(back)::view-transition-new(screen) { z-index: 1
 .place-missed-row:first-of-type { border-top: none; }
 .place-missed-native { font-size: 19px; line-height: 1.6; color: var(--ink); }
 .place-missed-en { font-size: 14px; color: var(--text-dim); margin-inline-start: auto; }
+
+/* v118 — restore from a backup file: a real file input, drawn as a button. */
+.restore-pick {
+  position: relative; display: flex; align-items: center; justify-content: center; min-height: 48px;
+  border: 1px solid var(--border); border-radius: 16px; background: var(--surface); color: var(--text);
+  font-size: 15px; font-weight: 700; cursor: pointer; transition: border-color 160ms ease;
+}
+.restore-pick:hover { border-color: var(--accent); }
+.restore-pick input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.restore-pick:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* v118 — the one-time "add to Home Screen" note */
+.keep-safe {
+  display: flex; align-items: flex-start; gap: 12px; margin: 0 0 14px;
+  background: var(--surface); border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: 14px 16px;
+}
+.keep-safe-title { font-weight: 700; font-size: 14.5px; color: var(--text); }
+.keep-safe-text { font-size: 13.5px; color: var(--text-dim); line-height: 1.55; margin-top: 3px; }
+.keep-safe-ok {
+  flex-shrink: 0; min-width: 48px; min-height: 44px; border-radius: 12px; cursor: pointer;
+  background: transparent; border: 1px solid var(--border); color: var(--text); font: inherit; font-weight: 700; font-size: 14px;
+}
+
+/* v118 — where to start (sign-up) */
+.start-q { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border); }
+.start-q-head { font-family: "Fraunces", Georgia, serif; font-size: 20px !important; margin: 0 0 10px; }
+.start-q-head + .start-choices + .start-q-head, .start-choices + .start-q-head { margin-top: 18px; }
+.start-choices { display: flex; flex-wrap: wrap; gap: 8px; }
+.start-choice {
+  min-height: 44px; padding: 10px 14px; border-radius: 12px; cursor: pointer; font: inherit; font-size: 14.5px; font-weight: 600;
+  background: var(--surface); color: var(--text); border: 1px solid var(--border); transition: border-color 160ms ease, background 160ms ease;
+}
+.start-choice:hover { border-color: var(--accent); }
+.start-choice-on { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); }

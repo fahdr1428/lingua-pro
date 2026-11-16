@@ -288,6 +288,17 @@ export function listLanguages() {
   return Object.values(LANGUAGES);
 }
 
+// v118 — THE ORDER THE PICKERS SHOW. The registry's own order put Vietnamese
+// and Yoruba first — two courses with no grammar lessons yet — and the pitch
+// is the heritage languages most apps ignore. Those come first, roughly by how
+// many heritage learners each has; the widely taught languages come last.
+// Anything not listed keeps its place after these.
+export const PICKER_ORDER = ["ur", "pa", "hi", "bn", "ar", "fa", "ta", "ml", "pcm", "so", "yo", "tl", "vi", "id", "tr", "ko", "ja", "zh", "es", "fr", "de"];
+export function pickerLanguages() {
+  const rank = (c) => { const i = PICKER_ORDER.indexOf(c); return i < 0 ? PICKER_ORDER.length : i; };
+  return Object.values(LANGUAGES).slice().sort((a, b) => rank(a.code) - rank(b.code));
+}
+
 // =============================================================================
 // WHICH LANGUAGES ARE WRITTEN IN LETTERS THE LEARNER ALREADY READS
 //

@@ -4,7 +4,7 @@
 // =============================================================================
 
 import React, { useState, useEffect } from "react";
-import { LANGUAGES, listLanguages, scriptFont } from "../data/registry.js";
+import { LANGUAGES, pickerLanguages, scriptFont } from "../data/registry.js";
 
 // v69 (ui-ux-pro-max premium pass): brought the shared Button in line with the
 // "luxury is restraint" language already established by .btn-premium on Home —
@@ -238,7 +238,7 @@ export function TopBar({ streak, gems, hearts, totalXp, premium, currentLang, on
 // v40: quick language-switch modal. Lists all languages; tap to switch
 // instantly (progress per language is preserved). Closes on backdrop tap.
 function LanguagePickerModal({ currentLang, onPick, onClose }) {
-  const langs = listLanguages();
+  const langs = pickerLanguages();
 
   // v94 — the modal could be opened by keyboard and then not closed by one.
   // It had a labelled ✕ button, but no Escape and no dialog semantics, so a

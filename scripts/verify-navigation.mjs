@@ -489,6 +489,12 @@ async function toFlashcards(page) {
       // Step 1: pick any language, continue
       await page.evaluate(() => document.querySelector(".card-lift")?.click());
       await page.waitForTimeout(200);
+      // v118: where to start — Continue waits for these answers.
+      await page.evaluate(() => {
+        document.querySelector("[data-testid=hears-none]")?.click();
+        document.querySelector("[data-testid=reads-yes]")?.click();
+      });
+      await page.waitForTimeout(150);
       await page.evaluate(() => {
         const b = [...document.querySelectorAll("button")].find((x) => /^continue$/i.test((x.innerText || "").trim()));
         if (b) b.click();

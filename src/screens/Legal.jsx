@@ -35,10 +35,9 @@ export function Legal({ params, onNavigate }) {
 
         {policiesIncomplete() && (
           <div className="legal-warn">
-            <b>Not ready to publish.</b> This policy still contains placeholders
-            for the operator's legal entity, contact address and jurisdiction.
-            Fill them in <code>src/legal/policies.js</code> before making the app
-            public — see <code>COMPLIANCE.md</code>.
+            <b>Draft.</b> The name, contact address and jurisdiction of whoever
+            runs this copy of the app haven't been filled in yet, so they show
+            in square brackets below. Everything else applies as written.
           </div>
         )}
 

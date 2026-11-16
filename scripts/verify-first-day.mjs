@@ -203,6 +203,15 @@ for (const code of CODES) {
     }, name);
     if (!picked) { fail(where, `${name} isn't on the language picker`); await ctx.close(); continue; }
     await page.waitForTimeout(200);
+    // v118: where to start. "None yet", and "a little" for the script, keeps
+    // this the path of a new learner who is offered the reading test first.
+    const askedRead = await page.locator("[data-testid=reads-little]").count();
+    if (!(await page.locator("[data-testid=hears-none]").count())) fail(where, "sign-up doesn't ask how much of the language they understand");
+    await page.locator("[data-testid=hears-none]").click().catch(() => {});
+    if (askedRead) await page.locator("[data-testid=reads-little]").click();
+    const latin = ["es", "fr", "de", "id", "tl", "pcm", "tr", "vi", "yo", "so"].includes(code);
+    if (!latin && !askedRead) fail(where, `sign-up doesn't ask whether they can read ${name}'s script`);
+    if (latin && askedRead) fail(where, `sign-up asks about reading a script for ${name}, which is written in Latin letters`);
     await clickText(page, /^Continue$/);
     await page.waitForTimeout(400);
     await sideways("goal step");

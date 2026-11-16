@@ -18,6 +18,7 @@
 
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { TopBar, Container, Icon } from "../ui/primitives.jsx";
+import { KeepSafeNote } from "../ui/KeepSafe.jsx";
 import { LANGUAGES, scriptFont } from "../data/registry.js";
 // The journey content (every language's exchanges) loads with Home rather
 // than in the first download; the map's grouping helpers are small and eager.
@@ -178,6 +179,23 @@ function adaptCopy(plan, sig) {
   return p;
 }
 
+// v118: the hero's button says what it opens. Only a lesson is "Continue"
+// (or "Keep going" once the day's goal is met): a test, a review or a round of
+// letters is named, so nobody taps "Keep going" and lands in a test.
+export function heroVerb(kind, goalMet) {
+  switch (kind) {
+    case "script": return "Take the reading test";
+    case "script-learn": return "Learn these letters";
+    case "place": return "Find my level";
+    case "second": return "Start the second pass";
+    case "exam": return "Take the exam";
+    case "review": return "Review them";
+    case "recall": return "Write them from memory";
+    case "lab": return "Build the sentence";
+    default: return goalMet ? "Keep going" : "Continue";
+  }
+}
+
 export function Home({ engine, pack, stats, appState, setAppState, onNavigate, onPickLanguage, profile }) {
   const lang = LANGUAGES[pack.code];
   const [unitProgress, setUnitProgress] = useState([]);
@@ -276,7 +294,46 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
     // then it stops nagging — a learner who has decided to muddle through with
     // romanisation is allowed to, and Chapter 0 stays on the route for
     // whenever they change their mind.
-    if (hasScriptCourse(pack) && !hasPassedScript(appState, pack.code) && done < 2) {
+    // v118 — WHAT SIGN-UP WAS TOLD (screens.jsx Onboarding). Someone who said
+    // they can't read the script isn't tested on it first — two minutes spent
+    // failing — they start lesson 1 with romanisation, and the letters course
+    // is offered on that card. Someone who understands the language when they
+    // hear it is offered Find your level before lesson 1.
+    const start = appState?.startingPoint?.[pack.code] || null;
+    const startedNew = start?.reads === "no";
+    const placeFirst = !!start && (start.hears === "some" || start.hears === "lots") && !appState?.placementDone?.[pack.code];
+    // The course's next lesson when it has loaded; a plain lesson until then.
+    const firstLesson = () => (course?.next
+      ? onNavigate("lesson", { mode: "guided", filter: { lesson: course.next.lesson.id } })
+      : onNavigate("lesson", { mode: "smart" }));
+    // v118 — FIND YOUR LEVEL FIRST, for someone who said they understand the
+    // language: ahead of the reading test too (its questions show romanisation,
+    // so it needs no reading), because a heritage speaker's first question is
+    // "where do I start", not "can I read". Once: finishing it, or choosing
+    // the beginning, records it. Shown while the course is still loading
+    // (canPlace is only false for a language with no chapter big enough to
+    // test), so the card doesn't change under the learner's thumb.
+    if (placeFirst && done === 0 && course?.canPlace !== false && !course?.failed) {
+      return {
+        kind: "place",
+        eyebrow: "Before your first lesson",
+        title: `Find where to start in ${lang.name}`,
+        sub: start.hears === "lots"
+          ? "You said you can hold a conversation. A few questions per chapter move you past what you already know."
+          : "You said you understand some when you hear it. A few questions per chapter move you past what you already know.",
+        mins: 3,
+        go: () => onNavigate("placement"),
+        alt: {
+          label: "or start at the very beginning",
+          go: () => {
+            setAppState((s) => ({ ...s, placementDone: { ...(s.placementDone || {}), [pack.code]: Date.now() } }));
+            firstLesson();
+          },
+        },
+      };
+    }
+
+    if (hasScriptCourse(pack) && !hasPassedScript(appState, pack.code) && done < 2 && !startedNew) {
       // v107: tried the test and didn't pass — the next step is learning to
       // read, one stop at a time, not the same test again. And a way into
       // Chapter 1 with romanisation, for whoever would rather start there.
@@ -286,7 +343,7 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         try { visited = (JSON.parse(localStorage.getItem("alphabet_progress") || "{}"))[pack.code] || {}; } catch {}
         const next = stopsAll.find((s) => !visited[s.id]);
         const doneStops = stopsAll.filter((s) => visited[s.id]).length;
-        const skip = { label: "or start Chapter 1 with romanisation", go: () => onNavigate("lesson", { mode: "smart" }) };
+        const skip = { label: "or start Chapter 1 with romanisation", go: firstLesson };
         if (next) {
           return {
             kind: "script-learn",
@@ -315,6 +372,8 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         sub: "Two minutes. Pass and you skip straight to the lessons; don't and we'll teach you the script first.",
         mins: 2,
         go: () => onNavigate("scriptexam"),
+        // v118: the first lesson is always one tap away.
+        alt: { label: "or start the first lesson now, with romanisation", go: firstLesson },
       };
     }
 
@@ -420,14 +479,20 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
         mins: Math.max(3, Math.round((l.items.length * 4 + 4) / 3)),
         progress: st ? { value: st.complete, max: st.total, noun: "lessons", label: "in this module" } : null,
         // A conversation task shows ITS exchange (Yoruba's Greetings has two).
+        // v118: only above the lesson that PRACTISES the conversation. Shown
+        // above a word lesson it promised what that lesson doesn't teach:
+        // "assalam-o-alaikum / wa alaikum assalam" over a lesson of yes, no,
+        // please and thank you.
         exchange: (() => {
-          const ex = (l.kind === "task" && (m.exchanges || []).find((e) => e.id === l.stop)) || m.exchange;
+          const ex = l.kind === "task" ? ((m.exchanges || []).find((e) => e.id === l.stop) || m.exchange) : null;
           return ex ? { they: ex.they, you: ex.you } : null;
         })(),
         go: () => onNavigate("lesson", { mode: "guided", filter: { lesson: l.id } }),
         // v117: someone opening the course's very first lesson may not be a
         // beginner. One line under the button, and only then.
-        alt: done === 0 && m.index === 0 && l === m.lessons[0] && (stats.learned || 0) === 0 && course.canPlace
+        alt: startedNew && hasScriptCourse(pack) && !hasPassedScript(appState, pack.code) && done < 3
+          ? { label: `or learn to read the ${lang.name} script first`, go: () => onNavigate("alphabet") }
+          : !startedNew && !appState?.placementDone?.[pack.code] && done === 0 && m.index === 0 && l === m.lessons[0] && (stats.learned || 0) === 0 && course.canPlace
           ? { label: `Already know some ${lang.name}? Find your level`, go: () => onNavigate("placement") }
           : undefined,
       };
@@ -454,7 +519,6 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
   // Languages without it keep the existing unit path untouched.
   const stops = journey?.hasJourney(pack.code) ? journey.getStops(pack.code) : [];
   const reached = stops.length ? reachedOf(stops, unitProgress) : 0;
-  const currentStop = stops.length ? stops[Math.min(reached, stops.length - 1)] : null;
   const smartAction = useMemo(() => adaptCopy(nextAction, signals), [nextAction, signals]);
 
   // ---------------------------------------------------------------------------
@@ -556,8 +620,11 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           <div className="hero-premium">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 16 }}>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div className="eyebrow" style={{ color: "var(--root)" }}>
-                  {goalMet ? "Daily goal met · keep going" : smartAction.eyebrow}
+                {/* v118: the eyebrow always names the step. "Daily goal met"
+                    used to replace it, and the button said "Keep going" — over
+                    a reading test. The ring beside it says the goal is met. */}
+                <div className="eyebrow" style={{ color: "var(--root)" }} data-testid="hero-eyebrow">
+                  {smartAction.eyebrow}
                 </div>
                 <div style={{
                   fontFamily: '"Fraunces", Georgia, serif',
@@ -574,9 +641,8 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
 
             {/* v66: the conversation this stop unlocks — shown on lesson steps */}
             {(() => {
-              // A structured lesson shows its own module's conversation; the
-              // unit lesson shows the route's current stop, as before.
-              const ex = smartAction.kind === "lesson" ? smartAction.exchange || currentStop : null;
+              // v118: only the conversation the next lesson actually practises.
+              const ex = smartAction.kind === "lesson" ? smartAction.exchange : null;
               if (!ex) return null;
               return (
                 <div className="exchange">
@@ -605,8 +671,8 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
               </div>
             )}
 
-            <button className="btn-premium" onClick={smartAction.go}>
-              {goalMet ? "Keep going" : "Continue"} · ~{smartAction.mins} min
+            <button className="btn-premium" data-testid="hero-go" onClick={smartAction.go}>
+              {heroVerb(smartAction.kind, goalMet)} · ~{smartAction.mins} min
             </button>
 
             {smartAction.alt && (
@@ -625,6 +691,9 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
             )}
           </div>
         )}
+
+        {/* v118: on iPhone in Safari, once there's progress to lose (ui/KeepSafe.jsx). */}
+        <KeepSafeNote appState={appState} setAppState={setAppState} code={pack.code} />
 
         {/* ===== Zaban · YOUR COURSE — the structure, your skills, what to work on ===== */}
         {course && !course.failed && (
@@ -852,6 +921,12 @@ export function Home({ engine, pack, stats, appState, setAppState, onNavigate, o
           <ReachPanel
             stops={stops}
             reached={reached}
+            // v118: "What you can already say" by the map's own rule — the
+            // stop's words produced from memory AND its conversation
+            // practised. It used to list every stop REACHED, so after one
+            // lesson of yes/no/please it claimed "You can greet someone
+            // properly — wa alaikum assalam", a phrase never taught.
+            held={stops.filter((st, i) => i < reached && isOwned(unitProgress[st.unitIndex]) && !!course?.state?.exchanges?.[st.id])}
             chapterTitle={journey?.getChapterTitle(pack.code) || null}
             due={stats.due || 0}
             onReview={() => onNavigate("lesson", { mode: "due" })}
@@ -1194,8 +1269,7 @@ export function PracticeHub({ pack, stats, appState, setAppState, onNavigate }) 
 // nothing to do with progress) but now sits under the same heading, so the
 // column reads as one panel rather than as two.
 // =============================================================================
-export function ReachPanel({ stops = [], reached = 0, chapterTitle, due = 0, onReview }) {
-  const held = stops.slice(0, reached);
+export function ReachPanel({ stops = [], reached = 0, held = [], chapterTitle, due = 0, onReview }) {
   return (
     <div>
       <h3 className="eyebrow" style={{ margin: "0 0 12px" }}>Today</h3>
@@ -1232,12 +1306,12 @@ export function ReachPanel({ stops = [], reached = 0, chapterTitle, due = 0, onR
             {held.length === 0 ? "What you'll be able to say" : "What you can already say"}
           </div>
           {held.length === 0 ? (
-            <div className="today-empty">
-              Your first stop fills this in — it's the list you'll want to look at
-              on a hard day.
+            <div className="today-empty" data-testid="held-empty">
+              A stop joins this list once you've written its words from memory and
+              practised its conversation. It's the list you'll want to look at on a hard day.
             </div>
           ) : (
-            <div className="today-held">
+            <div className="today-held" data-testid="held-list">
               {held.map((st, i) => (
                 <div key={st.id} className="today-held-row">
                   <span className="today-held-tick" aria-hidden="true">✓</span>

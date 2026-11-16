@@ -631,6 +631,10 @@ async function runOnboardingGate() {
   await page.locator("button", { hasText: "Get started" }).click();
   await page.waitForTimeout(400);
   await page.locator("button").filter({ hasText: "Urdu" }).first().click();
+  // v118: where to start — required before Continue.
+  check("Continue waits for the where-to-start answers", await page.locator("button", { hasText: "Continue" }).isDisabled());
+  await page.locator("[data-testid=hears-none]").click();
+  await page.locator("[data-testid=reads-little]").click();
   await page.locator("button", { hasText: "Continue" }).click();
   await page.waitForTimeout(400);
   await page.locator("button", { hasText: "Continue" }).click();

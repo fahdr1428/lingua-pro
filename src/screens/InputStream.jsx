@@ -57,7 +57,10 @@ export function InputStream({ pack, engine, appState, onNavigate }) {
     [pack, progress, showRoman, isNonLatin]
   );
 
-  const fluent = sentences.filter((s) => s.unknown === 0);
+  // v118: "every word" is said only of sentences where it is true (`full`).
+  // The rest of the no-new-course-word sentences get an honest heading.
+  const fluent = sentences.filter((s) => s.unknown === 0 && s.full);
+  const mostly = sentences.filter((s) => s.unknown === 0 && !s.full);
   const stretch = sentences.filter((s) => s.unknown === 1);
 
   const toggle = (key) =>
@@ -140,6 +143,15 @@ export function InputStream({ pack, engine, appState, onNavigate }) {
         <Section
           label="You know every word of these"
           sentences={fluent}
+          {...{ lang, pack, isNonLatin, showRoman, voiceAvailable, revealed, toggle }}
+        />
+      )}
+
+      {mostly.length > 0 && (
+        <Section
+          label="Built on words you know"
+          note="Each of these also has a word or two the course doesn't teach. Tap a line to see what it means."
+          sentences={mostly}
           {...{ lang, pack, isNonLatin, showRoman, voiceAvailable, revealed, toggle }}
         />
       )}

@@ -194,11 +194,22 @@ export function CoursePanel({ course, engine, pack, stats, onNavigate }) {
       )}
 
       <h4 className="zs-h4">Your skills</h4>
-      <SkillBars profile={skills?.profile} compact actions={actions} onPractise={(a) => onNavigate(a.screen, a.params)} />
-      <p className="zs-fine">
-        {tappable && <>Tap a skill to practise it. </>}
-        From memory counts fully; choosing from options counts 70%. Estimates from your answers here, not a certificate.
-      </p>
+      {/* v118: a learner with no scored skill saw seven rows of "Not enough
+          evidence yet" on their first visit — a wall of nothing above the
+          fold. One line until there is something to show. */}
+      {skills && !SKILLS.some((k) => skills.profile?.skills?.[k]?.score != null) && !tappable ? (
+        <p className="zs-fine" data-testid="skills-later" style={{ marginTop: 4 }}>
+          Seven skills, from vocabulary to conversation, get a score here once you've answered enough questions that use each one.
+        </p>
+      ) : (
+        <>
+          <SkillBars profile={skills?.profile} compact actions={actions} onPractise={(a) => onNavigate(a.screen, a.params)} />
+          <p className="zs-fine">
+            {tappable && <>Tap a skill to practise it. </>}
+            From memory counts fully; choosing from options counts 70%. Estimates from your answers here, not a certificate.
+          </p>
+        </>
+      )}
 
       {focus && action && (
         <div className="zs-focus" data-testid="skill-focus" data-focus={focus}>

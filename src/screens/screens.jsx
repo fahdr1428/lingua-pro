@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { Button, Card, ProgressBar, TopBar, Container, Icon, NativeName } from "../ui/primitives.jsx";
-import { listLanguages, LANGUAGES, scriptFont } from "../data/registry.js";
+import { pickerLanguages, LANGUAGES, scriptFont, isNonLatinScript } from "../data/registry.js";
 import { speak } from "../audio/tts.js";
 import { pickFunFact } from "../data/funFacts.js";
 import { HeroBackdrop } from "../ui/HeroBackdrop.jsx";
@@ -38,6 +38,8 @@ import { APP_MIN_AGE, AI_MIN_AGE, LAST_UPDATED, policiesIncomplete } from "../le
 const LegalReader = React.lazy(() => import("./Legal.jsx").then((m) => ({ default: m.Legal })));
 import { aiAccepted, aiDeclined } from "../ui/AiDisclosure.jsx";
 import { downloadExport } from "../legal/exportData.js";
+import { readBackup, restoreBackup } from "../legal/importData.js";
+import { getStorage } from "../storage/index.js";
 import { DownloadLanguage } from "../ui/Offline.jsx";
 import { goBack } from "../ui/navigation.js";
 
@@ -49,10 +51,25 @@ import { goBack } from "../ui/navigation.js";
 // so it now shares the "luxury is restraint" language the rest of the app
 // settled into — home-wash backdrop, eyebrow step counters, quiet ink-tinted
 // selection states instead of a wall of saturated per-language brand colors.
+/** One answer to a sign-up question. Module-level so a re-render keeps keyboard focus on it. */
+function StartChoice({ value, current, set, label, testid }) {
+  return (
+    <button type="button" className={`start-choice${current === value ? " start-choice-on" : ""}`}
+      aria-pressed={current === value} data-testid={testid} onClick={() => set(value)}>{label}</button>
+  );
+}
+
 export function Onboarding({ onComplete }) {
   const [step, setStep] = useState(0);
   const [language, setLanguage] = useState(null);
   const [goal, setGoal] = useState(35);
+  // v118 — WHERE TO START. The question that matters most for someone coming
+  // back to a family language, and sign-up never asked it: do you understand
+  // it when you hear it, and can you read its script? The answers decide the
+  // first card on Home (Home.jsx): find your level, the reading test, or
+  // lesson 1 with romanisation.
+  const [hears, setHears] = useState(null);   // "none" | "some" | "lots"
+  const [reads, setReads] = useState(null);   // "no" | "little" | "yes" (non-Latin scripts only)
   // v77 — the two things we have to establish before anyone starts, and a
   // reader for the policies so "I accept" isn't a claim about something the
   // person had no way of seeing.
@@ -108,7 +125,7 @@ export function Onboarding({ onComplete }) {
           <h2 style={{ fontSize: 27, marginTop: 6, marginBottom: 4 }}>Pick a language</h2>
           <p style={{ color: "var(--text-dim)", marginBottom: 22, fontSize: 14 }}>Start with one. Add more later.</p>
           <div className="stagger" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            {listLanguages().map((lang) => {
+            {pickerLanguages().map((lang) => {
               const selected = language === lang.code;
               return (
                 <button
@@ -161,10 +178,40 @@ export function Onboarding({ onComplete }) {
             conversations. None has been reviewed by a qualified teacher yet; each course's page says
             what it covers and what's missing.
           </p>
+          {language && (() => {
+            const name = LANGUAGES[language]?.name || "it";
+            const scriptName = courseInfo?.SCRIPTS?.[courseInfo?.COURSES?.[language]?.script]?.name || `${name} script`;
+            const askRead = isNonLatinScript(language);
+            return (
+              <div className="start-q" data-testid="start-questions">
+                <h3 className="start-q-head">How much {name} do you understand?</h3>
+                <div className="start-choices" role="group" aria-label={`How much ${name} do you understand?`}>
+                  <StartChoice value="none" current={hears} set={setHears} label="None yet" testid="hears-none" />
+                  <StartChoice value="some" current={hears} set={setHears} label="Some, when I hear it" testid="hears-some" />
+                  <StartChoice value="lots" current={hears} set={setHears} label="I can hold a conversation" testid="hears-lots" />
+                </div>
+                {askRead && (
+                  <>
+                    <h3 className="start-q-head">Can you read the {scriptName}?</h3>
+                    <div className="start-choices" role="group" aria-label={`Can you read the ${scriptName}?`}>
+                      <StartChoice value="no" current={reads} set={setReads} label="No" testid="reads-no" />
+                      <StartChoice value="little" current={reads} set={setReads} label="A little" testid="reads-little" />
+                      <StartChoice value="yes" current={reads} set={setReads} label="Yes" testid="reads-yes" />
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })()}
           <div style={{ marginTop: 22, paddingBottom: 24 }}>
-            <Button style={{ opacity: language ? 1 : 0.4 }} disabled={!language} onClick={() => setStep(2)}>
-              Continue
-            </Button>
+            {(() => {
+              const ready = !!language && !!hears && (!isNonLatinScript(language) || !!reads);
+              return (
+                <Button style={{ opacity: ready ? 1 : 0.4 }} disabled={!ready} onClick={() => setStep(2)}>
+                  Continue
+                </Button>
+              );
+            })()}
           </div>
         </Container>
       </div>
@@ -190,8 +237,9 @@ export function Onboarding({ onComplete }) {
 
           {policiesIncomplete() && (
             <div className="legal-warn" style={{ marginBottom: 16 }}>
-              <b>Development build.</b> The policies still have operator
-              placeholders in them. See <code>COMPLIANCE.md</code>.
+              <b>Draft policies.</b> The name and contact details of whoever
+              runs this copy of the app haven't been filled in yet. Everything
+              else in them applies as written.
             </div>
           )}
 
@@ -219,6 +267,7 @@ export function Onboarding({ onComplete }) {
                   language,
                   goal,
                   consent: { ageConfirmed: APP_MIN_AGE, terms: true, at: Date.now(), policyVersion: LAST_UPDATED },
+                  start: { hears, reads: isNonLatinScript(language) ? reads : "yes" },
                 })
               }
             >
@@ -738,7 +787,8 @@ export function Profile({ engine, pack, stats, appState, onNavigate, onSwitchLan
         })()}
 
         {/* TODAY'S MISSIONS — small purposeful goals */}
-        <h3 className="eyebrow" style={{ marginTop: 8, marginBottom: 12 }}>Today's missions</h3>
+        {/* v118: "goals", not "missions" — Missions is the AI role-play tab. */}
+        <h3 className="eyebrow" style={{ marginTop: 8, marginBottom: 12 }}>Today's goals</h3>
         <Card>
           {getDailyMissions(appState, pack).map((m, i, arr) => (
             <div key={m.id} style={{
@@ -1077,6 +1127,36 @@ function PrivacyAndAi({ appState, setAppState, onNavigate, onResetAll }) {
   const reports = appState?.aiReports || [];
   const on = aiAccepted(appState);
 
+  // v118 — restore from a backup file (importData.js). The file is read and
+  // checked first and shown to the learner; storage is only touched on confirm.
+  const [backup, setBackup] = useState(null);   // { ok, data, summary } | { ok: false, reason }
+  const [restoring, setRestoring] = useState(false);
+  const [protectedStore, setProtectedStore] = useState(null);
+  useEffect(() => {
+    let live = true;
+    try { navigator.storage?.persisted?.().then((p) => { if (live) setProtectedStore(!!p); }).catch(() => {}); } catch {}
+    return () => { live = false; };
+  }, []);
+  async function pickBackup(e) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    try { setBackup(readBackup(await file.text())); }
+    catch { setBackup({ ok: false, reason: "That file couldn't be read." }); }
+  }
+  async function doRestore() {
+    if (!backup?.ok) return;
+    setRestoring(true);
+    try {
+      await restoreBackup(backup.data, getStorage());
+      // Reload so every screen reads the restored state through the normal loader.
+      window.location.reload();
+    } catch {
+      setRestoring(false);
+      setBackup({ ok: false, reason: "The backup couldn't be written. If you're in private browsing, storage may be blocked." });
+    }
+  }
+
   async function doExport() {
     setBusy(true);
     try {
@@ -1138,7 +1218,7 @@ function PrivacyAndAi({ appState, setAppState, onNavigate, onResetAll }) {
       </div>
 
       <Button variant="secondary" style={{ marginBottom: 12 }} disabled={busy} onClick={doExport}>
-        {busy ? "Building your file…" : "⬇ Export everything the app holds about you"}
+        {busy ? "Building your file…" : "Export everything the app holds about you (a backup file)"}
       </Button>
       {exported !== null && (
         <div style={{ fontSize: 12.5, color: exported < 0 ? "var(--danger)" : "var(--text-dim)", marginTop: -6, marginBottom: 12 }}>
@@ -1146,6 +1226,39 @@ function PrivacyAndAi({ appState, setAppState, onNavigate, onResetAll }) {
             ? "Couldn't build the file. If you're in private browsing, storage may be blocked."
             : `Saved — ${exported} record${exported === 1 ? "" : "s"}, as JSON. That's the whole of it; there's no copy anywhere else.`}
         </div>
+      )}
+
+      {/* v118 — and the way back. */}
+      <label className="restore-pick" data-testid="restore-pick">
+        <input type="file" accept="application/json,.json" onChange={pickBackup} data-testid="restore-input" />
+        <span>Restore from a backup file</span>
+      </label>
+      <div style={{ fontSize: 12.5, color: "var(--text-mute)", margin: "6px 0 12px", lineHeight: 1.5 }} data-testid="storage-note">
+        Your progress lives only in this browser.{" "}
+        {protectedStore === true
+          ? "The browser has agreed to keep it."
+          : "A browser can clear a site's saved data, so a backup file now and then is worth having."}
+      </div>
+      {backup && !backup.ok && (
+        <div role="alert" data-testid="restore-error" style={{ fontSize: 13, color: "var(--danger-text)", marginBottom: 12 }}>{backup.reason}</div>
+      )}
+      {backup?.ok && (
+        <Card style={{ marginBottom: 12, borderColor: "var(--accent)" }} data-testid="restore-confirm">
+          <div style={{ fontWeight: 700, marginBottom: 6 }}>Restore this backup?</div>
+          <div style={{ fontSize: 13.5, color: "var(--text-dim)", lineHeight: 1.55, marginBottom: 10 }}>
+            {backup.summary.exportedAt ? <>Saved on {new Date(backup.summary.exportedAt).toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" })}. </> : null}
+            {backup.summary.languages.length > 0
+              ? <>It holds {backup.summary.languages.map((l) => `${LANGUAGES[l.code]?.name || l.code} (${l.words} word${l.words === 1 ? "" : "s"})`).join(", ")}{backup.summary.streak ? `, and a ${backup.summary.streak}-day streak` : ""}.</>
+              : <>It holds a learner with no words learned yet.</>}
+          </div>
+          <div style={{ fontSize: 13.5, color: "var(--text)", lineHeight: 1.55, marginBottom: 12 }}>
+            It <strong>replaces</strong> everything on this device: what's here now will be gone. Download a backup of this device first if you might want it.
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+            <Button variant="secondary" onClick={() => setBackup(null)} disabled={restoring}>Cancel</Button>
+            <Button onClick={doRestore} disabled={restoring} data-testid="restore-go">{restoring ? "Restoring…" : "Replace and restore"}</Button>
+          </div>
+        </Card>
       )}
 
       {reports.length > 0 && (

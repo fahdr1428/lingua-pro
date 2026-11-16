@@ -1,7 +1,7 @@
 {
   "name": "Zaban — learn the languages the world forgets",
   "short_name": "Zaban",
-  "description": "Learn Urdu, Punjabi, Bengali, Arabic, Nigerian Pidgin and more. Real audio, real conversations, spaced repetition. Your progress stays on your device.",
+  "description": "Learn Urdu, Punjabi, Bengali, Arabic, Nigerian Pidgin and 16 more. Short lessons, real conversations, spaced repetition. Your progress stays on your device.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

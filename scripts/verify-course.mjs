@@ -157,9 +157,11 @@ for (const code of CODES) {
     if (!panel) fail(where, "Home has no course panel");
     else {
       if (!/Module 1 of \d+/.test(panel)) fail(where, `the course panel doesn't place a new learner in Module 1 — "${panel.replace(/\s+/g, " ").slice(0, 120)}"`);
+      // v118: a learner with no answers sees one line, not seven empty rows.
       const skills = await page.locator("[data-testid=skill-profile] li").count();
-      if (skills !== 7) fail(where, `${skills} skills shown, expected 7`);
-      if (!/Not enough evidence yet/.test(panel)) fail(where, "a learner with no answers is shown skill scores");
+      const later = await page.locator("[data-testid=skills-later]").count();
+      if (skills !== 0 || later !== 1) fail(where, `a new learner should see the one-line skills note (rows ${skills}, note ${later})`);
+      if (/\b\d{1,3}\b out of 100/.test(panel)) fail(where, "a learner with no answers is shown skill scores");
     }
     const hero = (await page.locator(".hero-premium").innerText().catch(() => "")).replace(/\s+/g, " ");
     const firstTitle = measure(code).course.modules[0].lessons[0].title;

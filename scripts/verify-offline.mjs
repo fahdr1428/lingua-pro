@@ -172,6 +172,7 @@ check("Decode says it needs a connection instead of hanging",
 check("and says what still works without one",
   /works offline|lessons, reviews/i.test(decode));
 
+
 // ---- 7. /api is never served from cache ------------------------------------
 const apiCached = await page.evaluate(async () => {
   const keys = await caches.keys();

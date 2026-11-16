@@ -289,7 +289,7 @@
         {
           "native": "السلام علیکم",
           "translation": "Peace be upon you",
-          "translit": "assalam alaikum"
+          "translit": "assalam-o-alaikum"
         }
       ],
       "pronunciation": "sah-LAAM"
@@ -353,6 +353,7 @@
       "unit": "u1",
       "lemma": "خدا حافظ",
       "translit": "khuda hafiz",
+      "accept": [{ "lemma": "اللہ حافظ", "translit": "Allah hafiz" }],
       "translation": "goodbye",
       "category": "Greetings",
       "difficulty": 1,
@@ -371,6 +372,7 @@
       "unit": "u1",
       "lemma": "معاف کریں",
       "translit": "maaf karein",
+      "accept": [{ "lemma": "معاف کیجیے", "translit": "maaf kijiye" }, { "lemma": "معاف کیجیے گا", "translit": "maaf kijiye ga" }],
       "translation": "excuse me, sorry",
       "category": "Greetings",
       "difficulty": 2,
@@ -388,7 +390,8 @@
       "id": "ur_0007",
       "unit": "u1",
       "lemma": "براہ کرم",
-      "translit": "barah karam",
+      "translit": "barah-e-karam",
+      "romanAlt": ["barah karam", "baraye karam", "barae karam", "bara-e-karam"],
       "translation": "please",
       "category": "Greetings",
       "difficulty": 2,

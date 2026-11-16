@@ -143,6 +143,81 @@ for (const code of codes) {
   }
 }
 
+// v118 — romanisation as people type it (Urdu, Hindi, Punjabi), and other
+// phrases that are right. What the audit of the live app found marked wrong.
+{
+  const load = (c) => JSON.parse(readFileSync(`src/data/languages/${c}.json`, "utf8")).vocab;
+  const ur = load("ur");
+  const word = (t) => ur.find((w) => w.translit === t);
+  const g = (typed, t) => gradeRecall(typed, word(t), { vocab: ur });
+  for (const [typed, t] of [["shukria", "shukriya"], ["shukriyah", "shukriya"], ["Shukriya", "shukriya"], ["nahi", "nahin"], ["nahin", "nahin"], ["barah karam", "barah-e-karam"], ["baraye karam", "barah-e-karam"], ["barah-e-karam", "barah-e-karam"]]) {
+    const r = g(typed, t);
+    check(r.verdict === "exact" && r.correct, `ur: "${typed}" for ${t} is ${r.verdict}${r.note ? ` (${r.note})` : ""} — a common romanisation should simply be right`);
+  }
+  for (const [typed, t] of [["Allah hafiz", "khuda hafiz"], ["allah hafiz", "khuda hafiz"], ["اللہ حافظ", "khuda hafiz"], ["maaf kijiye", "maaf karein"], ["maaf kijie", "maaf karein"], ["maaf kijiye ga", "maaf karein"]]) {
+    const r = g(typed, t);
+    check(r.verdict === "alternative" && r.correct && /practising/.test(r.note || ""), `ur: "${typed}" for ${t} is ${r.verdict} — another right phrase should be right, and name the lesson's word`);
+  }
+  // Still wrong, still a different word, still a near miss.
+  check(g("haan", "nahin").verdict === "other-word", `ur: "haan" for "no" should be named as yes: ${g("haan", "nahin").verdict}`);
+  check(!g("shukar", "shukriya").correct && !g("allah", "khuda hafiz").correct && !g("maaf", "maaf karein").correct, "ur: half a phrase, or a different word, is graded right");
+  check(g("shukriya", "nahin").verdict === "other-word", "ur: another course word typed exactly is not named");
+
+  let variants = 0, nasal = 0, keptN = 0;
+  for (const code of ["ur", "hi", "pa"]) {
+    const vocab = load(code);
+    const strict = new Map();
+    for (const w of vocab) if (w.translit) strict.set(romanKey(w.translit), (strict.get(romanKey(w.translit)) || []).concat(w));
+    for (const w of vocab) {
+      if (!w.translit || isLatinWord(w.lemma)) continue;
+      const t = w.translit;
+      const ends = /[ںंँ]$/.test(w.lemma.trim());
+      const tries = new Set();
+      if (/iy[aeiou]/.test(t)) tries.add(t.replace(/iy(?=[aeiou])/g, "i"));
+      if (/w/.test(t)) tries.add(t.replace(/w/g, "v"));
+      if (/v/.test(t)) tries.add(t.replace(/v/g, "w"));
+      if (/[aeiou]$/.test(t)) tries.add(t + "h");
+      if (/chh/.test(t)) tries.add(t.replace(/chh/g, "ch"));
+      if (/([b-df-hj-np-tv-z])\1/.test(t)) tries.add(t.replace(/([b-df-hj-np-tv-z])\1/g, "$1"));
+      if (ends && /[aeiou]n$/.test(t) && !/\s/.test(t)) { tries.add(t.slice(0, -1)); nasal++; }
+      for (const v of tries) {
+        if (v === t) continue;
+        // A variant that IS another course word, typed exactly, belongs to that word.
+        const others = (strict.get(romanKey(v)) || []).filter((o) => o.id !== w.id && nativeKey(o.lemma) !== nativeKey(w.lemma));
+        const r = gradeRecall(v, w, { vocab });
+        variants++;
+        if (others.length) check(r.verdict !== "exact" && r.verdict !== "close", `${code} ${w.id}: "${v}" is the course word ${others[0].translit} (${others[0].translation}) and was graded ${r.verdict} for ${t}`);
+        else check(r.correct && r.verdict !== "close", `${code} ${w.id}: "${v}" for ${t} (${w.lemma}) is ${r.verdict} — a spelling convention graded as a slip`);
+      }
+      // A final n the script does NOT make nasal is a real n: dropping it is not "exact".
+      if (!ends && /[aeiou]n$/.test(t) && !/\s/.test(t) && t.length > 3) {
+        const r = gradeRecall(t.slice(0, -1), w, { vocab });
+        keptN++;
+        check(r.verdict !== "exact", `${code} ${w.id}: "${t.slice(0, -1)}" for ${t} (${w.lemma}) graded exact — that n is a real consonant`);
+      }
+      // A different consonant is never just a convention.
+      const swapped = (t[0] === "k" ? "g" : "k") + t.slice(1);
+      const rs = gradeRecall(swapped, w, { vocab });
+      check(rs.verdict !== "exact" || (strict.get(romanKey(swapped)) || []).some((o) => o.id === w.id), `${code} ${w.id}: "${swapped}" for ${t} graded exact`);
+    }
+    // Typing one word's romanisation for a different word is never right because of the sound key.
+    for (const a of vocab) for (const b of vocab) {
+      if (a.id === b.id || !a.translit || !b.translit || nativeKey(a.lemma) === nativeKey(b.lemma) || romanKey(a.translit) === romanKey(b.translit)) continue;
+      const r = gradeRecall(b.translit, a, { vocab });
+      if (r.verdict === "exact" || r.verdict === "close") check(false, `${code}: typing "${b.translit}" (${b.translation}) for "${a.translation}" (${a.translit}) graded ${r.verdict}`);
+    }
+  }
+  check(variants > 150 && nasal > 5 && keptN > 5, `the romanisation checks exercised too little: ${variants} variants, ${nasal} nasal endings, ${keptN} real n`);
+  // Other languages are untouched: Japanese gemination is a different word.
+  const ja = load("ja");
+  const dbl = ja.find((w) => /([kstp])\1/.test(w.translit || "") && (w.translit || "").length > 4);
+  if (dbl) {
+    const single = dbl.translit.replace(/([kstp])\1/, "$1");
+    check(gradeRecall(single, dbl, { vocab: ja }).verdict !== "exact", `ja: "${single}" for ${dbl.translit} graded exact — the loose rule leaked into Japanese`);
+  } else check(false, "ja: no doubled-consonant word found to test with");
+  console.log(`  romanisation as typed: ${variants} spelling variants, ${nasal} nasal endings, ${keptN} real final n — ur, hi, pa`);
+}
+
 // canRecall: what counts as being able to say a word.
 {
   const now = Date.now();

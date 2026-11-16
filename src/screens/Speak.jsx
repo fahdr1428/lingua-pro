@@ -81,7 +81,7 @@ export function Speak({ engine, pack, appState, setAppState, params, onNavigate,
           .map(([id]) => id)
       ));
     });
-    probeCoach().then((p) => { if (!cancelled) setCoachReady(!!p.configured); });
+    probeCoach().then((p) => { if (!cancelled) setCoachReady(p.unreachable ? null : !!p.configured); });
     return () => { cancelled = true; };
   }, [engine, pack.code]);
 
@@ -778,10 +778,9 @@ function SpeakResult({ lang, langCode, guide, scored, coachReady, onAgain, onTal
         )}
         {coachReady === false && (
           <div className="result-locked">
-            <b>Want a real conversation?</b> {guide?.name || "Your guide"} can talk with you
-            freely — say anything and they answer, correct one thing, and ask you
-            something back. It needs an Anthropic API key set on the deployment
-            (<code>ANTHROPIC_API_KEY</code>); see <code>docs/ai-coach.md</code>.
+            <b>Free conversation isn't switched on yet.</b> It's an AI that talks with you:
+            say anything and it answers, corrects one thing, and asks you something back.
+            The AI isn't set up on this version of Zaban; the scripted conversations above work without it.
           </div>
         )}
 

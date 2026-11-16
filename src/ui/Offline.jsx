@@ -108,7 +108,7 @@ export function DownloadLanguage({ pack, langName }) {
 
       {!busy && !state?.finished && (
         <button className="btn-quiet" onClick={go}>
-          ⬇ Save the audio to this device
+          Save the audio to this device
         </button>
       )}
     </div>
